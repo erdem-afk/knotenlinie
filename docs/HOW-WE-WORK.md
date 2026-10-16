@@ -5,9 +5,12 @@ decide what is built, kept and published, and the roadmap.
 
 ## 1. Our own harness
 
-We run the project on our own harness: a coordinating AI agent works with a set of parallel AI worker agents,
-under one human maintainer who takes the decisions that cannot be delegated. Compute runs on cloud services. We
-manage everything ourselves, with AI: the experiments, the compute, the reviews and this repository.
+We develop our own harness: a coordinating AI agent and a set of parallel AI worker agents, under one human
+maintainer who catches the dialectical errors (errors in the reasoning) and takes the decisions that cannot be
+delegated. On the technical side we start from published papers and work across disciplines and where they meet;
+here, seismology, geodesy, hydrology and statistics. Compute runs on cloud services, and we manage everything
+ourselves, with AI: the experiments, the compute, the reviews and this repository. We develop the harness, and the
+harness develops our products, this model among them.
 
 - **Experiments run in parallel.** Each experiment (R, J, AJ, U and so on) is one worker's task. A worker works
   on its own branch, writes only the files it owns, runs small-scale checks, and finishes with a short report:
