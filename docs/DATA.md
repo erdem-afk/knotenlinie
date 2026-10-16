@@ -130,5 +130,5 @@ BLAS is recommended (`OPENBLAS_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1`).
 8. **Scoring re-read.** `python -m knotenlinie.puan2.komut --parca hepsi` re-reads the ledgers and writes the
    table of [TEST-RULES.md](TEST-RULES.md) §7.
 
-Steps 3–5 took about 80 minutes on a compute server, with peaks of a few GB of memory; the tests need none of
+Steps 3–5 took about 80 minutes on cloud compute, with peaks of a few GB of memory; the tests need none of
 them.

@@ -180,7 +180,7 @@ are in [WHAT-DID-NOT-WORK.md](WHAT-DID-NOT-WORK.md).
 
 Data download and preparation, then the common ground, the R lineage, the ensembles, the bench and the
 long-term rows, then the scoring re-read. The commands are in [DATA.md](DATA.md). The heavy daily steps took
-about 80 minutes on a compute server; the tests do not need them.
+about 80 minutes on cloud compute; the tests do not need them.
 
 ## References
 

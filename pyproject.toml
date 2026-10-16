@@ -39,5 +39,5 @@ include = ["knotenlinie*"]
 pythonpath = ["."]
 testpaths = ["tests"]
 markers = [
-    "agir: heavy statistical test, run on a compute server with -m agir",
+    "agir: heavy statistical test, run on cloud compute with -m agir",
 ]

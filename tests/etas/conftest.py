@@ -11,13 +11,13 @@ import pytest
 
 def pytest_configure(config):
     config.addinivalue_line(
-        "markers", "agir: heavy statistical test; run with -m agir on a compute server")
+        "markers", "agir: heavy statistical test; run with -m agir on cloud compute")
 
 
 def pytest_collection_modifyitems(config, items):
     if "agir" in (config.getoption("-m") or ""):
         return
-    atla = pytest.mark.skip(reason="heavy statistical test: run with -m agir on a compute server")
+    atla = pytest.mark.skip(reason="heavy statistical test: run with -m agir on cloud compute")
     for it in items:
         if "agir" in it.keywords:
             it.add_marker(atla)

@@ -3,16 +3,17 @@
 This document describes the working method behind the code and the results: who does the work, which rules
 decide what is built, kept and published, and the roadmap.
 
-## 1. A coordinating agent and parallel workers
+## 1. Our own harness
 
-The project is run by a coordinating AI agent that works with a set of parallel AI worker agents, under one
-human maintainer who takes the decisions that cannot be delegated.
+We run the project on our own harness: a coordinating AI agent works with a set of parallel AI worker agents,
+under one human maintainer who takes the decisions that cannot be delegated. Compute runs on cloud services. We
+manage everything ourselves, with AI: the experiments, the compute, the reviews and this repository.
 
 - **Experiments run in parallel.** Each experiment (R, J, AJ, U and so on) is one worker's task. A worker works
   on its own branch, writes only the files it owns, runs small-scale checks, and finishes with a short report:
   what was done, the tests, the numbers, the downloads (URL, date, SHA-256), the assumptions and what is still
   open. Workers do not merge, commit to the main line or open sealed data.
-- **The coordinator** writes the task descriptions, runs the full-scale jobs on a compute server, checks each result,
+- **The coordinator** writes the task descriptions, runs the full-scale jobs on cloud compute, checks each result,
   merges it after the tests pass and, for score-producing code, after independent review.
 - **The maintainer decides** what cannot be delegated: when the blind window is opened, when the seal is
   opened, what is published, and spending.

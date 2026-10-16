@@ -68,7 +68,7 @@ independently once.
    archive's own unit (IGPA, per active cell). Honesty note: the archived models are truly P; our side is SP,
    because R's design was chosen while looking at southern California 2011–2020. It still gives the best
    available answer to "where are we against operational models", with 4.6 times the Italian N = 130.
-   The archive is a 56.5 GB zip (about 120 GB unpacked), so this runs on a compute server.
+   The archive is a 56.5 GB zip (about 120 GB unpacked), so this runs on cloud compute.
 3. **Medium term: Janus (R + EEPAS) at three-month and one-year horizons**, built with PyEEPAS
    (`github.com/phonchi/EEPAS`, MIT), target M≥5 (M≥4.95 in Italy). Scored as Janus − R and Janus − smoothed
    seismicity, in California (fit ≤2010, test 2011–2020) and Italy (fit ≤2010, test 2011–2015). Basis: New
