@@ -5,9 +5,10 @@ decide what is built, kept and published, and the roadmap.
 
 ## 1. Our own harness
 
-We develop our own harness: a coordinating AI agent and a set of parallel AI worker agents, under one human
-maintainer who catches the dialectical errors (errors in the reasoning) and takes the decisions that cannot be
-delegated. On the technical side we start from published papers and work across disciplines and where they meet;
+We develop our own harness. Many AI agents work at the same time: coordinating agents, one for each line of work
+and one that coordinates across the lines, each directing its own parallel AI worker agents, and independent AI
+reviewers from a different model family. One human maintainer oversees them all, catches the dialectical errors
+(errors in the reasoning) and takes the decisions that cannot be delegated. On the technical side we start from published papers and work across disciplines and where they meet;
 here, seismology, geodesy, hydrology and statistics. Compute runs on cloud services, and we manage everything
 ourselves, with AI: the experiments, the compute, the reviews and this repository. We develop the harness, and the
 harness develops our products, this model among them.
@@ -16,8 +17,8 @@ harness develops our products, this model among them.
   on its own branch, writes only the files it owns, runs small-scale checks, and finishes with a short report:
   what was done, the tests, the numbers, the downloads (URL, date, SHA-256), the assumptions and what is still
   open. Workers do not merge, commit to the main line or open sealed data.
-- **The coordinator** writes the task descriptions, runs the full-scale jobs on cloud compute, checks each result,
-  merges it after the tests pass and, for score-producing code, after independent review.
+- **Coordinators** write the task descriptions, run the full-scale jobs on cloud compute, check each result,
+  merge it after the tests pass and, for score-producing code, after independent review.
 - **The maintainer decides** what cannot be delegated: when the blind window is opened, when the seal is
   opened, what is published, and spending.
 - **Workers keep going.** A worker infers the intent from context and does not stop to ask; it makes a
