@@ -1,0 +1,145 @@
+{
+  "agirliklar": {
+    "T1": {
+      "uyeler": [
+        "R-ortak-kaskad",
+        "ETAS-LM"
+      ],
+      "eniyi": [
+        0.0,
+        1.0
+      ],
+      "esit": [
+        0.5,
+        0.5
+      ],
+      "logL_eniyi": -9140.469386568006,
+      "logL_esit": -9190.574248128109,
+      "logL_uyeler_tek": {
+        "R-ortak-kaskad": -9287.021493116494,
+        "ETAS-LM": -9140.469386568006
+      },
+      "secim": "2006-2010, M>=2.95, simplex"
+    },
+    "T2": {
+      "uyeler": [
+        "R-ortak-kaskad",
+        "ortak-ETAS",
+        "N-ortak-kaskad"
+      ],
+      "eniyi": [
+        0.40206420017356603,
+        0.19375871776487003,
+        0.40417708206156394
+      ],
+      "esit": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "logL_eniyi": -9210.993319068895,
+      "logL_esit": -9213.164965958656,
+      "logL_uyeler_tek": {
+        "R-ortak-kaskad": -9287.021493116494,
+        "ortak-ETAS": -9418.390258390946,
+        "N-ortak-kaskad": -9340.785789768146
+      },
+      "secim": "2006-2010, M>=2.95, simplex"
+    },
+    "T3": {
+      "uyeler": [
+        "R-ortak-kaskad",
+        "R-lm-kaskad",
+        "ETAS-LM",
+        "ortak-ETAS",
+        "N-ortak-kaskad"
+      ],
+      "eniyi": [
+        1.0189898102337428e-11,
+        1.3346043611265382e-11,
+        0.7962017306852676,
+        0.10240365175359604,
+        0.10139461753760036
+      ],
+      "esit": [
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "logL_eniyi": -9134.372711831527,
+      "logL_esit": -9187.729586793834,
+      "logL_uyeler_tek": {
+        "R-ortak-kaskad": -9287.021493116494,
+        "R-lm-kaskad": -9295.200730792483,
+        "ETAS-LM": -9140.469386568006,
+        "ortak-ETAS": -9418.390258390946,
+        "N-ortak-kaskad": -9340.785789768146
+      },
+      "secim": "2006-2010, M>=2.95, simplex"
+    }
+  },
+  "kural_SHA256": "5c87af8552be0bd28a8e6eccb3fa50d4ab17fbaafb83c0d730bb72099c3a6c10",
+  "kural_SHA256_kayit": "d66c82245035d35bcd74515b20792508e73ea6e33ab11e8e8e8afcc5fe2b2822",
+  "defter2006_sha256": {
+    "ETAS-LM__2006-2010__gun.csv.gz": "af8f71b0e3433af1546ec33d5f85dfd9f7a107b38a978c9e09d718a7f55fa8a0",
+    "ETAS-LM__2006-2010__marjinal.npz": "fb1654639150eb3653a74263ffc6b50729cec47f6478f2264a67139ec90717a8",
+    "ETAS-LM__2006-2010__olay.csv.gz": "0ef9bd46f07ba1e37044ecae5d1661822b2269778f08449f9092f0e6dd367900",
+    "N-ortak-kaskad__2006-2010__gun.csv.gz": "6e36a30ee56291a5f78275a78b9c763c7a37467b3f5c6ea410bd107c6d891582",
+    "N-ortak-kaskad__2006-2010__marjinal.npz": "d1acac6a794299ee61128f92f6286ebaff924e728009ef13d9d46ecd9f415e2a",
+    "N-ortak-kaskad__2006-2010__olay.csv.gz": "7505ffa2a77aadf6990744a19ac33edf7557903311e5568b06eb51986fedb74d",
+    "R-lm-kaskad__2006-2010__gun.csv.gz": "05456bab3fca9388c8c4f59aa9f65dcfaa99cc17aae71254b7fcbd0a01aa8476",
+    "R-lm-kaskad__2006-2010__marjinal.npz": "1e0c4b868780f6f2702dc0170f2f2b4beabcc7577d31ed351c1e10f275978408",
+    "R-lm-kaskad__2006-2010__olay.csv.gz": "3796d1bdbd672bde6ee633ffcc5a70d970d2e4b7372c69e6e0259321032ceb6a",
+    "R-ortak-kaskad__2006-2010__gun.csv.gz": "a56db3cc648d4056e68fd00cf5eea328917b1f21fa8e25c2910292d47b598580",
+    "R-ortak-kaskad__2006-2010__marjinal.npz": "07aaea2cfcaaf02d68116bdda8726870542278b7ab20bc0caee1495ec3ddb094",
+    "R-ortak-kaskad__2006-2010__olay.csv.gz": "7709cf2208f789dc2a23ee2492b640c660daa446ba0b69a2a2c5996c8124113d",
+    "ortak-ETAS__2006-2010__gun.csv.gz": "0266016638224e709fd0262cd3d6388e0252243011bba9f0f6a3a0875bdb1706",
+    "ortak-ETAS__2006-2010__marjinal.npz": "e22d25187d7a6e801e9a435ef1bc944d690cd4eba226a187ea7a88f2ba5c354e",
+    "ortak-ETAS__2006-2010__olay.csv.gz": "187892eae1b9ff2a3458147ab06dcb69bbd326bbdc84509b1ff93eee2d411471"
+  },
+  "tablo_2006": {
+    "R-ortak-kaskad": {
+      "N295": 956,
+      "N395": 101,
+      "Lam295": 1469.0562588843616,
+      "Lam395": 163.92806501463656,
+      "logL295": -9287.021493116494,
+      "logL395": -1208.3390095753023
+    },
+    "R-lm-kaskad": {
+      "N295": 956,
+      "N395": 101,
+      "Lam295": 1472.7533752706795,
+      "Lam395": 164.34061635954095,
+      "logL295": -9295.200730792483,
+      "logL395": -1209.3198564819425
+    },
+    "ETAS-LM": {
+      "N295": 956,
+      "N395": 101,
+      "Lam295": 1169.988206998567,
+      "Lam395": 116.99882069985661,
+      "logL295": -9140.469386568006,
+      "logL395": -1189.139282208285
+    },
+    "ortak-ETAS": {
+      "N295": 956,
+      "N395": 101,
+      "Lam295": 882.8485408968384,
+      "Lam395": 97.74633435287376,
+      "logL295": -9418.390258390946,
+      "logL395": -1209.3724335255797
+    },
+    "N-ortak-kaskad": {
+      "N295": 956,
+      "N395": 101,
+      "Lam295": 756.1576091489305,
+      "Lam395": 93.72613344098056,
+      "logL295": -9340.785789768146,
+      "logL395": -1203.3487976705483
+    }
+  },
+  "not_": "2011-2015 açılmadan yazıldı; bu kayıt ölçümden sonra yeniden ayarlanmaz"
+}

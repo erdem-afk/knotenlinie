@@ -1,0 +1,58 @@
+{
+  "durum": "Önkayıt dondurulmadı; yalnız tahmin dosyaları, olay kataloğu indirilmedi",
+  "kaynak_commit": "ecb696c3ee06f2bb6a38c7c275d8486fcb6e505b",
+  "indirmeler": [
+    {
+      "ad": "HAZFX-BPT",
+      "dosya": "tabanlar/akinci.HAZFX_BPT.italy.10yr.2010-01-01.xml",
+      "url": "https://raw.githubusercontent.com/cseptesting/italy2010_experiment/ecb696c3ee06f2bb6a38c7c275d8486fcb6e505b/models/akinci.HAZFX_BPT.italy.10yr.2010-01-01.xml",
+      "tarih_utc": "2026-10-05T15:21:01.479641+00:00",
+      "sha256": "c0235baa6c9b579b45accd2e0ec9f25758ca43364cd724a1cd10999ebc74effe",
+      "byte": 15574736,
+      "yayin_xml": "2009-12-09T00:10:12Z",
+      "kalibrasyon_katalog_kesimi": null,
+      "kalibrasyon_ust_sinir": "2009-12-09",
+      "kalibrasyon_notu": "Kesin katalog sürümü/kesimi yayın fişiyle teyit edilmeli; teslim tarihi sadece üst sınırdır",
+      "forecast_unit_yil": 10,
+      "yorum": "Donmuş on yıllık ortalama oran; günlük yenilenme modeli olarak yeniden üretilmedi"
+    },
+    {
+      "ad": "TripleS-CPTI",
+      "dosya": "tabanlar/zechar.TripleS-CPTI.italy.10yr.2010-01-01.xml",
+      "url": "https://raw.githubusercontent.com/cseptesting/italy2010_experiment/ecb696c3ee06f2bb6a38c7c275d8486fcb6e505b/models/zechar.TripleS-CPTI.italy.10yr.2010-01-01.xml",
+      "tarih_utc": "2026-10-05T15:21:03.639278+00:00",
+      "sha256": "5dda2a757ed1aa2871ecfe9677973c5ecb82b39f418c4d7f29a583b59c783e24",
+      "byte": 17372212,
+      "yayin_xml": "2009-11-24T15:55:22Z",
+      "kalibrasyon_katalog_kesimi": null,
+      "kalibrasyon_ust_sinir": "2009-11-24",
+      "kalibrasyon_notu": "Kesin CPTI sürümü/kesimi teyitsiz; 2016 sonrası ayarlı sürüm alınmadı",
+      "forecast_unit_yil": 10
+    },
+    {
+      "ad": "MPS04",
+      "dosya": "tabanlar/meletti.MPS04.italy.10yr.2010-01-01.xml",
+      "url": "https://raw.githubusercontent.com/cseptesting/italy2010_experiment/ecb696c3ee06f2bb6a38c7c275d8486fcb6e505b/models/meletti.MPS04.italy.10yr.2010-01-01.xml",
+      "tarih_utc": "2026-10-05T15:21:05.097019+00:00",
+      "sha256": "2ea8c3902cb00eb551777ab87da1deebf53cb44f2e0db225ba045ccf7dbf0de4",
+      "byte": 14468591,
+      "yayin_model": "2004",
+      "yayin_xml": "2005-06-18T10:30:00Z",
+      "kalibrasyon_katalog_kesimi": null,
+      "kalibrasyon_ust_sinir": "2005-06-18",
+      "kalibrasyon_notu": "CPTI04 ilişkisi ve kesin katalog son yılı bibliyografik teyit bekliyor",
+      "forecast_unit_yil": 10,
+      "birim_uyarisi": "XML 2008–2013 tarih aralığı gösteriyor; CSEP models.yml açıkça forecast_unit=10 verir; tarihten birim çıkarılmaz"
+    },
+    {
+      "ad": "CSEP forecast_unit kanıtı",
+      "dosya": "tabanlar/csep-models.yml",
+      "url": "https://raw.githubusercontent.com/cseptesting/italy2010_experiment/ecb696c3ee06f2bb6a38c7c275d8486fcb6e505b/src/total/models.yml",
+      "tarih_utc": "2026-10-05T15:51:35.822944+00:00",
+      "sha256": "15ba20b96ed9baf0690e539652dbc0b283052541defebc5eb36c7964cbc01040",
+      "byte": 2249
+    }
+  ],
+  "gear1_prova_engeli": "GEAR1 (deney A) bu sürümde yoktur; yerel GEAR1_downsampled.dat kutu alt sınırı 5.95, bu provanın eşiği 4.95. Alt eşik ekstrapolasyonu yapılmadı.",
+  "veri_guvenligi": "Yeniden üretim arşivinin katalog, sonuç, figür ve raporları indirilmedi/açılmadı. Yalnız models XML ve models.yml alındı."
+}

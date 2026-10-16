@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below, and also cite the data providers and the baseline forecasts you use (see DATA-SOURCES.md)."
+title: "Knotenlinie"
+abstract: "An open earthquake-forecasting research codebase: daily ETAS-class and long-term smoothed-seismicity and fault-based models for Italy, southern California and New Zealand, scored with CSEP-standard tests against named baseline forecasts."
+type: software
+version: "0.1.0"
+date-released: "2026-10-16"
+authors:
+  - name: "Knotenlinie contributors"
+license: Apache-2.0
+repository-code: "https://github.com/erdem-afk/knotenlinie"
+url: "https://github.com/erdem-afk/knotenlinie"
+keywords:
+  - earthquake forecasting
+  - ETAS
+  - CSEP
+  - seismicity
+  - statistical seismology

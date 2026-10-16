@@ -1,0 +1,1258 @@
+{
+  "surum": 1,
+  "tohum": 20261005,
+  "zemin": 0.002,
+  "bootstrap": 2000,
+  "bolgeler": {
+    "italya": {
+      "bolge": "italya",
+      "secim": {
+        "U0": {
+          "ad": "U0-10",
+          "logL": -400.8177373410067,
+          "adaylar": {
+            "U0-10": -400.8177373410067,
+            "U0-20": -408.1586551005528,
+            "U0-40": -419.267765547555
+          }
+        },
+        "U1": {
+          "ad": "U1-k10",
+          "logL": -407.82245462156544,
+          "adaylar": {
+            "U1-k10": -407.82245462156544,
+            "U1-k20": -411.69630955229036,
+            "U1-k40": -416.79758105587484
+          }
+        },
+        "U2": {
+          "w": 0.0,
+          "logL": -407.82245462156544,
+          "adaylar": {
+            "U2-w0": -407.82245462156544,
+            "U2-w0.1": -407.9859587514377,
+            "U2-w0.2": -408.7318192580408,
+            "U2-w0.3": -409.9940050170778,
+            "U2-w0.4": -411.7852411192187,
+            "U2-w0.5": -414.18266733720907,
+            "U2-w0.6": -417.34985233198375,
+            "U2-w0.7": -421.61234235493095,
+            "U2-w0.8": -427.69652628862116,
+            "U2-w0.9": -437.80512629820197
+          },
+          "ad": "U2-w0"
+        },
+        "U3": {
+          "w": 0.0,
+          "logL": -407.82245462156544,
+          "adaylar": {
+            "U3-w0": -407.82245462156544,
+            "U3-w0.1": -409.01902789079827,
+            "U3-w0.2": -410.5322847247319,
+            "U3-w0.3": -412.3382473075627,
+            "U3-w0.4": -414.44629070488685,
+            "U3-w0.5": -416.88946252089295,
+            "U3-w0.6": -419.72756117782745,
+            "U3-w0.7": -423.0615954701797,
+            "U3-w0.8": -427.073154890038,
+            "U3-w0.9": -432.15503100047357
+          },
+          "ad": "U3-w0"
+        },
+        "secili": "U0"
+      },
+      "satirlar": [
+        {
+          "N": 7,
+          "IG": -0.8446080529100609,
+          "IG_olay": -0.14348908943123714,
+          "integral": -4.907832744351766,
+          "SE_blok": 0.30670414471298973,
+          "z": -2.7538201471011603,
+          "p_tek": 0.9970547935925599,
+          "guc": 5.442048866985405e-06,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "HAZFX",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "kumesiz",
+          "esik": 4.95,
+          "yontem": "gk74",
+          "Lambda_aday": 12.497068450942733,
+          "Lambda_taban": 7.589235706590967,
+          "logL_aday": -54.037651653007856,
+          "logL_taban": -48.12539528263742,
+          "NSM": {
+            "N": {
+              "beklenen": 12.497068450942733,
+              "N": 7,
+              "ust_kuyruk": 0.9653746802596713,
+              "alt_kuyruk": 0.06992889062836664,
+              "gecti": true
+            },
+            "S": {
+              "p": 0.23388305847076463,
+              "gecti": true,
+              "logL": -52.59767080882839,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -1.9037903176782223,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": true
+          }
+        },
+        {
+          "N": 7,
+          "IG": -0.05438820656239318,
+          "IG_olay": 0.4998695771109104,
+          "integral": -3.879804485713125,
+          "SE_blok": 0.4545786586462465,
+          "z": -0.11964531446408734,
+          "p_tek": 0.5476179391116457,
+          "guc": 0.038811697317868495,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "TripleS",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "kumesiz",
+          "esik": 4.95,
+          "yontem": "gk74",
+          "Lambda_aday": 12.497068450942733,
+          "Lambda_taban": 8.617263965229608,
+          "logL_aday": -54.037651653007856,
+          "logL_taban": -53.65693420707109,
+          "NSM": {
+            "N": {
+              "beklenen": 12.497068450942733,
+              "N": 7,
+              "ust_kuyruk": 0.9653746802596713,
+              "alt_kuyruk": 0.06992889062836664,
+              "gecti": true
+            },
+            "S": {
+              "p": 0.23388305847076463,
+              "gecti": true,
+              "logL": -52.59767080882839,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -1.9037903176782223,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": true
+          }
+        },
+        {
+          "N": 7,
+          "IG": 0.11456053434446267,
+          "IG_olay": 0.4849141345583407,
+          "integral": -2.5924752014971464,
+          "SE_blok": 0.643018891042735,
+          "z": 0.1781604490012549,
+          "p_tek": 0.42929848493430667,
+          "guc": 0.07120985386750849,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "MPS04",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "kumesiz",
+          "esik": 4.95,
+          "yontem": "gk74",
+          "Lambda_aday": 12.497068450942733,
+          "Lambda_taban": 9.904593249445586,
+          "logL_aday": -54.037651653007856,
+          "logL_taban": -54.83957539341909,
+          "NSM": {
+            "N": {
+              "beklenen": 12.497068450942733,
+              "N": 7,
+              "ust_kuyruk": 0.9653746802596713,
+              "alt_kuyruk": 0.06992889062836664,
+              "gecti": true
+            },
+            "S": {
+              "p": 0.23388305847076463,
+              "gecti": true,
+              "logL": -52.59767080882839,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -1.9037903176782223,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": true
+          }
+        },
+        {
+          "N": 59,
+          "IG": 0.7788474109064022,
+          "IG_olay": 0.7788474109064022,
+          "integral": -0.0,
+          "SE_blok": 0.13615248758549878,
+          "z": 5.720405294962492,
+          "p_tek": 5.313512483057062e-09,
+          "guc": 0.999977032863056,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "duzgun",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "kumesiz",
+          "esik": 3.95,
+          "yontem": "gk74",
+          "Lambda_aday": 80.00209554557843,
+          "Lambda_taban": 80.00209554557843,
+          "logL_aday": -314.5217937551636,
+          "logL_taban": -360.47379099864133,
+          "NSM": {
+            "N": {
+              "beklenen": 80.00209554557843,
+              "N": 59,
+              "ust_kuyruk": 0.993899342088126,
+              "alt_kuyruk": 0.008592314441783102,
+              "gecti": false
+            },
+            "S": {
+              "p": 0.11244377811094453,
+              "gecti": true,
+              "logL": -311.48610590953,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -2.9591196710120187,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": false
+          },
+          "not_": "Yerleşikler <4.95 yayımlamaz; geliştirme sıfırı düzgün alan"
+        },
+        {
+          "N": 14,
+          "IG": -0.6302770191552306,
+          "IG_olay": -0.27971753741581873,
+          "integral": -4.907832744351766,
+          "SE_blok": 0.17787139788814188,
+          "z": -3.5434422095878135,
+          "p_tek": 0.999802530070942,
+          "guc": 1.0603027459658949e-07,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "HAZFX",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "tum",
+          "esik": 4.95,
+          "yontem": "gk74",
+          "Lambda_aday": 12.497068450942733,
+          "Lambda_taban": 7.589235706590967,
+          "logL_aday": -98.86512698683153,
+          "logL_taban": -90.0412487186583,
+          "NSM": {
+            "N": {
+              "beklenen": 12.497068450942733,
+              "N": 14,
+              "ust_kuyruk": 0.37184554600710623,
+              "alt_kuyruk": 0.7253167704575072,
+              "gecti": true
+            },
+            "S": {
+              "p": 0.04097951024487756,
+              "gecti": false,
+              "logL": -98.77817322157611,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -2.2444185681250666,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": false
+          }
+        },
+        {
+          "N": 14,
+          "IG": -0.2304107779160829,
+          "IG_olay": 0.04671811392056892,
+          "integral": -3.879804485713125,
+          "SE_blok": 0.2635754244755827,
+          "z": -0.874173980273445,
+          "p_tek": 0.808988243146981,
+          "guc": 0.005881525887281456,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "TripleS",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "tum",
+          "esik": 4.95,
+          "yontem": "gk74",
+          "Lambda_aday": 12.497068450942733,
+          "Lambda_taban": 8.617263965229608,
+          "logL_aday": -98.86512698683153,
+          "logL_taban": -95.63937609600636,
+          "NSM": {
+            "N": {
+              "beklenen": 12.497068450942733,
+              "N": 14,
+              "ust_kuyruk": 0.37184554600710623,
+              "alt_kuyruk": 0.7253167704575072,
+              "gecti": true
+            },
+            "S": {
+              "p": 0.04097951024487756,
+              "gecti": false,
+              "logL": -98.77817322157611,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -2.2444185681250666,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": false
+          }
+        },
+        {
+          "N": 14,
+          "IG": -0.04845014639404216,
+          "IG_olay": 0.13672665371289686,
+          "integral": -2.5924752014971464,
+          "SE_blok": 0.35653881785642333,
+          "z": -0.13589024242951528,
+          "p_tek": 0.5540459753333769,
+          "guc": 0.03746519148702778,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "MPS04",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "tum",
+          "esik": 4.95,
+          "yontem": "gk74",
+          "Lambda_aday": 12.497068450942733,
+          "Lambda_taban": 9.904593249445586,
+          "logL_aday": -98.86512698683153,
+          "logL_taban": -98.18682493731494,
+          "NSM": {
+            "N": {
+              "beklenen": 12.497068450942733,
+              "N": 14,
+              "ust_kuyruk": 0.37184554600710623,
+              "alt_kuyruk": 0.7253167704575072,
+              "gecti": true
+            },
+            "S": {
+              "p": 0.04097951024487756,
+              "gecti": false,
+              "logL": -98.77817322157611,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -2.2444185681250666,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": false
+          }
+        },
+        {
+          "N": 130,
+          "IG": 0.7185722957610302,
+          "IG_olay": 0.7185722957610302,
+          "integral": -0.0,
+          "SE_blok": 0.0832970906212644,
+          "z": 8.626619374117615,
+          "p_tek": 3.1596020256408316e-18,
+          "guc": 0.9999999999985411,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "duzgun",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "tum",
+          "esik": 3.95,
+          "yontem": "gk74",
+          "Lambda_aday": 80.00209554557843,
+          "Lambda_taban": 80.00209554557843,
+          "logL_aday": -673.6521123484843,
+          "logL_taban": -767.0665107974182,
+          "NSM": {
+            "N": {
+              "beklenen": 80.00209554557843,
+              "N": 130,
+              "ust_kuyruk": 1.7794675274591868e-07,
+              "alt_kuyruk": 0.9999998925250504,
+              "gecti": false
+            },
+            "S": {
+              "p": 0.0004997501249375312,
+              "gecti": false,
+              "logL": -660.5374059682513,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -3.353346782809126,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": false
+          },
+          "not_": "Yerleşikler <4.95 yayımlamaz; geliştirme sıfırı düzgün alan"
+        }
+      ],
+      "duyarlilik": [
+        {
+          "N": 8,
+          "IG": -0.8097109512591325,
+          "IG_olay": -0.10402017991721679,
+          "integral": -5.645526170735326,
+          "SE_blok": 0.21620818269017797,
+          "z": -3.74505229720853,
+          "p_tek": 0.9999098218988317,
+          "guc": 3.5218591384472494e-08,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "HAZFX",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "kumesiz",
+          "esik": 4.95,
+          "yontem": "uhrhammer",
+          "Lambda_aday": 13.234761877326292,
+          "Lambda_taban": 7.589235706590967,
+          "logL_aday": -59.80825552537815,
+          "logL_taban": -53.330567915305096,
+          "NSM": {
+            "N": {
+              "beklenen": 13.234761877326292,
+              "N": 8,
+              "ust_kuyruk": 0.9522306381713925,
+              "alt_kuyruk": 0.0894970647938329,
+              "gecti": true
+            },
+            "S": {
+              "p": 0.17691154422788605,
+              "gecti": true,
+              "logL": -58.60073606362507,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -1.9690705693065649,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": true
+          }
+        },
+        {
+          "N": 8,
+          "IG": -0.13062743949949607,
+          "IG_olay": 0.4465597995125895,
+          "integral": -4.617497912096685,
+          "SE_blok": 0.36362329099659324,
+          "z": -0.3592383731566851,
+          "p_tek": 0.6402916138465633,
+          "guc": 0.02252226591440052,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "TripleS",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "kumesiz",
+          "esik": 4.95,
+          "yontem": "uhrhammer",
+          "Lambda_aday": 13.234761877326292,
+          "Lambda_taban": 8.617263965229608,
+          "logL_aday": -59.80825552537815,
+          "logL_taban": -58.763236009382176,
+          "NSM": {
+            "N": {
+              "beklenen": 13.234761877326292,
+              "N": 8,
+              "ust_kuyruk": 0.9522306381713925,
+              "alt_kuyruk": 0.0894970647938329,
+              "gecti": true
+            },
+            "S": {
+              "p": 0.17691154422788605,
+              "gecti": true,
+              "logL": -58.60073606362507,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -1.9690705693065649,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": true
+          }
+        },
+        {
+          "N": 8,
+          "IG": -0.009594633723899681,
+          "IG_olay": 0.4066764447611886,
+          "integral": -3.330168627880706,
+          "SE_blok": 0.5595439444477028,
+          "z": -0.01714723895970325,
+          "p_tek": 0.5068404233990847,
+          "guc": 0.04824162793285542,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "MPS04",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "kumesiz",
+          "esik": 4.95,
+          "yontem": "uhrhammer",
+          "Lambda_aday": 13.234761877326292,
+          "Lambda_taban": 9.904593249445586,
+          "logL_aday": -59.80825552537815,
+          "logL_taban": -59.73149845558696,
+          "NSM": {
+            "N": {
+              "beklenen": 13.234761877326292,
+              "N": 8,
+              "ust_kuyruk": 0.9522306381713925,
+              "alt_kuyruk": 0.0894970647938329,
+              "gecti": true
+            },
+            "S": {
+              "p": 0.17691154422788605,
+              "gecti": true,
+              "logL": -58.60073606362507,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -1.9690705693065649,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": true
+          }
+        },
+        {
+          "N": 69,
+          "IG": 0.7807346404999604,
+          "IG_olay": 0.7807346404999604,
+          "integral": -0.0,
+          "SE_blok": 0.14275329792883973,
+          "z": 5.469118064712903,
+          "p_tek": 2.2614020542599548e-08,
+          "guc": 0.9999343794909012,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "duzgun",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "kumesiz",
+          "esik": 3.95,
+          "yontem": "uhrhammer",
+          "Lambda_aday": 97.68128463918896,
+          "Lambda_taban": 97.68128463918896,
+          "logL_aday": -360.191230623239,
+          "logL_taban": -414.06192081773617,
+          "NSM": {
+            "N": {
+              "beklenen": 97.68128463918896,
+              "N": 69,
+              "ust_kuyruk": 0.9990445878786397,
+              "alt_kuyruk": 0.001393170144627993,
+              "gecti": false
+            },
+            "S": {
+              "p": 0.006496751624187906,
+              "gecti": false,
+              "logL": -355.4945858712135,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -3.0371995065166857,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": false
+          },
+          "not_": "Yerleşikler <4.95 yayımlamaz; geliştirme sıfırı düzgün alan"
+        },
+        {
+          "N": 14,
+          "IG": -0.5833464313150132,
+          "IG_olay": -0.1800945619767757,
+          "integral": -5.645526170735326,
+          "SE_blok": 0.1498118210285577,
+          "z": -3.8938611606878037,
+          "p_tek": 0.9999506694340786,
+          "guc": 1.5222243651049985e-08,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "HAZFX",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "tum",
+          "esik": 4.95,
+          "yontem": "uhrhammer",
+          "Lambda_aday": 13.234761877326292,
+          "Lambda_taban": 7.589235706590967,
+          "logL_aday": -98.20809875706848,
+          "logL_taban": -90.0412487186583,
+          "NSM": {
+            "N": {
+              "beklenen": 13.234761877326292,
+              "N": 14,
+              "ust_kuyruk": 0.4527470535325074,
+              "alt_kuyruk": 0.6509660046183041,
+              "gecti": true
+            },
+            "S": {
+              "p": 0.027486256871564217,
+              "gecti": false,
+              "logL": -98.1863900758994,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -2.2444185681250666,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": false
+          }
+        },
+        {
+          "N": 14,
+          "IG": -0.1834801900758655,
+          "IG_olay": 0.14634108935961196,
+          "integral": -4.617497912096685,
+          "SE_blok": 0.23167887042130253,
+          "z": -0.7919591015883801,
+          "p_tek": 0.7858077380776658,
+          "guc": 0.007405677225134612,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "TripleS",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "tum",
+          "esik": 4.95,
+          "yontem": "uhrhammer",
+          "Lambda_aday": 13.234761877326292,
+          "Lambda_taban": 8.617263965229608,
+          "logL_aday": -98.20809875706848,
+          "logL_taban": -95.63937609600636,
+          "NSM": {
+            "N": {
+              "beklenen": 13.234761877326292,
+              "N": 14,
+              "ust_kuyruk": 0.4527470535325074,
+              "alt_kuyruk": 0.6509660046183041,
+              "gecti": true
+            },
+            "S": {
+              "p": 0.027486256871564217,
+              "gecti": false,
+              "logL": -98.1863900758994,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -2.2444185681250666,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": false
+          }
+        },
+        {
+          "N": 14,
+          "IG": -0.0015195585538248513,
+          "IG_olay": 0.23634962915193988,
+          "integral": -3.330168627880706,
+          "SE_blok": 0.33933878591437905,
+          "z": -0.0044779984396132715,
+          "p_tek": 0.5017864569386523,
+          "guc": 0.04952487347723995,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "MPS04",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "tum",
+          "esik": 4.95,
+          "yontem": "uhrhammer",
+          "Lambda_aday": 13.234761877326292,
+          "Lambda_taban": 9.904593249445586,
+          "logL_aday": -98.20809875706848,
+          "logL_taban": -98.18682493731494,
+          "NSM": {
+            "N": {
+              "beklenen": 13.234761877326292,
+              "N": 14,
+              "ust_kuyruk": 0.4527470535325074,
+              "alt_kuyruk": 0.6509660046183041,
+              "gecti": true
+            },
+            "S": {
+              "p": 0.027486256871564217,
+              "gecti": false,
+              "logL": -98.1863900758994,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -2.2444185681250666,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": false
+          }
+        },
+        {
+          "N": 130,
+          "IG": 0.7308699460817063,
+          "IG_olay": 0.7308699460817063,
+          "integral": -0.0,
+          "SE_blok": 0.09281715916147477,
+          "z": 7.874297734217505,
+          "p_tek": 1.7133103112205502e-15,
+          "guc": 0.9999999997657347,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "duzgun",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "tum",
+          "esik": 3.95,
+          "yontem": "uhrhammer",
+          "Lambda_aday": 97.68128463918896,
+          "Lambda_taban": 97.68128463918896,
+          "logL_aday": -663.7771770660117,
+          "logL_taban": -758.7902700566336,
+          "NSM": {
+            "N": {
+              "beklenen": 97.68128463918896,
+              "N": 130,
+              "ust_kuyruk": 0.0010319559321408883,
+              "alt_kuyruk": 0.9992449556163611,
+              "gecti": false
+            },
+            "S": {
+              "p": 0.0004997501249375312,
+              "gecti": false,
+              "logL": -658.9387114265633,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -3.353346782809126,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": false
+          },
+          "not_": "Yerleşikler <4.95 yayımlamaz; geliştirme sıfırı düzgün alan"
+        },
+        {
+          "N": 5,
+          "IG": -1.0579531525299686,
+          "IG_olay": 0.245053532497492,
+          "integral": -6.515033425137303,
+          "SE_blok": 0.14640393011193878,
+          "z": -7.226261970707136,
+          "p_tek": 0.9999999999997518,
+          "guc": 3.6160797839693757e-19,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "HAZFX",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "kumesiz",
+          "esik": 4.95,
+          "yontem": "reasenberg",
+          "Lambda_aday": 14.10426913172827,
+          "Lambda_taban": 7.589235706590967,
+          "logL_aday": -43.75308994218976,
+          "logL_taban": -38.46332417953991,
+          "NSM": {
+            "N": {
+              "beklenen": 14.10426913172827,
+              "N": 5,
+              "ust_kuyruk": 0.9983284864019271,
+              "alt_kuyruk": 0.005156213881945424,
+              "gecti": false
+            },
+            "S": {
+              "p": 0.11394302848575712,
+              "gecti": true,
+              "logL": -39.83401888257503,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -1.7403021806115442,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": false
+          }
+        },
+        {
+          "N": 5,
+          "IG": -0.5297891367421519,
+          "IG_olay": 0.5676118965575805,
+          "integral": -5.487005166498662,
+          "SE_blok": 0.5183134506708764,
+          "z": -1.0221404365571103,
+          "p_tek": 0.8466427814718697,
+          "guc": 0.003824984901864624,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "TripleS",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "kumesiz",
+          "esik": 4.95,
+          "yontem": "reasenberg",
+          "Lambda_aday": 14.10426913172827,
+          "Lambda_taban": 8.617263965229608,
+          "logL_aday": -43.75308994218976,
+          "logL_taban": -41.10414425847899,
+          "NSM": {
+            "N": {
+              "beklenen": 14.10426913172827,
+              "N": 5,
+              "ust_kuyruk": 0.9983284864019271,
+              "alt_kuyruk": 0.005156213881945424,
+              "gecti": false
+            },
+            "S": {
+              "p": 0.11394302848575712,
+              "gecti": true,
+              "logL": -39.83401888257503,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -1.7403021806115442,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": false
+          }
+        },
+        {
+          "N": 5,
+          "IG": -0.01712032956236842,
+          "IG_olay": 0.8228148468941683,
+          "integral": -4.199675882282683,
+          "SE_blok": 0.8359554497803645,
+          "z": -0.02047995448425696,
+          "p_tek": 0.5081697486361906,
+          "guc": 0.0479085197980826,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "MPS04",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "kumesiz",
+          "esik": 4.95,
+          "yontem": "reasenberg",
+          "Lambda_aday": 14.10426913172827,
+          "Lambda_taban": 9.904593249445586,
+          "logL_aday": -43.75308994218976,
+          "logL_taban": -43.667488294377904,
+          "NSM": {
+            "N": {
+              "beklenen": 14.10426913172827,
+              "N": 5,
+              "ust_kuyruk": 0.9983284864019271,
+              "alt_kuyruk": 0.005156213881945424,
+              "gecti": false
+            },
+            "S": {
+              "p": 0.11394302848575712,
+              "gecti": true,
+              "logL": -39.83401888257503,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -1.7403021806115442,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": false
+          }
+        },
+        {
+          "N": 63,
+          "IG": 0.6012203191490245,
+          "IG_olay": 0.6012203191490245,
+          "integral": -0.0,
+          "SE_blok": 0.16455946467897634,
+          "z": 3.653514067525007,
+          "p_tek": 0.00012933780466448347,
+          "guc": 0.9777056536539197,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "duzgun",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "kumesiz",
+          "esik": 3.95,
+          "yontem": "reasenberg",
+          "Lambda_aday": 113.19881024014057,
+          "Lambda_taban": 113.19881024014057,
+          "logL_aday": -355.1947063703551,
+          "logL_taban": -393.07158647674373,
+          "NSM": {
+            "N": {
+              "beklenen": 113.19881024014057,
+              "N": 63,
+              "ust_kuyruk": 0.9999998967585058,
+              "alt_kuyruk": 1.8898115394075996e-07,
+              "gecti": false
+            },
+            "S": {
+              "p": 0.0004997501249375312,
+              "gecti": false,
+              "logL": -341.91458466201567,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -2.9918286366149403,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": false
+          },
+          "not_": "Yerleşikler <4.95 yayımlamaz; geliştirme sıfırı düzgün alan"
+        },
+        {
+          "N": 14,
+          "IG": -0.6397240508148136,
+          "IG_olay": -0.17436452044786346,
+          "integral": -6.515033425137303,
+          "SE_blok": 0.1309736892171532,
+          "z": -4.884370705586196,
+          "p_tek": 0.9999994812014923,
+          "guc": 3.30232988018417e-11,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "HAZFX",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "tum",
+          "esik": 4.95,
+          "yontem": "reasenberg",
+          "Lambda_aday": 14.10426913172827,
+          "Lambda_taban": 7.589235706590967,
+          "logL_aday": -98.99738543006569,
+          "logL_taban": -90.0412487186583,
+          "NSM": {
+            "N": {
+              "beklenen": 14.10426913172827,
+              "N": 14,
+              "ust_kuyruk": 0.54656146347162,
+              "alt_kuyruk": 0.5593867413051967,
+              "gecti": true
+            },
+            "S": {
+              "p": 0.009995002498750625,
+              "gecti": false,
+              "logL": -98.99699905971913,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -2.2444185681250666,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": false
+          }
+        },
+        {
+          "N": 14,
+          "IG": -0.23985780957566596,
+          "IG_olay": 0.15207113088852417,
+          "integral": -5.487005166498662,
+          "SE_blok": 0.2239763866658517,
+          "z": -1.0709066841653607,
+          "p_tek": 0.8578943049439249,
+          "guc": 0.0033047272245250244,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "TripleS",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "tum",
+          "esik": 4.95,
+          "yontem": "reasenberg",
+          "Lambda_aday": 14.10426913172827,
+          "Lambda_taban": 8.617263965229608,
+          "logL_aday": -98.99738543006569,
+          "logL_taban": -95.63937609600636,
+          "NSM": {
+            "N": {
+              "beklenen": 14.10426913172827,
+              "N": 14,
+              "ust_kuyruk": 0.54656146347162,
+              "alt_kuyruk": 0.5593867413051967,
+              "gecti": true
+            },
+            "S": {
+              "p": 0.009995002498750625,
+              "gecti": false,
+              "logL": -98.99699905971913,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -2.2444185681250666,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": false
+          }
+        },
+        {
+          "N": 14,
+          "IG": -0.057897178053625264,
+          "IG_olay": 0.24207967068085212,
+          "integral": -4.199675882282683,
+          "SE_blok": 0.33887383948669086,
+          "z": -0.17085171915697303,
+          "p_tek": 0.5678298195570233,
+          "guc": 0.03469656058989729,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "MPS04",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "tum",
+          "esik": 4.95,
+          "yontem": "reasenberg",
+          "Lambda_aday": 14.10426913172827,
+          "Lambda_taban": 9.904593249445586,
+          "logL_aday": -98.99738543006569,
+          "logL_taban": -98.18682493731494,
+          "NSM": {
+            "N": {
+              "beklenen": 14.10426913172827,
+              "N": 14,
+              "ust_kuyruk": 0.54656146347162,
+              "alt_kuyruk": 0.5593867413051967,
+              "gecti": true
+            },
+            "S": {
+              "p": 0.009995002498750625,
+              "gecti": false,
+              "logL": -98.99699905971913,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -2.2444185681250666,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": false
+          }
+        },
+        {
+          "N": 130,
+          "IG": 0.6605249425682186,
+          "IG_olay": 0.6605249425682186,
+          "integral": -0.0,
+          "SE_blok": 0.09917513614810668,
+          "z": 6.660186899887895,
+          "p_tek": 1.367397911288911e-11,
+          "guc": 0.9999997350903115,
+          "durum": "tanımlı",
+          "aday": "U0-secili",
+          "taban": "duzgun",
+          "bolge": "italya",
+          "donem": "2011-2015",
+          "hedef": "tum",
+          "esik": 3.95,
+          "yontem": "reasenberg",
+          "Lambda_aday": 113.19881024014057,
+          "Lambda_taban": 113.19881024014057,
+          "logL_aday": -669.2729154718766,
+          "logL_taban": -755.1411580057451,
+          "NSM": {
+            "N": {
+              "beklenen": 113.19881024014057,
+              "N": 130,
+              "ust_kuyruk": 0.06517322369621703,
+              "alt_kuyruk": 0.9454713995761034,
+              "gecti": true
+            },
+            "S": {
+              "p": 0.0004997501249375312,
+              "gecti": false,
+              "logL": -668.0835618833167,
+              "tekrar": 2000,
+              "tohum": 20261005,
+              "sebep": null
+            },
+            "M": {
+              "p": 1.0,
+              "gecti": true,
+              "logL": -3.353346782809126,
+              "tekrar": 2000,
+              "tohum": 20261006,
+              "sebep": null
+            },
+            "gecti": false
+          },
+          "not_": "Yerleşikler <4.95 yayımlamaz; geliştirme sıfırı düzgün alan"
+        }
+      ],
+      "katalog_N": 252795,
+      "hedef_N": 74764,
+      "hedef_derinlik": [
+        0.0,
+        30.0
+      ],
+      "mmin": 3.1,
+      "esik_gelistirme": 3.95,
+      "model_ozet": {
+        "secim": "U0",
+        "yontem": "gk74",
+        "bant_km": 10.0,
+        "k_komsu": null,
+        "zemin_payi": 0.002,
+        "w_fay": 0.0,
+        "w_gear1": 0.0,
+        "egitim_n": 2016,
+        "egitim_yil": 25.998631074606433,
+        "kumesiz_tur": "gk74",
+        "egitim_baslangic": "1985-01-01T00:00:00+00:00",
+        "egitim_bitis": "2011-01-01T00:00:00+00:00",
+        "b": 0.8062932142750173,
+        "mmin": 3.1,
+        "rate_ust": 77.54254422914912
+      },
+      "model_sekil_ozet": {
+        "min": 2.223951962637607e-07,
+        "max": 0.004129575071097531,
+        "toplam": 1.0000000000000002
+      }
+    }
+  }
+}

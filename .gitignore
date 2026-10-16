@@ -1,0 +1,19 @@
+# data and run outputs never enter the repo (data root: KNOTENLINIE_DATA, runs: KNOTENLINIE_RUNS)
+/data/
+/runs/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.venv/
+venv/
+
+# editors / OS
+.DS_Store
+.idea/
+.vscode/

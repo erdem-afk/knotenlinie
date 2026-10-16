@@ -1,0 +1,73 @@
+{
+  "bolgeler": [
+    {
+      "bolge": "italya",
+      "katalog": "ortak/italya_katalog_le2015.csv",
+      "katalog_sha256": "c3293da8f128920f0132736928218567d3ac516845a5651d19a92819a69925b9",
+      "izgara": "ortak/italya_izgara.csv",
+      "izgara_sha256": "b503fd1c85721a5d225045e57c4ff3f0366d0887f9ebb1f893718c3c94cc0b41",
+      "m_kenarlar": [
+        4.95,
+        5.05,
+        5.15,
+        5.25,
+        5.35,
+        5.45,
+        5.55,
+        5.65,
+        5.75,
+        5.85,
+        5.95,
+        6.05,
+        6.15,
+        6.25,
+        6.35,
+        6.45,
+        6.55,
+        6.65,
+        6.75,
+        6.85,
+        6.95,
+        7.05,
+        7.15,
+        7.25,
+        7.35,
+        7.45,
+        7.55,
+        7.65,
+        7.75,
+        7.85,
+        7.95,
+        8.05,
+        8.15,
+        8.25,
+        8.35,
+        8.45,
+        8.55,
+        8.65,
+        8.75,
+        8.85,
+        8.95,
+        9.05
+      ],
+      "ayar_baslangic": "1995-01-01",
+      "tamlik_baslangic": "1985-01-01T00:00:00Z",
+      "etas_teslim": {
+        "dosya": "ortak/etas_italya_le2010.json",
+        "sha256": "afd9df94210989205d7298bd924dd2433f777e2072764c9c592c069d8bce76b4",
+        "yukleyici": "knotenlinie.eepas.c2:t_model_yukle",
+        "katalog_metadata_sha256": "a035e4d84bcbd138a335d8daa9daacdecccf5835b44c3d131b39d29e9fc98412",
+        "anahtarlar": {
+          "ayar_bitis": "ayar_bitis",
+          "dallanma": "dallanma",
+          "basari": "basari",
+          "baslangic": "ayar_baslangic",
+          "derinlik_min": "katalog_teslim.derinlik_min",
+          "derinlik_max": "katalog_teslim.derinlik_max",
+          "ust_dahil": "katalog_teslim.ust_dahil"
+        }
+      },
+      "etas_durum": "PROVISIONAL; bağımsız skor-kodu incelemesi ve maskeli MLE kapısı açık"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "toplam_logL": {
+    "GR-kapali": -23.339231119555844,
+    "GR-BPT": -23.42120449032755,
+    "KAR-kapali": -23.207608916930333,
+    "KAR-BPT": -23.189779354491787
+  },
+  "en_iyi": -23.189779354491787,
+  "tolerans": 1.0,
+  "bagli": [
+    "GR-kapali",
+    "GR-BPT",
+    "KAR-kapali",
+    "KAR-BPT"
+  ],
+  "secili": "GR-kapali",
+  "z2_toplam": -24.92427336789801,
+  "ayrinti": {
+    "italya": {
+      "w": 0.8281017074396867,
+      "oran": 1.4210358286534115,
+      "gunluk": {
+        "iss_toplam": 126,
+        "iss_dusen_sonraki_olay": 4,
+        "iss_cpti_iliskili": 4,
+        "iss_son_bilinen": 107
+      },
+      "Z2": -24.92427336789801,
+      "N": 2,
+      "GR-kapali": -23.339231119555844,
+      "GR-kapali_tani": {
+        "td_toplam": 2.2409792848435264,
+        "poi_toplam": 15.358425598068143
+      },
+      "GR-BPT": -23.42120449032755,
+      "GR-BPT_tani": {
+        "td_toplam": 2.1424636420457173,
+        "poi_toplam": 15.358425598068143
+      },
+      "KAR-kapali": -23.207608916930333,
+      "KAR-kapali_tani": {
+        "td_toplam": 2.2668102511522803,
+        "poi_toplam": 12.484055924063167
+      },
+      "KAR-BPT": -23.189779354491787,
+      "KAR-BPT_tani": {
+        "td_toplam": 2.1452520290110657,
+        "poi_toplam": 12.484055924063167
+      }
+    }
+  },
+  "zaman": "2026-10-12T05:25:50.538234+00:00",
+  "yayin_notu": "toplam_logL, en_iyi, bagli ve z2_toplam değerleri bu sürümün kayıtlarından yeniden hesaplandı (records/HASHES.md). Dört varyant 1,0 nat bağ bandı içinde kalır; seçilen varyant GR-kapali'dir."
+}
