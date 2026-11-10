@@ -1,0 +1,40 @@
+[
+ {
+  "kaynak": "İzmit (TRCS012) → Doğu Marmara (TRCS013)",
+  "tur": "basamak",
+  "d_km": 8.49,
+  "P_BW": 0.02,
+  "P_R0": 0.46
+ },
+ {
+  "kaynak": "Doğu Marmara (PIF+CMF, TRCS013)",
+  "tur": "bukum",
+  "aci": 12.8,
+  "km_dogudan": 29.0,
+  "P_BW": 0.574,
+  "P_R0": 0.46
+ },
+ {
+  "kaynak": "Doğu Marmara (PIF+CMF, TRCS013)",
+  "tur": "bukum",
+  "aci": 10.9,
+  "km_dogudan": 40.0,
+  "P_BW": 0.574,
+  "P_R0": 0.46
+ },
+ {
+  "kaynak": "Doğu Marmara → Marmara–Saros (TRCS996)",
+  "tur": "basamak",
+  "d_km": 2.62,
+  "P_BW": 0.519,
+  "P_R0": 0.46
+ },
+ {
+  "kaynak": "Marmara–Saros (Ganos, TRCS996)",
+  "tur": "bukum",
+  "aci": 11.6,
+  "km_dogudan": 177.0,
+  "P_BW": 0.574,
+  "P_R0": 0.46
+ }
+]

@@ -1,0 +1,72 @@
+{
+ "n": 51,
+ "olay": [
+  "Elbistan 2023 Mw7,6",
+  "Kahramanmaras 2023 Mw7,8",
+  "Kumamoto 2016 Mw7,0",
+  "Myanmar 2025 Mw7,7",
+  "Ridgecrest 2019 Mw6,4",
+  "Ridgecrest 2019 Mw7,1"
+ ],
+ "kapi": {
+  "beklenen": 2.1486997279069766,
+  "se": 1.8607406959141453,
+  "durum": "KAPALI (önceden ayırt edilemez)"
+ },
+ "dL": 6.282931007821179,
+ "ci95": [
+  1.6996681363938277,
+  14.144754280088424
+ ],
+ "olay_basina": {
+  "Elbistan 2023 Mw7,6": 0.34612775531626083,
+  "Kahramanmaras 2023 Mw7,8": 4.215084540688387,
+  "Kumamoto 2016 Mw7,0": 0.2396361631919114,
+  "Myanmar 2025 Mw7,7": 0.412413837708566,
+  "Ridgecrest 2019 Mw6,4": 0.22221805379326687,
+  "Ridgecrest 2019 Mw7,1": 0.847450657122787
+ },
+ "alt": {
+  "basamak_gecti": {
+   "n": 5,
+   "dL": 0.8
+  },
+  "basamak_durdu": {
+   "n": 1,
+   "dL": -0.16
+  },
+  "bukum_gecti": {
+   "n": 42,
+   "dL": 5.6
+  },
+  "bukum_durdu": {
+   "n": 3,
+   "dL": 0.04
+  }
+ },
+ "kalibrasyon": [
+  {
+   "kutu": "0-0.2",
+   "n": 3,
+   "beklenen_gecis": 0.27,
+   "gozlenen_gecis": 2
+  },
+  {
+   "kutu": "0.2-0.5",
+   "n": 1,
+   "beklenen_gecis": 0.49,
+   "gozlenen_gecis": 1
+  },
+  {
+   "kutu": "0.5-0.8",
+   "n": 47,
+   "beklenen_gecis": 26.85,
+   "gozlenen_gecis": 44
+  }
+ ],
+ "R1_eksi_BW": 18.65767411223862,
+ "kirpma": {
+  "(0.01, 0.99)": 6.28,
+  "(0.05, 0.95)": 6.28
+ }
+}
