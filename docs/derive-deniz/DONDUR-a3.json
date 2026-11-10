@@ -1,0 +1,10 @@
+{
+  "aday": "A3 kilitlenme profili -> kirik ucu (cok olayli sozde-ileriye sinav)",
+  "kural_dosyasi": "docs/derive-deniz/A3-KURAL.md",
+  "kural_surumu": "2.1",
+  "kural_sha256": "2a4691cdfd604ad162adc86fe24938db1be395b3a2c7680f8d7027e0477238c7",
+  "kural_commit": "e8b9921",
+  "inceleme": "surum 1 RED, surum 2 KABUL (iki kosullu), 2.1 bes madde islendi",
+  "dondurma_zamani_utc": "2026-11-10T23:06:23Z",
+  "not": "Bu dosya donduruldugunda hicbir profil sayisallastirilmadi, hicbir FFM ucu hesaplanmadi."
+}
