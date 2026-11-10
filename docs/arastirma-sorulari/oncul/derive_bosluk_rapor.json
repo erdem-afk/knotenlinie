@@ -1,0 +1,235 @@
+{
+ "A_mekanik": {
+  "atif_toplam": 660,
+  "koken_bolge": 305,
+  "marmara": 12,
+  "oran_marmara_koken": 0.03934426229508197,
+  "marmara_isleri": [
+   [
+    2023,
+    "Daily to Centennial Behavior of Aseismic Slip Along the Central Section of the North Anatolian Fault",
+    "https://doi.org/10.1029/2022jb026018"
+   ],
+   [
+    2025,
+    "Simulation of large earthquake synchronization and implications on North Anatolian fault zone",
+    "https://doi.org/10.1016/j.tecto.2025.230902"
+   ],
+   [
+    2023,
+    "Spatio-temporal variations of seismic coupling along a transform fault: the western North Anatolian Fault Zone",
+    "https://doi.org/10.1093/gji/ggad341"
+   ],
+   [
+    2012,
+    "Interseismic deformation and creep along the central section of the North Anatolian Fault (Turkey): InSAR observations and implications for rate‐and‐state friction properties",
+    "https://doi.org/10.1029/2012jb009661"
+   ],
+   [
+    2012,
+    "Quantifying aseismic creep on the Ismetpasa segment of the North Anatolian Fault Zone (Turkey) by 6 years of GPS observations",
+    "https://doi.org/10.1016/j.jog.2012.08.002"
+   ],
+   [
+    2023,
+    "Daily to centennial behavior of aseismic slip along the central section of the North Anatolian Fault",
+    "https://doi.org/10.1002/essoar.10512815.3"
+   ],
+   [
+    2014,
+    "InSAR velocity field across the North Anatolian Fault (eastern Turkey): Implications for the loading and release of interseismic strain accumulation",
+    "https://doi.org/10.1002/2014jb011360"
+   ],
+   [
+    2025,
+    "Persistent rupture segmentation of the Main Marmara Fault",
+    "https://doi.org/10.1038/s43247-025-03007-4"
+   ],
+   [
+    2019,
+    "Magnitudes of future large earthquakes near Istanbul quantified from 1500 years of historical earthquakes, present-day microseismicity and GPS slip rates",
+    "https://doi.org/10.1016/j.tecto.2019.05.005"
+   ],
+   [
+    2020,
+    "Distribution of Interseismic Coupling Along the North and East Anatolian Faults Inferred From InSAR and GPS Data",
+    "https://doi.org/10.1029/2020gl087775"
+   ],
+   [
+    2016,
+    "Investigating viscoelastic postseismic deformation due to large earthquakes in East Anatolia, Turkey",
+    "https://doi.org/10.1016/j.jog.2016.01.002"
+   ],
+   [
+    2020,
+    "Segmentation and supercycles: A catalog of earthquake rupture patterns from the Sumatran Sunda Megathrust and other well-studied faults worldwide",
+    "https://doi.org/10.1016/j.quascirev.2020.106390"
+   ]
+  ]
+ },
+ "B_gelgit": {
+  "atif_toplam": 557,
+  "koken_bolge": 96,
+  "marmara": 1,
+  "oran_marmara_koken": 0.010416666666666666,
+  "marmara_isleri": [
+   [
+    2023,
+    "Sea Level Changes Affect Seismicity Rates in a Hydrothermal System Near Istanbul",
+    "https://doi.org/10.1029/2022gl101258"
+   ]
+  ]
+ },
+ "C_tekrar": {
+  "atif_toplam": 902,
+  "koken_bolge": 318,
+  "marmara": 11,
+  "oran_marmara_koken": 0.03459119496855346,
+  "marmara_isleri": [
+   [
+    2023,
+    "Variation of Fault Creep Along the Overdue Istanbul‐Marmara Seismic Gap in NW Türkiye",
+    "https://doi.org/10.1029/2022gl101471"
+   ],
+   [
+    2019,
+    "Repeating earthquakes and interplate coupling along the western part of the North Anatolian Fault",
+    "https://doi.org/10.1016/j.tecto.2019.228185"
+   ],
+   [
+    2009,
+    "Source Parameters for 1999 North Anatolian Fault Zone Aftershocks",
+    "https://doi.org/10.1007/s00024-009-0461-x"
+   ],
+   [
+    2006,
+    "Temporal Changes of Shallow Seismic Velocity Around the Karadere-Düzce Branch of the North Anatolian Fault and Strong Ground Motion",
+    "https://doi.org/10.1007/s00024-005-0034-6"
+   ],
+   [
+    2016,
+    "Long‐lasting seismic repeaters in the Central Basin of the Main Marmara Fault",
+    "https://doi.org/10.1002/2016gl070505"
+   ],
+   [
+    2006,
+    "Temporal Changes of Shallow Seismic Velocity Around the Karadere-Düzce Branch of the North Anatolian Fault and Strong Ground Motion",
+    "https://doi.org/10.1007/3-7643-7585-x_13"
+   ],
+   [
+    2025,
+    "Persistent rupture segmentation of the Main Marmara Fault",
+    "https://doi.org/10.1038/s43247-025-03007-4"
+   ],
+   [
+    2005,
+    "Spatiotemporal variations of crustal anisotropy from similar events in aftershocks of the 1999M7.4 İzmit andM7.1 Düzce, Turkey, earthquake sequences",
+    "https://doi.org/10.1111/j.1365-246x.2005.02569.x"
+   ],
+   [
+    2023,
+    "Observations of Repeating Earthquakes at a Single Seismic Station Near Lake Sapanca",
+    "https://doi.org/10.35414/akufemubid.1286692"
+   ],
+   [
+    2026,
+    "Deep Quake Dynamics: A Multimodal Fault‐Aware Approach to Earthquake Magnitude and Occurrence Time Forecasting",
+    "https://doi.org/10.1002/gdj3.70066"
+   ],
+   [
+    2020,
+    "Earthquake Nucleation Processes Across Different Scales and Settings",
+    "https://doi.org/10.17169/refubium-27821"
+   ]
+  ]
+ },
+ "D_kilit_kirik": {
+  "atif_toplam": 1237,
+  "koken_bolge": 842,
+  "marmara": 6,
+  "oran_marmara_koken": 0.007125890736342043,
+  "marmara_isleri": [
+   [
+    2013,
+    "An earthquake gap south of Istanbul",
+    "https://doi.org/10.1038/ncomms2999"
+   ],
+   [
+    2025,
+    "Detecting Millimetric Slow Slip Events Along the North Anatolian Fault With GNSS",
+    "https://doi.org/10.1029/2024gl111428"
+   ],
+   [
+    2016,
+    "Fault locking near Istanbul: indication of earthquake potential from InSAR and GPS observations",
+    "https://doi.org/10.1093/gji/ggw048"
+   ],
+   [
+    2019,
+    "Magnitudes of future large earthquakes near Istanbul quantified from 1500 years of historical earthquakes, present-day microseismicity and GPS slip rates",
+    "https://doi.org/10.1016/j.tecto.2019.05.005"
+   ],
+   [
+    2018,
+    "The 2014, MW6.9 North Aegean earthquake: seismic and geodetic evidence for coseismic slip on persistent asperities",
+    "https://doi.org/10.1093/gji/ggy049"
+   ],
+   [
+    2020,
+    "Distribution of Interseismic Coupling Along the North and East Anatolian Faults Inferred From InSAR and GPS Data",
+    "https://doi.org/10.1029/2020gl087775"
+   ]
+  ]
+ },
+ "E_ag_tasarim": {
+  "atif_toplam": 339,
+  "koken_bolge": 233,
+  "marmara": 3,
+  "oran_marmara_koken": 0.012875536480686695,
+  "marmara_isleri": [
+   [
+    2017,
+    "Aseismic slip and seismogenic coupling in the Marmara Sea: What can we learn from onland geodesy?",
+    "https://doi.org/10.1002/2017gl072777"
+   ],
+   [
+    2016,
+    "Apport de la géodésie fond de mer à l’évaluation de l’aléa sismique côtier : distancemétrie en mer de Marmara et simulation de GNSS/A aux Antilles",
+    "https://doi.org/10.70675/410137e5zefd9z4fcbzbf7dzb01ae1a64125"
+   ],
+   [
+    2021,
+    "Connecting subduction, extension and shear localization across the Aegean Sea and Anatolia",
+    "https://doi.org/10.1093/gji/ggab078"
+   ]
+  ]
+ },
+ "F_gerilme": {
+  "atif_toplam": 426,
+  "koken_bolge": 225,
+  "marmara": 4,
+  "oran_marmara_koken": 0.017777777777777778,
+  "marmara_isleri": [
+   [
+    2017,
+    "Variations of seismic b-value at different stages of the seismic cycle along the North Anatolian Fault Zone in northwestern Turkey",
+    "https://doi.org/10.1016/j.tecto.2017.05.028"
+   ],
+   [
+    2015,
+    "Detailed analysis of spatiotemporal variations of the stress field orientation along the Izmit-Düzce rupture in NW Turkey from inversion of first-motion polarity data",
+    "https://doi.org/10.1093/gji/ggv273"
+   ],
+   [
+    2025,
+    "Reply to: On the effects of fault alignment on slip stability",
+    "https://doi.org/10.1038/s41586-025-09118-4"
+   ],
+   [
+    2014,
+    "Seismo-mechanical reservoir characterization from fluid-induced seismicity",
+    "https://doi.org/10.17169/refubium-13531"
+   ]
+  ]
+ }
+}
