@@ -1,0 +1,118 @@
+{
+ "POZ_ETASxSINAMA": {
+  "kumeler": [
+   "ETAS_POZ",
+   "SINAMA"
+  ]
+ },
+ "POZ_ETASxMARMARA": {
+  "kumeler": [
+   "ETAS_POZ",
+   "MARMARA"
+  ]
+ },
+ "INVxMARMARA": {
+  "kumeler": [
+   "UCERF3_INV",
+   "MARMARA"
+  ]
+ },
+ "INVxSINAMA": {
+  "kumeler": [
+   "UCERF3_INV",
+   "SINAMA"
+  ]
+ },
+ "INVxMARMARAxSINAMA": {
+  "kumeler": [
+   "UCERF3_INV",
+   "MARMARA",
+   "SINAMA"
+  ]
+ },
+ "U3ETASxMARMARA": {
+  "kumeler": [
+   "UCERF3_ETAS",
+   "MARMARA"
+  ]
+ },
+ "U3ETASxSINAMA": {
+  "kumeler": [
+   "UCERF3_ETAS",
+   "SINAMA"
+  ]
+ },
+ "SUNENxMARMARA": {
+  "kumeler": [
+   "SUNEN_FAY",
+   "MARMARA"
+  ]
+ },
+ "SUNENxSINAMA": {
+  "kumeler": [
+   "SUNEN_FAY",
+   "SINAMA"
+  ]
+ },
+ "SUNENxMARMARAxSINAMA": {
+  "kumeler": [
+   "SUNEN_FAY",
+   "MARMARA",
+   "SINAMA"
+  ]
+ },
+ "HAYWARDxMARMARA": {
+  "kumeler": [
+   "HAYWARD",
+   "MARMARA"
+  ]
+ },
+ "HAYWARDxSINAMA": {
+  "kumeler": [
+   "HAYWARD",
+   "SINAMA"
+  ]
+ },
+ "CSEPCAxMARMARA": {
+  "kumeler": [
+   "CSEP_CA",
+   "MARMARA"
+  ]
+ },
+ "ONCUxMARMARA": {
+  "kumeler": [
+   "ONCU",
+   "MARMARA"
+  ]
+ },
+ "ONCUxSINAMA": {
+  "kumeler": [
+   "ONCU",
+   "SINAMA"
+  ]
+ },
+ "ONCUxU3ETAS": {
+  "kumeler": [
+   "ONCU",
+   "UCERF3_ETAS"
+  ]
+ },
+ "KARxMARMARA": {
+  "kumeler": [
+   "KARAKTERISTIK",
+   "MARMARA"
+  ]
+ },
+ "KARxSINAMA": {
+  "kumeler": [
+   "KARAKTERISTIK",
+   "SINAMA"
+  ]
+ },
+ "HIBRITxMARMARA": {
+  "kumeler": [
+   "HIBRIT",
+   "MARMARA"
+  ]
+ }
+}
