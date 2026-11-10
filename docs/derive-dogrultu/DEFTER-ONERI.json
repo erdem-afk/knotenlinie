@@ -1,0 +1,5 @@
+{"tarih":"2026-11-11","kaynak":"derive-dogrultu (T2/T3/T5)","tur":"bilgi satiri, olasilik yok, v1.3b degismez",
+ "satirlar":[
+  {"id":"T2-PIF","hukum":"H0","neden":"A kapisi: SAF'ta rho_kal -0.47, beta<0","marmara_sayisi":null},
+  {"id":"T3-kayma-ongorulebilirligi","hukum":"veri yetersiz","bilgi":{"dL_sigma025_ikiz_iki_olay":8.71,"ci90":[-0.001,17.4],"R_medyan":1.69,"R_ge1_pay":0.875},"marmara_sayisi":null},
+  {"id":"T5-tehlike-karnesi","hukum":"H0","bilgi":{"N":5,"kacirma":2,"p_binom":0.263},"marmara_sayisi":null}]}

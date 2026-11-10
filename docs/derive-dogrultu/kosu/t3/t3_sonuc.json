@@ -1,0 +1,365 @@
+{
+ "sigma_0.25": {
+  "dL": 8.706208155121928,
+  "segmentler": [
+   {
+    "seg": "Amanos",
+    "olay": "Kahramanmaras-Pazarcik-2023",
+    "blok": "KM2023",
+    "D_obs": 2.0,
+    "D_acik": 0.696,
+    "D_olcek": 7.781,
+    "R": 2.8731091350504947,
+    "lLa": -1.2133375212155,
+    "lLs": -2.317313579935207
+   },
+   {
+    "seg": "Erkenek",
+    "olay": "Kahramanmaras-Pazarcik-2023",
+    "blok": "KM2023",
+    "D_obs": 3.7,
+    "D_acik": 1.204,
+    "D_olcek": 7.781,
+    "R": 3.074264253784669,
+    "lLa": -1.4357759609304732,
+    "lLs": -0.36631746065896365
+   },
+   {
+    "seg": "Cardak",
+    "olay": "Kahramanmaras-Elbistan-2023",
+    "blok": "KM2023",
+    "D_obs": 4.7,
+    "D_acik": 3.598,
+    "D_olcek": 3.657,
+    "R": 1.3064628214037526,
+    "lLa": 0.3595276178702751,
+    "lLs": 0.37237243471766046
+   },
+   {
+    "seg": "Goksun",
+    "olay": "Kahramanmaras-Elbistan-2023",
+    "blok": "KM2023",
+    "D_obs": 4.0,
+    "D_acik": 3.598,
+    "D_olcek": 3.657,
+    "R": 1.111883252258513,
+    "lLa": 0.45038423699136276,
+    "lLs": 0.4552345319015827
+   },
+   {
+    "seg": "1839-kesimi (pembe)",
+    "olay": "Mandalay-2025",
+    "blok": "MY2025",
+    "D_obs": 3.87,
+    "D_acik": 4.278,
+    "D_olcek": 12.26,
+    "R": 0.9046283309957925,
+    "lLa": 0.45219706941288873,
+    "lLs": -1.5388884131231346
+   },
+   {
+    "seg": "1930-kesimi, 19.5K güneyi (turuncu)",
+    "olay": "Mandalay-2025",
+    "blok": "MY2025",
+    "D_obs": 2.26,
+    "D_acik": 1.9,
+    "D_olcek": 12.26,
+    "R": 1.189473684210526,
+    "lLa": 0.421929014800577,
+    "lLs": -3.8471848082762463
+   },
+   {
+    "seg": "1946-kesimi (mavi)",
+    "olay": "Mandalay-2025",
+    "blok": "MY2025",
+    "D_obs": 3.77,
+    "D_acik": 1.817,
+    "D_olcek": 12.26,
+    "R": 2.0748486516235554,
+    "lLa": -0.3364873104969155,
+    "lLs": -1.6310213553326822
+   },
+   {
+    "seg": "1956-kesimi (yeşil)",
+    "olay": "Mandalay-2025",
+    "blok": "MY2025",
+    "D_obs": 3.67,
+    "D_acik": 1.587,
+    "D_olcek": 12.26,
+    "R": 2.312539382482672,
+    "lLa": -0.5931313724326619,
+    "lLs": -1.727783730415385
+   }
+  ],
+  "boot_ikiz_tek_olay": {
+   "n_blok": 2,
+   "bloklar": {
+    "KM2023": 0.02,
+    "MY2025": 8.69
+   },
+   "ci90": [
+    0.03364489338118415,
+    17.378771416862673
+   ]
+  },
+  "boot_ikiz_iki_olay": {
+   "n_blok": 3,
+   "bloklar": {
+    "Kahramanmaras-Elbistan-2023": -0.02,
+    "Kahramanmaras-Pazarcik-2023": 0.03,
+    "Mandalay-2025": 8.69
+   },
+   "ci90": [
+    -0.000872665067013223,
+    17.41328897531087
+   ]
+  }
+ },
+ "sigma_0.15": {
+  "dL": 24.18391154200536,
+  "segmentler": [
+   {
+    "seg": "Amanos",
+    "olay": "Kahramanmaras-Pazarcik-2023",
+    "blok": "KM2023",
+    "D_obs": 2.0,
+    "D_acik": 0.696,
+    "D_olcek": 7.781,
+    "R": 2.8731091350504947,
+    "lLa": -3.690411184793007,
+    "lLs": -6.7570113479033065
+   },
+   {
+    "seg": "Erkenek",
+    "olay": "Kahramanmaras-Pazarcik-2023",
+    "blok": "KM2023",
+    "D_obs": 3.7,
+    "D_acik": 1.204,
+    "D_olcek": 7.781,
+    "R": 3.074264253784669,
+    "lLa": -4.308295739556822,
+    "lLs": -1.337577683247074
+   },
+   {
+    "seg": "Cardak",
+    "olay": "Kahramanmaras-Elbistan-2023",
+    "blok": "KM2023",
+    "D_obs": 4.7,
+    "D_acik": 3.598,
+    "D_olcek": 3.657,
+    "R": 1.3064628214037526,
+    "lLa": 0.6786586460008119,
+    "lLs": 0.7143386927991044
+   },
+   {
+    "seg": "Goksun",
+    "olay": "Kahramanmaras-Elbistan-2023",
+    "blok": "KM2023",
+    "D_obs": 4.0,
+    "D_acik": 3.598,
+    "D_olcek": 3.657,
+    "R": 1.111883252258513,
+    "lLa": 0.9310381435593887,
+    "lLs": 0.9445111849766664
+   },
+   {
+    "seg": "1839-kesimi (pembe)",
+    "olay": "Mandalay-2025",
+    "blok": "MY2025",
+    "D_obs": 3.87,
+    "D_acik": 4.278,
+    "D_olcek": 12.26,
+    "R": 0.9046283309957925,
+    "lLa": 0.9360737891747388,
+    "lLs": -4.59471921786977
+   },
+   {
+    "seg": "1930-kesimi, 19.5K güneyi (turuncu)",
+    "olay": "Mandalay-2025",
+    "blok": "MY2025",
+    "D_obs": 2.26,
+    "D_acik": 1.9,
+    "D_olcek": 12.26,
+    "R": 1.189473684210526,
+    "lLa": 0.851995859696095,
+    "lLs": -11.006653648850635
+   },
+   {
+    "seg": "1946-kesimi (mavi)",
+    "olay": "Mandalay-2025",
+    "blok": "MY2025",
+    "D_obs": 3.77,
+    "D_acik": 1.817,
+    "D_olcek": 12.26,
+    "R": 2.0748486516235554,
+    "lLa": -1.2547161550191621,
+    "lLs": -4.8506440573407374
+   },
+   {
+    "seg": "1956-kesimi (yeşil)",
+    "olay": "Mandalay-2025",
+    "blok": "MY2025",
+    "D_obs": 3.67,
+    "D_acik": 1.587,
+    "D_olcek": 12.26,
+    "R": 2.312539382482672,
+    "lLa": -1.9676163270629026,
+    "lLs": -5.1194284325704675
+   }
+  ],
+  "boot_ikiz_tek_olay": {
+   "n_blok": 2,
+   "bloklar": {
+    "KM2023": 0.05,
+    "MY2025": 24.14
+   },
+   "ci90": [
+    0.0934580371699627,
+    48.27436504684076
+   ]
+  },
+  "boot_ikiz_iki_olay": {
+   "n_blok": 3,
+   "bloklar": {
+    "Kahramanmaras-Elbistan-2023": -0.05,
+    "Kahramanmaras-Pazarcik-2023": 0.1,
+    "Mandalay-2025": 24.14
+   },
+   "ci90": [
+    -0.002424069630588832,
+    48.37024715364131
+   ]
+  }
+ },
+ "sigma_0.35": {
+  "dL": 4.441942936286698,
+  "segmentler": [
+   {
+    "seg": "Amanos",
+    "olay": "Kahramanmaras-Pazarcik-2023",
+    "blok": "KM2023",
+    "D_obs": 2.0,
+    "D_acik": 0.696,
+    "D_olcek": 7.781,
+    "R": 2.8731091350504947,
+    "lLa": -0.7266130154053407,
+    "lLs": -1.2898661065888648
+   },
+   {
+    "seg": "Erkenek",
+    "olay": "Kahramanmaras-Pazarcik-2023",
+    "blok": "KM2023",
+    "D_obs": 3.7,
+    "D_acik": 1.204,
+    "D_olcek": 7.781,
+    "R": 3.074264253784669,
+    "lLa": -0.840102015259919,
+    "lLs": -0.294459923284659
+   },
+   {
+    "seg": "Cardak",
+    "olay": "Kahramanmaras-Elbistan-2023",
+    "blok": "KM2023",
+    "D_obs": 4.7,
+    "D_acik": 3.598,
+    "D_olcek": 3.657,
+    "R": 1.3064628214037526,
+    "lLa": 0.07586919841393236,
+    "lLs": 0.08242267639729217
+   },
+   {
+    "seg": "Goksun",
+    "olay": "Kahramanmaras-Elbistan-2023",
+    "blok": "KM2023",
+    "D_obs": 4.0,
+    "D_acik": 3.598,
+    "D_olcek": 3.657,
+    "R": 1.111883252258513,
+    "lLa": 0.12222461633285453,
+    "lLs": 0.12469925659317094
+   },
+   {
+    "seg": "1839-kesimi (pembe)",
+    "olay": "Mandalay-2025",
+    "blok": "MY2025",
+    "D_obs": 3.87,
+    "D_acik": 4.278,
+    "D_olcek": 12.26,
+    "R": 0.9046283309957925,
+    "lLa": 0.12314953083363311,
+    "lLs": -0.8927104092357665
+   },
+   {
+    "seg": "1930-kesimi, 19.5K güneyi (turuncu)",
+    "olay": "Mandalay-2025",
+    "blok": "MY2025",
+    "D_obs": 2.26,
+    "D_acik": 1.9,
+    "D_olcek": 12.26,
+    "R": 1.189473684210526,
+    "lLa": 0.10770664582735168,
+    "lLs": -2.0704126516608237
+   },
+   {
+    "seg": "1946-kesimi (mavi)",
+    "olay": "Mandalay-2025",
+    "blok": "MY2025",
+    "D_obs": 3.77,
+    "D_acik": 1.817,
+    "D_olcek": 12.26,
+    "R": 2.0748486516235554,
+    "lLa": -0.2792404589162669,
+    "lLs": -0.9397170124039034
+   },
+   {
+    "seg": "1956-kesimi (yeşil)",
+    "olay": "Mandalay-2025",
+    "blok": "MY2025",
+    "D_obs": 3.67,
+    "D_acik": 1.587,
+    "D_olcek": 12.26,
+    "R": 2.312539382482672,
+    "lLa": -0.4101813068426683,
+    "lLs": -0.9890855711195679
+   }
+  ],
+  "boot_ikiz_tek_olay": {
+   "n_blok": 2,
+   "bloklar": {
+    "KM2023": 0.01,
+    "MY2025": 4.43
+   },
+   "ci90": [
+    0.017165761929175627,
+    8.866720110644222
+   ]
+  },
+  "boot_ikiz_iki_olay": {
+   "n_blok": 3,
+   "bloklar": {
+    "Kahramanmaras-Elbistan-2023": -0.01,
+    "Kahramanmaras-Pazarcik-2023": 0.02,
+    "Mandalay-2025": 4.43
+   },
+   "ci90": [
+    -0.00044523727908840627,
+    8.884331109852486
+   ]
+  }
+ },
+ "kapi": {
+  "n_segment": 8,
+  "n_bagimsiz_olay_ikiz_tek": 2,
+  "n_olay_ikiz_iki": 3,
+  "ates_ana": false,
+  "ates_ikiz_iki": true
+ },
+ "hukum_ana": "veri yetersiz",
+ "hukum_ikiz_iki_olay_bilgi": "H0",
+ "R_medyan": 1.690655736513654,
+ "R_aralik": [
+  0.9046283309957925,
+  3.074264253784669
+ ],
+ "R_ge1_pay": 0.875
+}
