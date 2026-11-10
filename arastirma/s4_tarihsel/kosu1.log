@@ -1,0 +1,13 @@
+{
+ "K1_1999_dogru_kutle": 0.9999999995630364,
+ "K3_1912_dogru_kutle": 0.2379047431162161,
+ "K4_log_fark": -2.0761170569537715e-14,
+ "kapilar": {
+  "K1": true,
+  "K2": false,
+  "K3": false,
+  "K4": true
+ },
+ "hukum": "siddet kullanilmaz; turbidit+tsunami kullanilmaz; ortak yayilim",
+ "yayilim_satiri": null
+}
