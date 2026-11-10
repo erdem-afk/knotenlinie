@@ -277,12 +277,16 @@ def main(cikti):
                     if CB[q] < t[i] + 365.25 and CB[q + 1] > t[i]:
                         msk5[k, q] = False
     out["M5_pencereleri_harici"] = dict(zip(["IG", "SE", "N"], ig_jk(n4, N0, N1, msk5)))
-    # Parkfield 2004 (ilk 90 gün, 30 km): olay kaldırılarak sayım
+    # Parkfield 2004 (ilk 90 gün, 30 km): hücre-çeyrek maskesi (M5 satırı gibi; koşu 2 düzeltmesi)
     tp = gun(datetime(2004, 9, 28, 17, 15, tzinfo=timezone.utc))
-    pk = (abs(t - tp) < 1e9) & (t >= tp) & (t < tp + 90) & (km(la, lo, 35.815, -120.374) <= 30)
-    cat_np = (t[~pk], la[~pk], lo[~pk], m[~pk])
-    n4p = sayilar(izlenen, cat_np)
-    out["parkfield2004_harici"] = dict(zip(["IG", "SE", "N"], ig_jk(n4p, N0, N1, msk)))
+    mskp = msk.copy()
+    for k, h in enumerate(izlenen):
+        c = merkez(h)
+        if km(35.815, -120.374, c[0], c[1]) <= 30:
+            for q in range(len(CEYREKLER)):
+                if CB[q] < tp + 90 and CB[q + 1] > tp:
+                    mskp[k, q] = False
+    out["parkfield2004_harici"] = dict(zip(["IG", "SE", "N"], ig_jk(n4, N0, N1, mskp)))
     n5 = sayilar(izlenen, cat, 5.0)
     out["M5_hedef"] = {"N_dogrulama": int(n5[:, DOGR].sum()),
                        "IG": ig_jk(n5, N0 * 10 ** (-b), N1 * 10 ** (-b), msk)[0] if n5[:, DOGR].sum() else None}
