@@ -35,9 +35,9 @@ Okuma: üçlü kesişimlerin hepsi 0 ya da yalnız derleme. "Sismik boşluk × s
 
 İstanbul 30 yıl aralığı: uzamsal eksen ≈%46, dal içi parametreler ≈%37 (moment dalı %14, istatistik oranı %12, Parsons σ %6). Simülatör hattında (v2.x) CMF/PIF kilitlenmesi ve ortak kırılma. CMF kayma açığı 11 ± 3 mm/yıl (Y1b); PIF karadan ölçülemiyor (Y1c). v1.7 ortak kırılma f ≈ 0,10; S1 PIF→CMF geçiş P 0,21–0,85.
 
-## Sıralı adaylar
+## Adaylar (T1–T5; sıra en altta)
 
-### 1. Olay öncesi kenetlenme haritası M7 kırığının yerini ve kaymasını gösteriyor mu? (çok olaylı, ön kayıtlı)
+### T1. Olay öncesi kenetlenme haritası M7 kırığının yerini ve kaymasını gösteriyor mu? (çok olaylı, ön kayıtlı)
 
 - **Kaynak çalışmalar:** Moreno 2010 (Maule), Loveless–Meade 2011 (Tohoku), Chlieh 2008 (Sumatra): dalma-batmada kenetlenme–kayma ilişkisi. Doğrultu atımlıda tek olaylı, geriye dönük: Carrero Mustelier–Meade 2026 (Kahramanmaraş, ESSOAr; batı %75'te korelasyon yüksek, doğu %25'te düşük), Han 2025 (DAF kayma tamamlayıcılığı, CEE), Ulrich 2026 (Mandalay, Nat Commun; kayma ve geometri olay öncesi gözlemlerden "öngörülebilirdi").
 - **Boşluk kanıtı:** kenetlenme × 2016+ olay × sınama üçlü k = 0. Var olan işlerin hepsi tek olay ve geriye dönük; ön kayıtlı, çok olaylı, log skorlu bir sınav yok.
@@ -47,7 +47,7 @@ Okuma: üçlü kesişimlerin hepsi 0 ya da yalnız derleme. "Sismik boşluk × s
 - **İstanbul M7+ beklenen katkısı:** uzamsal eksen en büyük pay (≈%46), ama N ≈ 6–8 olay, güç zayıf; ateşleme kapısı şart. v1.3b değişmez; sonuç ileri test defterine rakip olarak girer.
 - **Maliyet/süre:** 0 €, 1–2 hafta (en uzun adım: olay öncesi kenetlenme modellerini sayısal hale getirmek).
 
-### 2. Sismisite kümelenmesinden PIF kenetlenmesi: San Andreas ilişkisini Marmara'ya taşımak
+### T2. Sismisite kümelenmesinden PIF kenetlenmesi: San Andreas ilişkisini Marmara'ya taşımak
 
 - **Kaynak çalışma:** Liu, Ross, Cochran 2022 (Sci. Adv.): orta San Andreas'ta sünme hızı, kümelenmemiş deprem payıyla doğrusal orantılı (1984–2020). Benzer: Liu 2026 (Laohushan–Haiyuan, sismisite + jeodezi), Zaccagnino 2023 (Anadolu CV, nitel).
 - **Boşluk kanıtı:** kümelenme × sınama k = 0; kümelenme × Marmara k = 2 (Becker 2023 tekrarlayan depremler; Zaccagnino 2023 nitel CV haritası). San Andreas kalibrasyonunu başka faya taşıyıp kenetlenme sayısı çıkaran iş yok.
@@ -57,7 +57,7 @@ Okuma: üçlü kesişimlerin hepsi 0 ya da yalnız derleme. "Sismik boşluk × s
 - **Beklenen katkı:** v1.3b'de küçük (kayma açığı yalnız ≈%2,6 ağırlıklı moment dalında); v2.x simülatör hattında büyük (v2.2'de varyansın %96'sı CMF/PIF kilitlenmesiydi, v2.3 CMF'yi kapattı, PIF açık). **Risk:** PIF'te sismisite seyrek; ilişki az olayla belirsiz kalabilir. S3 ve S7'de sismisite tabanlı sinyaller H0 çıktı.
 - **Maliyet/süre:** 0 €, 3–5 gün. En ucuz aday, önce sentetik/çapraz fay kontrolüyle kapıdan geçer.
 
-### 3. Kayma öngörülebilirliği (slip-predictable) çok olaylı sınavı → bir sonraki Marmara kırığının büyüklüğü
+### T3. Kayma öngörülebilirliği (slip-predictable) çok olaylı sınavı → bir sonraki Marmara kırığının büyüklüğü
 
 - **Kaynak çalışmalar:** Vavra, Fialko, Bulut 2025 (CEE): Kahramanmaraş "gevşek kayma öngörülebilir", eş-sismik kayma son depremden beri biriken açığa eşit ya da büyük. Ulrich 2026 (Mandalay): "asgari kayma öngörülebilir". Shimazaki–Nakata 1980. Paleosismik: Hope fayı Conway (2019), Alpine.
 - **Boşluk kanıtı:** kayma öngörülebilirliği × 2016+ olay k = 9; hepsi tek olay ya da paleosismik. Yöntemi aynı kuralla birden çok olaya uygulayan ve uzunluk ölçekli büyüklük kestirimiyle yarıştıran iş bulunamadı.
@@ -67,7 +67,7 @@ Okuma: üçlü kesişimlerin hepsi 0 ya da yalnız derleme. "Sismik boşluk × s
 - **Beklenen katkı:** moment dalı İstanbul aralığının ≈%14'ü ama v1.3b'de ağırlığı 0,05; etki küçük-orta. v2.x ve Mw dağılımı için orta.
 - **Maliyet/süre:** 0 €, 4–6 gün.
 
-### 4. Sünen kesim kırığı durdurur mu? Ganos–CMF–PIF ortak kırılması
+### T4. Sünen kesim kırığı durdurur mu? Ganos–CMF–PIF ortak kırılması
 
 - **Kaynak çalışmalar:** Harris 2017 (Rev. Geophys., büyük depremler ve sünen faylar), Kaneko 2010, Noda–Lapusta 2013 (sünen kesim dinamik zayıflamayla kırılabilir), Rolandone 2018. Analoglar: Parkfield (1857 ve 1966/2004 uçları), Haiyuan 1920 batı ucu ve Laohushan sünmesi, İsmetpaşa (1943/1944/1951), Chaman, Hayward.
 - **Boşluk kanıtı:** sünme × sıçrama k 83, J 0,035 (nitel bilgi iyi biliniyor, 10 Kasım'da da "boşluk değil" diye yazılmıştı); ama sünme × sıçrama × sınama k = 0. Sünme oranına bağlı sayısal geçiş olasılığını çok olayda sınayan iş yok. Marmara'ya özel dinamik/simülatör çalışmaları var: Aochi–Ulrich 2015, Güvercin–Barbot 2025 (MMF'de kalıcı segmentasyon, 10.000 yıl), Osei-Tutu 2026 (Adalar çek-ayır havzası, EGU özeti).
@@ -77,7 +77,7 @@ Okuma: üçlü kesişimlerin hepsi 0 ya da yalnız derleme. "Sismik boşluk × s
 - **Beklenen katkı:** ortak kırılma payı ve Mw üst kuyruğu; v1.3b'de küçük, v2.x ve v1.7'de orta.
 - **Maliyet/süre:** 0 €, 3–5 gün.
 
-### 5. Olay öncesi tehlike modellerinin çok-faylı kırılma karnesi
+### T5. Olay öncesi tehlike modellerinin çok-faylı kırılma karnesi
 
 - **Kaynak çalışmalar:** Kaikōura (21 fay; NZ NSHM 2010), Kahramanmaraş (ESHM13/TBDY 2018 segmentleri; Wang–Barbot 2024, Hara–Toda 2026), Mandalay 2025 ("değişken segmentasyon", 2025), Palu, Maduo. NZ'de segmentli ve çok-faylı model kıyası (2023).
 - **Boşluk kanıtı:** UCERF3 × 2016+ olay × sınama k = 2, ikisi de derleme. 2016+ büyük doğrultu atımlı depremlerde olay öncesi ulusal modellerin gerçek kırığı (uzunluk, Mw) kendi senaryo kümesinde içerip içermediğini sistematik puanlayan karne bulunamadı.
@@ -94,9 +94,15 @@ Okuma: üçlü kesişimlerin hepsi 0 ya da yalnız derleme. "Sismik boşluk × s
 - **Fay olgunluğu → kırık uzunluğu (Hutchison, Böse, Manighetti 2020):** erken uyarı için, ileri tahmin değil; Marmara'da olgunluk ölçüsü tek değer, segment ayrımı vermez.
 - **Viskoelastik kenetlenme (Guo 2026), gevşeme:** K10 kapalı.
 
+## Diğer derive kollarıyla örtüşme (panel #derive, 10 Kasım gece)
+
+- **T1 ve T4, deniz tabanı kolunun 3. adayıyla aynı soru** ("kilitlenme haritaları kırığın nerede duracağını önceden söyledi mi", Kahramanmaraş için Blétery 2020 dahil). Ayrı iş açılmamalı; tek ön kayıtta birleşmeli. Bu kolun katkısı: doğrultu atımlı olay listesi (Mandalay 2025, Palu, Kaikōura, Maduo, Elazığ), 2025–2026 öncülleri (Carrero Mustelier–Meade 2026, Han 2025, Ulrich 2026) ve sünen kesim uçları (Parkfield, Haiyuan 1920, İsmetpaşa, Chaman) ile N'yi büyütmek; ayrıca "kırık nerede durur"un yanına "kayma nerede yoğunlaşır" satırı.
+- **T2 ve deniz tabanı kolunun 5. adayı (gelgit duyarlılığı)** ikisi de PIF için sismisite vekili; aynı Türkiye ≤2025 katalog kurulumunu paylaşabilir.
+- **T3 ve yöntem kolunun D3'ü (LTFM)** ikisi de "CMF'de 1766'dan beri biriken" yükü kullanır; T3 büyüklüğü, D3 zamanlamayı sorar. Çakışma yok.
+
 ## Önerilen sıra
 
-2 (en ucuz, PIF'e doğrudan) ve 1 (en büyük pay) paralel; 3 ve 4 sonra, 4 S1 sonuçlarıyla birlikte; 5 boşta. Her biri ön kayıtla başlar, sonuç ileri test defterine rakip olarak girer, v1.3b değişmez.
+1. **T2** (en ucuz, PIF'e jeodezi dışı tek sayısal yol), 2. **T3** (bir sonraki CMF/PIF kırığının Mw'si; çok olaylı sınav yok), 3. **T1+T4**, deniz tabanı kolu 3 ile birleşik tek iş, 4. **T5** boşta. Her biri ön kayıtla başlar, sonuç ileri test defterine rakip olarak girer, v1.3b değişmez.
 
 ## Sınırlar
 
