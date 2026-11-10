@@ -1,0 +1,222 @@
+[
+ {
+  "id": "W7225267579",
+  "soru": "S1",
+  "yil": 2026,
+  "baslik": "Retrospective assessment of rupture propagation probability in the 2023 Kahramanmaraş, Türkiye, earthquake considering multiple fault paths",
+  "yazar": "Yuki Hara, Shinji Toda",
+  "kaynak": "Earth Planets and Space",
+  "doi": "https://doi.org/10.1186/s40623-026-02567-9",
+  "atif": 0,
+  "ozet": "Coseismic rupture length is a key parameter for predicting earthquake magnitude and strong ground motion. In contrast to the conventional assumption of fault segmentation, multi-segment earthquakes and partially ruptured earthquakes occur. Therefore, a probabilistic approach to evaluating rupture propagation plays a crucial role in hazard assessment. Some empirical studies have proposed rupture propagation probability at the fault complex and an associated method for calculating the final rupture length probability. However, in this context, case studies on actual surface rupture and objective validation are relatively limited. Here, we developed a semi-automatic method for measuring fault geometry and extracting possible rupture paths and applied it to the 2023 Kahramanmaraş earthquake sequence. The results showed that the area with relatively high rupture probabilities calculated for the Mw 7.8 Pazarcık earthquake was more extensive than the corresponding area obtained assuming rupture initiation from other segments. The actual fault rupture tends to follow the path with the least geometrical penalty. However, this cannot always be confirmed to be the case, potentially because of the uncertainty around the subsurface structure or the inherent limitation of the trace dataset used in the geometrical approach. During the Mw 7.5 Elbistan earthquake, the rupture propagated to the Doğanşehir fault, bypassing the geometrically advantageous Sürgü fault. This could be explained by the insufficient stress accumulated at the Sürgü fault, which may have forced the rupture to shift direction. These findings highlight the importance of incorporating geological parameters related to stress accumulation into a geometrical method. To explore the effect of these geological factors, we incorporated the normalized elapsed time since the last earthquake, which serves as a proxy for stress conditions and fault activity history. As a result, we find a significant probability decrease at the Pütürge segment for eastward propagation when recent stress release is considered. For westward rupture propagation, results for different assumed event times suggest that stress accumulation since before 1822 supports the long-distance rupture observed in 2023. This approach has a potential to enhance our understanding of rupture propagation paths in seismic hazard assessment."
+ },
+ {
+  "id": "W2583791910",
+  "soru": "S1",
+  "yil": 2017,
+  "baslik": "Large earthquakes and creeping faults",
+  "yazar": "Ruth A. Harris",
+  "kaynak": "Reviews of Geophysics",
+  "doi": "https://doi.org/10.1002/2016rg000539",
+  "atif": 315,
+  "ozet": "Abstract Faults are ubiquitous throughout the Earth's crust. The majority are silent for decades to centuries, until they suddenly rupture and produce earthquakes. With a focus on shallow continental active‐tectonic regions, this paper reviews a subset of faults that have a different behavior. These unusual faults slowly creep for long periods of time and produce many small earthquakes. The presence of fault creep and the related microseismicity helps illuminate faults that might not otherwise be located in fine detail, but there is also the question of how creeping faults contribute to seismic hazard. It appears that well‐recorded creeping fault earthquakes of up to magnitude 6.6 that have occurred in shallow continental regions produce similar fault‐surface rupture areas and similar peak ground shaking as their locked fault counterparts of the same earthquake magnitude. The behavior of much larger earthquakes on shallow creeping continental faults is less well known, because there is a dearth of comprehensive observations. Computational simulations provide an opportunity to fill the gaps in our understanding, particularly of the dynamic processes that occur during large earthquake rupture and arrest."
+ },
+ {
+  "id": "W4382751498",
+  "soru": "S1",
+  "yil": 2023,
+  "baslik": "Evaluating how well active fault mapping predicts earthquake surface-rupture locations",
+  "yazar": "Chelsea Scott, Rachel Adam, J Ramón Arrowsmith, Christopher Madugo",
+  "kaynak": "Geosphere",
+  "doi": "https://doi.org/10.1130/ges02611.1",
+  "atif": 16,
+  "ozet": "Abstract Earthquake surface-fault rupture location uncertainty is a key factor in fault displacement hazard analysis and informs hazard and risk mitigation strategies. Geologists often predict future rupture locations from fault mapping based on the geomorphology interpreted from remote-sensing data sets. However, surface processes can obscure fault location, fault traces may be mapped in error, and a future rupture may not break every fault trace. We assessed how well geomorphology-based fault mapping predicted surface ruptures for seven earthquakes: 1983 M 6.9 Borah Peak, 2004 M 6.0 Parkfield, 2010 M 7.2 El Mayor–Cucapah, 2011 M 6.7 Fukushima-Hamadori, 2014 M 6.0 South Napa, 2016 M 7.8 Kaikoura, and 2016 M 7 Kumamoto. We trained geoscience students to produce active fault maps using topography and imagery acquired before the earthquakes. A geologic professional completed a “control” map. Mappers used a new “geomorphic indicator ranking” approach to rank fault confidence based on geomorphologic landforms. We determined the accuracy of the mapped faults by comparing the fault maps to published rupture maps. We defined predicted ruptures as ruptures near a fault (50–200 m, depending on the fault confidence) that interacted with the landscape in a similar way to the fault. The mapped faults predicted between 12% to 68% of the principal rupture length for the studied earthquakes. The median separation distances between predicted ruptures and strong, distinct, or weak faults were 15–30 m. Our work highlights that mapping future fault ruptures is an underappreciated challenge of fault displacement hazard analysis—even for experts—with implications for risk management, engineering site assessments, and fault exclusion zones."
+ },
+ {
+  "id": "W4403448329",
+  "soru": "S1",
+  "yil": 2024,
+  "baslik": "The Influence of Fault Geometrical Complexity on Surface Rupture Length",
+  "yazar": "Alba Mar Rodriguez Padilla, M. E. Oskin, E. E. Brodsky, Kélian Dascher-Cousineau",
+  "kaynak": "Geophysical Research Letters",
+  "doi": "https://doi.org/10.1029/2024gl109957",
+  "atif": 35,
+  "ozet": "Abstract Propagating earthquakes must overcome geometrical complexity on fault networks to grow into large, surface rupturing events. We map step‐overs, bends, gaps, splays, and strands of length scales ∼100–500 m from the surface ruptures of 31 strike‐slip earthquakes, recording whether ruptures propagated past the feature. We find that step‐overs and bends can arrest rupture and develop a statistical model for passing probability as a function of geometry for each group. Step‐overs wider than 1.2 km, single bends larger than 32°, and double bends larger than 38° are breached by rupture half of the time. ∼20% of the ruptures terminate on straight segments. We examine how the distribution of geometrical complexity influences surface rupture length, inferring an exponential relationship between rupture length and event probability. Our findings support that geometrical complexity helps limit the size of large events and provide insights into the competition between energy supply and dissipation during rupture propagation."
+ },
+ {
+  "id": "W7214972684",
+  "soru": "S2",
+  "yil": 2026,
+  "baslik": "Machine Learning–based Earthquake Probability Prediction for Istanbul Province",
+  "yazar": "Melih KARAGÖZ, Gizem Korkmaz, Ceren Özmen, Turgut Pura",
+  "kaynak": "International Journal of New Findings in Engineering Science and Technology",
+  "doi": "https://doi.org/10.61150/ijonfest.1860675",
+  "atif": 0,
+  "ozet": "Earthquakes represent one of the most destructive natural hazards, causing severe social and economic losses, particularly in tectonically active regions. In this context, estimating the short-term probability of earthquake occurrence is of critical importance for disaster preparedness and risk mitigation. This study focuses on Istanbul province, located along the North Anatolian Fault Zone in the Marmara Region, which is considered one of the most seismically active areas in Türkiye. The dataset used in this study consists of 633 earthquake events recorded between 2003 and 2025, compiled from the Disaster and Emergency Management Authority (AFAD), United States Geological Survey (USGS), and SeismicPortal catalogs. Machine learning approaches were applied to estimate whether earthquakes with magnitudes of M ≥ 3.5 could occur within a seven-day forecasting horizon. Three models—Random Forest (RF), Support Vector Machines (SVM), and Long Short-Term Memory (LSTM)—were trained and evaluated using several performance metrics, including MAE, RMSE, and R². Due to the imbalanced nature of the dataset, classification-based metrics such as ROC-AUC and F1-score were also evaluated to provide a more reliable assessment of model performance. The comparative analysis shows that ensemble-based models provide more stable predictive performance in short-term seismic forecasting tasks. The results demonstrate that machine learning–based probabilistic modeling can provide meaningful insights for short-term earthquake risk assessment and may support decision-making processes in disaster management and early warning systems."
+ },
+ {
+  "id": "W7167517311",
+  "soru": "S2",
+  "yil": 2026,
+  "baslik": "Leakage-audited machine learning versus ETAS for earthquake forecasting in the Sea of Marmara",
+  "yazar": "Basri Kerem Alhan, Kenessary Khabat",
+  "kaynak": null,
+  "doi": "https://doi.org/10.31223/x5w78x",
+  "atif": 0,
+  "ozet": "The Sea of Marmara hosts a seismic gap directly beneath a metropolitan region of some 18 million people, and the 23 April 2025 Mw 6.2 Kumburgaz earthquake renewed attention on whether short-term forecasting can add value there. We report a leakage-audited forecasting experiment built on a strictly causal, homogenized KOERI catalogue (31,329 model-box events, 2003–2026). Motivated by the finding that machine-learning models rarely beat the Epidemic-Type Aftershock Sequence (ETAS) model, we designed the benchmark around a machine-checkable causality gate — a truncated-catalogue self-test that recomputes every feature from a catalogue truncated to the forecast time and requires exact reproduction. Within this design we (i) replaced first-generation ETAS with a conditional cascade Monte-Carlo forecaster, which ranks best on M≥3.5/30-day targets (precision–recall AUC 0.130 vs 0.126 for first -generation ETAS) and produces roughly 1.8× more offspring inside active sequences; (ii) built an ETAS×ML hybrid that by construction cannot lose to the cascade but does not beat a properly-fit ETAS in information gain (−0.38 nats per event); (iii) trained a conditional \"bigger-event-ahead\" discriminator on renewal-timed synthetic sequences, which ranks the escalating 2025 Sındırgı sequence far above the decaying Kumburgaz sequence; and (iv) introduced an information-arrival analysis — a general procedure that freezes the forecast at successive lead times and measures when, and through which observable, a target event first becomes visible above the background hazard. Applied to the 2025 Marmara events, it shows that spatial localization is available far in advance (the 23 April Mw 6.2 fault cell was the top ~1% seismicity cell throughout the preceding year) while the specific timing is bounded by foreshock physics: that event's cell was quiescent, and only the lone M4.5 foreshock lifted the 30-day M≥6 probability gain to 42×, ten minutes before the mainshock. We report all negative results (machine learning ≤ ETAS on rare targets, a null short-term aftershock-incompleteness correction, no measurable gain from static GNSS strain, and a spatial-coverage miss for the out-of-box Sındırgı sequence). The system issues probability *gain*, not alarms; the live 30-day regional M≥6 probability at 2026-07-05 is a fraction of a percent, the same order as the Poisson base rate."
+ },
+ {
+  "id": "W7214280204",
+  "soru": "S2",
+  "yil": 2026,
+  "baslik": "How much of a regional Coulomb stress map survives its own uncertainty? An audit with forecast-skill validation for Türkiye",
+  "yazar": "Mehmet Sait Vural",
+  "kaynak": null,
+  "doi": "https://doi.org/10.5194/egusphere-2026-5171",
+  "atif": 0,
+  "ozet": "Abstract. Static Coulomb stress transfer is increasingly automated over open catalogues and fault databases rather than built by hand for single events. We ask how much of such a result survives its own inputs. For Türkiye we resolve the stress imparted by 46 Mw ≥ 6 earthquakes between 1990 and 2026 onto 6,970 sub-segments of the mapped active-fault network, screening each across 25 parameter combinations. Three silent failure modes emerge. First, 44 records of the GEM Global Active Faults Database store a central rake 180° from the circular midpoint of their own bounds; all lie in two source compilations, one being the principal North Anatolian Fault strand south of Istanbul, where it reverses the stress change from −0.029 to +0.251 MPa. Second, anchoring ruptures on catalogue centroids rather than mapped traces displaces them by a median of 18.4 km; across 27 testable events this flips the sign on a median of 11.9 % of segments against 2.0 % for a rake ±15° and dip ±10° perturbation, and is the larger of the two in 20 of them. Third, sign stability rises from 74.3 % to 89.5 % between 1 and 50 kPa. A pseudo-prospective test against subsequent seismicity gives a segment-weighted AUC of 0.711 for Mw < 7 sources, but clustering leaves an effective sample of 42, one event supplies 38 % of it, an event-equal estimate gives 0.589 ± 0.112, and distance matching leaves 0.655 with an interval spanning 0.5. Screening improves the estimate by +0.016 (95 % paired bootstrap [+0.001, +0.051]; one-sided p = 0.020). The forecast evidence is suggestive rather than strong; the two input-integrity findings do not depend on it. Coulomb maps should be published with an explicit statement of which parts are interpretable."
+ },
+ {
+  "id": "W2320573072",
+  "soru": "S2",
+  "yil": 2016,
+  "baslik": "M ≥ 7 earthquake rupture forecast and time‐dependent probability for the sea of Marmara region, Turkey",
+  "yazar": "Maura Murru, Aybige Akıncı, Giuseppe Falcone, S. Pucci",
+  "kaynak": "Journal of Geophysical Research Solid Earth",
+  "doi": "https://doi.org/10.1002/2015jb012595",
+  "atif": 71,
+  "ozet": "Abstract We forecast time‐independent and time‐dependent earthquake ruptures in the Marmara region of Turkey for the next 30 years using a new fault segmentation model. We also augment time‐dependent Brownian passage time (BPT) probability with static Coulomb stress changes (ΔCFF) from interacting faults. We calculateMw > 6.5 probability from 26 individual fault sources in the Marmara region. We also consider a multisegment rupture model that allows higher‐magnitude ruptures over some segments of the northern branch of the North Anatolian Fault Zone beneath the Marmara Sea. A total of 10 differentMw = 7.0 toMw = 8.0 multisegment ruptures are combined with the other regional faults at rates that balance the overall moment accumulation. We use Gaussian random distributions to treat parameter uncertainties (e.g., aperiodicity, maximum expected magnitude, slip rate, and consequently mean recurrence time) of the statistical distributions associated with each fault source. We then estimate uncertainties of the 30 year probability values for the next characteristic event obtained from three different models (Poisson, BPT, and BPT + ΔCFF) using a Monte Carlo procedure. The Gerede fault segment located at the eastern end of the Marmara region shows the highest 30 year probability, with a Poisson value of 29% and a time‐dependent interaction probability of 48%. We find an aggregated 30 year Poisson probability ofM > 7.3 earthquakes at Istanbul of 35%, which increases to 47% if time dependence and stress transfer are considered. We calculate a twofold probability gain (ratio time dependent to time independent) on the southern strands of the North Anatolian Fault Zone."
+ },
+ {
+  "id": "W3008163789",
+  "soru": "S2",
+  "yil": 2020,
+  "baslik": "Earthquake Forecast Verification for Northwestern Turkey",
+  "yazar": "Hakan Karaca",
+  "kaynak": "International Journal of Advances in Engineering and Pure Sciences",
+  "doi": "https://doi.org/10.7240/jeps.526906",
+  "atif": 0,
+  "ozet": "Seismic events have a pattern of recurrence in magnitude, time and space. Considerable effort is being spent to identify seismic patterns and successfully predict future earthquakes by using the recognized patterns. As a result of these intensive efforts, a variety of methods has been proposed. As the knowledge and experience in the field accumulated in parallel to the variety of the methods proposed, it was deemed necessary to test the performance of some of the highlighted methods, especially considering the wide reception of methods utilizing spatially smoothed seismicity (SSS), pattern informatics (PI) and Relative Intensity (RI). The performance of these methods in the prediction of future earthquakes has been selected for investigation. The investigated area is the region bounded by 270-330 in longitudes and 39.80-410 in latitudes, well known for the North Anatolian Fault. The period of coverage has been selected such as to maximize the length with the minimum magnitude of completeness. As a result of such optimization, the period from 1973 to 2019 has been selected with minimum magnitude of completeness being determined as 3.8. In order to measure the relative performance of the methods, relative operating characteristic (ROC) analysis has been utilized. The method based on SSS has been adapted to the related ROC procedures, while the results of PI and RI methods are already suitable for the evaluation by ROC procedures. After the analysis was completed, according to the ROC procedures, none of the methods were singled out in forecast performance. However, when the ratio of hits versus total alarms and the area covered by the alarms, PI method outperforms two other methods by its efficiency."
+ },
+ {
+  "id": "W2070692615",
+  "soru": "S2",
+  "yil": 2014,
+  "baslik": "Forecasting seismicity rates in western Turkey as inferred from earthquake catalog and stressing history",
+  "yazar": "Konstantinos Leptokaropoulos, Eleftheria E. Papadimitriou, Beata Orlecka‐Sikora, V. Karakostas",
+  "kaynak": "Natural Hazards",
+  "doi": "https://doi.org/10.1007/s11069-014-1181-9",
+  "atif": 5,
+  "ozet": "The spatio-temporal variation in seismicity in western Turkey since the late 1970s is investigated through a rate/state model, which considers the stressing history to forecast the reference seismicity rate evolution. The basic catalog was divided according to specific criteria into four subsets, which correspond to areas exhibiting almost identical seismotectonic features. Completeness magnitude and reference seismicity rates are individually calculated for each subset. The forecasting periods are selected to be the inter-seismic time intervals between successive strong (M ≥ 5.8) earthquakes. The Coulomb stress changes associated with their coseismic slip are considered, along with the constant stressing rate to alter the rates of earthquake production. These rates are expressed by a probability density function and smoothed over the study area with different degrees of smoothing. The influence of the rate/state parameters in the model efficiency is explored by evaluating the Pearson linear correlation coefficient between simulated and observed earthquake occurrence rates along with its 95 % confidence limits. Application of different parameter values is attempted for the sensitivity of the calculated seismicity rates and their fit to the real data to be tested. Despite the ambiguities and the difficulties involved in the experimental parameter value determination, the results demonstrate that the present formulation and the available datasets are sufficient enough to contribute to seismic hazard assessment starting from a point such far back in time."
+ },
+ {
+  "id": "W2767368244",
+  "soru": "S3",
+  "yil": 2017,
+  "baslik": "Connecting depth limits of interseismic locking, microseismicity, and large earthquakes in models of long‐term fault slip",
+  "yazar": "Junle Jiang, N. Lapusta",
+  "kaynak": "Journal of Geophysical Research Solid Earth",
+  "doi": "https://doi.org/10.1002/2017jb014030",
+  "atif": 48,
+  "ozet": "Abstract Thickness of the seismogenic zone is commonly determined based on the depth of microseismicity or the fault locking depth inferred from geodetic observations. The relation between the two estimates and their connection to the depth limit of large earthquakes remain elusive. Here we explore the seismic and geodetic observables in models of faults governed by laboratory‐based friction laws that combine quasi‐static rate‐and‐state friction and enhanced dynamic weakening. Our models suggest that the transition between the locked and fully creeping regions can occur over a broad depth range. The effective locking depth, D elock , associated with concentrated loading and promoting microseismicity, is located at the top of this transition zone; the geodetic locking depth, D glock , inverted from surface geodetic observations, corresponds to the depth of fault creeping with approximately half of the long‐term rate. Following large earthquakes, D elock either stays unchanged or becomes shallower due to creep penetrating into the shallower locked areas, whereas D glock deepens as the slip deficit region expands, compensating for the afterslip. As the result, the two locking depths diverge in the late interseismic period, consistent with available seismic and geodetic observations from several major fault segments in Southern California. We find that D glock provides a bound on the depth limit of large earthquakes in our models. However, the assumed layered distribution of fault friction and simple depth estimates are insufficient to characterize more heterogeneous faults, e.g., ones with significant along‐strike variations. Improved observations and models are needed to illuminate physical properties and seismic potential of fault zones."
+ },
+ {
+  "id": "W7122818208",
+  "soru": "S3",
+  "yil": 2026,
+  "baslik": "Background Seismicity Highlights Tectonic Asperities",
+  "yazar": "Alexey A. Ostapchuk, Ilmir Nugmanov",
+  "kaynak": "Geosciences",
+  "doi": "https://doi.org/10.3390/geosciences16010038",
+  "atif": 5,
+  "ozet": "The heterogeneity of a tectonic fault interface controls both the spatial features of seismicity and the locations of the foci of shallow earthquakes. Strong earthquakes are associated with ruptures of asperities. We present the Seismogenic Patches Detection (SPAD) algorithm to analyze background seismicity to reveal tectonic asperities. In the first stage, the algorithm detects background seismicity based on the nearest-neighbor method. In the second stage, fuzzy clustering of the background mode is performed. Dense clusters of background seismicity, called seismogenic patches, can be interpreted as tectonic asperities. The SPAD algorithm does not use a priori data about the localizations of strong earthquakes. Using SPAD, we analyzed the seismicity of the Kamchatka segment of the Kuril–Kamchatka subduction zone for the period from 1 January 1990 to 23 September 2025. The Kamchatka regional seismic catalog includes 39,104 events, and the magnitude of completeness Mc equals 3.0. We have identified seven seismogenic patches with a size of 170–270 km. Seismogenic patches correlate with the tectonic asperity determined by the maps of the slip distributions for the four largest earthquakes—Mw7.5 (8 June 1993), Mw7.8 (5 December 1997), Mw8.8 (30 July 2025), and Mw7.8 (13 September 2025)."
+ },
+ {
+  "id": "W3160090175",
+  "soru": "kesisim",
+  "yil": 2021,
+  "baslik": "Rupture Passing Probabilities at Fault Bends and Steps, with Application to Rupture Length Probabilities for Earthquake Early Warning",
+  "yazar": "Glenn P. Biasi, Steven G. Wesnousky",
+  "kaynak": "Bulletin of the Seismological Society of America",
+  "doi": "https://doi.org/10.1785/0120200370",
+  "atif": 28,
+  "ozet": "ABSTRACT Earthquake early warning (EEW) systems can quickly identify the beginning of a significant earthquake rupture, but the first seconds of seismic data have not been found to predict the final rupture length. We present two approaches for estimating probabilities of rupture length given the rupture initiation from an EEW system. In the first approach, bends and steps on the fault are interpreted as physical mechanisms for rupture arrest. Arrest probability relations are developed from empirical observations and depend on bend angle and step size. Probability of arrest compounds serially with increasing rupture length as bends or steps are encountered. In the second approach, time-independent rates among ruptures from the Uniform California Earthquake Rupture Forecast, Version 3 (UCERF3), are interpreted to apply to the time-dependent condition in which rupture grows from a known starting point. Length probabilities from a Gutenberg–Richter magnitude–frequency relation provide a reference of comparison. We illustrate the new approach using the discretized fault model for California developed for UCERF3. For the case of rupture initiating on the southeast end of the San Andreas fault we find the geometric complexity of the Mill Creek section impedes most ruptures, and only ∼5% are predicted to reach to San Bernardino on the eastern edge of the greater Los Angeles region. Conditional probabilities of length can be precompiled in this manner for any initiation point on the fault system and thus are of potential value in seismic hazard and EEW applications."
+ },
+ {
+  "id": "W7143369300",
+  "soru": "kesisim",
+  "yil": 2026,
+  "baslik": "A Rate‐and‐State Friction Based Criterion for the Probability of Earthquake Fault Jumps",
+  "yazar": "Sylvain Michel, Oona Scotti, Sébastien Hok, Harsha S. Bhat",
+  "kaynak": "Journal of Geophysical Research Solid Earth",
+  "doi": "https://doi.org/10.1029/2025jb031449",
+  "atif": 3,
+  "ozet": "Abstract Geometrical complexities in natural fault zones, such as steps and gaps, pose a challenge in seismic hazard studies as they can act as obstacles to seismic ruptures. In this study, we propose a criterion, which is based on the rate‐and‐state equation, to estimate the efficiency of an earthquake rupture to jump between two spatially disconnected faults. The proposed jump criterion is tested using a 2D quasi‐dynamic numerical simulations of the seismic cycle. The criterion successfully predicts fault jumps where the simpler Coulomb stress change calculation fails to do so. The criterion includes the Coulomb stress change as a parameter but is also dependent on other important parameters among which is the absolute normal stress on the fault the rupture jumps to. Based on the criterion, the maximum jump distance increases with decreasing absolute normal stress, that is, as the rupture process occurs closer to the Earth's surface or as pore pressure increases. The criterion implies that earthquakes can jump to arbitrary large distances at the Earth's surface if the normal stress is allowed to go to zero, underscoring the potential for large jump distances (i.e., >5 km). We further propose a probabilistic framework to estimate the likelihood of rupture jumps by accounting for uncertainties in fault geometry and earthquake source parameters. Additionally to its role into seismic hazard assessment, this criterion could complement Coulomb stress change maps with those of triggered slip‐rates on receiver faults due to quasi‐instantaneous stress perturbations, as well as estimates of jump probabilities accounting for parameter uncertainties."
+ },
+ {
+  "id": "W4390910265",
+  "soru": "kesisim",
+  "yil": 2024,
+  "baslik": "The Role of Stress Transfer in Rupture Nucleation and Inhibition in the 2023 Kahramanmaraş, Türkiye, Sequence, and a One-Year Earthquake Forecast",
+  "yazar": "Shinji Toda, Ross S. Stein",
+  "kaynak": "Seismological Research Letters",
+  "doi": "https://doi.org/10.1785/0220230252",
+  "atif": 25,
+  "ozet": "Abstract We probe the interaction of large earthquakes on the East Anatolian fault zone, site of four Mw ≥ 6.8 events since 2020. We find that the 2023 Mw 7.8 Pazarcık shock promoted the Mw 7.7 Elbistan earthquake 9 hr later, largely through unclamping of the epicentral patch of the future rupture. Epicentral unclamping is also documented in the 1987 Superstition Hills, 1997 Kagoshima, and 2019 Ridgecrest sequences, so this may be common. The Mw 7.7 Elbistan earthquake, in turn, is calculated to have reduced the shear stress on the central Pazarcık rupture, producing a decrease in the aftershock rate along that section of the rupture. Nevertheless, the Mw 7.7 event ruptured through a Çardak fault section on which the shear stress was decreased by the Mw 7.8 rupture, and so rupture propagation was not halted by the static stress decrease. The 2020 Mw 6.8 Doğanyol–Sivrice earthquake, located beyond the northeast tip of the Mw 7.8 Pazarcık rupture, locally dropped the stress by ∼10 bars. The 2023 Mw 7.8 earthquake then increased the stress there by 1–2 bar, leaving a net stress drop, resulting in a hole in the 2023 Pazarcık aftershocks. We find that many lobes of calculated stress increase caused by the 2020–2023 Mw 6.8–7.8 earthquakes are sites of aftershocks, and we calculate 5–10 faults in several locations off the ruptures brought closer to failure. The earthquakes also cast broad stress shadows in which most faults were brought farther from failure, and we observe the beginnings of seismicity rate decreases in some of the deepest stress shadows. Some 41 Mw ≥ 5 aftershocks have struck since the Mw 7.8 mainshock. But based on these Coulomb interactions and on the rapid Kahramanmaraş aftershock decay, we forecast only about 1–3 Mw ≥ 5 earthquakes during the 12–month period beginning 1 December 2023, which is fortunately quite low."
+ },
+ {
+  "id": "W4402825052",
+  "soru": "kesisim",
+  "yil": 2024,
+  "baslik": "Conditional earthquake probabilities along the North Anatolian fault zone based on inverse Gaussian against lognormal distribution",
+  "yazar": "Murat Nas, Yusuf Bayrak, Eleni Mpapka, Θεόδωρος Μ. Τσάπανος",
+  "kaynak": "Journal of Seismology",
+  "doi": "https://doi.org/10.1007/s10950-024-10244-1",
+  "atif": 2,
+  "ozet": ""
+ },
+ {
+  "id": "W7204259193",
+  "soru": "kesisim",
+  "yil": 2026,
+  "baslik": "Fifty-year seismicity analysis of the East Anatolian Fault System (1976–2026): leakage-safe probabilistic forecasting for seismic-risk resilience",
+  "yazar": "Mehmet Tevfik AĞDAŞ",
+  "kaynak": "Research Square",
+  "doi": "https://doi.org/10.21203/rs.3.rs-10650673/v1",
+  "atif": 0,
+  "ozet": "Abstract Background The East Anatolian Fault System (EAFS) has experienced pronounced changes in seismicity rate, catalog sensitivity, and sequence behavior over five decades. We aimed to characterize this 1976–2026 record and test whether historical seismicity supports reproducible short-term fault-trace probability updates relevant to seismic-risk preparedness. Methods USGS and AFAD catalogs were merged with source provenance, conservative duplicate matching, pre-test magnitude harmonization, and time-varying completeness control. The dense EAF-corridor catalog contained 73 532 events; 5 026 events met the common Mc = 3.4 modeling threshold. These events were associated computationally with 157 source-traceable active-fault geometries, yielding 1 509 869 fault-trace-day observations. The primary outcome was at least one M ≥ 4.0 event associated with a trace during the following seven days. Training ended in 2019, model selection used 2020–2022, 2023 was locked for testing, and 2024–29 July 2026 was retained as a forward holdout. Formal inference used non-overlapping seven-day origins and 28-day moving-block bootstrap confidence intervals. Results The validation-selected History+ETAS logistic forecast achieved PR-AUC values of 0.3479 in 2023 and 0.03261 in the forward holdout, compared with 0.0388 and 0.01127 for a Bayesian historical fault-rate reference. Paired PR-AUC gains were 0.314 (95% CI 0.157–0.443) and 0.0201 (0.00888–0.03844), respectively. However, prespecified incremental tests did not support unique added value from the frozen ETAS parametrization, graph/stress proxies, boosted trees, or deep learning. Conclusions A source-auditable 50-year EAFS benchmark indicates that recent seismic history contains reproducible short-term information beyond a static fault-rate reference, including after the exceptional 2023 sequence. More complex model components should not be assigned physical or operational significance until they demonstrate independent prospective skill. The framework supports cautious probabilistic risk communication rather than deterministic earthquake prediction."
+ },
+ {
+  "id": "W2913681477",
+  "soru": "kesisim",
+  "yil": 2019,
+  "baslik": "Turkey and adjacent area seismicity forecasts from earthquake inter-event time mean ratio statistics",
+  "yazar": "Abdelhak Talbi, Fouzi Bellalem, Mourad Mobarki",
+  "kaynak": "Journal of Seismology",
+  "doi": "https://doi.org/10.1007/s10950-019-09816-3",
+  "atif": 5,
+  "ozet": ""
+ },
+ {
+  "id": "W7162320613",
+  "soru": "kesisim",
+  "yil": 2026,
+  "baslik": "Integrating b-Value and Background Seismicity Rate for Spatial Earthquake Forecasting in the Alborz Region, Northern Iran",
+  "yazar": "Muhammed Hossein Mousavi, Hamzeh Mohammadigheymasi, Parva Sadeghi Alavijeh, Marjan Tourani",
+  "kaynak": "arXiv (Cornell University)",
+  "doi": "https://doi.org/10.48550/arxiv.2605.23494",
+  "atif": 1,
+  "ozet": "In this study, we evaluate the spatial forecasting skill of the $b$-value and background seismicity rate $μ$ across the Alborz region using a homogenized catalog of 23,961 earthquakes ($M \\geq 1.5$) recorded by the Iranian Seismological Center between 2006 and 2024. Forecast performance for $M \\geq 4.0$ and $M \\geq 4.5$ is assessed using Molchan error diagrams, probability gain, probability difference, and the modified area skill score. The results show that $μ$ provides a consistently strong spatial signal, with Molchan curves well below the random baseline and probability gains of 5--6 at low alarm rates, reflecting the persistent clustering of seismicity along major Alborz faults. The $b$-value exhibits limited skill at lower magnitudes but improves steadily with increasing magnitude; its skill score becomes positive above $M \\approx 5.3$, indicating that $b$-value anomalies begin to capture meaningful stress concentrations only for larger events. Spatial patterns reveal low $b$ zones along active reverse and strike-slip structures and high $μ$ zones following long-term seismicity clusters, underscoring their complementary physical roles. Retrospective testing confirms this complementarity: the combined $b$--$μ$ forecast achieves detection rates of 0.81--0.83 at spatial alarm rates of 0.43 and 0.36 for $M \\geq 4.0$ and $M \\geq 4.5$, respectively, representing the most efficient forecast configuration among all tested models. These findings demonstrate that integrating stress-state and tectonic-loading indicators yields a more efficient and physically grounded framework for operational earthquake forecasting in the Alborz region."
+ },
+ {
+  "id": "W1992401621",
+  "soru": "kesisim",
+  "yil": 2012,
+  "baslik": "Predicting rupture arrests, rupture jumps and cascading earthquakes",
+  "yazar": "Yaron Finzi, Sebastian Langer",
+  "kaynak": "Journal of Geophysical Research Atmospheres",
+  "doi": "https://doi.org/10.1029/2012jb009544",
+  "atif": 24,
+  "ozet": "The devastation inflicted by recent earthquakes demonstrates the danger of under‐predicting the size of earthquakes. Unfortunately, earthquakes may rupture fault‐sections larger than previously observed, making it essential to develop predictive rupture models. We present numerical models based on earthquake physics and fault zone data, that determine whether a rupture on a segmented fault could cascade and grow into a devastating, multisegment earthquake. We demonstrate that weakened (damaged) fault zones and bi‐material interfaces promote rupture propagation and greatly increase the risk of cascading ruptures and triggered seismicity. This result provides a feasible explanation for the outstanding observation of a very large (10 km) rupture jump documented in theMW7.8 2001 Kunlun, China earthquake. However, enhanced inter‐seismic deformation and energy dissipation at fault tips suppress rupture propagation and may turn even small discontinuities into effective earthquake barriers. By assessing fault stability, identifying rupture barriers and foreseeing multisegment earthquakes, we provide a tool to improve earthquake prediction and hazard analysis."
+ }
+]
