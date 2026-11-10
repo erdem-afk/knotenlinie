@@ -1,0 +1,16 @@
+{
+ "ad": "DONDUR-derive-dogrultu",
+ "tarih_utc": "2026-11-10T22:53Z",
+ "secim": "Erdem 2026-11-10 22:45 'tüm kaynaklara yüklenelim, hepsini paralel başlatalım'",
+ "dosyalar": {
+  "T2-KURAL.md": "97a544b2bd96ade2b73f538fadc976b10c440ea10ce193996e1b851fb0483f5b",
+  "T3-KURAL.md": "80f1f54c911d9ddfc4076eeeea20705f86dd932c7caaff8e9075fff01051d81f",
+  "T5-KURAL.md": "07d77c6a5f8259441ec0a7757ca40aeaf43e42cd0fd685e103277f019d7c5e57"
+ },
+ "girdiler": {
+  "UCERF3 FM3_1.xml (opensha master)": "fb453243d56b247bff9be12a83987a2b8b1f87cc5e15a03d2773c35a16054fb4",
+  "EDSF13 DB-CFS zip": "da0439f09379abf3799b07b171c5c52033de1c4411afa7aad974d43a663a6ce0",
+  "EDSF13 HM-CFS zip": "7e3b2f756a923df8a2afe35f3d7656b79fc5a7f4de4977ac7babab654fcbe440"
+ },
+ "not": "Hiçbir katalog indirilmeden ve kapsama/kümelenme hesaplanmadan donduruldu. Üç kural da kör değil (Ek 0)."
+}
