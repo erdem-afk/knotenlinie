@@ -1,0 +1,172 @@
+{
+ "POZ_sinama_x_etas": {
+  "kumeler": [
+   "SINAMA",
+   "ETAS_POZ"
+  ]
+ },
+ "POZ_marmara_x_coulomb": {
+  "kumeler": [
+   "MARMARA",
+   "COULOMB_POZ"
+  ]
+ },
+ "KAL_marmara_x_etas": {
+  "kumeler": [
+   "MARMARA",
+   "ETAS_POZ"
+  ]
+ },
+ "ML_KATALOG_x_MARMARA": {
+  "kumeler": [
+   "ML_KATALOG",
+   "MARMARA"
+  ]
+ },
+ "ML_KATALOG_x_SINAMA": {
+  "kumeler": [
+   "ML_KATALOG",
+   "SINAMA"
+  ]
+ },
+ "ML_KATALOG_x_MARMARA_x_SINAMA": {
+  "kumeler": [
+   "ML_KATALOG",
+   "MARMARA",
+   "SINAMA"
+  ]
+ },
+ "NOROL_TAHMIN_x_MARMARA": {
+  "kumeler": [
+   "NOROL_TAHMIN",
+   "MARMARA"
+  ]
+ },
+ "NOROL_TAHMIN_x_SINAMA": {
+  "kumeler": [
+   "NOROL_TAHMIN",
+   "SINAMA"
+  ]
+ },
+ "NOROL_TAHMIN_x_MARMARA_x_SINAMA": {
+  "kumeler": [
+   "NOROL_TAHMIN",
+   "MARMARA",
+   "SINAMA"
+  ]
+ },
+ "LAB_RS_x_MARMARA": {
+  "kumeler": [
+   "LAB_RS",
+   "MARMARA"
+  ]
+ },
+ "LAB_RS_x_SINAMA": {
+  "kumeler": [
+   "LAB_RS",
+   "SINAMA"
+  ]
+ },
+ "LAB_RS_x_MARMARA_x_SINAMA": {
+  "kumeler": [
+   "LAB_RS",
+   "MARMARA",
+   "SINAMA"
+  ]
+ },
+ "SIM_KAL_x_MARMARA": {
+  "kumeler": [
+   "SIM_KAL",
+   "MARMARA"
+  ]
+ },
+ "SIM_KAL_x_SINAMA": {
+  "kumeler": [
+   "SIM_KAL",
+   "SINAMA"
+  ]
+ },
+ "SIM_KAL_x_MARMARA_x_SINAMA": {
+  "kumeler": [
+   "SIM_KAL",
+   "MARMARA",
+   "SINAMA"
+  ]
+ },
+ "BAYES_BIRLESIM_x_MARMARA": {
+  "kumeler": [
+   "BAYES_BIRLESIM",
+   "MARMARA"
+  ]
+ },
+ "BAYES_BIRLESIM_x_SINAMA": {
+  "kumeler": [
+   "BAYES_BIRLESIM",
+   "SINAMA"
+  ]
+ },
+ "BAYES_BIRLESIM_x_MARMARA_x_SINAMA": {
+  "kumeler": [
+   "BAYES_BIRLESIM",
+   "MARMARA",
+   "SINAMA"
+  ]
+ },
+ "CSEP_DERS_x_MARMARA": {
+  "kumeler": [
+   "CSEP_DERS",
+   "MARMARA"
+  ]
+ },
+ "CSEP_DERS_x_SINAMA": {
+  "kumeler": [
+   "CSEP_DERS",
+   "SINAMA"
+  ]
+ },
+ "CSEP_DERS_x_MARMARA_x_SINAMA": {
+  "kumeler": [
+   "CSEP_DERS",
+   "MARMARA",
+   "SINAMA"
+  ]
+ },
+ "BPT_OTESI_x_MARMARA": {
+  "kumeler": [
+   "BPT_OTESI",
+   "MARMARA"
+  ]
+ },
+ "BPT_OTESI_x_SINAMA": {
+  "kumeler": [
+   "BPT_OTESI",
+   "SINAMA"
+  ]
+ },
+ "BPT_OTESI_x_MARMARA_x_SINAMA": {
+  "kumeler": [
+   "BPT_OTESI",
+   "MARMARA",
+   "SINAMA"
+  ]
+ },
+ "GERINIM_SIS_x_MARMARA": {
+  "kumeler": [
+   "GERINIM_SIS",
+   "MARMARA"
+  ]
+ },
+ "GERINIM_SIS_x_SINAMA": {
+  "kumeler": [
+   "GERINIM_SIS",
+   "SINAMA"
+  ]
+ },
+ "GERINIM_SIS_x_MARMARA_x_SINAMA": {
+  "kumeler": [
+   "GERINIM_SIS",
+   "MARMARA",
+   "SINAMA"
+  ]
+ }
+}
