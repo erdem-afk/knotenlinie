@@ -1,0 +1,241 @@
+[
+ {
+  "dosya": "veri/ahead/15090910_0000_000.xml",
+  "sha256": "23d3fb2932e6e5b7dc6baa912e04c8281835ef167a70746d556ee2977b3029f8",
+  "bayt": 18747,
+  "kaynak": "AHEAD makrosismik servis https://www.emidius.eu/services/macroseismic/query?eventid=<ID>&includemdps=true&includeallmdpsets=true&format=xml (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/ahead/15560510_0000_000.xml",
+  "sha256": "961ea48635349ff674b6f15539d19c5a47cf9a68163f6e16ea478f7f6f0a5a9b",
+  "bayt": 9889,
+  "kaynak": "AHEAD makrosismik servis https://www.emidius.eu/services/macroseismic/query?eventid=<ID>&includemdps=true&includeallmdpsets=true&format=xml (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/ahead/16590217_0000_000.xml",
+  "sha256": "839eac5df2b47ef068fea7e8a24b79213e478a8a9a4405da9c573441e7d94622",
+  "bayt": 12583,
+  "kaynak": "AHEAD makrosismik servis https://www.emidius.eu/services/macroseismic/query?eventid=<ID>&includemdps=true&includeallmdpsets=true&format=xml (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/ahead/17190525_0000_000.xml",
+  "sha256": "ea4a6aff2e931f5a36586edc8391e42bad777f794ec74ca97ef2f40dd96430b8",
+  "bayt": 19827,
+  "kaynak": "AHEAD makrosismik servis https://www.emidius.eu/services/macroseismic/query?eventid=<ID>&includemdps=true&includeallmdpsets=true&format=xml (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/ahead/17370306_1730_000.xml",
+  "sha256": "e2a844469a41a021136ed69e39bdf548eaef18b9ede238fd9743cfb7a8df75d9",
+  "bayt": 23217,
+  "kaynak": "AHEAD makrosismik servis https://www.emidius.eu/services/macroseismic/query?eventid=<ID>&includemdps=true&includeallmdpsets=true&format=xml (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/ahead/17540902_0000_000.xml",
+  "sha256": "02e799667aab2dab358701325a22be743440bdab45a912750f87be044d98b78e",
+  "bayt": 14792,
+  "kaynak": "AHEAD makrosismik servis https://www.emidius.eu/services/macroseismic/query?eventid=<ID>&includemdps=true&includeallmdpsets=true&format=xml (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/ahead/17660522_0000_000.xml",
+  "sha256": "7f65a092a0aa8df984ddf46abd4f38589e7ba9477c3395f2ab0af460b8cccdb5",
+  "bayt": 19619,
+  "kaynak": "AHEAD makrosismik servis https://www.emidius.eu/services/macroseismic/query?eventid=<ID>&includemdps=true&includeallmdpsets=true&format=xml (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/ahead/17660805_0000_000.xml",
+  "sha256": "ddd9f9e776eb4f179fd351fc7dffdda68489c2fb77ae4f2d33ff803ae47d4862",
+  "bayt": 27119,
+  "kaynak": "AHEAD makrosismik servis https://www.emidius.eu/services/macroseismic/query?eventid=<ID>&includemdps=true&includeallmdpsets=true&format=xml (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/ahead/18550228_0130_000.xml",
+  "sha256": "ac113ca06f0149db8840eeddfae5876fed591c86e9c17ff7b48fbf417d897105",
+  "bayt": 12933,
+  "kaynak": "AHEAD makrosismik servis https://www.emidius.eu/services/macroseismic/query?eventid=<ID>&includemdps=true&includeallmdpsets=true&format=xml (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/ahead/18940710_1833_000.xml",
+  "sha256": "d4c5fe6df5d05ea20f9758557855143cb32170f4185d8e371180fa2f7184814f",
+  "bayt": 12826,
+  "kaynak": "AHEAD makrosismik servis https://www.emidius.eu/services/macroseismic/query?eventid=<ID>&includemdps=true&includeallmdpsets=true&format=xml (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/iscgem844692_event.json",
+  "sha256": "1d6e5e19e73c7f022160df8f7099affb1ec430e004f6f191621c6660b1ba116a",
+  "bayt": 87,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/iscgem844692_rupture.json",
+  "sha256": "f43d002ec210ed9b027646f01a82ef1e6b9b399fd545866e0eda92423ba54d7c",
+  "bayt": 950,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/iscgem844692_stations.json",
+  "sha256": "bae162c77b67f53d4ff03604be994fc34c6c844de97fa838ca739898d19d3380",
+  "bayt": 999361,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp0000cqe_event.json",
+  "sha256": "ece9eb1a0fb92ce58064f544543705fc8114f477dccbc6a44b5ca0bb43a7ea3c",
+  "bayt": 84,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp0000cqe_rupture.json",
+  "sha256": "3c98f053434a282a61c39b69004367d15b80a4e4603774eaf1a96f4b5b6d90b6",
+  "bayt": 827,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp0000cqe_stations.json",
+  "sha256": "5749b5ad89120d034cd4330b0e8e936666742e2493e261c07159bd7ac9b908e3",
+  "bayt": 67657,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp0000kf0_event.json",
+  "sha256": "3249ba5cd68957a1c995e8196a97b30875d317ec06cd4fefaf4b7173da911e02",
+  "bayt": 84,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp0000kf0_rupture.json",
+  "sha256": "00328241f4e8ed34cee70d9a4b0e2db1a30b654f2a1991409cbb8608cb44746e",
+  "bayt": 910,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp0000kf0_stations.json",
+  "sha256": "ac1069a245c72e6c7d73ef6f8152c43d5d081a73a17f54c9a90ea984f898fb86",
+  "bayt": 181243,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp0003pmm_event.json",
+  "sha256": "94ae799415a28c6c0b176c71f07b1d74d38f1a9bc7d87240d51561cbabda0de1",
+  "bayt": 84,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp0003pmm_rupture.json",
+  "sha256": "1662054e9999790f32ca8271196d6d5162e6462d085813f0737d032f7f26fd38",
+  "bayt": 707,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp0003pmm_stations.json",
+  "sha256": "b59144205233cfcd2390499077a9024b6e604d8585d16219ebd7b691f02c7cc9",
+  "bayt": 765697,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp000547c_event.json",
+  "sha256": "ba5d6663ac9767ccd07d9e93dd4520b90543e761d01e4778bd5e33ffa4af16b2",
+  "bayt": 83,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp000547c_rupture.json",
+  "sha256": "f7fe7bf03ee59e1c77500a631daa075e6bec023fa7214ce9ef4eb83f5d4642b4",
+  "bayt": 838,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp000547c_stations.json",
+  "sha256": "b468e80f58d59cab3b78006887ccb1e1c29444c65ec3c9bb5479e69522dde124",
+  "bayt": 139305,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp0009d4z_event.json",
+  "sha256": "5ae66a86b2658b231bed09bbc74d44ae546731d736a08ba8627551281c5ac501",
+  "bayt": 84,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp0009d4z_rupture.json",
+  "sha256": "10e9438b1c3efba3469d5f1245ec10d3801a0f2a06e543742691c4125a3548c0",
+  "bayt": 1994,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp0009d4z_stations.json",
+  "sha256": "fbc7c90e0f8f3ae44f19a49b76d44e6821b4ba11eea4caba6249d8f19c88032e",
+  "bayt": 379998,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp0009hev_event.json",
+  "sha256": "1103aef94bed3986107a5630cd7679fdd3d5c9a464965b2c34915a37f2cc235c",
+  "bayt": 84,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp0009hev_rupture.json",
+  "sha256": "d111ef98df2f5daef69a1ef0265e35d16247e2f3be060f1c4da7eeba602a2ad4",
+  "bayt": 1541,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp0009hev_stations.json",
+  "sha256": "a65c049c2ea24c600e2b4518cde3e967a4280a0eb90245c247401c3af0a67a5c",
+  "bayt": 305130,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp000axp7_event.json",
+  "sha256": "58ecc7b79c4b638ee6757909077aff3ac211d61166dd71cfaa8280b79a0ab2ab",
+  "bayt": 85,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp000axp7_rupture.json",
+  "sha256": "efe841a2fad30a53f08fa342c867ae5bd47dbf4a4706007b900a1b87d3c8f691",
+  "bayt": 822,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp000axp7_stations.json",
+  "sha256": "f5391c02683f59e486e29458f33870fdf8a2ac685029bfa9569eb190f8bc2780",
+  "bayt": 62049,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp000j9rr_event.json",
+  "sha256": "97cf2850dd31ddde98cf94fd87fe601b3ebd9e299d4763fffd188f115043a434",
+  "bayt": 85,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp000j9rr_rupture.json",
+  "sha256": "8e7879513e31966c71cdf8df8e325bf70397fd7e0d2f2df87cea71a8c48b7692",
+  "bayt": 678,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "veri/shakemap/usp000j9rr_stations.json",
+  "sha256": "3284131ecee94d8e10bc6748822e42e257bb8b6dc0b6a1eaa82018452b9e9783",
+  "bayt": 159134,
+  "kaynak": "USGS ComCat ShakeMap Atlas (indirme 2026-11-10)"
+ },
+ {
+  "dosya": "TURBIDIT.csv",
+  "sha256": "efebf88085ac33003cb3fdd289239f66675f4a2e21458a956327cb92cb7779d5",
+  "bayt": 1301,
+  "kaynak": "elle kodlama, ONKAYIT.md"
+ },
+ {
+  "dosya": "TSUNAMI.csv",
+  "sha256": "2b73c3ba72167f3c8e92f7fa7e836f02d5660cc9c830875a7daa07c10ed8a4eb",
+  "bayt": 396,
+  "kaynak": "elle kodlama, ONKAYIT.md"
+ },
+ {
+  "dosya": "/mnt/project-files/marmara-girdiler/edsf13/DB-CFS-ESRI-shapefile.zip",
+  "sha256": "da0439f09379abf3799b07b171c5c52033de1c4411afa7aad974d43a663a6ce0",
+  "kaynak": "EDSF13 Basili vd. 2013"
+ }
+]

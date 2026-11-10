@@ -1,0 +1,24 @@
+olay,havza,gozlem,w,kaynak
+1999,IGB,var,0.9,Cagatay vd. 2012 Sed. Geol. (Karamursel/Golcuk 1999 birimi)
+1999,CiB,var,0.6,Drab vd. 2015 BSSA (Klg03 tA uzak alan)
+1999,TB,yok,0.9,Drab vd. 2012 (en genc olay 1912)
+1912,TB,var,0.9,Drab vd. 2012 (210Pb; tum Tekirdag/Bati Sirti karotlari)
+1912,CB,celiskili,,Drab vd. 2012 var / Cagatay vd. 2025 yok
+1912,CiB,yok,0.9,Drab vd. 2015 (en genc deprem turbiditi 1894)
+1894,CiB,var,0.9,Drab vd. 2015 (210Pb/137Cs t1 1875-1894)
+1894,CB,var,0.6,Cagatay vd. 2025 (Orta Sirt ve Orta havza listesi)
+1894,TB,yok,0.6,Cagatay vd. 2025 bati listesinde yok
+1766,TB,var,0.6,Drab vd. 2012; Cagatay vd. 2025 bati listesi
+1766,CB,var,0.6,Cagatay vd. 2025 Orta listesi
+1766,CiB,yok,0.6,Drab vd. 2015 (1766 Cinarcik fayinda degil)
+1766,IGB,yok,0.3,Cagatay vd. 2012 (ayirt edici sinyal yok; Drab 2015 alintisi)
+1509,CB,var,0.6,Cagatay vd. 2025 Orta listesi
+1509,CiB,var,0.6,Drab vd. 2015 E2 (1288-1664)
+1509,IGB,var,0.6,Cagatay vd. 2012 (Drab 2015 alintisi)
+1509,TB,yok,0.6,Cagatay vd. 2025 bati listesinde yok
+1719,CiB,yok,0.3,Drab vd. 2015 (E1 1894 ile E2 arasi bos)
+1719,CB,yok,0.3,Cagatay vd. 2025 listede yok
+1719,TB,yok,0.3,Cagatay vd. 2025 listede yok
+1754,CiB,yok,0.3,Drab vd. 2015
+1754,CB,yok,0.3,Cagatay vd. 2025 listede yok
+1754,TB,yok,0.3,Cagatay vd. 2025 listede yok

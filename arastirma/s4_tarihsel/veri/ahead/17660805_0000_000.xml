@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<qml:quakeml
+	xmlns:bed="http://quakeml.org/xmlns/bed/1.3"
+	xmlns:bedt="http://quakeml.org/xmlns/bedt/1.3"
+	xmlns:co="http://quakeml.org/xmlns/common/1.0"
+	xmlns:dct="http://purl.org/dc/terms/"
+	xmlns:ms="http://quakeml.org/xmlns/macroseismic/0.9"
+	xmlns:rm="http://quakeml.org/xmlns/resourcemetadata/1.0"
+	xmlns:stc="http://quakeml.org/xmlns/stationcharacterization/1.0"
+	xmlns:qml="http://quakeml.org/xmlns/quakeml"
+	xmlns="http://quakeml.org/xmlns/bed/1.3"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://quakeml.org/xmlns/quakeml https://www.emidius.eu/AHEAD/xmlns/quakeml/2.0/QuakeML-2.0-Macroseismic.xsd">
+	<eventParameters publicID="smi:eu.ahead/services/macroseismic/event">
+		<comment>
+			<creationInfo>
+				<creationTime>2026-11-10T17:31:34</creationTime>
+				<author>European Archive of Historical Earthquake Data (AHEAD)</author>
+				<authorURI>smi:doi.org/10.6092/INGV.IT-AHEAD</authorURI>
+				<agencyID>INGV</agencyID>
+				<version>0.1</version>
+			</creationInfo>
+		</comment>
+		<event publicID="quakeml:eu.ahead/event/17660805_0000_000">
+			<type>earthquake</type>
+			<typeCertainty>known</typeCertainty>
+			<description>
+				<text><![CDATA[Marmara Sea]]></text>
+				<type>region name</type>
+			</description>
+			<description>
+				<text><![CDATA[western Turkey]]></text>
+				<type>Flinn-Engdahl region</type>
+			</description>
+			<preferredOriginID>quakeml:eu.ahead/origin/EPICAv1.1/118715#17660805_0000_000</preferredOriginID>
+			<preferredMagnitudeID>quakeml:eu.ahead/magnitude/EPICAv1.1/118715#17660805_0000_000</preferredMagnitudeID>
+			<origin publicID="quakeml:eu.ahead/origin/EPICAv1.1/118715#17660805_0000_000">
+				<time><value>1766-08-05</value></time>
+				<compositeTime>
+					<year><value>1766</value></year>
+					<month><value>8</value></month>
+					<day><value>5</value></day>
+				</compositeTime>
+				<region>Marmara Sea</region>
+				<latitude>
+					<value>40.665</value>
+				</latitude>
+				<longitude>
+					<value>27.108</value>
+				</longitude>
+				<creationInfo>
+					<creationTime>2021</creationTime>
+					<author>EPICAv1.1</author>
+					<authorURI>smi:doi.org/10.13127/epica.1.1</authorURI>
+				</creationInfo>
+			</origin>
+			<magnitude publicID="quakeml:eu.ahead/magnitude/EPICAv1.1/118715#17660805_0000_000">
+				<mag>
+					<value>7.08</value>
+					<uncertainty>0.34</uncertainty>
+				</mag>
+				<type>Mw</type>
+				<originID>quakeml:eu.ahead/origin/EPICAv1.1/118715#17660805_0000_000</originID>
+				<creationInfo>
+					<creationTime>2021</creationTime>
+					<author>EPICAv1.1</author>
+					<authorURI>smi:doi.org/10.13127/epica.1.1</authorURI>
+ 				</creationInfo>
+			</magnitude>
+		</event>
+	</eventParameters>
+	<ms:macroseismicParameters publicID="smi:eu.ahead/services/macroseismic/parameters">
+		<ms:macroseismicEvent publicID="quakeml:eu.ahead/macroseismic/event/17660805_0000_000">
+			<ms:mdpSetReference>quakeml:eu.ahead/mdpset/UNITH003/8077</ms:mdpSetReference>
+			<ms:eventReference>quakeml:eu.ahead/event/17660805_0000_000</ms:eventReference>
+			<ms:preferredMDPSetID>quakeml:eu.ahead/mdpset/UNITH003/8077</ms:preferredMDPSetID>
+			<ms:preferredMacroseismicOriginID>quakeml:eu.ahead/origin/EPICAv1.1/118715#17660805_0000_000</ms:preferredMacroseismicOriginID>
+			<ms:creationInfo>
+				<rm:creationTime>2026-11-10T17:31:34</rm:creationTime>
+				<rm:author>European Archive of Historical Earthquake Data (AHEAD)</rm:author>
+				<rm:authorURI>smi:doi.org/10.6092/INGV.IT-AHEAD</rm:authorURI>
+				<rm:agencyID>INGV</rm:agencyID>
+				<rm:version>0.1</rm:version>
+			</ms:creationInfo>
+		</ms:macroseismicEvent>
+		<ms:macroseismicOrigin publicID="quakeml:eu.ahead/macroseismic/origin/EPICAv1.1/118715#17660805_0000_000">
+			<ms:originReference>quakeml:eu.ahead/origin/EPICAv1.1/118715#17660805_0000_000</ms:originReference>
+			<ms:definingMDPSet>quakeml:eu.ahead/mdpset/UNITH003/8077</ms:definingMDPSet>
+			<ms:contributingMDPCount>20</ms:contributingMDPCount>
+			<ms:epicentralIntensity>
+				<ms:macroseismicScale>MM</ms:macroseismicScale>
+				<ms:expectedIntensity>
+					<ms:class>9-10</ms:class>
+				</ms:expectedIntensity>
+			</ms:epicentralIntensity>
+		<ms:literatureSourceOriginReference>quakeml:eu.ahead/datasource/EPICAv1.1</ms:literatureSourceOriginReference>
+		</ms:macroseismicOrigin>
+		<ms:macroseismicMagnitude publicID="quakeml:eu.ahead/macroseismic/magnitude/EPICAv1.1/118715#17660805_0000_000">
+			<ms:magnitudeReference>quakeml:eu.ahead/magnitude/EPICAv1.1/118715#17660805_0000_000</ms:magnitudeReference>
+			<ms:definingMDPSet>quakeml:eu.ahead/mdpset/UNITH003/8077</ms:definingMDPSet>
+			<ms:contributingMDPCount>20</ms:contributingMDPCount>
+		<ms:literatureSourceMagnitudeReference>quakeml:eu.ahead/datasource/EPICAv1.1</ms:literatureSourceMagnitudeReference>
+		</ms:macroseismicMagnitude>
+		<ms:mdpSet publicID="quakeml:eu.ahead/mdpset/UNITH003/8077">
+			<ms:maximumIntensity>
+				<ms:macroseismicScale>MM</ms:macroseismicScale>
+				<ms:expectedIntensity>
+					<ms:class>10</ms:class>
+				</ms:expectedIntensity>
+			</ms:maximumIntensity>
+			<ms:mdpCount>20</ms:mdpCount>
+		<ms:literatureSourceMDPSetReference>quakeml:eu.ahead/datasource/UNITH003</ms:literatureSourceMDPSetReference>
+			<ms:mdpReference>quakeml:eu.ahead/mdp/UNITH003/245846</ms:mdpReference>
+			<ms:mdpReference>quakeml:eu.ahead/mdp/UNITH003/245847</ms:mdpReference>
+			<ms:mdpReference>quakeml:eu.ahead/mdp/UNITH003/245848</ms:mdpReference>
+			<ms:mdpReference>quakeml:eu.ahead/mdp/UNITH003/245849</ms:mdpReference>
+			<ms:mdpReference>quakeml:eu.ahead/mdp/UNITH003/245850</ms:mdpReference>
+			<ms:mdpReference>quakeml:eu.ahead/mdp/UNITH003/245851</ms:mdpReference>
+			<ms:mdpReference>quakeml:eu.ahead/mdp/UNITH003/245854</ms:mdpReference>
+			<ms:mdpReference>quakeml:eu.ahead/mdp/UNITH003/245852</ms:mdpReference>
+			<ms:mdpReference>quakeml:eu.ahead/mdp/UNITH003/245853</ms:mdpReference>
+			<ms:mdpReference>quakeml:eu.ahead/mdp/UNITH003/245855</ms:mdpReference>
+			<ms:mdpReference>quakeml:eu.ahead/mdp/UNITH003/245856</ms:mdpReference>
+			<ms:mdpReference>quakeml:eu.ahead/mdp/UNITH003/245857</ms:mdpReference>
+			<ms:mdpReference>quakeml:eu.ahead/mdp/UNITH003/245858</ms:mdpReference>
+			<ms:mdpReference>quakeml:eu.ahead/mdp/UNITH003/245859</ms:mdpReference>
+			<ms:mdpReference>quakeml:eu.ahead/mdp/UNITH003/245860</ms:mdpReference>
+			<ms:mdpReference>quakeml:eu.ahead/mdp/UNITH003/245861</ms:mdpReference>
+			<ms:mdpReference>quakeml:eu.ahead/mdp/UNITH003/245863</ms:mdpReference>
+			<ms:mdpReference>quakeml:eu.ahead/mdp/UNITH003/245862</ms:mdpReference>
+			<ms:mdpReference>quakeml:eu.ahead/mdp/UNITH003/245864</ms:mdpReference>
+			<ms:mdpReference>quakeml:eu.ahead/mdp/UNITH003/245865</ms:mdpReference>
+		</ms:mdpSet>
+		<ms:mdp publicID="quakeml:eu.ahead/mdp/UNITH003/245846">
+			<ms:reportReference>quakeml:eu.ahead/datasource/UNITH003</ms:reportReference>
+			<ms:eventReference>quakeml:eu.ahead/event/17660805_0000_000</ms:eventReference>
+			<ms:placeReference>quakeml:eu.ahead/place/TR_00039</ms:placeReference>
+			<ms:intensity>
+				<ms:macroseismicScale>MM</ms:macroseismicScale>
+				<ms:expectedIntensity>
+					<ms:class>10</ms:class>
+				</ms:expectedIntensity>
+			</ms:intensity>
+		</ms:mdp>
+		<ms:mdp publicID="quakeml:eu.ahead/mdp/UNITH003/245847">
+			<ms:reportReference>quakeml:eu.ahead/datasource/UNITH003</ms:reportReference>
+			<ms:eventReference>quakeml:eu.ahead/event/17660805_0000_000</ms:eventReference>
+			<ms:placeReference>quakeml:eu.ahead/place/TR_00067</ms:placeReference>
+			<ms:intensity>
+				<ms:macroseismicScale>MM</ms:macroseismicScale>
+				<ms:expectedIntensity>
+					<ms:class>9</ms:class>
+				</ms:expectedIntensity>
+			</ms:intensity>
+		</ms:mdp>
+		<ms:mdp publicID="quakeml:eu.ahead/mdp/UNITH003/245848">
+			<ms:reportReference>quakeml:eu.ahead/datasource/UNITH003</ms:reportReference>
+			<ms:eventReference>quakeml:eu.ahead/event/17660805_0000_000</ms:eventReference>
+			<ms:placeReference>quakeml:eu.ahead/place/TR_00034</ms:placeReference>
+			<ms:intensity>
+				<ms:macroseismicScale>MM</ms:macroseismicScale>
+				<ms:expectedIntensity>
+					<ms:class>9</ms:class>
+				</ms:expectedIntensity>
+			</ms:intensity>
+		</ms:mdp>
+		<ms:mdp publicID="quakeml:eu.ahead/mdp/UNITH003/245849">
+			<ms:reportReference>quakeml:eu.ahead/datasource/UNITH003</ms:reportReference>
+			<ms:eventReference>quakeml:eu.ahead/event/17660805_0000_000</ms:eventReference>
+			<ms:placeReference>quakeml:eu.ahead/place/TR_00301</ms:placeReference>
+			<ms:intensity>
+				<ms:macroseismicScale>MM</ms:macroseismicScale>
+				<ms:expectedIntensity>
+					<ms:class>9</ms:class>
+				</ms:expectedIntensity>
+			</ms:intensity>
+		</ms:mdp>
+		<ms:mdp publicID="quakeml:eu.ahead/mdp/UNITH003/245850">
+			<ms:reportReference>quakeml:eu.ahead/datasource/UNITH003</ms:reportReference>
+			<ms:eventReference>quakeml:eu.ahead/event/17660805_0000_000</ms:eventReference>
+			<ms:placeReference>quakeml:eu.ahead/place/TR_00084</ms:placeReference>
+			<ms:intensity>
+				<ms:macroseismicScale>MM</ms:macroseismicScale>
+				<ms:expectedIntensity>
+					<ms:class>8</ms:class>
+				</ms:expectedIntensity>
+			</ms:intensity>
+		</ms:mdp>
+		<ms:mdp publicID="quakeml:eu.ahead/mdp/UNITH003/245851">
+			<ms:reportReference>quakeml:eu.ahead/datasource/UNITH003</ms:reportReference>
+			<ms:eventReference>quakeml:eu.ahead/event/17660805_0000_000</ms:eventReference>
+			<ms:placeReference>quakeml:eu.ahead/place/TR_00127</ms:placeReference>
+			<ms:intensity>
+				<ms:macroseismicScale>MM</ms:macroseismicScale>
+				<ms:expectedIntensity>
+					<ms:class>8</ms:class>
+				</ms:expectedIntensity>
+			</ms:intensity>
+		</ms:mdp>
+		<ms:mdp publicID="quakeml:eu.ahead/mdp/UNITH003/245854">
+			<ms:reportReference>quakeml:eu.ahead/datasource/UNITH003</ms:reportReference>
+			<ms:eventReference>quakeml:eu.ahead/event/17660805_0000_000</ms:eventReference>
+			<ms:placeReference>quakeml:eu.ahead/place/TR_00030</ms:placeReference>
+			<ms:intensity>
+				<ms:macroseismicScale>MM</ms:macroseismicScale>
+				<ms:expectedIntensity>
+					<ms:class>7</ms:class>
+				</ms:expectedIntensity>
+			</ms:intensity>
+		</ms:mdp>
+		<ms:mdp publicID="quakeml:eu.ahead/mdp/UNITH003/245852">
+			<ms:reportReference>quakeml:eu.ahead/datasource/UNITH003</ms:reportReference>
+			<ms:eventReference>quakeml:eu.ahead/event/17660805_0000_000</ms:eventReference>
+			<ms:placeReference>quakeml:eu.ahead/place/TR_00147</ms:placeReference>
+			<ms:intensity>
+				<ms:macroseismicScale>MM</ms:macroseismicScale>
+				<ms:expectedIntensity>
+					<ms:class>7</ms:class>
+				</ms:expectedIntensity>
+			</ms:intensity>
+		</ms:mdp>
+		<ms:mdp publicID="quakeml:eu.ahead/mdp/UNITH003/245853">
+			<ms:reportReference>quakeml:eu.ahead/datasource/UNITH003</ms:reportReference>
+			<ms:eventReference>quakeml:eu.ahead/event/17660805_0000_000</ms:eventReference>
+			<ms:placeReference>quakeml:eu.ahead/place/TR_00123</ms:placeReference>
+			<ms:intensity>
+				<ms:macroseismicScale>MM</ms:macroseismicScale>
+				<ms:expectedIntensity>
+					<ms:class>7</ms:class>
+				</ms:expectedIntensity>
+			</ms:intensity>
+		</ms:mdp>
+		<ms:mdp publicID="quakeml:eu.ahead/mdp/UNITH003/245855">
+			<ms:reportReference>quakeml:eu.ahead/datasource/UNITH003</ms:reportReference>
+			<ms:eventReference>quakeml:eu.ahead/event/17660805_0000_000</ms:eventReference>
+			<ms:placeReference>quakeml:eu.ahead/place/TR_00032</ms:placeReference>
+			<ms:intensity>
+				<ms:macroseismicScale>MM</ms:macroseismicScale>
+				<ms:expectedIntensity>
+					<ms:class>6</ms:class>
+				</ms:expectedIntensity>
+			</ms:intensity>
+		</ms:mdp>
+		<ms:mdp publicID="quakeml:eu.ahead/mdp/UNITH003/245856">
+			<ms:reportReference>quakeml:eu.ahead/datasource/UNITH003</ms:reportReference>
+			<ms:eventReference>quakeml:eu.ahead/event/17660805_0000_000</ms:eventReference>
+			<ms:placeReference>quakeml:eu.ahead/place/TR_00053</ms:placeReference>
+			<ms:intensity>
+				<ms:macroseismicScale>MM</ms:macroseismicScale>
+				<ms:expectedIntensity>
+					<ms:class>6</ms:class>
+				</ms:expectedIntensity>
+			</ms:intensity>
+		</ms:mdp>
+		<ms:mdp publicID="quakeml:eu.ahead/mdp/UNITH003/245857">
+			<ms:reportReference>quakeml:eu.ahead/datasource/UNITH003</ms:reportReference>
+			<ms:eventReference>quakeml:eu.ahead/event/17660805_0000_000</ms:eventReference>
+			<ms:placeReference>quakeml:eu.ahead/place/TR_00078</ms:placeReference>
+			<ms:intensity>
+				<ms:macroseismicScale>MM</ms:macroseismicScale>
+				<ms:expectedIntensity>
+					<ms:class>6</ms:class>
+				</ms:expectedIntensity>
+			</ms:intensity>
+		</ms:mdp>
+		<ms:mdp publicID="quakeml:eu.ahead/mdp/UNITH003/245858">
+			<ms:reportReference>quakeml:eu.ahead/datasource/UNITH003</ms:reportReference>
+			<ms:eventReference>quakeml:eu.ahead/event/17660805_0000_000</ms:eventReference>
+			<ms:placeReference>quakeml:eu.ahead/place/TR_00080</ms:placeReference>
+			<ms:intensity>
+				<ms:macroseismicScale>MM</ms:macroseismicScale>
+				<ms:expectedIntensity>
+					<ms:class>6</ms:class>
+				</ms:expectedIntensity>
+			</ms:intensity>
+		</ms:mdp>
+		<ms:mdp publicID="quakeml:eu.ahead/mdp/UNITH003/245859">
+			<ms:reportReference>quakeml:eu.ahead/datasource/UNITH003</ms:reportReference>
+			<ms:eventReference>quakeml:eu.ahead/event/17660805_0000_000</ms:eventReference>
+			<ms:placeReference>quakeml:eu.ahead/place/TR_00082</ms:placeReference>
+			<ms:intensity>
+				<ms:macroseismicScale>MM</ms:macroseismicScale>
+				<ms:expectedIntensity>
+					<ms:class>6</ms:class>
+				</ms:expectedIntensity>
+			</ms:intensity>
+		</ms:mdp>
+		<ms:mdp publicID="quakeml:eu.ahead/mdp/UNITH003/245860">
+			<ms:reportReference>quakeml:eu.ahead/datasource/UNITH003</ms:reportReference>
+			<ms:eventReference>quakeml:eu.ahead/event/17660805_0000_000</ms:eventReference>
+			<ms:placeReference>quakeml:eu.ahead/place/GR_00100</ms:placeReference>
+			<ms:intensity>
+				<ms:macroseismicScale>MM</ms:macroseismicScale>
+				<ms:expectedIntensity>
+					<ms:class>6</ms:class>
+				</ms:expectedIntensity>
+			</ms:intensity>
+		</ms:mdp>
+		<ms:mdp publicID="quakeml:eu.ahead/mdp/UNITH003/245861">
+			<ms:reportReference>quakeml:eu.ahead/datasource/UNITH003</ms:reportReference>
+			<ms:eventReference>quakeml:eu.ahead/event/17660805_0000_000</ms:eventReference>
+			<ms:placeReference>quakeml:eu.ahead/place/TR_00141</ms:placeReference>
+			<ms:intensity>
+				<ms:macroseismicScale>MM</ms:macroseismicScale>
+				<ms:expectedIntensity>
+					<ms:class>6</ms:class>
+				</ms:expectedIntensity>
+			</ms:intensity>
+		</ms:mdp>
+		<ms:mdp publicID="quakeml:eu.ahead/mdp/UNITH003/245863">
+			<ms:reportReference>quakeml:eu.ahead/datasource/UNITH003</ms:reportReference>
+			<ms:eventReference>quakeml:eu.ahead/event/17660805_0000_000</ms:eventReference>
+			<ms:placeReference>quakeml:eu.ahead/place/TR_00002</ms:placeReference>
+			<ms:intensity>
+				<ms:macroseismicScale>MM</ms:macroseismicScale>
+				<ms:expectedIntensity>
+					<ms:class>5</ms:class>
+				</ms:expectedIntensity>
+			</ms:intensity>
+		</ms:mdp>
+		<ms:mdp publicID="quakeml:eu.ahead/mdp/UNITH003/245862">
+			<ms:reportReference>quakeml:eu.ahead/datasource/UNITH003</ms:reportReference>
+			<ms:eventReference>quakeml:eu.ahead/event/17660805_0000_000</ms:eventReference>
+			<ms:placeReference>quakeml:eu.ahead/place/GR_00017</ms:placeReference>
+			<ms:intensity>
+				<ms:macroseismicScale>MM</ms:macroseismicScale>
+				<ms:expectedIntensity>
+					<ms:class>5</ms:class>
+				</ms:expectedIntensity>
+			</ms:intensity>
+		</ms:mdp>
+		<ms:mdp publicID="quakeml:eu.ahead/mdp/UNITH003/245864">
+			<ms:reportReference>quakeml:eu.ahead/datasource/UNITH003</ms:reportReference>
+			<ms:eventReference>quakeml:eu.ahead/event/17660805_0000_000</ms:eventReference>
+			<ms:placeReference>quakeml:eu.ahead/place/TR_00079</ms:placeReference>
+			<ms:intensity>
+				<ms:macroseismicScale>MM</ms:macroseismicScale>
+				<ms:expectedIntensity>
+					<ms:class>5</ms:class>
+				</ms:expectedIntensity>
+			</ms:intensity>
+		</ms:mdp>
+		<ms:mdp publicID="quakeml:eu.ahead/mdp/UNITH003/245865">
+			<ms:reportReference>quakeml:eu.ahead/datasource/UNITH003</ms:reportReference>
+			<ms:eventReference>quakeml:eu.ahead/event/17660805_0000_000</ms:eventReference>
+			<ms:placeReference>quakeml:eu.ahead/place/GR_00141</ms:placeReference>
+			<ms:intensity>
+				<ms:macroseismicScale>MM</ms:macroseismicScale>
+				<ms:expectedIntensity>
+					<ms:class>5</ms:class>
+				</ms:expectedIntensity>
+			</ms:intensity>
+		</ms:mdp>
+		<ms:place publicID="quakeml:eu.ahead/place/TR_00039">
+			<ms:preferredName>
+				<ms:type>official</ms:type>
+				<ms:name><![CDATA[CHORA]]></ms:name>
+			</ms:preferredName>
+			<ms:referenceLatitude><value>40.800</value></ms:referenceLatitude>
+			<ms:referenceLongitude><value>27.350</value></ms:referenceLongitude>
+			<co:isoCountryCode code="TR">https://en.wikipedia.org/wiki/ISO_3166-2:TR</co:isoCountryCode>
+		</ms:place>
+		<ms:place publicID="quakeml:eu.ahead/place/TR_00067">
+			<ms:preferredName>
+				<ms:type>official</ms:type>
+				<ms:name><![CDATA[GANOS]]></ms:name>
+			</ms:preferredName>
+			<ms:referenceLatitude><value>40.770</value></ms:referenceLatitude>
+			<ms:referenceLongitude><value>27.330</value></ms:referenceLongitude>
+			<co:isoCountryCode code="TR">https://en.wikipedia.org/wiki/ISO_3166-2:TR</co:isoCountryCode>
+		</ms:place>
+		<ms:place publicID="quakeml:eu.ahead/place/TR_00034">
+			<ms:preferredName>
+				<ms:type>official</ms:type>
+				<ms:name><![CDATA[Gelibolu]]></ms:name>
+			</ms:preferredName>
+			<ms:referenceLatitude><value>40.409</value></ms:referenceLatitude>
+			<ms:referenceLongitude><value>26.672</value></ms:referenceLongitude>
+			<co:isoCountryCode code="TR">https://en.wikipedia.org/wiki/ISO_3166-2:TR</co:isoCountryCode>
+		</ms:place>
+		<ms:place publicID="quakeml:eu.ahead/place/TR_00301">
+			<ms:preferredName>
+				<ms:type>official</ms:type>
+				<ms:name><![CDATA[PERISTASIS]]></ms:name>
+			</ms:preferredName>
+			<ms:referenceLatitude><value>40.680</value></ms:referenceLatitude>
+			<ms:referenceLongitude><value>27.080</value></ms:referenceLongitude>
+			<co:isoCountryCode code="TR">https://en.wikipedia.org/wiki/ISO_3166-2:TR</co:isoCountryCode>
+		</ms:place>
+		<ms:place publicID="quakeml:eu.ahead/place/TR_00084">
+			<ms:preferredName>
+				<ms:type>official</ms:type>
+				<ms:name><![CDATA[Kilitbahir]]></ms:name>
+			</ms:preferredName>
+			<ms:name>
+				<ms:type>reported</ms:type>
+				<ms:name><![CDATA[KILITULBAHIR]]></ms:name>
+			</ms:name>
+			<ms:referenceLatitude><value>40.148</value></ms:referenceLatitude>
+			<ms:referenceLongitude><value>26.379</value></ms:referenceLongitude>
+			<co:isoCountryCode code="TR">https://en.wikipedia.org/wiki/ISO_3166-2:TR</co:isoCountryCode>
+		</ms:place>
+		<ms:place publicID="quakeml:eu.ahead/place/TR_00127">
+			<ms:preferredName>
+				<ms:type>official</ms:type>
+				<ms:name><![CDATA[Sultanhisar]]></ms:name>
+			</ms:preferredName>
+			<ms:referenceLatitude><value>40.150</value></ms:referenceLatitude>
+			<ms:referenceLongitude><value>26.480</value></ms:referenceLongitude>
+			<co:isoCountryCode code="TR">https://en.wikipedia.org/wiki/ISO_3166-2:TR</co:isoCountryCode>
+		</ms:place>
+		<ms:place publicID="quakeml:eu.ahead/place/TR_00030">
+			<ms:preferredName>
+				<ms:type>official</ms:type>
+				<ms:name><![CDATA[Bozcaada]]></ms:name>
+			</ms:preferredName>
+			<ms:name>
+				<ms:type>reported</ms:type>
+				<ms:name><![CDATA[TENEDOS]]></ms:name>
+			</ms:name>
+			<ms:referenceLatitude><value>39.833</value></ms:referenceLatitude>
+			<ms:referenceLongitude><value>26.068</value></ms:referenceLongitude>
+			<ms:type>multiple settlement</ms:type>
+			<co:isoCountryCode code="TR">https://en.wikipedia.org/wiki/ISO_3166-2:TR</co:isoCountryCode>
+		</ms:place>
+		<ms:place publicID="quakeml:eu.ahead/place/TR_00147">
+			<ms:preferredName>
+				<ms:type>official</ms:type>
+				<ms:name><![CDATA[Seddülbahir [castle]]]></ms:name>
+			</ms:preferredName>
+			<ms:name>
+				<ms:type>reported</ms:type>
+				<ms:name><![CDATA[SEDDULBAHIR]]></ms:name>
+			</ms:name>
+			<ms:referenceLatitude><value>40.042</value></ms:referenceLatitude>
+			<ms:referenceLongitude><value>26.188</value></ms:referenceLongitude>
+			<ms:type>hamlet</ms:type>
+			<co:isoCountryCode code="TR">https://en.wikipedia.org/wiki/ISO_3166-2:TR</co:isoCountryCode>
+		</ms:place>
+		<ms:place publicID="quakeml:eu.ahead/place/TR_00123">
+			<ms:preferredName>
+				<ms:type>official</ms:type>
+				<ms:name><![CDATA[Silivri]]></ms:name>
+			</ms:preferredName>
+			<ms:referenceLatitude><value>41.073</value></ms:referenceLatitude>
+			<ms:referenceLongitude><value>28.248</value></ms:referenceLongitude>
+			<co:isoCountryCode code="TR">https://en.wikipedia.org/wiki/ISO_3166-2:TR</co:isoCountryCode>
+		</ms:place>
+		<ms:place publicID="quakeml:eu.ahead/place/TR_00032">
+			<ms:preferredName>
+				<ms:type>official</ms:type>
+				<ms:name><![CDATA[Bursa]]></ms:name>
+			</ms:preferredName>
+			<ms:referenceLatitude><value>40.183</value></ms:referenceLatitude>
+			<ms:referenceLongitude><value>29.067</value></ms:referenceLongitude>
+			<co:isoCountryCode code="TR">https://en.wikipedia.org/wiki/ISO_3166-2:TR</co:isoCountryCode>
+		</ms:place>
+		<ms:place publicID="quakeml:eu.ahead/place/TR_00053">
+			<ms:preferredName>
+				<ms:type>official</ms:type>
+				<ms:name><![CDATA[Edirne]]></ms:name>
+			</ms:preferredName>
+			<ms:referenceLatitude><value>41.667</value></ms:referenceLatitude>
+			<ms:referenceLongitude><value>26.567</value></ms:referenceLongitude>
+			<co:isoCountryCode code="TR">https://en.wikipedia.org/wiki/ISO_3166-2:TR</co:isoCountryCode>
+		</ms:place>
+		<ms:place publicID="quakeml:eu.ahead/place/TR_00078">
+			<ms:preferredName>
+				<ms:type>official</ms:type>
+				<ms:name><![CDATA[Istanbul]]></ms:name>
+			</ms:preferredName>
+			<ms:referenceLatitude><value>41.012</value></ms:referenceLatitude>
+			<ms:referenceLongitude><value>28.976</value></ms:referenceLongitude>
+			<co:isoCountryCode code="TR">https://en.wikipedia.org/wiki/ISO_3166-2:TR</co:isoCountryCode>
+		</ms:place>
+		<ms:place publicID="quakeml:eu.ahead/place/TR_00080">
+			<ms:preferredName>
+				<ms:type>official</ms:type>
+				<ms:name><![CDATA[Izmit]]></ms:name>
+			</ms:preferredName>
+			<ms:referenceLatitude><value>40.774</value></ms:referenceLatitude>
+			<ms:referenceLongitude><value>29.938</value></ms:referenceLongitude>
+			<co:isoCountryCode code="TR">https://en.wikipedia.org/wiki/ISO_3166-2:TR</co:isoCountryCode>
+		</ms:place>
+		<ms:place publicID="quakeml:eu.ahead/place/TR_00082">
+			<ms:preferredName>
+				<ms:type>official</ms:type>
+				<ms:name><![CDATA[Karamursel]]></ms:name>
+			</ms:preferredName>
+			<ms:referenceLatitude><value>40.692</value></ms:referenceLatitude>
+			<ms:referenceLongitude><value>29.616</value></ms:referenceLongitude>
+			<co:isoCountryCode code="TR">https://en.wikipedia.org/wiki/ISO_3166-2:TR</co:isoCountryCode>
+		</ms:place>
+		<ms:place publicID="quakeml:eu.ahead/place/GR_00100">
+			<ms:preferredName>
+				<ms:type>official</ms:type>
+				<ms:name><![CDATA[Mytilini]]></ms:name>
+			</ms:preferredName>
+			<ms:referenceLatitude><value>39.106</value></ms:referenceLatitude>
+			<ms:referenceLongitude><value>26.557</value></ms:referenceLongitude>
+			<ms:type>multiple settlement</ms:type>
+			<co:isoCountryCode code="GR">https://en.wikipedia.org/wiki/ISO_3166-2:GR</co:isoCountryCode>
+		</ms:place>
+		<ms:place publicID="quakeml:eu.ahead/place/TR_00141">
+			<ms:preferredName>
+				<ms:type>official</ms:type>
+				<ms:name><![CDATA[Yalova]]></ms:name>
+			</ms:preferredName>
+			<ms:referenceLatitude><value>40.662</value></ms:referenceLatitude>
+			<ms:referenceLongitude><value>29.281</value></ms:referenceLongitude>
+			<co:isoCountryCode code="TR">https://en.wikipedia.org/wiki/ISO_3166-2:TR</co:isoCountryCode>
+		</ms:place>
+		<ms:place publicID="quakeml:eu.ahead/place/TR_00002">
+			<ms:preferredName>
+				<ms:type>official</ms:type>
+				<ms:name><![CDATA[Aydin]]></ms:name>
+			</ms:preferredName>
+			<ms:referenceLatitude><value>37.846</value></ms:referenceLatitude>
+			<ms:referenceLongitude><value>27.843</value></ms:referenceLongitude>
+			<co:isoCountryCode code="TR">https://en.wikipedia.org/wiki/ISO_3166-2:TR</co:isoCountryCode>
+		</ms:place>
+		<ms:place publicID="quakeml:eu.ahead/place/GR_00017">
+			<ms:preferredName>
+				<ms:type>official</ms:type>
+				<ms:name><![CDATA[Central Athos]]></ms:name>
+			</ms:preferredName>
+			<ms:name>
+				<ms:type>reported</ms:type>
+				<ms:name><![CDATA[ATHOS]]></ms:name>
+			</ms:name>
+			<ms:referenceLatitude><value>40.200</value></ms:referenceLatitude>
+			<ms:referenceLongitude><value>24.300</value></ms:referenceLongitude>
+			<ms:type>multiple settlement</ms:type>
+			<co:isoCountryCode code="GR">https://en.wikipedia.org/wiki/ISO_3166-2:GR</co:isoCountryCode>
+		</ms:place>
+		<ms:place publicID="quakeml:eu.ahead/place/TR_00079">
+			<ms:preferredName>
+				<ms:type>official</ms:type>
+				<ms:name><![CDATA[Izmir]]></ms:name>
+			</ms:preferredName>
+			<ms:referenceLatitude><value>38.416</value></ms:referenceLatitude>
+			<ms:referenceLongitude><value>27.137</value></ms:referenceLongitude>
+			<co:isoCountryCode code="TR">https://en.wikipedia.org/wiki/ISO_3166-2:TR</co:isoCountryCode>
+		</ms:place>
+		<ms:place publicID="quakeml:eu.ahead/place/GR_00141">
+			<ms:preferredName>
+				<ms:type>official</ms:type>
+				<ms:name><![CDATA[Thessaloniki]]></ms:name>
+			</ms:preferredName>
+			<ms:referenceLatitude><value>40.636</value></ms:referenceLatitude>
+			<ms:referenceLongitude><value>22.944</value></ms:referenceLongitude>
+			<co:isoCountryCode code="GR">https://en.wikipedia.org/wiki/ISO_3166-2:GR</co:isoCountryCode>
+		</ms:place>
+		<ms:literatureSource identifier="quakeml:eu.ahead/datasource/EPICAv1.1">
+			<rm:bibtexType>misc</rm:bibtexType>
+			<rm:language code="EN">http://id.loc.gov/vocabulary/iso639-1/en</rm:language>
+			<rm:title><![CDATA[European PreInstrumental earthquake CAtalogue, version 1.1]]></rm:title>
+			<rm:bibliographicCitation><![CDATA[Rovida A., Antonucci A., 2021. EPICA - European PreInstrumental earthquake CAtalogue, version 1.1. Istituto Nazionale di Geofisica e Vulcanologia (INGV). https://doi.org/10.13127/epica.1.1]]></rm:bibliographicCitation>
+			<rm:year>2021</rm:year>
+			<rm:publisher><![CDATA[Istituto Nazionale di Geofisica e Vulcanologia (INGV)]]></rm:publisher>
+			<rm:publicationStatus><![CDATA[published]]></rm:publicationStatus>
+		</ms:literatureSource>
+		<ms:literatureSource identifier="quakeml:eu.ahead/datasource/UNITH003">
+			<rm:bibtexType>unpublished</rm:bibtexType>
+			<rm:language code="EN">http://id.loc.gov/vocabulary/iso639-1/en</rm:language>
+			<rm:title><![CDATA[Macroseismic Data used for the compilation of Papazachos and Papazachou (2003) catalogue]]></rm:title>
+			<rm:bibliographicCitation><![CDATA[University of Thessaloniki, 2003. Macroseismic Data used for the compilation of Papazachos and Papazachou (2003) catalogue. In: Online Macroseimic Data of Southern Balkan area.]]></rm:bibliographicCitation>
+			<rm:year>2003</rm:year>
+			<rm:publisher><![CDATA[Istituto Nazionale di Geofisica e Vulcanologia (INGV)]]></rm:publisher>
+			<rm:publicationStatus><![CDATA[published]]></rm:publicationStatus>
+		</ms:literatureSource>	</ms:macroseismicParameters>
+</qml:quakeml>
