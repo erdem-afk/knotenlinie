@@ -1,0 +1,860 @@
+{
+ "A_kenet_kirik": {
+  "W1878080051": [
+   2015,
+   100,
+   "Time-varying interseismic strain rates and similar seismic ruptures on the Nias–Simeulue patch of the Sunda megathrust",
+   "https://doi.org/10.1016/j.quascirev.2015.06.003"
+  ],
+  "W2017911693": [
+   2011,
+   254,
+   "The kinematics of a transition from subduction to strike‐slip: An example from the central New Zealand plate boundary",
+   "https://doi.org/10.1029/2011jb008640"
+  ],
+  "W3159297475": [
+   2021,
+   0,
+   "Earthquake ruptures tied to long-lived plate interface deformation",
+   "https://doi.org/10.5194/egusphere-egu21-13274"
+  ],
+  "W2580646563": [
+   2017,
+   126,
+   "From the seismic cycle to long-term deformation: linking seismic coupling and Quaternary coastal geomorphology along the Andean megathrust",
+   "https://doi.org/10.1002/2016tc004156"
+  ],
+  "W3119853211": [
+   2021,
+   19,
+   "Influence of Shear Heating and Thermomechanical Coupling on Earthquake Sequences and the Brittle‐Ductile Transition",
+   "https://doi.org/10.1029/2020jb021394"
+  ],
+  "W2989621496": [
+   2017,
+   2,
+   "From the seismic cycle to long-term deformation: linking seismic coupling and Quaternary coastal geomorphology along the Andean megathrust",
+   null
+  ],
+  "W2091705352": [
+   2000,
+   255,
+   "Strain partitioning during oblique plate convergence in northern Sumatra: Geodetic and seismologic constraints and numerical modeling",
+   "https://doi.org/10.1029/1999jb900362"
+  ],
+  "W7116042383": [
+   2025,
+   0,
+   "Space Geodetic Constraints on Plate Motion, Fault Creep, and Megathrust Coupling",
+   "https://doi.org/10.7907/d6e6-q845"
+  ],
+  "W7135203922": [
+   2026,
+   0,
+   "Bayesian inference of interseismic coupling along the East Anatolian Fault using geodetic data",
+   "https://doi.org/10.5194/egusphere-egu26-12465"
+  ],
+  "W7124444308": [
+   2026,
+   0,
+   "Spatial relations between pre-event interseismic fault coupling and coseismic fault slip associated with the 2023 Turkey-Syria Earthquake sequence.",
+   "https://doi.org/10.22541/essoar.176860238.89827137/v1"
+  ],
+  "W7135216194": [
+   2026,
+   0,
+   "Spatial relations between pre-event interseismic fault coupling and coseismic fault slip associated with the 2023 Turkey-Syria Earthquake sequence.",
+   "https://doi.org/10.5194/egusphere-egu26-220"
+  ],
+  "W4412009008": [
+   2025,
+   5,
+   "Modeling the 2023 Türkiye Earthquakes and Strain Accumulation Along the East Anatolian Fault Zone: Insights from InSAR, GNSS, and Small-Magnitude Seismicity, with Implications for the Seismic Potential at Rupture Terminations",
+   "https://doi.org/10.3390/rs17132270"
+  ],
+  "W7163363018": [
+   2026,
+   0,
+   "Coseismic Slip Model and Interseismic Strain Accumulation of the 2025 Mw 7.7 Mandalay, Myanmar, Earthquake Revealed by Geodetic Observations",
+   "https://doi.org/10.1785/0220250370"
+  ],
+  "W4415985863": [
+   2025,
+   8,
+   "Seismo-ionospheric anomalies associated with the 2025 Mw 7.7 Myanmar earthquake: a case study",
+   "https://doi.org/10.1016/j.asr.2025.11.015"
+  ],
+  "W7131409264": [
+   2026,
+   2,
+   "Crust-mantle dynamics drive cascading rupture of the 2025 Mw 7.8 Myanmar earthquake from geodetic observations",
+   "https://doi.org/10.1016/j.epsl.2026.119938"
+  ],
+  "W7126244313": [
+   2026,
+   2,
+   "Deep multiparameter analysis of the precursory lithospheric, atmospheric and ionospheric anomalies before and during the 28 March 2025 Mw7.7 Myanmar-Burma earthquake",
+   "https://doi.org/10.1016/j.tecto.2026.231101"
+  ],
+  "W7135213424": [
+   2026,
+   0,
+   "Geosystemic signatures of the seismic preparatory phase: Insights from the 2024 Wushi and 2025 Myanmar Earthquakes",
+   "https://doi.org/10.5194/egusphere-egu26-12919"
+  ],
+  "W7204943191": [
+   2026,
+   0,
+   "Towards assessing coseismic rupture potential from interseismic viscoelastic coupling",
+   "https://doi.org/10.1016/j.epsl.2026.120323"
+  ]
+ },
+ "B_sunme_bariyer": {
+  "W2153282389": [
+   2005,
+   133,
+   "Creeping along the Ismetpasa section of the North Anatolian fault (Western Turkey): Rate and extent from InSAR",
+   "https://doi.org/10.1016/j.epsl.2005.06.044"
+  ],
+  "W3197641045": [
+   2021,
+   16,
+   "Coseismic slip gradient at the western terminus of the 1920 Haiyuan Mw 7.9 earthquake",
+   "https://doi.org/10.1016/j.jsg.2021.104442"
+  ],
+  "W4409906680": [
+   2025,
+   1,
+   "InSAR observations reveal interactions between seismic and aseismic slip during and after the 2016 Mw 6.6 Muji earthquake",
+   "https://doi.org/10.1038/s41598-025-98880-6"
+  ],
+  "W7160878993": [
+   2026,
+   2,
+   "Dynamics of Rupture Barriers on Oceanic Transform Faults: Insights From the Westernmost Gofar Transform Fault",
+   "https://doi.org/10.1029/2025jb033439"
+  ],
+  "W2076246563": [
+   1993,
+   45,
+   "Earthquake travel time tomography of the southern Santa Cruz Mountains: Control of fault rupture by lithological heterogeneity of the San Andreas Fault Zone",
+   "https://doi.org/10.1029/93jb01424"
+  ],
+  "W4322209967": [
+   2023,
+   0,
+   "InSAR observations in 2014–2021 reveal variations in shallow creep on the Kangding segment of the Xianshuihe fault",
+   "https://doi.org/10.5194/egusphere-egu23-14523"
+  ],
+  "W4414144305": [
+   2025,
+   0,
+   "Simulation of large earthquake synchronization and implications on North Anatolian fault zone",
+   "https://doi.org/10.1016/j.tecto.2025.230902"
+  ],
+  "W4408443890": [
+   2025,
+   1,
+   "Coseismic slip and early afterslip of the 2024 Hyuganada earthquake modulated by a subducted seamount",
+   "https://doi.org/10.5194/egusphere-egu25-1671"
+  ],
+  "W4391350299": [
+   2024,
+   17,
+   "Heterogeneous Locking and Earthquake Potential on the South Peru Megathrust From Dense GNSS Network",
+   "https://doi.org/10.1029/2023jb027114"
+  ],
+  "W2045830288": [
+   2011,
+   255,
+   "Interseismic coupling and seismic potential along the Central Andes subduction zone",
+   "https://doi.org/10.1029/2010jb008166"
+  ],
+  "W7135169736": [
+   2026,
+   0,
+   "Spatial Patterns of Megathrust Seismogenic Behavior Modulated by a Subducting Seamount",
+   "https://doi.org/10.5194/egusphere-egu26-9476"
+  ],
+  "W4392602323": [
+   2024,
+   1,
+   "Crustal Deformation Associated with the Seismic Cycle in the Central Andes from InSAR and GNSS Geodetic Time Series",
+   "https://doi.org/10.5194/egusphere-egu24-8472"
+  ],
+  "W185508726": [
+   2013,
+   2,
+   "Experimental Investigation of Gouges and Cataclasites, Alpine Fault, New Zealand",
+   "https://doi.org/10.26021/7160"
+  ],
+  "W4381996227": [
+   2023,
+   24,
+   "Quantifying the probability of rupture arrest at restraining and releasing bends using earthquake sequence simulations",
+   "https://doi.org/10.1016/j.epsl.2023.118276"
+  ],
+  "W2335775726": [
+   1994,
+   3,
+   "The Influence of Grain Boundary Precipitates on Creep Fracture of Inconel 718",
+   "https://doi.org/10.7449/1994/superalloys_1994_567_577"
+  ],
+  "W2237723230": [
+   2009,
+   6,
+   "A fracture probability competition mechanism of stress corrosion cracking",
+   null
+  ],
+  "W2135439914": [
+   2013,
+   175,
+   "Spatio-temporal evolution of aseismic slip along the Haiyuan fault, China: Implications for fault frictional properties",
+   "https://doi.org/10.1016/j.epsl.2013.07.020"
+  ],
+  "W2506480907": [
+   2013,
+   79,
+   "Mechanical Characterization of Biomaterials",
+   "https://doi.org/10.1016/b978-0-12-415800-9.00003-6"
+  ],
+  "W1540032842": [
+   2009,
+   925,
+   "Mechanical Properties of Ceramics",
+   "https://doi.org/10.1002/9780470451519"
+  ],
+  "W1986526313": [
+   2002,
+   20,
+   "Fuzzy parameters analysis of time‐dependent fracture of concrete dam models",
+   "https://doi.org/10.1002/nag.235"
+  ],
+  "W1573492311": [
+   2001,
+   4,
+   "Time—dependent fracture of concrete dam models with fuzzy parameters",
+   "https://doi.org/10.1063/1.1388700"
+  ],
+  "W7204110004": [
+   2026,
+   0,
+   "The Boundary-Closure Seismic Localization Hypothesis",
+   "https://doi.org/10.5281/zenodo.21780624"
+  ]
+ },
+ "C_tehlike_karne": {
+  "W7171433748": [
+   2026,
+   0,
+   "Comprehensive probabilistic seismic hazard assessment for the East Anatolian Fault Zone: a multi-segment rupture framework with physics-based seismo-tectonic assessment using the 2023 Kahramanmaraş earthquake sequence",
+   "https://doi.org/10.1007/s10518-026-02596-5"
+  ],
+  "W4323864840": [
+   2023,
+   5,
+   "The 1673 Tianzhen Earthquake and Rupture Behavior of the Yanggao‐Tianzhen Fault in the Northern Shanxi Graben, China",
+   "https://doi.org/10.1029/2022tc007582"
+  ],
+  "W7210282913": [
+   2026,
+   0,
+   "Remote sensing image characteristics and seismic hazard of the Baiganhu Fault on the south side of the central Altyn Tagh Fault",
+   "https://doi.org/10.12090/j.issn.1006-6616.2025187"
+  ],
+  "W3082603669": [
+   2020,
+   2,
+   "Palaeo-earthquake magnitudes on the Dzhungarian fault, N. Tien shan, and implications for the rupture processes of intraplate strike-slip faults",
+   "https://doi.org/10.5194/egusphere-egu2020-710"
+  ],
+  "W7205368530": [
+   2025,
+   0,
+   "Probabilistic Fault Displacement Hazard Assessment Using Stochastic Source Modeling",
+   null
+  ],
+  "W7131849304": [
+   2026,
+   0,
+   "A complementary energy-based system approach to seismic hazard assessment",
+   "https://doi.org/10.15126/thesis.901951"
+  ],
+  "W7152344409": [
+   2025,
+   0,
+   "A FRAMEWORK BASED ON MULTI-HAZARD FRAGILITY MODELS FOR RISK ASSESSMENT OF BURIED PIPELINES SUBJECTED TO EARTHQUAKES AND EXPANSIVE SOIL CONDITIONS",
+   null
+  ],
+  "W4392649202": [
+   2024,
+   1,
+   "Off-fault damage in the 2023 Kahramanmaraş (Türkiye) earthquakes from SAR images",
+   "https://doi.org/10.5194/egusphere-egu24-17289"
+  ],
+  "W4408424770": [
+   2025,
+   0,
+   "Heterogeneity in Dynamic Rupture Models: Bridging the Gap Between Observed High-Frequency Ground Motion and Rupture Process Complexity",
+   "https://doi.org/10.5194/egusphere-egu25-5717"
+  ],
+  "W3199391847": [
+   2007,
+   0,
+   "Crustal Deformations, Earthquake and Tsunami Hazards of the Sumatran Plate Margin : Presentasi RUTI IV",
+   null
+  ],
+  "W4408487917": [
+   2025,
+   0,
+   "High resolution tsunami inundation maps: towards multi-hazard risk analysis.",
+   "https://doi.org/10.5194/egusphere-egu25-9938"
+  ],
+  "W7212229185": [
+   2026,
+   0,
+   "Review of Tectonic activity and the causes of the 2023 Türkiye earthquakes",
+   "https://doi.org/10.1007/s11600-026-02013-0"
+  ],
+  "W4400938121": [
+   2024,
+   26,
+   "Rupture segmentation on the East Anatolian fault (Turkey) controlled by along-strike variations in long-term slip rates in a structurally complex fault system",
+   "https://doi.org/10.1130/g52403.1"
+  ],
+  "W7135389986": [
+   2026,
+   0,
+   "The Active Fault Database of Türkiye: Framework, Methodology, and Ongoing Revisions by the General Directorate of Mineral Research and Exploration (MTA",
+   "https://doi.org/10.5194/egusphere-egu26-20721"
+  ],
+  "W2996361835": [
+   2019,
+   27,
+   "A review of the 2016 Kaikōura earthquake: insights from the first 3 years",
+   "https://doi.org/10.1080/03036758.2019.1701048"
+  ],
+  "W7135246064": [
+   2026,
+   0,
+   "Filling a missing piece of the 1855 Wairarapa earthquake: Rupture characteristics and implications for regional seismic hazard",
+   "https://doi.org/10.5194/egusphere-egu26-6574"
+  ],
+  "W2171876420": [
+   2006,
+   142,
+   "Seismic hazard due to small-magnitude, shallow-source, induced earthquakes in The Netherlands",
+   "https://doi.org/10.1016/j.enggeo.2006.06.005"
+  ],
+  "W2030159842": [
+   2013,
+   6,
+   "Seismic hazard across Bulgaria and neighbouring areas: regional and site-specific maximum credible magnitudes and earthquake perceptibility",
+   "https://doi.org/10.1007/s11069-013-0590-5"
+  ],
+  "W1524202097": [
+   2002,
+   45,
+   "Earthquake Hazard Assessment in the Oran Region (Northwest Algeria)",
+   "https://doi.org/10.1023/a:1015602815231"
+  ],
+  "W7172514929": [
+   2026,
+   0,
+   "Maximum fluid-induced earthquake magnitude shifts from injected volume to stress control",
+   "https://doi.org/10.21203/rs.3.rs-10395039/v1"
+  ],
+  "W2944107232": [
+   2019,
+   24,
+   "Earthquake hazard potential of Indo-Gangetic Foredeep: its seismotectonism, hazard, and damage modeling for the cities of Patna, Lucknow, and Varanasi",
+   "https://doi.org/10.1007/s10950-019-09832-3"
+  ],
+  "W2304147872": [
+   2016,
+   115,
+   "2016 one-year seismic hazard forecast for the Central and Eastern United States from induced and natural earthquakes",
+   "https://doi.org/10.3133/ofr20161035"
+  ],
+  "W2528426543": [
+   2016,
+   32,
+   "Probabilistic tsunami hazard assessment along Oman coast from submarine earthquakes in the Makran subduction zone",
+   "https://doi.org/10.1007/s12517-016-2687-0"
+  ],
+  "W4388826224": [
+   2023,
+   12,
+   "Comparison of Ground-Shaking Hazard for Segmented versus Multifault Earthquake-Rupture Models in Aotearoa New Zealand",
+   "https://doi.org/10.1785/0220230240"
+  ],
+  "W925877174": [
+   2006,
+   6,
+   "The application of multiple random earthquake simulations to probabilistic seismic hazard assessment in the Aegean region",
+   null
+  ],
+  "W4317739593": [
+   2023,
+   10,
+   "Seismic Hazard Curve as Dynamic Parameters in Earthquake Building Design for Sabah, Malaysia",
+   "https://doi.org/10.3390/buildings13020318"
+  ],
+  "W2756418079": [
+   2017,
+   25,
+   "Probabilistic Seismic Hazard Assessment for Himalayan–Tibetan Region from Historical and Instrumental Earthquake Catalogs",
+   "https://doi.org/10.1007/s00024-017-1659-y"
+  ],
+  "W2982064959": [
+   2002,
+   0,
+   "Deep intraslab earthquakes and how they contribute to seismic hazard in the Pacific northwestern U.S.",
+   "https://doi.org/10.4095/222544"
+  ],
+  "W2536543711": [
+   2016,
+   16,
+   "An Investigation of the Reliability of the Taiwan Earthquake Model PSHA2015",
+   "https://doi.org/10.1785/0220160085"
+  ],
+  "W4413447590": [
+   2025,
+   2,
+   "Seismic hazard assessment for bejaia city and its surrounding regions: integrating characteristic earthquake model and tectonic considerations",
+   "https://doi.org/10.1007/s10950-025-10328-6"
+  ],
+  "W2518328420": [
+   2016,
+   75,
+   "Seismic‐Hazard Forecast for 2016 Including Induced and Natural Earthquakes in the Central and Eastern United States",
+   "https://doi.org/10.1785/0220160072"
+  ],
+  "W4388686856": [
+   2023,
+   23,
+   "Deterministic seismic hazard analysis from physics-based earthquake simulations in the Eastern Betics (SE Iberia)",
+   "https://doi.org/10.1016/j.enggeo.2023.107364"
+  ],
+  "W2967531147": [
+   2019,
+   46,
+   "Sensitivity of Probabilistic Tsunami Hazard Assessment to Far-Field Earthquake Slip Complexity and Rigidity Depth-Dependence: Case Study of Australia",
+   "https://doi.org/10.1007/s00024-019-02299-w"
+  ],
+  "W7172522052": [
+   2026,
+   1,
+   "Seismic Hazard on the Main Himalayan Thrust from Physics-Based Earthquake Simulations",
+   "https://doi.org/10.26443/seismica.v5i2.1851"
+  ],
+  "W4200438114": [
+   2021,
+   12,
+   "Statistical analysis of earthquake catalogs for seismic hazard studies around the Karliova Triple Junction (eastern Turkey)",
+   "https://doi.org/10.1016/j.jafrearsci.2021.104436"
+  ],
+  "W4385303683": [
+   2023,
+   10,
+   "Effects on Probabilistic Seismic Hazard Estimates That Result from Nonuniqueness in Declustering an Earthquake Catalog",
+   "https://doi.org/10.1785/0120220239"
+  ],
+  "W2034685122": [
+   2015,
+   10,
+   "THE CHARACTERIZING MODEL FOR TSUNAMI SOURCE REGARDING THE INTER-PLATE EARTHQUAKE TSUNAMI",
+   "https://doi.org/10.5610/jaee.15.3_114"
+  ],
+  "W3128946968": [
+   2021,
+   8,
+   "A ground motion based procedure to identify the earthquakes that are the most relevant for probabilistic seismic hazard analysis",
+   "https://doi.org/10.1177/8755293020981987"
+  ],
+  "W2461096242": [
+   2016,
+   0,
+   "EFFECTS OF THE MODEL FOR SCENARIO TSUNAMI ON THE PROBABILISTIC TSUNAMI HAZARD ASSESSMENT",
+   "https://doi.org/10.5610/jaee.16.7_52"
+  ],
+  "W2115455432": [
+   2007,
+   143,
+   "Probabilistic Seismic-Hazard Assessment for Portugal",
+   "https://doi.org/10.1785/0120050198"
+  ],
+  "W3138538338": [
+   2021,
+   5,
+   "Updating seismic hazard models for Kuwait",
+   "https://doi.org/10.21203/rs.3.rs-245972/v1"
+  ]
+ },
+ "D_cekayir": {
+  "W7135168039": [
+   2026,
+   0,
+   "How an extensional pull-apart basin modulates fault slip and earthquake rupture on the Main Marmara Fault",
+   "https://doi.org/10.5194/egusphere-egu26-3420"
+  ],
+  "W7135186452": [
+   2026,
+   0,
+   "Effects of tectonic evolution informed fault geometry on dynamic rupture propagation across step-overs: A case study of the Banquan pull-apart basin",
+   "https://doi.org/10.5194/egusphere-egu26-4321"
+  ],
+  "W7224656272": [
+   2026,
+   0,
+   "Fault segmentation and seismotectonic evolution of a pull-apart basin: the 2021 Mw 4.7 Guelma earthquake sequence, Northeastern Algeria",
+   "https://doi.org/10.1007/s10950-026-10473-6"
+  ],
+  "W2036958421": [
+   1997,
+   65,
+   "Mechanism of the 1992 Erzincan earthquake and its aftershocks, tectonics of the Erzincan Basin and decoupling on the North Anatolian Fault",
+   "https://doi.org/10.1111/j.1365-246x.1997.tb00935.x"
+  ],
+  "W4393380882": [
+   2024,
+   8,
+   "Discontinuous Surface Ruptures and Slip Distributions in the Epicentral Region of the 2021 Mw7.4 Maduo Earthquake, China",
+   "https://doi.org/10.3390/rs16071250"
+  ],
+  "W2341947560": [
+   1999,
+   131,
+   "Active faulting in the Gulf of Aqaba: New knowledge from theMW 7.3 earthquake of 22 November 1995",
+   "https://doi.org/10.1785/bssa0890041025"
+  ],
+  "W3197641045": [
+   2021,
+   16,
+   "Coseismic slip gradient at the western terminus of the 1920 Haiyuan Mw 7.9 earthquake",
+   "https://doi.org/10.1016/j.jsg.2021.104442"
+  ],
+  "W4290995668": [
+   2012,
+   21,
+   "Kinematics and Basin Formation Along the Ezinepazar-Sungurlu Fault Zone, NE Anatolia, Turkey",
+   "https://doi.org/10.3906/yer-0910-27"
+  ],
+  "W4402846831": [
+   2024,
+   5,
+   "Fault geometry and kinematics at the intersection of the Zemuhe, Daliangshan and Xiaojiang Faults",
+   "https://doi.org/10.3389/feart.2024.1433148"
+  ],
+  "W3004555618": [
+   2020,
+   47,
+   "Detailed map, displacement, paleoseismology, and segmentation of the Enriquillo-Plantain Garden Fault in Haiti",
+   "https://doi.org/10.1016/j.tecto.2020.228368"
+  ],
+  "W7223266690": [
+   2026,
+   0,
+   "Three-dimensional geometric modeling of the Gulang–Zhongwei fault, northeastern Tibetan Plateau: implications for the seismic hazard assessment",
+   "https://doi.org/10.1016/j.tecto.2026.231438"
+  ],
+  "W2154904360": [
+   2015,
+   9,
+   "Morphotectonics and paleoseismology of the eastern end of the Bolnay fault (Mongolia)",
+   "https://doi.org/10.1016/j.rgg.2015.09.010"
+  ],
+  "W2224241290": [
+   2010,
+   0,
+   "A Global Characterization of Physical Segmentation along Oceanic Transform Faults",
+   null
+  ],
+  "W2566233281": [
+   2017,
+   17,
+   "Stepover Rupture of the 2014Mw 7.0 Yutian, Xinjiang, Earthquake",
+   "https://doi.org/10.1785/0120160099"
+  ],
+  "W2323026851": [
+   2013,
+   20,
+   "Straightening of the Northern San Jacinto Fault, California, as Seen in the Fault-Structure Evolution of the San Jacinto Valley Stepover",
+   "https://doi.org/10.1785/0120120232"
+  ],
+  "W2027612490": [
+   1997,
+   58,
+   "Source inversion of the 1993 and 1995 Gulf of Aqaba earthquakes",
+   "https://doi.org/10.1016/s0040-1951(97)00070-x"
+  ],
+  "W3012087396": [
+   2019,
+   0,
+   "Interdisciplinary Earthquake Hazard Research in Gulf of Aqaba",
+   null
+  ],
+  "W4200612534": [
+   2021,
+   3,
+   "Review of Tsunami Hazard Potential for Gulf of Aqaba, Egypt",
+   "https://doi.org/10.1007/s12594-021-1911-z"
+  ],
+  "W3105775740": [
+   2021,
+   52,
+   "Active Faults' Geometry in the Gulf of Aqaba, Southern Dead Sea Fault, Illuminated by Multibeam Bathymetric Data",
+   "https://doi.org/10.1029/2020tc006443"
+  ],
+  "W4391707581": [
+   2024,
+   13,
+   "Seismo-turbidites reveal locations of major earthquakes during the past millennium in the Gulf of Aqaba, southern Dead Sea Fault",
+   "https://doi.org/10.1016/j.epsl.2024.118595"
+  ],
+  "W4220968324": [
+   2022,
+   0,
+   "Mapping the extent of seismoturbidites near the southern Dead Sea Fault in the Gulf of Aqaba",
+   "https://doi.org/10.5194/egusphere-egu22-9219"
+  ],
+  "W7202206163": [
+   2026,
+   0,
+   "A tectonically loaded margin: brittle slopes and two millennia of seismically triggered failure in the Gulf of Aqaba",
+   "https://doi.org/10.2110/sepmmisc.26.021"
+  ],
+  "W2129909375": [
+   2000,
+   151,
+   "Seismic behaviour of the Dead Sea fault along Araba valley, Jordan",
+   "https://doi.org/10.1046/j.1365-246x.2000.00166.x"
+  ],
+  "W3204642111": [
+   2021,
+   1,
+   "Exploring the dynamics of the Dead-Sea Transform fault using data-integrated numerical models",
+   "https://doi.org/10.5194/egusphere-egu21-7496"
+  ],
+  "W7115695800": [
+   2025,
+   0,
+   "PROBABILISTIC SEISMIC HAZARD ASSESSMENT FOR THE WESTERN SAUDI ARABIA",
+   "https://doi.org/10.71846/18-wcee-2076"
+  ],
+  "W3206598280": [
+   2021,
+   12,
+   "A sloshing induced Tsunami: 2018 Palu Bay event",
+   "https://doi.org/10.1016/j.apor.2021.102915"
+  ],
+  "W2942105840": [
+   2019,
+   127,
+   "Nearly Instantaneous Tsunamis Following the Mw 7.5 2018 Palu Earthquake",
+   "https://doi.org/10.1029/2019gl082578"
+  ],
+  "W2969337404": [
+   2019,
+   149,
+   "Coupled, Physics-Based Modeling Reveals Earthquake Displacements are Critical to the 2018 Palu, Sulawesi Tsunami",
+   "https://doi.org/10.1007/s00024-019-02290-5"
+  ],
+  "W3094353067": [
+   2020,
+   70,
+   "The 2018 Mw7.5 Palu ‘supershear’ earthquake ruptures geological fault's multi-segment separated by large bends: Results from integrating field measurements, LiDAR, swath bathymetry, and seismic-reflection data",
+   "https://doi.org/10.1093/gji/ggaa498"
+  ],
+  "W4255874962": [
+   2019,
+   29,
+   "Coupled, Physics-based Modeling Reveals Earthquake Displacements are Critical to the 2018 Palu, Sulawesi Tsunami",
+   "https://doi.org/10.31223/osf.io/3bwqa"
+  ],
+  "W3033992080": [
+   2020,
+   38,
+   "Sentinel optical and SAR data highlights multi-segment faulting during the 2018 Palu-Sulawesi earthquake (Mw 7.5)",
+   "https://doi.org/10.1038/s41598-020-66032-7"
+  ],
+  "W3165509760": [
+   2021,
+   0,
+   "Linking dynamic earthquake rupture to tsunami modeling for the Húsavík-Flatey transform fault system in North Iceland",
+   "https://doi.org/10.5194/egusphere-egu21-15891"
+  ],
+  "W4220994085": [
+   2022,
+   1,
+   "Physics-based earthquake-tsunami modelling of the Húsavík-Flatey transform fault zone in North Iceland",
+   "https://doi.org/10.5194/egusphere-egu22-13387"
+  ]
+ },
+ "E_bosluk": {
+  "W3128013465": [
+   2020,
+   0,
+   "Implications and Limitations of Tremor as a Proxy for Slow Slip",
+   null
+  ],
+  "W1676687591": [
+   2018,
+   29,
+   "Seismicity and Crustal Structure Studies of Southern California: Tectonic Implications from Improved Earthquake Locations",
+   "https://doi.org/10.7907/h8mm-4v50"
+  ],
+  "W2014032980": [
+   1992,
+   90,
+   "Asperity distributions and large earthquake occurrence in subduction zones",
+   "https://doi.org/10.1016/0040-1951(92)90051-7"
+  ]
+ },
+ "F_olgunluk": {
+  "W3028122421": [
+   2020,
+   20,
+   "Improving Early Estimates of Large Earthquake's Final Fault Lengths and Magnitudes Leveraging Source Fault Structural Maturity Information",
+   "https://doi.org/10.1029/2020gl087539"
+  ],
+  "W1880745221": [
+   2009,
+   71,
+   "Dependency of Near-Field Ground Motions on the Structural Maturity of the Ruptured Faults",
+   "https://doi.org/10.1785/0120080340"
+  ],
+  "W3196286771": [
+   2021,
+   9,
+   "FinDerS(+): Real-Time Earthquake Slip Profiles and Magnitudes Estimated from Backprojected Displacement with Consideration of Fault Source Maturity Gradient",
+   "https://doi.org/10.3389/feart.2021.685879"
+  ],
+  "W2134205609": [
+   2015,
+   117,
+   "Generic along‐strike segmentation of A far normal faults, E ast A frica: Implications on fault growth and stress heterogeneity on seismogenic fault planes",
+   "https://doi.org/10.1002/2014gc005691"
+  ],
+  "W4321489231": [
+   2023,
+   0,
+   "Modelling seismicity based on fault geometry: maximum magnitudes and magnitude-frequency distributions.",
+   "https://doi.org/10.5194/egusphere-egu23-5033"
+  ],
+  "W7199935821": [
+   2024,
+   0,
+   "Discovery and characterization of earthquakes on immature faults with InSAR",
+   null
+  ],
+  "W4392588297": [
+   2024,
+   0,
+   "The shear deformation zone along the KTFZ: implications for faulting properties",
+   "https://doi.org/10.5194/egusphere-egu24-1802"
+  ],
+  "W7135245040": [
+   2026,
+   0,
+   "Linking Fault Geometric Complexity and Cumulative Displacement with Seismic Behavior: Insights from the Gran Sasso Fault System (Central Apennines, Italy)",
+   "https://doi.org/10.5194/egusphere-egu26-17057"
+  ],
+  "W2013312627": [
+   2009,
+   108,
+   "Earthquake Stress Drops and Inferred Fault Strength on the Hayward Fault, East San Francisco Bay, California",
+   "https://doi.org/10.1785/0120080242"
+  ],
+  "W2047877547": [
+   2010,
+   25,
+   "Normal-Faulting Slip Maxima and Stress-Drop Variability: A Geological Perspective",
+   "https://doi.org/10.1785/0120090356"
+  ],
+  "W3037423653": [
+   2021,
+   51,
+   "The Shear Deformation Zone and the Smoothing of Faults With Displacement",
+   "https://doi.org/10.1029/2020jb020447"
+  ],
+  "W2145615954": [
+   2009,
+   52,
+   "Source Duration Scales with Magnitude Differently for Earthquakes on the San Andreas Fault and on Secondary Faults in Parkfield, California",
+   "https://doi.org/10.1785/0120080216"
+  ],
+  "W30491800": [
+   1992,
+   16,
+   "Chapter 5 Stabilization of Faulting by Cumulative Slip",
+   "https://doi.org/10.1016/s0074-6142(08)62820-x"
+  ],
+  "W2125176477": [
+   2000,
+   20,
+   "Effects induced by an earthquake on its fault plane:a boundary element study",
+   "https://doi.org/10.1046/j.1365-246x.2000.00074.x"
+  ],
+  "W2850285118": [
+   2018,
+   182,
+   "Subduction zone megathrust earthquakes",
+   "https://doi.org/10.1130/ges01608.1"
+  ],
+  "W4402430819": [
+   2024,
+   25,
+   "Role of critical stress in quantifying the magnitude of fluid-injection triggered earthquakes",
+   "https://doi.org/10.1038/s41467-024-52089-9"
+  ],
+  "W2059313384": [
+   1978,
+   43,
+   "The Kinnaur earthquake, Himachal Pradesh, India, of 19 January, 1975",
+   "https://doi.org/10.1016/0040-1951(78)90095-1"
+  ],
+  "W1970520886": [
+   1983,
+   25,
+   "Source mechanisms of Usu volcano, Japan, earthquakes and their tectonic implications",
+   "https://doi.org/10.1016/0031-9201(83)90129-2"
+  ],
+  "W2965119011": [
+   2019,
+   2,
+   "Earthquake rupture characteristics along a developing transform boundary",
+   "https://doi.org/10.1093/gji/ggz357"
+  ],
+  "W4221010676": [
+   2022,
+   1,
+   "Effects of asperities and roughness on frictional slip of laboratory faults",
+   "https://doi.org/10.5194/egusphere-egu22-9997"
+  ],
+  "W2155024389": [
+   1995,
+   15,
+   "Coseismic crustal deformation on a fault zone defined by microseismicity in the Pavliani area, central Greece",
+   "https://doi.org/10.1111/j.1365-246x.1995.tb06659.x"
+  ],
+  "W7135211229": [
+   2026,
+   0,
+   "Heterogeneous Stress–Driven Shear Localization Governing Fault Slip in Decimeter-Scale Quartz Gouge under Variable Surrounding Stiffness",
+   "https://doi.org/10.5194/egusphere-egu26-14558"
+  ],
+  "W4415713983": [
+   2025,
+   0,
+   "Shallow coseismic slip and downdip afterslip associated with the 2022 MW6.7 Menyuan (China) earthquake",
+   "https://doi.org/10.1016/j.geog.2025.08.002"
+  ],
+  "W4401480396": [
+   2024,
+   0,
+   "Fluid Injection-Rate Controls on Seismic Moment",
+   "https://doi.org/10.56952/arma-2024-0686"
+  ]
+ }
+}

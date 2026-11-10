@@ -1,0 +1,89 @@
+{
+ "KONTROL_sinama_x_etas": {
+  "kumeler": [
+   "SINAMA",
+   "ETAS_POZ"
+  ]
+ },
+ "D1_kumelenme_x_marmara": {
+  "kumeler": [
+   "KUMELENME_KILIT",
+   "MARMARA"
+  ]
+ },
+ "D1_kumelenme_x_sinama": {
+  "kumeler": [
+   "KUMELENME_KILIT",
+   "SINAMA"
+  ]
+ },
+ "D2_kenet_x_olay2016": {
+  "kumeler": [
+   "KENET_KIRIK",
+   "OLAY_2016SONRASI"
+  ]
+ },
+ "D2_kenet_x_sinama": {
+  "kumeler": [
+   "KENET_KIRIK",
+   "SINAMA"
+  ]
+ },
+ "D2_kenet_x_olay_x_sinama": {
+  "kumeler": [
+   "KENET_KIRIK",
+   "OLAY_2016SONRASI",
+   "SINAMA"
+  ]
+ },
+ "D2_kaymaongoru_x_olay2016": {
+  "kumeler": [
+   "KAYMA_ONGORU",
+   "OLAY_2016SONRASI"
+  ]
+ },
+ "D3_sunme_x_sicrama": {
+  "kumeler": [
+   "SUNME_BARIYER",
+   "SICRAMA"
+  ]
+ },
+ "D3_sunme_x_sicrama_x_sinama": {
+  "kumeler": [
+   "SUNME_BARIYER",
+   "SICRAMA",
+   "SINAMA"
+  ]
+ },
+ "D3_sunme_x_marmara": {
+  "kumeler": [
+   "SUNME_BARIYER",
+   "MARMARA"
+  ]
+ },
+ "D4_ucerf3_x_olay2016": {
+  "kumeler": [
+   "UCERF3_POZ",
+   "OLAY_2016SONRASI"
+  ]
+ },
+ "D4_ucerf3_x_olay_x_sinama": {
+  "kumeler": [
+   "UCERF3_POZ",
+   "OLAY_2016SONRASI",
+   "SINAMA"
+  ]
+ },
+ "D5_bosluk_x_olay2016": {
+  "kumeler": [
+   "BOSLUK",
+   "OLAY_2016SONRASI"
+  ]
+ },
+ "D5_bosluk_x_sinama": {
+  "kumeler": [
+   "BOSLUK",
+   "SINAMA"
+  ]
+ }
+}
