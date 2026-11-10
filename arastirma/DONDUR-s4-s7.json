@@ -1,0 +1,14 @@
+{
+ "tarih_utc": "2026-11-10T17:49:47+00:00",
+ "not": "S4 ve S7 on kayitlari; sonuc hesaplanmadan once donduruldu",
+ "dosyalar": {
+  "s4_tarihsel/ONKAYIT.md": "dd717ce4121fcb4fe833324eeb4fa6c3e7cf8c889b42ccb87fe589038ce6bb1f",
+  "s4_tarihsel/TURBIDIT.csv": "717520d97a93516a909cf37ca8cb97d68de67370e34938194c07bd57966ac5ab",
+  "s4_tarihsel/TSUNAMI.csv": "cf0a5a3965a3b4806f22c137f6b4a5fa33506ed2d2f0e4934b60646530165786",
+  "s4_tarihsel/GIRDILER.json": "c235c2a679e3378e37e09d9a851340bea521b5a0a1b548e2018212fe64824144",
+  "s4_tarihsel/INCELEME.md": "e8f149a8825f7b66193181db1d3620957c9f0add775594f0bcd4abbc6b6b7c8d",
+  "s7_asismik/ONKAYIT.md": "06600e639fb2d2c1c5cb4989f5a56e2d999d651debec1c6499a1f0061ff78052",
+  "s7_asismik/GIRDILER.json": "68cdbe31bf2166d1d0451f6a63cdfc75de30e1d0766d1d4459807dc8c4673277",
+  "s7_asismik/INCELEME.md": "5d279a6c8a0f3022911b92f3945eaff3de98ecd1b1e5ca94873db3b913249f48"
+ }
+}

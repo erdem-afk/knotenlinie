@@ -29,7 +29,8 @@ büyük deprem oranını modüle ediyor. Burada doğrultu atımlı sünen faylar
 - Zaman: 3 aylık çeyrekler; çeyrek q için her şey yalnız q başından önceki veriyle.
 - Kayma vekili: olay başına d = 10^(−2,36) · M0^0,17 cm (Nadeau ve Johnson 1998), M0 (dyn·cm) =
   10^(1,5·MAG + 16,1). Pencere kayma hızı = pencere içi d toplamı / P / pencere yılı; P = q başında
-  ≥ 1 olayı olmuş dizi sayısı (v_12 ve v_60 için aynı P).
+  ≥ 1 olayı olmuş dizi sayısı (v_12 ve v_60 için aynı P). P = 0 ise v_12 = v_60 = 0, dolayısıyla A = 0.
+  ≤ 2003 olayı olmayan diziler hiçbir hücreye atanmaz, kovaryata girmez.
 - Ham ivmelenme: A(h, q) = ln[(v_12 + ε)/(v_60 + ε)], v_12 son 12 ay, v_60 ondan önceki 60 ay,
   ε = 0,1 cm/yıl. Algılama sürüklenmesi düzeltmesi: A*(h, q) = A(h, q) − medyan_{izlenen h'} A(h', q).
   H1 A* kullanır; ham A ile koşu bilgi satırı.
@@ -39,9 +40,11 @@ büyük deprem oranını modüle ediyor. Burada doğrultu atımlı sünen faylar
 ## Modeller
 
 R0 (rakip, ETAS), yalnız izlenen hücrelerde:
-λ_h(t) = μ_h + Σ_{i: t_i < t, merkezi hücre h merkezine ≤ 20 km} K·10^(α(M_i − 2,5))·(t − t_i + c)^(−p),
+λ_h(t) = μ_h + Σ_{i: t_i < t, episantrı hücre h merkezine ≤ 20 km} K·10^(α(M_i − 2,5))·(t − t_i + c)^(−p),
 tetikleyiciler genişletilmiş kutudaki M ≥ 2,5 olaylar. Parametreler (μ_h ≥ 10⁻⁶/gün, K, α ≤ 2,3, c,
-p > 1) seçim döneminde (1985–2003) M ≥ 2,5 hedef olaylarının (izlenen hücreler) en büyük olabilirliği;
+p > 1), seçim döneminde (1985–2003) izlenen hücrelerdeki M ≥ 2,5 olayların sürekli zamanlı nokta süreci
+olabilirliğinin en büyüğüyle bulunur (uydurmada λ sürekli güncellenir; tahminde yalnız çeyrek başı
+tetikleyiciler);
 5 rastgele başlangıç, en iyi LL. b: Aki–Utsu (ΔM/2 düzeltmesi), M ≥ 2,5, izlenen hücreler, 1984–2003.
 Çeyrek q'nun M ≥ 4 beklenen sayısı = ∫_q λ dt · 10^(−b·1,5), λ yalnız q başından önceki tetikleyicilerle
 (çeyrek içi güncelleme yok; H1 ile simetrik). Doğrulamada parametreler dondurulur.
@@ -61,8 +64,10 @@ sayısı < 5 ise sonuç önceden "ayırt edilemez" ilan edilir, IG bilgi satır�
 Hüküm: IG − 2·SE > 0 VE β > 0 → H1. IG + 2·SE < 0 → H0 lehine. Diğer her durum (β ≤ 0 ile gelen
 kazanç dahil) → ayırt edilemez / başka etki.
 
-Yorum şartı: H1 çıkarsa "asismik geçici" yorumu yalnız M ≥ 5 olaylardan sonraki 1 yıl ve 30 km
-pencereleri dışlanınca IG > 0 kalırsa yazılır; aksi halde "artçı ya da ETAS model hatası düzeltmesi".
+Yorum şartı: H1 çıkarsa, genişletilmiş kutudaki ComCat M ≥ 5 olaylarından herhangi birinin sonraki
+365 günüyle zamanda kesişen ve merkezi o olaya ≤ 30 km olan hücre-çeyrekler çıkarılır; kalan kümede IG
+nokta tahmini > 0 ise "asismik geçici" yorumu yazılır, aksi halde "artçı ya da ETAS model hatası
+düzeltmesi".
 
 Ek satırlar (hükme girmez): ham A ile IG; 2004-09-28 Parkfield M6,0 dizisi (ilk 90 gün, 30 km) hariç
 IG; M ≥ 5 hedef sayısı ve IG; seçim döneminde β profil olabilirliği.

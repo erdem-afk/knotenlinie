@@ -45,7 +45,10 @@ GEM Gemlik–Bandırma (TRCS023), GEY Geyve–Gemlik (TRCS022).
 
 Aday kırıklar (33): kuzey kolda ardışık 1–4 segment (26); SCI; SCI+IZG; SCI+IZG+IZE; GEM; GEY; GEM+GEY;
 ve KÜME DIŞI: AHEAD merkezinde nokta kaynak, R = merkeze uzaklık, M düzgün 6,5–7,6 (12 noktalı ızgara).
-Küme dışının olay başına kütlesi raporlanır. Önsel: 33 aday üzerinde düzgün. Aday düzeyinde düzgün
+Küme dışının olay başına kütlesi raporlanır. Küme dışı aday için türbidit olasılığı: merkez havza
+noktasına ≤ 50 km ise 0,2, değilse 0,05 (hiçbir zaman "komşu" sayılmaz). 1999 kontrollerinde merkez USGS
+merkez üssüdür (29,864 D, 40,748 K); 1912 için Altınok tablosundaki 27,2 D, 40,75 K. Küme dışı aday ne
+"doğru" ne "batıya yanlış" sayılır; kütlesi ayrıca raporlanır. Önsel: 33 aday üzerinde düzgün. Aday düzeyinde düzgün
 önsel segment düzeyinde düzgün olmadığı için çıktı 2'de segment başına önsel marjinal ve sonsal/önsel
 oranı birlikte yazılır.
 
@@ -104,7 +107,8 @@ GEM'den en az birini içeren aday.
 
 K1 (1999, tüm şiddet, İzmit hariç kalibrasyon): doğru adaylara sonsal kütle ≥ 0,5.
 K2 (1999, tarihsel geometri): her hedef tarihsel olay için (6 olay), o olayın her AHEAD yerine en yakın
-3 adet 1999 noktasından biri rastgele ve yerine koymadan seçilir; 6 olay × 200 tekrar (tohum
+3 adet 1999 noktasından biri rastgele ve yerine koymadan seçilir (üçü de kullanılmışsa sıradaki en yakın
+kullanılmamış nokta alınır); 6 olay × 200 tekrar (tohum
 20261110). Geçme: doğru kütle ortalaması ≥ 0,35 ve batıya yanlış kütle ortalaması ≤ 0,25. Olay
 bazında ayrıca raporlanır.
 K3 (1912, yalnız türbidit + tsunami): doğru adaylara sonsal kütle ≥ 0,4.
@@ -125,7 +129,10 @@ Hüküm:
    marjinal ve sonsal/önsel oranı.
 3. Parsons–Ambraseys: v1.5'in iki atama dalı, v1.5 dondurulmuş dosyalarından (magma-corbasi, v1.5
    commit 18872d36 ve OTS'li DONDUR dosyası; bu ön kayıttan önce dondurulmuş, değiştirilemez) okunur.
-   Okuma sırasında dal dosyalarının sha256'sı sonuçta yazılır. BF = (sonsal oran) / (önsel oran)
+   Okuma sırasında dal dosyalarının sha256'sı sonuçta yazılır. Eşleme: her dal ataması aday kümesinde
+Jaccard değeri en yüksek adaya eşlenir; eşitlikte daha kısa aday; hiçbir aday Jaccard ≥ 1/2 vermiyorsa
+küme dışı. Eşleme tablosu olabilirlik hesabından önce `ESLEME.csv`'ye yazılır, sha256'sı commit edilir.
+Bir dalın olasılığı olay başına ortak sonsal kütlelerinin çarpımıdır; 1766 için çift sonsalı. BF = (sonsal oran) / (önsel oran)
    (dal atamalarının ortak sonsal altındaki olasılık oranı, düzgün önsele göre). |ln BF| ≥ 1 → "fark
    daraltıldı"; değilse H0.
 4. v1.9 (RAKİP): v1.5'in tarihsel/paleosismik dalında segment atamaları sabit değerler yerine bu

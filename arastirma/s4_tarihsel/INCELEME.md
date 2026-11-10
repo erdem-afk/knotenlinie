@@ -11,3 +11,5 @@ Tur 1 (bağımsız alt ajan, 10 Kasım 2026): KABUL-ŞARTLI, 9 zorunlu değişik
 8. 1894 tsunamisi Altınok tablosundan (no 114, Rel 4) okundu.
 9. Parsons–Ambraseys dalları sunucuda → v1.5'in önceden dondurulmuş (OTS) dosyalarından okunacak, sha256 sonuçta yazılacak; BF tanımı yazıldı.
 Önerilenlerden alınan: küme dışı aday, segment önsel marjinali, sıralı bırakma tablosu, "literatür-koşullu" etiketi, "bildirilmemiş" için r = 0,7, TAXE003 kullanılmaz, 1855 kapsam dışı, K3 mutlak eşik 0,4 ve Armijo bilgi satırı, "hata" tanımı.
+
+Tur 2: KABUL-ŞARTLI; küme dışı adayın türbidit/kontrol tanımı, v1.5 dal eşleme kuralı (ESLEME.csv), K2 tükenme kuralı eklendi. Sonra donduruldu.
