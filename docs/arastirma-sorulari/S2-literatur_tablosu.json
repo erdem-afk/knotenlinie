@@ -1,0 +1,31 @@
+{
+ "aciklama": "S2 karnesi: 1997–2015 yayımlanmış Türkiye segment/bölge olasılıkları. Yalnız tam metni ya da özeti açık erişimle okunup sayısı doğrulananlar 'sayisal'a girer. Olasılıklar merkez değerdir (oran olarak); ± aralıklar bilgi.",
+ "sayisal": [
+  {"kimlik": "P2000-birlesik-etkilesim", "aile": "yenilenme+Coulomb", "kaynak": "Parsons, Toda, Stein, Barka, Dieterich 2000, Science 288:661, Tablo 1 (Mayıs 2000 başlangıç; İstanbul'a 50 km içindeki üç fay birleşik)", "P30": 0.62, "P10": 0.32, "aralik": "±0,15 / ±0,12"},
+  {"kimlik": "P2000-birlesik-yenilenme", "aile": "yenilenme", "kaynak": "Parsons 2000, Tablo 1, Background", "P30": 0.49, "P10": 0.20, "aralik": "±0,15 / ±0,09"},
+  {"kimlik": "P2000-poisson", "aile": "poisson", "kaynak": "Parsons 2000 metni: 'Poisson, or time-averaged, probability of 15 to 25%' (30 yıl); orta değer", "P30": 0.20},
+  {"kimlik": "P2000-yalova-etkilesim", "aile": "yenilenme+Coulomb", "kaynak": "Parsons 2000, Tablo 1", "P30": 0.33, "P10": 0.14},
+  {"kimlik": "P2000-adalar-etkilesim", "aile": "yenilenme+Coulomb", "kaynak": "Parsons 2000, Tablo 1", "P30": 0.35, "P10": 0.16},
+  {"kimlik": "P2000-marmara-etkilesim", "aile": "yenilenme+Coulomb", "kaynak": "Parsons 2000, Tablo 1", "P30": 0.13, "P10": 0.05},
+  {"kimlik": "P2004-bolge-etkilesim", "aile": "yenilenme+Coulomb", "kaynak": "Parsons 2004, JGR 109:B05304, özet: 2004–2034 Marmara Denizi bölgesi M≥7", "P30": 0.53, "aralik": "±0,18"},
+  {"kimlik": "P2004-bolge-yenilenme", "aile": "yenilenme", "kaynak": "Parsons 2004 özeti", "P30": 0.44, "aralik": "±0,18"},
+  {"kimlik": "P2004-bolge-poisson", "aile": "poisson", "kaynak": "Parsons 2004 özeti", "P30": 0.38},
+  {"kimlik": "P2004-istanbul-etkilesim", "aile": "yenilenme+Coulomb", "kaynak": "Parsons 2004 özeti: İstanbul'u etkileyen M≥7", "P30": 0.41, "aralik": "±0,14"},
+  {"kimlik": "P2004-istanbul-poisson", "aile": "poisson", "kaynak": "Parsons 2004 özeti", "P30": 0.21}
+ ],
+ "bayrak": [
+  {"kimlik": "HF2000-marmara-cukuru", "aile": "Coulomb", "kaynak": "Hubert-Ferrari ve ark. 2000, Nature 404:269 (ORBi açık kopya): 160 km'lik Marmara çukuru 'yenilmeye yaklaşıyor'; önümüzdeki on yıllarda İstanbul'un güneyinde İzmit büyüklüğünde iki olay olası", "bolge": "MARMARA_KUTU"}
+ ],
+ "dislanan": [
+  {"kaynak": "Erdik ve ark. 2004 (SDEE 24:605; WCEE 13 bildirisi açık)", "neden": "kendi segment olasılık tablosu açık metinde yok; %65 Parsons 2000'e atıf"},
+  {"kaynak": "Stein, Barka, Dieterich 1997 (GJI 128:594)", "neden": "tam metin bot korumalı, okunamadı; ayrıca İzmit segmenti 1999'da kırıldı, 2016–2025 penceresine olasılık taşımaz"}
+ ],
+ "erisilemeyen": [
+  {"kaynak": "Nalbant, McCloskey, Steacy, Barka 2002, EPSL 195:291 (Doğu Türkiye, DAF Coulomb)", "not": "kapalı erişim"},
+  {"kaynak": "Pondard ve ark. 2007, GJI 171:1185 (Marmara etkileşimi)", "not": "bot korumalı"},
+  {"kaynak": "Kalkan, Alptekin? / Nat Hazards 2008, 10.1007/s11069-008-9317-4 (Marmara KAF tekrarlanma)", "not": "kapalı erişim"},
+  {"kaynak": "Paradisopoulou ve ark. 2010, PAGEOPH, 10.1007/s00024-010-0085-1 (Batı Türkiye, gerilme aktarımı + zamana bağlı olasılık)", "not": "kapalı erişim"},
+  {"kaynak": "Bayrak ve ark. 2015, Nat Hazards, 10.1007/s11069-014-1541-5 (DAF tehlike)", "not": "kapalı erişim"},
+  {"kaynak": "Nalbant, Hubert, King 1998, JGR (KB Türkiye, Kuzey Ege gerilme eşleşmesi)", "not": "kapalı erişim"}
+ ]
+}
