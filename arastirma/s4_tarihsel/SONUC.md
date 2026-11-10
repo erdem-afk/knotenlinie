@@ -7,7 +7,7 @@
   (en olası PIF+IZG+IZE+SAK: bir segment batıya taşıyor).
 - K2 kaldı: aynı 1999 depremi tarihsel olayların yer dağılımıyla (6–20 nokta) örneklenince doğru kütle
   ort. 0,44 (eşik ≥ 0,35), ama batıya yanlış kütle ort. 0,49 (eşik ≤ 0,25). 1766 yer dağılımlarında
-  batıya yanlış 0,81–0,90. Yani tarihsel şiddet ağı doğu kırığını sistematik olarak batıya çekiyor.
+  batıya yanlış 0,81–0,90, 1509'da 0,56 (1754'te 0,01). Yani 1509 ve 1766 yer ağları doğu kırığını batıya çekiyor.
   Kurala göre şiddet hiçbir tarihsel olayda kullanılmaz.
 - K3 kaldı: 1912 yalnız türbidit + tsunami ile doğru kütle 0,24 (eşik 0,4; düzgün önsel 0,06).
   Türbidit + tsunami ortak sonsala girmez.
@@ -26,7 +26,12 @@
    26,60'ın batısında; TRCS996 zaten 26,60'a uzanıyor. Yalnız TRCS996 kullanıldı.
 2. IZG için ön kayıttaki düz bağlantı yerine EDSF'nin kendi TRCS012 izi (29,33–29,79) kullanıldı; IZG
    48,0 km (düz bağlantıyla ≈47 km).
-Her ikisi de olabilirlik hesaplanmadan önce, yalnız segment uzunluk denetimiyle bulundu.
+3. Küme dışı adayın "deniz altı" sayılması, merkezin denizde olup olmadığıyla değil, merkezin bir deniz
+   segmentine ≤ 10 km olup olmadığıyla belirlendi (beyan edilmemiş, incelemede bulundu). 1912 merkezi bu
+   yüzden deniz sayıldı; kara sayılsa K3 0,238 → 0,245, kapı yine kalır. 1894 merkezi kara sayıldı;
+   yalnız bilgi satırını etkiler.
+
+1 ve 2, olabilirlik hesaplanmadan önce, yalnız segment uzunluk denetimiyle bulundu.
 
 ## Kalibrasyon (7 olay, eşit ağırlık)
 
@@ -63,6 +68,18 @@ modelde yok. Bu, tarihsel olaylarda da sonsalların fazla keskin çıkacağı an
 K2 gösteriyor ki 1509 ve 1766 yer dağılımlarında şiddet doğu kırığını batıya taşıyor; bu yüzden 1509'un
 CEN+KUM'a çıkması kanıt değildir. Segment düzeyinde düzgün olmayan önsel (KUM, PIF, IZG önsel marjinali
 0,30–0,33; GAN, SAK 0,12) `cikti/sonuc.json` içinde.
+
+## Eksik çıktılar
+
+Sıralı bırakma tablosu ayrıca üretilmedi (bileşen satırları var); çıktı 2 (İstanbul önü son kırılma)
+yayılım satırı olmadığı için yazılmadı. `sonuc.json`'daki "hukum" metninde "ortak yayilim" ifadesi
+görünüş hatası; yayılım satırı null.
+
+## Sonuç incelemesi
+
+Bağımsız alt ajan: KABUL. Yeniden koşu birebir aynı `sonuc.json`; mvn_ll, Joyner–Boore, maskeler,
+K2 örneklemesi, türbidit/tsunami formülleri doğru; K3'ün kalması yapısal (TB ve CiB gözlemleri GAN+TEK'i
+TEK ve TEK+CEN'den ayıramıyor).
 
 ## Ne öğrendik
 
