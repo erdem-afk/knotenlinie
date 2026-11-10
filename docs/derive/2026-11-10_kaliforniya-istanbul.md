@@ -60,6 +60,7 @@ Okuma: Kaliforniya yöntemleri Marmara'ya ulaşmış (k 10–20), ama Marmara'ya
 - **Veri ve kör kuralı:** EDSF13, Y1b, v1.5, SHERIFS açık kaynak (Python). Kör veri yok, yalnız tutarlılık; v1.3b değişmez, sürüm rakip olur.
 - **İstanbul M7 beklenen katkısı:** moment dalı (%14) ve segment birleşimi. Dal geçerse ağırlığı 0,05'ten büyüyebilir; dış verinin İstanbul'a ulaştığı tek kanal bu dal. Orta.
 - **Maliyet/süre:** 0 € (mantık ağacı büyürse tek CPX ≈1 €, Erdem seçerse), 4–6 gün.
+- **Çakışma:** yöntem kolunun D4'ü (SHERIFS + yeni kilit kanıtı) aynı iş. Ayrı açılmamalı; bu kolun eki D4'e iki şart: paleosismik oranlar kısıt olarak girsin ve dal moment dalının yerine geçebilir mi diye D4' + EPICA tutarlılık satırında sınansın.
 
 ### K3 · UCERF3-ETAS dersi: M6'dan sonra koşullu M7 olasılığı
 - **Kaynak:** Field ve diğ. 2017 (UCERF3-ETAS; karakteristik MFD + elastik geri sekme olmadan tetiklenmiş büyük olay oranı yanlış), Field 2021 iyileştirmeleri, Savran 2020 (Ridgecrest sözde-ileriye dönük sınav).
@@ -78,6 +79,7 @@ Okuma: Kaliforniya yöntemleri Marmara'ya ulaşmış (k 10–20), ama Marmara'ya
 - **Uyarı:** S3'te 8 sünme haritasının hiçbiri D3 koridorlarına düşmedi; N büyük olasılıkla 8–15 uç. Önce 1 günlük sentetik güç testi (S6 gibi); eşik tutmazsa kapanır.
 - **İstanbul M7 beklenen katkısı:** segment birleşimi ve Mw (S1'de PIF → CMF geçişi 0,21–0,85 arası geniş). Güç düşükse sıfır. Düşük–orta.
 - **Maliyet/süre:** 0 €, güç testi 1 gün, sonra 4–5 gün.
+- **Çakışma:** deniz tabanı kolunun 3. adayı (kilitlenme haritaları kırığın nerede duracağını söyledi mi) aynı soru, kilitlenme haritalarıyla. Ayrı açılmamalı; bu kolun eki oraya Kaliforniya olayları (1857 ve 1906'nın sünen kesim uçları, Parkfield 2004, Hayward) ve yüzey sünmesi ölçümleri.
 
 ### K5 · Hayward benzeri: kısmen sünen fayda moment dengesi tekrar aralığını veriyor mu?
 - **Kaynak:** Lienkaemper ve diğ. 2010, 2012 (Hayward, 1900 yılda 12 olay; sünme hızı büyüklüğü ve sıklığı denetliyor), Chaussard 2015 (Hayward–Calaveras kenetlenme), Bürgmann 2000.
@@ -98,7 +100,7 @@ Okuma: Kaliforniya yöntemleri Marmara'ya ulaşmış (k 10–20), ama Marmara'ya
 
 ## Önerilen sıra
 
-K1 ve K2 önce ve paralel (0 €, veri elde, istatistik oranı ve moment dalına dokunuyor); K3 K1'in çarpanını kullandığı için ondan sonra; K4 önce 1 günlük güç testiyle; K5 boşta. Her biri ön kayıtla başlar, sonuç ileri test defterine rakip olarak girer, v1.3b değişmez.
+Bu koldan ayrı açılacaklar üç: **K1 önce** (istatistik oranı %12'ye ilk dış kalibrasyon, yöntem kolunun D2 hiyerarşik havuzlamasıyla aynı paya farklı yoldan dokunuyor, birlikte koşulabilir), **K3** K1'in çarpanını kullandığı için ondan sonra, **K5** boşta. K2 yöntem kolunun D4'üne, K4 deniz tabanı kolunun 3. adayına ek olarak verilir. Her biri ön kayıtla başlar, sonuç ileri test defterine rakip olarak girer, v1.3b değişmez.
 
 ## Sınır
 
