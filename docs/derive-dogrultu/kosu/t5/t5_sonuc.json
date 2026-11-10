@@ -1,0 +1,242 @@
+{
+ "ana": [
+  {
+   "id": "ci38457511",
+   "yer": "Ridgecrest Earthquake Sequence",
+   "Mw": 7.1,
+   "model": "UCERF3",
+   "K1_pay": 0.317,
+   "K1": false,
+   "kesisen": [
+    "Airport Lake",
+    "Garlock (Central)",
+    "So Sierra Nevada"
+   ],
+   "n_kesisen": 3,
+   "Mmax_kesisen": null,
+   "K2": null,
+   "kacirildi": true,
+   "iz_uzunluk_toplam_km": 1678.7
+  },
+  {
+   "id": "us60007ewc",
+   "yer": "13 km N of Do?anyol, Turkey",
+   "Mw": 6.7,
+   "model": "ESHM13",
+   "K1_pay": 0.762,
+   "K1": true,
+   "kesisen": [
+    "TRCS049",
+    "TRCS050",
+    "TRCS051",
+    "TRCS052",
+    "TRCS053",
+    "TRCS054",
+    "TRCS133"
+   ],
+   "n_kesisen": 7,
+   "Mmax_kesisen": 7.42,
+   "K2": true,
+   "kacirildi": false,
+   "iz_uzunluk_toplam_km": 882.1
+  },
+  {
+   "id": "us6000jllz",
+   "yer": "Pazarcik earthquake, Kahramanmaras earthquake sequence",
+   "Mw": 7.8,
+   "model": "ESHM13",
+   "K1_pay": 0.687,
+   "K1": true,
+   "kesisen": [
+    "TRCS052",
+    "TRCS053",
+    "TRCS054",
+    "TRCS055",
+    "TRCS056",
+    "TRCS057",
+    "TRCS063",
+    "TRCS064",
+    "TRCS065",
+    "TRCS072",
+    "TRCS073",
+    "TRCS133"
+   ],
+   "n_kesisen": 12,
+   "Mmax_kesisen": 7.47,
+   "K2": false,
+   "kacirildi": true,
+   "iz_uzunluk_toplam_km": 3237.7
+  },
+  {
+   "id": "us6000jlqa",
+   "yer": "Elbistan earthquake, Kahramanmaras earthquake sequence",
+   "Mw": 7.5,
+   "model": "ESHM13",
+   "K1_pay": 0.637,
+   "K1": true,
+   "kesisen": [
+    "TRCS073",
+    "TRCS165",
+    "TRCS372"
+   ],
+   "n_kesisen": 3,
+   "Mmax_kesisen": 7.68,
+   "K2": true,
+   "kacirildi": false,
+   "iz_uzunluk_toplam_km": 1170.4
+  },
+  {
+   "id": "us20005iis",
+   "yer": "6 km ESE of Kumamoto, Japan",
+   "Mw": 7,
+   "model": "JSHIS_Y2014",
+   "K1_pay": 0.54,
+   "K1": true,
+   "kesisen": [
+    "F012805",
+    "F013001",
+    "F013002",
+    "F013003",
+    "F01300A",
+    "F01300B",
+    "F013101",
+    "F013102",
+    "F01310A"
+   ],
+   "n_kesisen": 9,
+   "Mmax_kesisen": 8.2,
+   "K2": true,
+   "kacirildi": false,
+   "iz_uzunluk_toplam_km": 810.6
+  }
+ ],
+ "bilgi_kayma_ge_0.1max": [
+  {
+   "id": "ci38457511",
+   "yer": "Ridgecrest Earthquake Sequence",
+   "Mw": 7.1,
+   "model": "UCERF3",
+   "K1_pay": 0.265,
+   "K1": false,
+   "kesisen": [
+    "Airport Lake",
+    "Garlock (Central)",
+    "So Sierra Nevada"
+   ],
+   "n_kesisen": 3,
+   "Mmax_kesisen": null,
+   "K2": null,
+   "kacirildi": true,
+   "iz_uzunluk_toplam_km": 469.6
+  },
+  {
+   "id": "us60007ewc",
+   "yer": "13 km N of Do?anyol, Turkey",
+   "Mw": 6.7,
+   "model": "ESHM13",
+   "K1_pay": 0.774,
+   "K1": true,
+   "kesisen": [
+    "TRCS049",
+    "TRCS050",
+    "TRCS051",
+    "TRCS052",
+    "TRCS053",
+    "TRCS054"
+   ],
+   "n_kesisen": 6,
+   "Mmax_kesisen": 7.19,
+   "K2": true,
+   "kacirildi": false,
+   "iz_uzunluk_toplam_km": 288.0
+  },
+  {
+   "id": "us6000jllz",
+   "yer": "Pazarcik earthquake, Kahramanmaras earthquake sequence",
+   "Mw": 7.8,
+   "model": "ESHM13",
+   "K1_pay": 0.885,
+   "K1": true,
+   "kesisen": [
+    "TRCS053",
+    "TRCS054",
+    "TRCS055",
+    "TRCS056",
+    "TRCS057",
+    "TRCS063",
+    "TRCS064",
+    "TRCS065",
+    "TRCS072",
+    "TRCS073",
+    "TRCS133"
+   ],
+   "n_kesisen": 11,
+   "Mmax_kesisen": 7.47,
+   "K2": false,
+   "kacirildi": true,
+   "iz_uzunluk_toplam_km": 1074.2
+  },
+  {
+   "id": "us6000jlqa",
+   "yer": "Elbistan earthquake, Kahramanmaras earthquake sequence",
+   "Mw": 7.5,
+   "model": "ESHM13",
+   "K1_pay": 0.812,
+   "K1": true,
+   "kesisen": [
+    "TRCS073",
+    "TRCS165",
+    "TRCS372"
+   ],
+   "n_kesisen": 3,
+   "Mmax_kesisen": 7.68,
+   "K2": true,
+   "kacirildi": false,
+   "iz_uzunluk_toplam_km": 655.2
+  },
+  {
+   "id": "us20005iis",
+   "yer": "6 km ESE of Kumamoto, Japan",
+   "Mw": 7,
+   "model": "JSHIS_Y2014",
+   "K1_pay": 0.602,
+   "K1": true,
+   "kesisen": [
+    "F013001",
+    "F013002",
+    "F013003",
+    "F01300A",
+    "F01300B",
+    "F013101",
+    "F013102",
+    "F01310A"
+   ],
+   "n_kesisen": 8,
+   "Mmax_kesisen": 8.2,
+   "K2": true,
+   "kacirildi": false,
+   "iz_uzunluk_toplam_km": 330.2
+  }
+ ],
+ "disarida": {
+  "nn00725272": "UCERF3 alanı, USGS FFM yok",
+  "usb000r2hc": "ESHM13 alanı, USGS FFM yok",
+  "us10003ywp": "ESHM13 alanı, USGS FFM yok"
+ },
+ "ana_ozet": {
+  "N": 5,
+  "kacirma": 2,
+  "pay": 0.4,
+  "p_binom": 0.26272000000000006,
+  "ates": true,
+  "hukum": "H0"
+ },
+ "bilgi_kayma_ge_0.1max_ozet": {
+  "N": 5,
+  "kacirma": 2,
+  "pay": 0.4,
+  "p_binom": 0.26272000000000006,
+  "ates": true,
+  "hukum": "H0"
+ }
+}
