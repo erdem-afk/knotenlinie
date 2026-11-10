@@ -100,7 +100,7 @@ Okuma: Kaliforniya yöntemleri Marmara'ya ulaşmış (k 10–20), ama Marmara'ya
 
 ## Önerilen sıra
 
-Bu koldan ayrı açılacaklar üç: **K1 önce** (istatistik oranı %12'ye ilk dış kalibrasyon, yöntem kolunun D2 hiyerarşik havuzlamasıyla aynı paya farklı yoldan dokunuyor, birlikte koşulabilir), **K3** K1'in çarpanını kullandığı için ondan sonra, **K5** boşta. K2 yöntem kolunun D4'üne, K4 deniz tabanı kolunun 3. adayına ek olarak verilir. Her biri ön kayıtla başlar, sonuç ileri test defterine rakip olarak girer, v1.3b değişmez.
+Bu koldan ayrı açılacaklar üç: **K1 önce** (istatistik oranı %12'ye ilk dış kalibrasyon, yöntem kolunun D2 hiyerarşik havuzlamasıyla aynı paya farklı yoldan dokunuyor, birlikte koşulabilir), **K3** K1'in çarpanını kullandığı için ondan sonra, **K5** boşta. K2 yöntem kolunun D4'üne, K4 deniz tabanı 3 + doğrultu atımlı kolun T1+T4 birleşik ön kaydına ek olarak verilir. K5, doğrultu atımlı kolun T2'siyle (Hayward/Calaveras kümelenme kalibrasyonu) aynı fay derlemesini kullanır; birlikte kurulmalı. Her biri ön kayıtla başlar, sonuç ileri test defterine rakip olarak girer, v1.3b değişmez.
 
 ## Sınır
 
