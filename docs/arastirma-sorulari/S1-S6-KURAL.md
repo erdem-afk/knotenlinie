@@ -58,3 +58,13 @@ Havzalar arası türbidit yaş eşzamanlılığı CMF+PIF ortak kırılma payın
 ## Maliyet ve sınır
 
 0 €, makine yok. Envanter ve ölçüm bulut oturumunda. Sonuç dosyası `docs/arastirma-sorulari/S1-S6-SONUC.md`.
+
+## Ek 1 (10 Kasım 2026, puanlamadan önce)
+
+Envanter çıkarılıp görsel denetimden geçirildi; puan hesaplanmadı. Envanter geçitlerin geçildi/durdu durumunu içerdiği için bu ek **kör değil**: değişiklikler veri kalitesi gerekçesiyle yapıldı ama yazar sonuçları gördü. Özgün kuralla puanlama mümkün değildi (aşağıda 1 ve 4).
+
+1. **Olay listesi:** açık kırık izi bulunan olaylar Kumamoto 2016 ve Ridgecrest 2019 ×2 (SURE 2.0, yalnız Comp_rank 1 ana kırıklar), Myanmar 2025 (Zenodo 17595200, Sentinel-2 izi), Kahramanmaraş Mw 7,8 ve Elbistan Mw 7,6 (Zenodo 8050940, InSAR izleri). Kaikoura 2016, Palu 2018 ve Maduo 2021 için bu oturumdan erişilen açık iz yok (Maduo verisi 3,4 GB'lık tek arşiv). Bu üç olay dışarıda; liste eksik.
+2. **Kahramanmaraş InSAR ataması:** en güney noktası 37,75°K'nin kuzeyindeki çizgiler Mw 7,6. 36,2°D'nin doğusundaki diğerleri Mw 7,8 (DAF, Narlı ve Adıyaman kolu). 36,2°D'nin batısında ≈36,9°K'deki zincir hiçbir olaya güvenle atanamadı, dışarıda. Pucci 2023 nokta verisi iz kurmaya yetmedi, kullanılmadı.
+3. **Uygulama ayrıntıları:** yalnız kırılma cephesini ilerleten kollar arasında basamak sayılır, paralel kollar atlanır. Kol merkez çizgisi parçalar birleşince tek çizgi olur, yoksa kolun kendi ekseni boyunca 1 km kutularda ortalama alınır. Büküm kutuları: θ < 10 → 5°, [10, 20) → 15°, [20, 30) → 25°, [30, 40) → 35°, ≥ 40 → 45°.
+4. **Uç geçitleri için fay haritası:** GEM, Ridgecrest faylarını hiç göstermiyor (kapsama 0). Yeni ölçüt: kırık noktalarının ≥ %50'si fay haritasına ≤ 3 km değilse o olayın uç geçitleri puanlanmaz. Türkiye olaylarında EDSF13 (2013, olay öncesi) bileşik kaynak üst izleri GEM'e eklenir. Sonuç: puanlanan durma geçidi yalnız 4 (Myanmar 2, Kahramanmaraş 2).
+5. **Önceden yazılan zayıflık:** veri geçişlerle dolu (geçilen küçük bükümler çok, durmalar 4). BW'nin 10–20° bükümde P 0,57'si R0'ın 0,46'sından yüksek olduğu için, kazanç büyük olasılıkla geçilen küçük bükümlerden gelecek. Bu bir kalibrasyon kanıtı değil. Bu yüzden basamak/büküm × geçti/durdu alt kırılımı bilgi satırı olarak eklendi. Hüküm satırı ve ateşleme kapısı değişmedi.

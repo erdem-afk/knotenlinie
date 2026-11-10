@@ -1,0 +1,396 @@
+[
+ {
+  "olay": "Kumamoto 2016 Mw7,0",
+  "kapsama": 0.98,
+  "uzunluk_km": 35.8,
+  "kol": 9,
+  "gecitler": [
+   {
+    "tur": "basamak",
+    "d_km": 3.0,
+    "gecti": true
+   },
+   {
+    "tur": "basamak",
+    "d_km": 2.17,
+    "gecti": true
+   },
+   {
+    "tur": "uc_geometrisiz",
+    "aci": 3.4,
+    "gecti": false,
+    "puan": false
+   },
+   {
+    "tur": "uc_fay_yok",
+    "gecti": false,
+    "puan": false
+   }
+  ]
+ },
+ {
+  "olay": "Ridgecrest 2019 Mw6,4",
+  "kapsama": 0.0,
+  "uzunluk_km": 20.8,
+  "kol": 1,
+  "gecitler": [
+   {
+    "tur": "bukum",
+    "aci": 12.4,
+    "gecti": true,
+    "km": 7.0
+   },
+   {
+    "tur": "basamak",
+    "d_km": 3.47,
+    "gecti": false,
+    "puan": false,
+    "not": "fay haritası kapsaması < 0,5"
+   },
+   {
+    "tur": "uc_fay_yok",
+    "gecti": false,
+    "puan": false,
+    "not": "fay haritası kapsaması < 0,5"
+   }
+  ]
+ },
+ {
+  "olay": "Ridgecrest 2019 Mw7,1",
+  "kapsama": 0.0,
+  "uzunluk_km": 61.1,
+  "kol": 5,
+  "gecitler": [
+   {
+    "tur": "basamak",
+    "d_km": 1.87,
+    "gecti": true
+   },
+   {
+    "tur": "basamak",
+    "d_km": 2.02,
+    "gecti": true
+   },
+   {
+    "tur": "bukum",
+    "aci": 12.9,
+    "gecti": true,
+    "km": 10.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 10.0,
+    "gecti": true,
+    "km": 19.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 69.5,
+    "gecti": false,
+    "puan": false,
+    "not": "fay haritası kapsaması < 0,5"
+   },
+   {
+    "tur": "basamak",
+    "d_km": 3.42,
+    "gecti": false,
+    "puan": false,
+    "not": "fay haritası kapsaması < 0,5"
+   }
+  ]
+ },
+ {
+  "olay": "Myanmar 2025 Mw7,7",
+  "kapsama": 1.0,
+  "uzunluk_km": 506.6,
+  "kol": 1,
+  "gecitler": [
+   {
+    "tur": "bukum",
+    "aci": 10.2,
+    "gecti": true,
+    "km": 6.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 11.3,
+    "gecti": true,
+    "km": 22.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 10.5,
+    "gecti": true,
+    "km": 28.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 10.2,
+    "gecti": true,
+    "km": 480.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 10.4,
+    "gecti": false
+   },
+   {
+    "tur": "bukum",
+    "aci": 11.8,
+    "gecti": false
+   }
+  ]
+ },
+ {
+  "olay": "Kahramanmaras 2023 Mw7,8",
+  "kapsama": 0.82,
+  "uzunluk_km": 341.3,
+  "kol": 5,
+  "gecitler": [
+   {
+    "tur": "basamak",
+    "d_km": 2.31,
+    "gecti": true
+   },
+   {
+    "tur": "bukum",
+    "aci": 10.9,
+    "gecti": true,
+    "km": 5.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 13.3,
+    "gecti": true,
+    "km": 11.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 17.6,
+    "gecti": true,
+    "km": 17.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 13.2,
+    "gecti": true,
+    "km": 46.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 11.5,
+    "gecti": true,
+    "km": 67.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 10.8,
+    "gecti": true,
+    "km": 79.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 10.2,
+    "gecti": true,
+    "km": 115.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 12.6,
+    "gecti": true,
+    "km": 137.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 11.2,
+    "gecti": true,
+    "km": 151.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 13.6,
+    "gecti": true,
+    "km": 170.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 32.0,
+    "gecti": true,
+    "km": 176.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 13.8,
+    "gecti": true,
+    "km": 182.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 14.2,
+    "gecti": true,
+    "km": 196.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 13.1,
+    "gecti": true,
+    "km": 202.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 16.0,
+    "gecti": true,
+    "km": 209.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 10.3,
+    "gecti": true,
+    "km": 5.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 11.7,
+    "gecti": true,
+    "km": 13.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 13.8,
+    "gecti": true,
+    "km": 19.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 11.4,
+    "gecti": true,
+    "km": 7.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 11.0,
+    "gecti": true,
+    "km": 15.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 15.2,
+    "gecti": true,
+    "km": 21.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 14.3,
+    "gecti": true,
+    "km": 27.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 22.2,
+    "gecti": true,
+    "km": 33.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 15.1,
+    "gecti": true,
+    "km": 39.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 10.8,
+    "gecti": true,
+    "km": 61.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 30.9,
+    "gecti": false
+   },
+   {
+    "tur": "basamak",
+    "d_km": 2.3,
+    "gecti": false
+   }
+  ]
+ },
+ {
+  "olay": "Elbistan 2023 Mw7,6",
+  "kapsama": 0.71,
+  "uzunluk_km": 179.2,
+  "kol": 2,
+  "gecitler": [
+   {
+    "tur": "bukum",
+    "aci": 27.4,
+    "gecti": true,
+    "km": 5.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 12.2,
+    "gecti": true,
+    "km": 23.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 12.2,
+    "gecti": true,
+    "km": 82.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 10.0,
+    "gecti": true,
+    "km": 91.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 24.2,
+    "gecti": true,
+    "km": 97.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 10.1,
+    "gecti": true,
+    "km": 107.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 32.1,
+    "gecti": true,
+    "km": 113.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 14.9,
+    "gecti": true,
+    "km": 119.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 12.8,
+    "gecti": true,
+    "km": 5.0
+   },
+   {
+    "tur": "bukum",
+    "aci": 16.4,
+    "gecti": true,
+    "km": 11.0
+   },
+   {
+    "tur": "uc_fay_yok",
+    "gecti": false,
+    "puan": false
+   },
+   {
+    "tur": "uc_geometrisiz",
+    "aci": 3.7,
+    "gecti": false,
+    "puan": false
+   }
+  ]
+ }
+]
