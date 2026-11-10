@@ -1,0 +1,816 @@
+[
+ {
+  "olay": "Maule (Şili) 2010",
+  "tarih_utc": "2010-02-27",
+  "Mw": 8.8,
+  "tip": "dalma-batma",
+  "usgs_event_id": "official20100227063411530_30",
+  "usgs_ffm": [
+   "usp000h7rf"
+  ],
+  "kirik_uzunlugu_km_yaklasik": "~450–500 (literatür değeri, doğrulanmadı; uçlar için kaynak USGS FFM)",
+  "olay_oncesi_modeller": [
+   {
+    "model": "Ruegg et al. 2009, PEPI",
+    "doi": "10.1016/j.pepi.2008.02.015",
+    "yayim_tarihi_crossref": "created 2009-03-21; print 2009-06",
+    "olaydan_once": true,
+    "not": "Constitución–Concepción boşluğu; basit kilitli fay modeli",
+    "sayisal_veri": "GPS hızları ek tabloda; kilitlenme/kayma açığı ızgarası yalnız şekil (doğrulanmadı)"
+   },
+   {
+    "model": "Moreno et al. 2008, G3",
+    "doi": "10.1029/2008GC002198",
+    "yayim_tarihi_crossref": "online 2008-12-23",
+    "olaydan_once": true,
+    "not": "Arauco ~37–38°S segment sınırı; heterojen deformasyon",
+    "sayisal_veri": "GPS hızları ek tabloda; kilitlenme/kayma açığı ızgarası yalnız şekil (doğrulanmadı)"
+   },
+   {
+    "model": "Moreno, Rosenau & Oncken 2010, Nature (HARİÇ)",
+    "doi": "10.1038/nature09349",
+    "yayim_tarihi_crossref": "2010-09 (olaydan SONRA)",
+    "olaydan_once": false,
+    "not": "olay öncesi veriyle ama olay sonrası yayım — sayılmaz",
+    "sayisal_veri": "dışarıda"
+   }
+  ],
+  "olay_oncesi_model_var": "evet",
+  "sayisal_veri_acik": "hayır (yalnız şekil / GPS hızları ek tabloda)",
+  "kirik_ucu_okunabilir_mi": "hayır",
+  "ek_not": ""
+ },
+ {
+  "olay": "Tohoku-oki (Japonya) 2011",
+  "tarih_utc": "2011-03-11",
+  "Mw": 9.1,
+  "tip": "dalma-batma",
+  "usgs_event_id": "official20110311054624120_30",
+  "usgs_ffm": [
+   "usp000hvnu"
+  ],
+  "kirik_uzunlugu_km_yaklasik": "~400–500 (literatür değeri, doğrulanmadı; uçlar için kaynak USGS FFM)",
+  "olay_oncesi_modeller": [
+   {
+    "model": "Hashimoto et al. 2009, Nat. Geosci.",
+    "doi": "10.1038/ngeo421",
+    "yayim_tarihi_crossref": "online 2009-01-18",
+    "olaydan_once": true,
+    "not": "Kuril–Japonya hendeği kayma açığı",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   },
+   {
+    "model": "Loveless & Meade 2010, JGR",
+    "doi": "10.1029/2008JB006248",
+    "yayim_tarihi_crossref": "online 2010-02-27",
+    "olaydan_once": true,
+    "not": "Japonya blok modeli + kenetlenme",
+    "sayisal_veri": "ek malzeme var ama içeriği doğrulanmadı; yalnız şekil varsay"
+   },
+   {
+    "model": "Suwa et al. 2006, JGR",
+    "doi": "10.1029/2004JB003203",
+    "yayim_tarihi_crossref": "online 2006-04-05",
+    "olaydan_once": true,
+    "not": "3B yer değiştirmeden plakalar arası kenetlenme",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   }
+  ],
+  "olay_oncesi_model_var": "evet",
+  "sayisal_veri_acik": "hayır (yalnız şekil / GPS hızları ek tabloda)",
+  "kirik_ucu_okunabilir_mi": "hayır",
+  "ek_not": ""
+ },
+ {
+  "olay": "Iquique/Pisagua (Şili) 2014",
+  "tarih_utc": "2014-04-01",
+  "Mw": 8.2,
+  "tip": "dalma-batma",
+  "usgs_event_id": "usc000nzvd",
+  "usgs_ffm": [
+   "usc000nzvd"
+  ],
+  "kirik_uzunlugu_km_yaklasik": "~150–200 (literatür değeri, doğrulanmadı; uçlar için kaynak USGS FFM)",
+  "olay_oncesi_modeller": [
+   {
+    "model": "Chlieh et al. 2011, JGR",
+    "doi": "10.1029/2010JB008166",
+    "yayim_tarihi_crossref": "online 2011-12-17",
+    "olaydan_once": true,
+    "not": "Orta And kenetlenmesi",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   },
+   {
+    "model": "Béjar-Pizarro et al. 2013, Nat. Geosci.",
+    "doi": "10.1038/ngeo1802",
+    "yayim_tarihi_crossref": "online 2013-04-28",
+    "olaydan_once": true,
+    "not": "Kuzey Şili kenetlenme segmentasyonu",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   },
+   {
+    "model": "Métois et al. 2013, GJI",
+    "doi": "10.1093/gji/ggt183",
+    "yayim_tarihi_crossref": "online 2013-06-07",
+    "olaydan_once": true,
+    "not": "HAL açık PDF (hal-01360422); GPS Tablo S1–S3; kenetlenme ızgarası yalnız şekil",
+    "sayisal_veri": "GPS hızları ek tabloda; kilitlenme/kayma açığı ızgarası yalnız şekil (doğrulanmadı)"
+   }
+  ],
+  "olay_oncesi_model_var": "evet",
+  "sayisal_veri_acik": "hayır (yalnız şekil / GPS hızları ek tabloda)",
+  "kirik_ucu_okunabilir_mi": "hayır",
+  "ek_not": ""
+ },
+ {
+  "olay": "Illapel (Şili) 2015",
+  "tarih_utc": "2015-09-16",
+  "Mw": 8.3,
+  "tip": "dalma-batma",
+  "usgs_event_id": "us20003k7a",
+  "usgs_ffm": [
+   "us20003k7a"
+  ],
+  "kirik_uzunlugu_km_yaklasik": "~200–250 (literatür değeri, doğrulanmadı; uçlar için kaynak USGS FFM)",
+  "olay_oncesi_modeller": [
+   {
+    "model": "Métois, Socquet & Vigny 2012, JGR",
+    "doi": "10.1029/2011JB008736",
+    "yayim_tarihi_crossref": "online 2012-03-14",
+    "olaydan_once": true,
+    "not": "HAL açık PDF (hal-00730868); ek malzeme GPS",
+    "sayisal_veri": "GPS hızları ek tabloda; kilitlenme/kayma açığı ızgarası yalnız şekil (doğrulanmadı)"
+   },
+   {
+    "model": "Vigny et al. 2009, PEPI",
+    "doi": "10.1016/j.pepi.2008.02.013",
+    "yayim_tarihi_crossref": "created 2009-03-15; print 2009-06",
+    "olaydan_once": true,
+    "not": "Coquimbo boşluğu GPS",
+    "sayisal_veri": "GPS hızları ek tabloda; kilitlenme/kayma açığı ızgarası yalnız şekil (doğrulanmadı)"
+   },
+   {
+    "model": "Métois et al. 2016, PAGEOPH (HARİÇ)",
+    "doi": "10.1007/s00024-016-1280-5",
+    "yayim_tarihi_crossref": "online 2016-04-04 (olaydan SONRA)",
+    "olaydan_once": false,
+    "not": "",
+    "sayisal_veri": "dışarıda"
+   }
+  ],
+  "olay_oncesi_model_var": "evet",
+  "sayisal_veri_acik": "hayır (yalnız şekil / GPS hızları ek tabloda)",
+  "kirik_ucu_okunabilir_mi": "hayır",
+  "ek_not": ""
+ },
+ {
+  "olay": "Pedernales (Ekvador) 2016",
+  "tarih_utc": "2016-04-16",
+  "Mw": 7.8,
+  "tip": "dalma-batma",
+  "usgs_event_id": "us20005j32",
+  "usgs_ffm": [
+   "us20005j32"
+  ],
+  "kirik_uzunlugu_km_yaklasik": "~100–120 (literatür değeri, doğrulanmadı; uçlar için kaynak USGS FFM)",
+  "olay_oncesi_modeller": [
+   {
+    "model": "Chlieh et al. 2014, EPSL",
+    "doi": "10.1016/j.epsl.2014.05.027",
+    "yayim_tarihi_crossref": "created 2014-06-16; print 2014-08",
+    "olaydan_once": true,
+    "not": "Ekvador megabindirmesi ayrık pürüzler",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   },
+   {
+    "model": "Nocquet et al. 2014, Nat. Geosci.",
+    "doi": "10.1038/ngeo2099",
+    "yayim_tarihi_crossref": "online 2014-03-02",
+    "olaydan_once": true,
+    "not": "Kuzey And kenetlenme",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   }
+  ],
+  "olay_oncesi_model_var": "evet",
+  "sayisal_veri_acik": "hayır (yalnız şekil / GPS hızları ek tabloda)",
+  "kirik_ucu_okunabilir_mi": "hayır",
+  "ek_not": ""
+ },
+ {
+  "olay": "Nicoya (Kosta Rika) 2012",
+  "tarih_utc": "2012-09-05",
+  "Mw": 7.6,
+  "tip": "dalma-batma",
+  "usgs_event_id": "usp000jrsw",
+  "usgs_ffm": [
+   "usp000jrsw"
+  ],
+  "kirik_uzunlugu_km_yaklasik": "~60–80 (literatür değeri, doğrulanmadı; uçlar için kaynak USGS FFM)",
+  "olay_oncesi_modeller": [
+   {
+    "model": "Feng et al. 2012, JGR",
+    "doi": "10.1029/2012JB009230",
+    "yayim_tarihi_crossref": "online 2012-06-26",
+    "olaydan_once": true,
+    "not": "olaydan ~10 hafta önce; 1996–2010 kenetlenme",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   },
+   {
+    "model": "Norabuena et al. 2004, JGR",
+    "doi": "10.1029/2003JB002931",
+    "yayim_tarihi_crossref": "online 2004-11-09",
+    "olaydan_once": true,
+    "not": "",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   }
+  ],
+  "olay_oncesi_model_var": "evet",
+  "sayisal_veri_acik": "hayır (yalnız şekil / GPS hızları ek tabloda)",
+  "kirik_ucu_okunabilir_mi": "hayır",
+  "ek_not": "Tahmin-öncesi örneğin en temiz vakası (Protti et al. 2014 olay sonrası karşılaştırma)."
+ },
+ {
+  "olay": "Gorkha (Nepal) 2015",
+  "tarih_utc": "2015-04-25",
+  "Mw": 7.8,
+  "tip": "kıtasal bindirme (MHT)",
+  "usgs_event_id": "us20002926",
+  "usgs_ffm": [
+   "us20002926"
+  ],
+  "kirik_uzunlugu_km_yaklasik": "~150 (literatür değeri, doğrulanmadı; uçlar için kaynak USGS FFM)",
+  "olay_oncesi_modeller": [
+   {
+    "model": "Ader et al. 2012, JGR",
+    "doi": "10.1029/2011JB009071",
+    "yayim_tarihi_crossref": "online 2012-04-13",
+    "olaydan_once": true,
+    "not": "HAL açık PDF (hal-02057781); GPS Tablo S1–S2 ek malzemede",
+    "sayisal_veri": "GPS hızları ek tabloda; kilitlenme/kayma açığı ızgarası yalnız şekil (doğrulanmadı)"
+   },
+   {
+    "model": "Stevens & Avouac 2015, GRL (HARİÇ)",
+    "doi": "10.1002/2015GL064845",
+    "yayim_tarihi_crossref": "online 2015-07-29 (olaydan SONRA)",
+    "olaydan_once": false,
+    "not": "",
+    "sayisal_veri": "dışarıda"
+   }
+  ],
+  "olay_oncesi_model_var": "evet",
+  "sayisal_veri_acik": "hayır (yalnız şekil / GPS hızları ek tabloda)",
+  "kirik_ucu_okunabilir_mi": "hayır",
+  "ek_not": "Ader 2012: MHT boyunca neredeyse tam kilitli kuşak → doğu ucunun durması kilitlenmeden okunamaz (homojen)."
+ },
+ {
+  "olay": "Kaikōura (Yeni Zelanda) 2016",
+  "tarih_utc": "2016-11-13",
+  "Mw": 7.8,
+  "tip": "çok-faylı eğik (doğrultu atımlı + bindirme)",
+  "usgs_event_id": "us1000778i",
+  "usgs_ffm": [
+   "us1000778i"
+  ],
+  "kirik_uzunlugu_km_yaklasik": "~180 (literatür değeri, doğrulanmadı; uçlar için kaynak USGS FFM)",
+  "olay_oncesi_modeller": [
+   {
+    "model": "Wallace et al. 2012, JGR",
+    "doi": "10.1029/2011JB008640",
+    "yayim_tarihi_crossref": "online 2012-02-22",
+    "olaydan_once": true,
+    "not": "dalma-batmadan doğrultu atıma geçiş; Marlborough fayları + güney Hikurangi kenetlenme",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   },
+   {
+    "model": "Wallace et al. 2007, GJI",
+    "doi": "10.1111/j.1365-246x.2006.03183.x",
+    "yayim_tarihi_crossref": "created 2006-11-30; print 2007-01",
+    "olaydan_once": true,
+    "not": "Güney Ada blok modeli, fay kilitlenmesi",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   }
+  ],
+  "olay_oncesi_model_var": "kısmi (blok modelleri; kırığın bir kısmı modellenmemiş faylarda)",
+  "sayisal_veri_acik": "hayır (yalnız şekil / GPS hızları ek tabloda)",
+  "kirik_ucu_okunabilir_mi": "hayır",
+  "ek_not": "Kırığın bir kısmı modellenmemiş küçük faylarda."
+ },
+ {
+  "olay": "Papanoa/Guerrero (Meksika) 2014",
+  "tarih_utc": "2014-04-18",
+  "Mw": 7.2,
+  "tip": "dalma-batma",
+  "usgs_event_id": "usb000pq41",
+  "usgs_ffm": [
+   "usb000pq41"
+  ],
+  "kirik_uzunlugu_km_yaklasik": "~40–50 (literatür değeri, doğrulanmadı; uçlar için kaynak USGS FFM)",
+  "olay_oncesi_modeller": [
+   {
+    "model": "Radiguet et al. 2012, JGR",
+    "doi": "10.1029/2011JB008801",
+    "yayim_tarihi_crossref": "online 2012-04-17",
+    "olaydan_once": true,
+    "not": "Guerrero boşluğu kenetlenme + SSE; tez HAL tel-00658355",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   }
+  ],
+  "olay_oncesi_model_var": "evet",
+  "sayisal_veri_acik": "hayır (yalnız şekil / GPS hızları ek tabloda)",
+  "kirik_ucu_okunabilir_mi": "hayır",
+  "ek_not": ""
+ },
+ {
+  "olay": "Pinotepa (Meksika) 2018",
+  "tarih_utc": "2018-02-16",
+  "Mw": 7.2,
+  "tip": "dalma-batma",
+  "usgs_event_id": "us2000d3km",
+  "usgs_ffm": [
+   "us2000d3km"
+  ],
+  "kirik_uzunlugu_km_yaklasik": "~30–50 (literatür değeri, doğrulanmadı; uçlar için kaynak USGS FFM)",
+  "olay_oncesi_modeller": [
+   {
+    "model": "Correa-Mora et al. 2008, GJI",
+    "doi": "10.1111/j.1365-246x.2008.03910.x",
+    "yayim_tarihi_crossref": "created 2008-09-12; print 2008-10",
+    "olaydan_once": true,
+    "not": "Oaxaca kenetlenme",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   },
+   {
+    "model": "Rousset et al. 2016, PAGEOPH",
+    "doi": "10.1007/s00024-015-1215-6",
+    "yayim_tarihi_crossref": "online 2015-12-29",
+    "olaydan_once": true,
+    "not": "Meksika boyunca yanal kenetlenme; tez HAL tel-01561788",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   },
+   {
+    "model": "Maubant et al. (Zenodo 10.5281/zenodo.3666702) (HARİÇ)",
+    "doi": "10.5281/zenodo.3666702",
+    "yayim_tarihi_crossref": "Zenodo 2021-12-06 (olaydan SONRA)",
+    "olaydan_once": false,
+    "not": "sayısal ama olay sonrası",
+    "sayisal_veri": "Zenodo (olay sonrası)"
+   }
+  ],
+  "olay_oncesi_model_var": "evet",
+  "sayisal_veri_acik": "hayır (yalnız şekil / GPS hızları ek tabloda)",
+  "kirik_ucu_okunabilir_mi": "hayır",
+  "ek_not": ""
+ },
+ {
+  "olay": "Simeonof (Alaska) 2020",
+  "tarih_utc": "2020-07-22",
+  "Mw": 7.8,
+  "tip": "dalma-batma",
+  "usgs_event_id": "us7000asvb",
+  "usgs_ffm": [
+   "us7000asvb"
+  ],
+  "kirik_uzunlugu_km_yaklasik": "~150–200 (literatür değeri, doğrulanmadı; uçlar için kaynak USGS FFM)",
+  "olay_oncesi_modeller": [
+   {
+    "model": "Fournier & Freymueller 2007, GRL",
+    "doi": "10.1029/2006GL029073",
+    "yayim_tarihi_crossref": "online 2007-03-21",
+    "olaydan_once": true,
+    "not": "Shumagin kilitli→sürünen geçiş",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   },
+   {
+    "model": "Li & Freymueller 2018, GRL",
+    "doi": "10.1002/2017GL076761",
+    "yayim_tarihi_crossref": "online 2018-04-21",
+    "olaydan_once": true,
+    "not": "Alaska Yarımadası kayma davranışı",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   }
+  ],
+  "olay_oncesi_model_var": "evet",
+  "sayisal_veri_acik": "hayır (yalnız şekil / GPS hızları ek tabloda)",
+  "kirik_ucu_okunabilir_mi": "hayır",
+  "ek_not": ""
+ },
+ {
+  "olay": "Chignik (Alaska) 2021",
+  "tarih_utc": "2021-07-29",
+  "Mw": 8.2,
+  "tip": "dalma-batma",
+  "usgs_event_id": "ak0219neiszm",
+  "usgs_ffm": [
+   "ak0219neiszm_2",
+   "ak0219neiszm_1"
+  ],
+  "kirik_uzunlugu_km_yaklasik": "~250 (literatür değeri, doğrulanmadı; uçlar için kaynak USGS FFM)",
+  "olay_oncesi_modeller": [
+   {
+    "model": "Drooff & Freymueller 2021, GRL",
+    "doi": "10.1029/2020GL091787",
+    "yayim_tarihi_crossref": "online 2021-02-12",
+    "olaydan_once": true,
+    "not": "olaydan ~5.5 ay önce",
+    "sayisal_veri": "EVET: Zenodo kayıt 7644098 (DOI alanı makale DOI'si; dosyalar 0000_flt_002_atr_S7.gmt [TDEFNODE fay öznitelikleri, ~13 MB] + GPS hızları). DİKKAT: Zenodo deposu 2023-02-15 oluşturulmuş (olay sonrası); model içeriği olay öncesi yayımlanmış makaleye ait."
+   },
+   {
+    "model": "Li & Freymueller 2018, GRL",
+    "doi": "10.1002/2017GL076761",
+    "yayim_tarihi_crossref": "online 2018-04-21",
+    "olaydan_once": true,
+    "not": "",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   }
+  ],
+  "olay_oncesi_model_var": "evet",
+  "sayisal_veri_acik": "EVET (Zenodo 7644098; depo 2023'te oluşturuldu, model 2021-02 yayımı)",
+  "kirik_ucu_okunabilir_mi": "evet",
+  "ek_not": ""
+ },
+ {
+  "olay": "Palu (Sulawesi) 2018",
+  "tarih_utc": "2018-09-28",
+  "Mw": 7.5,
+  "tip": "doğrultu atımlı (süpershear)",
+  "usgs_event_id": "us1000h3p4",
+  "usgs_ffm": [
+   "us1000h3p4"
+  ],
+  "kirik_uzunlugu_km_yaklasik": "~150 (literatür değeri, doğrulanmadı; uçlar için kaynak USGS FFM)",
+  "olay_oncesi_modeller": [
+   {
+    "model": "Socquet et al. 2006, JGR",
+    "doi": "10.1029/2005JB003963",
+    "yayim_tarihi_crossref": "online 2006-08-31",
+    "olaydan_once": true,
+    "not": "mikroblok + fay kenetlenme katsayıları (Palu-Koro)",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   },
+   {
+    "model": "Walpersdorf et al. 1998, GRL",
+    "doi": "10.1029/98GL01799",
+    "yayim_tarihi_crossref": "1998-07",
+    "olaydan_once": true,
+    "not": "Palu-Koro GPS izleme",
+    "sayisal_veri": "GPS hızları ek tabloda; kilitlenme/kayma açığı ızgarası yalnız şekil (doğrulanmadı)"
+   }
+  ],
+  "olay_oncesi_model_var": "kısmi (blok modeli, fay başına az parametre)",
+  "sayisal_veri_acik": "hayır (yalnız şekil / GPS hızları ek tabloda)",
+  "kirik_ucu_okunabilir_mi": "hayır",
+  "ek_not": ""
+ },
+ {
+  "olay": "Maduo (Çin) 2021",
+  "tarih_utc": "2021-05-21",
+  "Mw": 7.3,
+  "tip": "doğrultu atımlı",
+  "usgs_event_id": "us7000e54r",
+  "usgs_ffm": [
+   "us7000e54r_1"
+  ],
+  "kirik_uzunlugu_km_yaklasik": "~160 (literatür değeri, doğrulanmadı; uçlar için kaynak USGS FFM)",
+  "olay_oncesi_modeller": [
+   {
+    "model": "Li, Shan & Qu 2019, Remote Sens. (komşu fay)",
+    "doi": "10.3390/rs11151775",
+    "yayim_tarihi_crossref": "online 2019-07-28",
+    "olaydan_once": true,
+    "not": "Doğu Kunlun fayı — kırılan Kunlun Geçidi–Jiangcuo fayı DEĞİL",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   },
+   {
+    "model": "Zhu, Ji & Liu 2021, JAES (komşu fay)",
+    "doi": "10.1016/j.jseaes.2021.104703",
+    "yayim_tarihi_crossref": "created 2021-02-21",
+    "olaydan_once": true,
+    "not": "Maqin–Maqu segmenti — kırılan fay değil",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   }
+  ],
+  "olay_oncesi_model_var": "hayır (yalnız komşu Doğu Kunlun fayı modelleri)",
+  "sayisal_veri_acik": "hayır",
+  "kirik_ucu_okunabilir_mi": "hayır",
+  "ek_not": "Li et al. Zenodo 10.5281/zenodo.5582717 (Tuosuo Gölü segmenti) 2021-06-22 — olay sonrası ve farklı segment."
+ },
+ {
+  "olay": "Elazığ/Sivrice (Türkiye) 2020",
+  "tarih_utc": "2020-01-24",
+  "Mw": 6.7,
+  "tip": "doğrultu atımlı",
+  "usgs_event_id": "us60007ewc",
+  "usgs_ffm": [
+   "us60007ewc"
+  ],
+  "kirik_uzunlugu_km_yaklasik": "~50 (literatür değeri, doğrulanmadı; uçlar için kaynak USGS FFM)",
+  "olay_oncesi_modeller": [
+   {
+    "model": "Cavalié & Jónsson 2014, GRL",
+    "doi": "10.1002/2013GL058170",
+    "yayim_tarihi_crossref": "online 2014-01-15",
+    "olaydan_once": true,
+    "not": "InSAR; DAF sığ kilitlenme derinliği (2B)",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   },
+   {
+    "model": "Aktuğ et al. 2016, J. Geodyn.",
+    "doi": "10.1016/j.jog.2016.01.001",
+    "yayim_tarihi_crossref": "created 2016-01-27; print 2016-03",
+    "olaydan_once": true,
+    "not": "DAF sistemi kayma hızı + kilitlenme derinliği",
+    "sayisal_veri": "GPS hızları ek tabloda; kilitlenme/kayma açığı ızgarası yalnız şekil (doğrulanmadı)"
+   },
+   {
+    "model": "Walters, Parsons & Wright 2014, JGR",
+    "doi": "10.1002/2013jb010909",
+    "yayim_tarihi_crossref": "online 2014-06-20",
+    "olaydan_once": true,
+    "not": "Doğu Türkiye InSAR hız alanı",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   },
+   {
+    "model": "Bletery et al. 2020, GRL (HARİÇ)",
+    "doi": "10.1029/2020GL087775",
+    "yayim_tarihi_crossref": "online 2020-08-21 (olaydan SONRA)",
+    "olaydan_once": false,
+    "not": "olay öncesi veri, olay sonrası yayım",
+    "sayisal_veri": "SI Tablo S1–S2"
+   }
+  ],
+  "olay_oncesi_model_var": "kısmi (yalnız 2B kilitlenme derinliği; Mw<7)",
+  "sayisal_veri_acik": "hayır (yalnız şekil / GPS hızları ek tabloda)",
+  "kirik_ucu_okunabilir_mi": "hayır",
+  "ek_not": "Mw 6.7 (USGS) — Mw≥7 eşiğinin ALTINDA; yalnız bilgi amaçlı."
+ },
+ {
+  "olay": "Pazarcık/Kahramanmaraş (Türkiye) 2023 Mw7.8",
+  "tarih_utc": "2023-02-06",
+  "Mw": 7.8,
+  "tip": "doğrultu atımlı",
+  "usgs_event_id": "us6000jllz",
+  "usgs_ffm": [
+   "us6000jllz_1"
+  ],
+  "kirik_uzunlugu_km_yaklasik": "~350 (literatür değeri, doğrulanmadı; uçlar için kaynak USGS FFM)",
+  "olay_oncesi_modeller": [
+   {
+    "model": "Bletery et al. 2020, GRL",
+    "doi": "10.1029/2020GL087775",
+    "yayim_tarihi_crossref": "online 2020-08-21",
+    "olaydan_once": true,
+    "not": "110 alt-fay Bayesçi kenetlenme, KAF+DAF doğusu; HAL açık PDF hal-02919576",
+    "sayisal_veri": "muhtemelen: SI Tablo S1–S2 alt-fay geometrisi ve kayma açığı hızları (metinde atıf; Wiley SI erişimi doğrulanmadı)"
+   },
+   {
+    "model": "Aktuğ et al. 2016, J. Geodyn.",
+    "doi": "10.1016/j.jog.2016.01.001",
+    "yayim_tarihi_crossref": "created 2016-01-27",
+    "olaydan_once": true,
+    "not": "",
+    "sayisal_veri": "GPS hızları ek tabloda; kilitlenme/kayma açığı ızgarası yalnız şekil (doğrulanmadı)"
+   },
+   {
+    "model": "Cavalié & Jónsson 2014, GRL",
+    "doi": "10.1002/2013GL058170",
+    "yayim_tarihi_crossref": "online 2014-01-15",
+    "olaydan_once": true,
+    "not": "",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   }
+  ],
+  "olay_oncesi_model_var": "evet (Bletery 2020; kapsam yalnız DAF doğusu, 2023 KD ucu ile çakışma doğrulanmadı)",
+  "sayisal_veri_acik": "muhtemel — SI Tablo S1–S2 (erişim doğrulanmadı)",
+  "kirik_ucu_okunabilir_mi": "kısmi/doğrulanmadı (yalnız KD uç, SI tabloları alınırsa)",
+  "ek_not": ""
+ },
+ {
+  "olay": "Elbistan/Çardak (Türkiye) 2023 Mw7.6 (USGS 7.5)",
+  "tarih_utc": "2023-02-06",
+  "Mw": 7.5,
+  "tip": "doğrultu atımlı",
+  "usgs_event_id": "us6000jlqa",
+  "usgs_ffm": [
+   "us6000jlqa_1"
+  ],
+  "kirik_uzunlugu_km_yaklasik": "~150 (literatür değeri, doğrulanmadı; uçlar için kaynak USGS FFM)",
+  "olay_oncesi_modeller": [
+   {
+    "model": "Aktuğ et al. 2016, J. Geodyn.",
+    "doi": "10.1016/j.jog.2016.01.001",
+    "yayim_tarihi_crossref": "created 2016-01-27",
+    "olaydan_once": true,
+    "not": "Sürgü–Çardak fayının modelde olup olmadığı doğrulanmadı",
+    "sayisal_veri": "GPS hızları ek tabloda; kilitlenme/kayma açığı ızgarası yalnız şekil (doğrulanmadı)"
+   }
+  ],
+  "olay_oncesi_model_var": "hayır/doğrulanmadı",
+  "sayisal_veri_acik": "hayır",
+  "kirik_ucu_okunabilir_mi": "hayır",
+  "ek_not": ""
+ },
+ {
+  "olay": "Sagaing/Mandalay (Myanmar) 2025",
+  "tarih_utc": "2025-03-28",
+  "Mw": 7.7,
+  "tip": "doğrultu atımlı (süpershear)",
+  "usgs_event_id": "us7000pn9s",
+  "usgs_ffm": [
+   "us7000pn9s_1"
+  ],
+  "kirik_uzunlugu_km_yaklasik": "~450–500 (literatür değeri, doğrulanmadı; uçlar için kaynak USGS FFM)",
+  "olay_oncesi_modeller": [
+   {
+    "model": "Tin et al. 2022, JAES",
+    "doi": "10.1016/j.jseaes.2022.105125",
+    "yayim_tarihi_crossref": "created 2022-01-31; print 2022-05",
+    "olaydan_once": true,
+    "not": "güney Sagaing GNSS kayma hızı/kilitlenme derinliği/sığ sürünme",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   },
+   {
+    "model": "Maurin et al. 2010, Geology",
+    "doi": "10.1130/g30872.1",
+    "yayim_tarihi_crossref": "online 2010-06-23",
+    "olaydan_once": true,
+    "not": "kuzey Myanmar, kilitlenme derinliği",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   },
+   {
+    "model": "Lindsey et al. 2023, EPSL",
+    "doi": "10.1016/j.epsl.2023.118384",
+    "yayim_tarihi_crossref": "created 2023-10-05; print 2023-11",
+    "olaydan_once": true,
+    "not": "batı Myanmar yoğun GNSS; Sagaing dahil gerinim bölüşümü",
+    "sayisal_veri": "veri deposu doğrulanmadı"
+   },
+   {
+    "model": "Panda et al. 2018, JAES",
+    "doi": "10.1016/j.jseaes.2018.07.029",
+    "yayim_tarihi_crossref": "created 2018-07-21",
+    "olaydan_once": true,
+    "not": "Sagaing segmentasyonu",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   }
+  ],
+  "olay_oncesi_model_var": "kısmi (segment bazlı kilitlenme derinliği/sürünme)",
+  "sayisal_veri_acik": "hayır (yalnız şekil / GPS hızları ek tabloda); Lindsey 2023 veri deposu doğrulanmadı",
+  "kirik_ucu_okunabilir_mi": "hayır",
+  "ek_not": ""
+ },
+ {
+  "olay": "Kumamoto (Japonya) 2016",
+  "tarih_utc": "2016-04-15",
+  "Mw": 7.0,
+  "tip": "doğrultu atımlı (+normal bileşen)",
+  "usgs_event_id": "us20005iis",
+  "usgs_ffm": [
+   "us20005iis"
+  ],
+  "kirik_uzunlugu_km_yaklasik": "~30–40 (literatür değeri, doğrulanmadı; uçlar için kaynak USGS FFM)",
+  "olay_oncesi_modeller": [
+   {
+    "model": "Nishimura & Hashimoto 2006, Tectonophysics",
+    "doi": "10.1016/j.tecto.2006.04.017",
+    "yayim_tarihi_crossref": "created 2006-06-23; print 2006-08",
+    "olaydan_once": true,
+    "not": "GB Japonya blok + kayma açığı; Futagawa–Hinagu'nun blok sınırı olup olmadığı doğrulanmadı",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   },
+   {
+    "model": "Loveless & Meade 2010, JGR",
+    "doi": "10.1029/2008JB006248",
+    "yayim_tarihi_crossref": "online 2010-02-27",
+    "olaydan_once": true,
+    "not": "",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   }
+  ],
+  "olay_oncesi_model_var": "kısmi/doğrulanmadı (blok modeli)",
+  "sayisal_veri_acik": "hayır (yalnız şekil / GPS hızları ek tabloda)",
+  "kirik_ucu_okunabilir_mi": "hayır",
+  "ek_not": ""
+ },
+ {
+  "olay": "Mentawai (Sumatra) 2010",
+  "tarih_utc": "2010-10-25",
+  "Mw": 7.8,
+  "tip": "dalma-batma (tsunami depremi, sığ)",
+  "usgs_event_id": "usp000hnj4",
+  "usgs_ffm": [
+   "usp000hnj4"
+  ],
+  "kirik_uzunlugu_km_yaklasik": "~100–150 (literatür değeri, doğrulanmadı; uçlar için kaynak USGS FFM)",
+  "olay_oncesi_modeller": [
+   {
+    "model": "Chlieh et al. 2008, JGR",
+    "doi": "10.1029/2007JB004981",
+    "yayim_tarihi_crossref": "online 2008-05-13",
+    "olaydan_once": true,
+    "not": "GPS + mercan paleojeodezi; HAL hal-00424253",
+    "sayisal_veri": "GPS hızları ek tabloda; kilitlenme/kayma açığı ızgarası yalnız şekil (doğrulanmadı)"
+   },
+   {
+    "model": "Prawirodirdjo et al. 2010, JGR",
+    "doi": "10.1029/2008JB006139",
+    "yayim_tarihi_crossref": "online 2010-03-19",
+    "olaydan_once": true,
+    "not": "",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   }
+  ],
+  "olay_oncesi_model_var": "evet",
+  "sayisal_veri_acik": "hayır (yalnız şekil / GPS hızları ek tabloda)",
+  "kirik_ucu_okunabilir_mi": "hayır",
+  "ek_not": "Kırık, modellerin çözünürlüğünün zayıf olduğu hendek yakınında."
+ },
+ {
+  "olay": "Bengkulu (Sumatra) 2007",
+  "tarih_utc": "2007-09-12",
+  "Mw": 8.4,
+  "tip": "dalma-batma",
+  "usgs_event_id": "official20070912111026830_34",
+  "usgs_ffm": [
+   "usp000fmz4"
+  ],
+  "kirik_uzunlugu_km_yaklasik": "~250–300 (literatür değeri, doğrulanmadı; uçlar için kaynak USGS FFM)",
+  "olay_oncesi_modeller": [
+   {
+    "model": "Simoes et al. 2004, JGR",
+    "doi": "10.1029/2003JB002958",
+    "yayim_tarihi_crossref": "online 2004-10-02",
+    "olaydan_once": true,
+    "not": "kilitli fay zonu manto içine",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   },
+   {
+    "model": "Prawirodirdjo et al. 1997, GRL",
+    "doi": "doğrulanmadı",
+    "yayim_tarihi_crossref": "doğrulanmadı",
+    "olaydan_once": true,
+    "not": "DOI/tarih doğrulanmadı",
+    "sayisal_veri": "doğrulanmadı"
+   },
+   {
+    "model": "Chlieh et al. 2008, JGR (HARİÇ)",
+    "doi": "10.1029/2007JB004981",
+    "yayim_tarihi_crossref": "online 2008-05-13 (olaydan SONRA)",
+    "olaydan_once": false,
+    "not": "",
+    "sayisal_veri": "dışarıda"
+   }
+  ],
+  "olay_oncesi_model_var": "evet",
+  "sayisal_veri_acik": "hayır (yalnız şekil / GPS hızları ek tabloda)",
+  "kirik_ucu_okunabilir_mi": "hayır",
+  "ek_not": ""
+ },
+ {
+  "olay": "Léogâne (Haiti) 2010 [eklendi]",
+  "tarih_utc": "2010-01-12",
+  "Mw": 7.0,
+  "tip": "eğik doğrultu atımlı",
+  "usgs_event_id": "usp000h60h",
+  "usgs_ffm": [],
+  "kirik_uzunlugu_km_yaklasik": "~40–50 (literatür değeri, doğrulanmadı; uçlar için kaynak USGS FFM)",
+  "olay_oncesi_modeller": [
+   {
+    "model": "Manaker et al. 2008, GJI",
+    "doi": "10.1111/j.1365-246X.2008.03819.x",
+    "yayim_tarihi_crossref": "created 2008-07-17; print 2008-09",
+    "olaydan_once": true,
+    "not": "KD Karayip kenetlenme; Enriquillo kilitli",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   }
+  ],
+  "olay_oncesi_model_var": "kısmi (blok modeli)",
+  "sayisal_veri_acik": "hayır (yalnız şekil / GPS hızları ek tabloda)",
+  "kirik_ucu_okunabilir_mi": "hayır",
+  "ek_not": "USGS FFM ürünü yok. Kırık ağırlıkla Enriquillo'ya komşu kör Léogâne fayında."
+ },
+ {
+  "olay": "Nippes (Haiti) 2021 [eklendi]",
+  "tarih_utc": "2021-08-14",
+  "Mw": 7.2,
+  "tip": "eğik (bindirme + doğrultu atım)",
+  "usgs_event_id": "us6000f65h",
+  "usgs_ffm": [
+   "us6000f65h_1"
+  ],
+  "kirik_uzunlugu_km_yaklasik": "~70 (literatür değeri, doğrulanmadı; uçlar için kaynak USGS FFM)",
+  "olay_oncesi_modeller": [
+   {
+    "model": "Symithe et al. 2015, JGR",
+    "doi": "10.1002/2014JB011779",
+    "yayim_tarihi_crossref": "online 2015-05-19",
+    "olaydan_once": true,
+    "not": "Karayip blok hareketleri, fay gerinim birikimi",
+    "sayisal_veri": "yalnız şekil (ızgara tablosu bulunamadı; doğrulanmadı)"
+   }
+  ],
+  "olay_oncesi_model_var": "kısmi (blok modeli)",
+  "sayisal_veri_acik": "hayır (yalnız şekil / GPS hızları ek tabloda)",
+  "kirik_ucu_okunabilir_mi": "hayır",
+  "ek_not": ""
+ }
+]

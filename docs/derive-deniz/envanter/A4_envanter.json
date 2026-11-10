@@ -1,0 +1,506 @@
+{
+ "ozet": {
+  "tarih": "2026-11-10",
+  "aday": "A4: karadan kilitlenme tahmini vs sonradan gelen deniz tabanı ölçümü",
+  "N_bolge_sayisal_sik": 1,
+  "N_bolge_sayisal_gevsek": 2,
+  "N_aciklama": "Sıkı: iki değer de metinde açık ve aynı segment (Marmara-Kumburgaz). Gevşek: + Marmara-Batı Sırtı (segment eşleşmesi doğrulanmadı) ve Nankai-Kumano (kara değeri bölgesel 'tam kilit <30 km', nokta değil). Bölge olarak: Marmara + Nankai = 2.",
+  "marmara_dahil": true,
+  "kaynaklar_erisim": "OpenAlex özet; Europe PMC (Lange 2019); arXiv (Yokota 2016); archimer (Sakic 2016); ANU deposu (Ergintav 2014); nature.com OA (Tomita 2026). Wiley/Elsevier/HAL 403/bot engeli: Klein 2017, Yamamoto 2019, Tadokoro 2018, Sato 2013, DeSanto 2025 tam metinleri okunamadı."
+ },
+ "satirlar": [
+  {
+   "id": "MAR-KB",
+   "bolge": "Marmara – Kumburgaz Havzası / İstanbul–Silivri segmenti (orta-doğu Ana Marmara Fayı)",
+   "marmara": true,
+   "tip": "doğrultu atımlı",
+   "deniz": {
+    "calisma": [
+     "Sakic vd. 2016 GRL",
+     "Lange vd. 2019 Nat Commun"
+    ],
+    "doi": [
+     "10.1002/2016gl069600",
+     "10.1038/s41467-019-11016-z"
+    ],
+    "yontem": "akustik taban çizgisi (10 transponder, ~800 m su derinliği, Ekim 2014–)",
+    "deger": "Sakic 2016 (6 ay): yüzey kayma hızı ~0, üst sınır <6 mm/yıl. Lange 2019 (2,5 yıl): fayı kesen taban çizgilerinden doğrultu atım 0,80 ± 1,25 mm/yıl; yorum: en az 3 km'ye (muhtemelen ~5,5 km) kadar tam kilitli",
+    "sayisal": true,
+    "kaynak": "tam metin (Sakic: archimer PDF; Lange: Europe PMC PMC6614505)"
+   },
+   "kara": {
+    "calisma": "Ergintav vd. 2014 GRL",
+    "doi": "10.1002/2014gl060985",
+    "veri": "20 yıl kara GPS (kinematik, elastik yarı-uzay)",
+    "deger": "Orta Marmara Fayı doğu (İstanbul güneyi) ve batı-orta segmentleri için gerinim birikimi (kayma açığı) üst sınırı ~2 mm/yıl (10 km kilit derinliği varsayımı); yorum: sığ derinliklere kadar asismik krip",
+    "sayisal": true,
+    "kaynak": "tam metin (ANU deposu PDF)"
+   },
+   "geometri": {
+    "kara_istasyon_uzakligi_km": "bulunamadı (Sakic 2016: kara GPS 'uzak ve seyrek'; segment İstanbul'a 15 km içinde)",
+    "kilit_derinligi_km": "kara: 10 (varsayım, Bohnhoff 2013'ten); deniz: ≥3, muhtemelen 5,5; temel ~4,5 km"
+   },
+   "fark": "Kara modeli KİLİTLENMEYİ AZ tahmin etmiş (krip demiş); deniz tabanı kilitli buldu. Not: deniz ölçümü yalnız yüzey/sığ (birkaç km) kaymayı kısıtlar; derin kilitlenmeyi Lange OBS sismisitesiyle destekliyor.",
+   "karsilastirma_sayisal": true,
+   "karsilastirma_sinifi": "sıkı (aynı segment, iki değer de metinde açık; Sakic 2016 doğrudan Ergintav 2014'e atıf yapıyor)",
+   "not_": "Nicelikler farklı: kara = kayma açığı hızı üst sınırı; deniz = yüzey kayma (krip) hızı. Lange uzak alan hızını 15–27 mm/yıl (GPS) aralığında veriyor; dönüşüm burada yapılmadı."
+  },
+  {
+   "id": "MAR-WH",
+   "bolge": "Marmara – Batı Sırtı (Western High), batı Marmara",
+   "marmara": true,
+   "tip": "doğrultu atımlı",
+   "deniz": {
+    "calisma": "Yamamoto vd. 2019 GRL",
+    "doi": "10.1029/2018gl080984",
+    "yontem": "akustik taban çizgisi (Türk–Japon, 3,5 yıl sürekli)",
+    "deger": "sağ yanal yüzey krip hızı 10,7 ± 4,7 mm/yıl (%95); bölgesel blok hareketinin ~yarısı; model: 8 km kısmi krip eden sediman + 3 km kilitli + altında krip",
+    "sayisal": true,
+    "kaynak": "özet (OpenAlex)"
+   },
+   "kara": {
+    "calisma": "Ergintav vd. 2014 GRL",
+    "doi": "10.1002/2014gl060985",
+    "veri": "kara GPS",
+    "deger": "batı-orta segment için kayma açığı üst sınırı ~2 mm/yıl (≈ tama yakın krip ima eder)",
+    "sayisal": true,
+    "kaynak": "tam metin; ANCAK Batı Sırtı'nın Ergintav'ın 'batı-orta segment'i içinde olduğu doğrulanmadı"
+   },
+   "geometri": {
+    "kara_istasyon_uzakligi_km": "bulunamadı",
+    "kilit_derinligi_km": "kara: 10 (varsayım); deniz modeli: 8 km sediman (kısmi krip) + 3 km kilitli katman"
+   },
+   "fark": "Kara modeli KRİBİ FAZLA (kilitlenmeyi az) tahmin etmiş olabilir: kara ≈ tam krip, deniz ≈ yarı krip. Segment eşleşmesi doğrulanmadı.",
+   "karsilastirma_sayisal": true,
+   "karsilastirma_sinifi": "gevşek (segment eşleşmesi doğrulanmadı)",
+   "not_": "Lange 2019 bu sonucu kendi Kumburgaz sonucuyla çelişen/karmaşık kilit deseni olarak tartışıyor; Batı Sırtı'nda tekrarlayan depremlerden krip önceden önerilmişti (Bohnhoff 2017)."
+  },
+  {
+   "id": "MAR-PIF",
+   "bolge": "Marmara – Adalar Fayı (PIF)",
+   "marmara": true,
+   "tip": "doğrultu atımlı",
+   "deniz": {
+    "calisma": "bulunamadı",
+    "doi": null,
+    "yontem": "—",
+    "deger": "PIF üzerinde yayımlanmış deniz tabanı jeodezi ölçümü bulunamadı",
+    "sayisal": false,
+    "kaynak": "OpenAlex taraması"
+   },
+   "kara": {
+    "calisma": [
+     "Ergintav vd. 2014 GRL",
+     "Diao vd. 2016 GJI"
+    ],
+    "doi": [
+     "10.1002/2014gl060985",
+     "10.1093/gji/ggw048"
+    ],
+    "veri": "kara GPS; InSAR+GPS",
+    "deger": "Ergintav: kayma açığı 10–15 mm/yıl (10 km kilitte 11 ± 2 mm/yıl; formal ters çözüm ~9 ± 1 mm/yıl, kilit derinliği ~25 ± 17 km). Diao: 18,9 ± 7,2 mm/yıl, kilit derinliği 12,1 ± 7,0 km (güçlü ödünleşim)",
+    "sayisal": true,
+    "kaynak": "tam metin / özet"
+   },
+   "geometri": {
+    "kara_istasyon_uzakligi_km": "Ergintav: Armutlu'daki tek GPS sitesi PIF'e ~10 km",
+    "kilit_derinligi_km": "~10 (sismisiteden) / 12,1 ± 7,0"
+   },
+   "fark": "karşılaştırılamaz (deniz değeri yok) — hedef segmentte boşluk",
+   "karsilastirma_sayisal": false,
+   "karsilastirma_sinifi": "yok"
+  },
+  {
+   "id": "NAN-KUM",
+   "bolge": "Nankai – Kumano Havzası ve en sığ orta Nankai (TCA/TOA)",
+   "marmara": false,
+   "tip": "dalma-batma",
+   "deniz": {
+    "calisma": [
+     "Tadokoro vd. 2012 GRL",
+     "Yasuda vd. 2017 GRL"
+    ],
+    "doi": [
+     "10.1029/2012gl051696",
+     "10.1002/2017gl072918"
+    ],
+    "yontem": "GPS/akustik (GNSS-A)",
+    "deger": "Tadokoro 2012: ~40 mm/yıl karaya doğru (Amur'a göre), bağlanma oranı ~0,6–0,8 (en az 10 km derinliğe kadar). Yasuda 2017: TCA 38 ± 25, TOA 57 ± 21 mm/yıl (1σ); en sığ segmentte bağlanma ~%70 ± 40 (1σ)",
+    "sayisal": true,
+    "kaynak": "özet"
+   },
+   "kara": {
+    "calisma": "Ito & Hashimoto 2004 JGR",
+    "doi": "10.1029/2002jb002358",
+    "veri": "100 yıllık nivelman/triangülasyon/GPS",
+    "deger": "kayma açığı hızı 5–6 cm/yıl (levha hızıyla uyumlu); sığ kısım (<30 km) tam kilitli",
+    "sayisal": true,
+    "kaynak": "özet; NOKTA değeri değil bölgesel ifade"
+   },
+   "geometri": {
+    "kara_istasyon_uzakligi_km": "bulunamadı",
+    "kilit_derinligi_km": "kara: <30 tam kilitli; deniz: ≥10 (Tadokoro), en sığ segment (Yasuda)"
+   },
+   "fark": "Kara modeli (tam kilit ≈ 1,0) deniz değerinden (0,6–0,8; 0,7 ± 0,4) BİRAZ FAZLA; Yasuda belirsizliği içinde. doğrulanmadı",
+   "karsilastirma_sayisal": true,
+   "karsilastirma_sinifi": "gevşek (kara değeri bölgesel, nokta değil)"
+  },
+  {
+   "id": "NAN-YOK",
+   "bolge": "Nankai – tüm hendek (15 JHOD GNSS-A sitesi)",
+   "marmara": false,
+   "tip": "dalma-batma",
+   "deniz": {
+    "calisma": "Yokota vd. 2016 Nature",
+    "doi": "10.1038/nature17632",
+    "yontem": "GNSS-A (15 site, 6'sı 2011 öncesi)",
+    "deger": "site hızları (Amur'a göre, cm/yıl): TOK1 5,0; TOK2 4,9; TOK3 5,1; KUM1 3,6; KUM2 4,3; KUM3 4,0; SIOW 4,7; MRT1 3,4; MRT2 3,9; TOS1 5,5; TOS2 4,8; ASZ1 4,5; ASZ2 4,2; HYG1 3,8; HYG2 2,0 (σ 0,1–0,9). SDR haritası: çoğu yerde pozitif; düşük SDR bölgeleri A (Hyuga-nada/HYG2), C, E",
+    "sayisal": true,
+    "kaynak": "arXiv:1802.04508 tam metin, Tablo 1"
+   },
+   "kara": {
+    "calisma": [
+     "Ito & Hashimoto 2004",
+     "Hok vd. 2011 JGR",
+     "Yoshioka & Matsuoka 2013 Tectonophysics",
+     "Yokota 2016 Ext. Data Fig. 5a (yalnız kara)"
+    ],
+    "doi": [
+     "10.1029/2002jb002358",
+     "10.1029/2011jb008492",
+     "10.1016/j.tecto.2013.01.023",
+     null
+    ],
+    "veri": "kara GEONET",
+    "deger": "Yokota: derin kısım kara modelleriyle 'güçlü benzer'; kara verisinin açık deniz levha arayüzünde çözünürlüğü yok. Site noktasındaki kara SDR değerleri yalnız şekilde (Ext. Data Fig. 5a)",
+    "sayisal": false,
+    "kaynak": "şekilden, doğrulanmadı"
+   },
+   "geometri": {
+    "kara_istasyon_uzakligi_km": "bulunamadı (site koordinatları Tablo 1'de var)",
+    "kilit_derinligi_km": "bulunamadı"
+   },
+   "fark": "Düşük SDR bölgeleri (A, C, E) kara modellerinde görünmüyor → kara bu bölgelerde FAZLA tahmin etmiş olabilir; şekilden, doğrulanmadı",
+   "karsilastirma_sayisal": false,
+   "karsilastirma_sinifi": "nitel"
+  },
+  {
+   "id": "JPT",
+   "bolge": "Japonya Hendeği – Miyagi ve Fukushima açıkları (2011 öncesi)",
+   "marmara": false,
+   "tip": "dalma-batma",
+   "deniz": {
+    "calisma": [
+     "Sato vd. 2013 JGR"
+    ],
+    "doi": [
+     "10.1002/jgrb.50275"
+    ],
+    "yontem": "GPS/akustik (~9 yıl, 2011 öncesi)",
+    "deger": "Miyagi açığı: 2005 öncesi 6–7 cm/yıl, Aralık 2006 sonrası 4–5 cm/yıl (K. Amerika'ya göre); Fukushima açığı: ~2 cm/yıl (2002–2008) → Fukushima'da bağlanma belirgin zayıf",
+    "sayisal": true,
+    "kaynak": "özet (hız; bağlanma oranı değil)"
+   },
+   "kara": {
+    "calisma": [
+     "Loveless & Meade 2010 JGR",
+     "Loveless & Meade 2011 GRL",
+     "Hashimoto vd. 2009 Nat Geosci",
+     "Suito vd. 2011 EPS"
+    ],
+    "doi": [
+     "10.1029/2008jb006248",
+     "10.1029/2011gl048561",
+     "10.1038/ngeo421",
+     "10.5047/eps.2011.06.053"
+    ],
+    "veri": "kara GPS",
+    "deger": "Loveless & Meade 2011: ≥4 m kayan bölge ≥%30 bağlı alana denk; tepe kayma ≥%80 bağlı bölge yakınında; kuzey uç <%20. Deniz sitesi noktasındaki değer: şekilden, doğrulanmadı",
+    "sayisal": false,
+    "kaynak": "özet"
+   },
+   "geometri": {
+    "kara_istasyon_uzakligi_km": "kara GPS–hendek ~230 km (Loveless & Meade 2011)",
+    "kilit_derinligi_km": "kıyı altı arayüz 40–50 km; en sığ kısım en az kısıtlı"
+   },
+   "fark": "bulunamadı (nokta karşılaştırması yayımlanmış değil)",
+   "karsilastirma_sayisal": false,
+   "karsilastirma_sinifi": "nitel"
+  },
+  {
+   "id": "KUR",
+   "bolge": "GB Kuril Hendeği – Nemuro açığı",
+   "marmara": false,
+   "tip": "dalma-batma",
+   "deniz": {
+    "calisma": "Tomita vd. 2026 Commun Earth Environ",
+    "doi": "10.1038/s43247-026-03297-2",
+    "yontem": "GNSS-A (G21–G23, 2019–2024)",
+    "deger": "G21 4,30 ± 1,39; G22 7,98 ± 2,12; G23 7,14 ± 3,83 cm/yıl (levha ~8 cm/yıl); hendek yakını kinematik bağlanma ~%100; 400 yılda 20,5–30,0 m açık",
+    "sayisal": true,
+    "kaynak": "tam metin (nature.com PDF)"
+   },
+   "kara": {
+    "calisma": "Tomita 2026 içi ileri modeller; önceki kara ters çözümü (ör. Hashimoto 2009) nokta değeri bulunamadı",
+    "doi": "10.1038/ngeo421",
+    "veri": "GEONET",
+    "deger": "'sığ kilitli' (0–50 km) ve 'sığ krip' (10–50 km) modelleri kara siteleri ve G21'de BENZER hız üretiyor → kara verisi sığ kilidi ayırt edemiyor; yalnız G22 ayırt ediyor",
+    "sayisal": false,
+    "kaynak": "tam metin"
+   },
+   "geometri": {
+    "kara_istasyon_uzakligi_km": "bulunamadı",
+    "kilit_derinligi_km": "sığ kilit 0–50 vs sığ krip 10–50 km"
+   },
+   "fark": "Kara verisi belirsiz (iki uç modeli ayırt edemez); deniz tam kilit buldu",
+   "karsilastirma_sayisal": false,
+   "karsilastirma_sinifi": "nitel"
+  },
+  {
+   "id": "RYU",
+   "bolge": "Nansei-Shoto (Ryukyu) Hendeği – Okinawa GD açığı",
+   "marmara": false,
+   "tip": "dalma-batma",
+   "deniz": {
+    "calisma": "Tadokoro vd. 2018 GRL",
+    "doi": "10.1029/2018gl078655",
+    "yontem": "GNSS-A (2 site, 3 ve 6 yıl)",
+    "deger": "Ryukyu yayına göre 63 ve 21 mm/yıl karaya doğru; bağlanma 0,9–1,0 (levha derinliği 10–13 km) veya 0,7–0,8 (13 km'den tabana)",
+    "sayisal": true,
+    "kaynak": "özet"
+   },
+   "kara": {
+    "calisma": "Heki & Kataoka 2008 JGR (yalnız GB Ryukyu, farklı segment)",
+    "doi": "10.1029/2008jb005739",
+    "veri": "kara GPS",
+    "deger": "'bağlanmamış dalma-batma zonu' nitelemesi (GB Ryukyu); Okinawa açığı için önceki kara bağlanma değeri bulunamadı",
+    "sayisal": false,
+    "kaynak": "özet"
+   },
+   "geometri": {
+    "kara_istasyon_uzakligi_km": "bulunamadı (siteler hendekten ~45 ve ~70 km)",
+    "kilit_derinligi_km": "10–13"
+   },
+   "fark": "Genel 'zayıf bağlanma' görüşüne karşı deniz güçlü bağlanma buldu → kara/geleneksel görüş AZ tahmin; aynı segment kara modeli doğrulanmadı",
+   "karsilastirma_sayisal": false,
+   "karsilastirma_sinifi": "nitel"
+  },
+  {
+   "id": "PER",
+   "bolge": "Peru – Lima açığı (Peru–Şili Hendeği)",
+   "marmara": false,
+   "tip": "dalma-batma",
+   "deniz": {
+    "calisma": "Gagnon, Chadwell & Norabuena 2005 Nature (Science değil)",
+    "doi": "10.1038/nature03412",
+    "yontem": "GPS/akustik",
+    "deger": "hendeğe dik yatay hareket 2–40 km arasında kaymasız (tam kilitli) modelle uyumlu (S2 tldr; özet yayıncı tarafından gizli); hız değeri doğrulanmadı",
+    "sayisal": false,
+    "kaynak": "Semantic Scholar tldr"
+   },
+   "kara": {
+    "calisma": "bulunamadı (sonraki: Chlieh vd. 2011 JGR, Lima açığında yüksek ISC)",
+    "doi": "10.1029/2010jb008166",
+    "veri": "kara GPS",
+    "deger": "Chlieh 2011 Lima açığı yüksek bağlanma (sayı şekilde); Gagnon öncesi kara modeli bulunamadı",
+    "sayisal": false,
+    "kaynak": "özet"
+   },
+   "geometri": {
+    "kara_istasyon_uzakligi_km": "bulunamadı",
+    "kilit_derinligi_km": "2–40"
+   },
+   "fark": "bulunamadı",
+   "karsilastirma_sayisal": false,
+   "karsilastirma_sinifi": "yok"
+  },
+  {
+   "id": "CAS",
+   "bolge": "Cascadia – Oregon orta açığı",
+   "marmara": false,
+   "tip": "dalma-batma",
+   "deniz": {
+    "calisma": "DeSanto vd. 2025 EPSL",
+    "doi": "10.1016/j.epsl.2025.119463",
+    "yontem": "GNSS-A (4 site, 2016–2022)",
+    "deger": "akresyon prizmasında hızlar Juan de Fuca hızının 'önemli kesri'; deformasyon cephesi yakınında arayüz neredeyse tam kilitli; sayısal hız özetle verilmemiş",
+    "sayisal": false,
+    "kaynak": "özet"
+   },
+   "kara": {
+    "calisma": [
+     "Schmalzle vd. 2014 G3",
+     "Li vd. 2018 JGR"
+    ],
+    "doi": [
+     "10.1002/2013gc005172",
+     "10.1029/2018jb015620"
+    ],
+    "veri": "kara GPS + gelgit/nivelman",
+    "deger": "Schmalzle: 43–46°K'de geniş geçiş zonu, kısmi krip; Li 2018: kara verisi en sığ kısımda kripi çözemiyor. Oregon kıyı GNSS <1 cm/yıl (DeSanto)",
+    "sayisal": false,
+    "kaynak": "özet"
+   },
+   "geometri": {
+    "kara_istasyon_uzakligi_km": "bulunamadı",
+    "kilit_derinligi_km": "bulunamadı"
+   },
+   "fark": "Schmalzle'ye göre kara AZ tahmin etmiş (krip), Li 2018'e göre belirsiz; şekilden, doğrulanmadı",
+   "karsilastirma_sayisal": false,
+   "karsilastirma_sinifi": "nitel"
+  },
+  {
+   "id": "ALA",
+   "bolge": "Alaska – Shumagin/Semidi",
+   "marmara": false,
+   "tip": "dalma-batma",
+   "deniz": {
+    "calisma": "Brooks vd. 2023 Sci Adv (ard-kayma; interseismik değil)",
+    "doi": "10.1126/sciadv.adf9299",
+    "yontem": "GNSS-A",
+    "deger": "2021 M8.2 Chignik sonrası ~1,4 m eş+ard-sismik yatay yer değiştirme, cepheden ~60 km; <20 km'de 2–3 m ard-kayma. İnterseismik kilit ölçümü bulunamadı. 'Brooks 2021 GRL' OpenAlex/Crossref'te bulunamadı",
+    "sayisal": false,
+    "kaynak": "özet"
+   },
+   "kara": {
+    "calisma": "Senapati vd. 2024 GJI (kara kinematik bağlanma)",
+    "doi": "10.1093/gji/ggae002",
+    "veri": "kara GNSS",
+    "deger": "Shumagin'de güçlüden zayıfa geçiş; nokta değeri bulunamadı",
+    "sayisal": false,
+    "kaynak": "özet"
+   },
+   "geometri": {
+    "kara_istasyon_uzakligi_km": "bulunamadı",
+    "kilit_derinligi_km": "<20 (ard-kayma)"
+   },
+   "fark": "karşılaştırılamaz (interseismik deniz verisi yok)",
+   "karsilastirma_sayisal": false,
+   "karsilastirma_sinifi": "yok"
+  },
+  {
+   "id": "HIK",
+   "bolge": "Hikurangi – Gisborne açığı",
+   "marmara": false,
+   "tip": "dalma-batma (geçici kayma)",
+   "deniz": {
+    "calisma": [
+     "Wallace vd. 2016 Science (HOBITSS)",
+     "Yohler vd. 2019 G3",
+     "Woods vd. 2024 JGR"
+    ],
+    "doi": [
+     "10.1126/science.aaf2349",
+     "10.1029/2019gc008229",
+     "10.1029/2024jb029068"
+    ],
+    "yontem": "mutlak basınç ölçer (APG)",
+    "deger": "2014 SSE tabana 2 km yakına kadar; 2019 SSE: taban yükselmesi 10–33 mm, 6–12 km'de tepe kayma 150–>200 mm",
+    "sayisal": true,
+    "kaynak": "özet"
+   },
+   "kara": {
+    "calisma": "yalnız kara GeoNet ters çözümü (Yohler 2019 içi karşılaştırma)",
+    "doi": "10.1029/2019gc008229",
+    "veri": "kara GNSS",
+    "deger": "APG eklenince kayma hendeğe yaklaşıyor, APG altında belirsizlik ~%23 düşüyor; kara-yalnız değer bulunamadı",
+    "sayisal": false,
+    "kaynak": "özet"
+   },
+   "geometri": {
+    "kara_istasyon_uzakligi_km": "bulunamadı",
+    "kilit_derinligi_km": "SSE 0–15 km"
+   },
+   "fark": "Kara yalnız hendek-yakını kaymayı AZ yerleştiriyor (SSE için; kilitlenme değil)",
+   "karsilastirma_sayisal": false,
+   "karsilastirma_sinifi": "yardımcı (geçici kayma)"
+  },
+  {
+   "id": "CRI",
+   "bolge": "Kosta Rika – Nicoya",
+   "marmara": false,
+   "tip": "dalma-batma (geçici kayma)",
+   "deniz": {
+    "calisma": "Jiang vd. 2017 GRL",
+    "doi": "10.1002/2017gl072803",
+    "yontem": "hendek yakını basınç ölçer + kara GPS",
+    "deger": "2007 SSE ~15 km'de başlayıp hendeğe kadar yayıldı; sayı bulunamadı",
+    "sayisal": false,
+    "kaynak": "özet"
+   },
+   "kara": {
+    "calisma": "Jiang vd. 2012 G3 (yalnız GPS SSE kataloğu)",
+    "doi": "10.1029/2012gc004058",
+    "veri": "kara GPS",
+    "deger": "interseismik kilit nokta değeri bulunamadı",
+    "sayisal": false,
+    "kaynak": "özet"
+   },
+   "geometri": {
+    "kara_istasyon_uzakligi_km": "bulunamadı",
+    "kilit_derinligi_km": "~15"
+   },
+   "fark": "bulunamadı",
+   "karsilastirma_sayisal": false,
+   "karsilastirma_sinifi": "yardımcı"
+  },
+  {
+   "id": "MEX",
+   "bolge": "Meksika – Guerrero/Acapulco",
+   "marmara": false,
+   "tip": "dalma-batma",
+   "deniz": {
+    "calisma": "Cruz-Atienza vd. 2025 Sci Adv",
+    "doi": "10.1126/sciadv.adu8259",
+    "yontem": "taban eğim ölçer, basınç, GNSS, InSAR (GNSS-A interseismik sonucu bulunamadı)",
+    "deger": "ilk iki sığ SSE; interseismik kilit değeri yok",
+    "sayisal": false,
+    "kaynak": "özet"
+   },
+   "kara": {
+    "calisma": "bulunamadı (taranmadı ayrıntılı)",
+    "doi": null,
+    "veri": "—",
+    "deger": "—",
+    "sayisal": false,
+    "kaynak": "—"
+   },
+   "geometri": {
+    "kara_istasyon_uzakligi_km": "bulunamadı",
+    "kilit_derinligi_km": "bulunamadı"
+   },
+   "fark": "karşılaştırılamaz",
+   "karsilastirma_sayisal": false,
+   "karsilastirma_sinifi": "yok"
+  },
+  {
+   "id": "CHL",
+   "bolge": "Kuzey Şili – Iquique güneyi (~21°G), GeoSEA",
+   "marmara": false,
+   "tip": "dalma-batma",
+   "deniz": {
+    "calisma": "Lange vd. 2019 (GEOMAR özeti, DOI yok); Kopp 2016 sefer raporu",
+    "doi": "10.3289/geomar_rep_ns_34_2016",
+    "yontem": "akustik taban çizgisi (23 transponder, 2015–2018)",
+    "deger": "mm hassasiyetle çözünürlük üstünde anlamlı deformasyon gözlenmedi (kısa taban çizgisi, ön-yay iç gerinimi)",
+    "sayisal": false,
+    "kaynak": "özet"
+   },
+   "kara": {
+    "calisma": "bulunamadı (bu çalışmada ilişkilendirilen)",
+    "doi": null,
+    "veri": "—",
+    "deger": "—",
+    "sayisal": false,
+    "kaynak": "—"
+   },
+   "geometri": {
+    "kara_istasyon_uzakligi_km": "bulunamadı",
+    "kilit_derinligi_km": "bulunamadı"
+   },
+   "fark": "karşılaştırılamaz (yerel gerinim ≠ arayüz bağlanması)",
+   "karsilastirma_sayisal": false,
+   "karsilastirma_sinifi": "yok"
+  }
+ ]
+}
