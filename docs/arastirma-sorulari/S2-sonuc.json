@@ -1,0 +1,352 @@
+{
+ "mod": "gercek",
+ "girdi_yil": 40.0,
+ "T": 10.0,
+ "girdi_N": 249,
+ "fay_kaynagi": 470,
+ "fay_M6_yillik": 5.0956,
+ "hedefler": [
+  {
+   "t": "2017-07-20",
+   "m": 6.6,
+   "lat": 36.9293,
+   "lon": 27.4139,
+   "yer": "11 km ENE of Kos, Greece"
+  },
+  {
+   "t": "2020-01-24",
+   "m": 6.7,
+   "lat": 38.4312,
+   "lon": 39.0609,
+   "yer": "13 km N of Do?anyol, Turkey"
+  },
+  {
+   "t": "2020-02-23",
+   "m": 6.0,
+   "lat": 38.4958,
+   "lon": 44.3732,
+   "yer": "37 km ESE of Özalp, Turkey"
+  },
+  {
+   "t": "2020-10-30",
+   "m": 7.0,
+   "lat": 37.8973,
+   "lon": 26.7838,
+   "yer": "13 km NNE of Néon Karlovásion, Greece"
+  },
+  {
+   "t": "2022-11-23",
+   "m": 6.1,
+   "lat": 40.8356,
+   "lon": 30.9831,
+   "yer": "15 km W of Düzce, Turkey"
+  },
+  {
+   "t": "2023-02-06",
+   "m": 7.8,
+   "lat": 37.2256,
+   "lon": 37.0143,
+   "yer": "Pazarcik earthquake, Kahramanmaras earthquake sequence"
+  },
+  {
+   "t": "2023-02-06",
+   "m": 6.0,
+   "lat": 38.0315,
+   "lon": 38.0984,
+   "yer": "12 km W of Çelikhan, Turkey"
+  },
+  {
+   "t": "2023-02-06",
+   "m": 6.0,
+   "lat": 38.0582,
+   "lon": 36.5114,
+   "yer": "4 km NNE of Göksun, Turkey"
+  },
+  {
+   "t": "2023-02-20",
+   "m": 6.3,
+   "lat": 36.1616,
+   "lon": 36.0251,
+   "yer": "2 km NNW of Uzunba?, Turkey"
+  },
+  {
+   "t": "2024-10-16",
+   "m": 6.0,
+   "lat": 38.3115,
+   "lon": 38.8059,
+   "yer": "19 km W of Doğanyol, Turkey"
+  },
+  {
+   "t": "2025-04-23",
+   "m": 6.2,
+   "lat": 40.8342,
+   "lon": 28.1897,
+   "yer": "24 km SE of Marmara Ereğlisi, Turkey"
+  },
+  {
+   "t": "2025-08-10",
+   "m": 6.1,
+   "lat": 39.3709,
+   "lon": 28.0168,
+   "yer": "10 km WSW of Bigadiç, Turkey"
+  }
+ ],
+ "hedef_kumeli": [
+  {
+   "t": "2017-07-20",
+   "m": 6.6
+  },
+  {
+   "t": "2020-01-24",
+   "m": 6.7
+  },
+  {
+   "t": "2020-02-23",
+   "m": 6.0
+  },
+  {
+   "t": "2020-10-30",
+   "m": 7.0
+  },
+  {
+   "t": "2022-11-23",
+   "m": 6.1
+  },
+  {
+   "t": "2023-02-06",
+   "m": 7.8
+  },
+  {
+   "t": "2023-02-06",
+   "m": 6.7
+  },
+  {
+   "t": "2023-02-06",
+   "m": 7.5
+  },
+  {
+   "t": "2023-02-06",
+   "m": 6.0
+  },
+  {
+   "t": "2023-02-06",
+   "m": 6.0
+  },
+  {
+   "t": "2023-02-20",
+   "m": 6.3
+  },
+  {
+   "t": "2024-10-16",
+   "m": 6.0
+  },
+  {
+   "t": "2025-04-23",
+   "m": 6.2
+  },
+  {
+   "t": "2025-08-10",
+   "m": 6.1
+  },
+  {
+   "t": "2025-10-27",
+   "m": 6.0
+  }
+ ],
+ "B1": {
+  "satir": "B1 R2(fay, şekil)-R1",
+  "N": 12,
+  "IG": 0.021,
+  "SE": 0.194,
+  "z": 0.11,
+  "hukum": "ayırt edilemez",
+  "beklenen_aday": 3.08,
+  "beklenen_rakip": 3.08,
+  "olay_basi": [
+   0.516,
+   -0.423,
+   -0.156,
+   -1.335,
+   1.431,
+   -0.385,
+   0.729,
+   -0.09,
+   -0.111,
+   -0.291,
+   0.441,
+   -0.075
+  ]
+ },
+ "B1k": {
+  "satir": "B1k R2ham(moment dengeli)-R1",
+  "N": 12,
+  "IG": -0.894,
+  "SE": 0.198,
+  "z": -4.52,
+  "hukum": "rakip önde",
+  "beklenen_aday": 46.72,
+  "beklenen_rakip": 3.08,
+  "olay_basi": [
+   3.243,
+   2.305,
+   2.553,
+   1.386,
+   4.159,
+   2.335,
+   3.457,
+   2.606,
+   2.615,
+   2.437,
+   3.169,
+   2.648
+  ]
+ },
+ "B1b": {
+  "satir": "B1b R3(0,5/0,5)-R1",
+  "N": 12,
+  "IG": 0.062,
+  "SE": 0.1,
+  "z": 0.62,
+  "hukum": "ayırt edilemez",
+  "beklenen_aday": 3.08,
+  "beklenen_rakip": 3.08,
+  "olay_basi": [
+   0.291,
+   -0.189,
+   -0.075,
+   -0.46,
+   0.953,
+   -0.174,
+   0.429,
+   -0.044,
+   -0.054,
+   -0.135,
+   0.245,
+   -0.037
+  ]
+ },
+ "B1c": {
+  "satir": "B1c R2-R1 2023 haric",
+  "N": 8,
+  "IG": 0.014,
+  "SE": 0.272,
+  "z": 0.05,
+  "hukum": "ayırt edilemez",
+  "beklenen_aday": 3.08,
+  "beklenen_rakip": 3.08,
+  "olay_basi": [
+   0.516,
+   -0.423,
+   -0.156,
+   -1.335,
+   1.431,
+   -0.291,
+   0.441,
+   -0.075
+  ]
+ },
+ "B1d": {
+  "satir": "B1d R2-R1 kumeli",
+  "N": 15,
+  "IG": -0.0,
+  "SE": 0.169,
+  "z": -0.0,
+  "hukum": "ayırt edilemez",
+  "beklenen_aday": 3.08,
+  "beklenen_rakip": 3.08,
+  "olay_basi": [
+   0.516,
+   -0.423,
+   -0.156,
+   -1.335,
+   1.431,
+   -0.385,
+   0.259,
+   -0.985,
+   0.729,
+   -0.09,
+   -0.111,
+   -0.291,
+   0.441,
+   -0.075,
+   0.474
+  ]
+ },
+ "L1": [
+  {
+   "kimlik": "P2000-birlesik-etkilesim",
+   "aile": "yenilenme+Coulomb",
+   "pW": 0.2525,
+   "lnL_olaysiz": -0.291
+  },
+  {
+   "kimlik": "P2000-birlesik-yenilenme",
+   "aile": "yenilenme",
+   "pW": 0.2016,
+   "lnL_olaysiz": -0.2251
+  },
+  {
+   "kimlik": "P2000-poisson",
+   "aile": "poisson",
+   "pW": 0.0717,
+   "lnL_olaysiz": -0.0744
+  },
+  {
+   "kimlik": "P2000-yalova-etkilesim",
+   "aile": "yenilenme+Coulomb",
+   "pW": 0.1174,
+   "lnL_olaysiz": -0.1248
+  },
+  {
+   "kimlik": "P2000-adalar-etkilesim",
+   "aile": "yenilenme+Coulomb",
+   "pW": 0.1203,
+   "lnL_olaysiz": -0.1282
+  },
+  {
+   "kimlik": "P2000-marmara-etkilesim",
+   "aile": "yenilenme+Coulomb",
+   "pW": 0.043,
+   "lnL_olaysiz": -0.044
+  },
+  {
+   "kimlik": "P2004-bolge-etkilesim",
+   "aile": "yenilenme+Coulomb",
+   "pW": 0.2225,
+   "lnL_olaysiz": -0.2517
+  },
+  {
+   "kimlik": "P2004-bolge-yenilenme",
+   "aile": "yenilenme",
+   "pW": 0.1757,
+   "lnL_olaysiz": -0.1933
+  },
+  {
+   "kimlik": "P2004-bolge-poisson",
+   "aile": "poisson",
+   "pW": 0.1473,
+   "lnL_olaysiz": -0.1593
+  },
+  {
+   "kimlik": "P2004-istanbul-etkilesim",
+   "aile": "yenilenme+Coulomb",
+   "pW": 0.1613,
+   "lnL_olaysiz": -0.1759
+  },
+  {
+   "kimlik": "P2004-istanbul-poisson",
+   "aile": "poisson",
+   "pW": 0.0756,
+   "lnL_olaysiz": -0.0786
+  }
+ ],
+ "L1_marmara_M7_olay": [],
+ "L2_marmara_M6_olay": [
+  {
+   "t": "2025-04-23",
+   "m": 6.2
+  }
+ ],
+ "L2_tau_R1": 0.0432,
+ "not": "R1 Marmara satırı ve toplam oranlar özel kayıtta (proje dosyaları arastirma/s2/)."
+}

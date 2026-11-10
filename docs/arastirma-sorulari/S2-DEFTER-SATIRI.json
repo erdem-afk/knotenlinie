@@ -1,0 +1,21 @@
+{
+ "is": "S2 Türkiye segment tahminleri karnesi",
+ "tarih": "2026-11-10",
+ "kural": "docs/arastirma-sorulari/S2-KURAL.md (sha 14f3ab55c383c265eaaa37ac79cdd6da18bd6b21b5b8367647f21436cc06dc3a, OTS)",
+ "sonuc": "docs/arastirma-sorulari/S2-SONUC.md",
+ "durum": "rakip (bilgi); v1.3b değişmez",
+ "onerilen_ileri_test_rakipleri": [
+  {"kimlik": "S2-R2-EDSF13-sekil", "tanim": "EDSF13 fay kaynakları, moment dengeli kesik GR b=1, σ 15 km, toplam R1'e ölçekli + %1 taban", "satir": "Türkiye M≥6 uzun vade", "geriye_donuk": "R2 − R1 +0,021 ± 0,194 (N 12, 2016–2025)"},
+  {"kimlik": "S2-R1-duzlestirilmis", "tanim": "ComCat 1976–2015 M≥5 GK, σ 30 km, b=1", "satir": "Türkiye M≥6 uzun vade", "uyari": "N testi başarısız: 3,08 beklenen / 12 gözlenen"}
+ ],
+ "bilgi_satirlari": {
+  "L1_coulomb_katkisi_nat": {"P2000": -0.066, "P2004": -0.058},
+  "L1_zaman_bagimliligi_katkisi_nat": {"P2000": -0.151, "P2004": -0.034},
+  "L1_hukum": "önceden ayırt edilemez (tek ikili gözlem, Marmara M7 yok)",
+  "L2_p": 0.41,
+  "K_kapsam": "kendi eşiğinde sayısal literatür olasılığı olan ana şok 0/12; erişilemeyen çalışmalar 9/12'nin bölgesini hedefliyor",
+  "B1k_ham_nat": "-0,894 ± 0,198 (toplam terimi; ham R2 46,7 beklenen)"
+ },
+ "hedef_katalog_sha256": "983859c1aa2a0d2e82eb4eb293ba98076b9ca5b1d2672081feecc8ae11ffd2e3",
+ "maliyet_eur": 0
+}
