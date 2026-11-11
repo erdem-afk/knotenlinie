@@ -110,3 +110,16 @@ geometrideki eşiktir.
 
 Aktif doğrultu atımlı kuşakta ≥ 30 sakin yer veren bir veri kaynağı (yoğun bölgesel ağ çözümleri, postsismik
 modeli çıkarılmış seriler) bulunursa sınıf A satırı için yeniden açılır.
+
+## Ek 1 (11 Kasım 2026, dondurmadan sonra, hiçbir gerçek seri indirilmeden): kodlayıcının en dar okumaları
+
+Kod yalnız yapay serilerle yazıldı (26 test geçti). Bağlayıcı metinde açık kalan noktalarda uygulanan okumalar,
+gerçek veri görülmeden kayda geçer: Monte Carlo çekiliş düzeni küme-pencere başına (2000, n_y + n_r, 2), önce
+yakınlar; yapay seride kırpışma gürültüsü FFT süzgeciyle üretilir ve seri bellekte tenv3 metni olarak ayrıştırıcıdan
+geçer; m* seçili küme-pencerelerin bütün çekilişlerinin birleşik medyanıdır; bootstrap seçimi
+`default_rng(20261112)` ile ve aynı tohum bütün katman satırlarında; b_f* nokta değeri ikiye bölmeyle, aralığı
+121 noktalı ızgarada doğrusal ara değerle; σ_h istasyonun kendi tasarımıyla (kod 1 sıçrama sütunları dahil); rank
+denetimi ayıklamadan sonra da yapılır; her dosyada okuma, gereken son pencere bitince durur (yalnız Marmara'ya yakın
+beş istasyonda değil, hepsinde); L₈ ≤ S50₈ olursa kök 0 alınır; yer ağırlıklı q95 60/n_epok tam sayı ağırlığıyla;
+NGL sigma sütunları kullanılmaz ve büyük sigmalı satırlar ayıklanmaz. tenv3 sütun düzeni NGL'nin
+`readmes/README_tenv3.txt` belgesinden alındı.
