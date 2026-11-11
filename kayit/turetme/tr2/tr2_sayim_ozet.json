@@ -1,0 +1,84 @@
+{
+ "istat": {
+  "aday": 2953,
+  "mw_disi": 154,
+  "mekanizma_yok": 1,
+  "ss_degil": 1458,
+  "tensor_turetme": 8
+ },
+ "birincil_N": 1340,
+ "birincil_TR": 15,
+ "dogrultu_secilebilen_N": 369,
+ "asim_olculur_N": 116,
+ "asim_olculur_TR": 2,
+ "sonraki_var_N": 153,
+ "sonraki_var_TR": 2,
+ "nitelikli_N": 49,
+ "nitelikli_TR": 1,
+ "kume_tum": 988,
+ "K": 40,
+ "K_TR": 1,
+ "K_binom_p05": 34,
+ "K_asim_yok_sonraki_var": 123,
+ "absA_ceyrekler_dogrultulu_n10": [
+  0.079,
+  0.2,
+  0.495,
+  0.714,
+  0.89
+ ],
+ "absA_dagilim_n10": {
+  "[0.00,0.10)": 25,
+  "[0.10,0.20)": 16,
+  "[0.20,0.33)": 32,
+  "[0.33,0.50)": 22,
+  "[0.50,0.75)": 53,
+  "[0.75,1.00)": 41
+ },
+ "on_yil": {
+  "1970s": {
+   "birincil": 1,
+   "dogrultu": 1,
+   "asim": 1,
+   "sonraki": 0,
+   "nitelikli": 0
+  },
+  "1980s": {
+   "birincil": 168,
+   "dogrultu": 35,
+   "asim": 8,
+   "sonraki": 16,
+   "nitelikli": 5
+  },
+  "1990s": {
+   "birincil": 267,
+   "dogrultu": 49,
+   "asim": 7,
+   "sonraki": 29,
+   "nitelikli": 3
+  },
+  "2000s": {
+   "birincil": 361,
+   "dogrultu": 93,
+   "asim": 35,
+   "sonraki": 48,
+   "nitelikli": 20
+  },
+  "2010s": {
+   "birincil": 365,
+   "dogrultu": 136,
+   "asim": 51,
+   "sonraki": 48,
+   "nitelikli": 20
+  },
+  "2020s": {
+   "birincil": 178,
+   "dogrultu": 55,
+   "asim": 14,
+   "sonraki": 12,
+   "nitelikli": 1
+  }
+ },
+ "duzlem_pca_fark_medyan": 15.1,
+ "n_artci45_ge10": 189
+}
