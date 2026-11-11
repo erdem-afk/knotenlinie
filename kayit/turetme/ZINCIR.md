@@ -57,3 +57,23 @@ Paralel kol, TR-2 (doğrultu atımlı Mw 6,0–7,2 sonrası gelen M≥6 artçıs
 küme, güç kapısı sınırda geçti (ölçülebilir en küçük isabet oranı 0,699, eşik 0,70). Ön kayıt incelendi (düzeltmeyle
 kabul; zaman ters çevrimi negatif kontrolü, manifest, ETAS formülü eklendi) ve 0614c3d ile donduruldu. Bu sınav zamanı
 değil yönü ölçer.
+
+## Halka 3 (11 Kasım 2026): TR-2 sonucu H0
+
+Önceki sonuç: TR-2 tek koşu (ön kayıt 0614c3d + Ek 1, kod incelemesi 4d22ee2, sonuç `kayit/turetme/tr2/tr2_sonuc.md`).
+40 bağımsız kümenin 15'inde sonraki M≥6 artçısı az tarafta: oran 0,375. Hüküm H0, yani 0,70 ve üstü bir "sessiz
+taraf" etkisi yok. Eğilim tersine (artçısı çok taraf 0,625) ama ters yön notu eşiği (15'e karşı 14) aşılmadı; iki
+yanlı p ≈ 0,15, kanıtlanmadı. Zaman ters çevrimi 16/28: tanımın kendisi yön yanlılığı üretmiyor. ETAS yön modeli
+tabandan ayrışmadı (−0,57 nat, aralık [−7,8, +6,3]). Türkiye'deki tek küme (1999 Düzce) ıska; tek olay yorumlanmaz.
+Alt gruplar (bilgi): büyük olay gölgesindekiler çıkınca 14/29; çift ve öncüler çıkınca 12/34.
+
+Başarısızlığın biçimi: etki yok değil, yönü belirsiz ve küçük. 0,625 düzeyinde bir eğilimi %80 güçle görmek için
+≈100 bağımsız küme gerekir; küresel M≥4 kataloğu en gevşek tanımla 55 veriyor. Taşıyan varsayım "artçı asimetrisi
+kırılmamış komşu kesimi gösterir" idi; veri bunu desteklemedi.
+
+Çıkan soru: yok (bu kolda). Sınır hükmü: artçı asimetrisinden sonraki M≥6'nın yönü bugünkü küresel katalogla
+ayırt edilemez; eksik veri, M≥3,5 tamlığında küresel artçı kataloğu ya da ≥30 kümede sonlu fay kırılma yönü.
+Marmara'ya taşınan: hiçbir şey. Nisan 2025 Mw 6,2 sonrası "sıradaki olay sessiz Avcılar tarafında" okuması küresel
+örneklemden destek almıyor; tersi de kanıtlanmadı.
+
+Karar: TR-2 kapandı (H0). Sıradaki halka TR-11 (GNSS hız değişiminin taban dağılımı; Halka 2'de türedi).
