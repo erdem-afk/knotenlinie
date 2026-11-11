@@ -1,0 +1,60 @@
+2000-07-30 6.5 10 94 km SSE of Shimoda, Japan n5y= 8 n10y= 0 rake 175/8 DA
+2000-10-06 6.7 10 8 km ESE of Matsue, Japan n5y= 3 n10y= 0 rake 187/-23 DA
+2003-09-25 8.16 27 2003 Tokachi-Oki Earthquake n5y= 6 n10y= 0 rake 125/80 T
+2003-09-29 6.5 25 58 km S of Kushiro, Japan n5y= 14 n10y= 0 rake 114/83 T
+2004-09-05 7.2 14 94 km SE of Shing?, Japan n5y= 3 n10y= 0 rake 102/81 T
+2004-10-23 6.6 16 8 km SSW of Ojiya, Japan n5y= 47 n10y= 3 rake 92/86 T
+2005-03-20 6.6 10 28 km NNW of Maebaru-ch??, Japan n5y= 27 n10y= 4 rake 15/152 DA
+2005-12-02 6.5 29 80 km ESE of Ishinomaki, Japan n5y= 5 n10y= 1 rake 84/92 T
+2007-03-25 6.7 8 46 km NW of Nanao, Japan n5y= 14 n10y= 13 rake 104/83 T
+2007-07-16 6.6 12 20 km NNW of Kashiwazaki, Japan n5y= 35 n10y= 30 rake 83/99 T
+2008-05-07 6.9 27 78 km NE of Hasaki, Japan n5y= 8 n10y= 7 rake 90/89 T
+2008-06-13 6.9 7.8 24 km WSW of Mizusawa, Japan n5y= 42 n10y= 40 rake 100/80 T
+2008-09-11 6.8 25 122 km SSE of Obihiro, Japan n5y= 7 n10y= 6 rake 116/83 T
+2009-08-16 6.7 20 112 km WSW of Padang, Indonesia n5y= 3 n10y= 0 rake 84/104 T
+2010-01-10 6.5 28.737 The 2010 Eureka, California Earthquake n5y= 7 n10y= 3 rake 169/20 DA
+2010-02-26 7 25 70 km SE of Katsuren-haebaru, Japan n5y= 11 n10y= 6 rake 213/0 N
+2010-04-04 7.2 9.987 The 2010 Sierra El Mayor, B.C., Mexico E n5y= 9 n10y= 3 rake -14/-147 DA
+2010-09-03 7 12 19 km NE of Methven, New Zealand n5y= 3 n10y= 2 rake 355/-154 DA
+2010-10-25 7.8 20.1 215 km SW of Sungai Penuh, Indonesia n5y= 3 n10y= 0 rake 95/89 T
+2011-03-11 9.1 29 2011 Great Tohoku Earthquake, Japan n5y= 7 n10y= 5 rake 78/91 T
+2011-03-11 6.5 6.8 81 km NE of Hasaki, Japan n5y= 7 n10y= 6 rake ? ?
+2011-03-11 6.6 25.7 50 km ESE of ?tsuchi, Japan n5y= 15 n10y= 10 rake ? ?
+2011-04-11 6.6 11 17 km SSW of Ishikawa, Japan n5y= 59 n10y= 40 rake 267/-86 N
+2011-09-16 6.7 30 99 km NE of Miyako, Japan n5y= 5 n10y= 4 rake 63/97 T
+2012-10-24 6.5 17 Costa Rica n5y= 11 n10y= 3 rake 113/83 T
+2013-07-21 6.5 17 38 km ESE of Blenheim, New Zealand n5y= 10 n10y= 3 rake 173/21 DA
+2013-08-16 6.5 8.2 29 km SE of Blenheim, New Zealand n5y= 8 n10y= 2 rake 178/12 DA
+2013-10-31 6.6 27 41 km SSW of Coquimbo, Chile n5y= 3 n10y= 0 rake 118/77 T
+2014-03-10 6.8 16.441 77 km WNW of Indianola, California n5y= 11 n10y= 3 rake -14/-172 DA
+2014-03-16 6.7 20 63 km WNW of Iquique, Chile n5y= 3 n10y= 1 rake 98/63 T
+2014-04-01 8.2 25 93 km NW of Iquique, Chile n5y= 3 n10y= 1 rake 87/107 T
+2014-04-03 6.5 24.07 45 km WSW of Iquique, Chile n5y= 3 n10y= 1 rake 80/112 T
+2015-02-16 6.7 23 83 km ENE of Miyako, Japan n5y= 5 n10y= 5 rake 91/87 T
+2015-04-26 6.7 22.91 21 km SSE of Kod?ri??, Nepal n5y= 3 n10y= 1 rake 89/95 T
+2015-05-12 7.3 15 Nepal n5y= 3 n10y= 1 rake 87/110 T
+2015-09-16 8.3 22.44 48 km W of Illapel, Chile n5y= 3 n10y= 0 rake 92/83 T
+2015-09-17 6.5 27 54 km WNW of Illapel, Chile n5y= 3 n10y= 0 rake 79/106 T
+2015-09-17 6.7 23 61 km WNW of Illapel, Chile n5y= 3 n10y= 0 rake 89/91 T
+2015-11-17 6.5 11 19 km SSW of Lefkáda, Greece n5y= 4 n10y= 0 rake 155/6 DA
+2016-04-15 7 10 6 km ESE of Kumamoto, Japan n5y= 84 n10y= 82 rake -151/-26 DA
+2016-10-30 6.6 8 5 km ESE of Preci, Italy n5y= 59 n10y= 14 rake -93/-83 N
+2016-11-13 7.8 15.11 53 km NNE of Amberley, New Zealand n5y= 4 n10y= 2 rake 64/128 T
+2016-11-13 6.5 10 92 km SSW of Blenheim, New Zealand n5y= 3 n10y= 2 rake 85/108 T
+2016-11-21 6.9 9 35 km ESE of Namie, Japan n5y= 23 n10y= 21 rake -100/-78 N
+2017-04-24 6.9 28 40 km W of Valparaíso, Chile n5y= 3 n10y= 0 rake 88/99 T
+2017-11-13 6.5 19.36 18 km W of Parrita, Costa Rica n5y= 7 n10y= 4 rake 123.14/73.56 T
+2018-05-04 6.9 5.81 18 km SSW of Leilani Estates, Hawaii n5y= 56 n10y= 51 rake 114.32/81.3 T
+2019-07-06 7.1 8 Ridgecrest Earthquake Sequence n5y= 37 n10y= 35 rake -6.17/-171.28 DA
+2019-08-01 6.8 25 96 km SW of San Antonio, Chile n5y= 4 n10y= 1 rake 101.72/87.22 T
+2020-03-31 6.5 12.06 Stanley, Idaho n5y= 3 n10y= 3 rake -162.65/-23.77 DA
+2020-05-15 6.5 2.7 Monte Cristo Range, NV Earthquake n5y= 13 n10y= 13 rake -167.11/-23.8 DA
+2020-10-19 7.6 28.37 2020 Sand Point, Alaska Earthquake n5y= 3 n10y= 3 rake 173.04/41.44 DA
+2022-01-11 6.6 19 53 km SE of Nikolski, Alaska n5y= 5 n10y= 5 rake 83.67/91.56 T
+2022-03-13 6.7 28 166 km W of Pariaman, Indonesia n5y= 4 n10y= 3 rake 71.83/96.66 T
+2022-03-22 6.7 24 65 km S of Hualien City, Taiwan n5y= 51 n10y= 31 rake 96.26/86.94 T
+2022-09-17 6.5 10 96 km SE of Lugu, Taiwan n5y= 59 n10y= 42 rake 13.18/152.75 DA
+2022-09-18 6.9 10 90 km E of Yujing, Taiwan n5y= 68 n10y= 50 rake 156.72/25.31 DA
+2024-01-01 7.5 10 2024 Noto Peninsula, Japan Earthquake n5y= 26 n10y= 26 rake 102.5/79.22 T
+2024-08-08 7.1 24 2024 Hyuganada Sea, Japan Earthquake n5y= 41 n10y= 38 rake 75.81/94.67 T
+2024-12-05 7 10 2024 Offshore Cape Mendocino, California n5y= 11 n10y= 10 rake -6.25/-178.87 DA

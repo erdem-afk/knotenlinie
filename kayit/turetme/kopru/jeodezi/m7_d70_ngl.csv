@@ -1,0 +1,293 @@
+time,lat,lon,depth,mag,place,n100_5y,n100_10y,n50_5y,id
+2000-02-25,-19.528,173.818,33,7.1,"Vanuatu region",0,0,0,usp0009nxg
+2000-05-04,-1.105,123.573,26,7.6,"89 km E of Luwuk, Indonesia",0,0,0,usp0009sbh
+2000-06-04,-4.721,102.087,33,7.9,"103 km S of Bengkulu, Indonesia",0,0,0,usp0009txv
+2000-06-18,-13.802,97.453,10,7.9,"South Indian Ocean",0,0,0,usp0009ut0
+2000-10-04,-15.421,166.91,23,7,"29 km WNW of Luganville, Vanuatu",0,0,0,usp000a18v
+2000-10-29,-4.766,153.945,50,7,"191 km ESE of Kokopo, Papua New Guinea",0,0,0,usp000a2mw
+2000-11-16,-3.98,152.169,33,8,"2000 New Ireland Earthquake",0,0,0,usp000a3qq
+2000-11-16,-5.233,153.102,30,7.8,"135 km SE of Kokopo, Papua New Guinea",0,0,0,usp000a3sp
+2000-11-17,-5.496,151.781,33,7.8,"138 km SSW of Kokopo, Papua New Guinea",0,0,0,usp000a45f
+2000-12-06,39.566,54.799,30,7,"37 km E of Balkanabat, Turkmenistan",0,0,0,usp000a5m7
+2001-01-01,6.898,126.579,33,7.5,"21 km SE of Lukatan, Philippines",0,0,0,usp000a70h
+2001-01-13,13.049,-88.66,60,7.7,"28 km SSW of Puerto El Triunfo, El Salvador",0,0,0,usp000a7m5
+2001-01-26,23.419,70.232,16,7.7,"17 km NW of Bhach?u, India",0,0,0,usp000a8ds
+2001-02-13,-4.68,102.562,36,7.4,"102 km SSE of Bengkulu, Indonesia",0,0,0,usp000a9kc
+2001-02-24,1.271,126.249,35,7.1,"137 km WNW of Ternate, Indonesia",0,0,0,usp000aa8b
+2001-06-23,-16.265,-73.641,33,8.4,"6 km SSW of Atico, Peru",0,0,0,official20010623203314130_33
+2001-07-07,-17.543,-72.077,33,7.6,"51 km SW of Punta de Bombón, Peru",0,0,0,usp000aj40
+2001-08-21,-36.813,-179.575,33,7.1,"295 km NE of Gisborne, New Zealand",0,0,0,usp000amsn
+2001-10-12,12.686,144.98,37,7,"69 km SSE of Inarajan Village, Guam",0,0,0,usp000aqsu
+2001-10-19,-4.102,123.907,33,7.5,"155 km E of Kendari, Indonesia",0,0,0,usp000ar78
+2001-10-31,-5.912,150.196,33,7,"40 km S of Kimbe, Papua New Guinea",0,0,0,usp000arz5
+2001-11-14,35.946,90.541,10,7.8,"Southern Qinghai, China",0,0,0,usp000asvm
+2001-12-12,-42.813,124.688,10,7.1,"south of Australia",0,0,0,usp000aufx
+2002-01-02,-17.6,167.856,21,7.2,"50 km WNW of Port-Vila, Vanuatu",0,0,0,usp000avpw
+2002-03-05,6.033,124.249,31,7.5,"Mindanao, Philippines",0,0,0,usp000azqw
+2002-03-31,24.279,122.179,32.8,7.1,"67 km ENE of Hualien City, Taiwan",1,0,0,usp000b1e2
+2002-09-08,-3.302,142.945,13,7.6,"68 km ESE of Aitape, Papua New Guinea",0,0,0,usp000bbpf
+2002-10-10,-1.757,134.297,10,7.6,"102 km SSE of Manokwari, Indonesia",0,0,0,usp000be54
+2002-11-02,2.824,96.085,30,7.4,"50 km NW of Sinabang, Indonesia",0,0,0,usp000bfuz
+2002-11-03,63.5141,-147.4529,4.2,7.9,"2002 Denali Fault, Alaska Earthquake",0,0,0,ak002e435qpj
+2003-01-20,-10.491,160.77,33,7.3,"126 km W of Kirakira, Solomon Islands",0,0,0,usp000bnvq
+2003-01-22,18.77,-104.104,24,7.6,"16 km SSW of Cuyutlán, Mexico",0,0,0,usp000bnyr
+2003-03-17,51.272,177.978,33,7.1,"Rat Islands, Aleutian Islands, Alaska",0,0,0,usp000bsvs
+2003-05-26,38.849,141.568,68,7,"27 km SSW of ?funato, Japan",27,0,9,usp000by66
+2003-05-26,2.354,128.855,31,7,"116 km NE of Tobelo, Indonesia",0,0,0,usp000by7n
+2003-07-15,-2.598,68.382,10,7.6,"Carlsberg Ridge",0,0,0,usp000c2ka
+2003-08-04,-60.532,-43.411,10,7.6,"Scotia Sea",0,0,0,usp000c41f
+2003-08-21,-45.104,167.144,28,7.2,"56 km NW of Te Anau, New Zealand",0,0,0,usp000c5h6
+2003-09-25,41.815,143.91,27,8.16,"2003 Tokachi-Oki Earthquake",6,0,0,official20030925195006360_27
+2003-09-25,41.774,143.593,33,7.4,"119 km ESE of Shizunai-furukawach?, Japan",7,0,2,usp000c8mb
+2003-09-27,50.038,87.813,16,7.3,"29 km S of Aktash, Russia",0,0,0,usp000c8sz
+2003-10-31,37.812,142.619,10,7,"133 km ESE of Ishinomaki, Japan",0,0,0,usp000cbpa
+2003-11-17,51.146,178.65,33,7.8,"Rat Islands, Aleutian Islands, Alaska",0,0,0,usp000cd1n
+2003-12-27,-22.015,169.766,10,7.3,"201 km ESE of Tadine, New Caledonia",0,0,0,usp000cg90
+2004-01-03,-22.253,169.683,22,7.1,"202 km ESE of Tadine, New Caledonia",0,0,0,usp000cgz9
+2004-02-05,-3.615,135.538,16.6,7,"28 km S of Nabire, Indonesia",0,0,0,usp000ckg7
+2004-02-07,-4.003,135.023,10,7.3,"Near the south coast of Papua, Indonesia",0,0,0,usp000ckks
+2004-09-05,33.07,136.618,14,7.2,"94 km SE of Shing?, Japan",3,0,0,usp000d3ka
+2004-09-05,33.184,137.071,10,7.4,"118 km ESE of Shing?, Japan",0,0,0,usp000d3mb
+2004-10-09,11.422,-86.665,35,7,"43 km SSW of Masachapa, Nicaragua",0,0,0,usp000d63h
+2004-11-11,-8.152,124.868,10,7.5,"63 km NW of Maubara, Timor Leste",0,0,0,usp000d85g
+2004-11-15,4.695,-77.508,15,7.2,"32 km SSW of Pizarro, Colombia",0,0,0,usp000d8gx
+2004-11-22,-46.676,164.721,10,7.1,"255 km W of Riverton, New Zealand",0,0,0,usp000d8ze
+2004-11-26,-3.609,135.404,10,7.1,"29 km SSW of Nabire, Indonesia",0,0,0,usp000d975
+2004-11-28,43.006,145.119,39,7,"51 km SW of Nemuro, Japan",20,4,7,usp000d9h1
+2004-12-23,-49.312,161.345,10,8.1,"2004 Tasman Sea Earthquake",0,0,0,usp000db93
+2004-12-26,3.295,95.982,30,9.1,"2004 Sumatra - Andaman Islands Earthquake",0,0,0,official20041226005853450_30
+2004-12-26,6.91,92.958,39.2,7.2,"284 km WNW of Sabang, Indonesia",0,0,0,usp000dbg6
+2005-03-28,2.085,97.108,30,8.6,"78 km WSW of Singkil, Indonesia",0,0,0,official20050328160936530_30
+2005-06-15,41.292,-125.953,16,7.2,"153 km W of Big Lagoon, California",0,0,0,usp000dt25
+2005-07-24,7.92,92.19,16,7.2,"Nicobar Islands, India region",0,0,0,usp000dvtc
+2005-08-16,38.276,142.039,36,7.2,"66 km ESE of Ishinomaki, Japan",9,2,1,usp000dxe2
+2005-10-08,34.539,73.588,26,7.6,"21 km NNE of Muzaffar?b?d, Pakistan",0,0,0,usp000e12e
+2005-11-14,38.107,144.896,11,7,"293 km ESE of Kamaishi, Japan",0,0,0,usp000e462
+2006-01-02,-60.957,-21.606,13,7.4,"east of the South Sandwich Islands",0,0,0,usp000e7dd
+2006-02-22,-21.324,33.583,11,7,"160 km SE of Chipinge, Zimbabwe",0,0,0,usp000eamh
+2006-04-20,60.949,167.089,22,7.6,"80 km NE of Tilichiki, Russia",0,0,0,usp000ef1h
+2006-05-03,-20.187,-174.123,55,8,"2006 Tonga Earthquake",0,0,0,usp000eg5g
+2006-07-17,-9.284,107.419,20,7.7,"226 km SSW of Singaparna, Indonesia",0,0,0,usp000ensm
+2006-08-20,-61.029,-34.371,13,7,"Scotia Sea",0,0,0,usp000erc2
+2006-11-15,46.592,153.266,10,8.3,"2006 Kuril Islands Earthquake",0,0,0,usp000exfn
+2006-12-26,21.799,120.547,10,7.1,"30 km SW of Hengchun, Taiwan",0,0,0,usp000f114
+2007-01-13,46.243,154.524,10,8.1,"2007 Kuril Islands Earthquake",0,0,0,usp000f2ab
+2007-01-21,1.065,126.282,22,7.5,"126 km WNW of Ternate, Indonesia",0,0,0,usp000f34b
+2007-03-25,-20.617,169.357,34,7.1,"119 km S of Isangel, Vanuatu",0,0,0,usp000f7b4
+2007-04-01,-8.466,157.043,24,8.1,"2007 Solomon Islands Earthquake",0,0,0,usp000f83m
+2007-08-15,-13.386,-76.603,39,8,"41 km SW of San Vicente de Cañete, Peru",0,0,0,usp000fjta
+2007-09-02,-11.61,165.762,35,7.2,"97 km S of Lata, Solomon Islands",0,0,0,usp000fm6b
+2007-09-12,-4.438,101.367,34,8.4,"122 km SW of Bengkulu, Indonesia",0,0,0,official20070912111026830_34
+2007-09-12,-2.625,100.841,35,7.9,"87 km SW of Sungai Penuh, Indonesia",0,0,0,usp000fn2b
+2007-09-13,-2.13,99.627,22,7,"153 km SSW of Padang, Indonesia",0,0,0,usp000fn3d
+2007-09-30,-49.271,164.115,10,7.4,"Auckland Islands, New Zealand region",0,0,0,usp000fpgq
+2007-11-14,-22.247,-69.89,40,7.7,"36 km ESE of Tocopilla, Chile",0,0,0,usp000fshy
+2007-12-19,51.36,-179.509,34,7.2,"207 km WSW of Adak, Alaska",0,0,0,usp000fuse
+2008-02-20,2.768,95.964,26,7.4,"56 km NW of Sinabang, Indonesia",0,0,0,usp000fzau
+2008-02-25,-2.486,99.972,25,7.2,"164 km WSW of Sungai Penuh, Indonesia",1,0,0,usp000fzx4
+2008-03-20,35.49,81.467,10,7.2,"226 km SE of Hotan, China",0,0,0,usp000g1w2
+2008-04-09,-20.071,168.892,33,7.3,"71 km SW of Isangel, Vanuatu",0,0,0,usp000g3eq
+2008-04-12,-55.664,158.453,16,7.1,"Macquarie Island region",0,0,0,usp000g3q9
+2008-05-12,31.002,103.322,19,7.9,"58 km W of Tianpeng, China",0,0,0,usp000g650
+2008-06-30,-58.227,-22.099,8,7,"South Sandwich Islands region",0,0,0,usp000gazv
+2008-07-19,37.552,142.214,22,7,"107 km E of Namie, Japan",0,0,0,usp000gcjg
+2008-09-29,-29.756,-177.683,36,7,"Kermadec Islands, New Zealand",0,0,0,usp000ghyg
+2008-11-16,1.271,122.091,30,7.4,"135 km NW of Gorontalo, Indonesia",0,0,0,usp000gnur
+2009-01-03,-0.414,132.885,17,7.7,"140 km WNW of Manokwari, Indonesia",0,0,0,usp000gs2d
+2009-01-03,-0.691,133.305,23,7.4,"86 km WNW of Manokwari, Indonesia",0,0,0,usp000gs3t
+2009-01-15,46.857,155.154,36,7.4,"east of the Kuril Islands",0,0,0,usp000gsmz
+2009-02-11,3.886,126.387,20,7.2,"196 km SSE of Sarangani, Philippines",0,0,0,usp000gtnc
+2009-02-18,-27.424,-176.33,25,7,"Kermadec Islands region",0,0,0,usp000gu5x
+2009-03-19,-23.043,-174.66,31,7.6,"191 km S of ‘Ohonua, Tonga",0,0,0,usp000gv5p
+2009-05-28,16.731,-86.217,19,7.3,"46 km NW of Guanaja, Honduras",0,0,0,usp000gxkj
+2009-07-15,-45.762,166.562,12,7.8,"97 km WSW of Te Anau, New Zealand",0,0,0,usp000gz8j
+2009-08-10,14.099,92.902,24,7.5,"266 km N of Bamboo Flat, India",0,0,0,usp000h05x
+2009-09-02,-7.782,107.297,46,7,"66 km SSW of Banjar, Indonesia",0,0,0,usp000h152
+2009-09-29,-15.489,-172.095,18,8.1,"2009 Samoa Earthquake",0,0,0,usp000h1ys
+2009-10-07,-13.006,166.51,45,7.7,"148 km NW of Sola, Vanuatu",0,0,0,usp000h2g9
+2009-10-07,-12.517,166.382,35,7.8,"196 km NW of Sola, Vanuatu",0,0,0,usp000h2gd
+2009-10-07,-13.093,166.497,31.1,7.4,"143 km NW of Sola, Vanuatu",0,0,0,usp000h2gr
+2010-01-03,-8.783,157.354,10,7.1,"94 km SE of Gizo, Solomon Islands",0,0,0,usp000h5np
+2010-01-12,18.443,-72.571,13,7,"10 km SE of Léogâne, Haiti",0,0,0,usp000h60h
+2010-02-26,25.93,128.425,25,7,"70 km SE of Katsuren-haebaru, Japan",11,6,0,usp000h7qu
+2010-02-27,-36.122,-72.898,22.9,8.8,"2010 Maule, Chile Earthquake",1,0,0,official20100227063411530_30
+2010-02-27,-37.773,-75.048,35,7.4,"124 km W of Lebu, Chile",0,0,0,usp000h7sq
+2010-03-11,-34.326,-71.799,18,7,"52 km NW of Santa Cruz, Chile",0,0,0,usp000h94v
+2010-04-04,32.2861667,-115.2953333,9.987,7.2,"The 2010 Sierra El Mayor, B.C., Mexico Earthquake",9,3,1,ci14607652
+2010-04-06,2.383,97.048,31,7.8,"75 km E of Sinabang, Indonesia",0,0,0,usp000hat0
+2010-05-09,3.748,96.018,38,7.2,"45 km SSW of Meulaboh, Indonesia",0,0,0,usp000hchk
+2010-05-27,-13.698,166.643,31,7.2,"100 km WNW of Sola, Vanuatu",0,0,0,usp000hd84
+2010-06-12,7.881,91.936,35,7.5,"Nicobar Islands, India region",0,0,0,usp000hdwb
+2010-06-16,-2.174,136.543,18,7,"121 km SSE of Biak, Indonesia",0,0,0,usp000he3f
+2010-07-18,-5.931,150.59,35,7.3,"New Britain region, Papua New Guinea",0,0,0,usp000hfku
+2010-08-04,-5.746,150.765,44,7,"72 km ESE of Kimbe, Papua New Guinea",0,0,0,usp000hhhx
+2010-08-10,-17.541,168.069,25,7.3,"33 km NW of Port-Vila, Vanuatu",1,0,1,usp000hhuc
+2010-09-03,-43.522,171.83,12,7,"19 km NE of Methven, New Zealand",3,2,0,usp000hk46
+2010-09-29,-4.963,133.76,26,7,"Near the south coast of Papua, Indonesia",0,0,0,usp000hmbq
+2010-10-25,-3.487,100.082,20.1,7.8,"215 km SW of Sungai Penuh, Indonesia",3,0,0,usp000hnj4
+2010-12-21,26.901,143.698,14,7.4,"Bonin Islands, Japan region",0,0,0,usp000hr97
+2010-12-25,-19.702,167.947,16,7.3,"141 km W of Isangel, Vanuatu",0,0,0,usp000hrw0
+2011-01-02,-38.355,-73.326,24,7.2,"42 km NNW of Carahue, Chile",0,0,0,usp000hsfq
+2011-01-13,-20.628,168.471,9,7,"118 km NNE of Tadine, New Caledonia",0,0,0,usp000ht15
+2011-01-18,28.777,63.951,68,7.2,"46 km WSW of Dalbandin, Pakistan",0,0,0,usp000htb4
+2011-03-09,38.435,142.842,32,7.3,"120 km SE of ?funato, Japan",0,0,0,usp000hvhj
+2011-03-11,38.297,142.373,29,9.1,"2011 Great Tohoku Earthquake, Japan",7,5,0,official20110311054624120_30
+2011-03-11,36.281,141.111,42.6,7.9,"47 km E of ?arai, Japan",31,26,0,usp000hvpa
+2011-03-11,38.058,144.59,18.6,7.7,"272 km ESE of Kamaishi, Japan",0,0,0,usp000hvpg
+2011-04-07,38.276,141.588,42,7.1,"29 km ESE of Ishinomaki, Japan",31,19,6,usp000hzf6
+2011-06-24,52.05,-171.836,52,7.3,"Fox Islands, Aleutian Islands, Alaska",0,0,0,usp000j3mq
+2011-07-06,-29.539,-176.34,17,7.6,"Kermadec Islands region",0,0,0,usp000j48h
+2011-07-10,38.034,143.264,23,7,"177 km ESE of Ishinomaki, Japan",0,0,0,usp000j4gp
+2011-08-20,-18.365,168.143,32,7.2,"71 km SSW of Port-Vila, Vanuatu",1,0,0,usp000j6r4
+2011-08-20,-18.311,168.218,28,7.1,"64 km S of Port-Vila, Vanuatu",1,0,0,usp000j6rj
+2011-10-21,-28.993,-176.238,33,7.4,"Kermadec Islands region",0,0,0,usp000j9nm
+2011-10-23,38.721,43.508,18,7.1,"27 km NNE of Van, Turkey",0,0,0,usp000j9rr
+2012-01-10,2.433,93.21,19,7.2,"off the west coast of northern Sumatra",0,0,0,usp000jdar
+2012-02-02,-17.827,167.133,23,7.1,"125 km W of Port-Vila, Vanuatu",0,0,0,usp000jeag
+2012-03-20,16.493,-98.231,20,7.4,"6 km E of Santiago Llano Grande, Mexico",1,0,0,usp000jghj
+2012-03-25,-35.2,-72.217,40.7,7.1,"23 km NE of Constitución, Chile",0,0,0,usp000jgsw
+2012-04-11,2.327,93.063,20,8.6,"2012 Wharton Basin Earthquake",0,0,0,official20120411083836720_20
+2012-04-11,0.802,92.463,25.1,8.2,"2012 Wharton Basin Aftershock",0,0,0,usp000jhjb
+2012-04-12,28.696,-113.104,13,7,"69 km ENE of San Luis, Mexico",0,0,0,usp000jhr6
+2012-08-27,12.139,-88.59,28,7.3,"126 km S of Puerto El Triunfo, El Salvador",0,0,0,usp000jqvm
+2012-08-31,10.811,126.638,28,7.6,"89 km E of Sulangan, Philippines",0,0,0,usp000jr83
+2012-09-05,10.085,-85.315,35,7.6,"11 km ENE of Hojancha, Costa Rica",11,1,11,usp000jrsw
+2012-10-28,52.788,-132.101,14,7.8,"206 km SW of Prince Rupert, Canada",0,0,0,usp000juhz
+2012-11-07,13.988,-91.895,24,7.4,"33 km S of Champerico, Guatemala",0,0,0,usp000jv5f
+2012-12-07,37.89,143.949,31,7.3,"234 km SE of ?funato, Japan",0,0,0,usp000jwjn
+2013-01-05,55.228,-134.8591,8.7,7.5,"110 km SW of Edna Bay, Alaska",0,0,0,ak0138esnzr
+2013-02-06,-10.799,165.114,24,8,"2013 Santa Cruz Islands Earthquake",0,0,0,usc000f1s0
+2013-02-06,-11.183,164.882,10,7.1,"112 km WSW of Lata, Solomon Islands",0,0,0,usc000f1se
+2013-02-06,-10.499,165.588,8.8,7,"33 km NW of Lata, Solomon Islands",0,0,0,usc000f1ts
+2013-02-08,-10.928,166.018,21,7.1,"32 km SE of Lata, Solomon Islands",0,0,0,usc000f40j
+2013-04-06,-3.517,138.476,66,7,"260 km WSW of Abepura, Indonesia",0,0,0,usb000g13s
+2013-07-15,-60.857,-25.07,11,7.3,"South Sandwich Islands region",0,0,0,usb000ief9
+2013-08-30,51.537,-175.2297,29,7,"101 km SW of Atka, Alaska",0,0,0,usb000jdt7
+2013-09-24,26.951,65.5009,15,7.7,"113 km NW of Bela, Pakistan",0,0,0,usb000jyiv
+2013-09-25,-15.8385,-74.5112,40,7.1,"16 km WSW of Atiquipa, Peru",0,0,0,usb000jzma
+2013-10-15,9.8796,124.1167,19.04,7.1,"4 km SE of Sagbayan, Philippines",0,0,0,usb000kdb4
+2013-10-25,37.1557,144.6611,35,7.1,"off the east coast of Honshu, Japan",0,0,0,usc000kn4n
+2013-11-17,-60.2738,-46.4011,10,7.7,"Scotia Sea",0,0,0,usb000l0gq
+2013-11-25,-53.9451,-55.0033,11.78,7,"Falkland Islands region",0,0,0,usb000l5zn
+2014-04-01,-19.6097,-70.7691,25,8.2,"93 km NW of Iquique, Chile",3,1,0,usc000nzvd
+2014-04-03,-20.5709,-70.4931,22.4,7.7,"53 km SW of Iquique, Chile",2,1,0,usc000p27i
+2014-04-11,-6.5858,155.0485,60.53,7.1,"56 km WSW of Panguna, Papua New Guinea",0,0,0,usc000pft9
+2014-04-12,-11.2701,162.1481,22.56,7.6,"93 km SSE of Kirakira, Solomon Islands",0,0,0,usc000phx5
+2014-04-13,-11.4633,162.0511,39,7.4,"112 km S of Kirakira, Solomon Islands",0,0,0,usc000piqj
+2014-04-18,17.397,-100.9723,24,7.2,"9 km ENE of Coyuquilla Norte, Mexico",0,0,0,usb000pq41
+2014-04-19,-6.7547,155.0241,43.37,7.5,"70 km SW of Panguna, Papua New Guinea",0,0,0,usb000pr89
+2014-10-09,-32.1082,-110.8112,16.54,7,"southern East Pacific Rise",0,0,0,usb000sk6k
+2014-10-14,12.5262,-88.1225,40,7.3,"74 km S of Intipucá, El Salvador",1,0,0,usb000slwn
+2014-11-15,1.8929,126.5217,45,7.1,"155 km NW of Ternate, Indonesia",0,0,0,usc000sxh8
+2015-02-13,52.6487,-31.9016,16.68,7.1,"northern Mid-Atlantic Ridge",0,0,0,usb000tp5q
+2015-03-29,-4.7294,152.5623,41,7.5,"53 km SE of Kokopo, Papua New Guinea",0,0,0,us10001rvu
+2015-04-25,28.2305,84.7314,8.22,7.8,"67 km NNE of Bharatpur, Nepal",2,1,1,us20002926
+2015-05-05,-5.4624,151.8751,55,7.5,"131 km SSW of Kokopo, Papua New Guinea",0,0,0,us20002bnf
+2015-05-07,-7.2175,154.5567,10,7.1,"143 km SW of Panguna, Papua New Guinea",0,0,0,us20002das
+2015-05-12,27.8087,86.0655,15,7.3,"Nepal",3,1,0,us20002ejl
+2015-06-17,-35.3639,-17.1605,10,7,"southern Mid-Atlantic Ridge",0,0,0,us20002qn7
+2015-07-18,-10.4012,165.1409,11,7,"80 km WNW of Lata, Solomon Islands",0,0,0,us20002yaw
+2015-07-27,-2.6286,138.5277,48,7,"234 km W of Abepura, Indonesia",0,0,0,us200030kn
+2015-09-16,-31.5729,-71.6744,22.44,8.3,"48 km W of Illapel, Chile",3,0,2,us20003k7a
+2015-09-16,-31.5622,-71.4262,28.41,7,"25 km WNW of Illapel, Chile",2,0,1,us20003k7w
+2015-12-04,-47.6165,85.0913,35,7.1,"southeast Indian Ridge",0,0,0,us100043z2
+2015-12-07,38.2107,72.7797,22,7.2,"104 km W of Murghob, Tajikistan",0,0,0,us100044k6
+2016-03-02,-4.9521,94.3299,24,7.8,"southwest of Sumatra, Indonesia",0,0,0,us10004u1y
+2016-04-15,32.7906,130.7543,10,7,"6 km ESE of Kumamoto, Japan",84,82,23,us20005iis
+2016-04-16,0.3819,-79.9218,20.59,7.8,"27 km SSE of Muisne, Ecuador",1,0,0,us20005j32
+2016-04-28,-16.0429,167.3786,24,7,"3 km NW of Norsup, Vanuatu",0,0,0,us10005c88
+2016-08-12,-22.4765,173.1167,16.37,7.2,"southeast of the Loyalty Islands",0,0,0,us10006d5h
+2016-08-19,-55.2852,-31.8766,10,7.4,"South Georgia Island region",0,0,0,us10006exl
+2016-08-29,-0.0456,-17.8255,10,7.1,"north of Ascension Island",0,0,0,us20006uy6
+2016-09-01,-37.3586,179.1461,19,7,"175 km NE of Gisborne, New Zealand",2,1,0,us10006jbi
+2016-11-13,-42.7373,173.054,15.11,7.8,"53 km NNE of Amberley, New Zealand",4,2,0,us1000778i
+2016-12-08,-10.6812,161.3273,40,7.8,"69 km WSW of Kirakira, Solomon Islands",0,0,0,us20007z80
+2016-12-25,-43.4064,-73.9413,38,7.6,"41 km SW of Quellón, Chile",0,0,0,us10007mn3
+2017-07-17,54.4434,168.857,10,7.7,"Komandorskiye Ostrova, Russia region",0,0,0,us20009x42
+2017-09-08,15.0222,-93.8993,47.39,8.2,"2017 Tehuantepec, Mexico Earthquake",0,0,0,us2000ahv0
+2017-09-19,18.5499,-98.4887,48,7.1,"1 km S of Matzaco, Mexico",2,1,0,us2000ar20
+2017-11-12,34.9109,45.9592,19,7.3,"29 km S of ?alabja, Iraq",0,0,0,us2000bmcg
+2017-11-19,-21.3246,168.6715,10,7,"85 km ENE of Tadine, New Caledonia",0,0,0,us2000brlf
+2018-01-10,17.4825,-83.52,19,7.5,"203 km NNE of Barra Patuca, Honduras",0,0,0,us1000c2zy
+2018-01-14,-15.7675,-74.7092,39,7.1,"37 km W of Atiquipa, Peru",0,0,0,us2000cjfy
+2018-01-23,56.0039,-149.1658,14.06,7.9,"261 km SE of Chiniak, Alaska",0,0,0,us2000cmy3
+2018-02-16,16.3855,-97.9787,22,7.2,"4 km S of Pinotepa de Don Luis, Mexico",0,0,0,us2000d3km
+2018-02-25,-6.0699,142.7536,25.21,7.5,"32 km SW of Tari, Papua New Guinea",0,0,0,us2000d7q6
+2018-08-29,-22.0295,170.1262,21.43,7.1,"238 km ESE of Tadine, New Caledonia",0,0,0,us1000gjaz
+2018-09-28,-0.2559,119.8462,20,7.5,"72 km N of Palu, Indonesia",0,0,0,us1000h3p4
+2018-10-10,-5.7012,151.2046,39,7,"119 km E of Kimbe, Papua New Guinea",0,0,0,us1000haa3
+2018-11-30,61.3464,-149.9552,46.7,7.1,"1 km SE of Point MacKenzie, Alaska",11,10,7,ak018fcnsk91
+2018-12-05,-21.9496,169.4266,10,7.5,"166 km ESE of Tadine, New Caledonia",0,0,0,us1000i2gt
+2018-12-20,55.0999,164.6993,16.56,7.3,"187 km SE of Ust’-Kamchatsk Staryy, Russia",0,0,0,us2000ivfw
+2018-12-29,5.8983,126.9209,60.21,7,"96 km ESE of Pondaguitan, Philippines",0,0,0,us2000iyta
+2019-05-14,-4.051,152.5967,10,7.6,"48 km NE of Kokopo, Papua New Guinea",0,0,0,us70003kyy
+2019-06-15,-30.6441,-178.0995,46,7.3,"Kermadec Islands, New Zealand",0,0,0,us6000417i
+2019-07-06,35.7695,-117.5993333,8,7.1,"Ridgecrest Earthquake Sequence",37,35,10,ci38457511
+2019-07-14,-0.5858,128.034,18.98,7.2,"155 km SSE of Sofifi, Indonesia",0,0,0,us70004jyv
+2019-11-14,1.6213,126.4156,33,7.1,"141 km NW of Ternate, Indonesia",0,0,0,us60006bjl
+2020-01-28,19.4193,-78.756,14.86,7.7,"123 km NNW of Lucea, Jamaica",0,0,0,us60007idc
+2020-03-25,48.9638,157.6955,57.8,7.5,"221 km SSE of Severo-Kuril’sk, Russia",0,0,0,us70008fi4
+2020-06-18,-33.2927,-177.8571,10,7.4,"south of the Kermadec Islands",0,0,0,us6000ae4n
+2020-06-23,15.8861,-96.0077,20,7.4,"9 km SE of Santa María Xadani, Mexico",2,1,0,us6000ah9t
+2020-07-22,55.0715,-158.596,28,7.8,"2020 Perryville, Alaska Earthquake",2,2,0,us7000asvb
+2020-10-19,54.602,-159.6258,28.37,7.6,"2020 Sand Point, Alaska Earthquake",3,3,1,us6000c9hg
+2020-10-30,37.8973,26.7838,21,7,"13 km NNE of Néon Karlovásion, Greece",1,1,0,us7000c7y0
+2021-02-10,-23.0511,171.6566,10,7.7,"southeast of the Loyalty Islands",0,0,0,us6000dg77
+2021-02-13,37.7265,141.7751,43.98,7.1,"73 km ENE of Namie, Japan",19,11,0,us6000dher
+2021-03-04,-37.4787,179.4576,10,7.3,"182 km NE of Gisborne, New Zealand",0,0,0,us7000dffl
+2021-03-04,-29.6768,-177.8398,43,7.4,"Kermadec Islands, New Zealand",1,1,1,us7000dfk3
+2021-03-04,-29.7228,-177.2794,28.93,8.1,"2021 Kermadec Islands, New Zealand Earthquake",1,1,0,us7000dflf
+2021-03-20,38.4515,141.6477,43,7,"30 km E of Ishinomaki, Japan",41,29,14,us7000dl6y
+2021-05-21,34.5983,98.2513,10,7.3,"Southern Qinghai, China",0,0,0,us7000e54r
+2021-07-29,55.3635,-157.8876,35,8.2,"2021 Chignik, Alaska Earthquake",1,1,0,ak0219neiszm
+2021-08-11,6.4748,126.7151,55.14,7.1,"60 km ENE of Pondaguitan, Philippines",0,0,0,us6000f48v
+2021-08-12,-57.5674,-25.0316,47.23,7.5,"South Sandwich Islands region",0,0,0,us6000f4ly
+2021-08-12,-58.3753,-25.2637,22.79,8.1,"2021 South Sandwich Islands Earthquake",0,0,0,us6000f53e
+2021-08-14,18.4335,-73.4822,10,7.2,"Nippes, Haiti",0,0,0,us6000f65h
+2021-08-22,-60.2845,-24.8743,6,7.1,"South Sandwich Islands region",0,0,0,us6000f9sq
+2021-09-08,16.9465,-99.753,20,7,"Acapulco, Mexico",0,0,0,us7000f93v
+2021-12-14,-7.6033,122.2274,14.27,7.3,"Flores Sea",0,0,0,us6000gc2a
+2022-03-16,37.7132,141.5793,41,7.3,"57 km ENE of Namie, Japan",32,21,0,us6000h519
+2022-03-31,-22.586,170.3744,10,7,"southeast of the Loyalty Islands",0,0,0,us7000gymk
+2022-07-27,17.5207,120.8181,33.729,7,"11 km NE of Bantay, Philippines",0,0,0,us6000i5rd
+2022-09-19,18.4552,-102.9561,26.943,7.6,"35 km SSW of Aguililla, Mexico",1,0,1,us7000i9bw
+2022-11-11,-19.2881,-172.1471,37,7.3,"205 km ESE of Neiafu, Tonga",0,0,0,us7000ip0l
+2022-11-22,-9.8198,159.6033,14,7,"18 km SW of Malango, Solomon Islands",1,1,0,us7000irfb
+2023-01-08,-14.9467,166.8791,29,7,"23 km WNW of Port-Olry, Vanuatu",0,0,0,us7000j2yw
+2023-01-18,2.7306,127.0221,29.708,7,"156 km NW of Tobelo, Indonesia",0,0,0,us7000j553
+2023-02-06,37.2256,37.0143,10,7.8,"Pazarcik earthquake, Kahramanmaras earthquake sequence",0,0,0,us6000jllz
+2023-02-06,38.0106,37.1962,7.432,7.5,"Elbistan earthquake, Kahramanmaras earthquake sequence",0,0,0,us6000jlqa
+2023-03-16,-30.1741,-176.2047,10,7,"Kermadec Islands region",0,0,0,us7000jkbd
+2023-04-02,-4.3229,143.1658,70,7,"40 km ESE of Ambunti, Papua New Guinea",0,0,0,us6000k1id
+2023-04-24,-29.9574,-177.8386,46.755,7.1,"Kermadec Islands, New Zealand",1,1,0,us6000k6mg
+2023-04-24,-0.8082,98.5112,34,7.1,"171 km SSE of Teluk Dalam, Indonesia",4,3,0,us7000jvl3
+2023-05-19,-23.2063,170.7423,18.053,7.7,"southeast of the Loyalty Islands",0,0,0,us6000kd0n
+2023-05-20,-23.0421,170.5603,27.309,7.1,"southeast of the Loyalty Islands",0,0,0,us6000kdce
+2023-07-16,54.3926,-160.762,25,7.2,"2023 Sand Point, Alaska Earthquake",2,2,0,us7000kg30
+2023-11-08,-6.416,129.5466,6,7.1,"Banda Sea",0,0,0,us7000l9h4
+2023-12-02,8.5266,126.4161,40,7.6,"19 km E of Gamut, Philippines",0,0,0,us7000lff4
+2023-12-07,-20.6152,169.3089,48,7.1,"118 km S of Isangel, Vanuatu",0,0,0,us7000lgwp
+2024-01-01,37.4874,137.271,10,7.5,"2024 Noto Peninsula, Japan Earthquake",26,26,7,us6000m0xl
+2024-01-22,41.2555,78.6538,13,7,"128 km WNW of Aykol, China",1,1,0,us7000lsze
+2024-04-02,23.8356,121.5976,40,7.4,"15 km S of Hualien City, Taiwan",62,41,14,us7000m9g4
+2024-06-28,-15.8277,-74.454,24,7.2,"10 km WSW of Atiquipa, Peru",0,0,0,us6000n8tq
+2024-08-08,31.7599,131.5021,24,7.1,"2024 Hyuganada Sea, Japan Earthquake",41,38,13,us6000nith
+2024-08-17,52.9308,160.1331,29,7,"102 km E of Petropavlovsk-Kamchatsky, Russia",0,0,0,us7000n7n8
+2024-12-05,40.374,-125.02166666667,10,7,"2024 Offshore Cape Mendocino, California Earthquake",11,10,0,nc75095651
+2024-12-17,-17.6914,168.0842,54.372,7.3,"24 km WNW of Port-Vila, Vanuatu",1,1,1,us7000nzf3
+2025-01-07,28.6036,87.3781,10,7.1,"2025 Southern Tibetan Plateau Earthquake",0,0,0,us6000pi9w
+2025-02-08,17.6506,-82.395,14.326,7.6,"210 km SSW of George Town, Cayman Islands",0,0,0,us7000pcdl
+2025-03-28,22.011,95.9363,10,7.7,"2025 Mandalay, Burma (Myanmar) Earthquake",0,0,0,us7000pn9s
+2025-03-30,-20.3036,-174.0718,29,7,"61 km SSE of Pangai, Tonga",0,0,0,us7000pntq
+2025-05-02,-56.8094,-68.1019,10,7.4,"2025 Drake Passage Earthquake",0,0,0,us7000pwkn
+2025-07-16,54.5652,-160.4689,38,7.3,"2025 Sand Point, Alaska Earthquake",3,3,0,us7000qd1y
+2025-07-20,52.8301,160.6816,34,7.4,"2025 Eastern Kamchatka, Russia Earthquake",0,0,0,us7000qdyl
+2025-07-28,-57.605,157.0388,31,7,"Macquarie Island region",0,0,0,us6000qvsf
+2025-07-29,52.4948,160.2395,35,8.8,"2025 Kamchatka Peninsula, Russia Earthquake",0,0,0,us6000qw60
+2025-08-22,-60.3187,-61.9221,10,7.5,"2025 Southern Drake Passage Earthquake",0,0,0,us6000r2xq
+2025-09-13,53.1969,160.1901,58,7.4,"105 km E of Petropavlovsk-Kamchatsky, Russia",0,0,0,us7000qvw5
+2025-09-18,53.1426,160.7206,27,7.8,"140 km E of Petropavlovsk-Kamchatsky, Russia",0,0,0,us7000qx2g
+2025-10-10,7.2866,126.6902,59.425,7.4,"12 km E of Santiago, Philippines",0,0,0,us6000rfwz
+2025-10-10,-60.1875,-61.8164,5.639,7.6,"Drake Passage",0,0,0,us6000rgf4
+2025-12-06,60.3127,-139.5412,10.317,7,"2025 Hubbard Glacier Earthquake",0,0,0,us6000rsy1
+2025-12-08,40.9984,142.1836,40.72,7.6,"2025 Aomori Prefecture, Japan Earthquake",12,12,0,us6000rtdt
