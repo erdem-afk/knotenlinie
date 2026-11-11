@@ -249,7 +249,7 @@ def tenv3_ayristir(satirlar, pencereler):
     Dönüş: ([ (mjd int64, E mm, N mm) her pencere için ], bilgi)."""
     son = max(b for a, b in pencereler)
     kayit = [dict() for _ in pencereler]
-    bilgi = dict(bozuk=0, geri=0, tekrar=0, durdu=False, baslik=False)
+    bilgi = dict(bozuk=0, geri=0, tekrar=0, durdu=False, baslik=False, sonrasi=0)
     onceki = -10 ** 9
     ilk = True
     for line in satirlar:
@@ -273,9 +273,10 @@ def tenv3_ayristir(satirlar, pencereler):
         except ValueError:
             bilgi['bozuk'] += 1
             continue
-        if m > son:
+        if m > son:                      # Ö4: saklanmaz, değerleri ayrıştırılmaz; okuma sürer (sırasız dosyaya karşı)
             bilgi['durdu'] = True
-            break
+            bilgi['sonrasi'] += 1
+            continue
         if m < onceki:
             bilgi['geri'] += 1
         onceki = max(onceki, m)
@@ -771,6 +772,11 @@ def kos(a, ayar=None, kayit_fn=print):
         for T in ist_T.get(s, ()):
             kayit[(s, T)] = dict(neden='indirme')
     del res
+    if okuma_bilgi['tenv3_hata']:
+        raise KosuDur(f'tenv3 biçim hatası, {len(okuma_bilgi["tenv3_hata"])} dosya '
+                      f'(ilk: {okuma_bilgi["tenv3_hata"][:3]}); S hesaplanmadı')
+    if okuma_bilgi['bozuk'] > 0.01 * max(1, sum(len(r.get('ms', ())) for r in kayit.values())):
+        raise KosuDur(f'bozuk satır payı %1\'i aşıyor ({okuma_bilgi["bozuk"]}); S hesaplanmadı')
     log(f'okuma bitti: {len(kayit)} (istasyon, T)')
 
     # ------------------------------------------------------------ geçerlilik ve veri kapısı (K2)
@@ -1075,7 +1081,7 @@ def bf_hazirla(mc, kidx, yy, rr, hedef, ayar, log):
                 else:
                     hi = mid
             b = 0.5 * (lo + hi)
-    izg_b = np.linspace(b / 3, 3 * b, ayar.bf_izgara_n) if b > 0 else np.linspace(0, 3, ayar.bf_izgara_n)
+    izg_b = np.linspace(min(b / 3, 1.0), max(3 * b, 6.0), ayar.bf_izgara_n)
     hv = []
     for bb in izg_b:
         dl = mc_havuz_bf(mc, kidx, yl, rl, float(bb), ayar.surec)

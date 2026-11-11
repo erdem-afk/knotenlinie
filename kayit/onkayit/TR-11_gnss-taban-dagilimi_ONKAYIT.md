@@ -123,3 +123,12 @@ denetimi ayıklamadan sonra da yapılır; her dosyada okuma, gereken son pencere
 beş istasyonda değil, hepsinde); L₈ ≤ S50₈ olursa kök 0 alınır; yer ağırlıklı q95 60/n_epok tam sayı ağırlığıyla;
 NGL sigma sütunları kullanılmaz ve büyük sigmalı satırlar ayıklanmaz. tenv3 sütun düzeni NGL'nin
 `readmes/README_tenv3.txt` belgesinden alındı.
+
+## Ek 2 (11 Kasım 2026, kod incelemesinden sonra, hiçbir gerçek seri indirilmeden): koşu öncesi düzeltmeler
+
+Kod incelemesi (`TR-11_KOD-INCELEME.md`) "koşulabilir" hükmü verdi; engelleyici bulgu yok. Üç önemli bulgu koşudan
+önce işlendi: (1) okuma, son pencereden sonraki ilk satırda durmaz; o satırların değerleri ayrıştırılmadan ve
+saklanmadan atlanır ve sayılır (sırasız dosyada sessiz veri kaybına karşı; Ek 1'deki "okuma durur" okumasının yerini
+alır). (2) tenv3 biçim hatası ya da %1'i aşan bozuk satır payı koşuyu S hesaplanmadan durdurur; "veri yok" hükmü
+yazılmaz. (3) b_f* bootstrap ızgarası her zaman 2 ve 4 eşiklerini içine alır (alt uç ≤ 1, üst uç ≥ 6). Ayrıca
+kayda geçer: n_y = 8 katmanı doluluk sonrası istasyon sayısıyla kurulur. 26 yapay sınav düzeltmelerden sonra geçti.

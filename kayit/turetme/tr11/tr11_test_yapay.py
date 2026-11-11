@@ -215,17 +215,12 @@ class Tenv3Bicim(unittest.TestCase):
         self.assertAlmostEqual(s[1][1] - s[1][0], 1.0, places=2)
 
     def test_w1_sonrasi_okunmaz(self):
-        """Ö4: son pencerenin sonundan büyük MJD'li ilk satırda okuma durur; sonraki satırlar hiç istenmez."""
-        L = K.tenv3_satirlari('ABCD', np.arange(100, 110), np.zeros(10), np.zeros(10))
-        istenen = []
-        def uret():
-            for i, l in enumerate(L):
-                istenen.append(i)
-                yield l
-            raise AssertionError('dosya sonuna kadar okundu')
-        (s,), b = K.tenv3_ayristir(uret(), [(100, 104)])
-        self.assertTrue(b['durdu']); self.assertEqual(max(istenen), 6)   # başlık + 5 satır + ilk taşan satır
-        self.assertEqual(len(s[0]), 5)
+        """Ö4 (Ek 2): son pencereden sonraki satırlar saklanmaz ve sayılır; okuma sürer (sırasız dosyaya karşı)."""
+        ms = np.array([100, 101, 109, 102, 103, 104, 108])
+        L = K.tenv3_satirlari('ABCD', ms, np.zeros(7), np.zeros(7))
+        (s,), b = K.tenv3_ayristir(iter(L), [(100, 104)])
+        self.assertTrue(b['durdu']); self.assertEqual(b['sonrasi'], 2)
+        self.assertEqual(sorted(int(m) for m in s[0]), [100, 101, 102, 103, 104])
 
 
 class MentesemModeli(unittest.TestCase):
