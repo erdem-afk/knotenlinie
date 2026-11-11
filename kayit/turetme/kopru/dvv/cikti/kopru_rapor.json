@@ -1,0 +1,993 @@
+{
+ "tarih": "2026-11-11",
+ "kaynak": "OpenAlex (anahtarlı)",
+ "tohum_atif": {
+  "10.1126/science.1160943": [
+   "Postseismic Relaxation Along the San Andreas Fault at Parkfield from Continuous Seismological Observations",
+   2008,
+   794
+  ],
+  "10.1111/j.1365-246x.2006.03284.x": [
+   "Fault zone monitoring with passive image interferometry",
+   2007,
+   315
+  ],
+  "10.1093/gji/ggw066": [
+   "Coseismic and post-seismic velocity changes detected by Passive Image Interferometry: comparison of one great and five strong earthquakes in Japan",
+   2016,
+   78
+  ],
+  "10.1126/science.1254073": [
+   "Mapping pressurized volcanic fluids from induced crustal seismic velocity drops",
+   2014,
+   297
+  ],
+  "10.1029/2011gl047151": [
+   "Seismic evidence of nonlinear crustal deformation during a large slow slip event in Mexico",
+   2011,
+   144
+  ],
+  "10.1002/2014jb011318": [
+   "In situ observations of velocity changes in response to tidal deformation from analysis of the high‐frequency ambient wavefield",
+   2014,
+   77
+  ],
+  "10.1103/physrevlett.122.138501": [
+   "Probing thein situElastic Nonlinearity of Rocks with Earth Tides and Seismic Noise",
+   2019,
+   56
+  ],
+  "10.1038/nature07111": [
+   "Preseismic velocity changes observed from active source monitoring at the Parkfield SAFOD drill site",
+   2008,
+   285
+  ],
+  "10.1130/g47048.1": [
+   "Seismic velocity precursors to the 2016 Mw 6.5 Norcia (Italy) earthquake",
+   2020,
+   46
+  ],
+  "10.1038/nature08395": [
+   "Remote triggering of fault-strength changes on the San Andreas fault at Parkfield",
+   2009,
+   67
+  ],
+  "10.1046/j.1365-246x.1999.00891.x": [
+   "A successfully stress-forecast earthquake",
+   1999,
+   179
+  ],
+  "10.1785/gssrl.78.1.17": [
+   "Earthquake Likelihood Model Testing",
+   2007,
+   333
+  ],
+  "10.1785/0120090192": [
+   "Likelihood-Based Tests for Evaluating Space-Rate-Magnitude Earthquake Forecasts",
+   2010,
+   193
+  ],
+  "10.2478/s11600-011-0013-5": [
+   "Efficient testing of earthquake forecasting models",
+   2011,
+   135
+  ],
+  "10.1785/0120150058": [
+   "GEAR1: A Global Earthquake Activity Rate Model Constructed from Geodetic Strain Rates and Smoothed Seismicity",
+   2015,
+   98
+  ],
+  "10.1785/0220220033": [
+   "pyCSEP: A Python Toolkit for Earthquake Forecast Developers",
+   2022,
+   45
+  ],
+  "10.1111/j.1365-246x.2007.03676.x": [
+   "Testing alarm-based earthquake predictions",
+   2008,
+   187
+  ],
+  "10.1080/01621459.1988.10478560": [
+   "Statistical Models for Earthquake Occurrences and Residual Analysis for Point Processes",
+   1988,
+   2349
+  ],
+  "10.1002/2014gl060985": [
+   "Istanbul's earthquake hot spots: Geodetic constraints on strain accumulation along faults in the Marmara seismic gap",
+   2014,
+   203
+  ],
+  "10.1093/gji/ggaa469": [
+   "The moderate size 2019 September Mw 5.8 Silivri earthquake unveils the complexity of the Main Marmara Fault shear zone",
+   2020,
+   50
+  ],
+  "10.1111/j.1365-246x.2004.02379.x": [
+   "Systematic analysis of crustal anisotropy along the Karadere-Düzce branch of the North Anatolian fault",
+   2004,
+   159
+  ],
+  "10.1038/ncomms2999": [
+   "An earthquake gap south of Istanbul",
+   2013,
+   173
+  ],
+  "10.5194/sd-22-19-2017": [
+   "GONAF – the borehole Geophysical Observatory at the North Anatolian Fault in the eastern Sea of Marmara",
+   2017,
+   33
+  ],
+  "10.26443/seismica.v4i2.1773": [
+   "23 April 2025 Marmara Sea (Mw 6.3), Türkiye earthquake: mainshock, aftershock, and ground observations",
+   2025,
+   5
+  ]
+ },
+ "kume_boyu": {
+  "A": 1496,
+  "B": 634,
+  "KONTROL": 2349,
+  "M": 488
+ },
+ "kopruler": {
+  "A x B": {
+   "kumeler": [
+    "A",
+    "B"
+   ],
+   "boylar": [
+    1496,
+    634
+   ],
+   "kesisim": 6,
+   "jaccard": 0.002824858757062147,
+   "kesisim_isleri": [
+    [
+     "W4306412309",
+     "Physical Properties of the Crust Influence Aftershock Locations",
+     2022,
+     "https://doi.org/10.1029/2022jb024727"
+    ],
+    [
+     "W2811193254",
+     "Roadmap for earthquake numerical forecasting in China—Reflection on the tenth anniversary of Wenchuan earthquake",
+     2018,
+     "https://doi.org/10.1360/n972018-00335"
+    ],
+    [
+     "W2297467195",
+     "Statistical physics approach to earthquake occurrence and forecasting",
+     2016,
+     "https://doi.org/10.1016/j.physrep.2016.03.002"
+    ],
+    [
+     "W2121395890",
+     "Predictability of repeating earthquakes near Parkfield, California",
+     2012,
+     "https://doi.org/10.1111/j.1365-246x.2012.05481.x"
+    ],
+    [
+     "W1546652107",
+     "OPERATIONAL EARTHQUAKE FORECASTING. State of Knowledge and Guidelines for Utilization",
+     2011,
+     "https://doi.org/10.4401/ag-5350"
+    ],
+    [
+     "W1646808223",
+     "Earthquake Prediction and Forecasting",
+     2004,
+     "https://doi.org/10.1029/150gm26"
+    ]
+   ]
+  },
+  "pozitif kontrol B x ETAS": {
+   "kumeler": [
+    "B",
+    "KONTROL"
+   ],
+   "boylar": [
+    634,
+    2349
+   ],
+   "kesisim": 183,
+   "jaccard": 0.06535714285714286,
+   "kesisim_isleri": [
+    [
+     "W7221527058",
+     "Probabilistic Seismic Forecasting for Sustainable Urban Preparedness Around the Lembang Fault, Indonesia: Catalog Audit, Bayesian Spatio-Temporal ETAS, and Forecast-Informed Prioritization for Bandung City",
+     2026,
+     "https://doi.org/10.3390/su182010366"
+    ],
+    [
+     "W7207651534",
+     "A Log-Gaussian Cox process framework for zone-free probabilistic seismic hazard assessment in Sumatra",
+     2026,
+     "https://doi.org/10.21203/rs.3.rs-10053550/v1"
+    ],
+    [
+     "W7201997645",
+     "Can Domain‐Informed Design Improve Neural Spatio‐Temporal Point Processes for Earthquake Forecasting?",
+     2026,
+     "https://doi.org/10.1029/2025ef007318"
+    ],
+    [
+     "W7140206522",
+     "Pre-Seismic Quiescence Detected by K–R Critical Slowing-Down Indicators: Independent Replication in Japan and Chile Subduction Zone Catalogs",
+     2026,
+     "https://doi.org/10.21203/rs.3.rs-9198669/v1"
+    ],
+    [
+     "W7214897811",
+     "Finite-Horizon Triggering Cores of Earthquake Sequences",
+     2026,
+     "https://doi.org/10.48550/arxiv.2609.37213"
+    ],
+    [
+     "W7223156054",
+     "Evaluating New Earthquake Forecasting Models: Against a Strong ETAS Benchmark, Not an Underimplemented One",
+     2026,
+     "https://doi.org/10.1785/0220260326"
+    ],
+    [
+     "W7164939162",
+     "Six-Criterion Magnitude Variance Consensus Detection Framework: Identifying Critical Earthquake Zones from Catalog Data Alone with Prospective Validation in Japan, Turkey, Italy, and India",
+     2026,
+     "https://doi.org/10.21203/rs.3.rs-10046248/v1"
+    ],
+    [
+     "W7223574544",
+     "An Audit Framework for Physics-Informed Multi-Hazard Seismic Models: Gradient-Verified Coupling, Protocol-Dependent Constants, and Baseline-Anchored Operating Envelopes for Municipal Disaster Risk Reduction",
+     2026,
+     "https://doi.org/10.3390/su182110785"
+    ],
+    [
+     "W7167517311",
+     "Leakage-audited machine learning versus ETAS for earthquake forecasting in the Sea of Marmara",
+     2026,
+     "https://doi.org/10.31223/x5w78x"
+    ],
+    [
+     "W7214447209",
+     "Magnitude Compression at Two Completeness Thresholds and the Likelihood of Large Earthquakes: Pre-registered Tests of Blue-Dominance and Red-Persistence Rules",
+     2026,
+     "https://doi.org/10.21203/rs.3.rs-11175443/v1"
+    ],
+    [
+     "W7223115856",
+     "Fitting the background intensity in ETAS models using regression-based poisson point process models",
+     2026,
+     "https://doi.org/10.1007/s00477-026-03392-y"
+    ],
+    [
+     "W7164825009",
+     "Model Evaluation",
+     2026,
+     "https://doi.org/10.1007/978-3-032-20790-6_5"
+    ],
+    [
+     "W7133566154",
+     "Probabilistic and Alarm-Based Evaluation of a b-Value-Driven Deep Learning Earthquake Forecast",
+     2026,
+     "https://doi.org/10.48550/arxiv.2603.03079"
+    ],
+    [
+     "W7196956256",
+     "Select earthquake forecasting models demonstrate consistency with prospective decadal observations in California",
+     2026,
+     "https://doi.org/10.1038/s41467-026-76243-7"
+    ],
+    [
+     "W7168244588",
+     "The Q‐Score: A Magnitude‐Weighted Goodness‐of‐Fit Score for Earthquake Forecasting",
+     2026,
+     "https://doi.org/10.1002/env.70113"
+    ],
+    [
+     "W7213264195",
+     "Design and Implementation of a ∼25-Yr Pseudoprospective Earthquake Forecasting Experiment in China (AoyuX)",
+     2026,
+     "https://doi.org/10.1785/0220260090"
+    ],
+    [
+     "W4410955207",
+     "Bayesian forecasting of Italian seismicity using the spatiotemporal RETAS model",
+     2025,
+     "https://doi.org/10.1016/j.csda.2025.108219"
+    ],
+    [
+     "W4413284191",
+     "A physics-informed stochastic model for the long-term correlation of earthquakes",
+     2025,
+     "https://doi.org/10.1038/s43247-025-02608-3"
+    ],
+    [
+     "W4417500650",
+     "Probabilistic earthquake forecasting in Italy: bridging the gap between alarm-based and probability-based models",
+     2025,
+     "https://doi.org/10.1093/gji/ggaf521"
+    ],
+    [
+     "W4410039669",
+     "Operational Aftershock Forecasting Work for Scientific Investigation Activities of China Earthquake Administration in Recent Years",
+     2025,
+     "https://doi.org/10.1007/978-981-96-2826-1_6"
+    ],
+    [
+     "W4406134864",
+     "Pseudo-prospective earthquake forecasting experiment in Italy based on temporal variation of the b-value of the Gutenberg–Richter law",
+     2025,
+     "https://doi.org/10.1093/gji/ggaf005"
+    ],
+    [
+     "W4413761546",
+     "A benchmark database of ten years of prospective next-day earthquake forecasts in California from the Collaboratory for the Study of Earthquake Predictability",
+     2025,
+     "https://doi.org/10.1038/s41597-025-05766-3"
+    ],
+    [
+     "W4408160592",
+     "Towards a harmonized operational earthquake forecasting model for Europe",
+     2025,
+     "https://doi.org/10.5194/nhess-25-991-2025"
+    ],
+    [
+     "W4407115825",
+     "Improved Aftershock Forecasts Using Mainshock Information in the Framework of the ETAS Model",
+     2025,
+     "https://doi.org/10.1029/2024jb030287"
+    ],
+    [
+     "W4414026852",
+     "Regional earthquake forecast model for M$$\\ge $$6 using strain rate and seismicity for Western Himalayas",
+     2025,
+     "https://doi.org/10.1007/s11069-025-07644-y"
+    ],
+    [
+     "W4416680033",
+     "Towards a deep learning approach for short-term data-driven spatiotemporal seismicity rate forecasting",
+     2025,
+     "https://doi.org/10.1186/s40623-025-02241-6"
+    ],
+    [
+     "W4409824957",
+     "Evaluation of ETAS and STEP Forecasting Models for California Seismicity Using Point Process Residuals",
+     2025,
+     "https://doi.org/10.1002/env.70014"
+    ],
+    [
+     "W4414336812",
+     "基于贝叶斯网络结构学习的短期强震危险性概率预测",
+     2025,
+     "https://doi.org/10.3799/dqkx.2025.186"
+    ],
+    [
+     "W4395668340",
+     "Comment on egusphere-2023-3153",
+     2024,
+     "https://doi.org/10.5194/egusphere-2023-3153-rc2"
+    ],
+    [
+     "W4400432819",
+     "Leveraging the ETAS model to forecast mining microseismicity",
+     2024,
+     "https://doi.org/10.1093/gji/ggae236"
+    ],
+    [
+     "W4398780723",
+     "Bayesian earthquake forecasting approach based on the epidemic type aftershock sequence model",
+     2024,
+     "https://doi.org/10.1186/s40623-024-02021-8"
+    ],
+    [
+     "W4403102480",
+     "Bayesian Earthquake Forecasting Using Gaussian Process Modeling: GP-ETAS Applications",
+     2024,
+     "https://doi.org/10.1785/0220240170"
+    ],
+    [
+     "W4391402029",
+     "Comment on egusphere-2023-3153",
+     2024,
+     "https://doi.org/10.5194/egusphere-2023-3153-rc1"
+    ],
+    [
+     "W4401592639",
+     "Developing, Testing, and Communicating Earthquake Forecasts: Current Practices and Future Directions",
+     2024,
+     "https://doi.org/10.1029/2023rg000823"
+    ],
+    [
+     "W4393072161",
+     "Seismically Informed Reference Models Enhance AI‐Based Earthquake Prediction Systems",
+     2024,
+     "https://doi.org/10.1029/2023jb028037"
+    ],
+    [
+     "W7151977585",
+     "Towards integrating strain rates in PSHA source models in Europe : testing the compatibility between seismic and geodetic moment rates",
+     2024,
+     "https://doi.org/10.70675/f8c2a058zeb5bz485azb9b0z5c1f9f238172"
+    ],
+    [
+     "W4400289877",
+     "Assessing the Predictive Power of GPS-Based Ground Deformation Data for Aftershock Forecasting",
+     2024,
+     "https://doi.org/10.1785/0220240008"
+    ],
+    [
+     "W4402988120",
+     "Time-Dependent Aftershock Probabilistic Forecasting and Ensemble Model Implementation: Insights from the 2021 Ms 7.4 Maduo Earthquake",
+     2024,
+     "https://doi.org/10.1785/0220240235"
+    ],
+    [
+     "W4402730618",
+     "A Review of 15 Years of Public Earthquake Forecasting in Aotearoa New Zealand",
+     2024,
+     "https://doi.org/10.1785/0220240207"
+    ],
+    [
+     "W4401026587",
+     "A Software Tool for Hybrid Earthquake Forecasting in New Zealand",
+     2024,
+     "https://doi.org/10.1785/0220240196"
+    ],
+    [
+     "W4394972368",
+     "Forecasting the Long-Term Spatial Distribution of Earthquakes for the 2023 U.S. National Seismic Hazard Model Using Gridded Seismicity",
+     2024,
+     "https://doi.org/10.1785/0120230220"
+    ],
+    [
+     "W4390821525",
+     "Accounting for the Variability of Earthquake Rates within Low-Seismicity Regions: Application to the 2022 Aotearoa New Zealand National Seismic Hazard Model",
+     2024,
+     "https://doi.org/10.1785/0120230164"
+    ],
+    [
+     "W4396514829",
+     "Reply on RC1",
+     2024,
+     "https://doi.org/10.5194/egusphere-2023-3153-ac1"
+    ],
+    [
+     "W4401247881",
+     "Modeling the Asymptotic Behavior of Higher Order Aftershocks with Deep Learning",
+     2024,
+     "https://doi.org/10.1785/0220240028"
+    ],
+    [
+     "W4403526076",
+     "Forecasting future earthquakes with deep neural networks: application to California",
+     2024,
+     "https://doi.org/10.1093/gji/ggae373"
+    ],
+    [
+     "W4403334398",
+     "Critical Questions About CSEP, in the Spirit of Dave, Yan, and Ilya",
+     2024,
+     "https://doi.org/10.1785/0220240213"
+    ],
+    [
+     "W4380684614",
+     "Testing the forecasting skills of aftershock models using a Bayesian framework",
+     2023,
+     "https://doi.org/10.3389/fams.2023.1126511"
+    ],
+    [
+     "W4390102124",
+     "The USGS 2023 Conterminous U.S. Time-Independent Earthquake Rupture Forecast",
+     2023,
+     "https://doi.org/10.1785/0120230120"
+    ],
+    [
+     "W4387186686",
+     "SimplETAS: A Benchmark Earthquake Forecasting Model Suitable for Operational Purposes and Seismic Hazard Analysis",
+     2023,
+     "https://doi.org/10.1785/0220230199"
+    ],
+    [
+     "W4387567244",
+     "Aftershock Forecasting",
+     2023,
+     "https://doi.org/10.1146/annurev-earth-040522-102129"
+    ],
+    [
+     "W4321094690",
+     "A time‐dependent seismic hazard model following the Kaikōura M7.8 earthquake",
+     2023,
+     "https://doi.org/10.1080/00288306.2022.2158881"
+    ],
+    [
+     "W4330334933",
+     "Application of the EEPAS earthquake forecasting model to Italy",
+     2023,
+     "https://doi.org/10.1093/gji/ggad123"
+    ],
+    [
+     "W4380785617",
+     "Comparative evaluation of point process forecasts",
+     2023,
+     "https://doi.org/10.1007/s10463-023-00875-5"
+    ],
+    [
+     "W4320920965",
+     "Statistical evaluation of earthquake forecast efficiency using earthquake-catalog and fault slip rate in the Sichuan-Yunnan region, China",
+     2023,
+     "https://doi.org/10.3389/feart.2023.1091408"
+    ],
+    [
+     "W4387675559",
+     "Statistical inference for mixed jump processes by Markov switching model with application to identify seismicity levels",
+     2023,
+     "https://doi.org/10.1016/j.physa.2023.129291"
+    ],
+    [
+     "W4383503817",
+     "A New 3-D Error Diagram for a More Balanced Assessment of Binary Alarms for Predicting Earthquakes: Application to TIR Anomalies in Sichuan Area, China",
+     2023,
+     "https://doi.org/10.1109/tgrs.2023.3293132"
+    ],
+    [
+     "W4381926555",
+     "Operational Earthquake Forecasting in Italy: validation after 10 yr of operativity",
+     2023,
+     "https://doi.org/10.1093/gji/ggad256"
+    ],
+    [
+     "W4317211982",
+     "Question-Driven Ensembles of Flexible ETAS Models",
+     2023,
+     "https://doi.org/10.1785/0220220230"
+    ],
+    [
+     "W4385749821",
+     "Comparison between alarm-based and probability-based earthquake forecasting methods",
+     2023,
+     "https://doi.org/10.1093/gji/ggad312"
+    ],
+    [
+     "W4308969044",
+     "An Interactive Viewer to Improve Operational Aftershock Forecasts",
+     2022,
+     "https://doi.org/10.1785/0220220108"
+    ],
+    [
+     "W4223646896",
+     "Modeling and Prediction of Aftershock Activity",
+     2022,
+     "https://doi.org/10.1007/s10712-022-09698-0"
+    ],
+    [
+     "W4220893336",
+     "Comment on nhess-2021-403",
+     2022,
+     "https://doi.org/10.5194/nhess-2021-403-rc2"
+    ],
+    [
+     "W4226492471",
+     "Reply on RC1",
+     2022,
+     "https://doi.org/10.5194/nhess-2021-403-ac1"
+    ],
+    [
+     "W4286268014",
+     "Pseudo-prospective forecasting of large earthquakes full distribution in circum-Pacific belt incorporating non-stationary modeling",
+     2022,
+     "https://doi.org/10.1016/j.physa.2022.127945"
+    ],
+    [
+     "W4285222118",
+     "A review of source models to further the understanding of the seismicity of the Groningen field",
+     2022,
+     "https://doi.org/10.1017/njg.2022.7"
+    ],
+    [
+     "W4214671351",
+     "Comment on nhess-2021-403",
+     2022,
+     "https://doi.org/10.5194/nhess-2021-403-rc1"
+    ],
+    [
+     "W4283706808",
+     "Variations in hazard during earthquake sequences between 1995 and 2018 in western Greece as evaluated by a Bayesian ETAS model",
+     2022,
+     "https://doi.org/10.1093/gji/ggac177"
+    ],
+    [
+     "W4226041500",
+     "Spatiotemporal ETAS Model with a Renewal Main-Shock Arrival Process",
+     2022,
+     "https://doi.org/10.1111/rssc.12579"
+    ],
+    [
+     "W4283372943",
+     "Long-Term Forecasting of Strong Earthquakes in North America, South America, Japan, Southern China and Northern India With Machine Learning",
+     2022,
+     "https://doi.org/10.3389/feart.2022.905792"
+    ],
+    [
+     "W4308026454",
+     "On the Use of High‐Resolution and Deep‐Learning Seismic Catalogs for Short‐Term Earthquake Forecasts: Potential Benefits and Current Limitations",
+     2022,
+     "https://doi.org/10.1029/2022jb025202"
+    ],
+    [
+     "W4205555675",
+     "Pseudo-prospective testing of 5-year earthquake forecasts for California using inlabru",
+     2022,
+     "https://doi.org/10.5194/nhess-2021-403"
+    ],
+    [
+     "W4306412309",
+     "Physical Properties of the Crust Influence Aftershock Locations",
+     2022,
+     "https://doi.org/10.1029/2022jb024727"
+    ],
+    [
+     "W4303418693",
+     "Pseudo-prospective testing of 5-year earthquake forecasts for California using inlabru",
+     2022,
+     "https://doi.org/10.5194/nhess-22-3231-2022"
+    ],
+    [
+     "W4281554325",
+     "An Earthquake-Clustering Model in North Aegean Area (Greece)",
+     2022,
+     "https://doi.org/10.3390/axioms11060249"
+    ],
+    [
+     "W4297016564",
+     "Modeling Earthquake Data Using ETAS Model to Forecast Aftershock Subsequences Applying Different Parameterizations in Kermanshah Region, Iran",
+     2022,
+     "https://doi.org/10.21203/rs.3.rs-1996634/v1"
+    ],
+    [
+     "W4211097969",
+     "The Analysis of the Aftershock Sequences of the Recent Mainshocks in Alaska",
+     2022,
+     "https://doi.org/10.3390/app12041809"
+    ],
+    [
+     "W4294883957",
+     "Earthquakes in the Shadows: Why Aftershocks Occur at Surprising Locations",
+     2022,
+     "https://doi.org/10.1785/0320220023"
+    ],
+    [
+     "W3164643736",
+     "Ranking earthquake forecasts using proper scoring rules: binary events in a low probability environment",
+     2022,
+     "https://doi.org/10.1093/gji/ggac124"
+    ],
+    [
+     "W4226172378",
+     "Reply on RC2",
+     2022,
+     "https://doi.org/10.5194/nhess-2021-403-ac2"
+    ],
+    [
+     "W4310964371",
+     "Improvements to seismicity forecasting based on a Bayesian spatio-temporal ETAS model",
+     2022,
+     "https://doi.org/10.1038/s41598-022-24080-1"
+    ]
+   ]
+  },
+  "A x ETAS": {
+   "kumeler": [
+    "A",
+    "KONTROL"
+   ],
+   "boylar": [
+    1496,
+    2349
+   ],
+   "kesisim": 13,
+   "jaccard": 0.0033924843423799585,
+   "kesisim_isleri": [
+    [
+     "W7213345471",
+     "Transport-healing scaling for Omori exponents: A minimal model and its limits",
+     2026,
+     "https://doi.org/10.1103/fgw2-2sxn"
+    ],
+    [
+     "W4404407163",
+     "Physical mechanisms of earthquake nucleation and foreshocks: Cascade triggering, aseismic slip, or fluid flows?",
+     2024,
+     "https://doi.org/10.1016/j.eqrea.2024.100349"
+    ],
+    [
+     "W4388270070",
+     "Detecting the Preparatory Phase of Induced Earthquakes at The Geysers (California) Using K‐Means Clustering",
+     2023,
+     "https://doi.org/10.1029/2023jb026429"
+    ],
+    [
+     "W4382631207",
+     "Activated volcanism of Mount Fuji by the 2011 Japanese large earthquakes",
+     2023,
+     "https://doi.org/10.1038/s41598-023-37735-4"
+    ],
+    [
+     "W4306412309",
+     "Physical Properties of the Crust Influence Aftershock Locations",
+     2022,
+     "https://doi.org/10.1029/2022jb024727"
+    ],
+    [
+     "W3130890403",
+     "Earthquake Swarm Detection Along the Hikurangi Trench, New Zealand: Insights Into the Relationship Between Seismicity and Slow Slip Events",
+     2021,
+     "https://doi.org/10.1029/2020jb020618"
+    ],
+    [
+     "W3197206907",
+     "Precursory tidal triggering and b value variation before the 2011 M 5.1 and 5.0 Tengchong, China earthquakes",
+     2021,
+     "https://doi.org/10.1016/j.epsl.2021.117167"
+    ],
+    [
+     "W2297467195",
+     "Statistical physics approach to earthquake occurrence and forecasting",
+     2016,
+     "https://doi.org/10.1016/j.physrep.2016.03.002"
+    ],
+    [
+     "W1848602967",
+     "Seismic fatigue failure may have triggered the 2014 Mw7.9 Rat Islands earthquake",
+     2015,
+     "https://doi.org/10.1002/2015gl063036"
+    ],
+    [
+     "W2165846495",
+     "The Uses of Dynamic Earthquake Triggering",
+     2014,
+     "https://doi.org/10.1146/annurev-earth-060313-054648"
+    ],
+    [
+     "W2009004406",
+     "Record-Breaking Intervals: Detecting Trends in the Incidence of Self-Similar Earthquake Sequences",
+     2014,
+     "https://doi.org/10.1007/s00024-014-0887-7"
+    ],
+    [
+     "W1546652107",
+     "OPERATIONAL EARTHQUAKE FORECASTING. State of Knowledge and Guidelines for Utilization",
+     2011,
+     "https://doi.org/10.4401/ag-5350"
+    ],
+    [
+     "W2059875912",
+     "Global risk of big earthquakes has not recently increased",
+     2011,
+     "https://doi.org/10.1073/pnas.1118525109"
+    ]
+   ]
+  },
+  "A x Marmara": {
+   "kumeler": [
+    "A",
+    "M"
+   ],
+   "boylar": [
+    1496,
+    488
+   ],
+   "kesisim": 27,
+   "jaccard": 0.013796627491057742,
+   "kesisim_isleri": [
+    [
+     "W4417247980",
+     "Complex nature of the crustal anisotropy in the western margin of the Indian subcontinent and its geodynamic implications",
+     2025,
+     "https://doi.org/10.1016/j.tecto.2025.231039"
+    ],
+    [
+     "W4415216326",
+     "Spatiotemporal characterization of crustal anisotropy in the source area of the 2017 puebla-morelos earthquake",
+     2025,
+     "https://doi.org/10.1016/j.jsames.2025.105837"
+    ],
+    [
+     "W4394936201",
+     "Monitoring Velocity Change Over 20 Years at Parkfield",
+     2024,
+     "https://doi.org/10.1029/2023jb028084"
+    ],
+    [
+     "W4394934767",
+     "Shear-wave splitting associated with fluid processes beneath Styra, South Euboea: First results",
+     2024,
+     "https://doi.org/10.1016/j.pepi.2024.107196"
+    ],
+    [
+     "W4403401337",
+     "Present status and prospective on the seismic hazard studies of major seismic gaps in the Sichuan-Yunnan region",
+     2024,
+     "https://doi.org/10.1007/s11430-024-1423-0"
+    ],
+    [
+     "W4402382686",
+     "川滇主要地震空区危险性的研究现状及思考",
+     2024,
+     "https://doi.org/10.1360/sste-2024-0066"
+    ],
+    [
+     "W4372351301",
+     "Shear-wave splitting perspectives from the intense aftershock sequence of Damasi – Tyrnavos",
+     2023,
+     "https://doi.org/10.4401/ag-8848"
+    ],
+    [
+     "W4281622531",
+     "Spatial variation of crustal anisotropy in the Arunachal Himalaya inferred from splitting of local S waveforms",
+     2022,
+     "https://doi.org/10.1016/j.jseaes.2022.105278"
+    ],
+    [
+     "W3160508765",
+     "On the origin of upper crustal shear-wave anisotropy at Samos Island, Greece",
+     2021,
+     "https://doi.org/10.1007/s11600-021-00598-2"
+    ],
+    [
+     "W3117878962",
+     "Disparate deformation of the crust and upper mantle beneath the Doda-Kisthwar region, NW Himalaya",
+     2020,
+     "https://doi.org/10.1016/j.pepi.2020.106635"
+    ],
+    [
+     "W2996313036",
+     "Crustal seismic anisotropy of the Northeastern Tibetan Plateau and the adjacent areas from shear-wave splitting measurements",
+     2019,
+     "https://doi.org/10.1093/gji/ggz489"
+    ],
+    [
+     "W2793981313",
+     "Near-surface compressional and shear wave speeds constrained by body-wave polarization analysis",
+     2018,
+     "https://doi.org/10.1093/gji/ggy072"
+    ],
+    [
+     "W2142019942",
+     "Seismic anisotropy of the upper crust around Mount Fuji, Japan",
+     2015,
+     "https://doi.org/10.1002/2014jb011554"
+    ],
+    [
+     "W1870362043",
+     "Characterization of the Crustal Velocity Field in Space and Time Using Ambient Seismic Noise",
+     2015,
+     "https://doi.org/10.17169/refubium-9394"
+    ],
+    [
+     "W2113637228",
+     "Depth-dependence of seismic velocity change associated with the 2011 Tohoku earthquake, Japan, revealed from repeating earthquake analysis and finite-difference wave propagation simulation",
+     2015,
+     "https://doi.org/10.1093/gji/ggv014"
+    ],
+    [
+     "W2142424099",
+     "Monitoring fault zone environments with correlations of earthquake waveforms",
+     2013,
+     "https://doi.org/10.1093/gji/ggt441"
+    ],
+    [
+     "W2151460519",
+     "Shear wave splitting as a proxy for stress forecast of the case of the 2006 Manyas-Kus Golu (Mb = 5.3) earthquake",
+     2012,
+     "https://doi.org/10.5194/nhess-12-1073-2012"
+    ],
+    [
+     "W1957717111",
+     "Shear wave anisotropy from cross-correlation of seismic noise in the Parkfield pilot hole",
+     2011,
+     "https://doi.org/10.1111/j.1365-246x.2011.05285.x"
+    ],
+    [
+     "W2036788146",
+     "Stress-induced upper crustal anisotropy in southern California",
+     2011,
+     "https://doi.org/10.1029/2010jb007655"
+    ],
+    [
+     "W1593352288",
+     "Automatic Shear Wave Splitting Measurements at Mt. Ruapehu Volcano, New Zealand",
+     2010,
+     "https://doi.org/10.26686/wgtn.16973608"
+    ],
+    [
+     "W2158507636",
+     "Temporal changes of seismic velocity and anisotropy in the shallow crust induced by the 1999 October 22M6.4 Chia-Yi, Taiwan earthquake",
+     2009,
+     "https://doi.org/10.1111/j.1365-246x.2009.04384.x"
+    ],
+    [
+     "W2099388992",
+     "Depth extent of damage zones around the central Calaveras fault from waveform analysis of repeating earthquakes",
+     2009,
+     "https://doi.org/10.1111/j.1365-246x.2009.04385.x"
+    ],
+    [
+     "W2079102241",
+     "A review of the current understanding of seismic shear-wave splitting in the Earth’s crust and common fallacies in interpretation",
+     2008,
+     "https://doi.org/10.1016/j.wavemoti.2008.01.003"
+    ],
+    [
+     "W2036764453",
+     "Compressive stress field in the crust deduced from shear-wave anisotropy: an example in capital area of China",
+     2008,
+     "https://doi.org/10.1007/s11434-008-0310-9"
+    ],
+    [
+     "W2126565563",
+     "A review of techniques for measuring shear-wave splitting above small earthquakes",
+     2006,
+     "https://doi.org/10.1016/j.pepi.2006.06.002"
+    ],
+    [
+     "W2355208996",
+     "Study on S wave splitting in Dayao earthquake sequence with M=6.2 and M=6.1 in Yunnan in 2003",
+     2006,
+     "https://doi.org/10.1007/s11589-004-0380-1"
+    ],
+    [
+     "W1991775549",
+     "Spatiotemporal variations of crustal anisotropy from similar events in aftershocks of the 1999M7.4 İzmit andM7.1 Düzce, Turkey, earthquake sequences",
+     2005,
+     "https://doi.org/10.1111/j.1365-246x.2005.02569.x"
+    ]
+   ]
+  },
+  "kontrol Marmara x ETAS": {
+   "kumeler": [
+    "M",
+    "KONTROL"
+   ],
+   "boylar": [
+    488,
+    2349
+   ],
+   "kesisim": 3,
+   "jaccard": 0.001058574453069866,
+   "kesisim_isleri": [
+    [
+     "W7167517311",
+     "Leakage-audited machine learning versus ETAS for earthquake forecasting in the Sea of Marmara",
+     2026,
+     "https://doi.org/10.31223/x5w78x"
+    ],
+    [
+     "W4388265535",
+     "The 2022 M W 6.0 Gölyaka–Düzce earthquake: an example of a medium-sized earthquake in a fault zone early in its seismic cycle",
+     2023,
+     "https://doi.org/10.5194/se-14-1103-2023"
+    ],
+    [
+     "W3200019183",
+     "Differential Interferometric Synthetic Aperture Radar data for more accurate earthquake catalogs",
+     2021,
+     "https://doi.org/10.1016/j.rse.2021.112690"
+    ]
+   ]
+  },
+  "A x B x Marmara": {
+   "kumeler": [
+    "A",
+    "B",
+    "M"
+   ],
+   "boylar": [
+    1496,
+    634,
+    488
+   ],
+   "kesisim": 0,
+   "jaccard": 0.0,
+   "kesisim_isleri": []
+  }
+ }
+}

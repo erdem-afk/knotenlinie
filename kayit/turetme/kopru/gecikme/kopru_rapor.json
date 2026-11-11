@@ -1,0 +1,2133 @@
+{
+ "tarih": "2026-11-11",
+ "kaynak": "OpenAlex (anahtarlı)",
+ "tohum_atif": {
+  "10.1111/j.1365-246x.1997.tb05321.x": [
+   "Progressive failure on the North Anatolian fault since 1939 by earthquake stress triggering",
+   1997,
+   1291
+  ],
+  "10.1029/2001jb000646": [
+   "Global Omori law decay of triggered earthquakes: Large aftershocks outside the classical aftershock zone",
+   2002,
+   182
+  ],
+  "10.1785/0120090309": [
+   "Large Earthquake Triggering, Clustering, and the Synchronization of Faults",
+   2010,
+   147
+  ],
+  "10.1785/bssa0890051147": [
+   "Worldwide doublets of large shallow earthquakes",
+   1999,
+   128
+  ],
+  "10.1111/j.1365-246x.2007.03580.x": [
+   "Fault interactions in the Sea of Marmara pull-apart (North Anatolian Fault): earthquake clustering and propagating earthquake sequences",
+   2007,
+   132
+  ],
+  "10.1130/g23789a.1": [
+   "Long-range and long-term fault interactions in Southern California",
+   2007,
+   244
+  ],
+  "10.1016/j.quascirev.2020.106390": [
+   "Segmentation and supercycles: A catalog of earthquake rupture patterns from the Sumatran Sunda Megathrust and other well-studied faults worldwide",
+   2020,
+   143
+  ],
+  "10.1038/ngeo1110": [
+   "Absence of remotely triggered large earthquakes beyond the mainshock region",
+   2011,
+   69
+  ],
+  "10.1785/gssrl.78.1.17": [
+   "Earthquake Likelihood Model Testing",
+   2007,
+   333
+  ],
+  "10.1785/0120090192": [
+   "Likelihood-Based Tests for Evaluating Space-Rate-Magnitude Earthquake Forecasts",
+   2010,
+   193
+  ],
+  "10.1785/0120150058": [
+   "GEAR1: A Global Earthquake Activity Rate Model Constructed from Geodetic Strain Rates and Smoothed Seismicity",
+   2015,
+   98
+  ],
+  "10.1080/01621459.1988.10478560": [
+   "Statistical Models for Earthquake Occurrences and Residual Analysis for Point Processes",
+   1988,
+   2349
+  ],
+  "10.1023/a:1003403601725": [
+   "Space-Time Point-Process Models for Earthquake Occurrences",
+   1998,
+   1286
+  ],
+  "10.1198/016214502760046925": [
+   "Stochastic Declustering of Space-Time Earthquake Occurrences",
+   2002,
+   766
+  ],
+  "10.1126/science.288.5466.661": [
+   "Heightened Odds of Large Earthquakes Near Istanbul: An Interaction-Based Probability Calculation",
+   2000,
+   535
+  ],
+  "10.1029/2003jb002667": [
+   "Recalculated probability of M ≥ 7 earthquakes beneath the Sea of Marmara, Turkey",
+   2004,
+   368
+  ],
+  "10.1038/35005054": [
+   "Seismic hazard in the Marmara Sea region following the 17 August 1999 Izmit earthquake",
+   2000,
+   279
+  ],
+  "10.1029/2004gc000896": [
+   "Submarine fault scarps in the Sea of Marmara pull‐apart (North Anatolian Fault): Implications for seismic hazard in Istanbul",
+   2005,
+   324
+  ]
+ },
+ "kume_boyu": {
+  "A": 2072,
+  "A_SAYISAL": 1644,
+  "B": 476,
+  "KONTROL": 3174,
+  "M": 1115
+ },
+ "kopruler": {
+  "A x B": {
+   "kumeler": [
+    "A",
+    "B"
+   ],
+   "boylar": [
+    2072,
+    476
+   ],
+   "kesisim": 32,
+   "jaccard": 0.012718600953895072,
+   "kesisim_isleri": [
+    [
+     "W4403035430",
+     "New Features in the pyCSEP Toolkit for Earthquake Forecast Development and Evaluation",
+     2024,
+     "https://doi.org/10.1785/0220240197"
+    ],
+    [
+     "W4317606066",
+     "Maximizing the forecasting skill of an ensemble model",
+     2023,
+     "https://doi.org/10.1093/gji/ggad020"
+    ],
+    [
+     "W4387567244",
+     "Aftershock Forecasting",
+     2023,
+     "https://doi.org/10.1146/annurev-earth-040522-102129"
+    ],
+    [
+     "W4386186391",
+     "Evaluating a Prospective Fault-Based Stress-Transfer Forecast for the M 7.9 Wenchuan Earthquake Region, 15 Years Later",
+     2023,
+     "https://doi.org/10.1785/0320230021"
+    ],
+    [
+     "W4224275405",
+     "Earthquake hazard and risk analysis for natural and induced seismicity: towards objective assessments in the face of uncertainty",
+     2022,
+     "https://doi.org/10.1007/s10518-022-01357-4"
+    ],
+    [
+     "W4286268014",
+     "Pseudo-prospective forecasting of large earthquakes full distribution in circum-Pacific belt incorporating non-stationary modeling",
+     2022,
+     "https://doi.org/10.1016/j.physa.2022.127945"
+    ],
+    [
+     "W3157940771",
+     "Probabilistic Tsunami Hazard and Risk Analysis: A Review of Research Gaps",
+     2021,
+     "https://doi.org/10.3389/feart.2021.628772"
+    ],
+    [
+     "W3136149947",
+     "On the relationship between strain rate and seismicity in the India–Asia collision zone: implications for probabilistic seismic hazard",
+     2021,
+     "https://doi.org/10.1093/gji/ggab098"
+    ],
+    [
+     "W3159098542",
+     "A Global Set of Subduction Zone Earthquake Scenarios and Recurrence Intervals Inferred From Geodetically Constrained Block Models of Interseismic Coupling Distributions",
+     2021,
+     "https://doi.org/10.1029/2021gc009802"
+    ],
+    [
+     "W7151067272",
+     "Illuminating fault slip with InSAR : strain release along the Chaman plate boundary",
+     2021,
+     "https://doi.org/10.70675/acdb704ezdd8dz4883z95a6z32ec0244f847"
+    ],
+    [
+     "W3020271411",
+     "The Role of Seismic and Slow Slip Events in Triggering the 2018 M7.1 Anchorage Earthquake in the Southcentral Alaska Subduction Zone",
+     2020,
+     "https://doi.org/10.1029/2019gl086640"
+    ],
+    [
+     "W3081287100",
+     "Earth Observation for the Assessment of Earthquake Hazard, Risk and Disaster Management",
+     2020,
+     "https://doi.org/10.1007/s10712-020-09606-4"
+    ],
+    [
+     "W3117454012",
+     "Spatial Clustering of Aftershocks Impacts the Performance of Physics‐Based Earthquake Forecasting Models",
+     2020,
+     "https://doi.org/10.1029/2020jb020824"
+    ],
+    [
+     "W2919615497",
+     "A Geodesy‐ and Seismicity‐Based Local Earthquake Likelihood Model for Central Los Angeles",
+     2019,
+     "https://doi.org/10.1029/2018gl080868"
+    ],
+    [
+     "W2965054903",
+     "The effect of stress changes on time-dependent earthquake probabilities for the central Wasatch Fault Zone, Utah, USA.",
+     2019,
+     "https://doi.org/10.1093/gji/ggz336"
+    ],
+    [
+     "W2811193254",
+     "Roadmap for earthquake numerical forecasting in China—Reflection on the tenth anniversary of Wenchuan earthquake",
+     2018,
+     "https://doi.org/10.1360/n972018-00335"
+    ],
+    [
+     "W2751717271",
+     "Forecasting seismicity rate in the north-west Himalaya using rate and state dependent friction law",
+     2017,
+     "https://doi.org/10.1080/19475705.2017.1369168"
+    ],
+    [
+     "W2770115079",
+     "Determination of Mmax from Background Seismicity and Moment Conservation",
+     2017,
+     "https://doi.org/10.1785/0120170022"
+    ],
+    [
+     "W4211124947",
+     "Bibliography",
+     2017,
+     "https://doi.org/10.1002/9781119372301.biblio"
+    ],
+    [
+     "W2131407721",
+     "Comparative evaluation of physics‐based and statistical forecasts in Northern California",
+     2013,
+     "https://doi.org/10.1002/2013jb010313"
+    ],
+    [
+     "W4211177830",
+     "References",
+     2013,
+     "https://doi.org/10.1002/9781118637913.refs"
+    ],
+    [
+     "W2129402685",
+     "A Ten-Year Earthquake Occurrence Model for Italy",
+     2012,
+     "https://doi.org/10.1785/0120110164"
+    ],
+    [
+     "W1546652107",
+     "OPERATIONAL EARTHQUAKE FORECASTING. State of Knowledge and Guidelines for Utilization",
+     2011,
+     "https://doi.org/10.4401/ag-5350"
+    ],
+    [
+     "W2130993411",
+     "Global earthquake forecasts",
+     2010,
+     "https://doi.org/10.1111/j.1365-246x.2010.04857.x"
+    ],
+    [
+     "W2044056664",
+     "From Earthquake Prediction Research to Time-Variable Seismic Hazard Assessment Applications",
+     2010,
+     "https://doi.org/10.1007/s00024-010-0114-0"
+    ],
+    [
+     "W120159381",
+     "Forecasting Italian seismicity through a spatio-temporal physical model: importance of considering time-dependency and reliability of the forecast",
+     2010,
+     "https://doi.org/10.4401/ag-4761"
+    ],
+    [
+     "W2075345877",
+     "On the occurrence of large earthquakes: New insights from a model based on interacting faults embedded in a realistic tectonic setting",
+     2009,
+     "https://doi.org/10.1029/2008jb005822"
+    ],
+    [
+     "W2063458473",
+     "Uniform California Earthquake Rupture Forecast, Version 2 (UCERF 2)",
+     2009,
+     "https://doi.org/10.1785/0120080049"
+    ],
+    [
+     "W2587814872",
+     "The Uniform California Earthquake Rupture Forecast, version 2 (UCERF 2)",
+     2008,
+     "https://doi.org/10.3133/ofr20071437"
+    ],
+    [
+     "W1999365187",
+     "A double branching model for earthquake occurrence",
+     2008,
+     "https://doi.org/10.1029/2007jb005472"
+    ],
+    [
+     "W2158438651",
+     "Overview of the Working Group for the Development of Regional Earthquake Likelihood Models (RELM)",
+     2007,
+     "https://doi.org/10.1785/gssrl.78.1.7"
+    ],
+    [
+     "W2077965493",
+     "On the spatio-temporal distribution of M 7.0+ worldwide seismicity with a non-parametric statistics",
+     2007,
+     "https://doi.org/10.1016/j.tecto.2007.11.066"
+    ]
+   ]
+  },
+  "A_SAYISAL x B": {
+   "kumeler": [
+    "A_SAYISAL",
+    "B"
+   ],
+   "boylar": [
+    1644,
+    476
+   ],
+   "kesisim": 28,
+   "jaccard": 0.01338432122370937,
+   "kesisim_isleri": [
+    [
+     "W4403035430",
+     "New Features in the pyCSEP Toolkit for Earthquake Forecast Development and Evaluation",
+     2024,
+     "https://doi.org/10.1785/0220240197"
+    ],
+    [
+     "W4317606066",
+     "Maximizing the forecasting skill of an ensemble model",
+     2023,
+     "https://doi.org/10.1093/gji/ggad020"
+    ],
+    [
+     "W4387567244",
+     "Aftershock Forecasting",
+     2023,
+     "https://doi.org/10.1146/annurev-earth-040522-102129"
+    ],
+    [
+     "W4386186391",
+     "Evaluating a Prospective Fault-Based Stress-Transfer Forecast for the M 7.9 Wenchuan Earthquake Region, 15 Years Later",
+     2023,
+     "https://doi.org/10.1785/0320230021"
+    ],
+    [
+     "W4224275405",
+     "Earthquake hazard and risk analysis for natural and induced seismicity: towards objective assessments in the face of uncertainty",
+     2022,
+     "https://doi.org/10.1007/s10518-022-01357-4"
+    ],
+    [
+     "W4286268014",
+     "Pseudo-prospective forecasting of large earthquakes full distribution in circum-Pacific belt incorporating non-stationary modeling",
+     2022,
+     "https://doi.org/10.1016/j.physa.2022.127945"
+    ],
+    [
+     "W7151067272",
+     "Illuminating fault slip with InSAR : strain release along the Chaman plate boundary",
+     2021,
+     "https://doi.org/10.70675/acdb704ezdd8dz4883z95a6z32ec0244f847"
+    ],
+    [
+     "W3020271411",
+     "The Role of Seismic and Slow Slip Events in Triggering the 2018 M7.1 Anchorage Earthquake in the Southcentral Alaska Subduction Zone",
+     2020,
+     "https://doi.org/10.1029/2019gl086640"
+    ],
+    [
+     "W3081287100",
+     "Earth Observation for the Assessment of Earthquake Hazard, Risk and Disaster Management",
+     2020,
+     "https://doi.org/10.1007/s10712-020-09606-4"
+    ],
+    [
+     "W3117454012",
+     "Spatial Clustering of Aftershocks Impacts the Performance of Physics‐Based Earthquake Forecasting Models",
+     2020,
+     "https://doi.org/10.1029/2020jb020824"
+    ],
+    [
+     "W2965054903",
+     "The effect of stress changes on time-dependent earthquake probabilities for the central Wasatch Fault Zone, Utah, USA.",
+     2019,
+     "https://doi.org/10.1093/gji/ggz336"
+    ],
+    [
+     "W2811193254",
+     "Roadmap for earthquake numerical forecasting in China—Reflection on the tenth anniversary of Wenchuan earthquake",
+     2018,
+     "https://doi.org/10.1360/n972018-00335"
+    ],
+    [
+     "W2751717271",
+     "Forecasting seismicity rate in the north-west Himalaya using rate and state dependent friction law",
+     2017,
+     "https://doi.org/10.1080/19475705.2017.1369168"
+    ],
+    [
+     "W2770115079",
+     "Determination of Mmax from Background Seismicity and Moment Conservation",
+     2017,
+     "https://doi.org/10.1785/0120170022"
+    ],
+    [
+     "W4211124947",
+     "Bibliography",
+     2017,
+     "https://doi.org/10.1002/9781119372301.biblio"
+    ],
+    [
+     "W2131407721",
+     "Comparative evaluation of physics‐based and statistical forecasts in Northern California",
+     2013,
+     "https://doi.org/10.1002/2013jb010313"
+    ],
+    [
+     "W4211177830",
+     "References",
+     2013,
+     "https://doi.org/10.1002/9781118637913.refs"
+    ],
+    [
+     "W2129402685",
+     "A Ten-Year Earthquake Occurrence Model for Italy",
+     2012,
+     "https://doi.org/10.1785/0120110164"
+    ],
+    [
+     "W1546652107",
+     "OPERATIONAL EARTHQUAKE FORECASTING. State of Knowledge and Guidelines for Utilization",
+     2011,
+     "https://doi.org/10.4401/ag-5350"
+    ],
+    [
+     "W2130993411",
+     "Global earthquake forecasts",
+     2010,
+     "https://doi.org/10.1111/j.1365-246x.2010.04857.x"
+    ],
+    [
+     "W2044056664",
+     "From Earthquake Prediction Research to Time-Variable Seismic Hazard Assessment Applications",
+     2010,
+     "https://doi.org/10.1007/s00024-010-0114-0"
+    ],
+    [
+     "W120159381",
+     "Forecasting Italian seismicity through a spatio-temporal physical model: importance of considering time-dependency and reliability of the forecast",
+     2010,
+     "https://doi.org/10.4401/ag-4761"
+    ],
+    [
+     "W2075345877",
+     "On the occurrence of large earthquakes: New insights from a model based on interacting faults embedded in a realistic tectonic setting",
+     2009,
+     "https://doi.org/10.1029/2008jb005822"
+    ],
+    [
+     "W2063458473",
+     "Uniform California Earthquake Rupture Forecast, Version 2 (UCERF 2)",
+     2009,
+     "https://doi.org/10.1785/0120080049"
+    ],
+    [
+     "W2587814872",
+     "The Uniform California Earthquake Rupture Forecast, version 2 (UCERF 2)",
+     2008,
+     "https://doi.org/10.3133/ofr20071437"
+    ],
+    [
+     "W1999365187",
+     "A double branching model for earthquake occurrence",
+     2008,
+     "https://doi.org/10.1029/2007jb005472"
+    ],
+    [
+     "W2158438651",
+     "Overview of the Working Group for the Development of Regional Earthquake Likelihood Models (RELM)",
+     2007,
+     "https://doi.org/10.1785/gssrl.78.1.7"
+    ],
+    [
+     "W2077965493",
+     "On the spatio-temporal distribution of M 7.0+ worldwide seismicity with a non-parametric statistics",
+     2007,
+     "https://doi.org/10.1016/j.tecto.2007.11.066"
+    ]
+   ]
+  },
+  "pozitif kontrol B x ETAS": {
+   "kumeler": [
+    "B",
+    "KONTROL"
+   ],
+   "boylar": [
+    476,
+    3174
+   ],
+   "kesisim": 195,
+   "jaccard": 0.056439942112879886,
+   "kesisim_isleri": [
+    [
+     "W7213264195",
+     "Design and Implementation of a ∼25-Yr Pseudoprospective Earthquake Forecasting Experiment in China (AoyuX)",
+     2026,
+     "https://doi.org/10.1785/0220260090"
+    ],
+    [
+     "W7214627614",
+     "Markov-modulated Cox processes and supervised declustering for seismic hazard in Sumatra",
+     2026,
+     "https://doi.org/10.1007/s00477-026-03375-z"
+    ],
+    [
+     "W7223574544",
+     "An Audit Framework for Physics-Informed Multi-Hazard Seismic Models: Gradient-Verified Coupling, Protocol-Dependent Constants, and Baseline-Anchored Operating Envelopes for Municipal Disaster Risk Reduction",
+     2026,
+     "https://doi.org/10.3390/su182110785"
+    ],
+    [
+     "W7223115856",
+     "Fitting the background intensity in ETAS models using regression-based poisson point process models",
+     2026,
+     "https://doi.org/10.1007/s00477-026-03392-y"
+    ],
+    [
+     "W7201997645",
+     "Can Domain‐Informed Design Improve Neural Spatio‐Temporal Point Processes for Earthquake Forecasting?",
+     2026,
+     "https://doi.org/10.1029/2025ef007318"
+    ],
+    [
+     "W7161148502",
+     "Earthquake solvency capital requirements’ re-assessment: an open-source spatio-temporal modeling approach",
+     2026,
+     "https://doi.org/10.1017/s1748499526100293"
+    ],
+    [
+     "W7164939162",
+     "Six-Criterion Magnitude Variance Consensus Detection Framework: Identifying Critical Earthquake Zones from Catalog Data Alone with Prospective Validation in Japan, Turkey, Italy, and India",
+     2026,
+     "https://doi.org/10.21203/rs.3.rs-10046248/v1"
+    ],
+    [
+     "W7140206522",
+     "Pre-Seismic Quiescence Detected by K–R Critical Slowing-Down Indicators: Independent Replication in Japan and Chile Subduction Zone Catalogs",
+     2026,
+     "https://doi.org/10.21203/rs.3.rs-9198669/v1"
+    ],
+    [
+     "W7214897811",
+     "Finite-Horizon Triggering Cores of Earthquake Sequences",
+     2026,
+     "https://doi.org/10.48550/arxiv.2609.37213"
+    ],
+    [
+     "W7167259342",
+     "Global Medium-Term Earthquake Forecasting with Every Earthquake a Precursor According to Scale",
+     2026,
+     "https://doi.org/10.3390/geosciences16070267"
+    ],
+    [
+     "W7207651534",
+     "A Log-Gaussian Cox process framework for zone-free probabilistic seismic hazard assessment in Sumatra",
+     2026,
+     "https://doi.org/10.21203/rs.3.rs-10053550/v1"
+    ],
+    [
+     "W7221527058",
+     "Probabilistic Seismic Forecasting for Sustainable Urban Preparedness Around the Lembang Fault, Indonesia: Catalog Audit, Bayesian Spatio-Temporal ETAS, and Forecast-Informed Prioritization for Bandung City",
+     2026,
+     "https://doi.org/10.3390/su182010366"
+    ],
+    [
+     "W7196956256",
+     "Select earthquake forecasting models demonstrate consistency with prospective decadal observations in California",
+     2026,
+     "https://doi.org/10.1038/s41467-026-76243-7"
+    ],
+    [
+     "W7164825009",
+     "Model Evaluation",
+     2026,
+     "https://doi.org/10.1007/978-3-032-20790-6_5"
+    ],
+    [
+     "W4410955207",
+     "Bayesian forecasting of Italian seismicity using the spatiotemporal RETAS model",
+     2025,
+     "https://doi.org/10.1016/j.csda.2025.108219"
+    ],
+    [
+     "W4416680033",
+     "Towards a deep learning approach for short-term data-driven spatiotemporal seismicity rate forecasting",
+     2025,
+     "https://doi.org/10.1186/s40623-025-02241-6"
+    ],
+    [
+     "W4410039669",
+     "Operational Aftershock Forecasting Work for Scientific Investigation Activities of China Earthquake Administration in Recent Years",
+     2025,
+     "https://doi.org/10.1007/978-981-96-2826-1_6"
+    ],
+    [
+     "W4413761546",
+     "A benchmark database of ten years of prospective next-day earthquake forecasts in California from the Collaboratory for the Study of Earthquake Predictability",
+     2025,
+     "https://doi.org/10.1038/s41597-025-05766-3"
+    ],
+    [
+     "W4411608549",
+     "A Synthetic Earthquake Catalog for the Eastern Sector of the Russian Arctic Zone",
+     2025,
+     "https://doi.org/10.1134/s0742046325700083"
+    ],
+    [
+     "W4407115825",
+     "Improved Aftershock Forecasts Using Mainshock Information in the Framework of the ETAS Model",
+     2025,
+     "https://doi.org/10.1029/2024jb030287"
+    ],
+    [
+     "W4409824957",
+     "Evaluation of ETAS and STEP Forecasting Models for California Seismicity Using Point Process Residuals",
+     2025,
+     "https://doi.org/10.1002/env.70014"
+    ],
+    [
+     "W4417500650",
+     "Probabilistic earthquake forecasting in Italy: bridging the gap between alarm-based and probability-based models",
+     2025,
+     "https://doi.org/10.1093/gji/ggaf521"
+    ],
+    [
+     "W4408160592",
+     "Towards a harmonized operational earthquake forecasting model for Europe",
+     2025,
+     "https://doi.org/10.5194/nhess-25-991-2025"
+    ],
+    [
+     "W4394972368",
+     "Forecasting the Long-Term Spatial Distribution of Earthquakes for the 2023 U.S. National Seismic Hazard Model Using Gridded Seismicity",
+     2024,
+     "https://doi.org/10.1785/0120230220"
+    ],
+    [
+     "W4402730618",
+     "A Review of 15 Years of Public Earthquake Forecasting in Aotearoa New Zealand",
+     2024,
+     "https://doi.org/10.1785/0220240207"
+    ],
+    [
+     "W4400289877",
+     "Assessing the Predictive Power of GPS-Based Ground Deformation Data for Aftershock Forecasting",
+     2024,
+     "https://doi.org/10.1785/0220240008"
+    ],
+    [
+     "W4403216831",
+     "Earthquake Predictability and Forecast Evaluation Using Likelihood-Based Marginal and Conditional Scores",
+     2024,
+     "https://doi.org/10.1785/0220240256"
+    ],
+    [
+     "W7151977585",
+     "Towards integrating strain rates in PSHA source models in Europe : testing the compatibility between seismic and geodetic moment rates",
+     2024,
+     "https://doi.org/10.70675/f8c2a058zeb5bz485azb9b0z5c1f9f238172"
+    ],
+    [
+     "W4390821525",
+     "Accounting for the Variability of Earthquake Rates within Low-Seismicity Regions: Application to the 2022 Aotearoa New Zealand National Seismic Hazard Model",
+     2024,
+     "https://doi.org/10.1785/0120230164"
+    ],
+    [
+     "W4400432819",
+     "Leveraging the ETAS model to forecast mining microseismicity",
+     2024,
+     "https://doi.org/10.1093/gji/ggae236"
+    ],
+    [
+     "W4404620107",
+     "Parameters of the Seismic Regime of the Eastern Sector of the Arctic Zone of the Russian Federation",
+     2024,
+     "https://doi.org/10.1134/s1069351324700770"
+    ],
+    [
+     "W4391918114",
+     "Applying the Akaike Information Criterion (AIC) in earthquake spatial forecasting: a case study on probabilistic seismic hazard function (PSHF) estimation in the Sumatra subduction zone",
+     2024,
+     "https://doi.org/10.1080/19475705.2024.2319187"
+    ],
+    [
+     "W4391402029",
+     "Comment on egusphere-2023-3153",
+     2024,
+     "https://doi.org/10.5194/egusphere-2023-3153-rc1"
+    ],
+    [
+     "W4396514829",
+     "Reply on RC1",
+     2024,
+     "https://doi.org/10.5194/egusphere-2023-3153-ac1"
+    ],
+    [
+     "W4405747603",
+     "Determining the Seismicity Parameters to Assess the Earthquake Hazard for Irkutsk Region",
+     2024,
+     "https://doi.org/10.1134/s0742046324700829"
+    ],
+    [
+     "W4401592639",
+     "Developing, Testing, and Communicating Earthquake Forecasts: Current Practices and Future Directions",
+     2024,
+     "https://doi.org/10.1029/2023rg000823"
+    ],
+    [
+     "W4398780723",
+     "Bayesian earthquake forecasting approach based on the epidemic type aftershock sequence model",
+     2024,
+     "https://doi.org/10.1186/s40623-024-02021-8"
+    ],
+    [
+     "W4402730655",
+     "Building a General Algorithm for Seismic Hazard Analysis in the Sunda Arc through Geodynamic Simulations",
+     2024,
+     "https://doi.org/10.1785/0220240169"
+    ],
+    [
+     "W4402988120",
+     "Time-Dependent Aftershock Probabilistic Forecasting and Ensemble Model Implementation: Insights from the 2021 Ms 7.4 Maduo Earthquake",
+     2024,
+     "https://doi.org/10.1785/0220240235"
+    ],
+    [
+     "W4403334398",
+     "Critical Questions About CSEP, in the Spirit of Dave, Yan, and Ilya",
+     2024,
+     "https://doi.org/10.1785/0220240213"
+    ],
+    [
+     "W4404991224",
+     "Parameters of the Seismic Regime of the Eastern Sector of the Arctic Zone of the Russian Federation",
+     2024,
+     "https://doi.org/10.31857/s0002333724050034"
+    ],
+    [
+     "W4403102480",
+     "Bayesian Earthquake Forecasting Using Gaussian Process Modeling: GP-ETAS Applications",
+     2024,
+     "https://doi.org/10.1785/0220240170"
+    ],
+    [
+     "W4401026587",
+     "A Software Tool for Hybrid Earthquake Forecasting in New Zealand",
+     2024,
+     "https://doi.org/10.1785/0220240196"
+    ],
+    [
+     "W4395668340",
+     "Comment on egusphere-2023-3153",
+     2024,
+     "https://doi.org/10.5194/egusphere-2023-3153-rc2"
+    ],
+    [
+     "W4387186686",
+     "SimplETAS: A Benchmark Earthquake Forecasting Model Suitable for Operational Purposes and Seismic Hazard Analysis",
+     2023,
+     "https://doi.org/10.1785/0220230199"
+    ],
+    [
+     "W4330334933",
+     "Application of the EEPAS earthquake forecasting model to Italy",
+     2023,
+     "https://doi.org/10.1093/gji/ggad123"
+    ],
+    [
+     "W4317211982",
+     "Question-Driven Ensembles of Flexible ETAS Models",
+     2023,
+     "https://doi.org/10.1785/0220220230"
+    ],
+    [
+     "W4387567244",
+     "Aftershock Forecasting",
+     2023,
+     "https://doi.org/10.1146/annurev-earth-040522-102129"
+    ],
+    [
+     "W4381926555",
+     "Operational Earthquake Forecasting in Italy: validation after 10 yr of operativity",
+     2023,
+     "https://doi.org/10.1093/gji/ggad256"
+    ],
+    [
+     "W4380684614",
+     "Testing the forecasting skills of aftershock models using a Bayesian framework",
+     2023,
+     "https://doi.org/10.3389/fams.2023.1126511"
+    ],
+    [
+     "W4321094690",
+     "A time‐dependent seismic hazard model following the Kaikōura M7.8 earthquake",
+     2023,
+     "https://doi.org/10.1080/00288306.2022.2158881"
+    ],
+    [
+     "W4380785617",
+     "Comparative evaluation of point process forecasts",
+     2023,
+     "https://doi.org/10.1007/s10463-023-00875-5"
+    ],
+    [
+     "W4385749821",
+     "Comparison between alarm-based and probability-based earthquake forecasting methods",
+     2023,
+     "https://doi.org/10.1093/gji/ggad312"
+    ],
+    [
+     "W4320920965",
+     "Statistical evaluation of earthquake forecast efficiency using earthquake-catalog and fault slip rate in the Sichuan-Yunnan region, China",
+     2023,
+     "https://doi.org/10.3389/feart.2023.1091408"
+    ],
+    [
+     "W4387675559",
+     "Statistical inference for mixed jump processes by Markov switching model with application to identify seismicity levels",
+     2023,
+     "https://doi.org/10.1016/j.physa.2023.129291"
+    ],
+    [
+     "W4386186391",
+     "Evaluating a Prospective Fault-Based Stress-Transfer Forecast for the M 7.9 Wenchuan Earthquake Region, 15 Years Later",
+     2023,
+     "https://doi.org/10.1785/0320230021"
+    ],
+    [
+     "W4283706808",
+     "Variations in hazard during earthquake sequences between 1995 and 2018 in western Greece as evaluated by a Bayesian ETAS model",
+     2022,
+     "https://doi.org/10.1093/gji/ggac177"
+    ],
+    [
+     "W4297016564",
+     "Modeling Earthquake Data Using ETAS Model to Forecast Aftershock Subsequences Applying Different Parameterizations in Kermanshah Region, Iran",
+     2022,
+     "https://doi.org/10.21203/rs.3.rs-1996634/v1"
+    ],
+    [
+     "W4285222118",
+     "A review of source models to further the understanding of the seismicity of the Groningen field",
+     2022,
+     "https://doi.org/10.1017/njg.2022.7"
+    ],
+    [
+     "W4286268014",
+     "Pseudo-prospective forecasting of large earthquakes full distribution in circum-Pacific belt incorporating non-stationary modeling",
+     2022,
+     "https://doi.org/10.1016/j.physa.2022.127945"
+    ],
+    [
+     "W4226041500",
+     "Spatiotemporal ETAS Model with a Renewal Main-Shock Arrival Process",
+     2022,
+     "https://doi.org/10.1111/rssc.12579"
+    ],
+    [
+     "W4220893336",
+     "Comment on nhess-2021-403",
+     2022,
+     "https://doi.org/10.5194/nhess-2021-403-rc2"
+    ],
+    [
+     "W4211097969",
+     "The Analysis of the Aftershock Sequences of the Recent Mainshocks in Alaska",
+     2022,
+     "https://doi.org/10.3390/app12041809"
+    ],
+    [
+     "W4226172378",
+     "Reply on RC2",
+     2022,
+     "https://doi.org/10.5194/nhess-2021-403-ac2"
+    ],
+    [
+     "W4210915363",
+     "Validation of the Epidemic-Type Aftershock Sequence (ETAS) Models for Simulation-Based Seismic Hazard Assessments",
+     2022,
+     "https://doi.org/10.1785/0220210134"
+    ],
+    [
+     "W4226492471",
+     "Reply on RC1",
+     2022,
+     "https://doi.org/10.5194/nhess-2021-403-ac1"
+    ],
+    [
+     "W4205555675",
+     "Pseudo-prospective testing of 5-year earthquake forecasts for California using inlabru",
+     2022,
+     "https://doi.org/10.5194/nhess-2021-403"
+    ],
+    [
+     "W4303646868",
+     "Calibration of a Bayesian spatio-temporal ETAS model to the June 2000 South Iceland seismic sequence",
+     2022,
+     "https://doi.org/10.1093/gji/ggac387"
+    ],
+    [
+     "W4308969044",
+     "An Interactive Viewer to Improve Operational Aftershock Forecasts",
+     2022,
+     "https://doi.org/10.1785/0220220108"
+    ],
+    [
+     "W4303418693",
+     "Pseudo-prospective testing of 5-year earthquake forecasts for California using inlabru",
+     2022,
+     "https://doi.org/10.5194/nhess-22-3231-2022"
+    ],
+    [
+     "W4308026454",
+     "On the Use of High‐Resolution and Deep‐Learning Seismic Catalogs for Short‐Term Earthquake Forecasts: Potential Benefits and Current Limitations",
+     2022,
+     "https://doi.org/10.1029/2022jb025202"
+    ],
+    [
+     "W4214671351",
+     "Comment on nhess-2021-403",
+     2022,
+     "https://doi.org/10.5194/nhess-2021-403-rc1"
+    ],
+    [
+     "W4223646896",
+     "Modeling and Prediction of Aftershock Activity",
+     2022,
+     "https://doi.org/10.1007/s10712-022-09698-0"
+    ],
+    [
+     "W4310964371",
+     "Improvements to seismicity forecasting based on a Bayesian spatio-temporal ETAS model",
+     2022,
+     "https://doi.org/10.1038/s41598-022-24080-1"
+    ],
+    [
+     "W3164643736",
+     "Ranking earthquake forecasts using proper scoring rules: binary events in a low probability environment",
+     2022,
+     "https://doi.org/10.1093/gji/ggac124"
+    ],
+    [
+     "W3112800495",
+     "Global models for short-term earthquake forecasting and predictive skill assessment",
+     2021,
+     "https://doi.org/10.1140/epjst/e2020-000259-3"
+    ],
+    [
+     "W3134563145",
+     "Improved earthquake aftershocks forecasting model based on long-term memory",
+     2021,
+     "https://doi.org/10.1088/1367-2630/abeb46"
+    ],
+    [
+     "W3211913943",
+     "A New Smoothed Seismicity Approach to Include Aftershocks and Foreshocks in Spatial Earthquake Forecasting: Application to the Global Mw ≥ 5.5 Seismicity",
+     2021,
+     "https://doi.org/10.3390/app112210899"
+    ],
+    [
+     "W3136149947",
+     "On the relationship between strain rate and seismicity in the India–Asia collision zone: implications for probabilistic seismic hazard",
+     2021,
+     "https://doi.org/10.1093/gji/ggab098"
+    ],
+    [
+     "W3136119373",
+     "Using scoring functions to evaluate point process forecasts",
+     2021,
+     null
+    ]
+   ]
+  },
+  "A x M": {
+   "kumeler": [
+    "A",
+    "M"
+   ],
+   "boylar": [
+    2072,
+    1115
+   ],
+   "kesisim": 401,
+   "jaccard": 0.14393395549174443,
+   "kesisim_isleri": [
+    [
+     "W7202189287",
+     "Near-fault seismic hazard effects on embankment dam response: sensitivity analysis of the Geyve Doğantepe Dam",
+     2026,
+     "https://doi.org/10.1080/19475705.2026.2711488"
+    ],
+    [
+     "W7212028287",
+     "Historical Marmara Tsunamis Reconstruction Through Physics-Based Scenario Selection",
+     2026,
+     "https://doi.org/10.5194/egusphere-2026-4280"
+    ],
+    [
+     "W7131310174",
+     "The 2020 Sivrice earthquake (MW6.8) and its seismotectonic linkage to the 2023 Kahramanmaraş earthquakes (MW7.8 and 7.6)",
+     2026,
+     "https://doi.org/10.1007/s11069-025-07896-8"
+    ],
+    [
+     "W7128515740",
+     "Tectonic and Morphological Features of a Submarine Negative Flower Structure: In the Sinop Basin (Central Black Sea) and the Evaluation of Regional Seismic Hazard",
+     2026,
+     "https://doi.org/10.21203/rs.3.rs-8779310/v1"
+    ],
+    [
+     "W4417453149",
+     "Relative contribution of the Hellenic slab rollback and movement of the North Anatolian Fault to the deformation in western Anatolia",
+     2026,
+     "https://doi.org/10.1186/s40623-026-02495-8"
+    ],
+    [
+     "W7125284624",
+     "Plate-scale crustal strain patterns (2009-2023) preceding the 2023 Turkey-Syria earthquake pair (Mw 7.8, 7.7) coupled with the Anatolian extrusion regime (Anatolian diagonal, Turkey): Inferences from geodetic and earthquake data",
+     2026,
+     "https://doi.org/10.21203/rs.3.rs-8630979/v1"
+    ],
+    [
+     "W7161566520",
+     "Review of paleoseismological records along the North Anatolian Fault (NW Türkiye), 1991–2025 CE",
+     2026,
+     "https://doi.org/10.1016/j.earscirev.2026.105546"
+    ],
+    [
+     "W7225227699",
+     "An Integrated Spatial Framework for Seismic Risk Assessment of Critical Transport Corridors: A Multi-Criteria Decision Analysis for Istanbul’s D-100 Highway",
+     2026,
+     "https://doi.org/10.3390/land15112107"
+    ],
+    [
+     "W7160092652",
+     "26 Eylül 2019 (M5.8) ve 23 Nisan 2025 (M6.2) depremleri sonrasında Ana Marmara Fayı’nın sismik tehlikesinin yeniden değerlendirilmesi",
+     2026,
+     "https://doi.org/10.17824/yerbilimleri.1804662"
+    ],
+    [
+     "W7163131970",
+     "Artificial Intelligence and Big Data Analytics for Seismic Hazard Assessment: Methodological Advances and Computational Frameworks for the Marmara Region, Türkiye",
+     2026,
+     "https://doi.org/10.3390/data11060131"
+    ],
+    [
+     "W7160166468",
+     "GIS-Based Evaluation of Green Space Accessibility (GSA) in Earthquake-Prone Urban Areas: a Case Study of Istanbul, Türkiye",
+     2026,
+     "https://doi.org/10.1007/s41976-026-00287-y"
+    ],
+    [
+     "W7171654395",
+     "Coseismic magnetic field perturbations recorded during the 23 April 2025 Mw 6.2 Sea of Marmara earthquake, Türkiye",
+     2026,
+     "https://doi.org/10.1007/s11600-026-01975-5"
+    ],
+    [
+     "W4407439212",
+     "Time-dependent stress changes associated with the 1999 İzmit (MW = 7.5) and Düzce (MW = 7.2) earthquakes in NW Türkiye: Implications for seismicity changes and earthquake hazard",
+     2025,
+     "https://doi.org/10.1016/j.tecto.2025.230656"
+    ],
+    [
+     "W4411088838",
+     "Coulomb stress transfer from the 2025 MW 7.7 Myanmar earthquake to active faults in southwestern Yunnan, China: Implications for seismic hazard",
+     2025,
+     "https://doi.org/10.1016/j.eqrea.2025.100397"
+    ],
+    [
+     "W4409759720",
+     "Investigation of fault zone head waves along the 1912 MW7.4 Şarköy–Mürefte (Ganos) earthquake rupture zone in NW Türkiye",
+     2025,
+     "https://doi.org/10.1093/gji/ggaf148"
+    ],
+    [
+     "W4411507418",
+     "New GPS-derived velocity field for Marmara region: Implications for the kinematics along the North Anatolian Fault Zone",
+     2025,
+     "https://doi.org/10.1016/j.tecto.2025.230828"
+    ],
+    [
+     "W4412746321",
+     "Long–term sedimentary earthquake records along the northern branch of the North Anatolian Fault in the Sea of Marmara (NW Türkiye)",
+     2025,
+     "https://doi.org/10.1016/j.margeo.2025.107630"
+    ],
+    [
+     "W4416137650",
+     "Source and rupture properties of the 23 April 2025 Mw 6.3 Silivri High-Kumburgaz basin earthquake threatening İstanbul, NW Türkiye",
+     2025,
+     "https://doi.org/10.1007/s10950-025-10342-8"
+    ],
+    [
+     "W4411078421",
+     "Seismicity Patterns in Some Mediterranean Zones After the 1939 Anatolian Earthquake: Insights on Seismic Risk and the Tectonic Setting",
+     2025,
+     "https://doi.org/10.3390/geohazards6020029"
+    ],
+    [
+     "W4414654094",
+     "Fuzzy C-Means clustering and LSTM-based magnitude prediction of earthquakes in the Aegean region of Türkiye",
+     2025,
+     "https://doi.org/10.1038/s41598-025-07538-w"
+    ],
+    [
+     "W4410052727",
+     "M6.2 earthquake shakes Istanbul",
+     2025,
+     "https://doi.org/10.62481/d32ac5b5"
+    ],
+    [
+     "W4414144305",
+     "Simulation of large earthquake synchronization and implications on North Anatolian fault zone",
+     2025,
+     "https://doi.org/10.1016/j.tecto.2025.230902"
+    ],
+    [
+     "W4414578913",
+     "Physical and Statistical Pattern of the Thiva (Greece) 2020–2022 Seismic Swarm",
+     2025,
+     "https://doi.org/10.3390/e27090979"
+    ],
+    [
+     "W4408520788",
+     "High-resolution P-wave tomography of the 1999 Izmit and Düzce earthquake rupture zones",
+     2025,
+     "https://doi.org/10.1093/gji/ggaf024"
+    ],
+    [
+     "W4393906442",
+     "The Marmara Sea basin as a regional depression constrained from ambient noise correlation tomography",
+     2024,
+     "https://doi.org/10.1093/gji/ggae109"
+    ],
+    [
+     "W4396806645",
+     "Progress and landscape of disaster science: Insights from computational analyses",
+     2024,
+     "https://doi.org/10.1016/j.ijdrr.2024.104536"
+    ],
+    [
+     "W4395677116",
+     "Megathrust locking encoded in subduction landscapes",
+     2024,
+     "https://doi.org/10.1126/sciadv.adl4286"
+    ],
+    [
+     "W4399580221",
+     "Spatial and Temporal Impact Chain Analysis on Seismic Risks of Istanbul",
+     2024,
+     "https://doi.org/10.1007/978-3-031-57357-6_36"
+    ],
+    [
+     "W4402922745",
+     "Statistical and seismotectonic analyses of the Marmara region under existing stress regime in the west of the NAFZ",
+     2024,
+     "https://doi.org/10.1007/s11600-024-01449-6"
+    ],
+    [
+     "W4404857291",
+     "Analysis of stress changes on the Poso fault caused by large inland earthquakes: Case study of the 2017 Mw 6.6 Poso and the 2018 Mw 7.5 Palu-Donggala earthquakes",
+     2024,
+     "https://doi.org/10.4401/ag-9106"
+    ],
+    [
+     "W4391918303",
+     "The reasons for enormous accumulation of the geodynamic tension in Eastern Turkey: a multidisciplinary study",
+     2024,
+     "https://doi.org/10.58396/gges020202"
+    ],
+    [
+     "W4401173450",
+     "Thoughts of the February 20, 2023 Defne aftershock",
+     2024,
+     "https://doi.org/10.59313/jsr-a.1441309"
+    ],
+    [
+     "W4405059286",
+     "Spatiotemporal Clustering of Large Earthquakes Along the Central‐Eastern Sections of the Altyn Tagh Fault, China",
+     2024,
+     "https://doi.org/10.1029/2024jb028912"
+    ],
+    [
+     "W4391254198",
+     "17 Kasım 2021 Merkez (Düzce) Depremi (Mw5.0) ve Artçı Şoklarının (Mw4.3 ve Mw3.9) Moment Tensör Çözümleri ve Ana Şok Coulomb Gerilme Analizi",
+     2024,
+     "https://doi.org/10.29130/dubited.1112340"
+    ],
+    [
+     "W4386468553",
+     "Spatio-temporal variations of seismic coupling along a transform fault: the western North Anatolian Fault Zone",
+     2023,
+     "https://doi.org/10.1093/gji/ggad341"
+    ],
+    [
+     "W4376455130",
+     "Paleoseismology of the Ganos segment; the western extend of the North Anatolian Fault (Turkey)",
+     2023,
+     "https://doi.org/10.55730/1300-0985.1850"
+    ],
+    [
+     "W4368368343",
+     "Seismological Stress Drops for Confined Ruptures Are Invariant to Normal Stress",
+     2023,
+     "https://doi.org/10.1029/2022gl101366"
+    ],
+    [
+     "W4388733788",
+     "The Mw = 5.8 2019 Silivri earthquake, NW Türkiye: is it a warning beacon for a big one?",
+     2023,
+     "https://doi.org/10.1007/s00531-023-02359-6"
+    ],
+    [
+     "W4385070112",
+     "Balıkesir İli ve çevresinin kinematik özelliklerine bağlı gerilme ve deformasyon alanlarının modellenmesi",
+     2023,
+     "https://doi.org/10.28948/ngumuh.1284278"
+    ],
+    [
+     "W4389894767",
+     "Accuracy Assessment of Mesh Types in Tectonic Modeling to Reveal Seismic Potential Using the Finite Element Method: A Case Study at the Main Marmara Fault",
+     2023,
+     "https://doi.org/10.3390/app132413297"
+    ],
+    [
+     "W4328143757",
+     "Effect of permanent stress on the time-dependent earthquake probability: implication for seismic hazard assessment in the African continent",
+     2023,
+     "https://doi.org/10.1093/gji/ggad121"
+    ],
+    [
+     "W4390050957",
+     "The Effect of Liquid Fermented Potato Hash Diet on Testicular Size, Weight and Epididymal Semen Quality of Large White × Landrace Boars",
+     2023,
+     "https://doi.org/10.5772/intechopen.113120"
+    ],
+    [
+     "W4366282708",
+     "Lateral variations in the signature of earthquake‐generated deposits in Lake Iznik, NW Turkey",
+     2023,
+     "https://doi.org/10.1002/dep2.232"
+    ],
+    [
+     "W4389503643",
+     "Identification of Source Faults of Large Earthquakes in the Turkey‐Syria Border Region Between 1000 CE and the Present, and Their Relevance for the 2023 Mw 7.8 Pazarcık Earthquake",
+     2023,
+     "https://doi.org/10.1029/2023tc007890"
+    ],
+    [
+     "W4387176554",
+     "Long-Term Recurrence Pattern and Stress Transfer along the Kefalonia Transform Fault Zone (KTFZ), Greece: Implications in Seismic Hazard Evaluation",
+     2023,
+     "https://doi.org/10.3390/geosciences13100295"
+    ],
+    [
+     "W4390113902",
+     "The September 26, 2019 Silivri Earthquake (Mw=5.6), NW Türkiye",
+     2023,
+     "https://doi.org/10.52114/apjhad.1219257"
+    ],
+    [
+     "W4353045928",
+     "Variation of Fault Creep Along the Overdue Istanbul‐Marmara Seismic Gap in NW Türkiye",
+     2023,
+     "https://doi.org/10.1029/2022gl101471"
+    ],
+    [
+     "W4310928252",
+     "Geological and geomechanical evidence from the Sünnet landslides (NW Anatolia) for an Mw8.0 cascade rupture in the North Anatolian Fault 8 ky ago",
+     2022,
+     "https://doi.org/10.1016/j.tecto.2022.229682"
+    ],
+    [
+     "W4283752615",
+     "Evaluation of current earthquake activity on the Ganos Fault: MONGAN network test analysis",
+     2022,
+     "https://doi.org/10.19111/bulletinofmre.1138208"
+    ],
+    [
+     "W4297090529",
+     "Microseismic Constraints on the Mechanical State of the North Anatolian Fault Zone 13 Years After the 1999 M7.4 Izmit Earthquake",
+     2022,
+     "https://doi.org/10.1029/2022jb024416"
+    ],
+    [
+     "W4225655140",
+     "Dynamic deformation and fault locking of the Xianshuihe Fault Zone, Southeastern Tibetan Plateau: implications for seismic hazards",
+     2022,
+     "https://doi.org/10.1186/s40623-022-01591-9"
+    ],
+    [
+     "W4210460867",
+     "The Effect of the 3‐D Structure on Strain Accumulation and the Interseismic Behavior Along the North Anatolian Fault in the Sea of Marmara",
+     2022,
+     "https://doi.org/10.1029/2021jb022838"
+    ],
+    [
+     "W4310086741",
+     "Natural Hazards - New Insights",
+     2022,
+     "https://doi.org/10.5772/intechopen.104005"
+    ],
+    [
+     "W4283646671",
+     "The determination of 3-D P and S-Wave attenuation structures in Marmara",
+     2022,
+     "https://doi.org/10.5505/pajes.2021.83547"
+    ],
+    [
+     "W7151378971",
+     "Paléosismologie lacustre et géophysique appliquées au lac d'Iznik (Turquie) : contribution à l'étude de la branche médiane de la Faille Nord-Anatolienne.",
+     2022,
+     "https://doi.org/10.70675/49d83b60z89eaz4604z9679z858e56f2977d"
+    ],
+    [
+     "W3184129352",
+     "Shortcut Faults and Lateral Spreading Activated in a Pull-Apart Basin by the 2018 Palu Earthquake, Central Sulawesi, Indonesia",
+     2021,
+     "https://doi.org/10.3390/rs13152939"
+    ],
+    [
+     "W4285543037",
+     "Active Subaquatic Fault Segments in Lake Iznik Along the Middle Strand of the North Anatolian Fault, NW Turkey",
+     2021,
+     "https://doi.org/10.1029/2020tc006404"
+    ],
+    [
+     "W3183001634",
+     "Adaptation of hurricane risk perception scale to earthquake risk perception and determining the factors affecting women's earthquake risk perception",
+     2021,
+     "https://doi.org/10.1007/s11069-021-04918-z"
+    ],
+    [
+     "W3136729038",
+     "Kinematics of the Marmara Region: a fusion of continuum and block models",
+     2021,
+     "https://doi.org/10.1007/s42990-021-00051-y"
+    ],
+    [
+     "W3215240573",
+     "Faulting and Folding of the Transgressive Surface Offshore Ventura Records Deformational Events in the Holocene",
+     2021,
+     "https://doi.org/10.3389/feart.2021.655339"
+    ],
+    [
+     "W3158816901",
+     "Advancements in multi-rupture time-dependent seismic hazard modeling, including fault interaction",
+     2021,
+     "https://doi.org/10.1016/j.earscirev.2021.103650"
+    ],
+    [
+     "W3183412925",
+     "Lithospheric strength variations and seismotectonic segmentation below the Sea of Marmara",
+     2021,
+     "https://doi.org/10.1016/j.tecto.2021.228999"
+    ],
+    [
+     "W3168443483",
+     "Coulomb stress changes associated with the M7.3 Maduo earthquake and implications for seismic hazards",
+     2021,
+     "https://doi.org/10.1016/j.nhres.2021.06.003"
+    ],
+    [
+     "W3157091685",
+     "A review of 20 years (1999–2019) of Turkish–French collaboration in marine geoscience research in the Sea of Marmara",
+     2021,
+     "https://doi.org/10.1007/s42990-021-00055-8"
+    ],
+    [
+     "W3135609223",
+     "Connecting subduction, extension and shear localization across the Aegean Sea and Anatolia",
+     2021,
+     "https://doi.org/10.1093/gji/ggab078"
+    ],
+    [
+     "W3169695276",
+     "A Big Earthquake Awaits Istanbul: Mini Review",
+     2021,
+     "https://doi.org/10.35341/afet.849816"
+    ],
+    [
+     "W3144369505",
+     "The slip deficit on the North Anatolian Fault (Turkey) in the Marmara Sea: insights from paleoseismicity, seismicity and geodetic data",
+     2021,
+     "https://doi.org/10.1007/s42990-021-00053-w"
+    ],
+    [
+     "W3207550839",
+     "Segmentation and Holocene Behavior of the Middle Strand of the North Anatolian Fault (NW Turkey)",
+     2021,
+     "https://doi.org/10.1029/2021tc006870"
+    ],
+    [
+     "W3209431621",
+     "Finite element simulation of stress change for the MS7.4 Madoi earthquake and implications for regional seismic hazards",
+     2021,
+     "https://doi.org/10.1016/j.eqrea.2021.100046"
+    ],
+    [
+     "W3197723487",
+     "Seismic velocity structure along the North Anatolian Fault beneath the Central Marmara Sea and its implication for seismogenesis",
+     2021,
+     "https://doi.org/10.1093/gji/ggab351"
+    ],
+    [
+     "W3195398104",
+     "Near-Fault Monitoring Reveals Combined Seismic and Slow Activation of a Fault Branch within the Istanbul–Marmara Seismic Gap in Northwest Turkey",
+     2021,
+     "https://doi.org/10.1785/0220210047"
+    ],
+    [
+     "W4212791398",
+     "Tidal effects on intra-continental earthquake initiation in the Tibetan Plateau and its adjacent areas*",
+     2020,
+     "https://doi.org/10.29382/eqs-2020-0209-05"
+    ],
+    [
+     "W3083463583",
+     "Modelling tectonic deformation along the North-Anatolian Fault in the Sea of Marmara",
+     2020,
+     "https://doi.org/10.1016/j.tecto.2020.228612"
+    ],
+    [
+     "W3008531775",
+     "Source parameters for small-moderate earthquakes in Marmara Region (Turkey)",
+     2020,
+     "https://doi.org/10.1007/s12303-019-0039-2"
+    ],
+    [
+     "W3043168662",
+     "Probing the relationship between electrical conductivity and creep through upper crustal fluids along the western part of the North Anatolian Fault with three-dimensional magnetotellurics",
+     2020,
+     "https://doi.org/10.1016/j.tecto.2020.228561"
+    ],
+    [
+     "W3108723160",
+     "Present GPS velocity field along 1999 Izmit rupture zone: evidence for continuing afterslip 20 yr after the earthquake",
+     2020,
+     "https://doi.org/10.1093/gji/ggaa560"
+    ],
+    [
+     "W3109108458",
+     "Parametric and non-parametric estimation of extreme earthquake event: the joint tail inference for mainshocks and aftershocks",
+     2020,
+     "https://doi.org/10.1007/s10687-020-00400-4"
+    ],
+    [
+     "W3068280021",
+     "Three-dimensional seismic tomographic imaging beneath the Sea of Marmara: evidence for locked and creeping sections of the Main Marmara Fault",
+     2020,
+     "https://doi.org/10.1093/gji/ggaa389"
+    ],
+    [
+     "W3089231496",
+     "A Two-Scale Preparation Phase Preceded an Mw 5.8 Earthquake in the Sea of Marmara Offshore Istanbul, Turkey",
+     2020,
+     "https://doi.org/10.1785/0220200110"
+    ],
+    [
+     "W3081287100",
+     "Earth Observation for the Assessment of Earthquake Hazard, Risk and Disaster Management",
+     2020,
+     "https://doi.org/10.1007/s10712-020-09606-4"
+    ]
+   ]
+  },
+  "A x B x M": {
+   "kumeler": [
+    "A",
+    "B",
+    "M"
+   ],
+   "boylar": [
+    2072,
+    476,
+    1115
+   ],
+   "kesisim": 5,
+   "jaccard": 0.0015503875968992248,
+   "kesisim_isleri": [
+    [
+     "W3081287100",
+     "Earth Observation for the Assessment of Earthquake Hazard, Risk and Disaster Management",
+     2020,
+     "https://doi.org/10.1007/s10712-020-09606-4"
+    ],
+    [
+     "W2965054903",
+     "The effect of stress changes on time-dependent earthquake probabilities for the central Wasatch Fault Zone, Utah, USA.",
+     2019,
+     "https://doi.org/10.1093/gji/ggz336"
+    ],
+    [
+     "W2811193254",
+     "Roadmap for earthquake numerical forecasting in China—Reflection on the tenth anniversary of Wenchuan earthquake",
+     2018,
+     "https://doi.org/10.1360/n972018-00335"
+    ],
+    [
+     "W4211124947",
+     "Bibliography",
+     2017,
+     "https://doi.org/10.1002/9781119372301.biblio"
+    ],
+    [
+     "W1546652107",
+     "OPERATIONAL EARTHQUAKE FORECASTING. State of Knowledge and Guidelines for Utilization",
+     2011,
+     "https://doi.org/10.4401/ag-5350"
+    ]
+   ]
+  },
+  "A x ETAS": {
+   "kumeler": [
+    "A",
+    "KONTROL"
+   ],
+   "boylar": [
+    2072,
+    3174
+   ],
+   "kesisim": 165,
+   "jaccard": 0.032473922456209406,
+   "kesisim_isleri": [
+    [
+     "W7160876965",
+     "Temporal and Spatial Changes in Seismic Attenuation Associated with Inferred Fluid Migration in the 2016 Central Apennines Earthquake Sequence",
+     2026,
+     "https://doi.org/10.1785/0120250262"
+    ],
+    [
+     "W7165116962",
+     "Seismic Compression Signal Analysis of the Indian Subcontinent and Kashmir-Himalayan Belt: Multi-Zone Stress Accumulation, Four-Region Validation Strength, and Geodetic Data Requirements",
+     2026,
+     "https://doi.org/10.21203/rs.3.rs-10068430/v1"
+    ],
+    [
+     "W7214033943",
+     "Time-Dependent Probabilistic Forecasting of Moderate-to-Large Earthquakes in Northeast India Using the Das Magnitude Scale Mwg: Considering the Misuse of the M or Mw Scale Below 7.5",
+     2026,
+     "https://doi.org/10.3390/app16189242"
+    ],
+    [
+     "W7214114447",
+     "Estimating maximum aftershock magnitudes using machine learning methods",
+     2026,
+     "https://doi.org/10.1016/j.eqs.2026.08.005"
+    ],
+    [
+     "W4413929517",
+     "A Scientific Vision and Roadmap for Earthquake Rupture Forecast Developments, A USGS Perspective",
+     2025,
+     "https://doi.org/10.1785/0120240217"
+    ],
+    [
+     "W4412769393",
+     "Earthquake Triggering in the Seismotectonic Provinces of the Iranian Plateau Based on the Epidemic-Type Aftershock Sequence (ETAS) Model",
+     2025,
+     "https://doi.org/10.1080/13632469.2025.2537093"
+    ],
+    [
+     "W4407375044",
+     "Forecasting Recurrent Large Earthquakes From Paleoearthquake and Fault Displacement Data",
+     2025,
+     "https://doi.org/10.1029/2024jb029671"
+    ],
+    [
+     "W4414126498",
+     "An exploration of the relative influence of physical models for Omori’s law",
+     2025,
+     "https://doi.org/10.3389/feart.2025.1619887"
+    ],
+    [
+     "W4413284191",
+     "A physics-informed stochastic model for the long-term correlation of earthquakes",
+     2025,
+     "https://doi.org/10.1038/s43247-025-02608-3"
+    ],
+    [
+     "W4414654094",
+     "Fuzzy C-Means clustering and LSTM-based magnitude prediction of earthquakes in the Aegean region of Türkiye",
+     2025,
+     "https://doi.org/10.1038/s41598-025-07538-w"
+    ],
+    [
+     "W4415701959",
+     "Aftershocks in Stress Shadows are Inconsistent with Modeled Static Coulomb Stress Changes",
+     2025,
+     "https://doi.org/10.26443/seismica.v4i2.1657"
+    ],
+    [
+     "W4411245854",
+     "Correlation of earthquake occurrence among major fault zones in the eastern margin of the Tibetan Plateau through Big Data Analysis",
+     2025,
+     "https://doi.org/10.59717/j.xinn-geo.2025.100145"
+    ],
+    [
+     "W4401983480",
+     "A sequence of seismic event triggering in longwall coal mines based on the aftershock cascade theory",
+     2024,
+     "https://doi.org/10.1016/j.ijrmms.2024.105883"
+    ],
+    [
+     "W4390534793",
+     "The strongest aftershock in seismic models of epidemic type",
+     2024,
+     "https://doi.org/10.1093/gji/ggae001"
+    ],
+    [
+     "W4396670714",
+     "Constraining Parameter Uncertainties in the Coulomb Rate–State Approach: A Case Study of Seismicity in the Longmenshan Region after the 2008 Mw 7.9 Wenchuan Earthquake, China",
+     2024,
+     "https://doi.org/10.1785/0220230414"
+    ],
+    [
+     "W4399323854",
+     "Reduced seismic activity after mega earthquakes",
+     2024,
+     "https://doi.org/10.1038/s43247-024-01460-1"
+    ],
+    [
+     "W4388464397",
+     "Long‐Lived Aftershocks in the New Madrid seismic Zone and the Rest of Stable North America",
+     2023,
+     "https://doi.org/10.1029/2023jb026482"
+    ],
+    [
+     "W4387567244",
+     "Aftershock Forecasting",
+     2023,
+     "https://doi.org/10.1146/annurev-earth-040522-102129"
+    ],
+    [
+     "W4383702755",
+     "Cascading foreshocks, aftershocks and earthquake swarms in a discrete fault network",
+     2023,
+     "https://doi.org/10.1093/gji/ggad278"
+    ],
+    [
+     "W4390101432",
+     "Panel Review of the USGS 2023 Conterminous U.S. Time-Independent Earthquake Rupture Forecast",
+     2023,
+     "https://doi.org/10.1785/0120230140"
+    ],
+    [
+     "W4387738711",
+     "A New Statistical Perspective on Båth’s Law",
+     2023,
+     "https://doi.org/10.1785/0220230147"
+    ],
+    [
+     "W4385700799",
+     "Temporal distribution model and occurrence probability of M ≥ 6.5 earthquakes in North China Seismic Zone",
+     2023,
+     "https://doi.org/10.1007/s11069-023-06124-5"
+    ],
+    [
+     "W4386186391",
+     "Evaluating a Prospective Fault-Based Stress-Transfer Forecast for the M 7.9 Wenchuan Earthquake Region, 15 Years Later",
+     2023,
+     "https://doi.org/10.1785/0320230021"
+    ],
+    [
+     "W4321614317",
+     "Spatiotemporal patterns of earthquakes and their implications for earthquake hazards",
+     2022,
+     "https://doi.org/10.32469/10355/94190"
+    ],
+    [
+     "W4286268014",
+     "Pseudo-prospective forecasting of large earthquakes full distribution in circum-Pacific belt incorporating non-stationary modeling",
+     2022,
+     "https://doi.org/10.1016/j.physa.2022.127945"
+    ],
+    [
+     "W4288751882",
+     "Spatio-temporal clustering of successive earthquakes as inferred from analyses of global CMT and NIED F-net catalogs",
+     2022,
+     "https://doi.org/10.1186/s40623-022-01677-4"
+    ],
+    [
+     "W4306412309",
+     "Physical Properties of the Crust Influence Aftershock Locations",
+     2022,
+     "https://doi.org/10.1029/2022jb024727"
+    ],
+    [
+     "W4220879156",
+     "Detection of seismic quiescences before 1991 Uttarkashi (Mw 6.8) and 1999 Chamoli Mw (6.6) earthquakes and its implications for stress change sensor",
+     2022,
+     "https://doi.org/10.1007/s11600-022-00747-1"
+    ],
+    [
+     "W4280573657",
+     "New Statistical Perspectives on Bath’s Law and Aftershock",
+     2022,
+     "https://doi.org/10.21203/rs.3.rs-1661764/v1"
+    ],
+    [
+     "W4210245864",
+     "Active seismotectonics of the East Anatolian Fault",
+     2022,
+     "https://doi.org/10.1093/gji/ggac045"
+    ],
+    [
+     "W4294883957",
+     "Earthquakes in the Shadows: Why Aftershocks Occur at Surprising Locations",
+     2022,
+     "https://doi.org/10.1785/0320220023"
+    ],
+    [
+     "W4313411492",
+     "Using foreshocks to constrain earthquake nucleation: low foreshock to aftershock ratios in the Hikurangi subduction zone",
+     2022,
+     "https://doi.org/10.31223/x5gq00"
+    ],
+    [
+     "W4281295196",
+     "New Statistical Perspectives on Bath's Law and Aftershock Productivity",
+     2022,
+     "https://doi.org/10.21203/rs.3.rs-1662929/v1"
+    ],
+    [
+     "W3200733839",
+     "The Effect of the Wenchuan and Lushan Earthquakes on the Size Distribution of Earthquakes along the Longmenshan Fault",
+     2021,
+     "https://doi.org/10.3390/app11188534"
+    ],
+    [
+     "W4205527598",
+     "Editor Comment on nhess-2021-21",
+     2021,
+     "https://doi.org/10.5194/nhess-2021-21-ec1"
+    ],
+    [
+     "W3125908417",
+     "Stress Transfer Along the Western Boundary of the Bayan Har Block on the Tibet Plateau From the 2008 to 2020 Yutian Earthquake Sequence in China",
+     2021,
+     "https://doi.org/10.1029/2021gl094125"
+    ],
+    [
+     "W3136149947",
+     "On the relationship between strain rate and seismicity in the India–Asia collision zone: implications for probabilistic seismic hazard",
+     2021,
+     "https://doi.org/10.1093/gji/ggab098"
+    ],
+    [
+     "W4206225104",
+     "Earthquake, Aftershocks",
+     2021,
+     "https://doi.org/10.1007/978-3-030-58631-7_204"
+    ],
+    [
+     "W4241773064",
+     "Tsunamis: Stochastic Models of Occurrence and Generation Mechanisms",
+     2021,
+     "https://doi.org/10.1007/978-1-0716-1705-2_595"
+    ],
+    [
+     "W3198376011",
+     "Possible triggering relationship of six Mw > 6 earthquakes in 2018–2019 at Philippine archipelago",
+     2021,
+     "https://doi.org/10.1007/s13131-021-1813-3"
+    ],
+    [
+     "W3196868925",
+     "Improving Earthquake Doublet Frequency Predictions by Modified Spatial Trigger Kernels in the Epidemic-Type Aftershock Sequence (ETAS) Model",
+     2021,
+     "https://doi.org/10.1785/0120210097"
+    ],
+    [
+     "W3115681188",
+     "Background Seismicity before and after the 1976 Ms 7.8 Tangshan Earthquake: Is Its Aftershock Sequence Still Continuing?",
+     2020,
+     "https://doi.org/10.1785/0220200179"
+    ],
+    [
+     "W3117454012",
+     "Spatial Clustering of Aftershocks Impacts the Performance of Physics‐Based Earthquake Forecasting Models",
+     2020,
+     "https://doi.org/10.1029/2020jb020824"
+    ],
+    [
+     "W3109108458",
+     "Parametric and non-parametric estimation of extreme earthquake event: the joint tail inference for mainshocks and aftershocks",
+     2020,
+     "https://doi.org/10.1007/s10687-020-00400-4"
+    ],
+    [
+     "W3033185689",
+     "Probabilistic Space- and Time-Interaction Modeling of Mainshock Earthquake Rupture Occurrence",
+     2020,
+     "https://doi.org/10.1785/0120180220"
+    ],
+    [
+     "W3020271411",
+     "The Role of Seismic and Slow Slip Events in Triggering the 2018 M7.1 Anchorage Earthquake in the Southcentral Alaska Subduction Zone",
+     2020,
+     "https://doi.org/10.1029/2019gl086640"
+    ],
+    [
+     "W7148859423",
+     "Rayonnement haute fréquence et précurseurs des séismes en laboratoire",
+     2020,
+     "https://doi.org/10.70675/bd9e1dabz9016z494ezb645z4812e1d2019d"
+    ],
+    [
+     "W3036799738",
+     "Physics-based simulation of sequences with multiple main shocks in Central Italy",
+     2020,
+     "https://doi.org/10.1093/gji/ggaa300"
+    ],
+    [
+     "W2939476379",
+     "Modeling the earthquake occurrence with time-dependent processes: a brief review",
+     2019,
+     "https://doi.org/10.1007/s11600-019-00284-4"
+    ],
+    [
+     "W98494054",
+     "Tsunamis: Stochastic Models of Occurrence and Generation Mechanisms",
+     2019,
+     "https://doi.org/10.1007/978-3-642-27737-5_595-2"
+    ],
+    [
+     "W2936436536",
+     "Etude des propriétés mécaniques et de la déformation transitoire dans les zones de subduction à partir de l'analyse de l'activité sismique, le cas du Chili",
+     2019,
+     "https://doi.org/10.70675/2ed4fe29z9ecfz4b07z917dze0be80fa0cc4"
+    ],
+    [
+     "W4230005464",
+     "Earthquake, Aftershocks",
+     2019,
+     "https://doi.org/10.1007/978-3-030-10475-7_204-1"
+    ],
+    [
+     "W3012059810",
+     "Analysis of earthquake sequences and activity rates: implications for seismic hazard",
+     2019,
+     "https://doi.org/10.20868/upm.thesis.58691"
+    ],
+    [
+     "W4211212742",
+     "The Mechanics of Earthquakes and Faulting",
+     2018,
+     "https://doi.org/10.1017/9781316681473"
+    ],
+    [
+     "W4211191672",
+     "Preface to the first edition",
+     2018,
+     "https://doi.org/10.1017/9781316681473.001"
+    ],
+    [
+     "W4211092961",
+     "Rock friction",
+     2018,
+     "https://doi.org/10.1017/9781316681473.005"
+    ],
+    [
+     "W4211094034",
+     "References",
+     2018,
+     "https://doi.org/10.1017/9781316681473.011"
+    ],
+    [
+     "W4211015694",
+     "Preface to the third edition",
+     2018,
+     "https://doi.org/10.1017/9781316681473.003"
+    ],
+    [
+     "W2792012852",
+     "Did the 2008 Mw 7.9 Wenchuan Earthquake Trigger the Occurrence of the 2017 Mw 6.5 Jiuzhaigou Earthquake in Sichuan, China?",
+     2018,
+     "https://doi.org/10.1002/2017jb015165"
+    ],
+    [
+     "W4211188731",
+     "Mechanics of earthquakes",
+     2018,
+     "https://doi.org/10.1017/9781316681473.007"
+    ],
+    [
+     "W4211154967",
+     "Seismotectonics",
+     2018,
+     "https://doi.org/10.1017/9781316681473.009"
+    ],
+    [
+     "W4211129469",
+     "Earthquake prediction and hazard analysis",
+     2018,
+     "https://doi.org/10.1017/9781316681473.010"
+    ],
+    [
+     "W2804555845",
+     "Millennial to million year normal-fault interactions in the forearc of a subduction margin, Crete, Greece",
+     2018,
+     "https://doi.org/10.1016/j.jsg.2018.05.019"
+    ],
+    [
+     "W2799705844",
+     "Why Aftershock Duration Matters for Probabilistic Seismic Hazard Assessment",
+     2018,
+     "https://doi.org/10.1785/0120170270"
+    ],
+    [
+     "W4211078370",
+     "References",
+     2018,
+     "https://doi.org/10.1002/9781119579076.refs"
+    ],
+    [
+     "W2892832133",
+     "Seismic Behavior on Oceanic Transform Faults at the East Pacific Rise",
+     2018,
+     "https://doi.org/10.1016/b978-0-12-812064-4.00006-2"
+    ],
+    [
+     "W4211124348",
+     "Brittle fracture of rock",
+     2018,
+     "https://doi.org/10.1017/9781316681473.004"
+    ],
+    [
+     "W4211112343",
+     "The seismic cycle",
+     2018,
+     "https://doi.org/10.1017/9781316681473.008"
+    ],
+    [
+     "W4211084633",
+     "Mechanics of faulting",
+     2018,
+     "https://doi.org/10.1017/9781316681473.006"
+    ],
+    [
+     "W4231287519",
+     "Index",
+     2018,
+     "https://doi.org/10.1017/9781316681473.012"
+    ],
+    [
+     "W2799397329",
+     "Modelling and forecasting three-dimensional-hypocentre seismicity in the Kanto region",
+     2018,
+     "https://doi.org/10.1093/gji/ggy154"
+    ],
+    [
+     "W4211250627",
+     "Preface to the second edition",
+     2018,
+     "https://doi.org/10.1017/9781316681473.002"
+    ],
+    [
+     "W2752409144",
+     "Simulation of spatial and temporal properties of aftershocks by means of the fiber bundle model",
+     2017,
+     "https://doi.org/10.1007/s10950-017-9687-8"
+    ],
+    [
+     "W2740150913",
+     "EARTHQUAKE FORECAST BY TIME-DEPENDENT HAZARD MODELS",
+     2017,
+     "https://doi.org/10.12681/bgsg.11837"
+    ],
+    [
+     "W2616277897",
+     "Delayed Triggering Process for the Mj6.4 Eastern Shizuoka Earthquake of 15 March 2011",
+     2017,
+     "https://doi.org/10.4294/zisin.69.99"
+    ],
+    [
+     "W2770115079",
+     "Determination of Mmax from Background Seismicity and Moment Conservation",
+     2017,
+     "https://doi.org/10.1785/0120170022"
+    ],
+    [
+     "W4211124947",
+     "Bibliography",
+     2017,
+     "https://doi.org/10.1002/9781119372301.biblio"
+    ],
+    [
+     "W2309963181",
+     "Tidal stress triggering of earthquakes in Southern California",
+     2016,
+     "https://doi.org/10.1093/gji/ggw045"
+    ],
+    [
+     "W2297467195",
+     "Statistical physics approach to earthquake occurrence and forecasting",
+     2016,
+     "https://doi.org/10.1016/j.physrep.2016.03.002"
+    ],
+    [
+     "W578080743",
+     "Earthquake Seismology: An Introduction and Overview",
+     2015,
+     "https://doi.org/10.1016/b978-0-444-53802-4.00069-5"
+    ]
+   ]
+  },
+  "A x B x ETAS": {
+   "kumeler": [
+    "A",
+    "B",
+    "KONTROL"
+   ],
+   "boylar": [
+    2072,
+    476,
+    3174
+   ],
+   "kesisim": 16,
+   "jaccard": 0.0029928918817807705,
+   "kesisim_isleri": [
+    [
+     "W4386186391",
+     "Evaluating a Prospective Fault-Based Stress-Transfer Forecast for the M 7.9 Wenchuan Earthquake Region, 15 Years Later",
+     2023,
+     "https://doi.org/10.1785/0320230021"
+    ],
+    [
+     "W4387567244",
+     "Aftershock Forecasting",
+     2023,
+     "https://doi.org/10.1146/annurev-earth-040522-102129"
+    ],
+    [
+     "W4286268014",
+     "Pseudo-prospective forecasting of large earthquakes full distribution in circum-Pacific belt incorporating non-stationary modeling",
+     2022,
+     "https://doi.org/10.1016/j.physa.2022.127945"
+    ],
+    [
+     "W3136149947",
+     "On the relationship between strain rate and seismicity in the India–Asia collision zone: implications for probabilistic seismic hazard",
+     2021,
+     "https://doi.org/10.1093/gji/ggab098"
+    ],
+    [
+     "W3020271411",
+     "The Role of Seismic and Slow Slip Events in Triggering the 2018 M7.1 Anchorage Earthquake in the Southcentral Alaska Subduction Zone",
+     2020,
+     "https://doi.org/10.1029/2019gl086640"
+    ],
+    [
+     "W3117454012",
+     "Spatial Clustering of Aftershocks Impacts the Performance of Physics‐Based Earthquake Forecasting Models",
+     2020,
+     "https://doi.org/10.1029/2020jb020824"
+    ],
+    [
+     "W2770115079",
+     "Determination of Mmax from Background Seismicity and Moment Conservation",
+     2017,
+     "https://doi.org/10.1785/0120170022"
+    ],
+    [
+     "W4211124947",
+     "Bibliography",
+     2017,
+     "https://doi.org/10.1002/9781119372301.biblio"
+    ],
+    [
+     "W4211177830",
+     "References",
+     2013,
+     "https://doi.org/10.1002/9781118637913.refs"
+    ],
+    [
+     "W2131407721",
+     "Comparative evaluation of physics‐based and statistical forecasts in Northern California",
+     2013,
+     "https://doi.org/10.1002/2013jb010313"
+    ],
+    [
+     "W2129402685",
+     "A Ten-Year Earthquake Occurrence Model for Italy",
+     2012,
+     "https://doi.org/10.1785/0120110164"
+    ],
+    [
+     "W1546652107",
+     "OPERATIONAL EARTHQUAKE FORECASTING. State of Knowledge and Guidelines for Utilization",
+     2011,
+     "https://doi.org/10.4401/ag-5350"
+    ],
+    [
+     "W2130993411",
+     "Global earthquake forecasts",
+     2010,
+     "https://doi.org/10.1111/j.1365-246x.2010.04857.x"
+    ],
+    [
+     "W1999365187",
+     "A double branching model for earthquake occurrence",
+     2008,
+     "https://doi.org/10.1029/2007jb005472"
+    ],
+    [
+     "W2158438651",
+     "Overview of the Working Group for the Development of Regional Earthquake Likelihood Models (RELM)",
+     2007,
+     "https://doi.org/10.1785/gssrl.78.1.7"
+    ],
+    [
+     "W2077965493",
+     "On the spatio-temporal distribution of M 7.0+ worldwide seismicity with a non-parametric statistics",
+     2007,
+     "https://doi.org/10.1016/j.tecto.2007.11.066"
+    ]
+   ]
+  }
+ }
+}
