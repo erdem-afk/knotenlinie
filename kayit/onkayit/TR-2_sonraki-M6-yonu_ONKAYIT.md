@@ -183,3 +183,23 @@ olası". Mutlak olasılık yazılmaz.
 
 Kapanırsa: (a) küresel M ≥ 3,5 tamlığı olan bir katalogla K ≥ 80 elde edilirse, ya da (b) kırılma yönü (yayımlanmış
 sonlu fay modelleri) en az 30 kümede bilinir ve sessiz taraf kırılma yönünden ayrıştırılabilirse.
+
+## Ek 1 (11 Kasım 2026, dondurmadan sonra, isabet hesaplanmadan önce): |A| = 1/3 eşitliği
+
+Manifest üretilirken metin ile sayım kodu arasında bir fark bulundu. Sayım kodu (d7a4e84) |A| değerini üç haneye
+yuvarlayıp 1/3 ile karşılaştırıyor; bu yüzden |A| tam 1/3 olan iki birincil (usp00055dh, 5/15; us7000i90q, 7/21)
+sayımda dışarıda kaldı. Metin "|A| ≥ 1/3" diyor; harfiyen okunursa K 42 olur. Fark taraf bilgisi taşımıyor ve
+hiçbir isabet hesaplanmadan bulundu.
+
+Karar: sayım kodunun fiilî ölçütü geçerlidir (yuvarlanmış |A| ≥ 1/3; uygulamada |A| > 1/3), K = 40. Gerekçe: bu
+belgede dondurulan K, eşikler (26 ve 22), güç kapısı ve hüküm olasılıkları tablosu bu kodun çıktısıyla hesaplandı;
+metin okuması dondurulmuş sayıları değiştirirdi. Manifest `--sayim-yuvarlama` bayrağıyla üretilir. Diğer 40 seçim
+iki okumada aynıdır.
+
+Sınır olarak kayda geçer: dışarıda kalan iki küme sonucu en çok 2 isabet oynatabilir. K = 42 okumasında eşikler
+X ≥ 27 (H1) ve X ≤ 23 (H0) olurdu. Sonuç yazılırken, gözlenen X için K = 42 okumasında hükmün değişip
+değişemeyeceği (X ile X + 2 arasındaki her değer için) açıkça belirtilir; iki olayın isabeti hesaplanmaz.
+
+Uygulama notları (kodlayıcının en dar okumaları, isabetten önce kayda geçti): ortak olay kuralı yalnız sonraki
+olaya uygulanır; bootstrap `numpy.default_rng(20261111)`, üç satır aynı indislerle, doğrusal yüzdelik; kuyruk reddi
+ölçütü p ≤ 0,05; u/L medyanına eşit kümeler iki gruba da girmez; ağırlık merkezi tanımında yalnız köken değişir.
