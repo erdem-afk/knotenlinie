@@ -109,3 +109,29 @@ gerekir, özetten doğrulanamayan sayı kullanılmaz.
 Köprü ölçümü: jeodezik geçici × tahmin sınama k 8, J 0,0084 (Halka 1; kontrol k 154–208). Yeni ölçüm yapılmadı.
 
 Karar: TR-11 kapandı (ölçüm tamam). TR-12 aday.
+
+## Halka 5 (12 Kasım 2026): TR-12 tablosu, GNSS kolunun sınırı
+
+Önceki sonuç: TR-12 literatür tablosu (`research_notes/Fayın anlık durumu gözlem boşlukları/oncul_iddia_buyuklukleri.md`).
+12 yıl ölçekli öncül GNSS iddiası TR-11 ölçüsüne çevrildi. Tabanın (2,42 mm/yıl) üstünde doğrulanmış iddia yok;
+3'ü altında, Bedford 2020 büyük olasılıkla altında (4–8 mm'lik tersinme 0,3–2,8 mm/yıl), 8'i çevrilemiyor (yüzeyde
+küme düzeyinde büyüklük yayımlanmamış ya da tam metin okunamadı; yayıncı 403'leri atlatılmadı). Tek olaylı 11
+iddianın hepsi dalma-batma; kıta içi doğrultu atımlı fay için yıl ölçekli GNSS öncül iddiası bulunamadı.
+
+Başarısızlığın biçimi: sınanacak bir etki büyüklüğü yok. İddialar fay kayması ya da moment cinsinden, tek olaylı ve
+başka mekanizmada; TR-11 ölçüsü de en sık bildirilen biçimlere (5 yıldan eski hız adımı, geri dönen tersinme)
+yapısal olarak duyarsız.
+
+Sınır hükmü: "yıl ölçekli GNSS hız değişimi Marmara'da büyük depremin zamanını daraltır mı" sorusu bugünkü açık
+veriyle sınanamaz. Eksik veri: (a) olay öncesi yoğun ağ serileriyle en az 20 bağımsız olay kümesi (TR-1), (b) aktif
+doğrultu atımlı kuşakta en az 30 sakin yer (TR-11 sınıf A), (c) kıta içi doğrultu atımlı fayda yayımlanmış bir
+öncül büyüklüğü. Elde kalan tek sayı TR-11'in ölçeği: temsilî Marmara geometrisinde 5,4 mm/yıl'dan küçük derin
+kayma hızı değişimi görülemez (alt sınır).
+
+Çıkan soru: bu koldan 0 € ile sınanabilir yeni soru çıkmadı. Halka 1'den bekleyen adaylar yeni iş paketi gerektiriyor
+(seçim Erdem'in): TR-5/TR-4 ortam gürültüsüyle sismik hız değişimi (dalga formu işlemesi), TR-6 sismisiteden
+gerilme ölçerin kör doğrulaması, TR-7 tetiklenmiş tremor taraması, TR-9 artçı cephesi ile jeodezik sınır, TR-10
+sünme hızı değişimi (NISAR serisi bekleniyor).
+
+Üç turun özeti: TR-1 güç yok (koşulmadı), TR-2 H0, TR-3 güç yok, TR-8 elendi, TR-11 ölçek verdi, TR-12 veri yok.
+Zaman eksenini yıl ölçeğine indiren bir terim bulunmadı; yeni bir iddia kanıtlanmadı.
