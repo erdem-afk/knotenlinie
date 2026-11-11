@@ -29,3 +29,31 @@ TR-1 bunlardan (a) hedef olay sayısı güç kapısını geçebilecek tek aday (
 Kapanmış adayların yeniden açma şartları denetlendi: hiçbiri sağlanmıyor (Y-1: Klein 2026 hakemli değil; FA-3: model
 kataloğu kapalı; VE-1: dört tam metinden ikisinin açık bağlantısı var ama okunamadı; S-2: Murru 2016 açık bağlantısı
 bulundu, içerik işlenmedi).
+
+## Halka 2 (11 Kasım 2026): TR-1 koşulmadan kapandı, TR-2 donduruldu
+
+Önceki sonuç: TR-1 (büyük deprem öncesi 2 yıllık GNSS hız değişimi, küresel sınav) ön kaydı iki incelemeden geçti
+(1: RED, 2: düzelt-sonra-kabul). Sürüm 2 kurallarıyla yalnız üstveriden sayım: en az 5 kontrollü olay 15, bağımsız
+küme 11–12 (kapı 20), plasebosu hesaplanabilen olay 3 (gereken 10 küme). Hüküm: güç yok; hiçbir seri indirilmedi.
+Kaba sayımdaki 60 olay, temiz pencere şartı sayılmadan bulunmuştu. Kayıt: `kayit/onkayit/TR-1_INCELEME-2.md`.
+
+Başarısızlığın biçimi: darboğaz olay sayısı değil, kirlenmemiş karşılaştırma penceresi. Büyük depremler, daha
+önceki depremlerin basamak ve postsismik izlerinin sürdüğü yerlerde oluyor; Japonya'da 7 olayın kümesi geçerli ama
+aynı anda sakin kontrol merkezi yok. Yani "olay önü hız değişimi olağandan büyük mü" sorusu, "olağan" ölçülmeden
+sorulamıyor.
+
+Çıkan soru (TR-11): depremden bağımsız olarak, bir GNSS kümesinin 2 yıllık hız değişiminin taban dağılımı nedir?
+Yani hiç deprem olmayan pencerelerde belli büyüklükte bir hız değişimi ne sıklıkta görülür (yanlış alarm oranı) ve
+bu tabanın üstüne çıkabilmek için bir ön kaymanın en az kaç mm/yıl yüzey hızı değişimi üretmesi gerekir? Bu bir
+tahmin sınavı değil, ölçüm sınırıdır: sonucu "yıl ölçekli GNSS alarmı Marmara'da şu büyüklükten küçük ön kaymayı
+göremez" cümlesidir. Olay gerektirmediği için TR-1'in darboğazına takılmaz. Marmara istasyonlarının 2017 sonrası
+verisi VE-1 için kör kalır; taban Marmara dışı istasyonlardan ve Marmara'nın 2016 ve öncesinden ölçülür.
+
+Köprü ölçümü: Halka 1'deki jeodezik geçici kolu (k 8, J 0,0084; kontrol k 154–208). Yeni ölçüm yapılmadı.
+
+Karar: TR-11 aday olarak deftere girdi; TR-2 koşusundan sonra ön kayda alınır.
+
+Paralel kol, TR-2 (doğrultu atımlı Mw 6,0–7,2 sonrası gelen M≥6 artçısı az tarafta mı): olay sayımı 40 bağımsız
+küme, güç kapısı sınırda geçti (ölçülebilir en küçük isabet oranı 0,699, eşik 0,70). Ön kayıt incelendi (düzeltmeyle
+kabul; zaman ters çevrimi negatif kontrolü, manifest, ETAS formülü eklendi) ve 0614c3d ile donduruldu. Bu sınav zamanı
+değil yönü ölçer.

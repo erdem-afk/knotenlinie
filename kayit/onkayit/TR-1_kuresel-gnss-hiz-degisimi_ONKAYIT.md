@@ -1,7 +1,7 @@
 # TR-1 ön kayıt: büyük deprem öncesi yıl ölçekli GNSS hız değişimi, küresel çok olaylı sınav
 
-Sürüm 2, 11 Kasım 2026. Durum: TASLAK (ikinci incelemeden sonra dondurulur; dondurma commit'i hiçbir olay ya da kontrol
-kümesi işlenmeden önce atılır). Sürüm 1 bağımsız incelemede RED aldı (`TR-1_INCELEME-1.md`); bu sürüm o raporun 1–7.
+Sürüm 2, 11 Kasım 2026. Durum: KAPANDI, güç yok (11 Kasım 2026). Sürüm 2 dondurulmadı, veri indirilmedi; üstveri sayımında K 11–12 < 20. Bkz. `TR-1_INCELEME-2.md`.
+Sürüm 1 bağımsız incelemede RED aldı (`TR-1_INCELEME-1.md`); bu sürüm o raporun 1–7.
 bulgularını işler. Kol: TR (türetme döngüsü). Tarama: `research_notes/Fayın anlık durumu gözlem boşlukları/jeodezik_gecici_gravite.md`.
 
 ## 1. Neden bu soru
