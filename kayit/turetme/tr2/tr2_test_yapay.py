@@ -361,5 +361,14 @@ def uctan_uca_dosyalarla():
             assert "sha256" in str(e)
 
 
+@sina
+def ek1_k42():
+    for X, deg in ((22, True), (23, True), (24, False), (25, True), (26, True), (27, False), (30, False)):
+        man, ag, ol, et, _ = yapay(X=X, tohum=300 + X)
+        r = KO.hesapla(man, ag, ol, et)
+        assert r["ek1_K42"]["hukum_degisebilir"] is deg, (X, r["ek1_K42"])
+        assert "Ek 1 (K = 42" in KO.md_yaz(r)
+
+
 if __name__ == "__main__":
     print(f"{len(GECEN)} sınav geçti.")

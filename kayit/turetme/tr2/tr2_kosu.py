@@ -32,6 +32,11 @@ ALFA = 0.05
 Q_BOSLUK = 0.65                    # §4
 BOOT_N, BOOT_TOHUM = 10000, 20261111
 KOMSU_AG_ORAN = 0.6                # §3 yorum kuralı (ii)
+H1_ESIK_42, H0_ESIK_42 = 27, 23    # Ek 1: K = 42 okuması
+
+
+def hukum_k42(X):
+    return "H1" if X >= H1_ESIK_42 else "H0" if X <= H0_ESIK_42 else "ayirt_edilemez"
 
 
 # ---------------------------------------------------------------- çekirdek (dosya açmaz)
@@ -202,7 +207,10 @@ def hesapla(manifest, manifest_ag, olaylar, etas):
         "etas_okumasi_arka_plan_kuralina_tabi": k3,
     }
     y["s8_aktarim_adayi"] = bool(hk == "H1" and komsu and not ust_red)
-    return {"K": K, "X": X, "oran": X / K, "hukum": hk,
+    k42 = {x: hukum_k42(x) for x in range(X, X + 3)}
+    ek1 = {"K42_hukumleri": k42, "hukum_degisebilir": any(v != hk for v in k42.values()),
+           "not": "iki olayın (usp00055dh, us7000i90q) isabeti hesaplanmadı"}
+    return {"K": K, "X": X, "oran": X / K, "hukum": hk, "ek1_K42": ek1,
             "binom": {"ust_kuyruk_p_0_5": binom_ust(X, K, 0.5), "alt_kuyruk_p_0_70": binom_alt(X, K, 0.70)},
             "yorum_kurallari": y, "log_skor": log_skor, "bilgi_satirlari": b,
             "kume_satirlari": sat, "agirlik_satirlari": ag}
@@ -275,7 +283,11 @@ def md_yaz(r):
          f"- K = {r['K']}, X = {r['X']}, oran {r['oran']:.3f}.",
          f"- Hüküm: **{ad}** (eşikler: X ≥ 26 H1, X ≤ 22 H0, 23–25 ayırt edilemez).",
          f"- P(X ≥ {r['X']} | p = 0,5) = {r['binom']['ust_kuyruk_p_0_5']:.4f}; "
-         f"P(X ≤ {r['X']} | p = 0,70) = {r['binom']['alt_kuyruk_p_0_70']:.4f}.", "",
+         f"P(X ≤ {r['X']} | p = 0,70) = {r['binom']['alt_kuyruk_p_0_70']:.4f}.",
+         "- Ek 1 (K = 42 okuması; eşikler X ≥ 27 H1, X ≤ 23 H0; dışarıda kalan iki kümenin isabeti hesaplanmadı): "
+         + ", ".join(f"X = {x} → {v}" for x, v in r["ek1_K42"]["K42_hukumleri"].items())
+         + (". Hüküm K = 42 okumasında DEĞİŞEBİLİR." if r["ek1_K42"]["hukum_degisebilir"]
+            else ". Hüküm K = 42 okumasında değişmez."), "",
          "## Yorum kuralları (§3; hükmü değiştirmez)", "",
          f"1. Arka plan kayması (§5.8 ile ölçülür): ters çevrim üst kuyruk reddi "
          f"{y['kural1_arka_plan_kaymasi']['ust_kuyruk_red']}, alt kuyruk reddi {y['kural1_arka_plan_kaymasi']['alt_kuyruk_red']}.",
@@ -342,13 +354,20 @@ def main(a):
     n = sha_dogrula(a.ham, a.sha)
     man, ag, olaylar, etas = dosyalari_oku(a.ham, a.manifest, a.manifest_agirlik, a.etas)
     r = hesapla(man, ag, olaylar, etas)
+    def _sha(yol):
+        return hashlib.sha256(open(yol, "rb").read()).hexdigest()
     r["girdi"] = {"sha_dogrulanan_dosya": n, "manifest": os.path.basename(a.manifest),
-                  "manifest_agirlik": os.path.basename(a.manifest_agirlik), "etas": os.path.basename(a.etas)}
+                  "manifest_agirlik": os.path.basename(a.manifest_agirlik), "etas": os.path.basename(a.etas),
+                  "uzerine_yaz": bool(a.uzerine_yaz),
+                  "sha256": {os.path.basename(y): _sha(y) for y in (
+                      a.manifest, a.manifest_agirlik, a.etas, a.sha, os.path.abspath(__file__),
+                      os.path.join(BURA, "tr2_sayim.py"))}}
+    js = json.dumps(r, ensure_ascii=False, indent=1)
+    md = md_yaz(r)                       # yazmadan önce; düşerse hiçbir dosya oluşmaz
     os.makedirs(a.cikti, exist_ok=True)
-    with open(os.path.join(a.cikti, "tr2_sonuc.json"), "w") as f:
-        json.dump(r, f, ensure_ascii=False, indent=1)
-    with open(os.path.join(a.cikti, "tr2_sonuc.md"), "w") as f:
-        f.write(md_yaz(r))
+    for ad_, icerik in (("tr2_sonuc.json", js), ("tr2_sonuc.md", md)):
+        with open(os.path.join(a.cikti, ad_), "w" if a.uzerine_yaz else "x") as f:
+            f.write(icerik)
     print(f"K = {r['K']}, X = {r['X']}, hüküm {r['hukum']}. Yazıldı: {a.cikti}/tr2_sonuc.json, tr2_sonuc.md")
 
 
