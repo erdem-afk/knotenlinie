@@ -77,3 +77,35 @@ Marmara'ya taşınan: hiçbir şey. Nisan 2025 Mw 6,2 sonrası "sıradaki olay s
 örneklemden destek almıyor; tersi de kanıtlanmadı.
 
 Karar: TR-2 kapandı (H0). Sıradaki halka TR-11 (GNSS hız değişiminin taban dağılımı; Halka 2'de türedi).
+
+## Halka 4 (11–12 Kasım 2026): TR-11 ölçümü
+
+Önceki sonuç: TR-11 tek koşu (ön kayıt cbdfb9e + Ek 1–2; inceleme 1 düzeltmeyle kabul; kod incelemesi koşulabilir;
+sonuç `kayit/turetme/tr11/tr11_sonuc.md`). 4730 istasyon indirildi (hata 0), 665 depremsiz küme-pencere, 300 yer,
+50 blok. Kod denetimleri gerçek S görülmeden geçti (yapay oran 0,969; eklenen 3 mm/yıl sinyal istasyon düzeyinde
+3,0000).
+
+- Taban: 2 yıllık hız değişimi ölçüsü S'nin %95'i 2,42 [2,06, 2,76] mm/yıl; medyan 0,79; %99 3,71 [3,26, 4,83].
+- Önceden beyan edilen gürültü modeline göre: eşdeğer kırpışma genliği 4,58 [3,90, 5,22]; etiket "N0 bandında",
+  çünkü alt sınır 4'ün hemen altında. Kuyruk Gauss modelinden ağır (oran 1,94 [1,67, 2,16]). Yazarın önsel beyanı
+  (0,45 "N0-yüksek'ten büyük", 0,45 "bantta") ikisi arasında kaldı.
+- Marmara çevirisi (alt sınır, %5 yanlış alarm, %50 algılama): en elverişli geometride 1,96 mm/yıl, temsilî
+  geometride (kilitlenme 10 km, istasyonlar 20 km, dengeli referans) 5,39 mm/yıl'dan küçük derin kayma hızı değişimi
+  görülemez. Yayımlanmış kayma açığı hızı 10–15 mm/yıl (özetten). Önceden sabit kural: "bu ölçüm yolu kapatamadı";
+  bu, yolun açık olduğu anlamına gelmez.
+- Sınırlar: doğrultu atımlı kuşakta 0 yer (güç yok), öteki aktif kuşakta 6 yer; taban az sismik bölge tabanıdır.
+  n_y = 8 katmanında 199 küme-pencere kaldığı için çeviri kural gereği havuzla yapıldı. 2008 epoğu belirgin yüksek
+  (q95 3,98 [3,29, 5,40], 35 küme-pencere); nedeni ayrıştırılmadı. Sonuç dosyasındaki "okuma durduruldu" ifadesi
+  Ek 2'den önceki metinden kaldı; kod satırları atlayarak okudu, sonuç dosyası koşudan sonra değiştirilmedi.
+
+Başarısızlığın biçimi: bu kol bir "hayır" vermedi, bir ölçek verdi. Yıl ölçekli GNSS alarmı Marmara benzeri
+geometride ancak yükleme hızının kabaca üçte biri ile yarısı kadar (ve bu alt sınır) bir derin kayma değişimini
+görebilir. Soru artık "öncül var mı" değil, "iddia edilen öncüller bu ölçeğe ulaşıyor mu".
+
+Çıkan soru (TR-12): yayımlanmış yıl ölçekli öncül GNSS hız değişimi iddialarının büyüklükleri, aynı ölçüye
+çevrildiğinde bu tabanın (%95: 2,4; %99: 3,7 mm/yıl) üstünde mi? Bu bir literatür tablosudur; tam metin sayıları
+gerekir, özetten doğrulanamayan sayı kullanılmaz.
+
+Köprü ölçümü: jeodezik geçici × tahmin sınama k 8, J 0,0084 (Halka 1; kontrol k 154–208). Yeni ölçüm yapılmadı.
+
+Karar: TR-11 kapandı (ölçüm tamam). TR-12 aday.
