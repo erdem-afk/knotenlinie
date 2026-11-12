@@ -1,0 +1,813 @@
+{
+ "girdi_sha256": {
+  "tr7_varlik.csv": "a795a7f98198e6c20b1b24bca282dabb35addc9c50023694379110d8c90d48e8",
+  "tr7_varlik_ozet.json": "621791d083c071f0c53617a26dd65ae513a9f3a6f20d72140006af17510d174d",
+  "tr7_istasyon.csv": "a7bb0892d3fb19d1ea0b882857bf1be6340ea3600f61586edcf0da56e4050db7",
+  "tr7_tetikleyici.csv": "dec0cdd0b0b441ae792a98564d55164edd2bb858a0b7eebf235e6355f95ceb8c"
+ },
+ "comcat_sha256": "ae9117d0fe64aae4be19a45a0151e830bd2b35de40056e3b322a3c4a06833e61",
+ "liste": {
+  "cift": 71,
+  "olay": 17,
+  "istasyon_tetikleyici": 475,
+  "satir": 884,
+  "birim": 16,
+  "ana_birim": 14
+ },
+ "K0_on": {
+  "x1": {
+   "S1": {
+    "n": 9,
+    "bant": "tam",
+    "tau_n": 2.02,
+    "tau8": 2.72,
+    "tau5": 4.44,
+    "birimler": [
+     "official20110311054624120_30",
+     "us6000qw60",
+     "WHARTON2012",
+     "official20100227063411530_30",
+     "usb000g7x7",
+     "usb000jyiv",
+     "ak0219neiszm",
+     "us20002926",
+     "us20003k7a"
+    ],
+    "kahramanmaras_bilgi": [
+     "us6000jllz",
+     "us6000jlqa"
+    ]
+   },
+   "S2": {
+    "n": 8,
+    "bant": "tam",
+    "tau_n": 2.75,
+    "tau8": 2.75,
+    "tau5": 4.68,
+    "birimler": [
+     "official20110311054624120_30",
+     "us6000qw60",
+     "WHARTON2012",
+     "official20100227063411530_30",
+     "usb000g7x7",
+     "usb000jyiv",
+     "us20002926",
+     "ak0219neiszm"
+    ],
+    "kahramanmaras_bilgi": [
+     "us6000jllz",
+     "us6000jlqa"
+    ]
+   },
+   "S3": {
+    "n": 8,
+    "bant": "tam",
+    "tau_n": 2.75,
+    "tau8": 2.75,
+    "tau5": 4.91,
+    "birimler": [
+     "official20110311054624120_30",
+     "us6000qw60",
+     "WHARTON2012",
+     "official20100227063411530_30",
+     "usb000g7x7",
+     "usb000jyiv",
+     "us20002926",
+     "ak0219neiszm"
+    ],
+    "kahramanmaras_bilgi": [
+     "us6000jllz",
+     "us6000jlqa"
+    ]
+   },
+   "S4": {
+    "n": 8,
+    "bant": "tam",
+    "tau_n": 2.76,
+    "tau8": 2.76,
+    "tau5": 5.15,
+    "birimler": [
+     "official20110311054624120_30",
+     "us6000qw60",
+     "WHARTON2012",
+     "official20100227063411530_30",
+     "usb000g7x7",
+     "usb000jyiv",
+     "us20002926",
+     "ak0219neiszm"
+    ],
+    "kahramanmaras_bilgi": [
+     "us6000jllz",
+     "us6000jlqa"
+    ]
+   },
+   "S5": {
+    "n": 6,
+    "bant": "zayif",
+    "tau_n": 2.4,
+    "tau8": null,
+    "tau5": 2.76,
+    "birimler": [
+     "us6000qw60",
+     "official20070912111026830_34",
+     "usp000exfn",
+     "usp000e12e",
+     "ak0219neiszm",
+     "usp000f2ab"
+    ],
+    "kahramanmaras_bilgi": [
+     "us6000jllz",
+     "us6000jlqa"
+    ]
+   },
+   "S6": {
+    "n": 5,
+    "bant": "zayif",
+    "tau_n": 2.44,
+    "tau8": null,
+    "tau5": 2.44,
+    "birimler": [
+     "us6000qw60",
+     "official20070912111026830_34",
+     "usp000exfn",
+     "usp000e12e",
+     "usp000f2ab"
+    ],
+    "kahramanmaras_bilgi": []
+   },
+   "S7": {
+    "n": 10,
+    "bant": "tam",
+    "tau_n": 2.41,
+    "tau8": 2.82,
+    "tau5": 4.73,
+    "birimler": [
+     "official20110311054624120_30",
+     "us6000qw60",
+     "WHARTON2012",
+     "official20100227063411530_30",
+     "usb000g7x7",
+     "official20070912111026830_34",
+     "usb000jyiv",
+     "us20002926",
+     "ak0219neiszm",
+     "usp000g650"
+    ],
+    "kahramanmaras_bilgi": [
+     "us6000jllz",
+     "us6000jlqa"
+    ]
+   }
+  },
+  "x1/3": {
+   "S1": {
+    "n": 4,
+    "bant": "veri yok",
+    "tau_n": 2.03,
+    "tau8": null,
+    "tau5": null,
+    "birimler": [
+     "official20110311054624120_30",
+     "us6000qw60",
+     "WHARTON2012",
+     "official20100227063411530_30"
+    ],
+    "kahramanmaras_bilgi": [
+     "us6000jllz",
+     "us6000jlqa"
+    ]
+   },
+   "S2": {
+    "n": 4,
+    "bant": "veri yok",
+    "tau_n": 2.0,
+    "tau8": null,
+    "tau5": null,
+    "birimler": [
+     "official20110311054624120_30",
+     "us6000qw60",
+     "WHARTON2012",
+     "official20100227063411530_30"
+    ],
+    "kahramanmaras_bilgi": [
+     "us6000jllz",
+     "us6000jlqa"
+    ]
+   },
+   "S3": {
+    "n": 3,
+    "bant": "veri yok",
+    "tau_n": 3.19,
+    "tau8": null,
+    "tau5": null,
+    "birimler": [
+     "official20110311054624120_30",
+     "us6000qw60",
+     "WHARTON2012"
+    ],
+    "kahramanmaras_bilgi": [
+     "us6000jllz",
+     "us6000jlqa"
+    ]
+   },
+   "S4": {
+    "n": 3,
+    "bant": "veri yok",
+    "tau_n": 3.26,
+    "tau8": null,
+    "tau5": null,
+    "birimler": [
+     "official20110311054624120_30",
+     "us6000qw60",
+     "WHARTON2012"
+    ],
+    "kahramanmaras_bilgi": [
+     "us6000jllz",
+     "us6000jlqa"
+    ]
+   },
+   "S5": {
+    "n": 1,
+    "bant": "veri yok",
+    "tau_n": 4.23,
+    "tau8": null,
+    "tau5": null,
+    "birimler": [
+     "us6000qw60"
+    ],
+    "kahramanmaras_bilgi": [
+     "us6000jllz",
+     "us6000jlqa"
+    ]
+   },
+   "S6": {
+    "n": 1,
+    "bant": "veri yok",
+    "tau_n": 4.29,
+    "tau8": null,
+    "tau5": null,
+    "birimler": [
+     "us6000qw60"
+    ],
+    "kahramanmaras_bilgi": []
+   },
+   "S7": {
+    "n": 4,
+    "bant": "veri yok",
+    "tau_n": 2.01,
+    "tau8": null,
+    "tau5": null,
+    "birimler": [
+     "official20110311054624120_30",
+     "us6000qw60",
+     "WHARTON2012",
+     "official20100227063411530_30"
+    ],
+    "kahramanmaras_bilgi": [
+     "us6000jllz",
+     "us6000jlqa"
+    ]
+   }
+  },
+  "x3": {
+   "S1": {
+    "n": 9,
+    "bant": "tam",
+    "tau_n": 6.05,
+    "tau8": 8.15,
+    "tau5": 13.31,
+    "birimler": [
+     "official20110311054624120_30",
+     "us6000qw60",
+     "WHARTON2012",
+     "official20100227063411530_30",
+     "usb000g7x7",
+     "usb000jyiv",
+     "ak0219neiszm",
+     "us20002926",
+     "us20003k7a"
+    ],
+    "kahramanmaras_bilgi": [
+     "us6000jllz",
+     "us6000jlqa"
+    ]
+   },
+   "S2": {
+    "n": 9,
+    "bant": "tam",
+    "tau_n": 5.96,
+    "tau8": 8.26,
+    "tau5": 14.05,
+    "birimler": [
+     "official20110311054624120_30",
+     "us6000qw60",
+     "WHARTON2012",
+     "official20100227063411530_30",
+     "usb000g7x7",
+     "usb000jyiv",
+     "us20002926",
+     "ak0219neiszm",
+     "us20003k7a"
+    ],
+    "kahramanmaras_bilgi": [
+     "us6000jllz",
+     "us6000jlqa"
+    ]
+   },
+   "S3": {
+    "n": 8,
+    "bant": "tam",
+    "tau_n": 8.26,
+    "tau8": 8.26,
+    "tau5": 14.72,
+    "birimler": [
+     "official20110311054624120_30",
+     "us6000qw60",
+     "WHARTON2012",
+     "official20100227063411530_30",
+     "usb000g7x7",
+     "usb000jyiv",
+     "us20002926",
+     "ak0219neiszm"
+    ],
+    "kahramanmaras_bilgi": [
+     "us6000jllz",
+     "us6000jlqa"
+    ]
+   },
+   "S4": {
+    "n": 8,
+    "bant": "tam",
+    "tau_n": 8.27,
+    "tau8": 8.27,
+    "tau5": 15.44,
+    "birimler": [
+     "official20110311054624120_30",
+     "us6000qw60",
+     "WHARTON2012",
+     "official20100227063411530_30",
+     "usb000g7x7",
+     "usb000jyiv",
+     "us20002926",
+     "ak0219neiszm"
+    ],
+    "kahramanmaras_bilgi": [
+     "us6000jllz",
+     "us6000jlqa"
+    ]
+   },
+   "S5": {
+    "n": 6,
+    "bant": "zayif",
+    "tau_n": 7.21,
+    "tau8": null,
+    "tau5": 8.29,
+    "birimler": [
+     "us6000qw60",
+     "official20070912111026830_34",
+     "usp000exfn",
+     "usp000e12e",
+     "ak0219neiszm",
+     "usp000f2ab"
+    ],
+    "kahramanmaras_bilgi": [
+     "us6000jllz",
+     "us6000jlqa"
+    ]
+   },
+   "S6": {
+    "n": 5,
+    "bant": "zayif",
+    "tau_n": 7.32,
+    "tau8": null,
+    "tau5": 7.32,
+    "birimler": [
+     "us6000qw60",
+     "official20070912111026830_34",
+     "usp000exfn",
+     "usp000e12e",
+     "usp000f2ab"
+    ],
+    "kahramanmaras_bilgi": []
+   },
+   "S7": {
+    "n": 11,
+    "bant": "tam",
+    "tau_n": 5.97,
+    "tau8": 8.46,
+    "tau5": 14.18,
+    "birimler": [
+     "official20110311054624120_30",
+     "us6000qw60",
+     "WHARTON2012",
+     "official20100227063411530_30",
+     "usb000g7x7",
+     "official20070912111026830_34",
+     "usb000jyiv",
+     "us20002926",
+     "ak0219neiszm",
+     "usp000g650",
+     "us20003k7a"
+    ],
+    "kahramanmaras_bilgi": [
+     "us6000jllz",
+     "us6000jlqa"
+    ]
+   }
+  }
+ },
+ "K0_on_not": "x3 alt sınırdır (yalnız x1 adayları yoklandı); x1/3 ve x3 bilgi satırıdır.",
+ "dislama": {
+  "5": {
+   "p_min_tam_algilama": 0.451,
+   "p_min_a90": 0.501
+  },
+  "6": {
+   "p_min_tam_algilama": 0.393,
+   "p_min_a90": 0.437
+  },
+  "7": {
+   "p_min_tam_algilama": 0.348,
+   "p_min_a90": 0.387
+  },
+  "8": {
+   "p_min_tam_algilama": 0.312,
+   "p_min_a90": 0.347
+  },
+  "9": {
+   "p_min_tam_algilama": 0.283,
+   "p_min_a90": 0.315
+  },
+  "10": {
+   "p_min_tam_algilama": 0.259,
+   "p_min_a90": 0.288
+  },
+  "11": {
+   "p_min_tam_algilama": 0.238,
+   "p_min_a90": 0.265
+  },
+  "12": {
+   "p_min_tam_algilama": 0.221,
+   "p_min_a90": 0.245
+  }
+ },
+ "var_kurali": {
+  "n=5,f=0": {
+   "N_neg": 50,
+   "FAR": 0.0,
+   "FAR_ust95": 0.0582,
+   "X_min": 2,
+   "K2_gecer": true
+  },
+  "n=5,f=1": {
+   "N_neg": 50,
+   "FAR": 0.02,
+   "FAR_ust95": 0.0914,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=5,f=2": {
+   "N_neg": 50,
+   "FAR": 0.04,
+   "FAR_ust95": 0.1206,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=5,f=3": {
+   "N_neg": 50,
+   "FAR": 0.06,
+   "FAR_ust95": 0.1478,
+   "X_min": 3,
+   "K2_gecer": false
+  },
+  "n=5,f=4": {
+   "N_neg": 50,
+   "FAR": 0.08,
+   "FAR_ust95": 0.1738,
+   "X_min": 3,
+   "K2_gecer": false
+  },
+  "n=5,f=5": {
+   "N_neg": 50,
+   "FAR": 0.1,
+   "FAR_ust95": 0.1988,
+   "X_min": 4,
+   "K2_gecer": false
+  },
+  "n=6,f=0": {
+   "N_neg": 60,
+   "FAR": 0.0,
+   "FAR_ust95": 0.0487,
+   "X_min": 2,
+   "K2_gecer": true
+  },
+  "n=6,f=1": {
+   "N_neg": 60,
+   "FAR": 0.017,
+   "FAR_ust95": 0.0766,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=6,f=2": {
+   "N_neg": 60,
+   "FAR": 0.033,
+   "FAR_ust95": 0.1012,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=6,f=3": {
+   "N_neg": 60,
+   "FAR": 0.05,
+   "FAR_ust95": 0.1242,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=6,f=4": {
+   "N_neg": 60,
+   "FAR": 0.067,
+   "FAR_ust95": 0.1461,
+   "X_min": 3,
+   "K2_gecer": false
+  },
+  "n=6,f=5": {
+   "N_neg": 60,
+   "FAR": 0.083,
+   "FAR_ust95": 0.1673,
+   "X_min": 4,
+   "K2_gecer": false
+  },
+  "n=7,f=0": {
+   "N_neg": 70,
+   "FAR": 0.0,
+   "FAR_ust95": 0.0419,
+   "X_min": 2,
+   "K2_gecer": true
+  },
+  "n=7,f=1": {
+   "N_neg": 70,
+   "FAR": 0.014,
+   "FAR_ust95": 0.066,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=7,f=2": {
+   "N_neg": 70,
+   "FAR": 0.029,
+   "FAR_ust95": 0.0872,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=7,f=3": {
+   "N_neg": 70,
+   "FAR": 0.043,
+   "FAR_ust95": 0.1071,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=7,f=4": {
+   "N_neg": 70,
+   "FAR": 0.057,
+   "FAR_ust95": 0.126,
+   "X_min": 3,
+   "K2_gecer": false
+  },
+  "n=7,f=5": {
+   "N_neg": 70,
+   "FAR": 0.071,
+   "FAR_ust95": 0.1443,
+   "X_min": 4,
+   "K2_gecer": false
+  },
+  "n=8,f=0": {
+   "N_neg": 80,
+   "FAR": 0.0,
+   "FAR_ust95": 0.0368,
+   "X_min": 2,
+   "K2_gecer": true
+  },
+  "n=8,f=1": {
+   "N_neg": 80,
+   "FAR": 0.013,
+   "FAR_ust95": 0.0579,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=8,f=2": {
+   "N_neg": 80,
+   "FAR": 0.025,
+   "FAR_ust95": 0.0766,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=8,f=3": {
+   "N_neg": 80,
+   "FAR": 0.037,
+   "FAR_ust95": 0.0941,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=8,f=4": {
+   "N_neg": 80,
+   "FAR": 0.05,
+   "FAR_ust95": 0.1108,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=8,f=5": {
+   "N_neg": 80,
+   "FAR": 0.062,
+   "FAR_ust95": 0.1269,
+   "X_min": 4,
+   "K2_gecer": false
+  },
+  "n=9,f=0": {
+   "N_neg": 90,
+   "FAR": 0.0,
+   "FAR_ust95": 0.0327,
+   "X_min": 2,
+   "K2_gecer": true
+  },
+  "n=9,f=1": {
+   "N_neg": 90,
+   "FAR": 0.011,
+   "FAR_ust95": 0.0516,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=9,f=2": {
+   "N_neg": 90,
+   "FAR": 0.022,
+   "FAR_ust95": 0.0683,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=9,f=3": {
+   "N_neg": 90,
+   "FAR": 0.033,
+   "FAR_ust95": 0.0839,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=9,f=4": {
+   "N_neg": 90,
+   "FAR": 0.044,
+   "FAR_ust95": 0.0988,
+   "X_min": 4,
+   "K2_gecer": true
+  },
+  "n=9,f=5": {
+   "N_neg": 90,
+   "FAR": 0.056,
+   "FAR_ust95": 0.1133,
+   "X_min": 4,
+   "K2_gecer": false
+  },
+  "n=10,f=0": {
+   "N_neg": 100,
+   "FAR": 0.0,
+   "FAR_ust95": 0.0295,
+   "X_min": 2,
+   "K2_gecer": true
+  },
+  "n=10,f=1": {
+   "N_neg": 100,
+   "FAR": 0.01,
+   "FAR_ust95": 0.0466,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=10,f=2": {
+   "N_neg": 100,
+   "FAR": 0.02,
+   "FAR_ust95": 0.0616,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=10,f=3": {
+   "N_neg": 100,
+   "FAR": 0.03,
+   "FAR_ust95": 0.0757,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=10,f=4": {
+   "N_neg": 100,
+   "FAR": 0.04,
+   "FAR_ust95": 0.0892,
+   "X_min": 4,
+   "K2_gecer": true
+  },
+  "n=10,f=5": {
+   "N_neg": 100,
+   "FAR": 0.05,
+   "FAR_ust95": 0.1023,
+   "X_min": 4,
+   "K2_gecer": true
+  },
+  "n=11,f=0": {
+   "N_neg": 110,
+   "FAR": 0.0,
+   "FAR_ust95": 0.0269,
+   "X_min": 2,
+   "K2_gecer": true
+  },
+  "n=11,f=1": {
+   "N_neg": 110,
+   "FAR": 0.009,
+   "FAR_ust95": 0.0424,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=11,f=2": {
+   "N_neg": 110,
+   "FAR": 0.018,
+   "FAR_ust95": 0.0561,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=11,f=3": {
+   "N_neg": 110,
+   "FAR": 0.027,
+   "FAR_ust95": 0.069,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=11,f=4": {
+   "N_neg": 110,
+   "FAR": 0.036,
+   "FAR_ust95": 0.0813,
+   "X_min": 4,
+   "K2_gecer": true
+  },
+  "n=11,f=5": {
+   "N_neg": 110,
+   "FAR": 0.045,
+   "FAR_ust95": 0.0932,
+   "X_min": 4,
+   "K2_gecer": true
+  },
+  "n=12,f=0": {
+   "N_neg": 120,
+   "FAR": 0.0,
+   "FAR_ust95": 0.0247,
+   "X_min": 2,
+   "K2_gecer": true
+  },
+  "n=12,f=1": {
+   "N_neg": 120,
+   "FAR": 0.008,
+   "FAR_ust95": 0.0389,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=12,f=2": {
+   "N_neg": 120,
+   "FAR": 0.017,
+   "FAR_ust95": 0.0515,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=12,f=3": {
+   "N_neg": 120,
+   "FAR": 0.025,
+   "FAR_ust95": 0.0633,
+   "X_min": 3,
+   "K2_gecer": true
+  },
+  "n=12,f=4": {
+   "N_neg": 120,
+   "FAR": 0.033,
+   "FAR_ust95": 0.0747,
+   "X_min": 4,
+   "K2_gecer": true
+  },
+  "n=12,f=5": {
+   "N_neg": 120,
+   "FAR": 0.042,
+   "FAR_ust95": 0.0856,
+   "X_min": 4,
+   "K2_gecer": true
+  }
+ },
+ "rastlanti_2_of_8_FAR005": 0.0572,
+ "parkfield_girdi_sha256": {
+  "nc_st.txt": "ab9b0d28014f1ef54d569a9aba45e3a47543a73391d559caa4508fc20eaa2e8e",
+  "es_st.txt": "86a5d5bc1729bbbb73b163775ae6566d13a956eb1acc364b4d203ae2bc32566d"
+ },
+ "parkfield": {
+  "istasyon": 56,
+  "ag": {
+   "BK": 2,
+   "CI": 6,
+   "NC": 47,
+   "NP": 1
+  },
+  "BK_PKD": true,
+  "uzaklik_orta_km": 8171,
+  "tau_kaba_kpa": 27.12,
+  "W_orta": [
+   "2011-03-11T06:13:38",
+   "2011-03-11T06:45:02"
+  ]
+ }
+}
