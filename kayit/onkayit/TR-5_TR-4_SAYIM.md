@@ -511,3 +511,17 @@ başına 2012–2023 ay oranı ISK, CTKS, KLYT ve MDNY'de 0,92–0,97, GEMT'de 0
 - UIB-NORSAR'ın neredeyse tamamen boş dönmesinin nedeni doğrulanamadı.
 - Kontrol havuzunun doluluğu ölçülmedi.
 - İstek başına yalnız 1 dakika alındığı için gün doluluğu (≥ 0,60 şartı) ölçülmedi; ay doluluğu yerine kullanıldı.
+
+## Ek 2: TR-4 doluluk yoklaması tamamlandı (12 Kasım)
+
+Ek 1'de süre sınırı yüzünden yoklanamayan 835 KOERI isteği kök oturumda aynı betikle ve aynı önbellekten tamamlandı (13 792 / 13 792 istek; 401/403/429 yok). `say` adımı yeniden koşuldu; TR-5 satırları Ek 1 ile aynı.
+
+TR-4 (24 KO istasyonu, aylık yoklama, 2012–2023):
+
+| Kural | Dolu istasyon | T 2017 | 2018 | 2019 | 2020 | 2021 | 2022 | 2023 | Kapı (≥10 istasyon, ≥5 yıl arayla iki epok) |
+|---|---|---|---|---|---|---|---|---|---|
+| Ana (≥%80, boşluk ≤3 ay) | 18 | 10 | 14 | 13 | 14 | 10 | 10 | 10 | GEÇTİ (2017 ve 2022; tam sınırda) |
+| Gevşek (≥%60, ≤6 ay) | 20 | 16 | 17 | 16 | 17 | 11 | 12 | 12 | GEÇTİ |
+| Sıkı (≥%90, ≤2 ay) | 15 | 5 | 7 | 12 | 12 | 9 | 10 | 10 | GEÇMEDİ |
+
+Hüküm: TR-4 veri kapısı ana kuralla GEÇTİ, ama iki epokta tam 10 istasyonla; gün düzeyinde doluluk ölçülünce bir istasyon kaybı kapıyı kapatır. Ölçüm TR-5b ile aynı yöntemi ve aynı indirme altyapısını kullanır; ön kaydı TR-5b ön kaydının incelemesinden sonra, aynı işleme zinciriyle yazılır.
