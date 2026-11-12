@@ -1,0 +1,3122 @@
+{
+ "tarih": "2026-11-12",
+ "kurallar": "TR-13 yeniden açma şartı (a): temiz olaylar için referans dönemi ve eşleşik kontrol pencerelerinin TAM sayımı (0 €).\n\nKurallar TR-13_SAYIM.md §3.1'den AYNEN alınır; yalnız örnek yerine tam veriyle sayılır:\n  * Hedef olaylar: tr13_sayim.py say çıktısında (sayim4.json) M >= 6,0, N3bg_en_iyi[mc] >= 50, önce-pencere temiz.\n  * Mc = MAXC + 0,2 (>= 50 olay; 20–49 olayda MAXC + 0,3). Referans şartı: Mc_ref <= Mc_önce + tol ve\n    N_ref,bg >= 2 x 50, tol 0,1 / 0,3. GK74 (tr13_sayim.gk74).\n  * ComCat olayları: referans zaten tamdı (kat_ComCat, [t-10y, t), R_ind, Mc_ref = [t-10y, t-5y) MAXC+0,2);\n    değer sayim4.json'dan aynen alınır.\n  * ISC/GeoNet/EMSC olayları: referans [t-10y, t-3y) R dairesinde, yıl yıl TAM indirilir (en küçük büyüklük\n    Mc_önce - 0,3, tam3 ile aynı biçim). Mc_ref bu 7 yılın MAXC + 0,2'si; GK74 bu pencerede, R dairesinde\n    (ISC tam3 sayımıyla aynı yöntem).\n  * Eşleşik kontrol penceresi (tanım aynen): bitişi t_c = t - 6k y (k = 1..7), t_c - 10 y >= 1975,\n    [t_c - 3 y, t_c + 3 y] içinde dairede (R) havuzda M >= 5,5 yok. YENİ olan yalnız doluluğun ölçülmesidir:\n    kontrolün önce-penceresi [t_c-3y, t_c) ve kendi referansı [t_c-10y, t_c-3y) hedefle AYNI kuralla sayılır:\n      önce dolu:  Mc_c <= Mc_önce + tol ve N3bg_c(m >= Mc_önce) >= 50\n      ref dolu:   Mc_c,ref <= Mc_önce + tol ve N_ref,bg,c(m >= Mc_önce) >= 100\n    ComCat'te kontrol penceresi hedefle aynı biçimde (R_ind, 10 y, M >= 1,0, Mc 5 y ve [t_c-10, t_c-5) kuralı).\n  * Bütün pencereler t'ye hizalı yıllık parçalardır: parça j = [t-(j+1)y, t-jy). Hedef referansı j = 3..9,\n    kontrol k önce-penceresi j = 6k..6k+2, kontrol referansı j = 6k+3..6k+9.\n\nKÖRLÜK (kod uygular): bütün sorgular ana şok zamanından ÖNCE biter ve <= 2025-12-31 (getir assert eder);\n2026+ satır sayılmaz. Gerçek katalogda yerelleşme ölçüsü (V(q), Gini, z) HESAPLANMAZ; yalnız sayı, Mc, GK74 sayısı.\n\nKullanım (python3 -I -B):\n  tr13_tamsayim.py indir <ham> <sayim4.json> <yeni_ham> [evre...]    evre: ref kontrol_ref kontrol_diger\n  tr13_tamsayim.py say   <ham> <sayim4.json> <yeni_ham> <cikti.json>\n",
+ "esik_N3bg": 50,
+ "hedef_olay": 41,
+ "hedef_kume": 31,
+ "eksik": [],
+ "tablo": {
+  "M>=6.5": {
+   "temiz": 25,
+   "temiz_kontrol_havuz": 18,
+   "temiz_ref_tol0.1": 11,
+   "duyarlilik_temiz_ref_mc_eski5_tol0.1": 10,
+   "temiz_kontrol_once_dolu_tol0.1": 5,
+   "temiz_kontrol_dolu_tol0.1": 3,
+   "temiz_ref_kontrol_havuz_tol0.1": 8,
+   "temiz_ref_kontrol_once_dolu_tol0.1": 5,
+   "temiz_ref_kontrol_dolu_tol0.1": 3,
+   "temiz_ref_tol0.3": 14,
+   "duyarlilik_temiz_ref_mc_eski5_tol0.3": 14,
+   "temiz_kontrol_once_dolu_tol0.3": 6,
+   "temiz_kontrol_dolu_tol0.3": 4,
+   "temiz_ref_kontrol_havuz_tol0.3": 9,
+   "temiz_ref_kontrol_once_dolu_tol0.3": 6,
+   "temiz_ref_kontrol_dolu_tol0.3": 4
+  },
+  "M>=6.0": {
+   "temiz": 31,
+   "temiz_kontrol_havuz": 24,
+   "temiz_ref_tol0.1": 16,
+   "duyarlilik_temiz_ref_mc_eski5_tol0.1": 13,
+   "temiz_kontrol_once_dolu_tol0.1": 9,
+   "temiz_kontrol_dolu_tol0.1": 4,
+   "temiz_ref_kontrol_havuz_tol0.1": 13,
+   "temiz_ref_kontrol_once_dolu_tol0.1": 9,
+   "temiz_ref_kontrol_dolu_tol0.1": 4,
+   "temiz_ref_tol0.3": 20,
+   "duyarlilik_temiz_ref_mc_eski5_tol0.3": 19,
+   "temiz_kontrol_once_dolu_tol0.3": 11,
+   "temiz_kontrol_dolu_tol0.3": 7,
+   "temiz_ref_kontrol_havuz_tol0.3": 15,
+   "temiz_ref_kontrol_once_dolu_tol0.3": 11,
+   "temiz_ref_kontrol_dolu_tol0.3": 7
+  }
+ },
+ "kumeler": [
+  {
+   "kume": 397,
+   "bolge": "Kaliforniya",
+   "olaylar": [
+    "ci700917",
+    "ci134894",
+    "ci628016",
+    "ci3019681",
+    "ci9108652"
+   ]
+  },
+  {
+   "kume": 160,
+   "bolge": "Kaliforniya",
+   "olaylar": [
+    "nc216859"
+   ]
+  },
+  {
+   "kume": 327,
+   "bolge": "Yeni Zelanda",
+   "olaylar": [
+    "usp0006efu"
+   ]
+  },
+  {
+   "kume": 303,
+   "bolge": "Japonya",
+   "olaylar": [
+    "usp0006rew"
+   ]
+  },
+  {
+   "kume": 474,
+   "bolge": "Alaska",
+   "olaylar": [
+    "ak995cti1ypa"
+   ]
+  },
+  {
+   "kume": 395,
+   "bolge": "Türkiye",
+   "olaylar": [
+    "usp0009d4z"
+   ]
+  },
+  {
+   "kume": 543,
+   "bolge": "Japonya",
+   "olaylar": [
+    "usp000djku"
+   ]
+  },
+  {
+   "kume": 1141,
+   "bolge": "Kaliforniya",
+   "olaylar": [
+    "usp000dt25"
+   ]
+  },
+  {
+   "kume": 928,
+   "bolge": "Çin",
+   "olaylar": [
+    "usp000g650"
+   ]
+  },
+  {
+   "kume": 689,
+   "bolge": "Japonya",
+   "olaylar": [
+    "usp000h0gm"
+   ]
+  },
+  {
+   "kume": 710,
+   "bolge": "Japonya",
+   "olaylar": [
+    "usp000h7qu"
+   ]
+  },
+  {
+   "kume": 712,
+   "bolge": "Kaliforniya",
+   "olaylar": [
+    "ci14607652"
+   ]
+  },
+  {
+   "kume": 727,
+   "bolge": "Yeni Zelanda",
+   "olaylar": [
+    "usp000hk46"
+   ]
+  },
+  {
+   "kume": 802,
+   "bolge": "Yeni Zelanda",
+   "olaylar": [
+    "usb000iivv"
+   ]
+  },
+  {
+   "kume": 959,
+   "bolge": "Yunanistan",
+   "olaylar": [
+    "usb000m8ch",
+    "us1000hhb1"
+   ]
+  },
+  {
+   "kume": 841,
+   "bolge": "Yunanistan",
+   "olaylar": [
+    "usb000r2hc"
+   ]
+  },
+  {
+   "kume": 847,
+   "bolge": "Alaska",
+   "olaylar": [
+    "usb000rtp6"
+   ]
+  },
+  {
+   "kume": 854,
+   "bolge": "Kaliforniya",
+   "olaylar": [
+    "nc72282711"
+   ]
+  },
+  {
+   "kume": 882,
+   "bolge": "Japonya",
+   "olaylar": [
+    "us10003y71"
+   ]
+  },
+  {
+   "kume": 1102,
+   "bolge": "Tacikistan",
+   "olaylar": [
+    "us100044k6",
+    "us10008npq"
+   ]
+  },
+  {
+   "kume": 901,
+   "bolge": "Japonya",
+   "olaylar": [
+    "us20005hzn",
+    "us20005iis"
+   ]
+  },
+  {
+   "kume": 910,
+   "bolge": "Kolombiya",
+   "olaylar": [
+    "us10006pdp"
+   ]
+  },
+  {
+   "kume": 911,
+   "bolge": "Japonya",
+   "olaylar": [
+    "us20007fta"
+   ]
+  },
+  {
+   "kume": 942,
+   "bolge": "Alaska",
+   "olaylar": [
+    "us2000cmy3"
+   ]
+  },
+  {
+   "kume": 979,
+   "bolge": "Kaliforniya",
+   "olaylar": [
+    "ci38443183",
+    "ci38457511"
+   ]
+  },
+  {
+   "kume": 1137,
+   "bolge": "Türkiye",
+   "olaylar": [
+    "us60007ewc",
+    "us6000nyzk"
+   ]
+  },
+  {
+   "kume": 1139,
+   "bolge": "Karayip",
+   "olaylar": [
+    "us60007idc",
+    "us7000nr0v"
+   ]
+  },
+  {
+   "kume": 1010,
+   "bolge": "ABD iç",
+   "olaylar": [
+    "us70008jr5"
+   ]
+  },
+  {
+   "kume": 1035,
+   "bolge": "Yeni Zelanda",
+   "olaylar": [
+    "us7000dffl"
+   ]
+  },
+  {
+   "kume": 1174,
+   "bolge": "Tayvan",
+   "olaylar": [
+    "us7000g8n3"
+   ]
+  },
+  {
+   "kume": 1144,
+   "bolge": "Jan Mayen/Svalbard",
+   "olaylar": [
+    "us6000pxvx"
+   ]
+  }
+ ],
+ "satir": [
+  {
+   "id": "ci700917",
+   "zaman": "1986-07-08",
+   "M": 6.0,
+   "yer": "The 1986 North Palm Springs, California Earthquake",
+   "bolge": "Kaliforniya",
+   "kume": 397,
+   "R_km": 50.0,
+   "katalog": "ComCat",
+   "mc_once": 2.0,
+   "N3bg_mc": 284,
+   "ref_ilk": {
+    "tur": "tam",
+    "mc": 1.7,
+    "Nbg": 479
+   },
+   "ref_tam": {
+    "tur": "ComCat tam (sayim4, değişmedi)",
+    "mc": 1.7,
+    "Nbg_mc_once": 479
+   },
+   "ref_gecer": {
+    "0.1": true,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [],
+   "kontrol": [],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "ci134894",
+   "zaman": "1987-11-24",
+   "M": 6.2,
+   "yer": "The 1987 Elmore Ranch, California Earthquake",
+   "bolge": "Kaliforniya",
+   "kume": 397,
+   "R_km": 50.0,
+   "katalog": "ComCat",
+   "mc_once": 1.8,
+   "N3bg_mc": 313,
+   "ref_ilk": {
+    "tur": "tam",
+    "mc": 1.9,
+    "Nbg": 440
+   },
+   "ref_tam": {
+    "tur": "ComCat tam (sayim4, değişmedi)",
+    "mc": 1.9,
+    "Nbg_mc_once": 440
+   },
+   "ref_gecer": {
+    "0.1": true,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [],
+   "kontrol": [],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "ci628016",
+   "zaman": "1987-11-24",
+   "M": 6.6,
+   "yer": "The 1987 Superstition Hills, California Earthquake",
+   "bolge": "Kaliforniya",
+   "kume": 397,
+   "R_km": 66.5,
+   "katalog": "ComCat",
+   "mc_once": 2.0,
+   "N3bg_mc": 215,
+   "ref_ilk": {
+    "tur": "tam",
+    "mc": 1.7,
+    "Nbg": 445
+   },
+   "ref_tam": {
+    "tur": "ComCat tam (sayim4, değişmedi)",
+    "mc": 1.7,
+    "Nbg_mc_once": 445
+   },
+   "ref_gecer": {
+    "0.1": true,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [],
+   "kontrol": [],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "nc216859",
+   "zaman": "1989-10-18",
+   "M": 6.9,
+   "yer": "The 1989 Loma Prieta, California Earthquake",
+   "bolge": "Kaliforniya",
+   "kume": 160,
+   "R_km": 102.1,
+   "katalog": "ComCat",
+   "mc_once": 1.3,
+   "N3bg_mc": 608,
+   "ref_ilk": {
+    "tur": "tam",
+    "mc": 1.4,
+    "Nbg": 1121
+   },
+   "ref_tam": {
+    "tur": "ComCat tam (sayim4, değişmedi)",
+    "mc": 1.4,
+    "Nbg_mc_once": 1121
+   },
+   "ref_gecer": {
+    "0.1": true,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [],
+   "kontrol": [],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "ci3019681",
+   "zaman": "1992-04-23",
+   "M": 6.1,
+   "yer": "The 1992 Joshua Tree, California Earthquake",
+   "bolge": "Kaliforniya",
+   "kume": 397,
+   "R_km": 50.0,
+   "katalog": "ComCat",
+   "mc_once": 2.2,
+   "N3bg_mc": 136,
+   "ref_ilk": {
+    "tur": "tam",
+    "mc": 2.0,
+    "Nbg": 194
+   },
+   "ref_tam": {
+    "tur": "ComCat tam (sayim4, değişmedi)",
+    "mc": 2.0,
+    "Nbg_mc_once": 194
+   },
+   "ref_gecer": {
+    "0.1": true,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [],
+   "kontrol": [],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "usp0006efu",
+   "zaman": "1994-06-18",
+   "M": 6.8,
+   "yer": "56 km NW of Oxford, New Zealand",
+   "bolge": "Yeni Zelanda",
+   "kume": 327,
+   "R_km": 88.5,
+   "katalog": "GeoNet",
+   "mc_once": 2.9,
+   "N3bg_mc": 56,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": null,
+    "Nbg": 5.8
+   },
+   "ref_tam": {
+    "n": 206,
+    "mc": 3.0,
+    "Nbg_mc_once": 82,
+    "N_mc_once": 157,
+    "maxc_alt_sinirda": false,
+    "tur": "GeoNet tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 3.5
+   },
+   "ref_gecer": {
+    "0.1": false,
+    "0.3": false
+   },
+   "kontrol_havuz_k": [
+    1
+   ],
+   "kontrol": [
+    {
+     "k": 1,
+     "t_c": "1988-06-17",
+     "once": {
+      "n": 42,
+      "mc": 3.6,
+      "Nbg_mc_once": 20,
+      "N_mc_once": 40,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "usp0006rew",
+   "zaman": "1995-01-16",
+   "M": 6.9,
+   "yer": "8 km S of Akashi, Japan",
+   "bolge": "Japonya",
+   "kume": 303,
+   "R_km": 102.1,
+   "katalog": "ISC",
+   "mc_once": 2.6,
+   "N3bg_mc": 194,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": 2.5,
+    "Nbg": 330.8
+   },
+   "ref_tam": {
+    "n": 1952,
+    "mc": 2.6,
+    "Nbg_mc_once": 383,
+    "N_mc_once": 1251,
+    "maxc_alt_sinirda": false,
+    "tur": "ISC tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 2.6
+   },
+   "ref_gecer": {
+    "0.1": true,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [
+    1
+   ],
+   "kontrol": [
+    {
+     "k": 1,
+     "t_c": "1989-01-16",
+     "once": {
+      "n": 868,
+      "mc": 2.6,
+      "Nbg_mc_once": 160,
+      "N_mc_once": 542,
+      "maxc_alt_sinirda": false
+     },
+     "ref": {
+      "n": 1122,
+      "mc": 2.8,
+      "Nbg_mc_once": 249,
+      "N_mc_once": 840,
+      "maxc_alt_sinirda": false
+     }
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [
+     1
+    ],
+    "0.3": [
+     1
+    ]
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "ak995cti1ypa",
+   "zaman": "1995-10-06",
+   "M": 6.0,
+   "yer": "36 km E of Minto, Alaska",
+   "bolge": "Alaska",
+   "kume": 474,
+   "R_km": 50.0,
+   "katalog": "ComCat",
+   "mc_once": 1.8,
+   "N3bg_mc": 67,
+   "ref_ilk": {
+    "tur": "tam",
+    "mc": 1.6,
+    "Nbg": 74
+   },
+   "ref_tam": {
+    "tur": "ComCat tam (sayim4, değişmedi)",
+    "mc": 1.6,
+    "Nbg_mc_once": 74
+   },
+   "ref_gecer": {
+    "0.1": false,
+    "0.3": false
+   },
+   "kontrol_havuz_k": [
+    1
+   ],
+   "kontrol": [
+    {
+     "k": 1,
+     "t_c": "1989-10-05",
+     "once": {
+      "mc": 1.3,
+      "Nbg_mc_once": 23
+     },
+     "ref": {
+      "mc": null,
+      "Nbg_mc_once": 12
+     }
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "usp0009d4z",
+   "zaman": "1999-08-17",
+   "M": 7.6,
+   "yer": "4 km ESE of Derince, Turkey",
+   "bolge": "Türkiye",
+   "kume": 395,
+   "R_km": 277.4,
+   "katalog": "ComCat",
+   "mc_once": 2.9,
+   "N3bg_mc": 227,
+   "ref_ilk": {
+    "tur": "tam",
+    "mc": 2.9,
+    "Nbg": 663
+   },
+   "ref_tam": {
+    "tur": "ComCat tam (sayim4, değişmedi)",
+    "mc": 2.9,
+    "Nbg_mc_once": 663
+   },
+   "ref_gecer": {
+    "0.1": true,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [
+    1,
+    2
+   ],
+   "kontrol": [
+    {
+     "k": 1,
+     "t_c": "1993-08-16",
+     "once": {
+      "mc": 2.9,
+      "Nbg_mc_once": 297
+     },
+     "ref": {
+      "mc": 4.3,
+      "Nbg_mc_once": 85
+     }
+    },
+    {
+     "k": 2,
+     "t_c": "1987-08-17",
+     "once": {
+      "mc": 4.1,
+      "Nbg_mc_once": 30
+     },
+     "ref": {
+      "mc": 3.3,
+      "Nbg_mc_once": 83
+     }
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [
+     1
+    ],
+    "0.3": [
+     1
+    ]
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "ci9108652",
+   "zaman": "1999-10-16",
+   "M": 7.1,
+   "yer": "The 1999 Hector Mine, California Earthquake",
+   "bolge": "Kaliforniya",
+   "kume": 397,
+   "R_km": 135.8,
+   "katalog": "ComCat",
+   "mc_once": 1.6,
+   "N3bg_mc": 991,
+   "ref_ilk": {
+    "tur": "tam",
+    "mc": 1.8,
+    "Nbg": 1388
+   },
+   "ref_tam": {
+    "tur": "ComCat tam (sayim4, değişmedi)",
+    "mc": 1.8,
+    "Nbg_mc_once": 1388
+   },
+   "ref_gecer": {
+    "0.1": false,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [],
+   "kontrol": [],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "usp000djku",
+   "zaman": "2005-03-20",
+   "M": 6.6,
+   "yer": "28 km NNW of Maebaru-ch??, Japan",
+   "bolge": "Japonya",
+   "kume": 543,
+   "R_km": 66.5,
+   "katalog": "ISC",
+   "mc_once": 0.6,
+   "N3bg_mc": 233,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": null,
+    "Nbg": 5.8
+   },
+   "ref_tam": {
+    "n": 419,
+    "mc": 1.3,
+    "Nbg_mc_once": 262,
+    "N_mc_once": 414,
+    "maxc_alt_sinirda": false,
+    "tur": "ISC tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 1.3
+   },
+   "ref_gecer": {
+    "0.1": false,
+    "0.3": false
+   },
+   "kontrol_havuz_k": [
+    1,
+    2,
+    3
+   ],
+   "kontrol": [
+    {
+     "k": 1,
+     "t_c": "1999-03-20",
+     "once": {
+      "n": 23,
+      "mc": 1.5,
+      "Nbg_mc_once": 18,
+      "N_mc_once": 22,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    },
+    {
+     "k": 2,
+     "t_c": "1993-03-20",
+     "once": {
+      "n": 16,
+      "mc": null,
+      "Nbg_mc_once": 15,
+      "N_mc_once": 16,
+      "maxc_alt_sinirda": true
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    },
+    {
+     "k": 3,
+     "t_c": "1987-03-20",
+     "once": {
+      "n": 16,
+      "mc": null,
+      "Nbg_mc_once": 13,
+      "N_mc_once": 16,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "usp000dt25",
+   "zaman": "2005-06-15",
+   "M": 7.2,
+   "yer": "153 km W of Big Lagoon, California",
+   "bolge": "Kaliforniya",
+   "kume": 1141,
+   "R_km": 156.7,
+   "katalog": "ComCat",
+   "mc_once": 2.4,
+   "N3bg_mc": 112,
+   "ref_ilk": {
+    "tur": "tam",
+    "mc": 2.5,
+    "Nbg": 260
+   },
+   "ref_tam": {
+    "tur": "ComCat tam (sayim4, değişmedi)",
+    "mc": 2.5,
+    "Nbg_mc_once": 260
+   },
+   "ref_gecer": {
+    "0.1": true,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [],
+   "kontrol": [],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "usp000g650",
+   "zaman": "2008-05-12",
+   "M": 7.9,
+   "yer": "58 km W of Tianpeng, China",
+   "bolge": "Çin",
+   "kume": 928,
+   "R_km": 425.6,
+   "katalog": "ISC",
+   "mc_once": 2.9,
+   "N3bg_mc": 164,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": 3.4,
+    "Nbg": 185.7
+   },
+   "ref_tam": {
+    "n": 644,
+    "mc": 3.3,
+    "Nbg_mc_once": 403,
+    "N_mc_once": 530,
+    "maxc_alt_sinirda": false,
+    "tur": "ISC tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 3.2
+   },
+   "ref_gecer": {
+    "0.1": false,
+    "0.3": false
+   },
+   "kontrol_havuz_k": [
+    2
+   ],
+   "kontrol": [
+    {
+     "k": 2,
+     "t_c": "1996-05-12",
+     "once": {
+      "n": 94,
+      "mc": 3.4,
+      "Nbg_mc_once": 74,
+      "N_mc_once": 92,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "usp000h0gm",
+   "zaman": "2009-08-17",
+   "M": 6.7,
+   "yer": "114 km SW of Ishigaki, Japan",
+   "bolge": "Japonya",
+   "kume": 689,
+   "R_km": 76.7,
+   "katalog": "ISC",
+   "mc_once": 2.1,
+   "N3bg_mc": 58,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": 1.7,
+    "Nbg": 87.1
+   },
+   "ref_tam": {
+    "n": 962,
+    "mc": 2.3,
+    "Nbg_mc_once": 154,
+    "N_mc_once": 776,
+    "maxc_alt_sinirda": false,
+    "tur": "ISC tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 2.7
+   },
+   "ref_gecer": {
+    "0.1": false,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [
+    2
+   ],
+   "kontrol": [
+    {
+     "k": 2,
+     "t_c": "1997-08-17",
+     "once": {
+      "n": 175,
+      "mc": 3.0,
+      "Nbg_mc_once": 54,
+      "N_mc_once": 171,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "usp000h7qu",
+   "zaman": "2010-02-26",
+   "M": 7.0,
+   "yer": "70 km SE of Katsuren-haebaru, Japan",
+   "bolge": "Japonya",
+   "kume": 710,
+   "R_km": 117.8,
+   "katalog": "ISC",
+   "mc_once": 2.2,
+   "N3bg_mc": 123,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": 2.5,
+    "Nbg": 139.3
+   },
+   "ref_tam": {
+    "n": 1347,
+    "mc": 2.6,
+    "Nbg_mc_once": 315,
+    "N_mc_once": 1029,
+    "maxc_alt_sinirda": false,
+    "tur": "ISC tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 2.5
+   },
+   "ref_gecer": {
+    "0.1": false,
+    "0.3": false
+   },
+   "kontrol_havuz_k": [],
+   "kontrol": [],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "ci14607652",
+   "zaman": "2010-04-04",
+   "M": 7.2,
+   "yer": "The 2010 Sierra El Mayor, B.C., Mexico Earthquake",
+   "bolge": "Kaliforniya",
+   "kume": 712,
+   "R_km": 156.7,
+   "katalog": "ComCat",
+   "mc_once": 1.6,
+   "N3bg_mc": 687,
+   "ref_ilk": {
+    "tur": "tam",
+    "mc": 2.0,
+    "Nbg": 1866
+   },
+   "ref_tam": {
+    "tur": "ComCat tam (sayim4, değişmedi)",
+    "mc": 2.0,
+    "Nbg_mc_once": 1866
+   },
+   "ref_gecer": {
+    "0.1": false,
+    "0.3": false
+   },
+   "kontrol_havuz_k": [
+    2,
+    3
+   ],
+   "kontrol": [
+    {
+     "k": 2,
+     "t_c": "1998-04-04",
+     "once": {
+      "mc": 2.0,
+      "Nbg_mc_once": 1052
+     },
+     "ref": {
+      "mc": 1.6,
+      "Nbg_mc_once": 2011
+     }
+    },
+    {
+     "k": 3,
+     "t_c": "1992-04-04",
+     "once": {
+      "mc": 2.4,
+      "Nbg_mc_once": 661
+     },
+     "ref": {
+      "mc": 2.0,
+      "Nbg_mc_once": 1338
+     }
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "usp000hk46",
+   "zaman": "2010-09-03",
+   "M": 7.0,
+   "yer": "19 km NE of Methven, New Zealand",
+   "bolge": "Yeni Zelanda",
+   "kume": 727,
+   "R_km": 117.8,
+   "katalog": "GeoNet",
+   "mc_once": 2.7,
+   "N3bg_mc": 100,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": 2.3,
+    "Nbg": 139.3
+   },
+   "ref_tam": {
+    "n": 1224,
+    "mc": 2.7,
+    "Nbg_mc_once": 336,
+    "N_mc_once": 690,
+    "maxc_alt_sinirda": false,
+    "tur": "GeoNet tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 2.8
+   },
+   "ref_gecer": {
+    "0.1": true,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [
+    1
+   ],
+   "kontrol": [
+    {
+     "k": 1,
+     "t_c": "2004-09-03",
+     "once": {
+      "n": 546,
+      "mc": 2.8,
+      "Nbg_mc_once": 160,
+      "N_mc_once": 328,
+      "maxc_alt_sinirda": false
+     },
+     "ref": {
+      "n": 3156,
+      "mc": 2.7,
+      "Nbg_mc_once": 273,
+      "N_mc_once": 1955,
+      "maxc_alt_sinirda": false
+     }
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [
+     1
+    ],
+    "0.3": [
+     1
+    ]
+   },
+   "kontrol_dolu": {
+    "0.1": [
+     1
+    ],
+    "0.3": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "usb000iivv",
+   "zaman": "2013-07-21",
+   "M": 6.5,
+   "yer": "38 km ESE of Blenheim, New Zealand",
+   "bolge": "Yeni Zelanda",
+   "kume": 802,
+   "R_km": 57.7,
+   "katalog": "GeoNet",
+   "mc_once": 2.6,
+   "N3bg_mc": 74,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": 2.3,
+    "Nbg": 81.3
+   },
+   "ref_tam": {
+    "n": 1373,
+    "mc": 2.6,
+    "Nbg_mc_once": 241,
+    "N_mc_once": 736,
+    "maxc_alt_sinirda": false,
+    "tur": "GeoNet tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 2.6
+   },
+   "ref_gecer": {
+    "0.1": true,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [
+    1,
+    2,
+    3
+   ],
+   "kontrol": [
+    {
+     "k": 1,
+     "t_c": "2007-07-21",
+     "once": {
+      "n": 667,
+      "mc": 2.6,
+      "Nbg_mc_once": 89,
+      "N_mc_once": 368,
+      "maxc_alt_sinirda": false
+     },
+     "ref": {
+      "n": 2077,
+      "mc": 2.6,
+      "Nbg_mc_once": 178,
+      "N_mc_once": 1124,
+      "maxc_alt_sinirda": false
+     }
+    },
+    {
+     "k": 2,
+     "t_c": "2001-07-21",
+     "once": {
+      "n": 1009,
+      "mc": 2.6,
+      "Nbg_mc_once": 84,
+      "N_mc_once": 556,
+      "maxc_alt_sinirda": false
+     },
+     "ref": {
+      "n": 1783,
+      "mc": 2.6,
+      "Nbg_mc_once": 192,
+      "N_mc_once": 971,
+      "maxc_alt_sinirda": false
+     }
+    },
+    {
+     "k": 3,
+     "t_c": "1995-07-21",
+     "once": {
+      "n": 810,
+      "mc": 2.6,
+      "Nbg_mc_once": 94,
+      "N_mc_once": 418,
+      "maxc_alt_sinirda": false
+     },
+     "ref": {
+      "n": 1065,
+      "mc": 2.6,
+      "Nbg_mc_once": 156,
+      "N_mc_once": 567,
+      "maxc_alt_sinirda": false
+     }
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [
+     1,
+     2,
+     3
+    ],
+    "0.3": [
+     1,
+     2,
+     3
+    ]
+   },
+   "kontrol_dolu": {
+    "0.1": [
+     1,
+     2,
+     3
+    ],
+    "0.3": [
+     1,
+     2,
+     3
+    ]
+   }
+  },
+  {
+   "id": "usb000m8ch",
+   "zaman": "2014-01-26",
+   "M": 6.1,
+   "yer": "1 km ENE of Lixoúri, Greece",
+   "bolge": "Yunanistan",
+   "kume": 959,
+   "R_km": 50.0,
+   "katalog": "ISC",
+   "mc_once": 2.1,
+   "N3bg_mc": 137,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": 2.2,
+    "Nbg": 1253.6
+   },
+   "ref_tam": {
+    "n": 2436,
+    "mc": 3.5,
+    "Nbg_mc_once": 203,
+    "N_mc_once": 2209,
+    "maxc_alt_sinirda": false,
+    "tur": "ISC tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 3.5
+   },
+   "ref_gecer": {
+    "0.1": false,
+    "0.3": false
+   },
+   "kontrol_havuz_k": [
+    2,
+    3
+   ],
+   "kontrol": [
+    {
+     "k": 2,
+     "t_c": "2002-01-26",
+     "once": {
+      "n": 206,
+      "mc": 3.3,
+      "Nbg_mc_once": 66,
+      "N_mc_once": 206,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    },
+    {
+     "k": 3,
+     "t_c": "1996-01-27",
+     "once": {
+      "n": 201,
+      "mc": 3.3,
+      "Nbg_mc_once": 60,
+      "N_mc_once": 201,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "usb000r2hc",
+   "zaman": "2014-05-24",
+   "M": 6.9,
+   "yer": "21 km SSW of Kamariótissa, Greece",
+   "bolge": "Yunanistan",
+   "kume": 841,
+   "R_km": 102.1,
+   "katalog": "ISC",
+   "mc_once": 2.3,
+   "N3bg_mc": 154,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": 3.0,
+    "Nbg": 388.9
+   },
+   "ref_tam": {
+    "n": 1861,
+    "mc": 2.9,
+    "Nbg_mc_once": 568,
+    "N_mc_once": 1646,
+    "maxc_alt_sinirda": false,
+    "tur": "ISC tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 3.2
+   },
+   "ref_gecer": {
+    "0.1": false,
+    "0.3": false
+   },
+   "kontrol_havuz_k": [
+    1,
+    3
+   ],
+   "kontrol": [
+    {
+     "k": 1,
+     "t_c": "2008-05-23",
+     "once": {
+      "n": 614,
+      "mc": 3.2,
+      "Nbg_mc_once": 200,
+      "N_mc_once": 591,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    },
+    {
+     "k": 3,
+     "t_c": "1996-05-23",
+     "once": {
+      "n": 209,
+      "mc": 3.1,
+      "Nbg_mc_once": 120,
+      "N_mc_once": 203,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "usb000rtp6",
+   "zaman": "2014-07-17",
+   "M": 6.0,
+   "yer": "90 km NNW of Yakutat, Alaska",
+   "bolge": "Alaska",
+   "kume": 847,
+   "R_km": 50.0,
+   "katalog": "ComCat",
+   "mc_once": 1.6,
+   "N3bg_mc": 147,
+   "ref_ilk": {
+    "tur": "tam",
+    "mc": 1.3,
+    "Nbg": 524
+   },
+   "ref_tam": {
+    "tur": "ComCat tam (sayim4, değişmedi)",
+    "mc": 1.3,
+    "Nbg_mc_once": 524
+   },
+   "ref_gecer": {
+    "0.1": true,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "kontrol": [
+    {
+     "k": 1,
+     "t_c": "2008-07-16",
+     "once": {
+      "mc": 1.6,
+      "Nbg_mc_once": 262
+     },
+     "ref": {
+      "mc": 2.1,
+      "Nbg_mc_once": 191
+     }
+    },
+    {
+     "k": 2,
+     "t_c": "2002-07-17",
+     "once": {
+      "mc": 2.1,
+      "Nbg_mc_once": 45
+     },
+     "ref": {
+      "mc": 1.9,
+      "Nbg_mc_once": 178
+     }
+    },
+    {
+     "k": 3,
+     "t_c": "1996-07-16",
+     "once": {
+      "mc": 1.8,
+      "Nbg_mc_once": 107
+     },
+     "ref": {
+      "mc": 1.7,
+      "Nbg_mc_once": 123
+     }
+    },
+    {
+     "k": 4,
+     "t_c": "1990-07-17",
+     "once": {
+      "mc": 1.4,
+      "Nbg_mc_once": 74
+     },
+     "ref": {
+      "mc": null,
+      "Nbg_mc_once": 8
+     }
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [
+     1,
+     4
+    ],
+    "0.3": [
+     1,
+     3,
+     4
+    ]
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": [
+     3
+    ]
+   }
+  },
+  {
+   "id": "nc72282711",
+   "zaman": "2014-08-24",
+   "M": 6.02,
+   "yer": "The 2014 South Napa, California Earthquake",
+   "bolge": "Kaliforniya",
+   "kume": 854,
+   "R_km": 50.0,
+   "katalog": "ComCat",
+   "mc_once": 1.4,
+   "N3bg_mc": 251,
+   "ref_ilk": {
+    "tur": "tam",
+    "mc": 1.4,
+    "Nbg": 603
+   },
+   "ref_tam": {
+    "tur": "ComCat tam (sayim4, değişmedi)",
+    "mc": 1.4,
+    "Nbg_mc_once": 603
+   },
+   "ref_gecer": {
+    "0.1": true,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "kontrol": [
+    {
+     "k": 1,
+     "t_c": "2008-08-23",
+     "once": {
+      "mc": 1.4,
+      "Nbg_mc_once": 248
+     },
+     "ref": {
+      "mc": 1.6,
+      "Nbg_mc_once": 610
+     }
+    },
+    {
+     "k": 2,
+     "t_c": "2002-08-24",
+     "once": {
+      "mc": 1.7,
+      "Nbg_mc_once": 240
+     },
+     "ref": {
+      "mc": 1.8,
+      "Nbg_mc_once": 548
+     }
+    },
+    {
+     "k": 3,
+     "t_c": "1996-08-23",
+     "once": {
+      "mc": 1.8,
+      "Nbg_mc_once": 219
+     },
+     "ref": {
+      "mc": 1.8,
+      "Nbg_mc_once": 495
+     }
+    },
+    {
+     "k": 4,
+     "t_c": "1990-08-24",
+     "once": {
+      "mc": 1.8,
+      "Nbg_mc_once": 208
+     },
+     "ref": {
+      "mc": 1.8,
+      "Nbg_mc_once": 507
+     }
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [
+     1
+    ],
+    "0.3": [
+     1,
+     2
+    ]
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "us10003y71",
+   "zaman": "2015-11-13",
+   "M": 6.7,
+   "yer": "140 km WSW of Makurazaki, Japan",
+   "bolge": "Japonya",
+   "kume": 882,
+   "R_km": 76.7,
+   "katalog": "ISC",
+   "mc_once": 1.6,
+   "N3bg_mc": 117,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": 2.3,
+    "Nbg": 75.5
+   },
+   "ref_tam": {
+    "n": 534,
+    "mc": 2.1,
+    "Nbg_mc_once": 250,
+    "N_mc_once": 462,
+    "maxc_alt_sinirda": false,
+    "tur": "ISC tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 2.1
+   },
+   "ref_gecer": {
+    "0.1": false,
+    "0.3": false
+   },
+   "kontrol_havuz_k": [
+    1,
+    2,
+    3,
+    5
+   ],
+   "kontrol": [
+    {
+     "k": 1,
+     "t_c": "2009-11-13",
+     "once": {
+      "n": 250,
+      "mc": 2.1,
+      "Nbg_mc_once": 102,
+      "N_mc_once": 214,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    },
+    {
+     "k": 2,
+     "t_c": "2003-11-13",
+     "once": {
+      "n": 249,
+      "mc": 2.1,
+      "Nbg_mc_once": 119,
+      "N_mc_once": 230,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    },
+    {
+     "k": 3,
+     "t_c": "1997-11-13",
+     "once": {
+      "n": 36,
+      "mc": 3.1,
+      "Nbg_mc_once": 26,
+      "N_mc_once": 36,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    },
+    {
+     "k": 5,
+     "t_c": "1985-11-13",
+     "once": {
+      "n": 2,
+      "mc": null,
+      "Nbg_mc_once": 1,
+      "N_mc_once": 2,
+      "maxc_alt_sinirda": true
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "us100044k6",
+   "zaman": "2015-12-07",
+   "M": 7.2,
+   "yer": "104 km W of Murghob, Tajikistan",
+   "bolge": "Tacikistan",
+   "kume": 1102,
+   "R_km": 156.7,
+   "katalog": "ISC",
+   "mc_once": 2.7,
+   "N3bg_mc": 175,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": 3.8,
+    "Nbg": 133.5
+   },
+   "ref_tam": {
+    "n": 2407,
+    "mc": 3.6,
+    "Nbg_mc_once": 483,
+    "N_mc_once": 2162,
+    "maxc_alt_sinirda": false,
+    "tur": "ISC tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 3.6
+   },
+   "ref_gecer": {
+    "0.1": false,
+    "0.3": false
+   },
+   "kontrol_havuz_k": [
+    3
+   ],
+   "kontrol": [
+    {
+     "k": 3,
+     "t_c": "1997-12-06",
+     "once": {
+      "n": 73,
+      "mc": 4.1,
+      "Nbg_mc_once": 48,
+      "N_mc_once": 73,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "us20005hzn",
+   "zaman": "2016-04-14",
+   "M": 6.2,
+   "yer": "2 km SSE of Kumamoto, Japan",
+   "bolge": "Japonya",
+   "kume": 901,
+   "R_km": 50.0,
+   "katalog": "ISC",
+   "mc_once": 0.5,
+   "N3bg_mc": 755,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": 0.4,
+    "Nbg": 2530.5
+   },
+   "ref_tam": {
+    "n": 17355,
+    "mc": 0.6,
+    "Nbg_mc_once": 3539,
+    "N_mc_once": 11165,
+    "maxc_alt_sinirda": false,
+    "tur": "ISC tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 0.6
+   },
+   "ref_gecer": {
+    "0.1": true,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "kontrol": [
+    {
+     "k": 1,
+     "t_c": "2010-04-15",
+     "once": {
+      "n": 6446,
+      "mc": 0.4,
+      "Nbg_mc_once": 1607,
+      "N_mc_once": 4163,
+      "maxc_alt_sinirda": true
+     },
+     "ref": {
+      "n": 20500,
+      "mc": 0.5,
+      "Nbg_mc_once": 3151,
+      "N_mc_once": 15886,
+      "maxc_alt_sinirda": false
+     }
+    },
+    {
+     "k": 2,
+     "t_c": "2004-04-14",
+     "once": {
+      "n": 8996,
+      "mc": 0.5,
+      "Nbg_mc_once": 1484,
+      "N_mc_once": 6856,
+      "maxc_alt_sinirda": false
+     },
+     "ref": {
+      "n": 8500,
+      "mc": 1.4,
+      "Nbg_mc_once": 866,
+      "N_mc_once": 8347,
+      "maxc_alt_sinirda": false
+     }
+    },
+    {
+     "k": 3,
+     "t_c": "1998-04-15",
+     "once": {
+      "n": 107,
+      "mc": 3.0,
+      "Nbg_mc_once": 45,
+      "N_mc_once": 107,
+      "maxc_alt_sinirda": true
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    },
+    {
+     "k": 4,
+     "t_c": "1992-04-14",
+     "once": {
+      "n": 461,
+      "mc": 2.6,
+      "Nbg_mc_once": 152,
+      "N_mc_once": 461,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    },
+    {
+     "k": 5,
+     "t_c": "1986-04-15",
+     "once": {
+      "n": 211,
+      "mc": 3.1,
+      "Nbg_mc_once": 64,
+      "N_mc_once": 211,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [
+     1,
+     2
+    ],
+    "0.3": [
+     1,
+     2
+    ]
+   },
+   "kontrol_dolu": {
+    "0.1": [
+     1
+    ],
+    "0.3": [
+     1
+    ]
+   }
+  },
+  {
+   "id": "us20005iis",
+   "zaman": "2016-04-15",
+   "M": 7.0,
+   "yer": "6 km ESE of Kumamoto, Japan",
+   "bolge": "Japonya",
+   "kume": 901,
+   "R_km": 117.8,
+   "katalog": "ISC",
+   "mc_once": 0.5,
+   "N3bg_mc": 4225,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": 0.4,
+    "Nbg": 12727.8
+   },
+   "ref_tam": {
+    "n": 57765,
+    "mc": 0.6,
+    "Nbg_mc_once": 11052,
+    "N_mc_once": 38146,
+    "maxc_alt_sinirda": false,
+    "tur": "ISC tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 0.6
+   },
+   "ref_gecer": {
+    "0.1": true,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [
+    4,
+    5
+   ],
+   "kontrol": [
+    {
+     "k": 4,
+     "t_c": "1992-04-15",
+     "once": {
+      "n": 1072,
+      "mc": 2.6,
+      "Nbg_mc_once": 320,
+      "N_mc_once": 1072,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    },
+    {
+     "k": 5,
+     "t_c": "1986-04-16",
+     "once": {
+      "n": 466,
+      "mc": 3.1,
+      "Nbg_mc_once": 130,
+      "N_mc_once": 466,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "us10006pdp",
+   "zaman": "2016-09-14",
+   "M": 6.0,
+   "yer": "32 km ENE of Mutatá, Colombia",
+   "bolge": "Kolombiya",
+   "kume": 910,
+   "R_km": 50.0,
+   "katalog": "ISC",
+   "mc_once": 1.9,
+   "N3bg_mc": 56,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": null,
+    "Nbg": 63.8
+   },
+   "ref_tam": {
+    "n": 276,
+    "mc": 1.9,
+    "Nbg_mc_once": 141,
+    "N_mc_once": 199,
+    "maxc_alt_sinirda": false,
+    "tur": "ISC tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 2.1
+   },
+   "ref_gecer": {
+    "0.1": true,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "kontrol": [
+    {
+     "k": 1,
+     "t_c": "2010-09-14",
+     "once": {
+      "n": 108,
+      "mc": 2.1,
+      "Nbg_mc_once": 65,
+      "N_mc_once": 85,
+      "maxc_alt_sinirda": false
+     },
+     "ref": {
+      "n": 120,
+      "mc": 2.9,
+      "Nbg_mc_once": 72,
+      "N_mc_once": 120,
+      "maxc_alt_sinirda": false
+     }
+    },
+    {
+     "k": 2,
+     "t_c": "2004-09-14",
+     "once": {
+      "n": 62,
+      "mc": 2.8,
+      "Nbg_mc_once": 30,
+      "N_mc_once": 62,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    },
+    {
+     "k": 3,
+     "t_c": "1998-09-14",
+     "once": {
+      "n": 24,
+      "mc": 2.9,
+      "Nbg_mc_once": 18,
+      "N_mc_once": 23,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    },
+    {
+     "k": 4,
+     "t_c": "1992-09-14",
+     "once": {
+      "n": 1,
+      "mc": null,
+      "Nbg_mc_once": 1,
+      "N_mc_once": 1,
+      "maxc_alt_sinirda": true
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    },
+    {
+     "k": 5,
+     "t_c": "1986-09-14",
+     "once": {
+      "n": 4,
+      "mc": null,
+      "Nbg_mc_once": 4,
+      "N_mc_once": 4,
+      "maxc_alt_sinirda": true
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": [
+     1
+    ]
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "us20007fta",
+   "zaman": "2016-10-21",
+   "M": 6.2,
+   "yer": "6 km S of Kurayoshi, Japan",
+   "bolge": "Japonya",
+   "kume": 911,
+   "R_km": 50.0,
+   "katalog": "ISC",
+   "mc_once": 0.7,
+   "N3bg_mc": 342,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": 0.7,
+    "Nbg": 249.6
+   },
+   "ref_tam": {
+    "n": 2564,
+    "mc": 0.7,
+    "Nbg_mc_once": 938,
+    "N_mc_once": 1572,
+    "maxc_alt_sinirda": false,
+    "tur": "ISC tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 0.7
+   },
+   "ref_gecer": {
+    "0.1": true,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "kontrol": [
+    {
+     "k": 1,
+     "t_c": "2010-10-21",
+     "once": {
+      "n": 1187,
+      "mc": 0.7,
+      "Nbg_mc_once": 401,
+      "N_mc_once": 739,
+      "maxc_alt_sinirda": false
+     },
+     "ref": {
+      "n": 15301,
+      "mc": 1.6,
+      "Nbg_mc_once": 986,
+      "N_mc_once": 12835,
+      "maxc_alt_sinirda": false
+     }
+    },
+    {
+     "k": 2,
+     "t_c": "2004-10-21",
+     "once": {
+      "n": 5537,
+      "mc": 0.7,
+      "Nbg_mc_once": 393,
+      "N_mc_once": 3705,
+      "maxc_alt_sinirda": false
+     },
+     "ref": {
+      "n": 12863,
+      "mc": 1.7,
+      "Nbg_mc_once": 94,
+      "N_mc_once": 12851,
+      "maxc_alt_sinirda": false
+     }
+    },
+    {
+     "k": 3,
+     "t_c": "1998-10-21",
+     "once": {
+      "n": 71,
+      "mc": 3.0,
+      "Nbg_mc_once": 12,
+      "N_mc_once": 71,
+      "maxc_alt_sinirda": true
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    },
+    {
+     "k": 4,
+     "t_c": "1992-10-21",
+     "once": {
+      "n": 122,
+      "mc": 2.7,
+      "Nbg_mc_once": 38,
+      "N_mc_once": 122,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [
+     1,
+     2
+    ],
+    "0.3": [
+     1,
+     2
+    ]
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "us10008npq",
+   "zaman": "2017-05-03",
+   "M": 6.0,
+   "yer": "29 km NNW of Karakenja, Tajikistan",
+   "bolge": "Tacikistan",
+   "kume": 1102,
+   "R_km": 50.0,
+   "katalog": "ISC",
+   "mc_once": 2.6,
+   "N3bg_mc": 53,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": 3.1,
+    "Nbg": 116.1
+   },
+   "ref_tam": {
+    "n": 338,
+    "mc": 2.7,
+    "Nbg_mc_once": 128,
+    "N_mc_once": 211,
+    "maxc_alt_sinirda": false,
+    "tur": "ISC tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 3.1
+   },
+   "ref_gecer": {
+    "0.1": true,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [
+    1,
+    3,
+    4
+   ],
+   "kontrol": [
+    {
+     "k": 1,
+     "t_c": "2011-05-03",
+     "once": {
+      "n": 95,
+      "mc": 3.6,
+      "Nbg_mc_once": 49,
+      "N_mc_once": 84,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    },
+    {
+     "k": 3,
+     "t_c": "1999-05-03",
+     "once": {
+      "n": 6,
+      "mc": null,
+      "Nbg_mc_once": 6,
+      "N_mc_once": 6,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    },
+    {
+     "k": 4,
+     "t_c": "1993-05-03",
+     "once": {
+      "n": 3,
+      "mc": null,
+      "Nbg_mc_once": 1,
+      "N_mc_once": 3,
+      "maxc_alt_sinirda": true
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "us2000cmy3",
+   "zaman": "2018-01-23",
+   "M": 7.9,
+   "yer": "261 km SE of Chiniak, Alaska",
+   "bolge": "Alaska",
+   "kume": 942,
+   "R_km": 425.6,
+   "katalog": "ComCat",
+   "mc_once": 1.8,
+   "N3bg_mc": 575,
+   "ref_ilk": {
+    "tur": "tam",
+    "mc": 2.1,
+    "Nbg": 1156
+   },
+   "ref_tam": {
+    "tur": "ComCat tam (sayim4, değişmedi)",
+    "mc": 2.1,
+    "Nbg_mc_once": 1156
+   },
+   "ref_gecer": {
+    "0.1": false,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [],
+   "kontrol": [],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "us1000hhb1",
+   "zaman": "2018-10-25",
+   "M": 6.8,
+   "yer": "32 km SW of Lithakiá, Greece",
+   "bolge": "Yunanistan",
+   "kume": 959,
+   "R_km": 88.5,
+   "katalog": "EMSC",
+   "mc_once": 2.4,
+   "N3bg_mc": 216,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": 2.8,
+    "Nbg": 272.8
+   },
+   "ref_tam": {
+    "n": 5509,
+    "mc": 3.0,
+    "Nbg_mc_once": 492,
+    "N_mc_once": 4337,
+    "maxc_alt_sinirda": false,
+    "tur": "EMSC tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 3.3
+   },
+   "ref_gecer": {
+    "0.1": false,
+    "0.3": false
+   },
+   "kontrol_havuz_k": [],
+   "kontrol": [],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "ci38443183",
+   "zaman": "2019-07-04",
+   "M": 6.4,
+   "yer": "Ridgecrest Earthquake Sequence",
+   "bolge": "Kaliforniya",
+   "kume": 979,
+   "R_km": 50.0,
+   "katalog": "ComCat",
+   "mc_once": 1.4,
+   "N3bg_mc": 175,
+   "ref_ilk": {
+    "tur": "tam",
+    "mc": 1.3,
+    "Nbg": 460
+   },
+   "ref_tam": {
+    "tur": "ComCat tam (sayim4, değişmedi)",
+    "mc": 1.3,
+    "Nbg_mc_once": 460
+   },
+   "ref_gecer": {
+    "0.1": true,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [
+    1,
+    2,
+    3,
+    5
+   ],
+   "kontrol": [
+    {
+     "k": 1,
+     "t_c": "2013-07-04",
+     "once": {
+      "mc": 1.4,
+      "Nbg_mc_once": 213
+     },
+     "ref": {
+      "mc": 1.4,
+      "Nbg_mc_once": 534
+     }
+    },
+    {
+     "k": 2,
+     "t_c": "2007-07-04",
+     "once": {
+      "mc": 1.4,
+      "Nbg_mc_once": 224
+     },
+     "ref": {
+      "mc": 1.4,
+      "Nbg_mc_once": 599
+     }
+    },
+    {
+     "k": 3,
+     "t_c": "2001-07-04",
+     "once": {
+      "mc": 1.4,
+      "Nbg_mc_once": 322
+     },
+     "ref": {
+      "mc": 1.4,
+      "Nbg_mc_once": 490
+     }
+    },
+    {
+     "k": 5,
+     "t_c": "1989-07-04",
+     "once": {
+      "mc": 1.6,
+      "Nbg_mc_once": 296
+     },
+     "ref": {
+      "mc": 1.6,
+      "Nbg_mc_once": 428
+     }
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [
+     1,
+     2,
+     3
+    ],
+    "0.3": [
+     1,
+     2,
+     3,
+     5
+    ]
+   },
+   "kontrol_dolu": {
+    "0.1": [
+     1,
+     2,
+     3
+    ],
+    "0.3": [
+     1,
+     2,
+     3,
+     5
+    ]
+   }
+  },
+  {
+   "id": "ci38457511",
+   "zaman": "2019-07-06",
+   "M": 7.1,
+   "yer": "Ridgecrest Earthquake Sequence",
+   "bolge": "Kaliforniya",
+   "kume": 979,
+   "R_km": 135.8,
+   "katalog": "ComCat",
+   "mc_once": 1.4,
+   "N3bg_mc": 576,
+   "ref_ilk": {
+    "tur": "tam",
+    "mc": 1.4,
+    "Nbg": 1851
+   },
+   "ref_tam": {
+    "tur": "ComCat tam (sayim4, değişmedi)",
+    "mc": 1.4,
+    "Nbg_mc_once": 1851
+   },
+   "ref_gecer": {
+    "0.1": true,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [
+    1,
+    2,
+    3,
+    5
+   ],
+   "kontrol": [
+    {
+     "k": 1,
+     "t_c": "2013-07-05",
+     "once": {
+      "mc": 1.4,
+      "Nbg_mc_once": 857
+     },
+     "ref": {
+      "mc": 1.4,
+      "Nbg_mc_once": 1969
+     }
+    },
+    {
+     "k": 2,
+     "t_c": "2007-07-06",
+     "once": {
+      "mc": 1.4,
+      "Nbg_mc_once": 791
+     },
+     "ref": {
+      "mc": 1.4,
+      "Nbg_mc_once": 2702
+     }
+    },
+    {
+     "k": 3,
+     "t_c": "2001-07-05",
+     "once": {
+      "mc": 1.4,
+      "Nbg_mc_once": 1276
+     },
+     "ref": {
+      "mc": 1.4,
+      "Nbg_mc_once": 2437
+     }
+    },
+    {
+     "k": 5,
+     "t_c": "1989-07-05",
+     "once": {
+      "mc": 1.6,
+      "Nbg_mc_once": 998
+     },
+     "ref": {
+      "mc": 1.6,
+      "Nbg_mc_once": 1900
+     }
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [
+     1,
+     2,
+     3
+    ],
+    "0.3": [
+     1,
+     2,
+     3,
+     5
+    ]
+   },
+   "kontrol_dolu": {
+    "0.1": [
+     1,
+     2,
+     3
+    ],
+    "0.3": [
+     1,
+     2,
+     3,
+     5
+    ]
+   }
+  },
+  {
+   "id": "us60007ewc",
+   "zaman": "2020-01-24",
+   "M": 6.7,
+   "yer": "13 km N of Do?anyol, Turkey",
+   "bolge": "Türkiye",
+   "kume": 1137,
+   "R_km": 76.7,
+   "katalog": "ISC",
+   "mc_once": 1.5,
+   "N3bg_mc": 281,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": 2.5,
+    "Nbg": 708.1
+   },
+   "ref_tam": {
+    "n": 2984,
+    "mc": 2.6,
+    "Nbg_mc_once": 1016,
+    "N_mc_once": 2724,
+    "maxc_alt_sinirda": false,
+    "tur": "ISC tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 2.6
+   },
+   "ref_gecer": {
+    "0.1": false,
+    "0.3": false
+   },
+   "kontrol_havuz_k": [
+    1,
+    4,
+    5
+   ],
+   "kontrol": [
+    {
+     "k": 1,
+     "t_c": "2014-01-24",
+     "once": {
+      "n": 1269,
+      "mc": 2.6,
+      "Nbg_mc_once": 460,
+      "N_mc_once": 1244,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    },
+    {
+     "k": 4,
+     "t_c": "1996-01-24",
+     "once": {
+      "n": 6,
+      "mc": null,
+      "Nbg_mc_once": 6,
+      "N_mc_once": 6,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    },
+    {
+     "k": 5,
+     "t_c": "1990-01-24",
+     "once": {
+      "n": 3,
+      "mc": null,
+      "Nbg_mc_once": 3,
+      "N_mc_once": 3,
+      "maxc_alt_sinirda": true
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "us60007idc",
+   "zaman": "2020-01-28",
+   "M": 7.7,
+   "yer": "123 km NNW of Lucea, Jamaica",
+   "bolge": "Karayip",
+   "kume": 1139,
+   "R_km": 319.9,
+   "katalog": "ISC",
+   "mc_once": 2.2,
+   "N3bg_mc": 310,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": 3.2,
+    "Nbg": 139.3
+   },
+   "ref_tam": {
+    "n": 2544,
+    "mc": 2.4,
+    "Nbg_mc_once": 598,
+    "N_mc_once": 1482,
+    "maxc_alt_sinirda": false,
+    "tur": "ISC tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 2.5
+   },
+   "ref_gecer": {
+    "0.1": false,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [],
+   "kontrol": [],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "us70008jr5",
+   "zaman": "2020-03-31",
+   "M": 6.5,
+   "yer": "Stanley, Idaho",
+   "bolge": "ABD iç",
+   "kume": 1010,
+   "R_km": 57.7,
+   "katalog": "ComCat",
+   "mc_once": 1.8,
+   "N3bg_mc": 56,
+   "ref_ilk": {
+    "tur": "tam",
+    "mc": null,
+    "Nbg": 51
+   },
+   "ref_tam": {
+    "tur": "ComCat tam (sayim4, değişmedi)",
+    "mc": null,
+    "Nbg_mc_once": 51
+   },
+   "ref_gecer": {
+    "0.1": false,
+    "0.3": false
+   },
+   "kontrol_havuz_k": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "kontrol": [
+    {
+     "k": 1,
+     "t_c": "2014-04-01",
+     "once": {
+      "mc": 2.2,
+      "Nbg_mc_once": 13
+     },
+     "ref": {
+      "mc": null,
+      "Nbg_mc_once": 13
+     }
+    },
+    {
+     "k": 2,
+     "t_c": "2008-03-31",
+     "once": {
+      "mc": null,
+      "Nbg_mc_once": 6
+     },
+     "ref": {
+      "mc": null,
+      "Nbg_mc_once": 17
+     }
+    },
+    {
+     "k": 3,
+     "t_c": "2002-04-01",
+     "once": {
+      "mc": null,
+      "Nbg_mc_once": 9
+     },
+     "ref": {
+      "mc": null,
+      "Nbg_mc_once": 23
+     }
+    },
+    {
+     "k": 4,
+     "t_c": "1996-03-31",
+     "once": {
+      "mc": 3.5,
+      "Nbg_mc_once": 12
+     },
+     "ref": {
+      "mc": null,
+      "Nbg_mc_once": 17
+     }
+    },
+    {
+     "k": 5,
+     "t_c": "1990-04-01",
+     "once": {
+      "mc": 3.3,
+      "Nbg_mc_once": 5
+     },
+     "ref": {
+      "mc": null,
+      "Nbg_mc_once": 16
+     }
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "us7000dffl",
+   "zaman": "2021-03-04",
+   "M": 7.3,
+   "yer": "182 km NE of Gisborne, New Zealand",
+   "bolge": "Yeni Zelanda",
+   "kume": 1035,
+   "R_km": 180.7,
+   "katalog": "ISC",
+   "mc_once": 2.6,
+   "N3bg_mc": 431,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": 2.8,
+    "Nbg": 423.7
+   },
+   "ref_tam": {
+    "n": 6240,
+    "mc": 2.8,
+    "Nbg_mc_once": 659,
+    "N_mc_once": 4775,
+    "maxc_alt_sinirda": false,
+    "tur": "ISC tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 2.8
+   },
+   "ref_gecer": {
+    "0.1": false,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [],
+   "kontrol": [],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "us7000g8n3",
+   "zaman": "2022-01-03",
+   "M": 6.2,
+   "yer": "66 km E of Hualien City, Taiwan",
+   "bolge": "Tayvan",
+   "kume": 1174,
+   "R_km": 50.0,
+   "katalog": "ISC",
+   "mc_once": 2.4,
+   "N3bg_mc": 63,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": 2.2,
+    "Nbg": 859.0
+   },
+   "ref_tam": {
+    "n": 2907,
+    "mc": 2.4,
+    "Nbg_mc_once": 72,
+    "N_mc_once": 1346,
+    "maxc_alt_sinirda": false,
+    "tur": "ISC tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 2.4
+   },
+   "ref_gecer": {
+    "0.1": false,
+    "0.3": false
+   },
+   "kontrol_havuz_k": [],
+   "kontrol": [],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "us6000nyzk",
+   "zaman": "2024-10-16",
+   "M": 6.0,
+   "yer": "19 km W of Doğanyol, Turkey",
+   "bolge": "Türkiye",
+   "kume": 1137,
+   "R_km": 50.0,
+   "katalog": "ISC",
+   "mc_once": 1.4,
+   "N3bg_mc": 185,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": 1.8,
+    "Nbg": 156.7
+   },
+   "ref_tam": {
+    "n": 8078,
+    "mc": 1.6,
+    "Nbg_mc_once": 283,
+    "N_mc_once": 6275,
+    "maxc_alt_sinirda": false,
+    "tur": "ISC tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 1.6
+   },
+   "ref_gecer": {
+    "0.1": false,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [
+    2,
+    5,
+    6
+   ],
+   "kontrol": [
+    {
+     "k": 2,
+     "t_c": "2012-10-16",
+     "once": {
+      "n": 861,
+      "mc": 2.6,
+      "Nbg_mc_once": 252,
+      "N_mc_once": 858,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    },
+    {
+     "k": 5,
+     "t_c": "1994-10-16",
+     "once": {
+      "n": 3,
+      "mc": null,
+      "Nbg_mc_once": 3,
+      "N_mc_once": 3,
+      "maxc_alt_sinirda": true
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    },
+    {
+     "k": 6,
+     "t_c": "1988-10-16",
+     "once": {
+      "n": 2,
+      "mc": null,
+      "Nbg_mc_once": 2,
+      "N_mc_once": 2,
+      "maxc_alt_sinirda": true
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "us7000nr0v",
+   "zaman": "2024-11-10",
+   "M": 6.8,
+   "yer": "42 km SSW of Bartolomé Masó, Cuba",
+   "bolge": "Karayip",
+   "kume": 1139,
+   "R_km": 88.5,
+   "katalog": "ISC",
+   "mc_once": 1.0,
+   "N3bg_mc": 156,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": 2.1,
+    "Nbg": 261.2
+   },
+   "ref_tam": {
+    "n": 2734,
+    "mc": 1.0,
+    "Nbg_mc_once": 550,
+    "N_mc_once": 1615,
+    "maxc_alt_sinirda": false,
+    "tur": "ISC tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 2.2
+   },
+   "ref_gecer": {
+    "0.1": true,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [
+    2,
+    3,
+    4,
+    6
+   ],
+   "kontrol": [
+    {
+     "k": 2,
+     "t_c": "2012-11-10",
+     "once": {
+      "n": 15,
+      "mc": null,
+      "Nbg_mc_once": 10,
+      "N_mc_once": 15,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    },
+    {
+     "k": 3,
+     "t_c": "2006-11-11",
+     "once": {
+      "n": 25,
+      "mc": 2.6,
+      "Nbg_mc_once": 18,
+      "N_mc_once": 25,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    },
+    {
+     "k": 4,
+     "t_c": "2000-11-10",
+     "once": {
+      "n": 2,
+      "mc": null,
+      "Nbg_mc_once": 2,
+      "N_mc_once": 2,
+      "maxc_alt_sinirda": true
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    },
+    {
+     "k": 6,
+     "t_c": "1988-11-10",
+     "once": {
+      "n": 0,
+      "mc": null,
+      "Nbg_mc_once": 0,
+      "N_mc_once": 0,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": []
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  },
+  {
+   "id": "us6000pxvx",
+   "zaman": "2025-03-10",
+   "M": 6.5,
+   "yer": "34 km NE of Olonkinbyen, Svalbard and Jan Mayen",
+   "bolge": "Jan Mayen/Svalbard",
+   "kume": 1144,
+   "R_km": 57.7,
+   "katalog": "ISC",
+   "mc_once": 1.7,
+   "N3bg_mc": 223,
+   "ref_ilk": {
+    "tur": "örnekten tahmin",
+    "mc": 1.9,
+    "Nbg": 145.1
+   },
+   "ref_tam": {
+    "n": 1170,
+    "mc": 1.8,
+    "Nbg_mc_once": 253,
+    "N_mc_once": 802,
+    "maxc_alt_sinirda": false,
+    "tur": "ISC tam [t-10y, t-3y), R",
+    "mc_eski5_duyarlilik": 1.8
+   },
+   "ref_gecer": {
+    "0.1": true,
+    "0.3": true
+   },
+   "kontrol_havuz_k": [
+    1,
+    2
+   ],
+   "kontrol": [
+    {
+     "k": 1,
+     "t_c": "2019-03-10",
+     "once": {
+      "n": 346,
+      "mc": 1.9,
+      "Nbg_mc_once": 81,
+      "N_mc_once": 253,
+      "maxc_alt_sinirda": false
+     },
+     "ref": {
+      "n": 2379,
+      "mc": 2.2,
+      "Nbg_mc_once": 316,
+      "N_mc_once": 1969,
+      "maxc_alt_sinirda": false
+     }
+    },
+    {
+     "k": 2,
+     "t_c": "2013-03-10",
+     "once": {
+      "n": 1357,
+      "mc": 2.2,
+      "Nbg_mc_once": 126,
+      "N_mc_once": 1176,
+      "maxc_alt_sinirda": false
+     },
+     "ref": null,
+     "ref_indirilmedi": "önce-penceresi tol 0,3'te dolu değil"
+    }
+   ],
+   "kontrol_dolu_once": {
+    "0.1": [],
+    "0.3": [
+     1
+    ]
+   },
+   "kontrol_dolu": {
+    "0.1": [],
+    "0.3": []
+   }
+  }
+ ]
+}

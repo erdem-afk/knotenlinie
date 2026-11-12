@@ -30,3 +30,10 @@ Komut sırası (python3 -I -B, scratch S=.../scratchpad/tr13):
   tr13_guc.py $S/guc_kahin_a.json tam kahin 25,50,100,200 --
   tr13_guc.py $S/guc_gk_oncesi.json tam gk 25 oncesi
   tr13_ozet.py $S/sayim4.json $S/guc_gk_a.json $S/guc_gk_b.json $S/guc_kahin_a.json $S/guc_gk_oncesi.json tr13_ozet.json
+
+Ek 1 (12 Kasım 2026), referans ve kontrol tam sayımı:
+Arşiv: /mnt/project-files/turetme/tr13-ham/tr13_tamsayim_ham_2026-11-12.tar.gz (32 852 266 B)
+  sha256 7f40414b65d79da0e8161ee24f68a4e90e5ae2412bb53a6ef7793027267efc63
+  içerik: ham_tam/ = parca_{ISC,GeoNet,EMSC,ComCat}_<id>_<j>.npz (527; j = t'ye hizalı yıl), onbellek_*_tam/ (540 ham
+          FDSN yanıtı), indirme.log, tr13_tamsayim.json
+Komut: tr13_tamsayim.py indir $S/ham $S/sayim4.json $S/ham_tam ; tr13_tamsayim.py say $S/ham $S/sayim4.json $S/ham_tam tr13_tamsayim.json

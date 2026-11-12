@@ -211,3 +211,21 @@ tabanına karşı (yıl ölçeğine dokunan ve projede benzeri olmayan tek açı
 hız-durum modelinde öngörülebilirlik ufku (koşullu tavan); TR-15 öncü dizilerinde 1/t ivmelenme (gün ölçeği).
 Kuramın yıl ölçeğinde bıraktığı öteki pencere, sismisitenin gerilme hızına tepki süresi, TR-6a ile zaten sınanıyor.
 Sıradaki iş: TR-13 için 0 € sayım ve güç kapısı.
+
+## Halka 9 (12 Kasım 2026): TR-13 sayımı güç yok; TR-4 doluluk kapısını geçti
+
+TR-13 (kuramdan türeyen, yıl ölçeğine dokunan tek açık öngörü: büyük depremden 2–3 yıl önce sismisite yerelleşmesi,
+Ben-Zion ve Zaliapin 2020) için 0 € sayım ve güç kapısı yapıldı (`kayit/onkayit/TR-13_SAYIM.md` + Ek 1). 1980–2025'te
+1175 sığ doğrultu atımlı Mw ≥ 6,0 ana şok / 538 küme; önce-penceresi temiz ve yeterli arka planlı 25–31 küme;
+referans dönemi de dolu olunca 11–20 (ana tasarım 14); eşleşik depremsiz kontrol de istenince 3–7. Kapı 20. ETAS
+yapay kataloglarında tek pencerelik yanlış alarm oranı %13–37 (anma %5) ve kümesizleştirme seçimi sonucu tek başına
+belirliyor. Ölçünün tanımı kaynaktan okunamadı (403), yeniden kurulum kullanıldı. Hüküm: güç yok (sayım); ön kayıt
+yazılmadı, gerçek katalogda ölçü hesaplanmadı. Biçim yine örneklem: darboğaz, geçmişe doğru katalog tamlığı.
+
+TR-4 (Marmara sismik hız tabanı): ön kayıt sürüm 2 donduruldu (430b4a0; Ek 1 968dca2), aşama 0 doluluk sayımı (597
+yoklama, 0 €) kapıyı geçti: 105 dolu yer-penceresi, T başına 15, 16, 15, 14, 14, 9, 11, 11 yer. Zincirde gerçek
+dolulukla küçülmeyen ilk sayım (önceden yoklanmış olduğu için). Sıradaki: Kandilli indirme hızı ölçümü kademeyi
+belirler; hız 23–40 KiB/s ise ön kayıt gereği "veri yok (aktarım hızı)".
+
+Kuramsal koldan kalan adaylar: TR-14 (hız-durum modelinde öngörülebilirlik ufku; hesap, veri değil) ve TR-15 (öncü
+dizilerinde 1/t; gün ölçeği).

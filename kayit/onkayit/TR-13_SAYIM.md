@@ -424,3 +424,110 @@ Metin–kod notları:
 3. **Bağımsızlık ve temsil.** Geçen kümelerin yarısı Kaliforniya, Japonya ve Tayvan. Mekanizma ölçütü gevşek
    (karma Wenchuan ve Kahramanmaraş). Okyanus transform faylarının neredeyse hiçbiri geçmiyor. Sonuç "yoğun ağlı
    kıta ve yay içi doğrultu atımlı faylar" örneklemidir; Marmara'nın denizaltı fayına doğrudan çevrilmez.
+
+## Ek 1 (12 Kasım 2026): referans ve kontrol tam sayımı
+
+Yeniden açma şartı (a) koşuldu (0 €). Gövde değiştirilmedi. Kod `kayit/turetme/tr13/tr13_tamsayim.py`, çıktı
+`tr13_tamsayim.json`. Ham veri `/mnt/project-files/turetme/tr13-ham/tr13_tamsayim_ham_2026-11-12.tar.gz`
+(32 852 266 B, sha256 `7f40414b65d79da0e8161ee24f68a4e90e5ae2412bb53a6ef7793027267efc63`; içerik `ham_tam/`:
+527 yıllık parça `parca_<servis>_<id>_<j>.npz`, 540 ham FDSN yanıtı, indirme günlüğü, json kopyası).
+
+### E1.1 Ne yapıldı
+
+- **Hedef.** §3.2'deki temiz ve N3bg ≥ 50 (Mc) olaylar: 41 olay, 31 küme (M ≥ 6,5: 25 küme). `sayim4.json`'dan
+  aynen alındı (sha256 0ae42bc0…). Temiz sayıları (25 / 31) yeniden üretildi.
+- **Kurallar değişmedi.** Mc = MAXC + 0,2 (20–49 olayda + 0,3), GK74, tol 0,1 / 0,3, referans şartı
+  Mc_ref ≤ Mc_önce + tol ve N_ref,bg ≥ 100, kontrol eşleme tanımı (t_c = t − 6k y, havuzda [t_c − 3 y, t_c + 3 y]
+  içinde M ≥ 5,5 yok, t_c − 10 y ≥ 1975). Kod, uygun k sayısının §3'teki `kontrol_pencere_havuz` ile aynı
+  olduğunu assert eder.
+- **Referans dönemi.** ISC / GeoNet / EMSC olaylarında (25 olay) [t − 10 y, t − 3 y) R dairesinde yıl yıl TAM
+  indirildi (M ≥ Mc_önce − 0,3). Mc_ref bu 7 yılın MAXC + 0,2'si; GK74 bu pencerede, R dairesinde (ISC tam3 ile
+  aynı yöntem). ComCat olaylarının referansı zaten tamdı; değerleri değişmedi.
+- **Kontrol doluluğu (yeni ölçülen).** Gövde doluluğu tanımlamamıştı. Hedefle aynı kural uygulandı: kontrolün
+  önce-penceresi [t_c − 3 y, t_c) için Mc_c ≤ Mc_önce + tol ve N3bg_c (m ≥ Mc_önce) ≥ 50; kontrolün kendi
+  referansı [t_c − 10 y, t_c − 3 y) için hedefteki referans şartı. Ana satır ikisini birden ister ("dolu");
+  yalnız önce-pencere şartı ayrıca yazıldı. ComCat'te kontrol penceresi hedefle aynı biçimde (R_ind, 10 y, M ≥ 1,0,
+  Mc 5 y kuralı, Mc_ref [t_c − 10 y, t_c − 5 y)). 77 uygun kontrol penceresinin hepsi indirildi; önce-penceresi
+  tol 0,3'te dolu olmayanın referansı indirilmedi (sonucu değiştirmez).
+- **Körlük.** Bütün parçalar ana şoktan önce biter; indirilen en geç olay 2022-03-09. 2026 verisi yok. Gerçek
+  katalogda V(q), Gini, z hesaplanmadı; yalnız sayı, Mc, GK74 sayısı. Servisler ISC, GeoNet, EMSC, ComCat;
+  anonim, genel User-Agent; 401/403 yok, 429 yok.
+
+### E1.2 Kesin K (bağımsız küme; N3bg ≥ 50, Mc)
+
+| Satır | M ≥ 6,5 tol 0,1 | M ≥ 6,5 tol 0,3 | M ≥ 6,0 tol 0,1 | M ≥ 6,0 tol 0,3 |
+|---|---|---|---|---|
+| Temiz (üst sınır) | 25 | 25 | 31 | 31 |
+| Temiz + referans, ilk sayım (90 g örnek) | 8 | 12 | 13 | 17 |
+| **Temiz + referans dolu (tam)** | **11** | **14** | **16** | **20** |
+| Temiz + referans + kontrol, yalnız havuz (eski tanım) | 8 | 9 | 13 | 15 |
+| Temiz + referans + kontrol önce-penceresi dolu | 5 | 6 | 9 | 11 |
+| **Temiz + referans + eşleşik kontrol dolu (tam)** | **3** | **4** | **4** | **7** |
+
+- Duyarlılık (kural değil): ISC'de Mc_ref ComCat'teki gibi yalnız [t − 10 y, t − 5 y)'den alınırsa temiz + referans
+  10 / 14 / 13 / 19 olur.
+- Tam referans sayımı K'yi örnek tahmine göre **artırdı** (+2–3 küme). Örnek iki yönde de yanılmıştı:
+  - örnekte düşüp tamda geçen: Cook Boğazı, Kolombiya, Tacikistan 2017, Küba 2024, Jan Mayen (tol 0,1); tol 0,3'te
+    ayrıca Ishigaki, Jamaika 2020, Doğanyol 2024;
+  - örnekte geçip tamda düşen: Okinawa (tol 0,3), Kefalonya 2014 (Mc_ref 2,2 → 3,5), Hualien (N_ref 859 → 72).
+  Ders "3–5 kat küçülür" bu adımda tutmadı. Ama kontrol doluluğu ölçülünce K 4–7'ye düştü.
+
+### E1.3 Kümeler ve bölge dağılımı
+
+Temiz + referans dolu, M ≥ 6,0, tol 0,3 (20 küme):
+- Kaliforniya 5: Loma Prieta 1989; Güney Kaliforniya 1986–1999 kümesi; South Napa 2014; Ridgecrest 2019;
+  Big Lagoon açığı 2005.
+- Japonya 4: Kobe 1995; Ishigaki 2009 (yalnız tol 0,3); Kumamoto 2016; Kurayoshi 2016.
+- Yeni Zelanda 3: Darfield 2010; Cook Boğazı 2013; Gisborne açığı 2021 (yalnız tol 0,3).
+- Alaska 2: Yakutat 2014; Chiniak açığı 2018 (yalnız tol 0,3).
+- Türkiye 2: İzmit 1999 (ComCat); Doğanyol 2024 M 6,0 (yalnız tol 0,3; 2020 olayı düştü).
+- Birer: Kolombiya 2016 (Mutatá); Tacikistan 2017 M 6,0 (2015 M 7,2 düştü); Karayip (Küba açığı 2024 M 6,8;
+  Jamaika 2020 yalnız tol 0,3); Jan Mayen 2025 (gövdede "Svalbard").
+- M ≥ 6,5, tol 0,3 (14): yukarıdakilerden Napa, Kurayoshi, Yakutat, Doğanyol, Kolombiya ve Tacikistan çıkar.
+  tol 0,1'de ayrıca Ishigaki, Chiniak ve Gisborne çıkar (11).
+
+Temiz + referans + eşleşik kontrol dolu:
+- M ≥ 6,0, tol 0,3 (7): Kobe (k = 1), Kumamoto 6,2 (k = 1), Darfield (k = 1), Cook Boğazı (k = 1, 2, 3),
+  Yakutat (k = 3), South Napa (k = 1), Ridgecrest (k = 1, 2, 3, 5). Japonya 2, Yeni Zelanda 2, Kaliforniya 2,
+  Alaska 1.
+- M ≥ 6,5, tol 0,3 (4): Kobe, Darfield, Cook Boğazı, Ridgecrest. tol 0,1'de Kobe düşer (3).
+- M ≥ 6,0, tol 0,1 (4): Darfield, Cook Boğazı, Kumamoto, Ridgecrest.
+
+### E1.4 Hangi kümeler neden düştü
+
+Referans şartında (Mc_önce → Mc_ref; ağ zamanla iyileşiyor):
+- Fukuoka 2005 0,6 → 1,3; Okinawa 2010 2,2 → 2,6; Makurazaki 2015 1,6 → 2,1; El Mayor–Cucapah 1,6 → 2,0;
+  Kuzey Ege 2014 2,3 → 2,9; Zakynthos/Kefalonya kümesi 2,1 → 3,5 ve 2,4 → 3,0; Wenchuan 2,9 → 3,3;
+  Doğanyol 2020 1,5 → 2,6 (küme 2024 olayıyla kalır); Tacikistan 2015 2,7 → 3,6.
+- Arka plan yetmiyor (N_ref,bg < 100): Arthur's Pass 1994 (82), Minto 1995 (74), Hualien 2022 (72), Stanley
+  2020 (51; Mc_ref yok).
+
+Kontrol şartında (referansı dolu 20 kümeden 13'ü):
+- Uygun kontrol penceresi hiç yok (bölgede her 6 y'lık dilimde M ≥ 5,5 var): Loma Prieta, Güney Kaliforniya
+  kümesi, Chiniak, Gisborne, Big Lagoon.
+- Kontrol penceresi var ama eski dönem katalog boş ya da Mc yüksek: İzmit (k = 1 referansı Mc 4,3; k = 2 Mc 4,1),
+  Ishigaki (Mc 3,0), Kolombiya (k = 1 referansı Mc 2,9), Kurayoshi (k = 1, 2 referansı Mc 1,6–1,7 > 1,0),
+  Tacikistan 2017 (Mc 3,6), Doğanyol 2024 (Mc 2,6), Küba 2024 (N3bg ≤ 18), Jan Mayen (k = 1 referansı 2,2 > 1,7 + 0,3).
+- Kontrolün 1990 öncesine düşen pencereleri ISC'de hemen her yerde boş ya da Mc ≥ 2,6.
+
+### E1.5 Kapı hükmü
+
+- Şart (a) "temiz + referans + kontrol ile K ≥ 20" ister. Kesin değer **3–7**. **Şart (a) sağlanmadı.**
+- Ana tasarım (M ≥ 6,5, tol 0,3, temiz + referans) **14 < 20**: geçmez. Tek 20, en gevşek hücrede (M ≥ 6,0,
+  tol 0,3, kontrolsüz) tam sınırda; duyarlılıkla 19'a iner ve iki üyesi (Küba 2024 Mc 1,0; Ishigaki) kırılgandır.
+- §5 hükmü (SINIRDA, üst sınırda geçer) değişmez; ön kayıt yazılmaz. Eşleşik kontrol isteyen her tasarım bugünkü
+  açık veriyle **güç yok** verir. Kontrolsüz tasarım ise ancak M ≥ 6,0 ve tol 0,3 ile K ≈ 20'ye ulaşır.
+
+### E1.6 Kalan zayıf yerler
+
+1. **Mc_ref 7 yıllık MAXC'tır.** Ağın değiştiği dönemlerde MAXC en kalabalık dönemi gösterir. Küba 2024'te 7 yıl
+   1,0 verir, [t − 10, t − 5) ise 2,2. MAXC + 0,2 karışık ağlarda iyimserdir; ±1 küme oynar.
+2. **Kontrol doluluğu tanımı bizim aynamızdır.** Gövde tanımlamamıştı. Yalnız önce-pencere şartıyla K 5–11,
+   kontrolün kendi referansıyla 3–7. Her iki tanımda da 20'den çok uzak.
+3. **ComCat ile ISC farklı sayılıyor.** ComCat'te GK74 R_ind ve 10 y'da, Mc 5 y'dan; ISC'de R ve pencere başına.
+   Değiştirilmedi.
+4. **Örnekten N3bg < 25 olup tamda ≥ 50 çıkabilecek olaylar** yine sayılmadı (gövde §3.1).
+5. **Temsil.** Kontrollü 7 küme Japonya, Yeni Zelanda, Kaliforniya ve Alaska'dadır. Doğu Akdeniz ve Türkiye'den
+   hiçbiri yok; İzmit kontrol penceresinin 1980'lerdeki katalog boşluğuyla düşer.
+6. Kodda bir yarış hatası (iki iş parçacığı aynı parçayı yazıyordu) 3 parçayı eksik bıraktı. Düzeltildi; bütün
+   parçalar önbellekten yeniden kuruldu ve eskileriyle bire bir aynı çıktı.
