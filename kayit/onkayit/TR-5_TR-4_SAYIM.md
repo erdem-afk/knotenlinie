@@ -25,6 +25,11 @@ KOERI'nin servisi eksik raporluyor. TR-1 ve TR-11'deki 3–5 kat küçülme bura
 Bu yüzden değişke **SINIRDA**. Ayrıca bir tasarım değişikliğidir (hedef "büyük deprem" olmaktan çıkar); karar kök
 oturumundur.
 
+**Ek 1 (doluluk yoklaması, 12 Kasım):** M ≥ 6,0 değişkesinde doluluğu doğrulanmış sayım, 3 yıllık taban ve n ≥ 1
+ile K 37, plasebo kümesi 20; G1 ve G2 **GEÇTİ**. 5 yıllık taban ve n ≥ 1 ile K 25, G1 geçti, G2 (plasebo 6) **GEÇMEDİ**.
+n ≥ 2 iki tabanda da GEÇMEDİ (K 8 ve 11). TR-4'te ana kuralla epok başına en çok 10 dolu KO istasyonu var; 24
+istasyonun 6'sı süre sınırı yüzünden yoklanamadı. Kapı **doğrulanamadı (SINIRDA)**; gevşek kuralla geçiyor.
+
 **TR-4'ün veri kapısı üstveride geçiyor, ama doluluk doğrulanamadığı için SINIRDA.** KO ağının 24 istasyonu
 2012–2023 epoklarında sakin, 5 yıllık, örtüşmeyen 50 istasyon-penceresi veriyor (epok başına 5–22 istasyon). 6G
 ağının 26 istasyonu üstveride var, ama deneme isteği 204 döndü, yani veri yok. KOERI tek akış indirme hızı
@@ -391,3 +396,118 @@ Bu bir ön kayıt değildir. Açık seçenekler (eleme yapılmadan):
 - (b) TR-5'in M ≥ 6,0 değişkesi: ayrı ön kayıt gerektirir; önce doluluk yoklaması.
 - (c) TR-4: önce KO doluluk yoklaması ve KOERI paralel hız ölçümü, sonra ön kayıt. Ölçeceği σ_Δ, TR-5'in güç
   çevirisindeki eksik sayıdır.
+
+## Ek 1: doluluk yoklaması (12 Kasım)
+
+Yalnız varlık sayımı yapıldı. dv/v ölçülmedi, dalga formu okunmadı ve saklanmadı. Betik
+`kayit/turetme/tr5/doluluk_yokla.py` (`aday`, `yokla`, `say`). Çıktılar aynı dizinde: `tr5_doluluk.csv`,
+`tr4_doluluk.csv`, `doluluk_ozet.json`. Önbellek depo dışında. Bütün istek zamanları 2023 ve öncesinde.
+
+**Yöntem.** Her (istasyon, ay) için ayın 15'inde 12:00–12:01 UTC aralığına 60 saniyelik bir dataselect isteği
+atıldı (`cha=BHZ,HHZ`, `loc=*`). Kayda yalnız HTTP kodu ve bayt sayısı girdi. İki kod birlikte istendi, çünkü
+üstveride BHZ görünüp arşivde yalnız HHZ bulunan istasyonlar var (AC.PHP: BHZ 204, BHZ,HHZ 200). Bir ay "var"
+sayıldı: 200 ve bayt > 0. 204 ve 404 boş sayıldı; 401/403 kısıtlı; başka kodlar hata. Hatalar ana kuralda veri yok
+sayıldı. **Dolu** istasyon-penceresi: ayların ≥ %80'inde veri var ve en uzun ardışık boşluk ≤ 3 ay. Duyarlılık için
+iki kural daha: gevşek ≥ %60 / ≤ 6 ay, sıkı ≥ %90 / ≤ 2 ay. Sınırlılık: ayda tek dakika, kısa kesintileri görmez.
+Hedef olay pencereleri [T − taban, T − 1 g], plasebo pencereleri [T − 2·taban, T − 1 g]. Kontrol havuzu yoklanmadı;
+kontroller sayımda üstveriyle kaldı.
+
+**Kapsam.** Aday listesinde 802 çift (temiz ve ≥ 5 kontrollü olaylar; 100 km içindeki bütün açık ve kesintisiz
+istasyonlar) ve 21 688 istek çıktı. Bu 15 000'i aştığı için liste **olay başına en yakın 3 yerle** sınırlandı:
+373 çift, 152 istasyon, 10 336 istek. TR-4 için 3456 istek (24 KO istasyonu, 2012-01 ile 2023-12 arası).
+Benzersiz toplam 13 792 istek, 12 957'si atıldı (%93,9). TR-5 %100 tamamlandı. TR-4 %75,8 (2621/3456): arka plan
+işi 2 saatlik üst süre sınırında durduruldu, sınır zaten en büyük değerindeydi ve iş yeniden başlatılmadı. KO.SAUV,
+SILT, SLVT, SPNC ve YLV hiç, KO.RKY 29/144 ay yoklandı. Akış servis başına tekti. Bekleme EarthScope, GEOFON ve
+ORFEUS'ta 0,3 sn, KOERI'de 2 sn, ötekilerde 0,5 sn idi. User-Agent geneldi, TLS doğrulaması açıktı.
+
+| Servis | 200 | 204 | Öteki | Medyan sn |
+|---|---|---|---|---|
+| EarthScope (IRISDMC) | 2670 | 2794 | – | 0,38 |
+| KOERI | 2642 | 915 | 835 atılmadı | 0,97 |
+| INGV | 845 | 223 | – | 1,14 |
+| GEOFON | 453 | 123 | – | 0,52 |
+| NOA | 434 | 34 | – | 0,61 |
+| NCEDC | 424 | 8 | – | 0,75 |
+| ORFEUS | 314 | 238 | – | 0,77 |
+| SCEDC | 277 | 57 | **500: 50** (geçici; elle yinelenen bir istek 200 döndü, yeniden yoklanmadı) | 0,68 |
+| IGN / EPOSFR / AUSPASS / GEONET | 106 / 70 / 23 / 36 | 38 / 38 / 13 / 0 | – | 0,4–1,4 |
+| UIB-NORSAR | 2 | 130 | neden doğrulanamadı | 1,75 |
+
+401, 403, 429 ve 503 hiç görülmedi. EarthScope isteklerinin yarısı boş döndü, çünkü bazı istasyonlarda pencerenin
+başı arşivde yok (örnek: AI.ORCD 1997–2003 boş, 2012'de BHZ var).
+
+**TR-5 çiftleri.** Ana kurala göre dolu olan çiftler:
+- olay penceresi: 3 yıllık tabanda 60/151, 5 yıllıkta 44/103 (≈ %40);
+- plasebo penceresi: 34/88 ve 10/31;
+- 373 çiftin tamamında: ana 148, gevşek 185, sıkı 113.
+
+**Doğrulanmış sayım** (M ≥ 6,0, z ≤ 30 km, 2000–2023, R = 100 km; `sayim_ustveri.py` kuralları; olay ve plasebo
+istasyonlarına doluluk süzgeci). İlk satır öncekiyle aynı sayıları üretir.
+
+| Süzgeç | Taban | n ≥ | K | Plasebo kümesi | Doğrultu atımlı | G1 (K ≥ 20) | G2 (≥ 10) |
+|---|---|---|---|---|---|---|---|
+| yalnız üstveri | 5 / 3 | 1 | 50 / 77 | 17 / 41 | 22 / 36 | – | – |
+| yalnız üstveri | 5 / 3 | 2 | 25 / 35 | 6 / 23 | 9 / 13 | – | – |
+| **ana** | **5** | 1 | **25** | **6** | 11 | GEÇTİ | **GEÇMEDİ** |
+| **ana** | **3** | 1 | **37** | **20** | 17 | **GEÇTİ** | **GEÇTİ** |
+| ana | 5 / 3 | 2 | 8 / 11 | 0 / 6 | 0 / 2 | GEÇMEDİ | GEÇMEDİ |
+| gevşek | 5 / 3 | 1 | 28 / 51 | 6 / 24 | 13 / 21 | geçti / geçti | geçmedi / geçti |
+| gevşek | 5 / 3 | 2 | 10 / 16 | 0 / 8 | 0 / 2 | geçmedi | geçmedi |
+| sıkı | 5 / 3 | 1 | 20 / 26 | 4 / 14 | 8 / 12 | geçti / geçti | geçmedi / geçti |
+| sıkı | 5 / 3 | 2 | 7 / 6 | 0 / 3 | 0 / 0 | geçmedi | geçmedi |
+
+Küçülme 1,5–3 kat (n ≥ 1) ve 2–3 kat (n ≥ 2). Bu sayılar **alt sınırdır**, üç nedenle: yalnız en yakın 3 yer
+yoklandığı için dolu olmayan bir yerin yerine 4. yer giremedi; SCEDC'nin 50 hatası boş sayıldı; kontroller
+doluluk süzgecinden geçmedi (≥ 5 kontrol şartı üstveriyle sağlandı). Son nedenin yönü ters: kontrol tarafında da
+küçülme beklenir ve bu doğrulanamadı. Kapıyı iki koşulda da geçen tek biçim **3 yıllık taban, n ≥ 1** (ana, gevşek
+ve sıkı kuralların üçünde de). Bu biçim, ana tasarımdaki n ≥ 2'den ve 5 yıllık tabandan iki değişiklik ister.
+
+**TR-4.** T ≥ 2017 epoklarında pencere tamamen 2012 sonrasında, bu yüzden tam kapsanıyor. Öncesi kapsam dışında.
+Dolu KO istasyon-penceresi sayısı (yoklananlar üzerinden):
+
+| T | 2017 | 2018 | 2019 | 2020 | 2021 | 2022 | 2023 |
+|---|---|---|---|---|---|---|---|
+| ana | 8 | 10 | 9 | 9 | 8 | 9 | 9 |
+| gevşek | 13 | 13 | 12 | 12 | 9 | 10 | 10 |
+| sıkı | 3 | 4 | 8 | 8 | 7 | 9 | 9 |
+| yoklanmamış ama aday | 4 | 5 | 5 | 5 | 2 | 2 | 2 |
+
+Dolu istasyon sayısı: ana 13, gevşek 15, sıkı 11. Kapı ≥ 10 istasyon ve ≥ 5 yıl arayla iki epok istiyor
+(2017–2022 ya da 2018–2023):
+- ana kural: yoklananlarla **GEÇMEDİ** (10 ve 9); yoklanmayan 6 istasyonla geçebilir, yani **doğrulanamadı**;
+- gevşek: GEÇTİ (13 ve 10);
+- sıkı: GEÇMEDİ.
+
+Ay doluluğu yıl başına %57–72 arasında. KOERI availability servisinin 2018–2022 için verdiği "≈ 0" yanlıştır. İstasyon
+başına 2012–2023 ay oranı ISK, CTKS, KLYT ve MDNY'de 0,92–0,97, GEMT'de 0,49, MRMT'de 0,61.
+
+**Hacim ve süre.** Kapıyı geçen biçim için (3 yıllık taban, n ≥ 1, ana süzgeç) hacim 590 552 istasyon-gün; bunun
+65 700'ü olay penceresi, kalanı kontroller. 1,3 bayt/örnek ve en düşük ≥ 10 sps kanal varsayıldı:
+
+| Biçim | Hacim | KOERI payı | KOERI süresi (40 KB/s) | Öteki merkezler (2,4 MB/s, tek akış) |
+|---|---|---|---|---|
+| Tam gün, 3 bileşen | 11,9 TB | 0,87 TB | ≈ 250 gün | ≈ 53 gün |
+| 4 saat/gün, 3 bileşen | **1,98 TB** | 0,145 TB | **≈ 42 gün** | ≈ 9 gün |
+| Tam gün, yalnız Z | 3,97 TB | 0,29 TB | ≈ 84 gün | ≈ 18 gün |
+| 4 saat/gün, yalnız Z | **0,66 TB** | 0,048 TB | **≈ 14 gün** | ≈ 3 gün |
+
+- **Plasebo pencereleri** bu hacme dahil değil; kabaca %20–50 eklerler.
+- **Kontroller** doğrulanmadığı için hacim üst sınırdır.
+- **Hız varsayımları:** 2,4 MB/s yalnız EarthScope'ta tek ölçümle bulundu; öteki merkezlere genellenmesi doğrulanmadı.
+  POST ile istek toplama da varsayıldı. Gün başına ayrı istek atılırsa 590 bin istek tek akışta ≈ 7 gün ek gecikme getirir.
+- **Yalnız Z biçimi** tek istasyon bileşenler arası yöntemi (ZE, ZN, EN) bozar. Geriye yalnız 60 km'den yakın
+  istasyon çiftleriyle Z–Z CC kalır, bu da n ≥ 1 olaylarının çoğunda çift olmadığı anlamına gelir. Ana yöntemin en
+  küçük geçerli biçimi bu yüzden 4 saat/gün, 3 bileşendir: ≈ 2 TB, KOERI yüzünden ≈ 6 hafta.
+- **TR-4** (yalnız KO): 4 saat/gün 3 bileşen ≈ 0,37 TB, ≈ 107 gün; yalnız Z ≈ 0,12 TB, ≈ 35 gün (bölüm 5). KOERI
+  paralel akış hızı hâlâ ölçülmedi.
+- **Sunucu:** Bu koşu bulut oturumunun süresine ve diskine sığmaz; bunu bu yoklama da gösterdi (2 saatlik iş sınırı).
+  Akış hâlinde işlemeyle disk küçük kalır, ama haftalarca açık kalacak bir makine gerekir. Hetzner 8 vCPU sınıfı ayda
+  kabaca 30–60 € tutar (**doğrulanamadı**). 6–8 haftalık bir koşu ≈ 45–120 € eder. Yalnız Z ve 4 saat/gün biçiminde
+  koşu ≈ 2–3 hafta, ≈ 15–45 € eder. Bu iş 0 € harcadı; makine kiralanmadı.
+
+**Engeller.**
+- TR-4'ün 6 istasyonu yoklanmadı.
+- SCEDC'nin 50 isteği 500 döndü ve yinelenmedi.
+- UIB-NORSAR'ın neredeyse tamamen boş dönmesinin nedeni doğrulanamadı.
+- Kontrol havuzunun doluluğu ölçülmedi.
+- İstek başına yalnız 1 dakika alındığı için gün doluluğu (≥ 0,60 şartı) ölçülmedi; ay doluluğu yerine kullanıldı.
