@@ -8,6 +8,8 @@ Talimat: Erdem, 12 Kasım ("tüm açık ihtimalleri götür, seçim yapmadan ile
 
 ## Hüküm
 
+**Ek 1 (12 Kasım, varlık yoklaması): K0 GEÇTİ (×1); S1/S2/S3'te 12/11/11 doğrulanmış tetikleyici, τ₍₈₎ = 3,8/4,0/4,1 kPa; bölgesel hariç 10/9/9 (τ₍₈₎ 2,7–2,9 kPa); τ×1/3 ile ZAYIF (6/6/5). Aşağıdaki SINIRDA hükmü bununla kapandı.**
+
 **Kapı SINIRDA; aday elenmedi.** 2005–2025 arasındaki 111 M≥7,5 depremden 85'i sığdır (≤100 km). Kaba Ms bağıntısıyla
 Marmara'da ≥2 kPa dinamik gerilme beklenen 17 olay var. Bunların ikisi Kahramanmaraş 2023'tür ve bölgesel olaydır.
 Fay izine ≤50 km uzaklıkta 247 açık sismometre var (KO, 6G, TL, IJ ve geçici ağlar). Taranabilir (tetikleyici × segment)
@@ -272,3 +274,80 @@ sıvıca zengin bir kayma bölgesi olup olmadığına dair bir **var/yok bilgisi
   ürettiği dinamik gerilme değerleri.
 
 Aday kendi başına elenmedi. Kapının kesinleşmesi, bölüm 5'teki varlık yoklaması için Erdem'in onayına bağlı.
+
+## Ek 1: veri varlığı yoklaması (12 Kasım)
+
+Betik `kayit/turetme/tr7/tr7_varlik.py`; çıktılar `tr7_varlik.csv`, `tr7_varlik_ozet.json`. Yanıt özeti (kod, bayt)
+depo dışındaki önbellekte (`tr7_onb/varlik_onb.jsonl`); betik yeniden koşunca ağa çıkmaz. İçerik çözülmedi, diske
+yazılmadı. Tetikleyiciler ≤ 2025-12-31; Marmara GNSS verisine dokunulmadı.
+
+**Yöntem.** Epok üst sınırındaki her (istasyon × tetikleyici) adayı için (çiftte epokla ≥3 istasyon, τ ≥ 2 kPa, ×1),
+istasyonun kendi uzaklığına göre W'nin ortasından 10 sn, tek Z kanalı (HHZ > BHZ > EHZ > SHZ). Servis: KO/TL/IJ/6G →
+KOERI, EIDA ağları → federatör, YH/YL → EarthScope. 200 ve >0 bayt = var; 404 = yok. Tek akış, istekler arası ≥0,5 sn,
+genel User-Agent.
+
+**İstek.** 935 istek (tahmin ~760'tı; aday kümesi bölüm 3 kurallarıyla yeniden üretildi). 481 × 200, 454 × 404.
+Toplam 1,75 MB. 429/503, 401/403 ve belirsiz yanıt yok. Bir istek bağlantı sıfırlandı, yeniden denemede geldi.
+
+| Ağ (servis) | var | yok |
+|---|---|---|
+| KO (KOERI) | 311 | 104 |
+| 6G (KOERI) | 37 | 210 |
+| IJ (KOERI) | 8 | 6 |
+| TL (KOERI) | 0 | 28 |
+| YH (EarthScope) | 71 | 75 |
+| YL (EarthScope) | 30 | 2 |
+| HT / XW / XY (federatör) | 12 / 6 / 6 | 4 / 2 / 1 |
+| 1O / TU (federatör) | 0 / 0 | 16 / 6 |
+
+- 6G'nin üstveri epoku 2013'ten beri açık, ama veri 2015 sonrasında yok. TL hiç gelmedi: joker konum ve kanalla yapılan
+  bir tanı isteği de 404 döndü. 1O ve TU federatörden 404 döndü. Bunların "arşivde yok" mu, "kısıtlı" mı olduğu
+  ayrılamadı, çünkü servis 401/403 vermedi.
+- KO'nun 2006–2008 pencerelerinin hepsi 404 (46 istek). KO verisi 2010'dan itibaren geliyor. Bu, 2011 öncesi KO
+  verisinin seyrek olduğu bilgisiyle tutarlı.
+
+**Segment sayımı** (≥3 istasyonda veri var ve kaba τ ≥ 2 kPa olan tetikleyici sayısı):
+
+| Segment | eşik üstü | ×1 | bölgesel hariç | τ₍₈₎ ×1 (kPa) | τ₍₈₎ bölg. hariç | ×1/3 | ×3 (alt sınır) |
+|---|---|---|---|---|---|---|---|
+| S1 Ganos–Saros | 18 | **12** | 10 | 3,8 | 2,7 | 6 | 12 |
+| S2 Orta Marmara–Adalar | 17 | **11** | 9 | 4,0 | 2,8 | 6 | 12 |
+| S3 Çınarcık–İzmit | 17 | **11** | 9 | 4,1 | 2,9 | 5 | 11 |
+| S4 Sapanca–Düzce | 17 | 11 | 9 | 4,3 | 3,0 | 5 | 11 |
+| S5 Bolu–Gerede | 17 | 8 | 6 | 2,4 | — | 3 | 8 |
+| S6 Çerkeş–Tosya | 17 | 5 | 5 | — | — | 1 | 5 |
+| S7 Güney kol | 17 | 13 | 11 | 4,7 | 3,7 | 6 | 14 |
+
+×3 sütunu alt sınırdır. Yalnız ×1 adayları yoklandı; ×3'te ortaya çıkan ek çiftler (S1–S3'te ~29'ar) yoklanmadı.
+Doğrulanmış tetikleyiciler (S2): Kahramanmaraş ×2 (bölgesel), Tohoku 2011, Kamçatka 2025, Wharton Basin 2012 ana şok ve
+artçısı, Maule 2010, İran 2013, Pakistan 2013, Nepal 2015, Chignik 2021. S1'de ayrıca Illapel 2015 var.
+
+**K0 hükmü: GEÇTİ** (×1; S1/S2/S3 = 12/11/11; bölgesel hariç 10/9/9). Doğrulanmış τ₍₈₎ değeri 3,8/4,0/4,1 kPa,
+bölgesel hariç 2,7/2,8/2,9 kPa. Önceki üst sınır τ₍₈₎ 4,4–4,8 kPa'ydı. Kaba τ ×1/3 alınırsa hüküm **ZAYIF** olur
+(6/6/5). Uyarılar:
+- Wharton 2012 ana şoku ile artçısı arasında 2 saat var. Bağımsız sayılmazlarsa bölgesel hariç sayı 9/8/8 olur; yine
+  ≥8, ama S2 ve S3 sınırda kalır.
+- "Var" bilgisi W içindeki tek bir 10 sn'lik örneğe dayanıyor. W'nin %90 örtüsü doğrulanamadı; tam koşuda boşluklu
+  istasyonlar düşebilir.
+
+**Doğrulanmış tam tarama hacmi.** 71 çift, 17 olay, 475 istasyon-tetikleyici (353'ü KOERI). Varsayım: 3 bileşen,
+0,55 MB/saat/kanal, W + 1 saat başvuru, 10 negatif kontrol penceresi. Tetikleyici pencereleri ≈1,1 GB, negatif
+kontrol ≈11,2 GB, toplam **≈12 GB**. Bu, 17 GB boş diske indir–sil yapmadan da sığar.
+
+**Hız (KOERI, 2 deneme, her biri ≤1 MB).**
+- Tek akış, KO.ISK.HHZ 1 saat: 434 KB 1,27 sn'de geldi, ≈341 KB/s.
+- 2 paralel akış (ISK + BGKT, 1'er saat): toplam ≈633 KB/s, yani ×1,85. Hız katlanmaya yakın arttı.
+
+Bugünkü hız bölüm 4'teki 23 KB/s'nin ~15 katı. Fark yüksek olasılıkla arşivin soğuk ya da sıcak okumasından ve saatten
+geliyor (doğrulanamadı). Süre (12 GB):
+- 23 KB/s ile ≈152 saat (6,3 gün);
+- 341 KB/s tek akışla ≈10 saat;
+- 2 akışla ≈5,5 saat.
+
+Bunlara ≈5 200 istek için ~2 saatlik istek gecikmesi eklenir. EarthScope ve federatör hızı ölçülmedi. Bu iki servis
+işin ~%26'sını taşıyor.
+
+**Engeller.** Erişim reddi yok. TL, 1O ve TU'nun verisi gelmedi (kısıtlı mı, yok mu, ayrılamadı). 6G'nin 2015 sonrası
+epoku verisiz. KOERI availability dizininin eksikliği bu yoklamayla aşıldı: önceki alt sınır 16 çiftti, doğrulanmış
+sayı 71 çift.
+

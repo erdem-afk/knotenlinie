@@ -1,0 +1,1281 @@
+{
+ "tarih": "2026-11-12",
+ "istek": 935,
+ "esik_kpa": 2.0,
+ "yeniden_deneme": 1,
+ "ag_dagilim": {
+  "1O (eida_federator)": {
+   "yok": 16
+  },
+  "6G (koeri)": {
+   "yok": 210,
+   "var": 37
+  },
+  "HT (eida_federator)": {
+   "var": 12,
+   "yok": 4
+  },
+  "IJ (koeri)": {
+   "var": 8,
+   "yok": 6
+  },
+  "KO (koeri)": {
+   "var": 311,
+   "yok": 104
+  },
+  "TL (koeri)": {
+   "yok": 28
+  },
+  "TU (eida_federator)": {
+   "yok": 6
+  },
+  "XW (eida_federator)": {
+   "var": 6,
+   "yok": 2
+  },
+  "XY (eida_federator)": {
+   "var": 6,
+   "yok": 1
+  },
+  "YH (earthscope)": {
+   "var": 71,
+   "yok": 75
+  },
+  "YL (earthscope)": {
+   "var": 30,
+   "yok": 2
+  }
+ },
+ "http_dagilim": {
+  "200": 481,
+  "404": 454
+ },
+ "toplam_bayt": 1745920,
+ "ortalama_sure_s": 0.786,
+ "segment": {
+  "x1/3": {
+   "S1 Ganos-Saros": {
+    "esik_ustu": 7,
+    "n": 6,
+    "n_bolgesel_haric": 4,
+    "tau8": null,
+    "tau5": 3.06,
+    "tau8_bolgesel_haric": null,
+    "ust_sinir_yoklanmamis_dahil": 6,
+    "olaylar": [
+     [
+      "us6000jllz",
+      15.96,
+      9
+     ],
+     [
+      "us6000jlqa",
+      8.3,
+      8
+     ],
+     [
+      "official20110311054624120_30",
+      7.61,
+      7
+     ],
+     [
+      "us6000qw60",
+      4.06,
+      15
+     ],
+     [
+      "official20120411083836720_20",
+      3.06,
+      8
+     ],
+     [
+      "official20100227063411530_30",
+      2.03,
+      7
+     ]
+    ]
+   },
+   "S2 Orta Marmara-Adalar": {
+    "esik_ustu": 7,
+    "n": 6,
+    "n_bolgesel_haric": 4,
+    "tau8": null,
+    "tau5": 3.13,
+    "tau8_bolgesel_haric": null,
+    "ust_sinir_yoklanmamis_dahil": 6,
+    "olaylar": [
+     [
+      "us6000jllz",
+      19.25,
+      12
+     ],
+     [
+      "us6000jlqa",
+      10.17,
+      12
+     ],
+     [
+      "official20110311054624120_30",
+      7.75,
+      10
+     ],
+     [
+      "us6000qw60",
+      4.12,
+      18
+     ],
+     [
+      "official20120411083836720_20",
+      3.13,
+      11
+     ],
+     [
+      "official20100227063411530_30",
+      2.0,
+      10
+     ]
+    ]
+   },
+   "S3 Cinarcik-Izmit": {
+    "esik_ustu": 6,
+    "n": 5,
+    "n_bolgesel_haric": 3,
+    "tau8": null,
+    "tau5": 3.19,
+    "tau8_bolgesel_haric": null,
+    "ust_sinir_yoklanmamis_dahil": 5,
+    "olaylar": [
+     [
+      "us6000jllz",
+      23.06,
+      9
+     ],
+     [
+      "us6000jlqa",
+      12.35,
+      10
+     ],
+     [
+      "official20110311054624120_30",
+      7.84,
+      7
+     ],
+     [
+      "us6000qw60",
+      4.15,
+      9
+     ],
+     [
+      "official20120411083836720_20",
+      3.19,
+      11
+     ]
+    ]
+   },
+   "S4 Sapanca-Duzce": {
+    "esik_ustu": 6,
+    "n": 5,
+    "n_bolgesel_haric": 3,
+    "tau8": null,
+    "tau5": 3.26,
+    "tau8_bolgesel_haric": null,
+    "ust_sinir_yoklanmamis_dahil": 5,
+    "olaylar": [
+     [
+      "us6000jllz",
+      27.98,
+      6
+     ],
+     [
+      "us6000jlqa",
+      15.3,
+      6
+     ],
+     [
+      "official20110311054624120_30",
+      7.95,
+      3
+     ],
+     [
+      "us6000qw60",
+      4.18,
+      6
+     ],
+     [
+      "official20120411083836720_20",
+      3.26,
+      7
+     ]
+    ]
+   },
+   "S5 Bolu-Gerede-Ismetpasa": {
+    "esik_ustu": 6,
+    "n": 3,
+    "n_bolgesel_haric": 1,
+    "tau8": null,
+    "tau5": null,
+    "tau8_bolgesel_haric": null,
+    "ust_sinir_yoklanmamis_dahil": 3,
+    "olaylar": [
+     [
+      "us6000jllz",
+      35.15,
+      3
+     ],
+     [
+      "us6000jlqa",
+      20.0,
+      3
+     ],
+     [
+      "us6000qw60",
+      4.23,
+      7
+     ]
+    ]
+   },
+   "S6 Cerkes-Tosya": {
+    "esik_ustu": 6,
+    "n": 1,
+    "n_bolgesel_haric": 1,
+    "tau8": null,
+    "tau5": null,
+    "tau8_bolgesel_haric": null,
+    "ust_sinir_yoklanmamis_dahil": 1,
+    "olaylar": [
+     [
+      "us6000qw60",
+      4.29,
+      3
+     ]
+    ]
+   },
+   "S7 Guney kol (Geyve-Biga)": {
+    "esik_ustu": 7,
+    "n": 6,
+    "n_bolgesel_haric": 4,
+    "tau8": null,
+    "tau5": 3.14,
+    "tau8_bolgesel_haric": null,
+    "ust_sinir_yoklanmamis_dahil": 6,
+    "olaylar": [
+     [
+      "us6000jllz",
+      20.41,
+      17
+     ],
+     [
+      "us6000jlqa",
+      10.67,
+      16
+     ],
+     [
+      "official20110311054624120_30",
+      7.69,
+      9
+     ],
+     [
+      "us6000qw60",
+      4.07,
+      14
+     ],
+     [
+      "official20120411083836720_20",
+      3.14,
+      14
+     ],
+     [
+      "official20100227063411530_30",
+      2.01,
+      11
+     ]
+    ]
+   }
+  },
+  "x1": {
+   "S1 Ganos-Saros": {
+    "esik_ustu": 18,
+    "n": 12,
+    "n_bolgesel_haric": 10,
+    "tau8": 3.78,
+    "tau5": 9.17,
+    "tau8_bolgesel_haric": 2.74,
+    "ust_sinir_yoklanmamis_dahil": 12,
+    "olaylar": [
+     [
+      "us6000jllz",
+      47.87,
+      9
+     ],
+     [
+      "us6000jlqa",
+      24.89,
+      8
+     ],
+     [
+      "official20110311054624120_30",
+      22.83,
+      7
+     ],
+     [
+      "us6000qw60",
+      12.19,
+      15
+     ],
+     [
+      "official20120411083836720_20",
+      9.17,
+      8
+     ],
+     [
+      "official20100227063411530_30",
+      6.09,
+      7
+     ],
+     [
+      "usb000g7x7",
+      4.44,
+      12
+     ],
+     [
+      "usb000jyiv",
+      3.78,
+      8
+     ],
+     [
+      "usp000jhjb",
+      3.6,
+      8
+     ],
+     [
+      "ak0219neiszm",
+      2.74,
+      8
+     ],
+     [
+      "us20002926",
+      2.72,
+      18
+     ],
+     [
+      "us20003k7a",
+      2.02,
+      15
+     ]
+    ]
+   },
+   "S2 Orta Marmara-Adalar": {
+    "esik_ustu": 17,
+    "n": 11,
+    "n_bolgesel_haric": 9,
+    "tau8": 3.97,
+    "tau5": 9.39,
+    "tau8_bolgesel_haric": 2.82,
+    "ust_sinir_yoklanmamis_dahil": 11,
+    "olaylar": [
+     [
+      "us6000jllz",
+      57.76,
+      12
+     ],
+     [
+      "us6000jlqa",
+      30.51,
+      12
+     ],
+     [
+      "official20110311054624120_30",
+      23.25,
+      10
+     ],
+     [
+      "us6000qw60",
+      12.35,
+      18
+     ],
+     [
+      "official20120411083836720_20",
+      9.39,
+      11
+     ],
+     [
+      "official20100227063411530_30",
+      6.0,
+      10
+     ],
+     [
+      "usb000g7x7",
+      4.68,
+      18
+     ],
+     [
+      "usb000jyiv",
+      3.97,
+      13
+     ],
+     [
+      "usp000jhjb",
+      3.68,
+      11
+     ],
+     [
+      "us20002926",
+      2.82,
+      22
+     ],
+     [
+      "ak0219neiszm",
+      2.75,
+      12
+     ]
+    ]
+   },
+   "S3 Cinarcik-Izmit": {
+    "esik_ustu": 17,
+    "n": 11,
+    "n_bolgesel_haric": 9,
+    "tau8": 4.14,
+    "tau5": 9.58,
+    "tau8_bolgesel_haric": 2.91,
+    "ust_sinir_yoklanmamis_dahil": 11,
+    "olaylar": [
+     [
+      "us6000jllz",
+      69.19,
+      9
+     ],
+     [
+      "us6000jlqa",
+      37.05,
+      10
+     ],
+     [
+      "official20110311054624120_30",
+      23.53,
+      7
+     ],
+     [
+      "us6000qw60",
+      12.44,
+      9
+     ],
+     [
+      "official20120411083836720_20",
+      9.58,
+      11
+     ],
+     [
+      "official20100227063411530_30",
+      5.94,
+      8
+     ],
+     [
+      "usb000g7x7",
+      4.91,
+      59
+     ],
+     [
+      "usb000jyiv",
+      4.14,
+      12
+     ],
+     [
+      "usp000jhjb",
+      3.76,
+      11
+     ],
+     [
+      "us20002926",
+      2.91,
+      12
+     ],
+     [
+      "ak0219neiszm",
+      2.75,
+      10
+     ]
+    ]
+   },
+   "S4 Sapanca-Duzce": {
+    "esik_ustu": 17,
+    "n": 11,
+    "n_bolgesel_haric": 9,
+    "tau8": 4.32,
+    "tau5": 9.78,
+    "tau8_bolgesel_haric": 3.0,
+    "ust_sinir_yoklanmamis_dahil": 11,
+    "olaylar": [
+     [
+      "us6000jllz",
+      83.94,
+      6
+     ],
+     [
+      "us6000jlqa",
+      45.91,
+      6
+     ],
+     [
+      "official20110311054624120_30",
+      23.84,
+      3
+     ],
+     [
+      "us6000qw60",
+      12.55,
+      6
+     ],
+     [
+      "official20120411083836720_20",
+      9.78,
+      7
+     ],
+     [
+      "official20100227063411530_30",
+      5.88,
+      5
+     ],
+     [
+      "usb000g7x7",
+      5.15,
+      75
+     ],
+     [
+      "usb000jyiv",
+      4.32,
+      9
+     ],
+     [
+      "usp000jhjb",
+      3.83,
+      7
+     ],
+     [
+      "us20002926",
+      3.0,
+      6
+     ],
+     [
+      "ak0219neiszm",
+      2.76,
+      6
+     ]
+    ]
+   },
+   "S5 Bolu-Gerede-Ismetpasa": {
+    "esik_ustu": 17,
+    "n": 8,
+    "n_bolgesel_haric": 6,
+    "tau8": 2.4,
+    "tau5": 3.87,
+    "tau8_bolgesel_haric": null,
+    "ust_sinir_yoklanmamis_dahil": 8,
+    "olaylar": [
+     [
+      "us6000jllz",
+      105.46,
+      3
+     ],
+     [
+      "us6000jlqa",
+      59.99,
+      3
+     ],
+     [
+      "us6000qw60",
+      12.7,
+      7
+     ],
+     [
+      "official20070912111026830_34",
+      4.94,
+      3
+     ],
+     [
+      "usp000exfn",
+      3.87,
+      4
+     ],
+     [
+      "usp000e12e",
+      3.2,
+      3
+     ],
+     [
+      "ak0219neiszm",
+      2.76,
+      4
+     ],
+     [
+      "usp000f2ab",
+      2.4,
+      4
+     ]
+    ]
+   },
+   "S6 Cerkes-Tosya": {
+    "esik_ustu": 17,
+    "n": 5,
+    "n_bolgesel_haric": 5,
+    "tau8": null,
+    "tau5": 2.44,
+    "tau8_bolgesel_haric": null,
+    "ust_sinir_yoklanmamis_dahil": 5,
+    "olaylar": [
+     [
+      "us6000qw60",
+      12.88,
+      3
+     ],
+     [
+      "official20070912111026830_34",
+      5.04,
+      8
+     ],
+     [
+      "usp000exfn",
+      3.94,
+      9
+     ],
+     [
+      "usp000e12e",
+      3.37,
+      5
+     ],
+     [
+      "usp000f2ab",
+      2.44,
+      9
+     ]
+    ]
+   },
+   "S7 Guney kol (Geyve-Biga)": {
+    "esik_ustu": 17,
+    "n": 13,
+    "n_bolgesel_haric": 11,
+    "tau8": 4.69,
+    "tau5": 9.43,
+    "tau8_bolgesel_haric": 3.7,
+    "ust_sinir_yoklanmamis_dahil": 13,
+    "olaylar": [
+     [
+      "us6000jllz",
+      61.23,
+      17
+     ],
+     [
+      "us6000jlqa",
+      32.0,
+      16
+     ],
+     [
+      "official20110311054624120_30",
+      23.07,
+      9
+     ],
+     [
+      "us6000qw60",
+      12.22,
+      14
+     ],
+     [
+      "official20120411083836720_20",
+      9.43,
+      14
+     ],
+     [
+      "official20100227063411530_30",
+      6.02,
+      11
+     ],
+     [
+      "usb000g7x7",
+      4.73,
+      89
+     ],
+     [
+      "official20070912111026830_34",
+      4.69,
+      4
+     ],
+     [
+      "usb000jyiv",
+      4.0,
+      22
+     ],
+     [
+      "usp000jhjb",
+      3.7,
+      14
+     ],
+     [
+      "us20002926",
+      2.82,
+      24
+     ],
+     [
+      "ak0219neiszm",
+      2.72,
+      14
+     ],
+     [
+      "usp000g650",
+      2.41,
+      5
+     ]
+    ]
+   }
+  },
+  "x3": {
+   "S1 Ganos-Saros": {
+    "esik_ustu": 48,
+    "n": 12,
+    "n_bolgesel_haric": 10,
+    "tau8": 11.33,
+    "tau5": 27.51,
+    "tau8_bolgesel_haric": 8.22,
+    "ust_sinir_yoklanmamis_dahil": 41,
+    "olaylar": [
+     [
+      "us6000jllz",
+      143.6,
+      9
+     ],
+     [
+      "us6000jlqa",
+      74.68,
+      8
+     ],
+     [
+      "official20110311054624120_30",
+      68.49,
+      7
+     ],
+     [
+      "us6000qw60",
+      36.56,
+      15
+     ],
+     [
+      "official20120411083836720_20",
+      27.51,
+      8
+     ],
+     [
+      "official20100227063411530_30",
+      18.27,
+      7
+     ],
+     [
+      "usb000g7x7",
+      13.31,
+      12
+     ],
+     [
+      "usb000jyiv",
+      11.33,
+      8
+     ],
+     [
+      "usp000jhjb",
+      10.8,
+      8
+     ],
+     [
+      "ak0219neiszm",
+      8.22,
+      8
+     ],
+     [
+      "us20002926",
+      8.15,
+      18
+     ],
+     [
+      "us20003k7a",
+      6.05,
+      15
+     ]
+    ]
+   },
+   "S2 Orta Marmara-Adalar": {
+    "esik_ustu": 48,
+    "n": 12,
+    "n_bolgesel_haric": 10,
+    "tau8": 11.9,
+    "tau5": 28.16,
+    "tau8_bolgesel_haric": 8.46,
+    "ust_sinir_yoklanmamis_dahil": 41,
+    "olaylar": [
+     [
+      "us6000jllz",
+      173.27,
+      12
+     ],
+     [
+      "us6000jlqa",
+      91.53,
+      12
+     ],
+     [
+      "official20110311054624120_30",
+      69.74,
+      10
+     ],
+     [
+      "us6000qw60",
+      37.06,
+      18
+     ],
+     [
+      "official20120411083836720_20",
+      28.16,
+      11
+     ],
+     [
+      "official20100227063411530_30",
+      18.0,
+      10
+     ],
+     [
+      "usb000g7x7",
+      14.05,
+      18
+     ],
+     [
+      "usb000jyiv",
+      11.9,
+      13
+     ],
+     [
+      "usp000jhjb",
+      11.05,
+      11
+     ],
+     [
+      "us20002926",
+      8.46,
+      22
+     ],
+     [
+      "ak0219neiszm",
+      8.26,
+      12
+     ],
+     [
+      "us20003k7a",
+      5.96,
+      9
+     ]
+    ]
+   },
+   "S3 Cinarcik-Izmit": {
+    "esik_ustu": 48,
+    "n": 11,
+    "n_bolgesel_haric": 9,
+    "tau8": 12.42,
+    "tau5": 28.73,
+    "tau8_bolgesel_haric": 8.72,
+    "ust_sinir_yoklanmamis_dahil": 41,
+    "olaylar": [
+     [
+      "us6000jllz",
+      207.57,
+      9
+     ],
+     [
+      "us6000jlqa",
+      111.14,
+      10
+     ],
+     [
+      "official20110311054624120_30",
+      70.58,
+      7
+     ],
+     [
+      "us6000qw60",
+      37.33,
+      9
+     ],
+     [
+      "official20120411083836720_20",
+      28.73,
+      11
+     ],
+     [
+      "official20100227063411530_30",
+      17.82,
+      8
+     ],
+     [
+      "usb000g7x7",
+      14.72,
+      59
+     ],
+     [
+      "usb000jyiv",
+      12.42,
+      12
+     ],
+     [
+      "usp000jhjb",
+      11.27,
+      11
+     ],
+     [
+      "us20002926",
+      8.72,
+      12
+     ],
+     [
+      "ak0219neiszm",
+      8.26,
+      10
+     ]
+    ]
+   },
+   "S4 Sapanca-Duzce": {
+    "esik_ustu": 48,
+    "n": 11,
+    "n_bolgesel_haric": 9,
+    "tau8": 12.97,
+    "tau5": 29.33,
+    "tau8_bolgesel_haric": 9.0,
+    "ust_sinir_yoklanmamis_dahil": 37,
+    "olaylar": [
+     [
+      "us6000jllz",
+      251.83,
+      6
+     ],
+     [
+      "us6000jlqa",
+      137.73,
+      6
+     ],
+     [
+      "official20110311054624120_30",
+      71.51,
+      3
+     ],
+     [
+      "us6000qw60",
+      37.65,
+      6
+     ],
+     [
+      "official20120411083836720_20",
+      29.33,
+      7
+     ],
+     [
+      "official20100227063411530_30",
+      17.63,
+      5
+     ],
+     [
+      "usb000g7x7",
+      15.44,
+      75
+     ],
+     [
+      "usb000jyiv",
+      12.97,
+      9
+     ],
+     [
+      "usp000jhjb",
+      11.5,
+      7
+     ],
+     [
+      "us20002926",
+      9.0,
+      6
+     ],
+     [
+      "ak0219neiszm",
+      8.27,
+      6
+     ]
+    ]
+   },
+   "S5 Bolu-Gerede-Ismetpasa": {
+    "esik_ustu": 48,
+    "n": 8,
+    "n_bolgesel_haric": 6,
+    "tau8": 7.21,
+    "tau5": 11.62,
+    "tau8_bolgesel_haric": null,
+    "ust_sinir_yoklanmamis_dahil": 23,
+    "olaylar": [
+     [
+      "us6000jllz",
+      316.39,
+      3
+     ],
+     [
+      "us6000jlqa",
+      179.96,
+      3
+     ],
+     [
+      "us6000qw60",
+      38.1,
+      7
+     ],
+     [
+      "official20070912111026830_34",
+      14.82,
+      3
+     ],
+     [
+      "usp000exfn",
+      11.62,
+      4
+     ],
+     [
+      "usp000e12e",
+      9.59,
+      3
+     ],
+     [
+      "ak0219neiszm",
+      8.29,
+      4
+     ],
+     [
+      "usp000f2ab",
+      7.21,
+      4
+     ]
+    ]
+   },
+   "S6 Cerkes-Tosya": {
+    "esik_ustu": 51,
+    "n": 5,
+    "n_bolgesel_haric": 5,
+    "tau8": null,
+    "tau5": 7.32,
+    "tau8_bolgesel_haric": null,
+    "ust_sinir_yoklanmamis_dahil": 20,
+    "olaylar": [
+     [
+      "us6000qw60",
+      38.63,
+      3
+     ],
+     [
+      "official20070912111026830_34",
+      15.13,
+      8
+     ],
+     [
+      "usp000exfn",
+      11.81,
+      9
+     ],
+     [
+      "usp000e12e",
+      10.12,
+      5
+     ],
+     [
+      "usp000f2ab",
+      7.32,
+      9
+     ]
+    ]
+   },
+   "S7 Guney kol (Geyve-Biga)": {
+    "esik_ustu": 48,
+    "n": 14,
+    "n_bolgesel_haric": 12,
+    "tau8": 14.07,
+    "tau5": 28.29,
+    "tau8_bolgesel_haric": 11.1,
+    "ust_sinir_yoklanmamis_dahil": 42,
+    "olaylar": [
+     [
+      "us6000jllz",
+      183.68,
+      17
+     ],
+     [
+      "us6000jlqa",
+      95.99,
+      16
+     ],
+     [
+      "official20110311054624120_30",
+      69.22,
+      9
+     ],
+     [
+      "us6000qw60",
+      36.67,
+      14
+     ],
+     [
+      "official20120411083836720_20",
+      28.29,
+      14
+     ],
+     [
+      "official20100227063411530_30",
+      18.05,
+      11
+     ],
+     [
+      "usb000g7x7",
+      14.18,
+      89
+     ],
+     [
+      "official20070912111026830_34",
+      14.07,
+      4
+     ],
+     [
+      "usb000jyiv",
+      12.0,
+      22
+     ],
+     [
+      "usp000jhjb",
+      11.1,
+      14
+     ],
+     [
+      "us20002926",
+      8.46,
+      24
+     ],
+     [
+      "ak0219neiszm",
+      8.17,
+      14
+     ],
+     [
+      "usp000g650",
+      7.22,
+      5
+     ],
+     [
+      "us20003k7a",
+      5.97,
+      4
+     ]
+    ]
+   }
+  }
+ },
+ "K0": {
+  "x1": {
+   "S1 Ganos-Saros": [
+    12,
+    "GECTI",
+    3.78
+   ],
+   "S2 Orta Marmara-Adalar": [
+    11,
+    "GECTI",
+    3.97
+   ],
+   "S3 Cinarcik-Izmit": [
+    11,
+    "GECTI",
+    4.14
+   ]
+  },
+  "x1_bolgesel_haric": {
+   "S1 Ganos-Saros": [
+    10,
+    "GECTI",
+    2.74
+   ],
+   "S2 Orta Marmara-Adalar": [
+    9,
+    "GECTI",
+    2.82
+   ],
+   "S3 Cinarcik-Izmit": [
+    9,
+    "GECTI",
+    2.91
+   ]
+  },
+  "x1_3": {
+   "S1 Ganos-Saros": [
+    6,
+    "ZAYIF"
+   ],
+   "S2 Orta Marmara-Adalar": [
+    6,
+    "ZAYIF"
+   ],
+   "S3 Cinarcik-Izmit": [
+    5,
+    "ZAYIF"
+   ]
+  },
+  "x3": {
+   "S1 Ganos-Saros": [
+    12,
+    "GECTI"
+   ],
+   "S2 Orta Marmara-Adalar": [
+    12,
+    "GECTI"
+   ],
+   "S3 Cinarcik-Izmit": [
+    11,
+    "GECTI"
+   ]
+  },
+  "hukum": "GECTI"
+ },
+ "hacim": {
+  "dogrulanmis_cift": 71,
+  "dogrulanmis_olay": 17,
+  "istasyon_tetikleyici": 475,
+  "koeri_payi": 353,
+  "tetikleyici_mb": 1117,
+  "negatif_kontrol_mb": 11170,
+  "toplam_gb": 12.0,
+  "sure_saat": {
+   "onceki_tek_akis_23kbs": 151.9,
+   "tek_akis_olculen": 10.2,
+   "iki_akis_olculen_toplam": 5.5
+  }
+ },
+ "hiz_deneme": {
+  "tek": [
+   {
+    "q": "station=ISK&starttime=2019-01-01T00:00:00&endtime=2019-01-01T01:00:00",
+    "http": 200,
+    "bayt": 443904,
+    "sure": 1.27,
+    "kbs": 341.3
+   }
+  ],
+  "paralel": [
+   {
+    "q": "station=BGKT&starttime=2019-01-01T00:00:00&endtime=2019-01-01T01:00:00",
+    "http": 200,
+    "bayt": 578048,
+    "sure": 1.33,
+    "kbs": 424.4
+   },
+   {
+    "q": "station=ISK&starttime=2019-01-01T01:00:00&endtime=2019-01-01T02:00:00",
+    "http": 200,
+    "bayt": 431616,
+    "sure": 1.56,
+    "kbs": 270.2
+   }
+  ],
+  "oran": 1.85
+ }
+}
