@@ -229,3 +229,19 @@ belirler; hız 23–40 KiB/s ise ön kayıt gereği "veri yok (aktarım hızı)"
 
 Kuramsal koldan kalan adaylar: TR-14 (hız-durum modelinde öngörülebilirlik ufku; hesap, veri değil) ve TR-15 (öncü
 dizilerinde 1/t; gün ölçeği).
+
+## Halka 10 (12 Kasım 2026): TR-6a yöntem sınamasında kapandı (koşulmadı), TR-6c açıldı
+
+TR-6a'nın bağlayıcı yöntem sınaması (yalnız yapay veri, tek koşu; ilk çağrı altyapının 2 saatlik sınırında çıktı
+yazmadan kesildi, aynı komut yeniden başlatıldı, `tr6a_sinama_kesinti.txt`) sonuçlandı: Okada doğrulaması (Ek 1
+ölçütleri) geçti; tamlık sınamasında A2 ve (a)–(c) tutmadı (+0,54), Ek 1'in (d) basamağı geçti (+0,0025); yapay katalog
+sınaması (i)'de Δτ = 0, N0 = 500 hücresi tutmadı (P(D) 0,4686, beklenen 0,4898, z −6,0). Bağımsız tanı
+(`kayit/onkayit/TR-6a_SINAMA-TANI.md`): kod ve beklenen değer doğru; kayma yöntemin kendisinden, kümesizleştirmenin
+kısa son pencerede kenar etkisinden geliyor (kümesizleştirme kapatılınca P(D) beklenen değere dönüyor; etki N0 ile
+büyüyor; yönü H1 aleyhine, yani tutucu). Metindeki ölçüt iki yanlı ve yön istisnası tanımıyor; sonuçtan sonra ölçüt
+değiştirilmedi. Hüküm metin gereği: TR-6a "koşulmadı (yöntem: yapay katalog sınaması)". Olay sonrası veri indirilmedi.
+
+Başarısızlığın biçimi: bu kez örneklem değil, tasarım. Çıkan soru aynı sorunun düzeltilmiş tasarımı: TR-6c (yöntem
+sınaması ölçütünün beklenen değeri işlem zincirinin kendi H0 değerinden; N0 ızgarası gerçek lob değerlerine kadar).
+Olay sonrası veri hiç açılmadığı için yeni ön kayıt kördür; yeni ön kayıt + bağımsız inceleme gerekir. Ders: yapay
+verili yöntem sınaması ön kayıt dondurulmadan ÖNCE tam ölçekte koşulmalı.
