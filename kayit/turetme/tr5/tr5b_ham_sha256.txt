@@ -1,0 +1,2 @@
+27837799607d01f0542d8a89bf80e04f03a8e012de27031af82d4de883093e0f  /mnt/project-files/turetme/tr5b-ham/tr5_ham_ustveri_2026-11-12.tar.gz
+1bdfec2c01012fec038d7b75746e7a3e1af2389bd41e7b8df3e030bc3fd490e5  /mnt/project-files/turetme/tr5b-ham/tr5b_kat_2026-11-12.tar.gz

@@ -1,0 +1,236 @@
+{
+ "olay": 45,
+ "K": 37,
+ "K_ana_volkaniksiz": 35,
+ "volkanik": [
+  "hv6000471",
+  "hv70116556"
+ ],
+ "plasebo_olay": 25,
+ "K_plasebo": 20,
+ "plasebo_kontrollu_olay": 25,
+ "K_plasebo_kontrollu": 20,
+ "K_plasebo_kontrollu_volkaniksiz": 18,
+ "olay_istasyon_sayisi": {
+  "1": 34,
+  "2": 7,
+  "3": 4
+ },
+ "olay_istasyon_uzaklik_km": {
+  "n": 60,
+  "medyan": 50.2,
+  "q25": 25.1,
+  "q75": 75.7
+ },
+ "bolge_kume": {
+  "Meksika-Orta Amerika-Karayip": 3,
+  "öteki": 11,
+  "Kaliforniya-Nevada": 3,
+  "And": 1,
+  "İtalya-Balkan-Ege": 7,
+  "Alaska-Aleut": 3,
+  "PNG-Solomon-Vanuatu-Fiji": 1,
+  "Japonya": 1,
+  "Çin-Himalaya": 2,
+  "Anadolu": 2,
+  "Endonezya-Filipinler": 2,
+  "Yeni Zelanda": 1
+ },
+ "mekanizma_olay": {
+  "diğer": 19,
+  "SS": 17,
+  "?": 9
+ },
+ "M_dagilimi": {
+  "6.5-6.9": 10,
+  "6.0-6.4": 31,
+  ">=7": 4
+ },
+ "pk_yakin_olay": 19,
+ "pk_yakin_kume": 16,
+ "kontrol_ilk5": {
+  "yuva": 225,
+  "tekil_merkez": 117,
+  "en_cok_kume": 3,
+  "uc_kumeden_fazla_merkez": 0
+ },
+ "kontrol_sayisi": {
+  "10": 45
+ },
+ "plasebo_kontrol_sayisi": {
+  "10": 25
+ },
+ "kontrol_5ten_az_olay": [],
+ "K_ana_kontrollu": 35,
+ "plasebo_kontrol_ilk5": {
+  "tekil_merkez": 68,
+  "en_cok_kume": 3
+ },
+ "volkan_yapi_bilgi": [
+  "usp000br01",
+  "usp000jr55"
+ ],
+ "aygit_degisimi_Z": {
+  "olay_ist": 6,
+  "olay_tum_istasyonu_degisen_olay": [
+   "us10004gy9",
+   "us1000hwaj",
+   "us7000irfb",
+   "us7000irfm"
+  ],
+  "plasebo_ist": 0,
+  "kontrol5_ist": 27
+ },
+ "maske": {
+  "olay_ist_maskeli": 17,
+  "olay_ist": 60,
+  "olay_ist_maske_gun_ort": 26.2,
+  "kontrol5_ist_maskeli": 83,
+  "kontrol5_ist": 408
+ },
+ "hacim": {
+  "A (bağlayıcı): olay + plasebo, kontrol 5, plasebo kontrol 5": {
+   "istasyon": 281,
+   "istasyon_gunu": 504937,
+   "4saat_3bilesen_TB": 1.661,
+   "4saat_3bilesen_merkez_TB": {
+    "IRISDMC": 0.941,
+    "NOA": 0.171,
+    "GEONET": 0.13,
+    "GEOFON": 0.128,
+    "INGV": 0.099,
+    "ORFEUS": 0.063,
+    "SCEDC": 0.044,
+    "SED": 0.038,
+    "NCEDC": 0.024,
+    "IGN": 0.012,
+    "KOERI": 0.004,
+    "EPOSFR": 0.004
+   },
+   "tamgun_3bilesen_TB": 9.967,
+   "tamgun_3bilesen_merkez_TB": {
+    "IRISDMC": 5.649,
+    "NOA": 1.029,
+    "GEONET": 0.781,
+    "GEOFON": 0.769,
+    "INGV": 0.597,
+    "ORFEUS": 0.379,
+    "SCEDC": 0.265,
+    "SED": 0.231,
+    "NCEDC": 0.146,
+    "IGN": 0.074,
+    "KOERI": 0.026,
+    "EPOSFR": 0.022
+   }
+  },
+  "A0: olay + plasebo, kontrol 5, plasebo kontrolsüz": {
+   "istasyon": 250,
+   "istasyon_gunu": 397184,
+   "4saat_3bilesen_TB": 1.308,
+   "4saat_3bilesen_merkez_TB": {
+    "IRISDMC": 0.738,
+    "NOA": 0.119,
+    "GEONET": 0.109,
+    "GEOFON": 0.098,
+    "INGV": 0.073,
+    "ORFEUS": 0.058,
+    "SED": 0.037,
+    "SCEDC": 0.036,
+    "NCEDC": 0.021,
+    "IGN": 0.012,
+    "KOERI": 0.004,
+    "EPOSFR": 0.002
+   },
+   "tamgun_3bilesen_TB": 7.846,
+   "tamgun_3bilesen_merkez_TB": {
+    "IRISDMC": 4.429,
+    "NOA": 0.712,
+    "GEONET": 0.656,
+    "GEOFON": 0.59,
+    "INGV": 0.436,
+    "ORFEUS": 0.345,
+    "SED": 0.22,
+    "SCEDC": 0.215,
+    "NCEDC": 0.128,
+    "IGN": 0.074,
+    "KOERI": 0.026,
+    "EPOSFR": 0.015
+   }
+  },
+  "A3: olay + plasebo, kontrol 3, plasebo kontrol 3": {
+   "istasyon": 246,
+   "istasyon_gunu": 392655,
+   "4saat_3bilesen_TB": 1.285,
+   "4saat_3bilesen_merkez_TB": {
+    "IRISDMC": 0.714,
+    "NOA": 0.146,
+    "GEOFON": 0.11,
+    "GEONET": 0.092,
+    "INGV": 0.063,
+    "ORFEUS": 0.055,
+    "SED": 0.037,
+    "SCEDC": 0.026,
+    "NCEDC": 0.022,
+    "IGN": 0.012,
+    "KOERI": 0.004,
+    "EPOSFR": 0.002
+   },
+   "tamgun_3bilesen_TB": 7.708,
+   "tamgun_3bilesen_merkez_TB": {
+    "IRISDMC": 4.281,
+    "NOA": 0.878,
+    "GEOFON": 0.663,
+    "GEONET": 0.554,
+    "INGV": 0.379,
+    "ORFEUS": 0.327,
+    "SED": 0.22,
+    "SCEDC": 0.155,
+    "NCEDC": 0.134,
+    "IGN": 0.074,
+    "KOERI": 0.026,
+    "EPOSFR": 0.015
+   }
+  },
+  "B (tam): kontrol 10, plasebo kontrol 10": {
+   "istasyon": 337,
+   "istasyon_gunu": 672441,
+   "4saat_3bilesen_TB": 2.204,
+   "4saat_3bilesen_merkez_TB": {
+    "IRISDMC": 1.228,
+    "NOA": 0.294,
+    "GEONET": 0.18,
+    "GEOFON": 0.147,
+    "INGV": 0.11,
+    "ORFEUS": 0.09,
+    "SCEDC": 0.055,
+    "SED": 0.038,
+    "NCEDC": 0.036,
+    "IGN": 0.012,
+    "KOERI": 0.004,
+    "AUSPASS": 0.004,
+    "EPOSFR": 0.004
+   },
+   "tamgun_3bilesen_TB": 13.224,
+   "tamgun_3bilesen_merkez_TB": {
+    "IRISDMC": 7.368,
+    "NOA": 1.764,
+    "GEONET": 1.082,
+    "GEOFON": 0.884,
+    "INGV": 0.662,
+    "ORFEUS": 0.541,
+    "SCEDC": 0.329,
+    "SED": 0.231,
+    "NCEDC": 0.215,
+    "IGN": 0.074,
+    "KOERI": 0.026,
+    "AUSPASS": 0.024,
+    "EPOSFR": 0.023
+   }
+  }
+ },
+ "sha256": {
+  "tr5b_liste.json": "581b0ccabc400083bbc58c68c23be878988fbcc3f74b4ba44ddbf4a1aacaacfb",
+  "tr5b_olaylar.csv": "3e44c96fa41ad341564c11ef4ebcccd1243dc81ebc6784986a78d109b68bdf99",
+  "tr5b_kontroller.csv": "245d496968327a245bea158481cd41a61cf7ebe44e770f94b4c72a6e5e3f217b"
+ }
+}

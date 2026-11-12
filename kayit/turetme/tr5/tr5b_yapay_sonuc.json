@@ -1,0 +1,203 @@
+{
+ "parametre": {
+  "FS": 20.0,
+  "BANT": [
+   0.5,
+   2.0
+  ],
+  "KODA": [
+   10.0,
+   40.0
+  ],
+  "YIGIN": 10,
+  "YIGIN_MIN": 5,
+  "EPS_MAX": 0.005,
+  "EPS_ADIM": 1e-05,
+  "CC_MIN": 0.4,
+  "AY_MIN_GUN": 10,
+  "AY_MIN": 9,
+  "tohum": 20261112
+ },
+ "E1_E2": {
+  "CC10~0,5": {
+   "snr_gun": 0.18246342099171547,
+   "n": 120,
+   "gecersiz_delta": 0,
+   "delta_ort_yuzde": 0.0004,
+   "sigma_olcum_yuzde": 0.0179,
+   "oran_medyan": 0.927,
+   "oran_q05": 0.905,
+   "oran_q95": 0.959,
+   "oran_sd": 0.017,
+   "gecersiz_gun_orani": 0.132
+  },
+  "CC10~0,7": {
+   "snr_gun": 0.3099032106965012,
+   "n": 120,
+   "gecersiz_delta": 0,
+   "delta_ort_yuzde": 0.0021,
+   "sigma_olcum_yuzde": 0.0106,
+   "oran_medyan": 0.967,
+   "oran_q05": 0.949,
+   "oran_q95": 0.984,
+   "oran_sd": 0.011,
+   "gecersiz_gun_orani": 0.034
+  },
+  "CC10~0,9": {
+   "snr_gun": 0.6514291979946861,
+   "n": 120,
+   "gecersiz_delta": 0,
+   "delta_ort_yuzde": -0.0007,
+   "sigma_olcum_yuzde": 0.0051,
+   "oran_medyan": 0.982,
+   "oran_q05": 0.971,
+   "oran_q95": 0.992,
+   "oran_sd": 0.007,
+   "gecersiz_gun_orani": 0.034
+  }
+ },
+ "E2_35_sahte": {
+  "CC10~0,5": {
+   "medyan_oran_q01": 0.921,
+   "medyan_oran_q99": 0.938,
+   "P_aralik_disi": 0.0
+  },
+  "CC10~0,7": {
+   "medyan_oran_q01": 0.963,
+   "medyan_oran_q99": 0.974,
+   "P_aralik_disi": 0.0
+  },
+  "CC10~0,9": {
+   "medyan_oran_q01": 0.979,
+   "medyan_oran_q99": 0.986,
+   "P_aralik_disi": 0.0
+  }
+ },
+ "E3": {
+  "CC10~0,5": {
+   "A=0.020%": {
+    "n_havuz": 200,
+    "ana": {
+     "gecme_olasiligi": 0.124,
+     "gecerli_oran": 0.985,
+     "dko_medyan_yuzde": -0.0137,
+     "dko_sd_yuzde": 0.0739
+    },
+    "mevsimden_arindirilmis": {
+     "gecme_olasiligi": 0.171,
+     "gecerli_oran": 0.97,
+     "dko_medyan_yuzde": -0.0146,
+     "dko_sd_yuzde": 0.0926
+    }
+   },
+   "A=0.050%": {
+    "n_havuz": 200,
+    "ana": {
+     "gecme_olasiligi": 0.626,
+     "gecerli_oran": 0.985,
+     "dko_medyan_yuzde": -0.0427,
+     "dko_sd_yuzde": 0.0769
+    },
+    "mevsimden_arindirilmis": {
+     "gecme_olasiligi": 0.212,
+     "gecerli_oran": 0.935,
+     "dko_medyan_yuzde": -0.0219,
+     "dko_sd_yuzde": 0.0954
+    }
+   },
+   "A=0.080%": {
+    "n_havuz": 200,
+    "ana": {
+     "gecme_olasiligi": 0.904,
+     "gecerli_oran": 0.995,
+     "dko_medyan_yuzde": -0.0598,
+     "dko_sd_yuzde": 0.0747
+    },
+    "mevsimden_arindirilmis": {
+     "gecme_olasiligi": 0.664,
+     "gecerli_oran": 0.97,
+     "dko_medyan_yuzde": -0.0561,
+     "dko_sd_yuzde": 0.0978
+    }
+   },
+   "A=0.150%": {
+    "n_havuz": 200,
+    "ana": {
+     "gecme_olasiligi": 0.996,
+     "gecerli_oran": 0.975,
+     "dko_medyan_yuzde": -0.0963,
+     "dko_sd_yuzde": 0.0824
+    },
+    "mevsimden_arindirilmis": {
+     "gecme_olasiligi": 0.969,
+     "gecerli_oran": 0.925,
+     "dko_medyan_yuzde": -0.106,
+     "dko_sd_yuzde": 0.1047
+    }
+   }
+  },
+  "CC10~0,7": {
+   "A=0.020%": {
+    "n_havuz": 200,
+    "ana": {
+     "gecme_olasiligi": 0.114,
+     "gecerli_oran": 0.995,
+     "dko_medyan_yuzde": -0.0118,
+     "dko_sd_yuzde": 0.0519
+    },
+    "mevsimden_arindirilmis": {
+     "gecme_olasiligi": 0.117,
+     "gecerli_oran": 0.975,
+     "dko_medyan_yuzde": -0.0031,
+     "dko_sd_yuzde": 0.0512
+    }
+   },
+   "A=0.050%": {
+    "n_havuz": 200,
+    "ana": {
+     "gecme_olasiligi": 0.656,
+     "gecerli_oran": 0.985,
+     "dko_medyan_yuzde": -0.027,
+     "dko_sd_yuzde": 0.0492
+    },
+    "mevsimden_arindirilmis": {
+     "gecme_olasiligi": 0.68,
+     "gecerli_oran": 0.955,
+     "dko_medyan_yuzde": -0.0323,
+     "dko_sd_yuzde": 0.0561
+    }
+   },
+   "A=0.080%": {
+    "n_havuz": 200,
+    "ana": {
+     "gecme_olasiligi": 0.992,
+     "gecerli_oran": 0.985,
+     "dko_medyan_yuzde": -0.0504,
+     "dko_sd_yuzde": 0.0491
+    },
+    "mevsimden_arindirilmis": {
+     "gecme_olasiligi": 0.971,
+     "gecerli_oran": 0.965,
+     "dko_medyan_yuzde": -0.0542,
+     "dko_sd_yuzde": 0.0548
+    }
+   },
+   "A=0.150%": {
+    "n_havuz": 200,
+    "ana": {
+     "gecme_olasiligi": 1.0,
+     "gecerli_oran": 0.985,
+     "dko_medyan_yuzde": -0.0931,
+     "dko_sd_yuzde": 0.0584
+    },
+    "mevsimden_arindirilmis": {
+     "gecme_olasiligi": 1.0,
+     "gecerli_oran": 0.985,
+     "dko_medyan_yuzde": -0.1038,
+     "dko_sd_yuzde": 0.0592
+    }
+   }
+  }
+ },
+ "sure_sn": 623
+}

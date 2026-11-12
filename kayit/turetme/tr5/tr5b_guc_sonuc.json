@@ -1,0 +1,227 @@
+{
+ "K_ana": 35,
+ "K_plasebo_eslesik": 18,
+ "olay_sayisi_kume": [
+  4,
+  2,
+  2,
+  2,
+  2,
+  2,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1,
+  1
+ ],
+ "n_kontrol": 5,
+ "B": 20000,
+ "sd_r_teorik": 0.3416,
+ "tablo_K0": {
+  "0.00": {
+   "AUC": 0.5,
+   "H1": 0.014,
+   "H0": 0.654,
+   "ayirt_edilemez": 0.332,
+   "H1_ana_yalniz": 0.048,
+   "plasebo_blok": 0.025,
+   "r_ort": 0.5,
+   "se_ort": 0.0568
+  },
+  "0.25": {
+   "AUC": 0.57,
+   "H1": 0.076,
+   "H0": 0.367,
+   "ayirt_edilemez": 0.557,
+   "H1_ana_yalniz": 0.229,
+   "plasebo_blok": 0.025,
+   "r_ort": 0.57,
+   "se_ort": 0.0562
+  },
+  "0.50": {
+   "AUC": 0.638,
+   "H1": 0.287,
+   "H0": 0.064,
+   "ayirt_edilemez": 0.649,
+   "H1_ana_yalniz": 0.679,
+   "plasebo_blok": 0.027,
+   "r_ort": 0.638,
+   "se_ort": 0.0542
+  },
+  "0.75": {
+   "AUC": 0.702,
+   "H1": 0.54,
+   "H0": 0.003,
+   "ayirt_edilemez": 0.457,
+   "H1_ana_yalniz": 0.95,
+   "plasebo_blok": 0.026,
+   "r_ort": 0.702,
+   "se_ort": 0.0511
+  },
+  "1.00": {
+   "AUC": 0.76,
+   "H1": 0.754,
+   "H0": 0.0,
+   "ayirt_edilemez": 0.246,
+   "H1_ana_yalniz": 0.998,
+   "plasebo_blok": 0.025,
+   "r_ort": 0.76,
+   "se_ort": 0.0471
+  }
+ },
+ "tablo_K": {
+  "K32_Kp16_d0.00": {
+   "H1": 0.013,
+   "H0": 0.575,
+   "ayirt_edilemez": 0.412,
+   "H1_ana_yalniz": 0.051,
+   "plasebo_blok": 0.024,
+   "r_ort": 0.501,
+   "se_ort": 0.0598
+  },
+  "K32_Kp16_d0.50": {
+   "H1": 0.251,
+   "H0": 0.063,
+   "ayirt_edilemez": 0.686,
+   "H1_ana_yalniz": 0.632,
+   "plasebo_blok": 0.025,
+   "r_ort": 0.637,
+   "se_ort": 0.0567
+  },
+  "K32_Kp16_d0.75": {
+   "H1": 0.498,
+   "H0": 0.003,
+   "ayirt_edilemez": 0.499,
+   "H1_ana_yalniz": 0.933,
+   "plasebo_blok": 0.025,
+   "r_ort": 0.701,
+   "se_ort": 0.0533
+  },
+  "K25_Kp13_d0.00": {
+   "H1": 0.015,
+   "H0": 0.377,
+   "ayirt_edilemez": 0.608,
+   "H1_ana_yalniz": 0.053,
+   "plasebo_blok": 0.028,
+   "r_ort": 0.5,
+   "se_ort": 0.0672
+  },
+  "K25_Kp13_d0.50": {
+   "H1": 0.206,
+   "H0": 0.056,
+   "ayirt_edilemez": 0.738,
+   "H1_ana_yalniz": 0.539,
+   "plasebo_blok": 0.027,
+   "r_ort": 0.638,
+   "se_ort": 0.0636
+  },
+  "K25_Kp13_d0.75": {
+   "H1": 0.425,
+   "H0": 0.004,
+   "ayirt_edilemez": 0.571,
+   "H1_ana_yalniz": 0.859,
+   "plasebo_blok": 0.025,
+   "r_ort": 0.702,
+   "se_ort": 0.0601
+  },
+  "K20_Kp10_d0.00": {
+   "H1": 0.015,
+   "H0": 0.192,
+   "ayirt_edilemez": 0.793,
+   "H1_ana_yalniz": 0.051,
+   "plasebo_blok": 0.028,
+   "r_ort": 0.499,
+   "se_ort": 0.0748
+  },
+  "K20_Kp10_d0.50": {
+   "H1": 0.155,
+   "H0": 0.037,
+   "ayirt_edilemez": 0.808,
+   "H1_ana_yalniz": 0.446,
+   "plasebo_blok": 0.025,
+   "r_ort": 0.638,
+   "se_ort": 0.071
+  },
+  "K20_Kp10_d0.75": {
+   "H1": 0.333,
+   "H0": 0.004,
+   "ayirt_edilemez": 0.663,
+   "H1_ana_yalniz": 0.767,
+   "plasebo_blok": 0.025,
+   "r_ort": 0.702,
+   "se_ort": 0.0677
+  }
+ },
+ "en_kucuk_delta_guc80": {
+  "ana_aralik": 0.578,
+  "tam_H1": 1.065,
+  "ana_aralik_AUC": 0.659,
+  "tam_H1_AUC": 0.774,
+  "yuzde_sigma_0.05_0.1_0.2": [
+   0.0289,
+   0.0578,
+   0.1156,
+   0.0532,
+   0.1065,
+   0.213
+  ]
+ },
+ "olcu_kiyas": {
+  "H0_olcek_farki_isaretli": 0.053,
+  "H0_olcek_farki_mutlak": 0.666,
+  "H0_esit_olcek_mutlak": 0.0507,
+  "d050_isaretli": 0.679,
+  "d050_mutlak": 0.15995,
+  "d100_isaretli": 0.997,
+  "d100_mutlak": 0.7328,
+  "karisik_d100_isaretli": 0.009,
+  "karisik_d100_mutlak": 0.73015
+ },
+ "N1_yanlis_gecersiz": 0.0524,
+ "duyarlilik_P_rsahte_le_025": {
+  "sigma=0.05%": {
+   "P": 1.0,
+   "r_sahte_ort": 0.079
+  },
+  "sigma=0.075%": {
+   "P": 0.964,
+   "r_sahte_ort": 0.173
+  },
+  "sigma=0.1%": {
+   "P": 0.596,
+   "r_sahte_ort": 0.24
+  },
+  "sigma=0.15%": {
+   "P": 0.093,
+   "r_sahte_ort": 0.32
+  },
+  "sigma=0.2%": {
+   "P": 0.018,
+   "r_sahte_ort": 0.362
+  }
+ }
+}
