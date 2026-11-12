@@ -967,6 +967,37 @@ def dogrulama(tohum=20261112, n_nokta=200, log=None):
                     s5u_g = max(s5u_g, g)
                 else:
                     s5u40_g = max(s5u40_g, g)
+    # Ek 1 E1.1: uzak alan farkının (L/r)² ile azalması (aynı yönler ve derinlikler, r = 20 L, 40 L, 60 L)
+    egimler = []
+    for dip in (30.0, 70.0, 90.0):
+        for tur, disl in turler.items():
+            th = rng.uniform(0, 2 * math.pi, n_nokta)
+            zz = -rng.uniform(0, 30.0, n_nokta)
+            dd = []
+            for carpan in (20, 40, 60):
+                xu, yu = carpan * L * np.cos(th), carpan * L * np.sin(th)
+                uf, _ = dc3d(ALFA, xu, yu, zz, 12.0, dip, -L / 2, L / 2, -W / 2, W / 2, *disl)
+                upn, _ = dc3d0(ALFA, xu, yu, zz, 12.0, dip, *[d_ * L * W for d_ in disl])
+                dd.append(_goreli(uf, upn))
+            eg = float(np.polyfit(np.log([20.0, 40.0, 60.0]), np.log(dd), 1)[0])
+            # integral biçimi: sonlu kaynak = nokta kaynakların alan integrali; m × m orta nokta toplamının hatası
+            # m = 10 -> 20'de ≈ 4 kat düşmeli (h² yakınsaması), m = 20'de ≤ 1e−3 (20 L–60 L, nokta başına)
+            rr = rng.uniform(20 * L, 60 * L, 60)
+            t2 = rng.uniform(0, 2 * math.pi, 60)
+            xu, yu, zu = rr * np.cos(t2), rr * np.sin(t2), -rng.uniform(0, 30.0, 60)
+            uf, _ = dc3d(ALFA, xu, yu, zu, 12.0, dip, -L / 2, L / 2, -W / 2, W / 2, *disl)
+            sd_, cd_ = math.sin(math.radians(dip)), math.cos(math.radians(dip))
+            ie = []
+            for m_ in (10, 20):
+                acc = np.zeros_like(uf)
+                for xi_ in (np.arange(m_) + 0.5) / m_ * L - L / 2:
+                    for et_ in (np.arange(m_) + 0.5) / m_ * W - W / 2:
+                        u_, _ = dc3d0(ALFA, xu - xi_, yu - et_ * cd_, zu, 12.0 - et_ * sd_, dip,
+                                      *[d_ * L * W / m_ / m_ for d_ in disl])
+                        acc += u_
+                ie.append(_goreli(uf, acc))
+            egimler.append(dict(egim_derece=dip, tur=tur, fark_20_40_60L=[float(x) for x in dd], us=round(eg, 4),
+                                integral_m10_m20=[float(x) for x in ie], integral_oran=round(ie[0] / ie[1], 3)))
     # tanı (okuma 6): uzak alanda sonlu kaynak, alanı 20 × 20 nokta kaynağa bölünmüş DC3D0 toplamıyla karşılaştırılır
     tani_int = 0.0
     for dip in (30.0, 90.0):
@@ -1033,7 +1064,97 @@ def dogrulama(tohum=20261112, n_nokta=200, log=None):
     out.update(_tekil_sinamasi(kayit))
     out["tablo_durumu"] = TABLO_DURUMU
     out["gecti"] = all(v["gecti"] for k, v in out.items() if isinstance(v, dict) and "gecti" in v)
+    out["ek1"] = ek1_degerlendir(out, egimler)
     return out
+
+
+# ================================================================== Ek 1 E1.1: bağlayıcı Okada ölçütü
+# Yayımlanmış denetim değerleri (kaynak dosyada; elle yazıldı, 12 Kasım 2026):
+# (a) Okada (1985) BSSA 75(4) Tablo 2 "Checklist for numerical calculations", s. 1149 (bosai.go.jp/e/pdf/
+#     Okada_1985_BSSA.pdf; tablo görüntü olduğu için sayfa görüntüsünden okundu, açık bir aktarımla
+#     (torchdeform tests/sources/test_okada_source.py) karşılaştırıldı). λ = μ, z = 0, U = 1. Durum 1 nokta kaynak
+#     (DC3D0, potens 1), Durum 2–4 sonlu (DC3D; AL1 = 0, AL2 = L, AW1 = 0, AW2 = W, derinlik d). Sütunlar: ux, uy, uz,
+#     ∂ux/∂x, ∂ux/∂y, ∂uy/∂x, ∂uy/∂y, ∂uz/∂x, ∂uz/∂y. Dört anlamlı basamak.
+# (b) Okada DC3D kılavuzu (bosai.go.jp/e/pdf/DC3Dmanual.pdf) Ek-2 denetim yordamı: x 10, y 20, z −30, derinlik 50,
+#     eğim 70, AL1 −80, AL2 120, AW1 −30, AW2 25, DISL (200, −150, 100), α 2/3 -> (ux, uy, uz) = (−37,8981; 63,1789;
+#     14,9607). Okada 1992 Tablo 2'nin (iç nokta) sayı satırları açık kopyadan okunamadı: TABLO_DURUMU aynen kalır.
+OKADA85_TABLO2 = {
+    ("1", 0): (-9.447e-4, -1.023e-3, -7.420e-4, -2.286e-4, -1.425e-4, -2.051e-4, -3.007e-4, -6.259e-5, -1.693e-4),
+    ("1", 1): (-1.172e-3, -2.082e-3, -2.532e-3, -1.526e-4, -3.544e-4, +6.983e-4, -1.154e-3, +8.707e-4, -6.345e-4),
+    ("1", 2): (-3.572e-4, +3.531e-4, -2.007e-4, -1.360e-4, +5.073e-4, -6.773e-5, +6.811e-4, +7.541e-5, +8.104e-4),
+    ("2", 0): (-8.689e-3, -4.298e-3, -2.747e-3, -1.220e-3, +2.470e-4, -8.191e-3, -5.814e-4, -5.175e-3, +2.945e-4),
+    ("2", 1): (-4.682e-3, -3.527e-2, -3.564e-2, -8.867e-3, -1.519e-4, +4.057e-3, -1.035e-2, +4.088e-3, +2.626e-3),
+    ("2", 2): (-2.660e-4, +1.056e-2, +3.214e-3, -5.655e-4, +1.993e-3, -1.066e-3, +1.230e-2, -3.730e-4, +1.040e-2),
+    ("3", 0): (0.0, +5.253e-3, 0.0, 0.0, -1.864e-2, -2.325e-3, 0.0, 0.0, +2.289e-2),
+    ("3", 1): (0.0, 0.0, 0.0, 0.0, +2.748e-2, 0.0, 0.0, 0.0, -7.166e-2),
+    ("3", 2): (+1.223e-2, 0.0, -1.606e-2, -4.182e-3, 0.0, 0.0, -2.325e-3, -9.146e-3, 0.0),
+    ("4", 0): (0.0, -1.303e-3, 0.0, 0.0, +2.726e-3, +7.345e-4, 0.0, 0.0, -4.422e-3),
+    ("4", 1): (0.0, 0.0, 0.0, 0.0, +5.157e-3, 0.0, 0.0, 0.0, -1.901e-2),
+    ("4", 2): (+3.507e-3, 0.0, -7.740e-3, -1.770e-3, 0.0, 0.0, -7.345e-4, -1.843e-3, 0.0),
+}
+OKADA85_GEOMETRI = {"1": (2.0, 3.0, 4.0, 70.0), "2": (2.0, 3.0, 4.0, 70.0), "3": (0.0, 0.0, 4.0, 90.0),
+                    "4": (0.0, 0.0, 4.0, -90.0)}
+DC3D_KILAVUZ = dict(x=10.0, y=20.0, z=-30.0, depth=50.0, dip=70.0, al=(-80.0, 120.0), aw=(-30.0, 25.0),
+                    disl=(200.0, -150.0, 100.0), beklenen=(-37.8981, 63.1789, 14.9607))
+EK1_RICHARDSON = 1e-6
+EK1_US_ARALIGI = (-2.25, -1.75)
+EK1_UZAK_60L = 1e-3
+
+
+def yayimlanmis_denetim():
+    """Ek 1 E1.1 (b): yayımlanmış denetim değerleri. Ölçüt: her değer yayımlanan son basamağın yarım birimi içinde
+    (sıfır yazılan değerler için |u| ≤ 1e−12 × satırın en büyük değeri)."""
+    en_kotu, satir = 0.0, []
+    for (dur, k), ref in OKADA85_TABLO2.items():
+        x, y, d, dip = OKADA85_GEOMETRI[dur]
+        disl = [0.0, 0.0, 0.0]
+        disl[k] = 1.0
+        X, Y, Z = np.array([x]), np.array([y]), np.array([0.0])
+        if dur == "1":
+            u, _ = dc3d0(ALFA, X, Y, Z, d, dip, *disl)
+        else:
+            u, _ = dc3d(ALFA, X, Y, Z, d, dip, 0.0, 3.0, 0.0, 2.0, *disl)
+        u = u[:, 0]
+        bizim = (u[0], u[1], u[2], u[3], u[6], u[4], u[7], u[5], u[8])
+        olcek = max(abs(r) for r in ref)
+        for a, b in zip(bizim, ref):
+            if b == 0.0:
+                e = abs(a) / (1e-12 * olcek)
+            else:
+                yarim = 0.5 * 10 ** (math.floor(math.log10(abs(b))) - 3)
+                e = abs(a - b) / yarim
+            en_kotu = max(en_kotu, e)
+        satir.append(dict(durum=dur, kayma=k, bizim=[float(v) for v in bizim]))
+    D = DC3D_KILAVUZ
+    u, _ = dc3d(ALFA, np.array([D["x"]]), np.array([D["y"]]), np.array([D["z"]]), D["depth"], D["dip"], *D["al"],
+                *D["aw"], *D["disl"])
+    kil = max(abs(float(u[i, 0]) - D["beklenen"][i]) / 0.5e-4 for i in range(3))
+    return dict(okada85_tablo2_en_kotu_yarim_birim=float(en_kotu), okada85_deger_sayisi=9 * len(OKADA85_TABLO2),
+                dc3d_kilavuz_yarim_birim=float(kil), dc3d_kilavuz_bizim=[float(u[i, 0]) for i in range(3)],
+                gecti=bool(en_kotu <= 1.0 and kil <= 1.0))
+
+
+def ek1_degerlendir(out, egimler):
+    """Ek 1 E1.1 bağlayıcı Okada ölçütü: harfiyen geçen 1, 2, 4, 5 (0,01 km), 7, 8, 9 ve tekil sınamaları aynen;
+    3 ve 6 Richardson biçimiyle ≤ 1e−6; 5 uzak alan: nokta başına göreli farkın 20 L → 40 L → 60 L log-log eğimi
+    [−2,25; −1,75] içinde ve 60 L'de ≤ 1e−3 (her eğim × kaynak türü); yayımlanmış denetim değerleri tutar."""
+    aynen = ("1_yuzey_cekme", "2_denge", "4_sayisal_turev", "5_nokta_kaynak_001km", "7_ust_uste_binme",
+             "8a_isaret_uc_pozitif_yan_negatif", "8b_simetri", "8c_dondurme", "9_dcff_izdusumu", "tekil_noktalar_sonlu")
+    k = {a: bool(out[a]["gecti"]) for a in aynen}
+    k["3_richardson"] = bool(out["3_kayma_sureksizligi"]["tani_richardson"] <= EK1_RICHARDSON)
+    k["6_richardson"] = bool(out["6_fay_disi_sureklilik"]["tani_richardson"] <= EK1_RICHARDSON)
+    # Düşey eğim atımlı kaynakta uz ∝ d² olduğundan sonlu düşey genişlik sabit bir W²/(12 d²) terimi taşır ((L/r)²
+    # ile azalmaz; Ek 1 E1.1); bu durum eğim ölçütünden ayrık tutulur, integral ölçütü bütün durumlara uygulanır.
+    dus = [e for e in egimler if not (e["egim_derece"] == 90.0 and e["tur"] == "egim")]
+    k["5_uzak_egim"] = all(EK1_US_ARALIGI[0] <= e["us"] <= EK1_US_ARALIGI[1] for e in dus)
+    k["5_uzak_60L"] = all(e["fark_20_40_60L"][2] <= EK1_UZAK_60L for e in dus)
+    k["5_uzak_integral"] = all(e["integral_m10_m20"][1] <= EK1_UZAK_60L and 3.0 <= e["integral_oran"] <= 5.0
+                               for e in egimler)
+    yd = yayimlanmis_denetim()
+    k["yayimlanmis_denetim"] = yd["gecti"]
+    gec = all(k.values())
+    return dict(gecti=gec, olcutler=k, uzak_alan_egimleri=egimler, yayimlanmis=yd,
+                ozet=("hepsi tuttu" if gec else "tutmayan: " + ", ".join(a for a, v in k.items() if not v)))
 
 
 def _sinama8(kayit):

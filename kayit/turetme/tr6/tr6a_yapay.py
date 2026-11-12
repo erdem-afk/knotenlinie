@@ -348,13 +348,13 @@ class TekBirimSinama:
         an.son_ekle(plan, YapayKaynak(d, "son"))
         P = an.pencere(B, "gercek")
         ms, _ = an.mc_son(B, k, P, kp["mc_lob"])
-        mk = KAT.r2(max(kp["mc_lob"], ms))
+        mk = KO.mc_kul(kp["mc_lob"], ms)
         o = an.lob_oyu(B, k, "golge", P, mk)
         r.update(D=o["D"], A=o["A"], n_on=o["n_on"], n_son=o["n_son"], mc_kul=mk, mc_son=ms,
                  dtau=(None if o["ln_oran"] is None else S.ASIGMA * o["ln_oran"]))
         if sp.get("pozitif"):
             mlp = B["kapi"][k]["pozitif"]["mc_lob"]
-            op = an.lob_oyu(B, k, "pozitif", P, KAT.r2(max(mlp, ms)))
+            op = an.lob_oyu(B, k, "pozitif", P, KO.mc_kul(mlp, ms))
             r.update(A_poz=op["A"])
         return r
 
@@ -439,7 +439,7 @@ def _bin_payi(v, mc_t):
     return (10 ** (-(c - lo)) - 10 ** (-(hi - lo))) / (1 - 10 ** (-(hi - lo)))
 
 
-def tamlik_hucresi(rng, n, M_ana, Mc_lob, N0, ap, kural, oy_tablosu, bolge_carpani=1.0):
+def tamlik_hucresi(rng, n, M_ana, Mc_lob, N0, ap, kural, oy_tablosu, bolge_carpani=1.0, ayrinti=False):
     """Bir hücre: Mc_halka = Mc_lob − 0,2 (taban Mc_lob − 0,25), G-R b = 1; lobda saf Poisson arka plan (ön pencere
     tam, son pencerede Mc(t) kesimi); bölge = lob + (bolge_carpani − 1) × lob kadar başka arka plan + Omori artçıları
     (bölge son penceresinin algılama öncesi payı ap). Kodlayıcı okuması 18: bolge_carpani = 1 (bölge arka planı = lob
@@ -473,21 +473,28 @@ def tamlik_hucresi(rng, n, M_ana, Mc_lob, N0, ap, kural, oy_tablosu, bolge_carpa
     T_son = 365.0 - S0
     pi = T_son / (S.T_ON_G + T_son)
     D = np.zeros(n, np.int8)
+    ok = np.ones(n, bool)
     for i in range(n):
         h_on = rng.poisson(on_bek)
         mcl, _ = KAT.mc_lob(np.repeat(kut, h_on), mc_h)
         hl = [rng.poisson(x) for x in beklenen_lob]
         ha = [rng.poisson(x) for x in beklenen_as]
         hist = [(kut, l + a) for l, a in zip(hl, ha)]
-        ms, _ = KAT.mc_son_hist(hist, mcl, KAT.MC_SON_EK[kural])
-        mk = KAT.r2(max(mcl, ms))
+        ms, _ = KAT.mc_son_hist(hist, mcl, KAT.MC_SON_EK[kural], veri_yok=kural in KAT.TAMLIK_VERI_YOK)
+        if ms is None:                                  # Ek 1 E1.3 (d): birim "veri yok (tamlık kestirilemedi)"
+            ok[i] = False
+            continue
+        mk = KO.mc_kul(mcl, ms)
         ust = kut >= mk - 1e-6
         n_on = int(h_on[ust].sum())
         n_son = int(sum(l[ust].sum() for l in hl))
         nn = n_on + n_son
         if nn:
             D[i] = n_son <= oy_tablosu.b_dus[nn] if abs(oy_tablosu.pi - pi) < 1e-12 else KAT.oy(n_on, n_son, pi)[0]
-    return float(D.mean())
+    if ayrinti:
+        n_ok = int(ok.sum())
+        return dict(P_D=(float(D[ok].mean()) if n_ok else None), n_ok=n_ok, veri_yok_payi=1.0 - n_ok / n)
+    return float(D[ok].mean()) if ok.any() else float("nan")
 
 
 def tamlik_sinamasi(tohum, n, log=print, kurallar=KO.TAMLIK_KURALLARI, hucreler=None, bolge_carpani=1.0,
@@ -507,15 +514,27 @@ def tamlik_sinamasi(tohum, n, log=print, kurallar=KO.TAMLIK_KURALLARI, hucreler=
         sat = {}
         en_kotu = -1.0
         for (Ma, Mc, N0, ap) in hucreler:
-            p = tamlik_hucresi(rng, n, Ma, Mc, N0, ap, kural, o, bolge_carpani)
+            r = tamlik_hucresi(rng, n, Ma, Mc, N0, ap, kural, o, bolge_carpani, ayrinti=True)
             p0 = o.olasilik(N0 * S.T_ON_G / 365.25, N0 * Ts / 365.25, -1)
+            ad = f"M{Ma:g} Mc{Mc:g} N0={N0:g} ap{ap:g}"
+            if r["n_ok"] == 0:                                   # Ek 1 E1.3 (d): hücrenin bütün denemeleri veri yok
+                sat[ad] = dict(P_D=None, P_D_poisson=round(p0, 4), fark=None, n_ok=0, veri_yok_payi=1.0, gecti=True)
+                continue
+            p = r["P_D"]
             fark = p - p0
+            # Ek 1 E1.3: koşullu (veri yok olmayan denemelerde) fark; n_ok < n iken yalnız fazladan örnekleme
+            # hatası kadar (3,5 SE_ek) pay; n_ok = n iken §9 adım 2'nin ölçütüyle aynıdır.
+            q = min(max(p, 0.25), 0.75)
+            se_ek = math.sqrt(max(0.0, q * (1 - q) / r["n_ok"] - q * (1 - q) / n))
+            esik = 0.02 + 3.5 * se_ek
             en_kotu = max(en_kotu, fark)
-            sat[f"M{Ma:g} Mc{Mc:g} N0={N0:g} ap{ap:g}"] = dict(P_D=round(p, 4), P_D_poisson=round(p0, 4),
-                                                               fark=round(fark, 4), gecti=fark <= 0.02)
+            sat[ad] = dict(P_D=round(p, 4), P_D_poisson=round(p0, 4), fark=round(fark, 4), n_ok=r["n_ok"],
+                           veri_yok_payi=round(r["veri_yok_payi"], 4), esik=round(esik, 4), gecti=fark <= esik)
         gec = all(x["gecti"] for x in sat.values())
         out["basamaklar"][kural] = dict(hucreler=sat, en_buyuk_fark=round(en_kotu, 4), gecti=gec,
-                                        gecmeyen=[k for k, x in sat.items() if not x["gecti"]])
+                                        gecmeyen=[k for k, x in sat.items() if not x["gecti"]],
+                                        veri_yok_payi_ort=round(float(np.mean([x.get("veri_yok_payi", 0.0)
+                                                                               for x in sat.values()])), 4))
         log(f"  tamlık {kural}: en büyük fark {en_kotu:+.4f} {'GEÇTİ' if gec else 'TUTMADI'}")
         if gec and out["secilen"] is None:
             out["secilen"] = kural

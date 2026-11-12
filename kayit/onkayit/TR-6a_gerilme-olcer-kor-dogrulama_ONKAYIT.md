@@ -1469,3 +1469,135 @@ Uygulanamayan bulgu yoktur. Okuma notları (sapma değil):
 ## Dondurma notu (12 Kasım 2026)
 
 Bu sürüm, iki bağımsız incelemenin (İNCELEME-1, İNCELEME-2) bütün düzeltmeleri işlenerek donduruldu. Dondurma anına kadar olay sonrası hiçbir katalog sorgusu yapılmadı, hiçbir lobda oran ya da ΔCFF hesaplanmadı. Değişiklik listesindeki iki "okuma notu" (Okada 6–9 sınamaları her durumda koşulur; §6.4 madde 6) bağlayıcıdır.
+
+---
+
+## Ek 1 (12 Kasım 2026, veri öncesi)
+
+Bu ek dondurulmuş metni değiştirmez; dosyanın sonuna eklenmiştir. Dondurulmuş gövde bu dosyanın **ilk 126 740
+baytıdır** ve sha256'sı `41ca1e951d330ab72d106be79bb5f700b415d9574dbddff3da0a12ad73fea94e`'dir. Koşu kodu
+(`tr6a_kosu.py`, `ONKAYIT_GOVDE_BAYT = 126740`) gövdeyi bu baytlar üzerinden denetler; tam dosya sha256'sı manifeste ve
+sınama çıktısına ayrıca yazılır. Ek yazıldığı anda olay sonrası hiçbir katalog sorgusu yapılmamış, hiçbir lobda oran
+ya da ΔCFF hesaplanmamış, `son-indir` ve `kos` aşamaları gerçek veriyle çalıştırılmamıştır. Kullanılanlar: yapay veri,
+yayımlanmış Okada denetim değerleri, dört ana şokun sonlu fay ürünü başlıkları (yalnız biçim). Kodlayıcının
+okumaları `TR-6a_KODLAYICI-OKUMALARI.md`'de, bağımsız kod incelemesi `TR-6a_KOD-INCELEME.md`'dedir.
+
+Aşağıda iki madde **dondurulmuş kuraldan sapmadır** ve öyle adlandırılır: E1.1'in Okada ölçütü (3, 5 uzak alan, 6) ve
+E1.3'ün (d) basamağı. İkisi de yalnız yapay veriyle görülen yöntem kusurlarına yanıttır.
+
+**E1.1 Okada ölçütü (kodlayıcı okuması 3; dondurulmuş ölçütten sapma).** §3.3'ün 3, 5 (uzak alan) ve 6 numaralı
+sınamaları harfiyen tutmuyor (3: 6,3e−6; 5 uzak, 20 L: 3,6e−3; 6: 8,6e−6). Bunun nedeni ölçütlerin biçimidir. ±ε
+farkı 2ε ∂u/∂n doğrusal terimini taşır. Uzak alan farkı da sonlu boyutun yüksek dereceli terimidir. Bağlayıcı ölçüt
+şudur (`tr6a_okada.dogrulama()["ek1"]`):
+- Harfiyen tutan sınamalar (1, 2, 4, 5 için 0,01 km, 7, 8a–c, 9, tekil noktalar) aynen kalır.
+- 3 ve 6 Richardson biçimiyle sınanır: |2Δ(ε) − Δ(2ε)| ≤ 1e−6, harfiyen ölçütle aynı normalle.
+- 5 uzak alan, nokta başına göreli farkla sınanır: 20 L → 40 L → 60 L log-log eğimi [−2,25; −1,75] içinde olmalı ve
+  60 L'de fark ≤ 1e−3 olmalı. Bu, her eğim × kaynak türü için ayrı denetlenir. Tek istisna 90° eğimli eğim atımlı
+  kaynaktır: düşey u_z ∝ d² olduğundan sonlu düşey genişlik sabit bir W²/(12 d²) terimi (≈ %6) verir, (L/r)² vermez.
+  Bu durumda eğim ve 60 L ölçütü uygulanmaz.
+- Integral yakınsaması dokuz durumun hepsinde sınanır: sonlu DC3D, m × m DC3D0 orta nokta toplamıyla karşılaştırılır.
+  m = 20'de göreli fark ≤ 1e−3 ve m = 10 / m = 20 oranı [3, 5] içinde (ikinci derece yakınsama) olmalı.
+- Yayımlanmış denetim değerleri tutmalı: Okada (1985) Tablo 2 durum 1–4 (108 değer) ve DC3D kılavuzu örneği
+  (x 10, y 20, z −30, derinlik 50, eğim 70, AL −80/120, AW −30/25, DISL 200/−150/100 → −37,8981; 63,1789; 14,9607).
+  Ölçüt, her değerin yayımlanan son basamağın yarım birimi içinde olmasıdır.
+
+Geliştirme sonucu: hepsi tuttu. Richardson 3 için 5,1e−15, 6 için 1,2e−14. Eğimler −1,925 ile −2,074 arasında; istisna
+durum −1,286 (60 L'de 8,2e−3, bilgi). Integral oranları 4,0, m = 20 farkları ≤ 8,6e−6. Okada 1985'te en kötü değer 0,975
+yarım birim, kılavuz örneğinde 0,856 yarım birim. Okada (1992) tablo değerleri okunamadı; "Okada 1992 tablo değerleri
+doğrulanamadı" bilgi satırı kalır. Bağlayıcı Okada doğrulaması (§9 adım 2) bu ölçütle değerlendirilir
+(`OKADA_EK1_KARAR`); tutmazsa hüküm "koşulmadı (yöntem: Okada sınaması)" olur.
+
+**E1.2 Sonlu fay alt fay koordinatı ve M0 (okumalar 9, 10, 11).** Kural olay sonucundan bağımsızdır:
+- (i) Seçilen dosyanın başlığı koordinatın anlamını açıkça yazıyorsa o anlam kullanılır.
+- (i′) `basic_inversion.param` başlığı sessizse ve aynı ürünün `.fsp` başlığı anlamı açıkça yazıyorsa, alt fay
+  dosyası olarak `.fsp` okunur: koordinat, kayma, moment ve M0 `.fsp`'den alınır.
+- (ii) İkisi de sessizse geometrik tutarlılık denenir: iki okumada (merkez, üst kenar) hiposantrın kendi hücresine
+  uzaklığı hesaplanır. Fark bir alt fay yarı genişliğinden büyük değilse birim "veri yok (FFM biçimi)" olur.
+- M0 `.param` başlığında yoksa aynı ürünün `.fsp` başlığındaki Mo kullanılır.
+
+Yoklama (yalnız başlıklar: us7000c7y0, us1000hhb1, us2000cmy3, us6000jllz) şunu gösterdi:
+- `.param` başlıkları koordinatın anlamı ve M0 konusunda sessizdir.
+- Bütün `.fsp` başlıkları "Coordinates are given for center of each subfault" yazar.
+- `.fsp` Mo'su `.param` momentleri toplamıyla uyuşur.
+- Eski ürünlerde `.param` derinlikleri `.fsp` merkezlerinden farklıdır.
+
+Bu yüzden (i′) eklendi. (i′), (i)'nin "başlık açıkça söylüyorsa" kuralının aynı ürünün `.fsp` başlığına
+uygulanmasıdır ve (ii)'den önce gelir. (ii) geometri gereği pratikte
+daima "veri yok" verir. İki aday merkez arasındaki uzaklık W/2'dir, dolayısıyla üçgen eşitsizliğinden
+|d_merkez − d_üst| ≤ W/2 olur. Düzlemsellik ya da düzleme uzaklık biçimi de düzlem içi kaydırmaya duyarsızdır. Dört
+üründe (ii) karar veremezdi (fark 0,11–0,43 km, yarı genişlik 1,25–2,65 km).
+
+Birim denetimi (okuma 11) de değişti. İma edilen rijitlik her alt fayda [0,3; 300] GPa içinde, medyanda [10; 100] GPa
+içinde olmalıdır. Eski satır başına [5; 100] GPa sınırı katmanlı gerçek ürünleri reddediyordu (us1000hhb1: 19 alt fay
+2,2 GPa) ve manifest aşamasını durdururdu. Birim kayması (100 kat ya da 1e7 kat) iki koşuldan birini yine bozar.
+
+**E1.3 Tamlık yedek merdiveni (d) basamağı (kodlayıcı riski 1; dondurulmuş kuraldan sapma).** §3.5'in yedeği
+("hiçbir birleşim 50'ye ulaşmazsa Mc_son = Mc_lob + 0,3") tamlığın kestirilemediği durumda Mc_kul'u düşük bırakır.
+Bu, Δτ = 0 dünyasında sahte düşüş oyu üretir. Gürültüsüz ön denetimde modellenmemişti. Geliştirme koşularında (n = 2000,
+tohum 4242/4243, bölge arka planı = lob arka planı) A2 ve (a)–(c) tutmadı (A2 en büyük fark +0,54; (c) +0,54).
+Merdivene (c)'den sonra bir basamak eklenir:
+- **(d)** (c)'nin bütün kurallarıyla birlikte (90 g başlangıç, alt pencereler [90, 180) ve [180, 365), Mc_son eki
+  +0,4, D2 yok) bir Mc_son penceresinde hiçbir birleşim 50 olaya ulaşmazsa Mc_son kestirilmez ve Mc_lob + 0,3 yedeği
+  kalkar.
+  - Gerçek son pencerede bu durumdaki küme "veri yok (tamlık kestirilemedi)" olur.
+  - Sahte zamanda o sahte oy geçersizdir.
+  - S2'de küme S2'den düşer.
+  - Ön pencere etkilenmez; orada Mc_son yoktur.
+- K_kapı bu kümeler düşüldükten sonra yeniden sayılır. Sayım olay sonrası veri eklendikten sonra, hiçbir lob sayısı
+  hesaplanmadan yapılır ve yalnız bölge histogramlarını kullanır.
+  - K_kapı < 23 ise hüküm §6.4 (b)'nin "güç yok"udur; kapalı liste genişlemez, cümle tamlık nedenini yazar.
+  - Değilse testere dişi aynı p₀ ile yeniden çözülür; K⁺, K_nt ve S2 yeni ana kümeler üzerinde yeniden kurulur.
+- Ölçüt, veri yok olmayan denemelerde koşullu P(D) − kesin Poisson H0 ≤ 0,02 + 3,5 SE_ek'tir.
+  - SE_ek = √(q(1−q)/n_ok − q(1−q)/n), q = P(D) [0,25; 0,75] aralığına kırpılmış.
+  - n_ok = n iken bu §9 adım 2'nin ölçütüdür.
+  - Bütün denemeleri veri yok olan hücre geçer, çünkü oy yoktur.
+
+Geliştirme sayıları (bağlayıcı değil):
+- n = 2000, tohum 4242: (d) en büyük fark +0,0246 (1 hücre > 0,02). Tohum 4243 ile kod yolundan +0,0231 (1 hücre:
+  M7 Mc1 N0 100 ap0).
+- Ortalama veri yok payı 0,232. 12 hücrede bütün denemeler veri yok. Küçük n_ok'lu hücrelerde koşullu fark güçlü
+  negatiftir (−0,2 ile −0,46 arası, tutucu).
+- Büyük n'li yeniden koşular: n = 10 000 / tohum 777, 10 hücrede −0,0128 ile +0,0071 (SE 0,005). n = 20 000 /
+  tohum 780, en yüksek 6 hücrede −0,0049 ile +0,0029.
+- Sonuç: tek hücre aşımları gürültüdür; (d) geliştirmede tutar.
+- Karşılaştırma için A2 aynı yeniden koşuda +0,0485'e kadar çıktı.
+
+(e) basamağı (MBS) tanımlanmadı, çünkü (d) geliştirmede tuttu. Bağlayıcı sınama (tohum 20261115, n = 20 000) A2, (a),
+(b), (c), (d) basamaklarını sırayla, her birini bir kez koşar. Hiçbiri tutmazsa TR-6a "koşulmadı (yöntem: tamlık
+sınaması)" diye kapanır ve olay sonrası veri indirilmez.
+
+**Kapı seçim yanlılığı (kodlayıcı riski 5).** Kapı (n_on ≥ 155) düşük N0'lı birimlerde n_on'un yukarı dalgalandığı
+denemeleri seçer; bu da P(D)'yi artırır. Kesin Poisson hesabında P(D | kapı) − P(D) şöyle çıkar:
+
+| N0 | P(D \| kapı) − P(D) | P(kapı) |
+|---|---|---|
+| 20 | +0,54 | ≈ 0 |
+| 25 | +0,43 | 0,003 |
+| 31,36 | +0,136 | 0,485 |
+| 40 | +0,0004 | – |
+| ≥ 60 | 0 | – |
+
+Sahte zamanlar aynı kapıyı uygular (n_on′ ≥ 155, sahte Mc_lob). Bu yüzden durağan bir dünyada p̂₀ aynı seçimi taşır
+ve beklenen değerde yanlılığı soğurur: H1 eşiği c(K; p₀) yükselir. Artık risk iki durumda kalır: sahte oyların
+geçersiz olduğu kümeler ve durağan olmayan oran. Yapay katalog ölçütü (i) koşulsuz P(D) ile değerlendirilir; kapı
+koşullu değer bilgi satırıdır.
+
+**E1.4 Öteki maddeler.**
+- (a) Yedek (c)'nin Mc_son eki +0,4'tür, çünkü (c) (b)'nin +0,2'sini içerir. Kodda +0,2 yazılmıştı; düzeltildi (kod
+  incelemesi H1). (d) da +0,4 kullanır.
+- (b) Tamlık sınamasında bölge arka planı lob arka planına eşittir (`bolge_carpani = 1`, okuma 18). Artçılar
+  bölgededir, payı ap'dir.
+- (c) Okuma 13'ün yazımı düzeltilir: ana şokun katalogdaki kendi satırları (t0 ± 16 s, ≤ 100 km, M ≥ 5,5) olay
+  sonrası kümesizleştirmede ana olay olarak tutulmaz, tümüyle çıkarılır (§3.6 "ana şok ana olay olamaz"). Kod
+  baştan beri böyle yapıyordu.
+- (d) GeoNet (satır sınırı olmayan sunucu) yarı eşitliği 1 günlük parçada da 12 saatlik yarılarla denetlenir. Yalnız
+  orada da tutmazsa VeriYok verilir; yalnız KOERI'de 1 günlük parça bölünemez (okuma 30). Daha önce 2 günlük parça
+  tutmayınca hemen VeriYok veriliyordu (kod incelemesi H3).
+- (e) Moment tensörü istek yükü: ComCat arama yanıtı tensör taşımaz, toplu yol yoktur.
+  - Arama 5'ten az olay döndürürse ayrıntı istenmez, çünkü §3.3 karar 6 kural 3 zaten ana şok düzlemini seçer.
+  - Ayrıntı istekleri birimler arasında URL günlüğüyle bir kez yapılır.
+  - Seçilen düzlem değişmez.
+- (f) Bağlayıcı sınama (`sinama --baglayici`) ön kayıt (gövde + bu ek) ve kod commit + push edilmeden koşmaz. Çıktı
+  ön kaydın gövde ve tam sha256'sını taşır.
+- (g) Kodlayıcının öteki okumaları kod incelemesinde tek tek denetlendi ve yazıldığı gibi uygulanır (KABUL); ayrıntı
+  `TR-6a_KOD-INCELEME.md` bölüm E'dedir.

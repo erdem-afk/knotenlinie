@@ -5,12 +5,14 @@ gerçek sonlu fay ürünü ya da olay sonrası katalog açılmaz.
 Kapsam: Okada (§3.3 1-9, tekil), sonlu fay ayrıştırma/sağlama, katalog katmanı (tarih/körlük, satır sınırı, büyüklük
 kuralları, MAXC, Mc_lob, Mc_son, GK + 730 g tampon, oy), p₀ ve testere dişi (JSON ile eşitlik), hüküm adı kapalı
 listesi, git aşama denetimi, uçtan uca çok birimli yapay dünya (manifest → olay sonrası → hüküm), yapay Dieterich
-sınaması (geliştirme tohumu, küçük boy), tamlık sınaması (geliştirme) ve en az 6 mutasyon.
+sınaması (geliştirme tohumu, küçük boy), tamlık sınaması (geliştirme) ve mutasyon provası (kodlayıcının 7'si ve kod
+incelemesinin eklediği kaynak düzeyi mutasyonlar; Ek 1 E1.1–E1.4 dahil).
 
 Kullanım: python3 -I -B kayit/turetme/tr6/tr6a_test_yapay.py [-k ad] [--hizli]
 """
 import contextlib
 import datetime as dt
+import inspect
 import io
 import itertools
 import json
@@ -21,6 +23,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import textwrap
 import unittest
 import urllib.error
 
@@ -79,6 +82,24 @@ class TOkada(unittest.TestCase):
         self.assertLess(self.r["bilgi_uzak_alan_nokta_integrali"]["deger"], 1e-4)
         self.assertEqual(self.r["tablo_durumu"], "Okada 1992 tablo değerleri doğrulanamadı")
 
+    def test_ek1_olcutu(self):
+        """Ek 1 E1.1: bağlayıcı Okada ölçütü (Richardson, uzak alan eğimi/60 L, integral yakınsaması, yayımlanmış
+        değerler) tutar; sinama_degerlendir harfiyen ölçüt tutmadığında bu ölçütü kullanır."""
+        e = self.r["ek1"]
+        self.assertTrue(e["gecti"], e)
+        self.assertEqual(KO.OKADA_EK1_KARAR["hukum"], "ek1_olcutu")
+        okada_yayimlanmis_sinamasi(self)
+
+    def test_ek1_degerlendirme_yolu(self):
+        sin = dict(okada=dict(gecti=False, ek1=dict(gecti=True)), yapay_katalog=dict(gecti=True),
+                   tamlik=dict(secilen="yedek_d"))
+        self.assertEqual(KO.sinama_degerlendir(sin), (None, "yedek_d"))
+        sin["okada"]["ek1"]["gecti"] = False
+        self.assertEqual(KO.sinama_degerlendir(sin)[0]["yontem"], "Okada sınaması")
+        del sin["okada"]["ek1"]
+        with self.assertRaises(KO.KosuDur):
+            KO.sinama_degerlendir(sin)
+
     def test_dcff_izdusumu_9(self):
         dcff_izdusumu_sinamasi(self)
 
@@ -90,6 +111,14 @@ class TOkada(unittest.TestCase):
         self.assertGreater(T.B["hucre"]["tekil_yakin_alan_toplam"], 0)
         self.assertFalse(np.any(T.B["M"]["golge"] & H["tekil"]))
         self.assertFalse(np.any(T.B["M"]["notr"] & H["tekil"]))
+
+
+def okada_yayimlanmis_sinamasi(tc):
+    """Okada (1985) Tablo 2 (108 değer) ve DC3D kılavuzu örneği yayımlanan son basamağın yarım birimi içinde."""
+    r = OK.yayimlanmis_denetim()
+    tc.assertTrue(r["gecti"], r)
+    tc.assertEqual(r["okada85_deger_sayisi"], 108)
+    tc.assertLessEqual(r["dc3d_kilavuz_yarim_birim"], 1.0)
 
 
 def dcff_izdusumu_sinamasi(tc):
@@ -123,6 +152,36 @@ def param_metni(mo_carpan=1.0, baslik=""):
     return baslik + PARAM.format(mo1=f"{mo(1.0):.4e}", mo2=f"{mo(2.0):.4e}")
 
 
+FSP = """% Event : yapay
+% Loc  : LAT = 10.0000 LON = 20.0000 DEP = {dep}
+% Size : LEN = 20 km WID = 5 km Mo = {M0:.4e} Nm
+% Mech : STRK = 0.0 DIP = 90.0 RAKE = 180.0
+% Invs : Dx = 10.00 km Dz = 5.00 km
+{koor}%    LAT      LON    X==EW  Y==NS    Z   SLIP   RAKE  TRUP  RISE  SF_MOMENT
+  10.0000  20.0000  0.0  0.0  5.0  1.0  180.0  0.0  1.0  {mo1:.4e}
+  10.0900  20.0000  0.0  10.0  5.0  2.0  180.0  0.0  1.0  {mo2:.4e}
+"""
+
+
+def fsp_metni(koor="% Coordinates are given for center of each subfault\n", dep=5.0):
+    mo = lambda s: 30e9 * s * 10e3 * 5e3                     # noqa: E731  (N·m)
+    return FSP.format(M0=mo(3.0), mo1=mo(1.0), mo2=mo(2.0), koor=koor, dep=dep)
+
+
+def birim_sinamasi(tc):
+    """Kod incelemesi H2: katmanlı gerçek ürünlerde sığ alt faylar ~2 GPa (us1000hhb1: 19 alt fay 2,2 GPa); bunlar
+    geçer, birim kayması (×100, ×1e−7) yakalanır."""
+    def alt(mus, c=1.0):
+        return [dict(moment=mu * 1e9 * 1.0 * 10.0 * 5.0 * 1e6 * c, kayma=1.0, uzunluk=10.0, genislik=5.0) for mu in mus]
+    try:
+        FFM.birim_denetimi(alt([2.2] * 19 + [30.0] * 40))
+    except FFM.BicimHata as e:
+        tc.fail(f"katmanlı ürün reddedildi: {e}")
+    for kotu in (alt([30.0] * 40, 100.0), alt([30.0] * 40, 1e-2), alt([2.2] * 40), alt([30.0] * 39 + [1000.0])):
+        with tc.assertRaises(FFM.BicimHata):
+            FFM.birim_denetimi(kotu)
+
+
 class TFFM(unittest.TestCase):
     def test_param_ayristir_ve_birim(self):
         r = FFM.param_ayristir(param_metni())
@@ -131,10 +190,35 @@ class TFFM(unittest.TestCase):
         FFM.birim_denetimi(r["altfaylar"])
         with self.assertRaises(FFM.BicimHata):
             FFM.birim_denetimi(FFM.param_ayristir(param_metni(mo_carpan=1e-3))["altfaylar"])
+        birim_sinamasi(self)
 
     def test_koordinat_ve_M0_karari_yoksa_durur(self):
-        with self.assertRaises(FFM.BicimHata):
+        """Ek 1 E1.2: param başlığı sessiz, .fsp yok ve geometrik okuma kurulamıyor -> 'veri yok (FFM biçimi)'."""
+        with self.assertRaises(FFM.VeriYok):
             FFM.coz(param_metni(), "basic_inversion.param")
+        with self.assertRaises(FFM.VeriYok):          # .fsp başlığı da koordinat anlamını yazmıyorsa
+            FFM.coz(fsp_metni(koor=""), "complete_inversion.fsp")
+
+    def test_ek1_fsp_basligi_ve_geometrik(self):
+        """Ek 1 E1.2 (i'): aynı ürünün .fsp başlığı açıkça yazıyorsa .fsp okunur (M0 .fsp başlığından); (ii) .fsp
+        sessizse hiposantr hücresiyle geometrik karar; fark yarı genişlikten küçükse veri yok."""
+        r = FFM.coz(param_metni(), "basic_inversion.param", fsp_metni())
+        self.assertEqual((r["koordinat"], r["dosya"]), ("merkez", "complete_inversion.fsp"))
+        self.assertAlmostEqual(r["moment"]["oran"], 1.0, places=3)
+        self.assertEqual(r["n_altfay"], 2)
+        M0 = 30e9 * 3.0 * 10e3 * 5e3
+        b = f"# Mo = {M0 * 1e7:.4e} dyne.cm\n"
+        # (ii) geometrik: |d_merkez − d_üst| ≤ W/2 her zaman (üçgen eşitsizliği) -> hiposantr bir adayın tam
+        # merkezinde olsa bile karar verilmez; .fsp sessizse birim "veri yok (FFM biçimi)"
+        for kw in (dict(hipo_derinlik_km=5.0), dict(hipo_derinlik_km=3.75), dict(metin_fsp=fsp_metni(koor="", dep=2.5))):
+            with self.assertRaises(FFM.VeriYok):
+                FFM.coz(param_metni(baslik=b), "basic_inversion.param", **kw)
+        ayr = FFM.param_ayristir(param_metni(baslik=b))
+        rng = np.random.default_rng(6)
+        for _ in range(200):
+            ok, dok = FFM.koordinat_geometrik(ayr, param_metni(baslik=b), float(rng.uniform(0, 12)))
+            self.assertIsNone(ok)
+            self.assertLessEqual(abs(dok["d_merkez_km"] - dok["d_ust_kenar_km"]), dok["yari_genislik_km"] + 1e-3)
 
     def test_baslikla_moment_saglamasi(self):
         M0 = 30e9 * 3.0 * 10e3 * 5e3
@@ -180,28 +264,49 @@ def fdsn(satirlar):
 
 class TKatalog(unittest.TestCase):
     def test_2026_istegi_yapilamaz(self):
-        with self.assertRaises(KAT.KorIhlal):
-            KAT.tarih_denetle(dt.datetime(2025, 1, 1), dt.datetime(2026, 1, 1))
-        with self.assertRaises(KAT.KorIhlal):
-            KAT.tarih_denetle(dt.datetime(2026, 1, 2), dt.datetime(2026, 2, 1))
-        KAT.tarih_denetle(dt.datetime(2025, 1, 1), dt.datetime(2025, 12, 31, 23, 59, 59))
-        cagri = []
-        with self.assertRaises(KAT.KorIhlal):
-            KAT.parcali_indir(KAT.SERVIS["ComCat"], 0, 0, 100, dt.datetime(2025, 6, 1), dt.datetime(2026, 1, 1, 0, 0, 1),
-                              3.0, lambda u: cagri.append(u) or b"")
-        self.assertEqual(cagri, [])               # ağa hiç gidilmedi
+        korluk_sinamasi(self)
 
     def test_gercek_kaynak_asama_siniri_aga_gitmeden(self):
+        asama_siniri_sinamasi(self)
+
+    def test_tensor_istek_yuku(self):
+        """Ek 1 E1.4: arama 5'ten az olay döndürürse ayrıntı istenmez (kural 3 zaten ana şok düzlemi); ≥ 5'te her olay
+        bir kez istenir ve yinelenen URL günlükten okunur."""
+        import urllib.parse as up
+        cagri = []
+
+        class Yanit(io.BytesIO):
+            status = 200
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *a):
+                return False
+        n_olay = {"x": 3, "y": 6, "z": 6}
+
+        def ac(req, timeout=None):
+            u = req.full_url
+            cagri.append(u)
+            q = dict(up.parse_qsl(up.urlsplit(u).query))
+            if "eventid" in q:
+                mt = dict(id="mt", properties={f"tensor-{c}": "1.0" for c in ("mrr", "mtt", "mpp", "mrt", "mrp", "mtp")})
+                return Yanit(json.dumps(dict(properties=dict(products={"moment-tensor": [mt]}))).encode())
+            n = n_olay["x" if q["latitude"] == "1.0000" else "y"]
+            return Yanit(json.dumps(dict(features=[dict(id=f"e{i}") for i in range(n)])).encode())
         with tempfile.TemporaryDirectory() as d:
             k = KO.GercekKaynak(d, "on", bekleme=0)
-            k.getir._ac = lambda *a, **kw: (_ for _ in ()).throw(AssertionError("ağa gidildi"))
-            b = dict(id="x", zaman="2015-06-01T00:00:00")
-            with self.assertRaises(KAT.KorIhlal):
-                k.katalog(b, "ISC", dt.datetime(2014, 1, 1), dt.datetime(2015, 6, 1), 3.0, 100, (0, 0), "on")
-            k2 = KO.GercekKaynak(d, "son", bekleme=0)
-            k2.getir._ac = k.getir._ac
-            with self.assertRaises(KAT.KorIhlal):
-                k2.katalog(b, "ISC", dt.datetime(2025, 6, 1), dt.datetime(2026, 3, 1), 3.0, 100, (0, 0), "son")
+            k.getir._ac = ac
+            self.assertEqual(k.tensorler(dict(id="x", zaman="2015-06-01T00:00:00", enlem=1.0, boylam=0.0,
+                                              L_km=50.0)), [])
+            self.assertEqual(len(cagri), 1)
+            self.assertEqual(k.kayit["tensor"]["x"]["arama_olay_sayisi"], 3)
+            self.assertEqual(len(k.tensorler(dict(id="y", zaman="2015-06-01T00:00:00", enlem=2.0, boylam=0.0,
+                                                  L_km=50.0))), 6)
+            self.assertEqual(len(cagri), 1 + 1 + 6)
+            self.assertEqual(len(k.tensorler(dict(id="z", zaman="2015-07-01T00:00:00", enlem=2.0, boylam=0.0,
+                                                  L_km=50.0))), 6)
+            self.assertEqual(len(cagri), 1 + 1 + 6 + 1)            # aynı olayların ayrıntısı yeniden istenmez
 
     def test_gercek_kaynak_sahte_ag_ve_gunluk(self):
         """Ağ yolu sahte açıcıyla: parçalı istek, kendi indirmesini okuma (sha256), günlükten sürdürme (yeni istek
@@ -290,6 +395,7 @@ class TKatalog(unittest.TestCase):
                               lambda u: getir(u, True))
         self.assertGreater(r["bolunen"], 0)
         self.assertEqual(sum(KAT.SERVIS["GeoNet"].satir_say(m) for _, m in r["metinler"]), len(olay_g))
+        geonet_gunluk_sinamasi(self)
 
     def test_ayristirma_ve_buyukluk_kurallari(self):
         s = [("a", "2010-01-01T00:00:00", 1, 2, 10, "", "", "", "", "ML", "0.0", "", "", "earthquake"),
@@ -328,6 +434,7 @@ class TKatalog(unittest.TestCase):
         self.assertEqual(KAT.alt_pencereler(0, 100, "A2"), [(30, 45), (45, 60), (60, 90), (90, 100)])
         self.assertEqual(KAT.alt_pencereler(0, 365, "yedek_c"), [(90, 180), (180, 365)])
         self.assertEqual(KAT.alt_pencereler(10, 375, "yedek_a")[0], (40, 50))
+        self.assertEqual(KAT.alt_pencereler(0, 365, "yedek_d"), [(90, 180), (180, 365)])
 
     def test_gk_esdegerlik(self):
         rng = np.random.default_rng(3)
@@ -342,14 +449,10 @@ class TKatalog(unittest.TestCase):
         tampon_sinamasi(self)
 
     def test_oy_tablo_esitligi(self):
-        oy = S.Oy(2000)
-        for n in range(1, 400, 3):
-            for ns in range(0, n + 1, max(1, n // 25)):
-                D, A = KAT.oy(n - ns, ns, oy.pi)
-                self.assertEqual(D, int(ns <= oy.b_dus[n]))
-                self.assertEqual(A, int(ns >= oy.b_art[n]))
-            self.assertLessEqual(KAT.p_dusus_kosullu(n, oy.pi), 0.5 + 1e-12)
-        self.assertEqual(KAT.oy(0, 0, 0.157), (0, 0))
+        oy_tablo_sinamasi(self)
+
+    def test_pencere_uclari_ve_pi(self):
+        pencere_sinamasi(self)
 
     def test_kor_maske_ve_onbellek_engeli(self):
         havuz = [dict(id="A", zaman="2010-01-01T00:00:00", enlem=0.0, boylam=0.0, L_km=50.0)]
@@ -384,6 +487,169 @@ class TKatalog(unittest.TestCase):
                     self.assertIn(fonk, izinli, f"{dosya}: {fonk} open( çağırıyor")
 
 
+def korluk_sinamasi(tc):
+    with tc.assertRaises(KAT.KorIhlal):
+        KAT.tarih_denetle(dt.datetime(2025, 1, 1), dt.datetime(2026, 1, 1))
+    with tc.assertRaises(KAT.KorIhlal):
+        KAT.tarih_denetle(dt.datetime(2026, 1, 2), dt.datetime(2026, 2, 1))
+    KAT.tarih_denetle(dt.datetime(2025, 1, 1), dt.datetime(2025, 12, 31, 23, 59, 59))
+    cagri = []
+    try:
+        KAT.parcali_indir(KAT.SERVIS["ComCat"], 0, 0, 100, dt.datetime(2025, 6, 1), dt.datetime(2026, 1, 1, 0, 0, 1),
+                          3.0, lambda u: cagri.append(u) or b"")
+    except KAT.KorIhlal:
+        pass
+    except Exception as e:                       # noqa: BLE001
+        tc.fail(f"körlük kapısı ağdan önce durmadı: {e!r}")
+    else:
+        tc.fail("KorIhlal yok")
+    tc.assertEqual(cagri, [])               # ağa hiç gidilmedi
+
+
+def asama_siniri_sinamasi(tc):
+    """Aşama sınırı ağa gitmeden: 'on' kaynağı t0 − 30 g sonrasını, 'son' kaynağı 2026'yı isteyemez."""
+    cagri = []
+    with tempfile.TemporaryDirectory() as d:
+        b = dict(id="x", zaman="2015-06-01T00:00:00")
+        for asama, a, son in (("on", dt.datetime(2014, 1, 1), dt.datetime(2015, 6, 1)),
+                              ("on", dt.datetime(2014, 1, 1), dt.datetime(2015, 5, 2, 0, 0, 1)),
+                              ("son", dt.datetime(2025, 6, 1), dt.datetime(2026, 3, 1))):
+            k = KO.GercekKaynak(d, asama, bekleme=0)
+            k.getir._ac = lambda req, timeout=None: cagri.append(req.full_url) or (_ for _ in ()).throw(
+                RuntimeError("ağa gidildi"))
+            try:
+                k.katalog(b, "ISC", a, son, 3.0, 100, (0, 0), asama)
+            except KAT.KorIhlal:
+                continue
+            except Exception as e:               # noqa: BLE001
+                tc.fail(f"{asama}: aşama sınırı ağdan önce durmadı: {e!r}")
+            tc.fail(f"{asama}: KorIhlal yok")
+    tc.assertEqual(cagri, [])
+
+
+def geonet_gunluk_sinamasi(tc):
+    """Kod incelemesi H3: 2 günlük parça kesilir ama 1 günlük parçalar tamsa indirme sürer (1 günlük parça 12 saatlik
+    yarılarla denetlenir); 1 günlük parçada da eşitlik yoksa VeriYok."""
+    import urllib.parse as up
+    olay_g = np.sort(np.random.default_rng(4).uniform(0, 4, 300))
+    t0 = dt.datetime(2010, 1, 1)
+
+    def getir(u, kes_g):
+        q = dict(up.parse_qsl(up.urlsplit(u).query))
+        a = (dt.datetime.fromisoformat(q["starttime"]) - t0).total_seconds() / 86400
+        b = (dt.datetime.fromisoformat(q["endtime"]) - t0).total_seconds() / 86400
+        n = int(((olay_g >= a) & (olay_g <= b)).sum())
+        if b - a > kes_g:
+            n = min(n, 50)
+        return ("x\n" * n).encode()
+    try:
+        r = KAT.parcali_indir(KAT.SERVIS["GeoNet"], 0, 0, 100, t0, t0 + dt.timedelta(days=4), 3.0,
+                              lambda u: getir(u, 1.5))
+    except KAT.VeriYok as e:
+        tc.fail(f"1 günlük parçalar tamken VeriYok: {e}")
+    tc.assertEqual(sum(KAT.SERVIS["GeoNet"].satir_say(m) for _, m in r["metinler"]), len(olay_g))
+    with tc.assertRaises(KAT.VeriYok):
+        KAT.parcali_indir(KAT.SERVIS["GeoNet"], 0, 0, 100, t0, t0 + dt.timedelta(days=4), 3.0,
+                          lambda u: getir(u, 0.3))
+
+
+def oy_tablo_sinamasi(tc):
+    oy = S.Oy(2000)
+    for n in range(1, 400, 3):
+        for ns in range(0, n + 1, max(1, n // 25)):
+            D, A = KAT.oy(n - ns, ns, oy.pi)
+            tc.assertEqual(D, int(ns <= oy.b_dus[n]))
+            tc.assertEqual(A, int(ns >= oy.b_art[n]))
+        tc.assertLessEqual(KAT.p_dusus_kosullu(n, oy.pi), 0.5 + 1e-12)
+    tc.assertEqual(KAT.oy(0, 0, 0.157), (0, 0))
+
+
+def pencere_sinamasi(tc):
+    """§4.2–§4.6 pencere uçları ve π = T_son / (1796 + T_son) (ön kayıt sabitleriyle yazılmış beklenen değerler)."""
+    an = object.__new__(KO.Analiz)
+    an.S0 = 30.0
+    t0, ts = 10000.0, 10002.0
+    B = dict(t0=t0, ts=ts, son_bit=t0 + 300.0)
+    T = B["son_bit"] - (ts + 30.0)
+    B["pi"] = T / (1796.0 + T)
+    P = an.pencere(B, "gercek")
+    tc.assertEqual((P["on"], P["son"], P["son_katalog"], P["koken"]), ((t0 - 1826, t0 - 30), (ts + 30, t0 + 300),
+                                                                        t0, ts))
+    tc.assertAlmostEqual(P["T_son"], T, places=12)
+    for j in (1, 2, 3):
+        P = an.pencere(B, "sahte", j)
+        tp = t0 - 395 - 335 * (j - 1)
+        tc.assertEqual((P["on"], P["son"], P["son_katalog"]), ((tp - 1826, tp - 30), (tp + 2 + 30, tp + 300), tp))
+        tc.assertEqual(P["pi"], B["pi"])
+    P = an.pencere(B, "D2")
+    tc.assertEqual(P["son"], (ts + 90, t0 + 300))
+    tc.assertAlmostEqual(P["pi"], 208.0 / (1796.0 + 208.0), places=14)
+    P = an.pencere(B, "nk")
+    o = t0 - 395 + 2
+    tc.assertEqual((P["on"], P["son"]), ((t0 - 1826, t0 - 365), (o + 30, t0 - 30)))
+    tc.assertAlmostEqual(P["pi"], (t0 - 30 - o - 30) / (1461.0 + t0 - 30 - o - 30), places=14)
+
+
+def mc_kul_sinamasi(tc):
+    tc.assertEqual(KO.mc_kul(2.7, 3.2), 3.2)
+    tc.assertEqual(KO.mc_kul(3.0, 2.8), 3.0)
+    tc.assertEqual(KO.mc_kul(2.7, 3.2, 0.3), 3.5)
+    tc.assertEqual(KO.mc_kul(2.65, 2.649999), 2.65)
+
+
+def mcnemar_sinamasi(tc):
+    """S7: a = gölge D=1 ∧ nötr D=0, b = tersi; p = P(Bin(a + b, ½) ≥ a) (tek yönlü)."""
+    g = [dict(temsilci=f"u{i}", D=x) for i, x in enumerate([1, 1, 1, 1, 1, 0, 0, 1])]
+    n = [dict(temsilci=f"u{i}", D=x) for i, x in enumerate([0, 0, 0, 0, 0, 1, 0, 1])]
+    r = KO.mcnemar(g, n)
+    tc.assertEqual((r["a"], r["b"]), (5, 1))
+    tc.assertAlmostEqual(r["p"], 7 / 64, places=12)
+    r = KO.mcnemar(n, g)
+    tc.assertEqual((r["a"], r["b"]), (1, 5))
+    tc.assertAlmostEqual(r["p"], 63 / 64, places=12)
+    tc.assertEqual(KO.mcnemar(g, g)["p"], 1.0)
+
+
+def tamlik_eleme_sinamasi(tc):
+    """Ek 1 E1.3 (d): Mc_son'u kestirilemeyen kümeler düşer, K_kapı DÜŞÜRÜLDÜKTEN SONRA sayılır; < 23 -> güç yok
+    (§6.4 (b), cümlede tamlık nedeni); A2'de eleme yok."""
+    liste, d, an, m, R, H = dunya()
+    eski_kural, eski_mcs = an.kural, getattr(an, "_mcs", None)
+    us = [c["temsilci"] for c in m["kumeler"]]
+    try:
+        an.kural = "yedek_d"
+        an._mcs = {(u, an.B[u]["secim"]): (KO.r2(an.B[u]["kapi"][an.B[u]["secim"]]["golge"]["mc_lob"]), {})
+                   for u in us}
+        m1 = an.tamlik_eleme(m)
+        tc.assertEqual((m1["tamlik_eleme"], m1["K_kapi"]), ([], m["K_kapi"]))
+        an._mcs[(us[0], an.B[us[0]]["secim"])] = (None, {})
+        m2 = an.tamlik_eleme(m)
+        tc.assertEqual((m2["tamlik_eleme"], m2["K_kapi"], m2["K_kapi_once"]), ([us[0]], m["K_kapi"] - 1, m["K_kapi"]))
+        tc.assertEqual(m2["durum"], "devam")
+        tc.assertNotIn(us[0], m2["ana_kumeler"])
+        tc.assertEqual(m2["testere"]["K_hukum"], KO.testere(m["K_kapi"] - 1, m["sahte"]["p0"])["K_hukum"])
+        tc.assertEqual(len(m2["ana_kumeler"]), m2["testere"]["K_hukum"])
+        tc.assertTrue(set(m2["K_arti"]) <= set(m2["ana_kumeler"]) and set(m2["K_nt"]) <= set(m2["ana_kumeler"]))
+        R2 = an.oylar(m)
+        tc.assertEqual(R2["m_etkin"]["K_kapi"], m["K_kapi"] - 1)
+        tc.assertEqual(len(R2["ana"]), m2["testere"]["K_hukum"])
+        tc.assertTrue(kapali_listede(KO.hukum_kur(m, R2, an)["hukum"]["ad"]))
+        an._mcs[(us[1], an.B[us[1]]["secim"])] = (None, {})
+        m3 = an.tamlik_eleme(m)
+        tc.assertEqual((m3["K_kapi"], m3["durum"]), (m["K_kapi"] - 2, "güç yok (tamlık)"))
+        E = KO.erken_hukum("guc_yok_tamlik", m=m3)
+        tc.assertEqual(E["hukum"]["ad"], "güç yok")                     # §6.4 (b); kapalı liste genişlemez
+        tc.assertIn("tamlık kestirilemedi", E["cumle"])
+        an.kural = "A2"
+        tc.assertEqual(an.tamlik_eleme(m)["K_kapi"], m["K_kapi"])
+    finally:
+        an.kural = eski_kural
+        if eski_mcs is None:
+            an.__dict__.pop("_mcs", None)
+        else:
+            an._mcs = eski_mcs
+
+
 def mc_son_sinamasi(tc):
     k = np.round(np.arange(2.0, 6.0, 0.1), 1)
 
@@ -402,6 +668,13 @@ def mc_son_sinamasi(tc):
     tc.assertEqual(ms, 3.0)                                            # hiçbir birleşim 50'ye ulaşmadı: Mc_lob + 0,3
     ms, _ = KAT.mc_son_hist([h(3.5, 60)], 2.7, KAT.MC_SON_EK["yedek_b"])
     tc.assertEqual(ms, 3.9)
+    ms, _ = KAT.mc_son_hist([h(3.5, 60)], 2.7, KAT.MC_SON_EK["yedek_c"])
+    tc.assertEqual(ms, 3.9)                                            # H1: (c) (b)'nin +0,2'sini de içerir
+    ms, d = KAT.mc_son_hist([h(3.0, 10), h(4.0, 30)], 2.7, 0.4, veri_yok=True)
+    tc.assertIsNone(ms)                                                # Ek 1 E1.3 (d): Mc_lob + 0,3 yedeği yok
+    t, mm = np.array([100.0, 200.0]), np.array([3.0, 3.1])
+    tc.assertIsNone(KAT.mc_son(t, mm, 0.0, 365.0, 2.7, "yedek_d")[0])
+    tc.assertEqual(KAT.mc_son(t, mm, 0.0, 365.0, 2.7, "A2")[0], 3.0)
 
 
 def tampon_sinamasi(tc):
@@ -422,19 +695,7 @@ class TSayilar(unittest.TestCase):
         p0_sinamasi(self)
 
     def test_testere_json_ve_fonksiyon(self):
-        js = KO.p0_izgarasi()
-        for p0s, x in js.items():
-            p0 = float(p0s)
-            for K in range(23, 81):
-                t = KO.testere(K, p0)
-                self.assertEqual(t["K_hukum"], x["testere"][str(K)]["K_hukum"])
-                uygun = [k for k in range(23, K + 1) if S.guc(k, p0) >= S.GUC]
-                kh = max(uygun) if uygun else K
-                self.assertEqual(t["K_hukum"], kh, (p0, K))
-        self.assertEqual(KO.testere(24, 0.50)["K_hukum"], 23)
-        self.assertEqual(KO.testere(28, 0.51)["K_hukum"], 26)
-        self.assertTrue(KO.testere(23, 0.52)["tasarim_alti"])
-        self.assertEqual(KO.testere(85, 0.50)["K_hukum"], 85)
+        testere_sinamasi(self)
 
     def test_binom_tablolari_json_esitligi(self):
         with open(KO.SAYILAR_JSON, encoding="utf-8") as f:
@@ -458,6 +719,23 @@ class TSayilar(unittest.TestCase):
         self.assertEqual(KO.taban_hukum(49, c, 0.5)[0], "H1")
         self.assertEqual(KO.taban_hukum(23, 13, 0.5)[0], "H0")
         self.assertEqual(KO.taban_hukum(23, 15, 0.5)[0], "ayırt edilemez")
+
+
+def testere_sinamasi(tc):
+    js = KO.p0_izgarasi()
+    for p0s, x in js.items():
+        p0 = float(p0s)
+        for K in range(23, 81):
+            t = KO.testere(K, p0)
+            tc.assertEqual(t["K_hukum"], x["testere"][str(K)]["K_hukum"])
+            uygun = [k for k in range(23, K + 1) if S.guc(k, p0) >= S.GUC]
+            kh = max(uygun) if uygun else K
+            tc.assertEqual(t["K_hukum"], kh, (p0, K))
+    tc.assertEqual(KO.testere(24, 0.50)["K_hukum"], 23)
+    tc.assertEqual(KO.testere(28, 0.51)["K_hukum"], 26)
+    tc.assertTrue(KO.testere(23, 0.52)["tasarim_alti"])
+    tc.assertEqual(KO.testere(85, 0.50)["K_hukum"], 85)
+    tc.assertEqual(KO.testere(90, 0.55)["K_hukum"], 90)
 
 
 def p0_sinamasi(tc):
@@ -532,7 +810,7 @@ class THukum(unittest.TestCase):
                     H = KO.hukum_adi(f)
                     self.assertTrue(kapali_listede(H["ad"]), H["ad"])
                     n += 1
-        for t in ("guc_yok", "olcu_yanli"):
+        for t in ("guc_yok", "olcu_yanli", "guc_yok_tamlik"):
             self.assertTrue(kapali_listede(KO.hukum_adi(dict(taban=t))["ad"]))
         for y in KO.YONTEMLER:
             self.assertTrue(kapali_listede(KO.hukum_adi(dict(taban="yontem", yontem=y))["ad"]))
@@ -672,6 +950,22 @@ class TUctanUca(unittest.TestCase):
         self.assertIn("| ana | 23 |", md)
         self.assertNotRegex(md, r"İstanbul.*\d+ ?%")
 
+    def test_B3_B4_bilgi_satirlari(self):
+        """Kodlayıcı riski 7: B3/B4 bilgi satırları (hükmü değiştirmez) yapısal olarak denetlenir."""
+        liste, d, an, m, R, H = dunya()
+        B3, B4 = H["B3"], H["B4"]
+        self.assertIn("y03", [c["temsilci"] for c in B3["kesme_ile_cikan"]])
+        self.assertTrue(all(c["neden"].startswith("kısa") for c in B3["kesme_ile_cikan"]))
+        self.assertEqual(B3["tek_baglanti_cift"], m["tek_baglanti_cift"])
+        bay = [r["temsilci"] for r in R["ana"] if m["birimler"][r["temsilci"]].get("bayrak_2L_365")]
+        self.assertEqual(B3["bayrakli"]["K"], len(bay))
+        self.assertEqual(B3["oncul_cikarilmis"]["K"], len(R["ana"]) - len(B3["oncul_komsu"]))
+        bilinen = [c["temsilci"] for c in m["cikan"] if c["neden"].startswith("bilinen")]
+        self.assertEqual(sorted(r["temsilci"] for r in B4["cikan"]), sorted(bilinen))
+        self.assertEqual(B4["eklenmis_tohoku_cikarilmis"]["K"], len(R["ana"]) - len(B4["tohoku"]) + len(B4["cikan"]))
+        for o in B3["ortusen_ciftler"]:
+            self.assertEqual(m["olay_grubu"][o["kesme_olayi"]], o["obur_kume"])
+
     def test_sifir_dunyasi_ve_guc_yok(self):
         liste, d, an, m, R, H = dunya("sifir", tohum=9, dtau="sifir", n_gecen=24)
         self.assertNotEqual(H["hukum"]["taban"], "H1") if H else None
@@ -689,6 +983,32 @@ class TUctanUca(unittest.TestCase):
         r = T.deneme(rng, dict(N0=300.0, dtau="sifir", ikincil_bolge=True, tamlik=dict(ap=0.9)), sahte=False)
         self.assertGreater(r["mc_son"], r["mc_lob"] + 1.0)
         self.assertEqual(r["mc_kul"], r["mc_son"])
+
+    def test_ek1_tamlik_eleme(self):
+        tamlik_eleme_sinamasi(self)
+
+    def test_mc_kul_ve_satirlar(self):
+        mc_kul_sinamasi(self)
+        liste, d, an, m, R, H = dunya()
+        for r in R["ana"] + R["S1"] + R["S7"]:
+            self.assertEqual(r["mc_kul"], KO.mc_kul(r["mc_lob"], r["mc_son"]))
+
+    def test_mcnemar(self):
+        mcnemar_sinamasi(self)
+
+    def test_onkayit_govde_sha(self):
+        """Ek 1 dosyanın sonuna eklendi: dondurulmuş gövde ilk ONKAYIT_GOVDE_BAYT bayttır ve sha256'sı tutar."""
+        self.assertEqual(KO.onkayit_govde_sha(), KO.ONKAYIT_SHA)
+        with tempfile.TemporaryDirectory() as dd:
+            y = os.path.join(dd, "o.md")
+            with open(KO.ONKAYIT, "rb") as f:
+                govde = f.read(KO.ONKAYIT_GOVDE_BAYT)
+            with open(y, "wb") as f:
+                f.write(govde[:-1] + b"X" + b"\n## Ek 9\n")
+            self.assertNotEqual(KO.onkayit_govde_sha(y), KO.ONKAYIT_SHA)
+            with open(y, "wb") as f:
+                f.write(govde[:-5])
+            self.assertIsNone(KO.onkayit_govde_sha(y))
 
     def test_kuru_prova_yapay_son_veri(self):
         liste, d, an, m, R, H = dunya()
@@ -719,7 +1039,7 @@ class TYapaySinama(unittest.TestCase):
         self.assertLess(p - p0, 0.1)
 
 
-# ================================================================== mutasyonlar (≥ 6)
+# ================================================================== mutasyonlar
 @contextlib.contextmanager
 def yama(nesne, ad, deger):
     eski = getattr(nesne, ad)
@@ -728,6 +1048,23 @@ def yama(nesne, ad, deger):
         yield
     finally:
         setattr(nesne, ad, eski)
+
+
+@contextlib.contextmanager
+def kaynak(sahip, ad, eski, yeni):
+    """Kaynak düzeyi mutasyon: işlevin (ya da yöntemin) kaynak metninde `eski` tam bir kez geçmeli; `yeni` ile
+    değiştirilip modülün ad alanında derlenir ve geçici olarak yerine konur."""
+    f = sahip.__dict__[ad] if isinstance(sahip, type) else getattr(sahip, ad)
+    metin = textwrap.dedent(inspect.getsource(f))
+    assert metin.count(eski) == 1, (ad, eski, metin.count(eski))
+    mod = sys.modules[f.__module__]
+    ns = {}
+    exec(compile(metin.replace(eski, yeni), f"<mutasyon {ad}>", "exec"), mod.__dict__, ns)   # noqa: S102
+    setattr(sahip, ad, ns[ad])
+    try:
+        yield
+    finally:
+        setattr(sahip, ad, f)
 
 
 def lob_esigi_sinamasi(tc):
@@ -745,22 +1082,76 @@ def kesme_sinamasi(tc):
     tc.assertAlmostEqual(B["son_bit"], KAT.gun(an.olay["havuz4"]["zaman"]) - 1.0, places=9)
 
 
+def kesme_kodu_sinamasi(tc):
+    """§3.7 kesme kodu yeniden koşulur (y04: havuz4'ten bir gün önce biter; π yeni T_son'la)."""
+    liste, d, an, m, R, H = dunya()
+    Bc = dict(an.B["y04"])
+    an._kesme(Bc)
+    tc.assertAlmostEqual(Bc["son_bit"], KAT.gun(an.olay["havuz4"]["zaman"]) - 1.0, places=9)
+    tc.assertEqual(Bc["kesme"]["olay"], "havuz4")
+    T = Bc["son_bit"] - (Bc["ts"] + an.S0)
+    tc.assertAlmostEqual(Bc["pi"], T / (1796.0 + T), places=14)
+    for oid in Bc["bayrak_2L_365"]:                          # K1: bayrak yalnız son pencerede
+        tc.assertGreaterEqual(KAT.gun(an.olay[oid]["zaman"]), Bc["ts"] + 30.0 - 1e-9)
+
+
 MUTASYONLAR = [
     ("ΔCFF işareti", lambda: yama(OK, "dcff", (lambda f: (lambda *a, **k: tuple(-x for x in f(*a, **k))))(OK.dcff)),
      dcff_izdusumu_sinamasi),
     ("sürtünme katsayısı 0,6", lambda: yama(OK, "dcff", (lambda f: (lambda s, d, e, r, mu_s=0.6: f(s, d, e, r, mu_s)))(
         OK.dcff)), dcff_izdusumu_sinamasi),
     ("lob eşiği 8 kPa", lambda: yama(S, "DTAU_ESIK", 8.0), lob_esigi_sinamasi),
-    ("Mc_son havuzlanmış (sürüm 1) kuralı", lambda: yama(KAT, "mc_son_hist", lambda hs, mc, ek=0.2: (
+    ("Mc_son havuzlanmış (sürüm 1) kuralı", lambda: yama(KAT, "mc_son_hist", lambda hs, mc, ek=0.2, **kw: (
         KAT.r2(KAT.maxc_sayim(*KAT.hist(np.concatenate([np.repeat(h[0], h[1].astype(int)) for h in hs]))) + ek),
         {})), mc_son_sinamasi),
-    ("Mc_son eki 0", lambda: yama(KAT, "mc_son_hist", (lambda f: (lambda hs, mc, ek=0.2: f(hs, mc, 0.0)))(
+    ("Mc_son eki 0", lambda: yama(KAT, "mc_son_hist", (lambda f: (lambda hs, mc, ek=0.2, **kw: f(hs, mc, 0.0, **kw)))(
         KAT.mc_son_hist)), mc_son_sinamasi),
     ("kümesizleştirme tamponu 0", lambda: yama(KAT, "TAMPON_G", 0), tampon_sinamasi),
     ("p₀ yuvarlama (yukarı değil en yakın)", lambda: yama(KO, "p0_kestir", lambda Ss, J: (
         (max(0.50, round(100 * Ss / J) / 100), False) if J >= 30 else (max(0.52, round(100 * Ss / J) / 100), True))
         if J else (0.52, True)), p0_sinamasi),
     ("§3.7 kesmesi bir gün önce değil aynı gün", None, kesme_sinamasi),
+    # ---- kod incelemesinin eklediği mutasyonlar (kaynak düzeyi ya da sabit)
+    ("pencere: son pencere t_s + S0 yerine t_s'de başlar", lambda: kaynak(
+        KO.Analiz, "pencere", 's, e = ts + self.S0, B["son_bit"]', 's, e = ts, B["son_bit"]'),
+     pencere_sinamasi),
+    ("pencere: ön pencere t0 − 30 g yerine t0'da biter", lambda: yama(KO, "ON_B", 0), pencere_sinamasi),
+    ("pencere: sahte son pencere ucu t_s'ye göre", lambda: kaynak(
+        KO.Analiz, "pencere", 'tp + (B["son_bit"] - t0)', 'tp + (B["son_bit"] - ts)'), pencere_sinamasi),
+    ("π: T_ON yerine 1826 g", lambda: yama(KO, "T_ON", 1826.0), pencere_sinamasi),
+    ("π: kesme sonrası π paydasında T_son yok", lambda: kaynak(
+        KO.Analiz, "_kesme", 'B["T_son"] / (T_ON + B["T_son"])', 'B["T_son"] / T_ON'), kesme_kodu_sinamasi),
+    ("Mc_kul = Mc_lob (Mc_son yok sayılır)", lambda: yama(KO, "mc_kul", lambda ml, ms, ek=0.0: KO.r2(ml + ek)),
+     mc_kul_sinamasi),
+    ("binom oyu: F(n_son − 1) (bir eksik)", lambda: kaynak(
+        KAT, "oy", "D = int(binom_cdf(n_son, n, pi)", "D = int(binom_cdf(n_son - 1, n, pi)"), oy_tablo_sinamasi),
+    ("testere dişi: en büyük yerine en küçük K", lambda: kaynak(KO, "testere", "kh = max(uygun)", "kh = min(uygun)"),
+     testere_sinamasi),
+    ("p₀: J < 30 tabanı 0,52 yerine 0,50", lambda: yama(KO, "p0_kestir", (lambda f: (
+        lambda Ss, J: (max(0.50, f(Ss, J)[0] if f(Ss, J)[0] > 0.52 else 0.50), True) if J < 30 else f(Ss, J)))(
+        KO.p0_kestir)), p0_sinamasi),
+    ("S7 McNemar: a ve b yer değiştirmiş", lambda: yama(KO, "mcnemar", (lambda f: (lambda g, n: (lambda r: dict(
+        a=r["b"], b=r["a"], p=(KAPI.binom_ust(r["b"], r["a"] + r["b"], 0.5) if r["a"] + r["b"] else 1.0)))(f(g, n))))(
+        KO.mcnemar)), mcnemar_sinamasi),
+    ("§3.7 kesme kodu: aynı gün", lambda: kaynak(KO.Analiz, "_kesme", 'B["son_bit"], B["kesme"] = to - 1.0,',
+                                                 'B["son_bit"], B["kesme"] = to,'), kesme_kodu_sinamasi),
+    ("körlük kapısı: 2025-12-31 sınırı devre dışı", lambda: kaynak(
+        KAT, "tarih_denetle", 'raise KorIhlal(f"istek bitişi {t1.isoformat()} > {VERI_SONU.isoformat()}")', "pass"),
+     korluk_sinamasi),
+    ("körlük kapısı: 'on' aşamasında t0 − 30 g sınırı yok", lambda: kaynak(
+        KO.GercekKaynak, "katalog", 'sinir = t0 - dt.timedelta(days=ON_B) if asama == "on" else t_bit',
+        "sinir = t_bit"), asama_siniri_sinamasi),
+    ("H1: yedek_c Mc_son eki 0,2", lambda: yama(KAT, "MC_SON_EK", dict(KAT.MC_SON_EK, yedek_c=0.2)),
+     mc_son_sinamasi),
+    ("Ek 1 E1.3 (d): Mc_lob + 0,3 yedeği geri gelir", lambda: yama(KAT, "TAMLIK_VERI_YOK", ()), mc_son_sinamasi),
+    ("Ek 1 E1.3 (d): K_kapı düşürmeden önce sayılır", lambda: kaynak(
+        KO.Analiz, "tamlik_eleme", "if len(kal) < S.K_ALT:", 'if len(m["kumeler"]) < S.K_ALT:'),
+     tamlik_eleme_sinamasi),
+    ("H2: birim denetimi her alt fayda [5, 100] GPa", lambda: yama(FFM, "MU_ARALIK_GPA", (5.0, 100.0)),
+     birim_sinamasi),
+    ("H3: GeoNet 1 günlük parça yarılanmadan veri yok", lambda: kaynak(
+        KAT, "parcali_indir", 'if gunluk and srv.ad == "KOERI":', "if gunluk:"), geonet_gunluk_sinamasi),
+    ("Okada: Poisson oranı 0,25 değil (α = 0,6)", lambda: yama(OK, "ALFA", 0.6), okada_yayimlanmis_sinamasi),
 ]
 
 
@@ -777,7 +1168,7 @@ class TMutasyon(unittest.TestCase):
                     yakalanan.append(ad)
                     continue
             self.fail(f"mutasyon yakalanmadı: {ad}")
-        self.assertGreaterEqual(len(yakalanan), 6)
+        self.assertGreaterEqual(len(yakalanan), 6 + 19)
         # mutasyonsuz hâlde aynı sınamalar geçer
         for _, _, sinama in MUTASYONLAR:
             sinama(self)

@@ -24,10 +24,16 @@ import urllib.parse
 
 DETAY_URL = "https://earthquake.usgs.gov/fdsnws/event/1/query?"
 MOMENT_TOLERANS = 0.10
-MU_ARALIK_GPA = (5.0, 100.0)
-# Ek 1 kararları (kök oturum; veri öncesi). None: başlık söylemiyorsa dur.
-KOORDINAT_KARARI = None          # "merkez" | "ust_kenar"  (yalnız başlık söylemiyorsa kullanılır)
-M0_KAYNAGI_KARARI = None         # "fsp_basligi" (aynı ürünün .fsp başlığındaki Mo) | None
+# Kod incelemesi H2: gerçek katmanlı hız modellerinde sığ alt fayların rijitliği 2–5 GPa olabiliyor (us1000hhb1:
+# 19 alt fayda 2,2 GPa). Birim kayması 100 ya da 1e7 kat olur; denetim: her alt fay [0,3; 300] GPa ve medyan [10, 100].
+MU_ARALIK_GPA = (0.3, 300.0)
+MU_MEDYAN_GPA = (10.0, 100.0)
+# Ek 1 E1.2 kararı (veri öncesi, olay sonucundan bağımsız). Sıra: (i) dosyanın kendi başlığı; (i') param başlığı
+# söylemiyor ve aynı ürünün .fsp başlığı alt fay koordinat anlamını açıkça yazıyorsa .fsp okunur (koordinat, kayma,
+# moment ve M0 .fsp'den); (ii) hiçbiri söylemiyorsa geometrik kural (hiposantr hücresi); karar verilemezse VeriYok
+# ("veri yok (FFM biçimi)").
+KOORDINAT_KARARI = "Ek1_E1.2"
+M0_KAYNAGI_KARARI = "fsp_basligi"     # param başlığında M0 yoksa aynı ürünün .fsp başlığındaki Mo
 
 
 class BicimHata(Exception):
@@ -176,20 +182,28 @@ def fsp_ayristir(metin):
                         moment=r.get("SF_MOMENT"), satir=no))
     if not alt:
         raise BicimHata("fsp: alt fay satırı yok")
+    if any(math.isnan(a["rake"]) for a in alt):
+        m = re.search(r"Mech\s*:.*?RAKE\s*=\s*(" + _SAYI + r")", "\n".join(basliklar))
+        if not m:
+            raise BicimHata("fsp: RAKE sütunu ve Mech RAKE yok")
+        for a in alt:
+            if math.isnan(a["rake"]):
+                a["rake"] = float(m.group(1))
     return dict(bicim="fsp", altfaylar=alt, segmentler=None, basliklar=basliklar,
                 koordinat_baslik=_koordinat_anlami(basliklar), M0_baslik=m0)
 
 
 def birim_denetimi(alt):
-    """İma edilen rijitlik μ = moment / (kayma × alan) [5, 100] GPa içinde (kayma > 0 ve moment var)."""
-    disari = 0
-    for a in alt:
-        if a.get("moment") and a["kayma"] > 0:
-            mu = a["moment"] / (a["kayma"] * a["uzunluk"] * a["genislik"] * 1e6) / 1e9
-            if not (MU_ARALIK_GPA[0] <= mu <= MU_ARALIK_GPA[1]):
-                disari += 1
-    if disari:
-        raise BicimHata(f"birim denetimi: {disari} alt fayda ima edilen rijitlik [5, 100] GPa dışında")
+    """İma edilen rijitlik μ = moment / (kayma × alan): her alt fay [0,3; 300] GPa, medyan [10, 100] GPa (kayma > 0 ve
+    moment var). Birim kayması (cm/m: 100 kat; dyn·cm/N·m: 1e7 kat) iki koşuldan birini bozar."""
+    mus = [a["moment"] / (a["kayma"] * a["uzunluk"] * a["genislik"] * 1e6) / 1e9
+           for a in alt if a.get("moment") and a["kayma"] > 0]
+    if not mus:
+        return
+    disari = sum(1 for mu in mus if not (MU_ARALIK_GPA[0] <= mu <= MU_ARALIK_GPA[1]))
+    med = sorted(mus)[len(mus) // 2]
+    if disari or not (MU_MEDYAN_GPA[0] <= med <= MU_MEDYAN_GPA[1]):
+        raise BicimHata(f"birim denetimi: {disari} alt fayda rijitlik [0,3; 300] GPa dışında, medyan {med:.3g} GPa")
 
 
 def moment_saglamasi(ayr, M0_baslik):
@@ -205,28 +219,85 @@ def moment_saglamasi(ayr, M0_baslik):
     return r
 
 
-def coz(metin_ana, ad_ana, metin_fsp=None):
-    """Seçilen dosyayı ayrıştırır, birim ve moment sağlamasını yapar, koordinat anlamını belirler."""
-    ayr = param_ayristir(metin_ana) if ad_ana.split("/")[-1] == "basic_inversion.param" else fsp_ayristir(metin_ana)
-    birim_denetimi(ayr["altfaylar"])
+def hiposantr_hucresi(metin_param):
+    """param başlığı '#Boundary of Fault_segment 1. EQ in cell (i, j). Lon: … Lat: …' -> (i, j, lon, lat) ya da None."""
+    m = re.search(r"Fault_segment\s+1\.\s*EQ in cell\s*\(?\s*(\d+)\s*,\s*(\d+)\s*\)?\.?\s*Lon:\s*(" + _SAYI
+                  + r")\s+Lat:\s*(" + _SAYI + r")", metin_param)
+    nx = re.search(r"Fault_segment\s*=\s*1\s+nx\(Along-strike\)\s*=\s*(\d+)", metin_param)
+    if not m or not nx:
+        return None
+    return int(m.group(1)), int(m.group(2)), float(m.group(3)), float(m.group(4)), int(nx.group(1))
+
+
+def koordinat_geometrik(ayr, metin_param, hipo_derinlik_km):
+    """Ek 1 E1.2 (ii): hiposantrın kendi hücresinin (param başlığı 'EQ in cell (i, j)') merkezine uzaklığı iki okumada
+    (merkez / üst kenar) hesaplanır; küçük olan seçilir. Fark alt fay yarı genişliğinden küçükse karar verilemez
+    (None). Dönüş (okuma | None, döküm)."""
+    import numpy as np
+    import tr6a_okada as OK
+    hc = hiposantr_hucresi(metin_param)
+    if hc is None or hipo_derinlik_km is None:
+        return None, dict(neden="hiposantr hücresi ya da derinliği yok")
+    i, j, lo, la, nx = hc
+    seg1 = [a for a in ayr["altfaylar"] if a["segment"] == 1]
+    k = (j - 1) * nx + (i - 1)
+    if not (0 <= k < len(seg1)):
+        return None, dict(neden="hücre dizini alt fay sayısını aşıyor")
+    a = seg1[k]
+    x, y = OK.aeqd_ileri(la, lo, a["enlem"], a["boylam"])
+    sd, cd = math.sin(math.radians(a["egim"])), math.cos(math.radians(a["egim"]))
+    f = math.radians(a["dogrultu"])
+    dv = np.array([math.cos(f) * cd, -math.sin(f) * cd, -sd])
+    P, H = np.array([float(x), float(y), -a["derinlik"]]), np.array([0.0, 0.0, -float(hipo_derinlik_km)])
+    dm, du = float(np.linalg.norm(P - H)), float(np.linalg.norm(P + dv * a["genislik"] / 2 - H))
+    dok = dict(d_merkez_km=round(dm, 3), d_ust_kenar_km=round(du, 3), yari_genislik_km=a["genislik"] / 2)
+    # Üçgen eşitsizliği: |dm − du| ≤ W/2 her zaman (iki aday merkez arası uzaklık W/2). Ölçüt "fark yarı genişlikten
+    # küçükse veri yok" bu yüzden yalnız sınır durumunda (hiposantr iki adayla doğrudaş) karar verebilir; sınır da kayan
+    # nokta gürültüsüne bırakılmaz (≤ W/2 + 1e−6 km -> veri yok). Kök oturumun düzlemsellik/düzleme uzaklık biçimi de
+    # düzlem içi kaydırmaya duyarsızdır. Sonuç: (ii) pratikte daima "veri yok"; bağlayıcı yol (i) ya da (i')'dir.
+    if abs(dm - du) <= a["genislik"] / 2 + 1e-6:
+        return None, dict(dok, neden="fark yarı genişlikten büyük değil")
+    return ("merkez" if dm < du else "ust_kenar"), dok
+
+
+def coz(metin_ana, ad_ana, metin_fsp=None, hipo_derinlik_km=None):
+    """Seçilen dosyayı ayrıştırır, birim ve moment sağlamasını yapar, koordinat anlamını belirler (Ek 1 E1.2)."""
+    param = ad_ana.split("/")[-1] == "basic_inversion.param"
+    ayr = param_ayristir(metin_ana) if param else fsp_ayristir(metin_ana)
     koor = ayr["koordinat_baslik"]
     kaynak_koor = "baslik"
-    if koor is None:
+    dosya = ad_ana
+    if koor is None and param:
         if KOORDINAT_KARARI is None:
             raise BicimHata("alt fay koordinat anlamı başlıkta yok (okuma 9: KOORDINAT_KARARI gerekir)")
-        koor, kaynak_koor = KOORDINAT_KARARI, "Ek 1 kararı"
+        fsp = fsp_ayristir(metin_fsp) if metin_fsp else None
+        if fsp is not None and fsp["koordinat_baslik"] is not None:
+            # (i') aynı ürünün .fsp başlığı açıkça yazıyor: .fsp okunur (koordinat, kayma, moment, M0 .fsp'den)
+            ayr, koor, kaynak_koor, dosya = fsp, fsp["koordinat_baslik"], "Ek 1 E1.2 (i'): aynı ürünün .fsp başlığı", \
+                "complete_inversion.fsp"
+        else:
+            if hipo_derinlik_km is None and metin_fsp:
+                m = re.search(r"Loc\s*:.*?DEP\s*=\s*(" + _SAYI + r")", metin_fsp)
+                hipo_derinlik_km = float(m.group(1)) if m else None
+            okuma, dok = koordinat_geometrik(ayr, metin_ana, hipo_derinlik_km)
+            if okuma is None:
+                raise VeriYok(f"veri yok (FFM biçimi): koordinat anlamı belirlenemedi ({dok.get('neden')})")
+            koor, kaynak_koor = okuma, f"Ek 1 E1.2 (ii) geometrik: {dok}"
+    elif koor is None:
+        raise VeriYok("veri yok (FFM biçimi): .fsp başlığı koordinat anlamını yazmıyor")
+    birim_denetimi(ayr["altfaylar"])
     M0 = ayr["M0_baslik"]
     kaynak_m0 = "baslik"
     if M0 is None:
         if M0_KAYNAGI_KARARI == "fsp_basligi" and metin_fsp:
             M0 = fsp_ayristir(metin_fsp)["M0_baslik"]
-            kaynak_m0 = "Ek 1 kararı: aynı ürünün .fsp başlığı"
-        else:
-            raise BicimHata("başlıkta M0 yok (okuma 10: M0_KAYNAGI_KARARI gerekir)")
+            kaynak_m0 = "Ek 1 E1.2: aynı ürünün .fsp başlığı"
+        if M0 is None:
+            raise BicimHata("başlıkta M0 yok (okuma 10)")
     ms = moment_saglamasi(ayr, M0)
     for a in ayr["altfaylar"]:
         a["koordinat"] = koor
-    return dict(bicim=ayr["bicim"], altfaylar=ayr["altfaylar"], koordinat=koor, koordinat_kaynagi=kaynak_koor,
+    return dict(bicim=ayr["bicim"], dosya=dosya, altfaylar=ayr["altfaylar"], koordinat=koor, koordinat_kaynagi=kaynak_koor,
                 M0_kaynagi=kaynak_m0, moment=ms, n_altfay=len(ayr["altfaylar"]),
                 n_segment=len({a["segment"] for a in ayr["altfaylar"]}),
                 dikeye_yakin=sum(1 for a in ayr["altfaylar"]

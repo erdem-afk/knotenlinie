@@ -51,9 +51,13 @@ ALT_PENCERE = {
     "yedek_a": ((30, 40), (40, 50), (50, 60), (60, 90), (90, 180), (180, 365)),
     "yedek_b": ((30, 40), (40, 50), (50, 60), (60, 90), (90, 180), (180, 365)),
     "yedek_c": ((90, 180), (180, 365)),
+    "yedek_d": ((90, 180), (180, 365)),          # Ek 1 E1.3: (c) + "veri yok (tamlık kestirilemedi)"
 }
-MC_SON_EK = {"A2": 0.2, "yedek_a": 0.2, "yedek_b": 0.4, "yedek_c": 0.2}
-SON_BASLANGIC_G = {"A2": 30, "yedek_a": 30, "yedek_b": 30, "yedek_c": 90}
+# (b) (a) ile birlikte +0,2; (c) (b) ile birlikte -> (c) ve (d) 0,4 (kod incelemesi H1: kodda 0,2 idi)
+MC_SON_EK = {"A2": 0.2, "yedek_a": 0.2, "yedek_b": 0.4, "yedek_c": 0.4, "yedek_d": 0.4}
+SON_BASLANGIC_G = {"A2": 30, "yedek_a": 30, "yedek_b": 30, "yedek_c": 90, "yedek_d": 90}
+GEC_BASLANGIC = ("yedek_c", "yedek_d")          # 90 g başlangıcı her yerde (§9 adım 2 (c))
+TAMLIK_VERI_YOK = ("yedek_d",)                    # Mc_lob + 0,3 yedeği yok: birim/pencere "veri yok"
 ALT_EN_AZ = 50
 
 
@@ -279,8 +283,9 @@ def parcali_indir(srv, la, lo, R_km, t_bas, t_bit, taban_m, getir, sinir=None, e
         if butun is None:
             butun = iste(a, b)
         n = srv.satir_say(butun[1])
-        if (b - a).total_seconds() <= en_kisa_g * 86400 + 1:
-            # 1 günlük parça: yarılarla denetlenemez; KOERI gün çözünürlüklüdür
+        gunluk = (b - a).total_seconds() <= en_kisa_g * 86400 + 1
+        if gunluk and srv.ad == "KOERI":
+            # KOERI gün çözünürlüklüdür: 1 günlük parça yarılanamaz (okuma 30)
             yar = None
         else:
             orta = a + (b - a) / 2
@@ -298,6 +303,10 @@ def parcali_indir(srv, la, lo, R_km, t_bas, t_bit, taban_m, getir, sinir=None, e
         if srv.satir_say(y1[1]) + srv.satir_say(y2[1]) == n:
             metinler.append(butun)
             return
+        if gunluk:
+            # §5 madde 1: 1 günlük parçada da eşitlik sağlanmadı (kod incelemesi H3: önceden 2 günlük parçada
+            # yarıların denetlenmeden VeriYok veriliyordu)
+            raise VeriYok(f"{srv.ad}: 1 günlük parçada yarı eşitliği sağlanmadı")
         sayac["bolunen"] += 1
         esitlikli(a, orta - dt.timedelta(milliseconds=1) if srv.ad != "KOERI" else orta - dt.timedelta(days=1), y1)
         esitlikli(orta, b, y2)
@@ -483,9 +492,10 @@ def alt_pencereler(koken, son_bit, kural="A2"):
     return out
 
 
-def mc_son_hist(histler, mc_lob_deger, ek=0.2):
+def mc_son_hist(histler, mc_lob_deger, ek=0.2, veri_yok=False):
     """histler: alt pencere başına (kutular, sayılar). Birleştirme: 50'den az olaylı pencere sonrakiyle; sonuncusu
-    50'ye ulaşmazsa bir öncekiyle; hiçbir birleşim 50'ye ulaşmazsa Mc_lob + 0,3. Dönüş (Mc_son, döküm)."""
+    50'ye ulaşmazsa bir öncekiyle; hiçbir birleşim 50'ye ulaşmazsa Mc_lob + 0,3 (dondurulmuş kural) ya da
+    veri_yok=True iken (Ek 1 E1.3 (d)) Mc_son = None: pencere "veri yok (tamlık kestirilemedi)". Dönüş (Mc_son, döküm)."""
     gruplar, cari = [], None
 
     def topla(a, b):
@@ -507,6 +517,8 @@ def mc_son_hist(histler, mc_lob_deger, ek=0.2):
         else:
             gruplar = []
     if not gruplar:
+        if veri_yok:
+            return None, dict(kural="tamlık kestirilemedi (Ek 1 E1.3 (d))")
         return r2(mc_lob_deger + 0.3), dict(kural="hiçbir birleşim 50'ye ulaşmadı")
     mcs = [r2(maxc_sayim(*g) + ek) for g in gruplar]
     return r2(max(mcs)), dict(kural="alt pencere", gruplar=[dict(n=int(g[1].sum()), mc=x) for g, x in zip(gruplar, mcs)])
@@ -524,7 +536,7 @@ def mc_son(t_bolge, m_bolge, koken, son_bit, mc_lob_deger, kural="A2"):
     for s, e in alt_pencereler(koken, son_bit, kural):
         mk = (t_bolge >= s) & (t_bolge < e)
         hs.append(hist(m_bolge[mk]))
-    return mc_son_hist(hs, mc_lob_deger, MC_SON_EK[kural])
+    return mc_son_hist(hs, mc_lob_deger, MC_SON_EK[kural], veri_yok=kural in TAMLIK_VERI_YOK)
 
 
 # ================================================================== kümesizleştirme (§3.6)

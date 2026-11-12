@@ -46,6 +46,9 @@ import tr6a_katalog as KAT                # noqa: E402
 DEPO = os.path.abspath(os.path.join(BURAYA, "..", "..", ".."))
 ONKAYIT = os.path.join(DEPO, "kayit", "onkayit", "TR-6a_gerilme-olcer-kor-dogrulama_ONKAYIT.md")
 ONKAYIT_SHA = "41ca1e951d330ab72d106be79bb5f700b415d9574dbddff3da0a12ad73fea94e"
+# Ek 1 (12 Kasım 2026) dosyanın SONUNA eklendi: dondurulmuş gövde ilk ONKAYIT_GOVDE_BAYT bayttır; sha256 bu baytlar
+# üzerinden denetlenir (eklerin kendisi commit'le sabitlenir; git_denetle ön kaydın commit+push edildiğini sınar).
+ONKAYIT_GOVDE_BAYT = 126740
 LISTE = os.path.join(BURAYA, "tr6a_olay_listesi.json")
 LISTE_SHA = "0cde4fa1433eaa11f513460b1c728e4f3f142d3dc091c120f4f55b677728048f"
 SAYILAR_JSON = os.path.join(BURAYA, "tr6a_onkayit_sayilar.json")
@@ -65,9 +68,11 @@ KOD_DOSYALARI = ("tr6a_kosu.py", "tr6a_okada.py", "tr6a_ffm.py", "tr6a_katalog.p
                  "tr6a_onkayit_sayilar.py", "tr6_a_kapi.py", "tr6a_onbellek_kor.py", "tr6_sayim.py")
 
 # Ek 1 kararları (kök oturum). None iken ilgili aşama durur; kod karar vermez (TR-6a_KODLAYICI-OKUMALARI.md).
-OKADA_EK1_KARAR = None        # okuma 3: §3.3 sınama 3, 5 (uzak alan) ve 6'nın harfi harfine ölçütleri doğru kodda
-#                               sağlanamıyor; kök oturum Ek 1'de bir karar yazmadan manifest aşaması açılmaz.
-TAMLIK_KURALLARI = ("A2", "yedek_a", "yedek_b", "yedek_c")
+# okuma 3 / Ek 1 E1.1: §3.3 sınama 3, 5 (uzak alan) ve 6'nın harfi harfine ölçütleri doğru kodda sağlanamıyor; Ek 1
+# bağlayıcı ölçütü tanı biçimine çevirir (Richardson ≤ 1e−6; uzak alan farkı (L/r)² ile azalır) ve yayımlanmış denetim
+# değerlerini (Okada 1985 Tablo 2, DC3D kılavuzu Ek-2) ekler. Değerlendirme tr6a_okada.dogrulama()["ek1"]'dedir.
+OKADA_EK1_KARAR = dict(hukum="ek1_olcutu", olcut="Ek 1 E1.1 (tr6a_okada.dogrulama()['ek1'])")
+TAMLIK_KURALLARI = ("A2", "yedek_a", "yedek_b", "yedek_c", "yedek_d")    # (d): Ek 1 E1.3 ((e) tanımlanmadı)
 
 ESIK = {a: KAPI.gereken_n0(math.exp(-S.DTAU_ESIK / a)) for a in (13.0, 19.0, 39.0)}
 N0_YIL = S.T_ON_G / 365.25                      # 1796 g, yıl
@@ -90,6 +95,13 @@ class IsaretSonrasiHata(Exception):
 
 
 # ================================================================== yardımcılar
+def onkayit_govde_sha(yol=None):
+    """Ön kaydın dondurulmuş gövdesinin (ilk ONKAYIT_GOVDE_BAYT bayt) sha256'sı; dosya daha kısaysa None."""
+    with open(yol or ONKAYIT, "rb") as f:
+        b = f.read(ONKAYIT_GOVDE_BAYT)
+    return hashlib.sha256(b).hexdigest() if len(b) == ONKAYIT_GOVDE_BAYT else None
+
+
 def sha256_dosya(yol):
     h = hashlib.sha256()
     with open(yol, "rb") as f:
@@ -252,6 +264,10 @@ def hukum_adi(f):
         return dict(ad=f"koşulmadı (yöntem: {f['yontem']})", taban="koşulmadı", parantez=[], ekler=[], tasinir=False)
     if t == "guc_yok":
         return dict(ad="güç yok", taban="güç yok", parantez=[], ekler=[], tasinir=False)
+    if t == "guc_yok_tamlik":
+        # Ek 1 E1.3 (d): K_kapı, tamlığı kestirilemeyen kümeler düşüldükten sonra < 23. Ad §6.4 (b)'nin "güç yok"udur
+        # (kapalı liste genişletilmez); neden yalnız cümlede yazılır.
+        return dict(ad="güç yok", taban="güç yok", neden="tamlık", parantez=[], ekler=[], tasinir=False)
     if t == "olcu_yanli":
         return dict(ad="güç yok (ölçü yanlı)", taban="güç yok (ölçü yanlı)", parantez=[], ekler=[], tasinir=False)
     assert t in ("H1", "H0", "ayırt edilemez")
@@ -314,6 +330,10 @@ def hukum_cumlesi(H, d):
     if t == "koşulmadı":
         return (f"TR-6a koşulmadı: {d.get('yontem', '?')} önceden yazılan ölçütü tutmadı ({d.get('yontem_olcut', '?')})."
                 " Olay sonrası veri indirilmedi. Aday elenmedi; yeniden açma ayrı ön kayıtla.")
+    if t == "güç yok" and H.get("neden") == "tamlık":
+        return (f"Olay sonrası bölge kataloğunda tamlık kestirilemediği için {d.get('dus')} küme 'veri yok (tamlık "
+                f"kestirilemedi)' oldu (Ek 1 E1.3 (d)); kalan K_kapı = {d['K_kapi']} < 23 (önce {d.get('K_once')}). "
+                "Hüküm satırı koşulmadı; hiçbir lob sayısı hesaplanmadı. Aday elenmedi; yeniden açma şartı §14.")
     if t == "güç yok":
         return (f"Lob Mc'siyle olay öncesi sayılan bağımsız küme K_kapı = {d['K_kapi']} < 23. Hüküm satırı koşulmadı, "
                 "olay sonrası veri indirilmedi. Aday elenmedi; yeniden açma şartı §14.")
@@ -477,7 +497,7 @@ class Analiz:
 
     def _kesme(self, B):
         """§3.7: [t_s + 30 g, t0 + 365 g) aralığında, kırık izine yatay uzaklığı ≤ 2L havuz olayı (grup dışı) varsa son
-        pencere o olaydan bir gün önce biter. Bayraklar: [t0, t0 + 365 g) ve 2L (B3); öncül komşu (B3)."""
+        pencere o olaydan bir gün önce biter. Bayraklar: [t_s + 30 g, t0 + 365 g) ve 2L (B3); öncül komşu (B3)."""
         b = self.birim[B["id"]]
         bas, bit = B["ts"] + S.SON_G0, B["t0"] + S.SON_G1
         aday, bayrak, oncul = [], [], []
@@ -492,10 +512,11 @@ class Analiz:
             if not (B["t0"] <= to < bit):
                 continue
             rk = float(self._izd(B, o["enlem"], o["boylam"])[0])
-            if rk <= 2 * B["L"]:
+            if rk <= 2 * B["L"] and to >= bas:
+                # B3 bayrağı "temsilcinin son penceresinde" (§7 B3): [t_s + 30 g, t0 + 365 g) (kod incelemesi K1;
+                # önceden [t0, t_s + 30 g) olayları da bayraklanıyordu)
                 bayrak.append(o["id"])
-                if to >= bas:
-                    aday.append((to, o["id"], round(rk, 1)))
+                aday.append((to, o["id"], round(rk, 1)))
         if aday:
             to, oid, rk = min(aday)
             B["son_bit"], B["kesme"] = to - 1.0, dict(olay=oid, r_k_km=rk)
@@ -694,6 +715,10 @@ class Analiz:
                 out.append(r)
                 continue
             ms, msb = self.mc_son(B, k, P, mcl)
+            if ms is None:                                   # Ek 1 E1.3 (d)
+                r.update(neden="tamlık kestirilemedi", mc_son_bilgi=msb)
+                out.append(r)
+                continue
             mk = r2(max(mcl, ms))
             o = self.lob_oyu(B, k, "golge", P, mk)
             r.update(gecerli=True, mc_son=ms, mc_son_bilgi=msb, **o)
@@ -709,6 +734,8 @@ class Analiz:
         P = self.pencere(B, "nk")
         mcl, _ = self.mc_lob(E, ev, P["on"], KK["mc_halka"])
         ms, msb = self.mc_son(B, k, P, mcl)
+        if ms is None:                                       # Ek 1 E1.3 (d): S2'ye girmez
+            return None
         mk = r2(max(mcl, ms))
         o = self.lob_oyu(B, k, "golge", P, mk, T_on=float(S.T_NK_ON_G))
         return dict(o, mc_lob=mcl, mc_son=ms, T_son=round(P["T_son"], 3))
@@ -773,13 +800,7 @@ class Analiz:
                        if self.B[c["temsilci"]]["kapi"][self.B[c["temsilci"]]["secim"]]["pozitif"]["N0"] >= S.N0_POZ_KAPI]
         m["K_nt"] = [c["temsilci"] for c in ana
                      if self.B[c["temsilci"]]["kapi"][self.B[c["temsilci"]]["secim"]]["notr"]["N0"] >= ESIK[19.0]]
-        nk = {}
-        for c in ana:
-            ilk = sahte[c["temsilci"]][0]
-            if ilk["gecerli"]:
-                B = self.B[c["temsilci"]]
-                nk[c["temsilci"]] = self.nk_oyu(B, B["secim"])
-        m["S2"] = self.S2_satiri(nk)
+        m["S2"] = self.S2_satiri(self._nk_kumeleri(ana, sahte))
         # satır kapıları (kendi K'leri) — yalnız ana durum "devam" iken koşulur; değilse K'ler bilgi
         m["satir_kapilari"] = self.satir_kapilari(hazir, N0)
         m["birimler"] = {u: self.birim_ozeti(u) for u in aday}
@@ -788,6 +809,17 @@ class Analiz:
         m["R_A"] = self.R_A
         m["son_indirme_plani"] = self.son_plani(m) if m["durum"] == "devam" else []
         return m
+
+    def _nk_kumeleri(self, ana, sahte):
+        nk = {}
+        for c in ana:
+            ilk = next(r for r in sahte[c["temsilci"]] if r["j"] == 1)
+            if ilk["gecerli"]:
+                B = self.B[c["temsilci"]]
+                o = self.nk_oyu(B, B["secim"])
+                if o is not None:
+                    nk[c["temsilci"]] = o
+        return nk
 
     def S2_satiri(self, nk):
         K = len(nk)
@@ -876,20 +908,18 @@ class Analiz:
         if not self.son_eklendi:
             raise KosuDur("olay sonrası veri eklenmeden oy sayılamaz")
         p0, p0p = m["sahte"]["p0"], m["sahte"]["p0_arti"]
-        mcs = {}
-
-        def mcson(u, k):
-            if (u, k) not in mcs:
-                B = self.B[u]
-                ml = B["kapi"][k]["golge"]["mc_lob"]
-                mcs[(u, k)] = self.mc_son(B, k, self.pencere(B, "gercek"), ml)
-            return mcs[(u, k)]
+        mcson = self.mc_son_gercek
+        m = self.tamlik_eleme(m)
+        if m["durum"] != "devam":
+            return dict(m_etkin=m)
 
         def oy(u, k, lob="golge", tur="gercek", mc_ek=0.0, kumesiz=True, mc_lob_anahtar=None):
             B = self.B[u]
             ms, msb = mcson(u, k)
+            if ms is None:                                   # Ek 1 E1.3 (d): satırdan düşer (veri yok)
+                return None
             ml = B["kapi"][k][mc_lob_anahtar or lob]["mc_lob"]
-            mk = r2(max(ml, ms) + mc_ek)
+            mk = mc_kul(ml, ms, mc_ek)
             r = self.lob_oyu(B, k, lob, self.pencere(B, tur), mk, kumesiz)
             r.update(temsilci=u, katalog=k, mc_lob=ml, mc_son=ms, mc_son_bilgi=msb)
             return r
@@ -909,7 +939,7 @@ class Analiz:
         R["S5a"] = [oy(c["temsilci"], c["katalog"]) for c in sk["S5a"]["kumeler"]]
         R["S5b"] = [oy(c["temsilci"], c["katalog"]) for c in sk["S5b"]["kumeler"]]
         R["D1"] = [oy(c["temsilci"], c["katalog"], mc_ek=0.5) for c in sk["D1"]["kumeler"]]
-        R["D2"] = None if self.kural == "yedek_c" else [oy(u, sec[u], tur="D2") for u in ana_c]
+        R["D2"] = None if self.kural in KAT.GEC_BASLANGIC else [oy(u, sec[u], tur="D2") for u in ana_c]
         for ad in ("D3a", "D3b", "D5", "D8"):
             R[ad] = [oy(c["temsilci"], c["katalog"], lob=ad) for c in sk[ad]["kumeler"]]
         R["D4"] = [oy(c["temsilci"], c["katalog"], kumesiz=False) for c in sk["D4"]["kumeler"]]
@@ -917,7 +947,54 @@ class Analiz:
         R["D7"] = [r for r in R["ana"] if not self._buyuk_on(r["temsilci"], r["katalog"])]
         bilinen = [c for c in m["cikan"] if c["neden"].startswith("bilinen")]
         R["B4_cikan"] = [oy(c["temsilci"], sec[c["temsilci"]]) for c in bilinen]
+        for ad, x in list(R.items()):
+            if isinstance(x, list):
+                R[ad] = [r for r in x if r is not None]
+        R["m_etkin"] = m
         return R
+
+    def mc_son_gercek(self, u, k):
+        """Gerçek son pencerenin Mc_son'u (yalnız bölge olaylarından; lob sayısı kullanılmaz). Önbellekli."""
+        if not hasattr(self, "_mcs"):
+            self._mcs = {}
+        if (u, k) not in self._mcs:
+            B = self.B[u]
+            ml = B["kapi"][k]["golge"]["mc_lob"]
+            self._mcs[(u, k)] = self.mc_son(B, k, self.pencere(B, "gercek"), ml)
+        return self._mcs[(u, k)]
+
+    def tamlik_eleme(self, m):
+        """Ek 1 E1.3 (d): olay sonrası veri eklendikten sonra, hiçbir lob sayısı hesaplanmadan, K_kapı kümelerinin
+        gerçek son pencere Mc_son'u (bölge olayları) kestirilemiyorsa küme "veri yok (tamlık kestirilemedi)" olur.
+        K_kapı bu kümeler düşüldükten sonra yeniden sayılır; < 23 ise "güç yok (tamlık)"; değilse testere dişi aynı p₀
+        ile yeniden çözülür, K⁺, K_nt ve S2 yeni ana kümeler üzerinde yeniden kurulur (hepsi olay öncesi sayılar)."""
+        import copy
+        m2 = copy.deepcopy(m)
+        m2["tamlik_eleme"] = []
+        if self.kural not in KAT.TAMLIK_VERI_YOK:
+            return m2
+        dus = [c["temsilci"] for c in m["kumeler"]
+               if self.mc_son_gercek(c["temsilci"], self.B[c["temsilci"]]["secim"])[0] is None]
+        if not dus:
+            return m2
+        kal = [c for c in m["kumeler"] if c["temsilci"] not in dus]
+        p0, p0p = m["sahte"]["p0"], m["sahte"]["p0_arti"]
+        m2.update(tamlik_eleme=dus, kumeler=kal, K_kapi_once=m["K_kapi"], K_kapi=len(kal))
+        if len(kal) < S.K_ALT:
+            m2["durum"] = "güç yok (tamlık)"
+            return m2
+        tz = testere(len(kal), p0)
+        sira = en_zayif_sirasi(kal, m["kapi_N0"])
+        atilan = [c["temsilci"] for c in sira[:tz["atilan"]]]
+        ana = [c for c in kal if c["temsilci"] not in atilan]
+        m2["testere"] = dict(tz, atilan_kumeler=atilan, c_K=S.kritik(tz["K_hukum"], p0),
+                             c_arti_K=(S.kritik(tz["K_hukum"], p0p) if p0p <= S.P0_UST else None))
+        m2["ana_kumeler"] = [c["temsilci"] for c in ana]
+        kp = lambda u: self.B[u]["kapi"][self.B[u]["secim"]]                      # noqa: E731
+        m2["K_arti"] = [c["temsilci"] for c in ana if kp(c["temsilci"])["pozitif"]["N0"] >= S.N0_POZ_KAPI]
+        m2["K_nt"] = [c["temsilci"] for c in ana if kp(c["temsilci"])["notr"]["N0"] >= ESIK[19.0]]
+        m2["S2"] = json.loads(json_metni(self.S2_satiri(self._nk_kumeleri(ana, m["sahte"]["oylar"]))))
+        return m2
 
     def _buyuk_on(self, u, k):
         """D7: bölgede ön pencerede M ≥ 6,0 (Mc_kul süzgeçsiz, aynı katalog)."""
@@ -929,6 +1006,11 @@ class Analiz:
 
 def r2(x):
     return KAT.r2(x)
+
+
+def mc_kul(mc_lob, mc_son, ek=0.0):
+    """§4.3: Mc_kul = max(Mc_lob, Mc_son) (+ D-satırı eki), iki basamağa yuvarlanmış."""
+    return r2(max(mc_lob, mc_son) + ek)
 
 
 # ================================================================== satır istatistikleri ve hüküm (§6, §7, §8)
@@ -988,6 +1070,7 @@ def mcnemar(golge, notr):
 
 def hukum_kur(m, R, analiz=None):
     """§6.1–§6.4 ve §7: satır tablosu, hüküm adı ve cümlesi. R: Analiz.oylar çıktısı."""
+    m = R.get("m_etkin", m)
     p0, p0p, J = m["sahte"]["p0"], m["sahte"]["p0_arti"], m["sahte"]["J"]
     T = {}
     for ad in ("ana", "B1", "S3", "S4", "S5a", "S5b", "D1", "D2", "D3a", "D3b", "D4", "D5", "D6", "D7", "D8"):
@@ -1086,6 +1169,11 @@ def erken_hukum(tur, m=None, sinama=None):
     if tur == "guc_yok":
         H = hukum_adi(dict(taban="guc_yok"))
         return dict(hukum=H, cumle=hukum_cumlesi(H, dict(K_kapi=m["K_kapi"])), marmara=marmara_satiri(H))
+    if tur == "guc_yok_tamlik":
+        H = hukum_adi(dict(taban="guc_yok_tamlik"))
+        return dict(hukum=H, cumle=hukum_cumlesi(H, dict(K_kapi=m["K_kapi"], K_once=m.get("K_kapi_once"),
+                                                       dus=len(m.get("tamlik_eleme", [])))),
+                    marmara=marmara_satiri(H))
     H = hukum_adi(dict(taban="olcu_yanli"))
     return dict(hukum=H, cumle=hukum_cumlesi(H, dict(p0_sapka=m["sahte"]["p0_sapka"], J=m["sahte"]["J"])),
                 marmara=marmara_satiri(H))
@@ -1186,7 +1274,16 @@ class GercekKaynak:
         n0 = len(self.getir.kayitlar)
         js = json.loads(self.getir(u).decode("utf-8"))
         out = []
-        for f in js.get("features", []):
+        ozellik = js.get("features", [])
+        if len(ozellik) < 5:
+            # §3.3 karar 6 kural 3: 5'ten az tensör -> ana şok düzlemi. Arama yanıtındaki her olayın moment-tensor
+            # ürünü var; 5'ten az olayda ayrıntı istemek kararı değiştiremez (Ek 1 E1.4: istek yükü azaltma). Ayrıntılar
+            # birimler arasında günlükle (URL) paylaşılır; aynı olay bir kez istenir.
+            self.kayit["tensor"][b["id"]] = dict(sorgu=u, tensorler=[], arama_olay_sayisi=len(ozellik),
+                                                 istekler=self.getir.kayitlar[n0:])
+            self._kaydet()
+            return []
+        for f in ozellik:
             eid = f.get("id")
             d = json.loads(self.getir(FFM.detay_url(eid)).decode("utf-8"))
             mt = ((d.get("properties") or {}).get("products") or {}).get("moment-tensor") or []
@@ -1260,9 +1357,13 @@ def asama_sinama(a, log=print):
     if a.baglayici:
         if os.path.exists(SINAMA_CIKTI):
             raise KosuDur("bağlayıcı sınama çıktısı zaten var; her basamak bir kez koşulur (§9 adım 2)")
-        git_denetle([os.path.join(BURAYA, k) for k in KOD_DOSYALARI], log)
+        # Ek 1 (E1.1–E1.3) sınama ölçütlerini değiştirir: ön kayıt (gövde + Ek 1) commit + push edilmiş olmalı
+        git_denetle([ONKAYIT] + [os.path.join(BURAYA, k) for k in KOD_DOSYALARI], log)
+        if onkayit_govde_sha() != ONKAYIT_SHA:
+            raise KosuDur("ön kayıt gövdesinin sha256'sı dondurulan değerle uyuşmuyor")
         sonuc = Y.baglayici_sinamalar(log=log)
         sonuc["kod_sha256"] = kod_sha()
+        sonuc["onkayit_sha256"] = dict(govde=ONKAYIT_SHA, tam=sha256_dosya(ONKAYIT))
         x_yaz(SINAMA_CIKTI, json_metni(sonuc))
         log(f"yazıldı: {SINAMA_CIKTI} (commit + push edilmeden manifest aşaması açılmaz)")
         return 0
@@ -1275,7 +1376,8 @@ def asama_sinama(a, log=print):
 
 
 def sinama_degerlendir(sin):
-    """§6.4 madde 1(a): koşulmadı (yöntem) mi? Dönüş (None | dict(yontem, olcut)), tamlık kuralı."""
+    """§6.4 madde 1(a): koşulmadı (yöntem) mi? Dönüş (None | dict(yontem, olcut)), tamlık kuralı.
+    Okada: Ek 1 E1.1 ölçütü (sin["okada"]["ek1"]["gecti"]) bağlayıcıdır; harfiyen sonuç bilgi olarak kalır."""
     ok = sin["okada"]
     if not ok["gecti"]:
         if OKADA_EK1_KARAR is None:
@@ -1283,6 +1385,11 @@ def sinama_degerlendir(sin):
                           "Ek 1 kararı (OKADA_EK1_KARAR) olmadan manifest aşaması açılmaz (kodlayıcı okuması 3)")
         if OKADA_EK1_KARAR.get("hukum") == "koşulmadı":
             return dict(yontem="Okada sınaması", olcut=OKADA_EK1_KARAR.get("olcut", "")), None
+        ek1 = ok.get("ek1")
+        if ek1 is None:
+            raise KosuDur("sınama çıktısında Ek 1 E1.1 Okada değerlendirmesi yok")
+        if not ek1["gecti"]:
+            return dict(yontem="Okada sınaması", olcut="Ek 1 E1.1: " + ek1.get("ozet", "")), None
     if not sin["yapay_katalog"]["gecti"]:
         return dict(yontem="yapay katalog sınaması", olcut=sin["yapay_katalog"].get("ozet", "")), None
     kural = sin["tamlik"].get("secilen")
@@ -1296,8 +1403,8 @@ def asama_manifest(a, log=print):
         if os.path.exists(y):
             raise KosuDur(f"{os.path.basename(y)} zaten var (\"x\" kipi)")
     git_denetle([SINAMA_CIKTI, ONKAYIT, LISTE, SAYILAR_JSON] + [os.path.join(BURAYA, k) for k in KOD_DOSYALARI], log)
-    if sha256_dosya(ONKAYIT) != ONKAYIT_SHA:
-        raise KosuDur("ön kayıt metninin sha256'sı dondurulan değerle uyuşmuyor")
+    if onkayit_govde_sha() != ONKAYIT_SHA:
+        raise KosuDur("ön kayıt gövdesinin (ilk ONKAYIT_GOVDE_BAYT bayt) sha256'sı dondurulan değerle uyuşmuyor")
     sin = json.load(open(SINAMA_CIKTI, encoding="utf-8"))
     kosulmadi, kural = sinama_degerlendir(sin)
     if kosulmadi:
@@ -1321,7 +1428,8 @@ def asama_manifest(a, log=print):
     m = an.manifest()
     m["ham_dizin"] = ham
     m["on_kayit"] = kay.kayit
-    m["girdi"] = dict(onkayit=ONKAYIT_SHA, liste=LISTE_SHA, sayilar_json=SAYILAR_JSON_SHA,
+    m["girdi"] = dict(onkayit=ONKAYIT_SHA, onkayit_tam=sha256_dosya(ONKAYIT), liste=LISTE_SHA,
+                      sayilar_json=SAYILAR_JSON_SHA,
                       sinama=sha256_dosya(SINAMA_CIKTI), kod=kod_sha())
     m["uretim_zamani"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
     x_yaz(MANIFEST, json_metni(m))
@@ -1395,7 +1503,8 @@ def asama_kos(a, log=print):
             raise KosuDur(f"{os.path.basename(y)} zaten var; var olan çıktının üzerine yazılmaz")
     if a.devam:
         return devam(a, log)
-    girdi = dict(onkayit=sha256_dosya(ONKAYIT), liste=sha256_dosya(LISTE), sayilar_json=sha256_dosya(SAYILAR_JSON),
+    girdi = dict(onkayit=onkayit_govde_sha(), onkayit_tam=sha256_dosya(ONKAYIT), liste=sha256_dosya(LISTE),
+                 sayilar_json=sha256_dosya(SAYILAR_JSON),
                  kosu_kodu=sha256_dosya(os.path.abspath(__file__)))
     if girdi["onkayit"] != ONKAYIT_SHA:
         raise KosuDur("ön kayıt sha256 uyuşmuyor")
@@ -1436,7 +1545,10 @@ def asama_kos(a, log=print):
         an_k.kaynak = None
         an_k.son_ekle(m["son_indirme_plani"], yapay_son_veri(an_k, m["son_indirme_plani"]))
         Rk = an_k.oylar(m)
-        sonuc_md(m, hukum_kur(m, Rk, an_k), Rk, girdi)
+        if Rk["m_etkin"]["durum"] == "devam":
+            sonuc_md(m, hukum_kur(m, Rk, an_k), Rk, girdi)
+        else:
+            erken_hukum("guc_yok_tamlik", m=Rk["m_etkin"])
         json_metni(dict(R=Rk))
         del an_k
     except Exception as e:                                         # noqa: BLE001
@@ -1470,6 +1582,10 @@ def asama_kos(a, log=print):
 def _kos_son(D, isaret, log, devam_bilgi=None):
     an, m, girdi = D["an"], D["m"], D["girdi"]
     R = an.oylar(m)
+    if R["m_etkin"]["durum"] != "devam":
+        Hk = erken_hukum("guc_yok_tamlik", m=R["m_etkin"])
+        return yaz(dict(hukum=Hk, girdi=girdi, isaret=isaret, devam=devam_bilgi,
+                        tamlik_eleme=R["m_etkin"]["tamlik_eleme"]), sonuc_md(m, Hk, None, girdi), log)
     Hk = hukum_kur(m, R, an)
     sonuc = dict(hukum=Hk, oylar=R, sahte=m["sahte"], testere=m["testere"], girdi=girdi, isaret=isaret,
                  devam=devam_bilgi)
