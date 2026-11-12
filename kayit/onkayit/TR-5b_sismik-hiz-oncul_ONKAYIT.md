@@ -1,9 +1,12 @@
 # TR-5b ön kayıt: M ≥ 6,0 sığ depremlerden önceki son yılda ortam gürültüsü dv/v, küresel olay–kontrol sınavı
 
-Sürüm 2, 12 Kasım 2026. Durum: **TASLAK sürüm 2 (İNCELEME-1 düzeltmeleri işlendi), ikinci incelemeye hazır.**
-Dondurulmadı. Hiçbir dalga formu indirilmedi, açılmadı ya da yoklanmadı; aşama 0 betiği yalnız ağsız (`kuru`) kipte
-koşuldu. Kol: TR. Ata: TR-5 (`TR-5_TR-4_SAYIM.md`, Ek 1). Maliyet bu belgeye kadar 0 €. Sürüm 1 bu dizinde
-`TR-5b_sismik-hiz-oncul_ONKAYIT_surum1.md` adıyla korunur (sha256 `2d7649a3…`, değişiklik listesinde tam).
+Sürüm 3, DONDURULDU (İNCELEME-1 ve İNCELEME-2 düzeltmeleri işlendi).
+Durum: **DONDURULDU sürüm 3, 12 Kasım 2026 (İNCELEME-2 düzeltmeleri işlendi). Dondurma commit'i bu dosyayı, listeyi ve
+`tr5b_asama0.py`'yi içerir; aşama 0'ın ilk ağ isteğinden önce push edilir.**
+Hiçbir dalga formu indirilmedi, açılmadı ya da yoklanmadı; aşama 0 betiği yalnız ağsız (`kuru`) kipte ve sahte
+yanıtlayıcıyla ağsız sınamada koşuldu. Kol: TR. Ata: TR-5 (`TR-5_TR-4_SAYIM.md`, Ek 1). Maliyet bu belgeye kadar 0 €.
+Sürüm 1 ve 2 bu dizinde `TR-5b_sismik-hiz-oncul_ONKAYIT_surum1.md` (sha256 `2d7649a3…`) ve
+`TR-5b_sismik-hiz-oncul_ONKAYIT_surum2.md` (sha256 `b1a42625…`) adlarıyla korunur (değişiklik listesinde tam).
 
 **Kapı sayıları (üstveri, aşama 0'dan önce).** Volkaniksiz bağımsız küme **K = 31** (≥ 20), volkaniksiz eşleşik
 plasebo kümesi **K_p = 16** (≥ 10). Aygıt kuralının Z önizlemesiyle 28 ve 15. İkisi de kapının üstünde; ama bunlar
@@ -16,7 +19,7 @@ kiralanmadan önce karar verir (§5.1).
 harcama proje sahibinin kararıdır, §5.4). Ön kayıt bu karardan bağımsız dondurulur.
 
 Betikler ve bağlayıcı liste `kayit/turetme/tr5/` altındadır. Sürüm 1 dosyaları değiştirilmedi; sürüm 2 dosyaları
-`_s2` ya da `2` ekiyle yenidir. Hepsi yalnız numpy ve standart kitaplıkla, `python3 -I -B` ile çalışır:
+`_s2` ya da `2` ekiyle yenidir. Sürüm 3'te yalnız `tr5b_asama0.py` ve onun `kuru` çıktısı değişti (İNCELEME-2). Hepsi yalnız numpy ve standart kitaplıkla, `python3 -I -B` ile çalışır:
 - `tr5b_liste_s2.py`: olay, istasyon, kontrol, plasebo ve pilot P2 listesini kurar; hacmi hesaplar (≈ 20 sn).
 - `tr5b_asama0.py`: aşama 0'ın bütün kipleri (`kuru`, `ustveri`, `kur`, `yokla`, `say`) ve istasyon kotası (§5.1).
 - `tr5b_guc2.py`: hüküm kuralı, 4. adım, pilot P1 kapısı ve geçme olasılıkları (§4.4, §6.2; ≈ 1 dk).
@@ -28,9 +31,10 @@ doğrulanamayan her sayı "doğrulanamadı" diye işaretlidir.
 
 ## 0. Kimlik, öncelik sırası ve tasarım değişikliğinin kaydı
 
-**Öncelik sırası.** Bu belgenin sürüm 2'si bağlayıcıdır. Bağlayıcı liste (`tr5b_liste_s2.json`, §2.8) bu belgenin
-parçasıdır; metinle liste çelişirse liste geçerlidir. Bu belgede karşılığı olmayan bir noktada `TR-5b_INCELEME-1.md`'nin
-düzeltme metinleri geçerlidir. Üçüncü sırada `TR-5_TR-4_SAYIM.md` gelir. Sürüm 1 yalnız kayıttır, bağlamaz.
+**Öncelik sırası.** Bu belgenin sürüm 3'ü bağlayıcıdır. Bağlayıcı liste (`tr5b_liste_s2.json`, §2.8) bu belgenin
+parçasıdır; metinle liste çelişirse liste geçerlidir. Bu belgede karşılığı olmayan bir noktada önce
+`TR-5b_INCELEME-2.md`'nin, sonra `TR-5b_INCELEME-1.md`'nin düzeltme metinleri geçerlidir. Sonra `TR-5_TR-4_SAYIM.md`
+gelir. Sürüm 1 ve 2 yalnız kayıttır, bağlamaz.
 
 **TR-5b, TR-5'ten ayrı bir kimliktir.** TR-5'in ana tasarımı (M ≥ 6,5; 5 yıl taban; 100 km içinde ≥ 2 yer)
 üstveri sayımında K = 8, tek yer şartıyla K = 15 verdi. Gerçek doluluk süzgecinden sonra bu sayılar K 8–11'e indi.
@@ -130,8 +134,9 @@ Her olay için SHA sırasında (a)–(f)'yi sağlayan ilk 10 merkez **aday** ola
 
 **Kota (istasyon düzeyinde).** Bir kontrol **istasyonu**, aynı epok türünde (olay ya da plasebo) en çok 3
 bağımsızlık kümesinin kontrolünde kullanılır. Kota, kontrolün koşuda kullanılıp kullanılmadığına göre işler:
-koşuda kullanılan her aday (yedekler dahil) kotaya yazılır, kullanılmayan yazılmaz. Olaylar (T, kimlik) sırasıyla
-işlenir. Her olay için aday sırasıyla, dolu olan ve dolu istasyonlarından hiçbiri başka 3 kümede kullanılmış olmayan
+koşuda kullanılan her aday (yedekler dahil) kotaya yazılır, kullanılmayan yazılmaz. Olaylar, volkanik olanlar dahil
+(bilgi satırı 1 için kontrolleri gerekir), (T, kimlik) sırasıyla işlenir. Volkanik olayların kotaya yazılması K'yi
+değiştirmez (İNCELEME-2: 31 / 16 ve 28 / 15). Her olay için aday sırasıyla, dolu olan ve dolu istasyonlarından hiçbiri başka 3 kümede kullanılmış olmayan
 ilk 5 aday atanır; kotası dolmuş istasyonu içeren aday atlanır. Aşama 0, kotayı yedeklerle birlikte uygulayarak K₀'ı
 sayar (kod: `tr5b_asama0.kota_ata`, liste betiği de aynı fonksiyonu çağırır). 1b'de bir kontrol gün doluluğunu
 tutmazsa atama, (T, kimlik) sırasıyla baştan yeniden yapılır; yeni atanan aday indirilir; atama değişmeyene dek sürer.
@@ -240,7 +245,8 @@ sha256'ları da içindedir. Metinle liste çelişirse liste geçerlidir.
 Yeniden üretim: `python3 -I -B kayit/turetme/tr5/tr5b_liste_s2.py <tr5/ham> <ngl> <tr2/ham> <tr5b_kat>`.
 Girdiler depo dışındadır (TR-5 üstverisi, TR-1 ve TR-2 katalogları, M ≥ 5 kataloğu); yedekleri
 `/mnt/project-files/turetme/tr5b-ham/` altında (sha256'lar `tr5b_ham_sha256.txt`). Koşu kodu listenin sha256'sını
-denetler ve uyuşmazlıkta durur (`tr5b_asama0.LISTE_SHA` dondurmada bu değere sabitlenir). Bilinen metin–kod farkları,
+denetler ve uyuşmazlıkta durur (`tr5b_asama0.LISTE_SHA` bu değere sabittir; `kuru`, `ustveri`, `kur` ve `say`
+kipleri denetler). Bilinen metin–kod farkları,
 liste geçerlidir:
 - Yıllar `floor(n × 365,25)` gündür (3 yıl = 1095 g).
 - Ş1–Ş3'ün "yok" aralığı yarı açıktır, [a, b).
@@ -342,7 +348,7 @@ K11; E2 eklenen −%0,1'in %93–98'ini geri ölçer).
 | Çok yıllı hidroloji | Clements ve Denolle 2023 (2011–2016 kuraklığında çok yıllı artış); Zhang 2023 (10.1029/2023gl103419); Feng 2021 (10.1029/2021jb022650): SC, 0,1–0,9 Hz, yağışla gözenek basıncı mevsimselliğe baskın | Nitel doğrulandı. Genlik doğrulanamadı |
 | Kontrol mantığı | Yates 2018 (10.1029/2018gl080580): tek istasyonlarla volkanik, kosismik, mevsimsel değişimler; uzak istasyonlarla ayrıştırma | Doğrulandı (nitel) |
 | Yıl ölçekli, çok olaylı pasif dv/v öncülü | – | Bulunamadı. Beklenen sonuç H0 ya da ayırt edilemez |
-| Kırık boyu L(M) = 10^(−2,44 + 0,59 M) km | Wells ve Coppersmith 1994, yeraltı kırık boyu, bütün türler | Bellekten. **Doğrulanamadı** |
+| Kırık boyu L(M) = 10^(−2,44 + 0,59 M) km | Wells ve Coppersmith 1994, yeraltı kırık boyu, bütün türler | Açık ikincil kaynakla doğrulandı: OpenQuake `scalerel.wc1994.WC1994.get_median_rld` (rake yokken 10^(−2,44 + 0,59 M), alt yüzey kırık boyu). Asıl makalenin Tablo 2A'sı okunmadı. |
 
 ## 4. Hüküm satırı (tek, sıralı, otomatik)
 
@@ -426,7 +432,7 @@ adları §4.6'daki kapalı listedendir.
    - Geçme şartı: ≥ 8 geçerli PK kümesi ve tek yanlı kesin Wilcoxon işaretli sıra testinde p ≤ 0,05 (H1: medyan
      δ_ko < 0). Genlik şartı yoktur.
    - Geçmezse ya da geçerli küme < 8 ise: 9. adımın H1 şartları sağlanıyorsa hüküm **"ayırt edilemez (PK geçmedi)"**,
-     sağlanmıyorsa **"güç yok (yöntem bilinen kosismik düşüşü göstermedi)"** olur. 6. adımın r̄'si yalnız bilgi olarak
+     sağlanmıyorsa **"güç yok (8. adım: pozitif kontrol geçmedi)"** olur. 6. adımın r̄'si yalnız bilgi olarak
      yazılır.
 9. **Hüküm** (öncelik sırasıyla):
    - **H1 (yön: artış ya da düşüş).** Dört şart birlikte gerekir:
@@ -460,7 +466,8 @@ adları §4.6'daki kapalı listedendir.
   fay bölgesindeki ya da derindeki süreçleri ve M ≥ 7'yi kapatmaz. Metne bilgi satırı 9'un K'si ve r̄'si yazılır.
 - **Ayırt edilemez:** Etki yok anlamına gelmez. "(PK geçmedi)": ölçü bir şey görmüş, ama bilinen kosismik etkiyi
   görmediği için bu kanıt değildir.
-- **Güç yok:** Ölçü bu veriyle sınanamadı. Aday elenmez.
+- **Güç yok:** Ölçü bu veriyle sınanamadı. Aday elenmez. "(8. adım)": ölçü kuruldu ve 4. adım geçti, ama örneklemin
+  kendi kosismik düşüşü gösterilemediği için H0 yazılamadı.
 - **Geçersiz:** Kod ya da tasarım hatası; ölçü yorumlanmaz.
 
 **4.4 Önceden hesaplanan hüküm olasılıkları.** Hesap `tr5b_guc2.py` ile yapıldı (tohum 20261113): K = 31,
@@ -495,6 +502,9 @@ kaymasıdır; AUC = Φ(δ/√2). Plasebo etkisiz varsayıldı. Tablodaki σ_Δ, 
   Kapıda (K 20), gerçek etki sıfırken bile H0 alma olasılığı 0,19'dur. "Ayırt edilemez" bu tasarımda en olası tek
   sonuçtur ve bu önceden kabul edilir.
 
+**PK ile birlikte.** δ = 0'da H0 ancak PK da geçerse yazılır. P(H0 ve PK geçer) ≈ 0,56 × (0,46–0,97) ≈ 0,26–0,54
+(bağımsızlık varsayımıyla kaba; §6.1).
+
 **4.5 Pozitif kontrol için olay sonrası penceresinin seçimi.** İki seçenek vardı: (a) kümelerin kendi ana şokları,
 olay sonrası penceresinde; (b) ayrı bir olay kümesi. Hüküm için (a) seçildi, dört gerekçeyle:
 1. **Aynı zincir sınanır.** PK, hükmü üreten aynı istasyon, kanal, başvuru ve kod zinciriyle yapılır.
@@ -528,7 +538,7 @@ otomatik doldurulur; başka metin eklenmez.
 | geçersiz (kod ya da tasarım) | 3 | N1 aralığı 0,5'i dışlar | r̄_sahte ve aralık |
 | güç yok (4. adım: ölçü −%0,1'e kör) | 4 | üst sınır ≥ 0,5 | r̄_sahte, aralık, S4 |
 | güç yok (ε geçerliliği) | 6a | K₆ < 20 | K₆ |
-| güç yok (yöntem bilinen kosismik düşüşü göstermedi) | 8 | PK geçmedi, H1 şartları yok | geçerli PK kümesi, p |
+| güç yok (8. adım: pozitif kontrol geçmedi) | 8 | PK geçmedi, H1 şartları yok | "geçerli PK kümesi [..], p = [..]; P2 ve 4. adım geçmişti; önceden hesaplanan geçme olasılığı Napa ölçeğinde 0,46–0,97 (§6.1); bu hüküm yöntemin çalışmadığını göstermez, H0'ın bu örneklemde dayanaksız kaldığını gösterir; 9. adımın H0 şartı: [tuttu / tutmadı]" |
 | ayırt edilemez (PK geçmedi) | 8 | PK geçmedi, H1 şartları var | r̄, aralık, geçerli PK kümesi, p |
 | H1 (artış) / H1 (düşüş) | 9 | dört H1 şartı | hidroloji cümlesi; varsa "küçük etki", "son yıla özgü değil; hidroloji ya da yer eğilimiyle uyumlu", öncü etkinliği notu |
 | H0 (eşdeğerlik) | 9 | %90 aralığı [0,35; 0,65] içinde | dışlanan kayma (S4'e göre "%0,1 ölçeğinde" ya da "yalnız σ_Δ ölçeğinde; ≈ 0,55 · σ̂_Δ = [..] %"); bilgi satırı 9 |
@@ -542,7 +552,8 @@ yazılır.
 ## 5. Koşu düzeni, hacim, süre ve maliyet
 
 **5.1 Aşamalar.** Sıra: aşama 0 → kod incelemesi → aşama P (pilot) → 1b olay tarafı → 1b kontroller → 2. aşama →
-3. aşama. Ön kayıt, liste ve koşu kodu aşama P'den önce dondurulur ve push edilir. Bütün istek zamanları
+3. aşama. Ön kayıt, bağlayıcı liste ve `tr5b_asama0.py` aşama 0'ın ilk ağ isteğinden önce dondurulur ve push edilir.
+dv/v koşu kodu, kod incelemesinden sonra ve aşama P'den önce dondurulur ve push edilir. Bütün istek zamanları
 ≤ 2023-12-31'dir (aşama 0 ve 1b; P2 için ≤ 2025-12-31, listede en geç 2022-10-18).
 
 **Aşama 0 (sunucu kiralanmadan, bulut oturumundan, 0 €).** Dalga formu okunmaz. Yalnız HTTP kodu ve bayt sayısı
@@ -559,17 +570,26 @@ kaydedilir; istasyon servisinden yalnız kanal üstverisi metni alınır. Kod: `
    - **Z ay yoklaması:** bütün istasyon-pencerelerinde (olay ve plasebo dahil; Ek 1'in `loc=*` yoklaması seçilen
      konum koduyla yinelenir), penceredeki her ayın 15'inde 12:00:00–12:01:00 UTC, seçilen konum kodunun Z kanalı.
    - **Yatay yoklama:** her istasyon-penceresinde A, B ve C dilimlerinin orta gününün ayında (15'i, 12:00–12:01),
-     seçilen iki yatay kanala ayrı ayrı. Altı istekten biri "var" değilse pencere "üç bileşen yok" sayılır.
+     seçilen iki yatay kanala ayrı ayrı. Bir dilimin yatay istekleri, aynı ayın Z isteği "var" ise bilgilidir; Z'si
+     "var" olmayan dilimin yatay istekleri sayılmaz (o ayın boşluğu Z ay doluluğunda zaten sayılır). Bilgili her
+     dilimde iki yatay istek de "var" olmalıdır. Hiçbir dilim bilgili değilse ya da bilgili bir dilimde yatay
+     isteklerden biri "var" değilse pencere "üç bileşen yok" sayılır.
 3. **Yoklama (`yokla`).** Kurallar ve nezaket TR-5 Ek 1 (`doluluk_yokla.py`) ile aynıdır: merkez başına tek akış;
    EarthScope, GEOFON ve ORFEUS'ta istekler arası ≥ 0,3 sn, KOERI'de ≥ 2 sn, öteki merkezlerde ≥ 0,5 sn; 429/503'te
    Retry-After (en çok 120 sn) ya da 30/60 sn beklenir, en çok 2 yeniden deneme; genel User-Agent; TLS doğrulaması
    açık; yanıt gövdesi okunur ama çözülmez ve saklanmaz. Her yanıt `onbellek.jsonl`'a satır olarak eklenir. İş
-   önbellekten sürdürülür: yeniden çağrı yalnız kalan istekleri atar. `sure_sn` ile iş 2 saatlik sınırdan önce kendini
+   önbellekten sürdürülür: yeniden çağrı yalnız kalan istekleri atar. Bir istek, kesin kodla (200, 204, 404, 401,
+   403) yanıtlanmışsa ya da iki kez denenmişse tamamlanmış sayılır. Öteki kodlar ve bağlantı hataları sonraki
+   çağrıda bir kez yeniden denenir (en çok iki deneme; her denemenin içinde §5.1'in 429/503 kuralı ayrıca geçerlidir).
+   Üstveri istekleri de aynı kuralla en çok iki kez denenir ve dosyalar bütün olarak yazılır. Yarım yazılmış önbellek
+   satırı yok sayılır. `sure_sn` ile iş 2 saatlik sınırdan önce kendini
    durdurur. Ağ kipleri yalnız `--ag-onay` bayrağıyla çalışır.
-4. **Sayım (`say`).** Ay "var": HTTP 200 ve bayt > 0; 204/404 ya da 200 ile 0 bayt: yok; 401/403: kısıtlı (yok
-   sayılır, atlatılmaz); öteki: hata (yok sayılır, ayrıca sayılır). İstasyon-penceresi **dolu**: kanal seçildi, aygıt
-   kuralı geçti, Z ay doluluğu `dolu_ana` (ayların ≥ %80'i var ve en uzun ardışık boş ay ≤ 3) ve altı yatay istek
-   "var". Kontrol dolu: ≥ 1 dolu istasyonu var. Kota (§2.3) uygulanarak kontroller atanır. Olay geçer: ≥ 1 dolu
+4. **Sayım (`say`).** `say`, istek listesindeki her istek ve her üstveri isteği tamamlanmadıkça hiçbir sayı ve hüküm
+   vermez ve durur. Liste sha256'sı her kipte denetlenir; uyuşmazlıkta iş durur. Ay "var": HTTP 200 ve bayt > 0;
+   204/404 ya da 200 ile 0 bayt: yok; 401/403: kısıtlı (yok sayılır, atlatılmaz); öteki: hata (yok sayılır, ayrıca
+   sayılır). Hata ve kısıtlı sayıları rol ve merkez kırılımıyla `asama0_sonuc.json` → `istek_durum` alanına yazılır.
+   İstasyon-penceresi **dolu**: kanal seçildi, aygıt kuralı geçti, Z ay doluluğu `dolu_ana` (ayların ≥ %80'i var ve
+   en uzun ardışık boş ay ≤ 3) ve yatay yoklama kuralı (madde 2) geçti. Kontrol dolu: ≥ 1 dolu istasyonu var. Kota (§2.3) uygulanarak kontroller atanır. Olay geçer: ≥ 1 dolu
    istasyon ve ≥ 4 atanmış kontrol. **K₀:** geçen olayı olan volkaniksiz küme sayısı. **K_p₀:** K₀ kümelerinden, aynı
    olayın plasebo tarafı da geçen (≥ 1 dolu plasebo istasyonu ve ≥ 4 atanmış plasebo kontrolü) kümelerin sayısı.
 5. **Kapı G0.** K₀ < 20 ya da K_p₀ < 10 ise hüküm "güç yok (aşama 0)" olur. Sunucu kiralanmaz; dalga formu
@@ -602,8 +622,12 @@ ve plasebo istasyonlarının hiçbir verisi bu aşamada indirilmez.
 - **P̂₄ < 0,50 ise hüküm "güç yok (pilot P1)" olur ve ana indirme yapılmaz.** Eşdeğer eşik σ*(K): P̂₄ = 0,5'te
   σ_Δ = %0,234 (K 31), %0,222 (K 28), %0,212 (K 25), %0,187 (K 20). Çelişkide P̂₄ geçerlidir.
 - σ̂_P1 ve 24 Δ değeri kayda geçer. Δ'lar hiçbir olay ölçüsüyle karşılaştırılmaz.
-- Not: σ̂_P1 istasyon düzeyindedir; σ_Δ kontrol düzeyindedir (1–3 istasyon ortalaması). σ̂_P1 bu yüzden σ_Δ'yı büyük
-  kestirir; kural tutucu yöndedir.
+- Not: σ̂_P1 istasyon düzeyindedir, 4. adımın σ_Δ'sı kontrol düzeyindedir. Bir kontrol 1–3 istasyonun ortalamasıdır
+  (ilk 5 adaylarda 88 / 39 / 68; ortalama 1/n = 0,668). İstasyonlar bağımsızsa σ_kontrol ≈ 0,817 · σ_istasyon,
+  tam ilişkide σ_kontrol = σ_istasyon. P1'in kontrol düzeyindeki etkin eşiği bu yüzden σ*(K)'nın 0,82–1 katıdır
+  (K 31: %0,19–0,23). Bu noktada 4. adımın geçme olasılığı 0,67–0,50'dir. Yani P1 yalnız 4. adımın ≲ 0,67 olasılıkla
+  geçeceği durumlarda durdurabilir. Kontrol düzeyinde P1 hacmi 0,094'ten 0,195 TB'ye çıkarırdı (INGV 0,056 TB); bu
+  yüzden seçilmedi. Bu tutuculuk kabul edildi (İNCELEME-2 İ2-Ö2).
 
 **P2 (kosismik düşüş, listede olmayan olaylar).**
 - Aday olaylar: ComCat `type = earthquake`, M ≥ 6,0, derinlik ≤ 30 km, 2005-01-01 ile 2023-12-31 arası, TR-5b
@@ -624,6 +648,7 @@ ve plasebo istasyonlarının hiçbir verisi bu aşamada indirilmez.
 - [T − 400, T − 8] için δ_ko'dan başka hiçbir ölçü (düzey, eğilim, Δ) hesaplanmaz ve yazdırılmaz.
 - Geçme şartı: ≥ 8 geçerli olay ve tek yanlı kesin Wilcoxon işaretli sıra testinde p ≤ 0,05 (H1: medyan δ_ko < 0).
   **Geçmezse hüküm "güç yok (pilot P2: yöntem kosismik düşüşü göstermedi)" olur ve ana indirme yapılmaz.**
+  Önceden hesaplanan geçme olasılığı için §9 madde 13.
 - Bu ön kayıt içinde P2 yeniden denenmez. P2'nin olayları listede olmadığı için, ayrı bir yeni ön kayıt başka bir bant
   ya da parametreyle P2'yi deneyebilir; bu TR-5b'nin körlüğünü bozmaz ve her deneme kayda geçer (§11).
 
@@ -728,8 +753,12 @@ kararıdır.** Sunucu ancak G0, P1 ve P2 geçtikten sonra kiralanır. Onay gelme
 - **Koşu öncesi düzeltme** yalnız şu durumda yapılır: hata, gerçek veri kullanılmadan, yapay veriyle yeniden
   üretilebilen bir kod hatasıdır ve yeni bir yapay sınamayla gösterilir. §3'teki hiçbir sayısal parametre (bant,
   pencereler, eşikler, ızgara, yığın, maske) değiştirilemez. Düzeltmeden sonra 1–4. adımların hepsi baştan koşulur.
-  Önceki sonuçlar silinmez, kayda geçer. 3. ya da 4. adım iki kez başarısız olursa hüküm kesinleşir ("geçersiz (kod
-  ya da tasarım)" ya da "güç yok (4. adım: ölçü −%0,1'e kör)").
+  Önceki sonuçlar silinmez, kayda geçer. 1.–4. adımlardan herhangi biri iki kez başarısız olursa o adımın hükmü
+  kesinleşir ("geçersiz (kod)", "geçersiz (kod ya da tasarım)" ya da "güç yok (4. adım: ölçü −%0,1'e kör)").
+- **Aşama 0'da tek koşu.** Aşama 0 bir kez koşulur. Önbellek silinmez, yeniden yoklama yapılmaz. Tek yeniden deneme,
+  §5.1 madde 3'ün kesin olmayan kodlar için tanımladığı denemedir. `say` bir kez, bütün istekler tamamlanınca koşulur.
+  `asama0_sonuc.json`, `onbellek.jsonl` ve `istekler.json`'un sha256'ları kayda geçer ve push edilir. G0 kararından
+  sonra aşama 0'ın hiçbir kuralı değiştirilemez.
 - 6. adımdan sonra bulunan her hata "koşu sonrası değişiklik" başlığıyla yazılır ve ikinci koşunun kör olmadığı
   belirtilir; hüküm değişmez.
 - İndirme başarısızlığı istasyon-pencere düzeyinde kayda geçer. 1b'de başarısız pay %5'i aşarsa, ε hesaplanmadan tek
@@ -784,13 +813,18 @@ Kaba-ince ızgara aramasının tam ızgarayla eşdeğerliği 60 istasyonda sına
 Geçerli δ_ko oranı her satırda ≥ 0,973. Sonuç dosyası `tr5b_yapay2_e3_sonuc.json`; süre 32 dk (4 süreç).
 
 Okuma:
-- **A = 0'da yanlış geçme ≈ düzey.** Ortalamalar 0,051 / 0,042 / 0,043. En kötü havuz 0,060 (2000 çekilişte Monte
-  Carlo standart hatası ≈ 0,005). Fazlalık örnekleme gürültüsü düzeyindedir; düzeltme yapılmaz, §9'da açık madde
-  olarak kalır.
+- **A = 0'da yanlış geçme ≈ düzey.** Ortalamalar 0,051 / 0,042 / 0,043; en kötü havuz 0,060. Kesin Wilcoxon'un
+  p ≤ 0,05'teki ulaşılabilir boyutu n = 8…15 için 0,039–0,049'dur (n = 15'te 0,047). Simetrik gürültüde test %5'i
+  aşmaz. Fazlalık havuzların mevsim evresi dengesizliğidir (İNCELEME-2'nin 300'lük bağımsız havuzunda 0,034 / 0,100 /
+  0,035; 0,100'lük havuzun A = 0 medyanı −%0,010). Eşik değiştirilmedi.
 - **δ_ko medyanı, A'nın ≈ %65'idir.** Bunun bir kısmı toparlanmadan (50 gün yarı ömürle 30 günlük ortalamada
   ≈ %18 kayıp), bir kısmı germe küçülmesinden gelir; kalan ayrıştırılmadı. Napa ölçeğinde (A %0,08) düşük SNR'de geçme 0,80, yüksek
   mevsimde 0,60'tır. PK geçmediğinde "güç yok" ya da "ayırt edilemez (PK geçmedi)" hükmünün (§4.6) olasılığı bu
-  nedenle göz ardı edilemez.
+  nedenle göz ardı edilemez. **Uzaklık.** E3 her kümeye aynı ölçekte düşüş verir. PK kümelerinin en yakın geçerli
+  istasyonu üçünde > 50 km'dir (NZ.KNZ 53, HT.LKD2 67, AK.CHN 69 km). Boschelli 2021'e göre bu uzaklıkta düşüş
+  beklenmez. Bu üç küme A = 0 sayılırsa Napa ölçeğinde geçme 0,55 / 0,46 / 0,84'e iner (CC₁₀ ≈ 0,5 / 0,5 ve mevsim
+  %0,10 / 0,7; İNCELEME-2 bağımsız benzetimi, 300'lük havuz). Yöntem doğruyken PK'nin geçmeme olasılığı bu yüzden
+  ≈ 0,16–0,54'tür.
 
 **6.2 Güç ve geçme olasılıkları (`tr5b_guc2.py`, tohum 20261113).** Hüküm olasılıkları §4.4'tedir. Ek sonuçlar:
 - **r'nin sd'si.** n_c = 5 için kuramsal √((n+2)/(12n)) = 0,342.
@@ -814,6 +848,10 @@ Okuma:
   | P1 geçer, K 28 | 1,00 | 1,00 | 1,00 | 0,98 | 0,74 | 0,16 |
   | P1 geçer, K 20 | 1,00 | 1,00 | 1,00 | 0,89 | 0,47 | 0,06 |
   | P1 × 4. adım, K 28 (bağımsızlık varsayımıyla, kaba) | 1,00 | 1,00 | 0,99 | 0,81 | 0,44 | 0,05 |
+  | P1 geçer, K 31, istasyonlar bağımsız (σ_ist = σ_Δ / 0,817) | 1,00 | 1,00 | 1,00 | 0,90 | 0,50 | 0,07 |
+
+  (İNCELEME-2; σ*(K 31) = %0,2337, n = 24, 200 000 çekiliş; `inc2_guc_bagimsiz.py` B = 40 000 ile
+  %0,15 / 0,2 / 0,25'te 0,90 / 0,50 / 0,20). Son satırda σ_Δ kontrol düzeyidir.
 
   Okuma: σ_Δ ≤ %0,15 ise pilot ve 4. adım büyük olasılıkla geçer; σ_Δ ≈ %0,3 ise pilot büyük olasılıkla ana
   indirmeden önce durdurur. İki olay aynı σ'ya bağlı olduğu için çarpım yalnız kaba bir kestirimdir.
@@ -870,15 +908,11 @@ Okuma:
    kota yalnız koşuda kullanılan (atanan) adaylara yazılır. Statik okuma (10 adayın hepsi kotaya yazılır) denendi:
    3 olay 3, 3 olay 4 adayla kaldı ve K 29'a indi. Dinamik kural koda bağlıdır ve veri görülmeden sabittir, ama
    ataması aşama 0'ın doluluk sonucuna bağlıdır.
-3. **Yatay yoklamanın sertliği.** Altı yatay isteğin hepsinin "var" olması isteniyor (İNCELEME-1 E1 metni). Tek bir
-   boş ay pencereyi düşürür. Yatay doluluğu Z ile ilişkili olduğu için gerçek kayıp küçük beklenir; doğrulanmadı.
-4. **P1'in birimi.** σ̂_P1 istasyon düzeyindedir, 4. adımın σ_Δ'sı kontrol düzeyindedir. Kural tutucu yöndedir
-   (fazla "güç yok"), ama ne kadar tutucu olduğu bilinmiyor.
-5. **PK'nin geçme olasılığı.** Gerçek kosismik genliğe ve istasyon uzaklığına bağlıdır. PK kümelerinin en yakın
-   istasyonları 6–71 km arasında. E3 yalnız yapay gürültüyle hesaplandı; enerji reddi yapay veride yok. Napa
-   ölçeğinde (A %0,08) geçme 0,60–0,97 arasında (§6.1); düşük SNR ve yüksek mevsimde ≈ %40 olasılıkla PK geçmez.
-   A = 0'da yanlış geçme 0,051 / 0,042 / 0,043 (en kötü havuz 0,060): düzeyin %5'inin örnekleme gürültüsü
-   içinde aşılması kabul edildi; eşik (p ≤ 0,05) değiştirilmedi.
+3. **Yatay yoklama (İNCELEME-2 İ2-E2).** Sert kural ("altısı da var") Ek 1 verisiyle dolu pencerelerin ≥ %8,3'ünü,
+   yalnız Z'nin de boş olduğu aylar yüzünden düşürüyordu. Kural koşullu yapıldı; istek listesi değişmedi.
+4. **P1'in birimi (İNCELEME-2 İ2-Ö2).** Tutuculuk sınırlı: etkin eşik σ*'ın 0,82–1 katı.
+5. **PK'nin geçme olasılığı (İNCELEME-2 İ2-Ö1).** Napa ölçeğinde 0,46–0,97 (uzaklık senaryosu dahil). Kural
+   kaldı; adı "güç yok (8. adım: pozitif kontrol geçmedi)" oldu ve yöntem hatası iddia etmez.
 6. **Plasebo şartı gücü yarıya indiriyor.** δ = 0,75 σ_Δ'da ana aralığın gücü 0,93, tam H1'in gücü 0,51. Bu bilerek
    kabul edildi (İNCELEME-1 D: yer yanlılığına karşı tek koruma).
 7. **Hidroloji.** Kontrol, yerel çok yıllı kuraklığı eşlemez. H1 çıkarsa ilk rakip açıklama budur; metin bunu
@@ -886,12 +920,14 @@ Okuma:
 8. **Doğrulanamayan işleme sayıları.** 10 günlük yığın, CC ≥ 0,40, koda 10–40 sn, 4 saat/gün, enerji reddi 3 kat.
 9. **Kontrol bölge eşlemesi yok.** Kontroller aynı epoktadır ama başka iklim ve jeolojidedir.
 10. **Olayların çoğunda tek istasyon** (30/39). Tek istasyonun yerel olayları ölçüyü belirler.
-11. **Wells–Coppersmith katsayıları bellekten.** PK kümelerinin ve P2 istasyon eşiğinin seçiminde kullanıldı; liste
-    sabit olduğu için sonucu değiştirmez.
+11. **Wells–Coppersmith katsayıları** ikincil açık kaynakla doğrulandı (İNCELEME-2 İ2-K1).
 12. **Hız ve fiyat doğrulanmadı.** Yalnız EarthScope ve KOERI hızı ölçüldü (tek denemeyle). Hetzner fiyatı
     doğrulanmadı.
-13. **P2'nin istasyonları** büyük olaylarda uzak düşebiliyor (Sumatra 2005 M8,6: 213 km; Solomon 2007 M8,1: 337 km),
-    çünkü eşik 2 L(M) ile büyüyor. Bu uzaklıklarda düşüş beklenmez (Boschelli 2021); P2'nin gücünü azaltır.
+13. **P2'nin istasyonları (İNCELEME-2 İ2-Ö4).** 20 olayın 6'sında istasyon > 50 km'de (IU.HNR 337, PS.PSI 213,
+    NZ.MXZ 102, CN.LGNH 93, GE.MALT 57, C.ROC1 51 km). > 90 km'deki 4'ü etkisiz sayılırsa P2 Napa ölçeğinde (A %0,08)
+    0,68 / 0,59 / 0,93 olasılıkla geçer; 6'sı etkisiz sayılırsa 0,55 / 0,52 / 0,82 (CC₁₀ ≈ 0,5 / 0,5 ve mevsim %0,10 /
+    0,7; bağımsız benzetim, 300'lük havuz). Liste değiştirilmedi: büyük olaylarda kırığa uzaklık dış merkez uzaklığından
+    küçüktür ve P2 olaylarının çoğu Napa'dan büyüktür.
 
 ## 10. Marmara'ya anlam
 
@@ -954,14 +990,47 @@ us60007ewc (Elazığ 2020, GE.MALT 57 km), usp000jdvv (Şili 2012, 3A.U40B 29 km
 ```
 python3 -I -B kayit/turetme/tr5/tr5b_liste_s2.py <tr5/ham> <ngl> <tr2/ham> <tr5b_kat>      # ≈ 20 sn
 python3 -I -B kayit/turetme/tr5/tr5b_asama0.py kuru kayit/turetme/tr5/tr5b_liste_s2.json <tr5/ham>   # ağsız
-python3 -I -B kayit/turetme/tr5/tr5b_asama0.py ustveri <liste> <ob> 6600 --ag-onay          # aşama 0, bulut
+python3 -I -B kayit/turetme/tr5/tr5b_asama0.py ustveri <liste> <ob> 6000 --ag-onay          # aşama 0, bulut
 python3 -I -B kayit/turetme/tr5/tr5b_asama0.py kur <liste> <ob>
-python3 -I -B kayit/turetme/tr5/tr5b_asama0.py yokla <ob> 6600 --ag-onay                    # 2 iş
+python3 -I -B kayit/turetme/tr5/tr5b_asama0.py yokla <ob> 6000 --ag-onay                    # 2 iş
 python3 -I -B kayit/turetme/tr5/tr5b_asama0.py say <liste> <ob>
 python3 -I -B kayit/turetme/tr5/tr5b_guc2.py                                                # ≈ 1 dk
 python3 -I -B kayit/turetme/tr5/tr5b_yapay2.py donder <çıktı.npz>                          # ≈ 1 dk
 python3 -I -B kayit/turetme/tr5/tr5b_yapay2.py e3                                           # ≈ 1 saat, 4 çekirdek
 ```
+
+## Sürüm 2 → 3 değişiklik listesi
+
+Her satır İNCELEME-2'nin bir bulgusunu karşılar; düzeltme metinleri harfiyen işlendi. Atlanan bulgu yoktur. Liste,
+örneklem, §3'ün parametreleri ve hüküm kuralı değişmedi.
+
+| Bulgu | Değişiklik | Yer |
+|---|---|---|
+| İ2-E1 | `LISTE_SHA` `a3a6a45a…`'ya sabitlendi; `kuru`, `ustveri`, `kur` ve `say` ilk satırda denetler, uyuşmazlıkta durur. Kesin kodlar 200, 204, 404, 401, 403; öteki kodlar ve bağlantı hataları sonraki çağrıda bir kez yeniden denenir (en çok iki deneme), üstveride de. `say` eksik istek ya da üstveri varken sayı ve hüküm vermez, durur. Önbellek okuması yarım ya da bozuk satırı atlar. Üstveri dosyası `.tmp` ile yazılıp `os.replace` ile konur. `asama0_sonuc.json`'a `istek_durum` (rol ve merkez kırılımıyla; bir istek onu kullanan her rolde sayılır), `ustveri_alinamayan`, `onbellek_sha256`, `istekler_sha256` eklendi. `sure_sn` 6000. İki dar okuma: (1) üstveride 401/403 de kesin sayılır ve boş dosya yazılır (kanal yok); yoksa "aynı kural" bu istasyonda hiç tamamlanmaz ve `say` sonsuza dek durur; (2) önbellek ya da üstveri günlüğü yarım bir satırla bitiyorsa eklemeden önce satır sonu yazılır, böylece yalnız yarım satır yok sayılır | §2.8, §5.1 madde 3–4, Ek, `tr5b_asama0.py` |
+| İ2-E2 | Yatay yoklama koşullu: Z'si "var" olan dilim bilgilidir; en az bir bilgili dilim ve her bilgili dilimde iki yatay "var". Neden kodu `yatay_bilgisiz` eklendi. İstek listesi değişmedi | §5.1 madde 2 ve 4, §9 madde 3, `tr5b_asama0.py` |
+| İ2-Ö1 | 8. adımın adı "güç yok (8. adım: pozitif kontrol geçmedi)"; zorunlu ek metin; §4.3'e "(8. adım)" açıklaması; §4.4'e "PK ile birlikte"; §6.1'e uzaklık maddesi (0,55 / 0,46 / 0,84; geçmeme 0,16–0,54) | §4.2 adım 8, §4.3, §4.4, §4.6, §6.1, §9 madde 5 |
+| İ2-Ö2 | P1 notu nicel sınırla yeniden yazıldı (etkin eşik σ*'ın 0,82–1 katı); §6.2 P1 tablosuna bağımsız istasyon satırı | §5.1 P1, §6.2, §9 madde 4 |
+| İ2-Ö3 | Ön kayıt, liste ve `tr5b_asama0.py` aşama 0'ın ilk ağ isteğinden önce dondurulur; dv/v koşu kodu aşama P'den önce. "Aşama 0'da tek koşu" maddesi | §5.1, §5.5 |
+| İ2-Ö4 | P2 istasyon uzaklıkları ve geçme olasılıkları metne girdi; liste değişmedi | §9 madde 13, §5.1 P2 |
+| İ2-Ö5 | A = 0 okuması: kesin Wilcoxon'un ulaşılabilir boyutu, fazlalık havuz dengesizliği; eşik değişmedi | §6.1 |
+| İ2-K1 | Wells–Coppersmith ikincil açık kaynakla (OpenQuake) doğrulandı | §3.7, §9 madde 11 |
+| İ2-K2 | `kuru` belirlenimci: merkez döngüsü sıralı; `merkez_saat_tutucu` ve `merkez_istek` sıralamalarına ad eşitlik çözücüsü. Metindeki "iki `sorted(… key=lambda x: -x[1])`" kodda biri `merkez_istek`'in `-(mk[m] + mk_ust[m])` anahtarıdır; o da aynı biçimde düzeltildi (KOERI ve IGN 85'te eşitti). Sayılar değişmedi | `tr5b_asama0.py`, `tr5b_asama0_kuru.json` |
+| İ2-K3 | Volkanik olaylar kotaya yazılır; K değişmez | §2.3 |
+| İ2-K4 | 1.–4. adımların her biri için iki başarısızlık sınırı | §5.5 |
+| İ2-K5 | Başlık ve durum; öncelik sırasına İNCELEME-2; bu tablo; dosya tablosu | Başlık, §0, değişiklik listesi |
+
+**Dondurmadan önceki sınamalar (12 Kasım 2026, ağsız).**
+- `tr5b_liste_s2.py` arşivlenmiş girdilerle karalama kopyasında, yeni `tr5b_asama0.py` ile koşuldu (21 sn). Beş çıktı
+  (`tr5b_liste_s2.json`, `tr5b_olaylar_s2.csv`, `tr5b_kontroller_s2.csv`, `tr5b_pilot_s2.csv`, `tr5b_ozet_s2.json`)
+  §2.8'deki sha256'larla bit düzeyinde aynı.
+- `kuru` üç kez koşuldu; üçünde de `tr5b_asama0_kuru.json` sha256'sı aynı (`797f9ec1…`). Sayılar sürüm 2 ile aynı.
+- Sürdürme sınaması (`urlopen` yasaklı, `_getir` sahte; İNCELEME-2 sınamasının genişletilmiş kopyası): 120 istek,
+  40'ı 500. Yarıda kesilen ilk çağrı 30 satır yazdı; ikinci çağrı kalan 90 isteği ve ilk çağrının 10 hatasını, üçüncü
+  çağrı ikincinin 30 hatasını yeniden denedi (toplam 40 = hata anahtarı sayısı), dördüncü çağrı 0 istek attı. Yarım son
+  satır okumayı düşürmüyor; ondan sonra eklenen satır sağlam. Bozuk liste dört kipte de durdu. Gerçek listeyle uçtan
+  uca sahte koşu (26 660 istek, beş çağrı): eksikken `say` "aşama 0 tamamlanmadı" ile durdu; tamamlanınca hiçbir
+  anahtar ikiden çok denenmedi; iki kez 500 dönen 2 istasyon `ustveri_alinamayan`'da; Z'si ve yatayı aynı ayda boş
+  olan pencere sert kuralla düşer, koşullu kuralla dolu kalır. (Sahte yanıtların sayıları anlam taşımaz.)
 
 ## Sürüm 1 → 2 değişiklik listesi
 
@@ -1020,7 +1089,33 @@ Her satır İNCELEME-1'in bir bulgusunu ya da yazarın bu sürümdeki bir deği�
 | `tr5b_guc_sonuc.json` | `ab13c9d45dcf02f9bd2e035e0649a69a4f10f9a832ba2809207a35e19e1234a2` | `tr5b_guc2_sonuc.json` | `40eea7ca202c97a7390079dbe0f87203a3363e5455e8f685b715e0710175607c` |
 | `tr5b_yapay.py` | `70e8fbaba4b01753798b03976d261101cef30e7d9ea44dcf874b443de7b6c024` | (değişmedi) + `tr5b_yapay2.py` | `785690b0fbe7d6cb758c62607c603b448afa65167c5b1a282053e1a374822fbf` |
 | `tr5b_yapay_sonuc.json` | `b8495bde85d131e9a344527938c96cb884e9b3cd5a7371473b799764fc8277d2` | `tr5b_yapay2_e3_sonuc.json`, `tr5b_yapay_ccf_ref.json` | `ed24793333b6c06b16d69e17a2ea19063bf3cb22cc15244f5b3b8e3594facaa5`; `36339a46ac3ac75423573852ec5e0677a425d1da951e732dee52123a02580e5c` |
-| – | – | `tr5b_asama0.py` | `d01781962d217988bf70607920a776b91fc303b07ea655cf4a78e75c64e236c5` |
-| – | – | `tr5b_asama0_kuru.json` | `5a782a84fbb44ce31bec71bce0b6a343feed86eea4fac987fb6a44908fae6330` |
+| – | – | `tr5b_asama0.py` (sürüm 3) | `9bfddeb2556da42aaaaf508f3d1a1d67c5531e06a6218399e748426c432509ab` |
+| – | – | `tr5b_asama0_kuru.json` (sürüm 3) | `797f9ec1f9ea5eec383f7fd6e4a914670fc0832eef7deccc0b12aad215c75628` |
 | – | – | `tr5b_pilot_s2.csv` | `f36cfe746d736d4ef1b13ece33963be3b52621af97daa8dc570f70f57ad04ec9` |
 | – | – | `tr5b_gvp_holosen.csv` | `be85234874a1a85a1610552f67348b3ea1ac29ff24417575cbe92f57f145f25d` |
+| – | – | `TR-5b_INCELEME-2.md` | `1a33b5214a08bbaa5098c7c42f053c787a1129ac7ebef5faaf23ebe8a5ebd0b4` |
+
+**Sürüm 3'te değişen dosyalar.** Öteki bütün dosyalar ve sha256'lar (liste, olaylar, kontroller, pilot, özet, güç,
+yapay) sürüm 2 ile aynıdır.
+
+| Dosya | Sürüm 2 sha256 | Sürüm 3 sha256 |
+|---|---|---|
+| `TR-5b_sismik-hiz-oncul_ONKAYIT.md` (sürüm 2 şimdi `_surum2.md`) | `b1a426254a90b37410de0c98aaae04645f64b5b77595415c883ccdf4557748d1` | bu belge |
+| `tr5b_asama0.py` | `d01781962d217988bf70607920a776b91fc303b07ea655cf4a78e75c64e236c5` | `9bfddeb2556da42aaaaf508f3d1a1d67c5531e06a6218399e748426c432509ab` |
+| `tr5b_asama0_kuru.json` | `5a782a84fbb44ce31bec71bce0b6a343feed86eea4fac987fb6a44908fae6330` | `797f9ec1f9ea5eec383f7fd6e4a914670fc0832eef7deccc0b12aad215c75628` |
+| `TR-5b_INCELEME-1.md` (girdi, değişmedi) | `5c0f260d134e929a474aa065ce1c7be25b1c757f354ce0e7ae7fa1caa3506d07` | aynı |
+| `TR-5b_INCELEME-2.md` (girdi) | – | `1a33b5214a08bbaa5098c7c42f053c787a1129ac7ebef5faaf23ebe8a5ebd0b4` |
+
+## Dondurma notu
+
+- **İncelemeler.** İNCELEME-1 (sürüm 1): DÜZELTMEYLE KABUL; bulguları sürüm 2'de işlendi. İNCELEME-2 (sürüm 2, son
+  tur): DÜZELTMEYLE KABUL; iki engelleyici (İ2-E1, İ2-E2), beş önemli, beş küçük bulgusu bu sürümde işlendi. Üçüncü
+  tura gerek yoktur.
+- **Kalan bilinen zayıflıklar.**
+  - Kapı sayıları üst sınırdır: Z önizlemesinde K 28 / K_p 15 (kapı 20 / 10). Gerçek sayıyı aşama 0 verir.
+  - PK, yöntem doğruyken Napa ölçeğinde 0,16–0,54 olasılıkla geçmeyebilir (§6.1); o durumda hüküm
+    "güç yok (8. adım: pozitif kontrol geçmedi)" ya da "ayırt edilemez (PK geçmedi)" olur.
+  - Sunucu fiyatı ve EarthScope ile KOERI dışındaki merkezlerin hızı doğrulanmadı (§5.3, §5.4).
+  - Ana indirme sunucusu (1b ve sonrası) proje sahibinin ayrı onayını bekler. Aşama 0 ve pilot 0 € bulut oturumunda
+    koşulur.
+

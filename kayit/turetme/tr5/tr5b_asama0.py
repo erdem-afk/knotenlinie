@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """TR-5b AŞAMA 0: sunucu kiralanmadan, dalga formu okunmadan doluluk ve üstveri sayımı; kapı G0.
 
-Ön kayıt: `kayit/onkayit/TR-5b_sismik-hiz-oncul_ONKAYIT.md` sürüm 2, §5.1. Örnek alınan betik `doluluk_yokla.py`
+Ön kayıt: `kayit/onkayit/TR-5b_sismik-hiz-oncul_ONKAYIT.md` sürüm 3 (İNCELEME-2 İ2-E1, İ2-E2, İ2-K2), §5.1. Örnek alınan betik `doluluk_yokla.py`
 (değiştirilmedi). Bu betik HİÇBİR dalga formunu açmaz ya da saklamaz: dataselect isteklerinden yalnız HTTP kodu ve
 bayt sayısı kaydedilir; istasyon servisinden yalnız `level=channel` metin üstverisi alınır.
 
@@ -15,13 +15,19 @@ Adımlar (önceden sabit):
               (T-8, T+30] içinde bozan istasyon PK'den düşer). Sonra yoklama istekleri kurulur:
               (a) Z ay yoklaması: penceredeki her ayın 15'i 12:00:00-12:01:00 UTC, seçilen konum kodu ve Z kanalı;
               (b) yatay yoklama: A, B, C dilimlerinin orta günlerinin ayında (15'i, 12:00-12:01), iki yatay kanal ayrı.
-  3. yokla    İstekleri atar; önbellekli ve yeniden başlatılabilir (`sure_sn` ile kendini durdurur).
-  4. say      Doluluk, istasyon kotası (dinamik), K0, K_p0, kapı G0, pilot P1 istasyonları -> asama0_sonuc.json.
+  3. yokla    İstekleri atar; önbellekli ve yeniden başlatılabilir (`sure_sn` ile kendini durdurur). Bir istek, kesin
+              kodla (200, 204, 404, 401, 403) yanıtlanmışsa ya da iki kez denenmişse tamamlanmıştır; öteki kodlar ve
+              bağlantı hataları sonraki çağrıda bir kez yeniden denenir. Yarım yazılmış önbellek satırı yok sayılır.
+  4. say      Bütün istekler ve üstveri istekleri tamamlanmadıkça durur (G0 verilmez). Doluluk, istasyon kotası
+              (dinamik), K0, K_p0, kapı G0, pilot P1 istasyonları -> asama0_sonuc.json.
+
+Liste sha256'sı (LISTE_SHA) kuru, ustveri, kur ve say kiplerinde denetlenir; uyuşmazlıkta iş durur.
 
 Kurallar (ön kayıt §5.1): ay "var": HTTP 200 ve bayt > 0; 204/404 ya da 200+0 bayt: yok; 401/403: kısıtlı (yok sayılır,
 atlatılmaz); öteki: hata (yok sayılır, ayrıca sayılır). Z ay doluluğu `dolu_ana`: ayların >= %80'i var VE en uzun
-ardışık boş ay <= 3. İstasyon-penceresi dolu: kanal seçildi, aygıt kuralı geçti, Z `dolu_ana` ve altı yatay isteğin
-hepsi "var". Kontrol dolu: >= 1 dolu istasyonu var. İstasyon kotası (Ö4): olaylar (T, kimlik) sırasıyla işlenir; her
+ardışık boş ay <= 3. İstasyon-penceresi dolu: kanal seçildi, aygıt kuralı geçti, Z `dolu_ana` ve yatay yoklama kuralı
+geçti (İ2-E2: Z'si "var" olan dilim bilgilidir; en az bir bilgili dilim ve her bilgili dilimde iki yatay istek "var").
+Kontrol dolu: >= 1 dolu istasyonu var. İstasyon kotası (Ö4): olaylar (T, kimlik) sırasıyla işlenir; her
 olay için aday sırasıyla dolu olan ve hiçbir istasyonu başka 3 kümede KULLANILMIŞ olmayan ilk 5 aday atanır; atanan
 adayların istasyonları kotaya yazılır. Olay geçer: >= 1 dolu istasyon ve >= 4 atanmış kontrol. K0: geçen olayı olan
 volkaniksiz küme sayısı. K_p0: K0 kümelerinden, aynı olayın plasebo tarafı da geçen (>= 1 dolu plasebo istasyonu ve
@@ -40,6 +46,8 @@ Kullanım (python3 -I -B):
   tr5b_asama0.py kur     <liste.json> <ob>
   tr5b_asama0.py yokla   <ob> [sure_sn] --ag-onay
   tr5b_asama0.py say     <liste.json> <ob>
+<ob>: önbellek ve istek günlüğü dizini (ustveri/, ustveri_gunluk.jsonl, istekler.json, onbellek.jsonl,
+asama0_sonuc.json). sure_sn: 6000.
 """
 import collections, datetime as dt, hashlib, json, math, os, re, sys, threading, time
 import urllib.request, urllib.error, urllib.parse
@@ -52,7 +60,7 @@ N_KONTROL, KONTROL_MIN, KOTA = 5, 4, 3
 KAPI_K, KAPI_KP = 20, 10
 DOLU_ORAN, DOLU_BOSLUK = 0.80, 3
 BOSLUK_GUN = 30
-LISTE_SHA = None   # sürüm 2 dondurulunca: tr5b_liste_s2.json sha256 (ön kayıt §2.8); None ise yalnız yazdırılır
+LISTE_SHA = 'a3a6a45a97d9e6a625f3aa6157093cda75b2190a026740573369d64bd46e8763'   # ön kayıt §2.8 (dondurulmuş)
 
 DS = {
     'IRISDMC': 'https://service.earthscope.org/fdsnws/dataselect/1/query',
@@ -217,8 +225,9 @@ def istek_kur_vekil(W, kanal_sec_fn):
 
 
 def kuru(liste, ham, ozet_yol=None):
+    liste_denet(liste)
     L = json.load(open(liste))
-    sha = hashlib.sha256(open(liste, 'rb').read()).hexdigest()
+    sha = liste_denet(liste)
     print('liste', os.path.basename(liste), sha)
     W = pencereler(L)
     kanal = kanal_satirlari_ham(ham)
@@ -239,15 +248,15 @@ def kuru(liste, ham, ozet_yol=None):
     oz = ozet_yol or os.path.join(BURASI, 'doluluk_ozet.json')
     if os.path.exists(oz): gec = json.load(open(oz)).get('istek', {}).get('medyan_sn', {})
     sure, sure_iyi = {}, {}
-    for m in set(mk) | set(mk_ust):
+    for m in sorted(set(mk) | set(mk_ust)):
         g = gec.get(m, 1.0); ara = ARA.get(m, ARA_VARSAYILAN)
         sure[m] = round((mk[m] * (g + ara) + mk_ust[m] * (2.0 + ara)) / 3600, 2)        # tutucu: gecikme + bekleme
         sure_iyi[m] = round((mk[m] * max(g, ara) + mk_ust[m] * max(2.0, ara)) / 3600, 2)  # betiğin gerçek akışı
     duvar = max(sure.values()); duvar_iyi = max(sure_iyi.values())
     sonuc = dict(liste_sha256=sha, istasyon_penceresi=n_pen, pencere_rol=dict(rol), ustveri_istasyon=len(ist),
                  istek_toplam=len(istekler) + len(ist), istek_Z_ay=tur['Z'], istek_yatay=tur['H'], istek_ustveri=len(ist),
-                 merkez_istek={m: mk[m] + mk_ust[m] for m in sorted(set(mk) | set(mk_ust), key=lambda m: -(mk[m] + mk_ust[m]))},
-                 merkez_saat_tutucu=dict(sorted(sure.items(), key=lambda x: -x[1])), duvar_saati_tutucu=duvar,
+                 merkez_istek={m: mk[m] + mk_ust[m] for m in sorted(set(mk) | set(mk_ust), key=lambda m: (-(mk[m] + mk_ust[m]), m))},
+                 merkez_saat_tutucu=dict(sorted(sure.items(), key=lambda x: (-x[1], x[0]))), duvar_saati_tutucu=duvar,
                  duvar_saati_iyimser=duvar_iyi,
                  is_2saat=math.ceil(duvar / 1.9), gecikme_kaynagi='doluluk_ozet.json medyan_sn (TR-5 Ek 1); bilinmeyen 1,0 sn')
     # kuru kipte K0 üst sınırı: bütün istasyon-pencereleri dolu sayılırsa
@@ -261,6 +270,45 @@ def kuru(liste, ham, ozet_yol=None):
 
 
 # ====================================================================== ağ kipleri
+KESIN = (200, 204, 404, 401, 403)          # kesin yanıt kodları; ötekiler bir kez yeniden denenir
+
+
+def liste_denet(liste):
+    sha = hashlib.sha256(open(liste, 'rb').read()).hexdigest()
+    if sha != LISTE_SHA: sys.exit(f'liste sha256 uyuşmuyor ({sha}); durdu')
+    return sha
+
+
+def satirlar(yol):
+    """jsonl; yarım ya da bozuk satır atlanır."""
+    out = []
+    if os.path.exists(yol):
+        for l in open(yol, encoding='utf-8'):
+            try: out.append(json.loads(l))
+            except ValueError: pass
+    return out
+
+
+def son_durum(kayitlar):
+    """anahtar -> geçerli satır (varsa kesin kodlu son satır, yoksa son satır) ve deneme sayısı."""
+    d, n = {}, collections.Counter()
+    for x in kayitlar:
+        n[x['k']] += 1
+        if x['k'] not in d or x['kod'] in KESIN or d[x['k']]['kod'] not in KESIN: d[x['k']] = x
+    return d, n
+
+
+def ekle_ac(yol):
+    """jsonl'u ekleme kipinde açar; dosya yarım bir satırla bitiyorsa önce satır sonu yazılır, böylece yarım satır
+    yalnız kendisi yok sayılır ve yeni satırı bozmaz."""
+    if os.path.exists(yol) and os.path.getsize(yol) > 0:
+        with open(yol, 'rb') as g:
+            g.seek(-1, os.SEEK_END); yarim = g.read(1) != b'\n'
+        if yarim:
+            with open(yol, 'a', encoding='utf-8') as g: g.write('\n')
+    return open(yol, 'a', encoding='utf-8')
+
+
 def ag_onayi():
     if '--ag-onay' not in sys.argv:
         print('Ağ kipi --ag-onay bayrağı olmadan çalışmaz; hiçbir istek atılmadı.'); sys.exit(2)
@@ -293,6 +341,7 @@ def _getir(url, ara, son):
 
 
 def ustveri(liste, ob, sure=None):
+    liste_denet(liste)
     ag_onayi()
     L = json.load(open(liste)); W = pencereler(L)
     os.makedirs(os.path.join(ob, 'ustveri'), exist_ok=True)
@@ -300,12 +349,14 @@ def ustveri(liste, ob, sure=None):
     for w in W:
         ist.setdefault(w['ist'], [w['a'], w['b_ayg'], w['merkez']])
         ist[w['ist']][0] = min(ist[w['ist']][0], w['a']); ist[w['ist']][1] = max(ist[w['ist']][1], w['b_ayg'])
+    gyol = os.path.join(ob, 'ustveri_gunluk.jsonl')
+    ug = collections.Counter(x['ist'] for x in satirlar(gyol) if x['kod'] not in KESIN)
     kuyruk = collections.defaultdict(list)
     for s, (a, b, m) in sorted(ist.items()):
-        if not os.path.exists(os.path.join(ob, 'ustveri', s + '.txt')): kuyruk[m].append((s, a, b))
+        if not os.path.exists(os.path.join(ob, 'ustveri', s + '.txt')) and ug[s] < 2: kuyruk[m].append((s, a, b))
     print('üstveri kalan', sum(len(v) for v in kuyruk.values()), '/', len(ist), flush=True)
     bitis = time.time() + sure if sure else None
-    gunluk = open(os.path.join(ob, 'ustveri_gunluk.jsonl'), 'a'); kilit = threading.Lock()
+    gunluk = ekle_ac(gyol); kilit = threading.Lock()
     def akis(m, rs):
         son = 0.0
         for s, a, b in rs:
@@ -315,13 +366,16 @@ def ustveri(liste, ob, sure=None):
             q = urllib.parse.urlencode(dict(net=ag, sta=st, channel='BH?,HH?', level='channel', format='text',
                                             starttime=f'{a}T00:00:00', endtime=f'{b}T23:59:59'))
             kod, n, veri, son, den = _getir(ST[m] + '?' + q, ARA.get(m, ARA_VARSAYILAN), son)
-            if kod in (200, 204, 404):
-                with open(os.path.join(ob, 'ustveri', s + '.txt'), 'wb') as f: f.write(veri or b'')
+            if kod in KESIN:     # kesin kod: tamamlandı (401/403 boş dosya, yani kanal yok); dosya bütün olarak yazılır
+                hedef = os.path.join(ob, 'ustveri', s + '.txt')
+                with open(hedef + '.tmp', 'wb') as f: f.write(veri or b'')
+                os.replace(hedef + '.tmp', hedef)
             with kilit:
                 gunluk.write(json.dumps(dict(ist=s, m=m, kod=kod, bayt=n, deneme=den)) + '\n'); gunluk.flush()
     th = [threading.Thread(target=akis, args=(m, v), daemon=True) for m, v in kuyruk.items()]
     for t in th: t.start()
     for t in th: t.join()
+    gunluk.close()
 
 
 def kanal_epoklari(ob, s):
@@ -378,6 +432,7 @@ def kanal_sec(E, w):
 
 
 def kur(liste, ob):
+    liste_denet(liste)
     L = json.load(open(liste)); W = pencereler(L)
     cache = {}
     def sec(w):
@@ -400,16 +455,14 @@ def anahtar(r): return f"{r['ag']}.{r['ist']}.{r['loc']}.{r['cha']}.{r['ay']}"
 def yokla(ob, sure=None):
     ag_onayi()
     L = json.load(open(os.path.join(ob, 'istekler.json')))['istekler']
-    oyol = os.path.join(ob, 'onbellek.jsonl'); yapilan = set()
-    if os.path.exists(oyol):
-        for l in open(oyol):
-            try: yapilan.add(json.loads(l)['k'])
-            except Exception: pass
+    oyol = os.path.join(ob, 'onbellek.jsonl')
+    d, n = son_durum(satirlar(oyol))
+    yapilan = {k for k, x in d.items() if x['kod'] in KESIN or n[k] >= 2}
     kuyruk = collections.defaultdict(list)
     for r in L:
         if anahtar(r) not in yapilan: kuyruk[r['merkez']].append(r)
     print(f'kalan {sum(len(v) for v in kuyruk.values())} / {len(L)}', flush=True)
-    kilit = threading.Lock(); f = open(oyol, 'a'); bitis = time.time() + sure if sure else None
+    kilit = threading.Lock(); f = ekle_ac(oyol); bitis = time.time() + sure if sure else None
     def akis(mk, rs):
         son = 0.0; ara = ARA.get(mk, ARA_VARSAYILAN)
         for r in rs:
@@ -437,19 +490,30 @@ def ay_durum(x):
 
 
 def say(liste, ob):
+    liste_denet(liste)
     L = json.load(open(liste)); W = pencereler(L)
-    sha = hashlib.sha256(open(liste, 'rb').read()).hexdigest()
-    if LISTE_SHA and sha != LISTE_SHA: sys.exit('liste sha256 uyuşmuyor; durdu')
+    sha = liste_denet(liste)
     IST = json.load(open(os.path.join(ob, 'istekler.json')))
-    kayit = {}
-    for l in open(os.path.join(ob, 'onbellek.jsonl')):
-        x = json.loads(l); kayit[x['k']] = x
+    kayit, deneme = son_durum(satirlar(os.path.join(ob, 'onbellek.jsonl')))
+    eksik = [anahtar(r) for r in IST['istekler'] if anahtar(r) not in kayit or
+             (kayit[anahtar(r)]['kod'] not in KESIN and deneme[anahtar(r)] < 2)]
+    ug = collections.Counter(x['ist'] for x in satirlar(os.path.join(ob, 'ustveri_gunluk.jsonl')) if x['kod'] not in KESIN)
+    ust_eksik = [s for s in IST['ustveri_eksik'] if ug[s] < 2]
+    if eksik or ust_eksik: sys.exit(f'aşama 0 tamamlanmadı: {len(eksik)} istek, {len(ust_eksik)} üstveri; G0 verilmez')
     durum = {}
     neden = collections.Counter()
+    istek_rol = collections.defaultdict(set)     # istek anahtarı -> onu kullanan pencere rolleri (istek_durum için)
     for w in W:
         k = pkey(w)
-        if k in durum: continue
         s = IST['secim'].get(k)
+        T = w['T']; a, b = w['a'], w['b']
+        dil = [(a, T - TD(days=731)), (T - TD(days=730), T - TD(days=366)), (T - TD(days=365), b)]
+        if s is not None:
+            ag, st = w['ist'].split('.')
+            for ay in ay_listesi(a, b): istek_rol[f"{ag}.{st}.{s['loc']}.{s['bant']}Z.{ay}"].add(w['rol'])
+            for x, y in dil:
+                for h in s['yatay']: istek_rol[f"{ag}.{st}.{s['loc']}.{s['bant']}{h}.{orta_ay(x, y)}"].add(w['rol'])
+        if k in durum: continue
         if s is None: durum[k] = dict(dolu=False, pk=False, neden='uc_bilesen_yok'); neden['uc_bilesen_yok'] += 1; continue
         if s['aygit_hukum']: durum[k] = dict(dolu=False, pk=False, neden='aygit'); neden['aygit'] += 1; continue
         ag, st = w['ist'].split('.')
@@ -457,12 +521,12 @@ def say(liste, ob):
         v = sum(1 for x in ds if x == 'var'); en = cur = 0
         for x in ds: cur = 0 if x == 'var' else cur + 1; en = max(en, cur)
         z_ok = bool(ds) and v / len(ds) >= DOLU_ORAN and en <= DOLU_BOSLUK
-        T = w['T']; a, b = w['a'], w['b']
-        dil = [(a, T - TD(days=731)), (T - TD(days=730), T - TD(days=366)), (T - TD(days=365), b)]
-        h_ok = all(ay_durum(kayit.get(f"{ag}.{st}.{s['loc']}.{s['bant']}{h}.{orta_ay(x, y)}")) == 'var'
-                   for x, y in dil for h in s['yatay'])
+        zd = lambda ay: ay_durum(kayit.get(f"{ag}.{st}.{s['loc']}.{s['bant']}Z.{ay}"))
+        bilgili = [orta_ay(x, y) for x, y in dil if zd(orta_ay(x, y)) == 'var']
+        h_ok = bool(bilgili) and all(ay_durum(kayit.get(f"{ag}.{st}.{s['loc']}.{s['bant']}{h}.{ay}")) == 'var'
+                                     for ay in bilgili for h in s['yatay'])
         ok = z_ok and h_ok
-        nd = 'dolu' if ok else ('z_ay' if not z_ok else 'yatay')
+        nd = 'dolu' if ok else ('z_ay' if not z_ok else ('yatay_bilgisiz' if not bilgili else 'yatay'))
         neden[nd] += 1
         durum[k] = dict(dolu=ok, pk=ok and not s['aygit_PK'], neden=nd, z_oran=round(v / len(ds), 3) if ds else 0, z_bosluk=en)
     def ist_dolu(rol, r, s):
@@ -482,11 +546,30 @@ def say(liste, ob):
         ds = sorted([s for s in c['istasyon'] if ist_dolu('kontrol', r, s)], key=lambda s: s['uzaklik_km'])
         p1.append(dict(olay=r['id'], kontrol_sira=c['sira'], merkez_id=c['merkez_id'], ist=ds[0]['ist'], pencere=r['pencere']))
         if len(p1) >= 24: break
+    # istek_durum: istekler üstünden var / bos / kisitli / hata; rol kırılımında bir istek onu kullanan her rolde sayılır
+    sd = {}
+    for r in IST['istekler']:
+        x = ay_durum(kayit.get(anahtar(r))); sd[anahtar(r)] = x
+    toplam = collections.Counter(sd.values())
+    mk_d = collections.defaultdict(collections.Counter); rol_d = collections.defaultdict(collections.Counter)
+    for r in IST['istekler']:
+        mk_d[r['merkez']][sd[anahtar(r)]] += 1
+        for ro in sorted(istek_rol.get(anahtar(r), ())): rol_d[ro][sd[anahtar(r)]] += 1
+    dz = lambda c: {d: c[d] for d in ('var', 'bos', 'kisitli', 'hata')}
+    istek_durum = dict(toplam=dz(toplam), rol={ro: dz(rol_d[ro]) for ro in sorted(rol_d)},
+                       merkez={m: dz(mk_d[m]) for m in sorted(mk_d)})
+    ug_tum = collections.defaultdict(list)
+    for x in satirlar(os.path.join(ob, 'ustveri_gunluk.jsonl')): ug_tum[x['ist']].append(x['kod'])
+    ustveri_alinamayan = {s: ug_tum.get(s, []) for s in IST['ustveri_eksik']}
     out = dict(liste_sha256=sha, K0=K0, K_p0=Kp0, kapi=dict(K=KAPI_K, K_p=KAPI_KP), hukum=hukum,
                pencere_neden=dict(neden), olay=ayr, p1=p1,
-               istek=dict(toplam=len(IST['istekler']), atilan=sum(1 for r in IST['istekler'] if anahtar(r) in kayit)))
+               istek=dict(toplam=len(IST['istekler']), atilan=sum(1 for r in IST['istekler'] if anahtar(r) in kayit)),
+               istek_durum=istek_durum, ustveri_alinamayan=ustveri_alinamayan,
+               onbellek_sha256=hashlib.sha256(open(os.path.join(ob, 'onbellek.jsonl'), 'rb').read()).hexdigest(),
+               istekler_sha256=hashlib.sha256(open(os.path.join(ob, 'istekler.json'), 'rb').read()).hexdigest())
     json.dump(out, open(os.path.join(ob, 'asama0_sonuc.json'), 'w'), ensure_ascii=False, indent=1, default=str)
     print(json.dumps({k: out[k] for k in ('K0', 'K_p0', 'hukum', 'pencere_neden', 'istek')}, ensure_ascii=False))
+    print('istek_durum', json.dumps(istek_durum['toplam'], ensure_ascii=False), 'üstveri alınamayan', len(ustveri_alinamayan))
 
 
 if __name__ == '__main__':
