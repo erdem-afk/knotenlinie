@@ -1,0 +1,18 @@
+{
+ "yeni": {
+  "gecerli_delta_orani": 0.91,
+  "sigma_olcum_yuzde": 0.0259,
+  "oran_medyan": 0.901,
+  "oran_q05": 0.839,
+  "oran_q95": 0.945
+ },
+ "kayitli": {
+  "gecerli_delta_orani": 0.91,
+  "sigma_olcum_yuzde": 0.0259,
+  "oran_medyan": 0.901,
+  "oran_q05": 0.839,
+  "oran_q95": 0.945
+ },
+ "ayni": true,
+ "sure_sn": 29
+}
