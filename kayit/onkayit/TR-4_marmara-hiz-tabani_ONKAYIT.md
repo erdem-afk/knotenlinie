@@ -651,3 +651,25 @@ yoktur. Bilinen zayıflıklar dondurmada açıkça kabul edilir:
   %29'da kırılır). Kırılırsa hüküm "veri yok"tur; σ̂_Δ yalnız bilgi satırı 0 olarak yazılır (§4.3).
 - **Pozitif kontrol yok.** Zincirin Marmara'da gerçek bir hız değişimini gördüğü gösterilmez; "karşılandı" ancak gerçek
   olaylı bir PK'yi geçen yeni bir ön kayıtta dayanak olur (§4.6, Z10).
+
+## Ek 1 (12 Kasım 2026, veri öncesi; aşama 0 kod incelemesi)
+
+Kaynak: `TR-4_ASAMA0-KOD-INCELEME.md` (DÜZELTMEYLE KABUL; sha256
+`ffcf22c05ac0fbcf24bdcdb40dd295744faab03104685ed913da9ef7b4d55cc8`). Ağ isteği atılmadı. Yukarıdaki gövde değişmedi;
+bu ek gövdedeki sha256'ları yalnız aşağıdaki satırlar için günceller.
+
+- `tr4_asama0.py` değişti: `e5d8c33c…` → `183aafd9d9fca43a7f312cb54d987040c63bd57f3de2eeed951faa74dfd80297`. Değişiklik
+  yalnız aşama H'dedir:
+  - (Ö1) `_akit`'in soket zaman aşımı 60 sn yerine 15 dk tavandır (§5.2). Yanıt kodu alındıktan sonra tavanda zaman
+    aşımı olursa istek kesik sayılır; o ana kadarki bayt ve süre tutulur.
+  - (Ö2) Aşama H seçiminin sha256'sı (`e355b787f4860d70d96b99f90b6f222a548d5b950b61ee37e9803b414eb0a709`) koda
+    yazıldı. `kuru` ya da `hiz` farklı bir seçim üretirse (ör. numpy sürümü) iş durur.
+  - (K1) GET yolunda bir gün kesin olmayan kodla biterse istek kesin sayılmaz ve bir kez yeniden denenir.
+- G0'ın hesabı, istek listesi ve kademe kuralı değişmedi. `tr4_asama0_kuru.json` (`ecbde36c…`), `tr4_asama0_prova.py`
+  (`6ce012b7…`) ve `tr4_asama0_prova.json` (`42adc1af…`) bit düzeyinde aynı. Aşama 0'ı koşturma komutları değişmedi.
+- §2.1'deki sunucu adı `eida.koeri.boun.edu.tr` olarak okunur. TR-5 doluluk önbelleği ve aşama 0 betiği bu adı
+  kullanır.
+- Yazarın üç okuması kabul edildi: aşama H seçimi (8 farklı istasyon, aşama 0 öncesi ana örneklemden 5 ardışık gün,
+  ayın 1–20'si içinde); "en çok 5 gün" (ilk ölçümden 5 gün sonra eldeki ölçümlerin medyanıyla madde 1–2, yoksa
+  madde 4); üstveri 26 istasyon.
+- Kod ne kendi sha256'sını ne bu belgenin sha256'sını denetler; bu ek hiçbir denetimi bozmaz.

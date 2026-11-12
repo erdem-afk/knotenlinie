@@ -86,6 +86,8 @@ H_N, H_GUN, H_SAAT = 8, 5, 4
 H_ILK, H_SON = dt.date(2014, 1, 1), dt.date(2023, 12, 31)
 H_TAVAN_SN = 900.0
 H_POST_RET = (400, 405, 413, 414, 415, 501)  # POST'un reddi sayılan kodlar (ilk POST isteğinde)
+# Ek 1 (kod incelemesi, Ö2): kuru kipte yazdırılan seçimin sha256'sı; numpy sürümü değişip seçim kayarsa iş durur
+H_SECIM_SHA = 'e355b787f4860d70d96b99f90b6f222a548d5b950b61ee37e9803b414eb0a709'
 # kademe (§5.3)
 BAYT_GUN = 4 * 3600 * 100 * 3 * 1.3           # §5.4: 4 saat, 100 sn^-1, 3 bileşen, 1,3 bayt/örnek
 ESIK_A_GUN, ESIK_D_GUN = 7.0, 21.0
@@ -421,7 +423,10 @@ def hiz_secim(R, kon):
         sps = float(next(r['sps'] for r in A if r['ist'] == s))
         out.append(dict(ist=s, gun_ilk=d0.isoformat(), gun=[(d0 + TD(days=i)).isoformat() for i in range(H_GUN)],
                         utc=pen, cha='HH?', loc='--', ornek_beklenen=int(H_GUN * H_SAAT * 3600 * sps * 3)))
-    return dict(tohum_metin=H_TOHUM_METIN, tohum=int(h[:8], 16), istek=out)
+    sec = dict(tohum_metin=H_TOHUM_METIN, tohum=int(h[:8], 16), istek=out)
+    s = hashlib.sha256(json.dumps(sec, sort_keys=True, ensure_ascii=False).encode()).hexdigest()
+    if s != H_SECIM_SHA: sys.exit(f'aşama H seçimi kuru kiptekinden farklı (sha256 {s}); durdu')
+    return sec
 
 
 def hiz_post_govde(x):
@@ -505,11 +510,13 @@ def _getir(url):
 
 def _akit(url, govde, tavan_sn):
     """Aşama H: tek istek; gövde parça parça okunur, yalnız bayt ve sha256 tutulur (saklanmaz, çözülmez).
-    tavan_sn aşılırsa o ana kadarki bayt ve süre döner. (kod, bayt, sha256, sn, kesik)."""
-    h = hashlib.sha256(); n = 0; t0 = time.monotonic(); kesik = False
+    tavan_sn aşılırsa o ana kadarki bayt ve süre döner. (kod, bayt, sha256, sn, kesik).
+    Ek 1 (kod incelemesi, Ö1): soket zaman aşımı tavan_sn'dir (önceden 60 sn; §5.2 isteğe 15 dk tanır). Yanıt kodu
+    alındıktan sonra okuma tavanda zaman aşımına uğrarsa istek kesik sayılır, o ana kadarki bayt ve süre tutulur."""
+    h = hashlib.sha256(); n = 0; t0 = time.monotonic(); kesik = False; kod = None
     req = urllib.request.Request(url, data=govde.encode() if govde else None, headers={'User-Agent': UA})
     try:
-        with urllib.request.urlopen(req, timeout=60) as y:
+        with urllib.request.urlopen(req, timeout=tavan_sn) as y:
             kod = y.status
             while True:
                 if time.monotonic() - t0 > tavan_sn: kesik = True; break
@@ -519,7 +526,8 @@ def _akit(url, govde, tavan_sn):
     except urllib.error.HTTPError as e:
         kod = e.code
     except Exception as e:
-        kod = type(e).__name__
+        if kod is not None and time.monotonic() - t0 >= tavan_sn: kesik = True
+        else: kod = type(e).__name__
     return kod, n, h.hexdigest(), round(time.monotonic() - t0, 3), kesik
 
 
@@ -828,7 +836,9 @@ def hiz(fed, dol, ob, sure=None):
                         kj, nj, shj, snj, kj_kes = _akit(hiz_get_url(x, j), None, max(1.0, H_TAVAN_SN - sn))
                         akis.sonra(kj, None); kods.append(kj); nb += nj; sn += snj; hs.update(shj.encode())
                         if kj_kes or sn >= H_TAVAN_SN: kes = True; break
-                    kod = 200 if 200 in kods else kods[0]; sh = hs.hexdigest(); bicim = 'GET'
+                    # Ek 1 (K1): bir günü kesin olmayan kodla biten istek bütünüyle kesin değildir (yeniden denenir)
+                    kk = [c for c in kods if c not in KESIN]
+                    kod = kk[0] if kk else (200 if 200 in kods else kods[0]); sh = hs.hexdigest(); bicim = 'GET'
                 else:
                     kor_denet(son_gun, SON_HUKUM); akis.once()
                     kod, nb, sh, sn, kes = _akit(DS, hiz_post_govde(x), H_TAVAN_SN); akis.sonra(kod, None); bicim = 'POST'
