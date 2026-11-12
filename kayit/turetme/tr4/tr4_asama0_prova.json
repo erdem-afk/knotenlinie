@@ -1,0 +1,187 @@
+{
+ "P0_bayraksiz": {
+  "cikis": "2",
+  "dizin_acildi": false,
+  "istek": 0
+ },
+ "P1_sha": {
+  "cikis": "girdi sha256 uyuşmuyor: marmara_fed_kana",
+  "istek": 0
+ },
+ "P2_korluk": {
+  "b13_2025_06": "KÖRLÜK: istek bitişi 2025-06-15 > 2025-05-31; bağlantı kurulmadı, durdu",
+  "hukum_2024": "KÖRLÜK: istek bitişi 2024-01-15 > 2023-12-24; bağlantı kurulmadı, durdu",
+  "istek": 0,
+  "y2026": "KÖRLÜK: istek bitişi 2026-01-15 > 2025-12-31; bağlantı kurulmadı, durdu"
+ },
+ "P3_ustveri": {
+  "cagri_1": 26,
+  "cagri_2": 2,
+  "cagri_3": 0,
+  "istek": 597,
+  "istek_sayisi": {
+   "b13_yatay": 30,
+   "b13_z": 15,
+   "yatay": 468,
+   "z_aday": 84
+  },
+  "kur_sonra": null,
+  "kur_tamamlanmadan": "üstveri tamamlanmadı: 2 istasyon; kur koşmaz",
+  "onizleme_farki": [],
+  "say_tamamlanmadan": "aşama 0 tamamlanmadı: istek listesi yok, 2 üstveri; G0 verilmez",
+  "ustveri_alinamayan": [
+   "KO.NMR9"
+  ],
+  "ustveri_yeniden": "istek listesi kuruldu; üstveri değiştirilemez (§5.6)"
+ },
+ "P4_sure": {
+  "ikiden_cok_deneme": 0,
+  "ikinci_cagri_atilan": 431,
+  "ilk_cagri_atilan": 172,
+  "ilk_cagri_satir": 172,
+  "kesin_kodlu_cift": 0,
+  "say_eksikken": "aşama 0 tamamlanmadı: 431 istek, 0 üstveri; G0 verilmez",
+  "sonuc_yok": true
+ },
+ "P5_uc_cagri": {
+  "cagri_1_atilan": 597,
+  "cagri_1_hata": 40,
+  "cagri_2_atilan": 40,
+  "cagri_2_kalan_hata": 11,
+  "cagri_3_atilan": 0,
+  "ikiden_cok_deneme": 0,
+  "kesin_kodlu_cift": 0,
+  "say_hata_varken": "aşama 0 tamamlanmadı: 40 istek, 0 üstveri; G0 verilmez",
+  "yokla_say_sonrasi": "aşama 0 sayıldı; yeniden yoklama yapılmaz (§5.6)"
+ },
+ "P6_yarim_satir": {
+  "bozuk_satir": 1,
+  "gecerli_satir": 637,
+  "say_dusmedi": true,
+  "say_iki_kez_ayni": true,
+  "say_sha256": "ddf2fc55a561b50732e24808b3a72e6ee735c3bb9d02b85299f3d518b99be0f1"
+ },
+ "P7_hiz": {
+  "hA": {
+   "akit": 8,
+   "kademe": "A",
+   "v": 600.0
+  },
+  "hC": {
+   "akit": 8,
+   "kademe": "C",
+   "v": 100.0
+  },
+  "hP_post_ret": {
+   "akit": 41,
+   "bicim": "GET",
+   "kademe": "A"
+  },
+  "hS_sure": {
+   "cagri_1_istek": 2,
+   "cagri_1_kademe": "ölçüm sürüyor",
+   "cagri_2_istek": 6,
+   "cagri_2_kademe": "ertelendi (aktarım hızı)",
+   "v": 40.0
+  },
+  "hY_yavas_seri": [
+   {
+    "akit": 8,
+    "ek": "ölçülen hız 60.0 KiB/s (ölçüm 1 adet); V_D / v = 26.1 gün",
+    "gerekce": "ertelendi (aktarım hızı)",
+    "kademe": "ertelendi (aktarım hızı)"
+   },
+   {
+    "akit": 8,
+    "ek": "ölçülen hız 60.0, 60.0 KiB/s (ölçüm 2 adet); V_D / v = 26.1 gün",
+    "gerekce": "ertelendi (aktarım hızı)",
+    "kademe": "ertelendi (aktarım hızı)"
+   },
+   {
+    "akit": 0,
+    "ek": "ölçülen hız 60.0, 60.0 KiB/s (ölçüm 2 adet); V_D / v = 26.1 gün",
+    "gerekce": "ertelendi (aktarım hızı)",
+    "kademe": "ertelendi (aktarım hızı)"
+   },
+   {
+    "akit": 8,
+    "ek": "aşama H hızları 60.0, 60.0, 60.0 KiB/s; medyan 60.0; V_D / v = 26.1 gün; bilgi satırı 0: hesaplanmadı (indirme yok)",
+    "gerekce": "madde 4",
+    "kademe": "veri yok (aktarım hızı)"
+   },
+   {
+    "akit": 0,
+    "ek": "aşama H hızları 60.0, 60.0, 60.0 KiB/s; medyan 60.0; V_D / v = 26.1 gün; bilgi satırı 0: hesaplanmadı (indirme yok)",
+    "gerekce": "madde 4",
+    "kademe": "veri yok (aktarım hızı)"
+   }
+  ]
+ },
+ "ag_cagrisi": 0,
+ "akit_cagri": 89,
+ "getir_cagri": 1268,
+ "say_ozet": {
+  "V_GB": {
+   "A": 273.718,
+   "C": 180.487,
+   "D": 138.721
+  },
+  "bilgi13_dolu": false,
+  "dolu_yer_pencere": 80,
+  "hukum": "G0 geçti",
+  "indirme": "yapılır",
+  "istek": {
+   "b13_yatay": 30,
+   "b13_z": 15,
+   "toplam": 597,
+   "yatay": 468,
+   "z_aday": 84
+  },
+  "istek_durum": {
+   "rol": {
+    "ana": {
+     "bos": 17,
+     "hata": 10,
+     "kisitli": 4,
+     "var": 521
+    },
+    "bilgi13": {
+     "bos": 0,
+     "hata": 1,
+     "kisitli": 1,
+     "var": 43
+    }
+   },
+   "toplam": {
+    "bos": 17,
+    "hata": 11,
+    "kisitli": 5,
+    "var": 564
+   }
+  },
+  "neden": {
+   "aygit": 0,
+   "dolu": 80,
+   "uc_bilesen_yok": 0,
+   "yatay": 25,
+   "yatay_bilgisiz": 0,
+   "z_ay": 0
+  },
+  "ustveri_alinamayan": {
+   "KO.NMR9": [
+    "ConnectionResetError",
+    "ConnectionResetError"
+   ]
+  },
+  "yer_T": {
+   "2017": 12,
+   "2018": 13,
+   "2019": 14,
+   "2020": 12,
+   "2021": 10,
+   "2022": 8,
+   "2023": 6,
+   "2024": 5
+  }
+ }
+}

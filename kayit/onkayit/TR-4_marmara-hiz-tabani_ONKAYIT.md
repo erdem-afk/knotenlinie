@@ -1,33 +1,36 @@
 # TR-4 ön kayıt: Marmara KO istasyonlarında olaysız yıllarda ortam gürültüsü dv/v tabanı
 
-Durum: **TASLAK sürüm 1, bağımsız incelemeye hazır.** 12 Kasım 2026.
+Durum: **DONDURULDU sürüm 2, 12 Kasım 2026 (İNCELEME-1 düzeltmeleri işlendi).** Dondurma commit'i bu dosyayı, pencere
+listesini ve `tr4_asama0.py`'yi içerir; aşama 0'ın ilk ağ isteğinden önce push edilir. dv/v koşu kodu ayrı yazılır ve
+ilk dalga formu isteğinden önce bağımsız kod incelemesinden geçip dondurulur.
 Hiçbir dalga formu indirilmedi, açılmadı ya da yoklanmadı. Bu taslak yalnız var olan üstveri, doluluk önbelleği ve
 TR-5b kataloğuyla, ağsız hesaplandı. Kol: TR. Ata: `TR-5_TR-4_SAYIM.md` Ek 2 (sha256 `df912cb0…`). Zincir:
 `TR-5b_sismik-hiz-oncul_ONKAYIT.md` sürüm 3, DONDURULDU (sha256 `506c0470…`). Maliyet bu belgeye kadar 0 €.
 
 **Tek cümle.** TR-4, Marmara'daki KO istasyonlarında, depremden uzak (olaysız) pencerelerde, TR-5b'nin dondurulmuş
 dv/v zinciriyle tek istasyonun "son yıl − önceki iki yıl" düzey farkını (Δ) ölçer ve bu farkın dağılımını yazar:
-**σ̂_Δ** (1,4826 · MAD) ve **q95 = |Δ|'nın %95 niceliği**. q95, "olaysız bir yılda tek istasyonda dv/v'nin %95
-olasılıkla kalacağı sınır", yani bu ölçüyle Marmara'da tek istasyonda algılanabilir en küçük yıl ölçekli hız
-değişimidir. Bu bir ölçüm tabanıdır; olasılık, alarm ya da tahmin değildir.
+**σ̂_Δ** (1,4826 · MAD) ve **q95 = |Δ|'nın %95 niceliği**. q95, olaysız bir yılda tek istasyonda Δ'nın %95
+olasılıkla kalacağı sınırdır. Yani bu ölçüyle Marmara'da tek istasyonda %5 yanlış alarm oranında saptama eşiğidir. Bu
+büyüklükte bir değişim yarı yarıya saptanır; %80 saptama ≈ q95 + 0,84 σ̂_Δ ister. Bu bir ölçüm tabanıdır; olasılık, alarm ya da tahmin değildir.
 
 **Kapı sayıları (üstveri ve Z doluluğu, aşama 0'dan önce).** Ana tanımla 21 yer (22 istasyon), 102 yer-penceresi;
 yıllık T 2017–2024 için yer sayısı 15, 16, 15, 14, 14, 9, 10, 9. Kapı (≥ 10 yer, en az 3 yıl arayla ≥ 2 epok)
 geçiyor; ama TR-5b'de aygıt kuralı ve yatay bileşenler sayıyı ≈ %9 + %9 küçülttü. Aynı küçülme burada 2017 ve 2020'yi
 ≈ 12'ye indirir; kapı yine geçer, pay dardır.
 
-**Koşu düzeni.** Aşama 0 (771 hafif istek, ≈ 0,6 saat, bulut oturumu, 0 €) → aşama H (hız ölçümü, aşama 0'ın
-içinde) → kademe seçimi (A ya da C, hızdan; §5.3) → indirme ve ölçü (0 € bulut oturumunda, her biri ≤ 2 saatlik,
-kaldığı yerden süren işler). Kademe C, TR-7'nin tek akış hızında (341 KiB/s) ≈ 6,6 gün, 197 GB'tır. Hız 23–40 KiB/s
-ise (TR-7 §4 ve TR-5 §4.1 ölçümleri) hiçbir zincire sadık kademe bir haftaya sığmaz; o durumda koşu
-**"ertelendi (aktarım hızı)"** durumunda durur ve karar proje sahibinindir (§5.3). Sunucu kiralanmaz; kiralama
-Erdem'in onayını ister ve hızı artırmaz, yalnız gözetimsiz koşturur.
+**Koşu düzeni.** Aşama 0 (≈ 630 hafif istek, bulut oturumu, 0 €) → aşama H (8 üretim biçiminde istek, §5.2) → kademe
+(A ya da C, yalnız hızdan ve aşama 0'ın hacminden; §5.3) → kronolojik indirme ve saatlik ÇİF (0 € bulut oturumunda,
+her biri ≤ 2 saatlik, kaldığı yerden süren işler; bütçe 21 etkin gün / 42 takvim günü) → ölçü. Bütçe dolarsa analiz
+tamamlanmış T'lerle yapılır; en küçük küme T 2017–2021'dir (153,6 GB). 40 KiB/s ve altında hiçbir kapıyı koruyan küme
+bütçeye sığmaz; hüküm "veri yok (aktarım hızı)" olur. Sunucu kiralanmaz; kiralama Erdem'in onayını ister ve hızı
+artırmaz.
 
 ---
 
 ## 0. Kimlik, öncelik ve TR-5b'den farklar
 
-Çelişkide öncelik: bu belge > `TR-5b_sismik-hiz-oncul_ONKAYIT.md` sürüm 3 > `TR-5_TR-4_SAYIM.md`. Bu belgede
+Çelişkide öncelik: bu belge > `TR-4_INCELEME-1.md` > `TR-5b_sismik-hiz-oncul_ONKAYIT.md` sürüm 3 >
+`TR-5_TR-4_SAYIM.md`. Bu belgede
 yazılmayan her ölçü kuralı TR-5b §3'teki gibidir ve değiştirilmez. Aşağıdaki tablo farkların tamamıdır.
 
 | Konu | TR-5b (sürüm 3) | TR-4 |
@@ -60,9 +63,12 @@ bileşenler arası, 4 saat/gün, ay eşlemeli düzey farkı Δ = C − (A∪B)) 
   satırında anılır (%0,1 ≈ 2 kPa); 0,5–2 Hz'e taşınabilirliği doğrulanamadı.
 - Ölçü istasyonun çevresindeki sığ ortamı örnekler (TR-5b §1). Fay zonunun derinini ya da deniz altındaki ana kolu
   ölçmez.
-- σ̂_Δ burada **istasyon düzeyidir**. TR-5b'nin σ_Δ'sı kontrol düzeyidir (1–3 istasyonun ortalaması). İstasyon düzeyi,
-  istasyonlar arası ilişki küçükse kontrol düzeyinden büyüktür; bu yüzden (c) için tutucu yöndedir. Kontrol düzeyi
-  eşleniği bilgi satırı 6'dadır.
+- σ̂_Δ burada **istasyon düzeyidir**. TR-5b'nin σ_Δ'sı kontrol düzeyidir. Bir kontrol 1–3 istasyonun ortalamasıdır;
+  TR-5b'nin ilk 5 adayında ortalama 1/n = 0,668'dir (TR-5b İNCELEME-2 İ2-Ö2). İstasyonlar bağımsızsa σ_kontrol
+  ≈ 0,817 · σ_istasyon olur, tam ilişkide ikisi eşittir. Bu yüzden istasyon düzeyinde σ < %0,20 ise kontrol düzeyinde
+  de < %0,20'dir; "karşılandı" tutucudur. "Karşılanmadı" ise ancak istasyon düzeyinde σ > %0,20 / 0,817 = %0,245
+  olduğunda kontrol düzeyinde de geçerlidir. §4.3 adım 5'in eşikleri buna göredir. Kontrol düzeyi eşleniği bilgi
+  satırı 6'dadır.
 
 ## 2. Veri ve olaysız pencereler
 
@@ -87,7 +93,8 @@ TR-5b §2.5 ve §3.1'deki gibidir (`tr5b_asama0.py`'nin `kapsar`, `aygit`, `ay_l
 - M ≥ 8,0, ≤ 1000 km
 
 olay yoksa. M ≥ 7 için 300 km SAYIM §3.2'nin tanımıdır; TR-5b kontrollerinin 500 km'si Marmara'da Samos 2020
-(M7,0) yüzünden 2020–2024'ün bütün T'lerini düşürür (bilgi satırı 1, N 46). Eleme nedenleri (istasyon düzeyi,
+(M7,0) yüzünden 2020–2024'ün bütün T'lerini düşürür (bilgi satırı 1, N 46). 300 km kuralıyla Samos beş istasyonda
+(251–295 km) dışarıda, ötekilerde (≥ 309 km) içeridedir. Eleme nedenleri (istasyon düzeyi,
 kutudaki 38 istasyon × 8 T = 304 hücre): kanal kapsamı yok 115, olaysızlık 44 (Samos 2020 `us7000c7y0` 20,
 Düzce 2022 `us7000irp8` 18, Kuzey Ege 2014 `usb000r2hc` 6), Z doluluğu 29, yoklanmamış aday 3 (GAZK 2023 ve 2024,
 GEML 2024), aygıt (Z önizlemesi) 3 (KLYT 2019–2021, sensör değişimi 2018-12-24), **dolu ve olaysız 110**.
@@ -130,7 +137,8 @@ Doluluk tanımları TR-5b'nin dolu tanımıdır; aşama 0 ve 1b'de günlük dolu
 - **Kademe A:** her gün (TR-5b aynen).
 - **Kademe C:** yalnız takvim ayının 1–20. günleri indirilir; öteki günler "veri yok" sayılır, zincir değişmez.
   Bir ayda en çok 20 gün olduğu için "ayda ≥ 10 geçerli gün" şartı daha sık tutmaz; yapay doğrulama bunu içerir
-  (§6.1). Hacim A'nın %66'sı.
+  (§6.1). Hacim A'nın %66'sı. "Gün", TR-5b §3.1'in yerel ortalama güneş tarihi d'dir; 1–20. günler d'ye göre
+  sayılır.
 
 Kademe veri görülmeden, yalnız hızdan seçilir (§5.3). A seçilirse C, A'nın alt kümesi olarak bilgi satırı 9'da
 hesaplanır.
@@ -151,7 +159,9 @@ geçerli Δ veriyor. 1 saat/gün TR-5b zincirini değiştirir (gün ≥ 2 saat),
 
 Bu yüzden PK hüküm adımı değildir. SLVT'nin Nisan 2025 δ_ko'su (±%2 ızgara, TR-5b §4.2 adım 8 tanımı) bilgi
 satırı 13'tür. Bedeli: TR-4'te zincirin Marmara'da kosismik düşüşü gördüğü gösterilmez; kod doğruluğu yalnız (i)
-ve (ii-a) ile sınanır.
+ve (ii-a) ile sınanır. İNCELEME-1'e göre uzak bir PK kapsam dışıdır. Bedeli §4.6 "Karşılandı" maddesinin (3) şartıdır.
+Bilgi satırı 11 (mevsimsel genlik) ve 14 (2019 Silivri) zincirin duyarlılığına dair bağlayıcı olmayan iki işarettir ve
+Kalıp T'de yazılır.
 
 ## 4. Hüküm satırı (tek, sıralı, otomatik)
 
@@ -160,17 +170,27 @@ ve (ii-a) ile sınanır.
 - **q95 = |Δ|'nın %95 niceliği** (iki yanlı, işaretsiz).
 
 **4.2 Kesinlik.** İki yönlü önyükleme: yerler ve T yılları ayrı ayrı yerine koyarak çekilir, hücre ağırlığı iki
-çokluğun çarpımı; B = 2000; tohum `sha256("tr4-hukum|20261202")`'nin ilk 8 onaltılık hanesi. Her iki ölçü için %90
-yüzdelik aralığı [L, U] yazılır. Yer-pencereler hem yerde (aynı istasyon) hem zamanda (örtüşen pencereler, ortak
-hidroloji) ilişkili olduğundan tek yönlü önyükleme kullanılmaz. Benzetimde bu aralığın kapsaması §6.2'de.
+çokluğun çarpımı; B = 2000; tohum `sha256("tr4-hukum|20261202")`'nin ilk 8 onaltılık hanesi. σ̂_Δ için 5.–95.
+yüzdelikler [L, U] yazılır: "%90 iki yönlü önyükleme aralığı". q95 için 2,5.–97,5. yüzdelikler yazılır: "%95 iki yönlü
+önyükleme aralığı". Yer-pencereler hem yerde (aynı istasyon) hem zamanda (örtüşen pencereler, ortak hidroloji) ilişkili
+olduğu için tek yönlü önyükleme kullanılmaz. Benzetimde (İNCELEME-1, yer düzeyi, R = 300) σ aralığı gerçek σ_Δ'yı
+ρ 0,3'te 0,98–1,00, ρ 0,6'da 0,91–0,94 olasılıkla kapsar. q95 aralığı gerçek q95'i ρ 0,3'te 0,94–0,97, ρ 0,6'da
+0,83–0,89 olasılıkla kapsar; T 2017–2021 kesik koşuda ρ 0,6'da 0,79–0,81. Aralıklar bu kapsamalarla anılır; "güven
+aralığı" denmez.
 
-**4.3 Sıra.** Kod bu sırayı insan müdahalesi olmadan uygular. Bir adım hüküm verirse sonrakiler koşmaz; ama
-o ana kadar hesaplanabilen her sayı ve bilgi satırı "kapı altı" etiketiyle yazılır.
+**4.3 Sıra.** Kod bu sırayı insan müdahalesi olmadan uygular. Bir adım hüküm verirse hüküm kesinleşir ve değişmez.
+"geçersiz (kod)" ile kesinleşirse sonraki adımların hiçbiri koşmaz ve hiçbir Δ sayısı yazılmaz. "veri yok" ile
+kesinleşirse (adım 0, 1, 4 ya da §5.3'ün bütçesi), dolu kalan yer-pencereleri yine işlenir. Kapıyı tutmasalar da
+indirme §5.3'e göre yapılır ve 2. ile 3. adımlar koşar. İkisi de geçerse 5. adımın sayıları **bilgi satırı 0 ("kapı
+altı taban")** olarak yazılır. Bilgi satırı 0 (c) sınamasını yapmaz. Bilgi satırı 0 ancak ≥ 30 geçerli yer-penceresi
+ve ≥ 6 yer varsa hesaplanır; yoksa "hesaplanmadı (n = [..], yer = [..])" yazılır. Aşama 0'dan sonra dolu
+yer-penceresi < 30 ise indirme yapılmaz. Gerekçe: %40 yer kaybında (≈ 47 geçerli yer-penceresi) σ aralığının
+genişliği ≈ 1,0 σ'dır; ölçü kapı altında da bilgi taşır (İNCELEME-1).
 
 0. **G0 (aşama 0).** Aşama 0'ın üç bileşen yoklaması ve aygıt kuralından sonra: dolu yer sayısı ≥ 10 olan T'ler
    içinde en az 3 yıl arayla iki T yoksa **"veri yok (aşama 0)"**.
-   - **Ara durum, hüküm değil:** Kademe kuralı (§5.3) hiçbir kademeyi seçmezse **"ertelendi (aktarım hızı)"** yazılır
-     ve koşu durur. Sonraki adım proje sahibinin kararıdır.
+   - **Ara durum, hüküm değil:** §5.3 madde 3'ün yinelemeleri sürerken "ertelendi (aktarım hızı)" yazılır. Bu durum en
+     çok 5 gün sürer ve §5.3 madde 1, 2 ya da 4 ile biter.
 1. **1b (gün doluluğu).** İndirilen verinin gün düzeyi doluluğuyla (TR-5b dolu tanımı, üç bileşen) aynı kapı.
    Tutmazsa **"veri yok (gün doluluğu)"**.
 2. **Kod denetimi (i).** Koşu kodu `tr5b_yapay_ccf.npz`'yi (sha256 `44189a31…`) okur ve (a) TR-5b'nin
@@ -184,40 +204,52 @@ o ana kadar hesaplanabilen her sayı ve bilgi satırı "kapı altı" etiketiyle 
    **"veri yok (ε geçerliliği)"**.
 5. **Taban.** σ̂_Δ, q95 ve %90 aralıkları hesaplanır, dosyaya yazılır, sha256'sı günlüğe geçer. Ardından (c):
    - U(σ̂_Δ) < %0,20 → **"taban ölçüldü; TR-5b (c) karşılandı"**;
-   - L(σ̂_Δ) > %0,20 → **"taban ölçüldü; TR-5b (c) karşılanmadı"**;
+   - L(σ̂_Δ) > %0,245 → **"taban ölçüldü; TR-5b (c) karşılanmadı"**;
    - öteki → **"taban ölçüldü; TR-5b (c) belirsiz"**.
 
 **4.4 Neden bu kapı.** TR-5b'nin kontrol kapısı istasyon sayısıydı; burada tek bir σ ve bir nicelik kestirilir.
 ≥ 10 yer, istasyon etkisinin tek bir yere bağlı kalmamasını; 3 yıl arayla iki epok, pencereleri örtüşmeyen en az
 iki bağımsız zaman örneğini garanti eder. Daha sıkı bir kapı (≥ 3 örtüşmeyen epok) ana tanımda da geçiyor (2017 /
 2020 / 2023: 15 / 14 / 10) ama aşama 0 küçülmesinden sonra 2023'te kırılır; bu yüzden seçilmedi. Kapı altında aday
-elenmez.
+elenmez. Ek 2'nin kapısı "≥ 5 yıl arayla iki epok" idi; orada T tanımı farklıydı. Burada 3 yıl, iki pencerenin
+örtüşmemesi için yeterli ve gerekli olan aralıktır. Değişiklik Ek 2'nin Z doluluğu görüldükten sonra, dv/v görülmeden
+yapıldı. 5 yıl arayla kapı burada da geçer, ama tam sınırdadır (2017 ve 2023: 15 ve 10 yer).
 
 **4.5 Kapalı hüküm listesi ve kalıplar.** Köşeli parantezler otomatik doldurulur; başka metin eklenmez.
 
 | Hüküm adı (aynen) | Adım | Şart | Zorunlu ek metin |
 |---|---|---|---|
-| veri yok (aşama 0) | 0 | kapı tutmadı | "T başına dolu yer: [..]" |
-| veri yok (gün doluluğu) | 1 | kapı tutmadı | "T başına dolu yer: [..]" |
+| veri yok (aşama 0) | 0 | kapı tutmadı | "T başına dolu yer: [..]" "; bilgi satırı 0: σ̂_Δ [..] % ([L–U]), q95 [..] % ([L–U]), n [..], yer [..], T [..]" ya da "; bilgi satırı 0: hesaplanmadı (n = [..], yer = [..])" |
+| veri yok (aktarım hızı) | 0 | §5.3 madde 4 | "aşama H hızları [..] KiB/s; medyan [..]; V_D / v = [..] gün; bilgi satırı 0: hesaplanmadı (indirme yok)" |
+| veri yok (indirme bütçesi) | 0 | §5.3 kesik koşu | "tamamlanan T: [..]; T başına yer: [..]; etkin süre [..] gün, takvim [..] gün; bilgi satırı 0: [..]" |
+| veri yok (gün doluluğu) | 1 | kapı tutmadı | "T başına dolu yer: [..]" "; bilgi satırı 0: σ̂_Δ [..] % ([L–U]), q95 [..] % ([L–U]), n [..], yer [..], T [..]" ya da "; bilgi satırı 0: hesaplanmadı (n = [..], yer = [..])" |
 | geçersiz (kod) | 2, 3 | §4.3 adım 2–3 | sapan dizi sayısı ya da medyan oran |
-| veri yok (ε geçerliliği) | 4 | kapı tutmadı | "T başına geçerli yer: [..]" |
+| veri yok (ε geçerliliği) | 4 | kapı tutmadı | "T başına geçerli yer: [..]" "; bilgi satırı 0: σ̂_Δ [..] % ([L–U]), q95 [..] % ([L–U]), n [..], yer [..], T [..]" ya da "; bilgi satırı 0: hesaplanmadı (n = [..], yer = [..])" |
 | taban ölçüldü; TR-5b (c) karşılandı | 5 | U(σ̂) < %0,20 | Kalıp T |
-| taban ölçüldü; TR-5b (c) karşılanmadı | 5 | L(σ̂) > %0,20 | Kalıp T |
+| taban ölçüldü; TR-5b (c) karşılanmadı | 5 | L(σ̂) > %0,245 | Kalıp T |
 | taban ölçüldü; TR-5b (c) belirsiz | 5 | öteki | Kalıp T |
 
-Ara durum (hüküm değil): "ertelendi (aktarım hızı)", ek metin "ölçülen hız [..] KiB/s (ölçüm [..] adet); kademe C
-süresi [..] gün".
+Ara durum (hüküm değil): "ertelendi (aktarım hızı)", ek metin "ölçülen hız [..] KiB/s (ölçüm [..] adet); V_D / v =
+[..] gün". En çok 5 gün sürer (§4.3 adım 0).
 
 **Kalıp T:** "Marmara KO ağında [kademe], [n] yer-penceresinde ([yer] yer, T [ilk]–[son]), olaysız pencerelerde tek
-istasyonun bir yıllık dv/v düzey değişiminin (0,5–2 Hz, TR-5b ölçüsü) %95'i [q95] %'den küçüktür (%90 aralık
-[L–U]). σ̂_Δ = [..] % (%90 aralık [L–U]). Bu, tek istasyonda bu ölçüyle olaysız yıllardan ayrılabilecek en küçük
-düzey değişimidir; bir olasılık ya da alarm eşiği değildir. Ölçü istasyon çevresindeki sığ ortamı örnekler."
+istasyonun bir yıllık dv/v düzey değişiminin (0,5–2 Hz, TR-5b ölçüsü) örneklem %95 niceliği q95 = [..] %'dir (%95 iki
+yönlü önyükleme aralığı [L–U]; benzetimde bu aralık gerçek değeri 0,79–0,97 olasılıkla kapsar). σ̂_Δ = [..] % (%90 iki
+yönlü önyükleme aralığı [L–U]). q95, tek istasyonda %5 yanlış alarm oranındaki saptama eşiğidir. Bu büyüklükte bir
+düzey değişimi yaklaşık yarı yarıya saptanır. %80 olasılıkla saptanacak değişim, normal yaklaşımla, ≈ q95 + 0,84 ·
+σ̂_Δ = [..] %'dir. Bu bir olasılık ya da alarm eşiği değildir. Ölçü istasyon çevresindeki sığ ortamı örnekler. Zincir
+bu ön kayıtta Marmara'da gerçek bir hız değişimiyle sınanmadı; mevsimsel genliğin yer medyanı (bilgi satırı 11)
+[..] %, 2019 Silivri δ_ko'su (bilgi satırı 14) [..]."
 
 **4.6 Anlam.**
-- **Karşılandı:** TR-5b (c) şartı Marmara verisinde tutar. TR-5b "güç yok" ile kapanırsa bu, yeni bir ön kayıtla
-  yeniden açmanın bir dayanağıdır; tek başına yeniden açma değildir (TR-5b'nin kontrolleri Marmara'da değil).
-- **Karşılanmadı:** Bu ölçüyle Marmara'da yıl ölçekli dv/v izlemesi %0,2'nin altını çözemez; dv/v zaman daraltma
-  yolu bu bant ve bu pencereyle Marmara'da kapalıdır.
+- **Karşılandı:** TR-5b (c) şartının σ yarısı Marmara verisinde tutar. Bu, yeni bir ön kayıtla yeniden açmanın
+  dayanaklarından biridir; tek başına yeniden açma değildir. Nedenleri: (1) TR-5b'nin kontrolleri Marmara'da değil.
+  (2) TR-5b aşama 0'da K₀ = 18 < 20 ile kapandı; yeni ön kayıt K kapısını σ̂_Δ ile yeniden türetmelidir. (3) TR-4
+  zincirin gerçek bir hız değişimini gördüğünü göstermez (Z10); duyarsız bir zincir de küçük σ̂ üretir. Bu yüzden (c)
+  yoluyla açılan her ön kayıt, σ̂_Δ'ya dayanmadan önce gerçek olaylı bir pozitif kontrolü (TR-5b P2 ya da eşdeğeri)
+  geçmek zorundadır.
+- **Karşılanmadı:** σ_Δ kontrol düzeyinde de %0,20'nin üstündedir. TR-5b (c) yolu bu ölçüyle açılmaz. Marmara'da tek
+  istasyonla yıl ölçekli bir düzey değişimi ancak q95'ten büyükse olaysız yıllardan ayrılır (Kalıp T).
 - **Belirsiz:** Veri σ_Δ'yı %0,2'ye göre ayıracak kadar kesin değil; taban sayıları yine yazılır.
 - **Veri yok:** Ölçü bu veriyle kurulamadı. Aday elenmez.
 - **Geçersiz:** Kod hatası; sayılar yorumlanmaz.
@@ -232,35 +264,56 @@ bileşen/yatay (≈ %9) küçülmesi gösterdi; TR-4'ün kapısı dar olduğu i�
 | İstek | Sayı |
 |---|---|
 | Üstveri (istasyon, kanal yanıtı) | 26 |
-| Yatay yoklama: her aday yer-penceresinin A, B, C dilimlerinin orta ayı × 2 yatay bileşen | 502 |
+| Yatay yoklama: her aday yer-penceresinin A, B, C dilimlerinin orta ayı × 2 yatay bileşen (temsilci olmayan KO.KAVV hariç) | 468 |
 | Yoklanmamış Z adayları (GAZK T 2023, 2024; GEML T 2024), ay başına | 84 |
-| Bilgi satırı 13 (SLVT, BOTS, NMR9; 2024-03…2025-05) Z | 45 |
-| Aynısı, yatay | 90 |
-| Aşama H hız denemesi (§5.2) | 24 |
-| **Toplam** | **771 (≈ 0,64 saat; istek başına 3 sn)** |
+| Bilgi satırı 13 (yalnız SLVT; 2024-03…2025-05) Z | 15 |
+| Aynısı, yatay | 30 |
+| Aşama H hız denemesi (§5.2; üretim biçiminde) | 8 |
+| **Toplam** | **631 (≈ 0,5 saat hafif istek + aşama H ≈ 0,1–1,6 saat)** |
 
-Aşama 0 kodu, TR-5b'deki gibi, ağsız kuru kipte ve sahte yanıtlayıcıyla sınanır, incelenir ve ilk ağ isteğinden
-önce dondurulur. Bu taslakta yazılmadı (zayıf nokta Z1).
+Gerekçe: KO.KAVV'nin 34 yatay isteği gereksiz; temsilci sabittir ve KAVV indirilmez. BOTS ve NMR9'un 2024-03…2025-05
+istekleri gereksiz; ikisi de §3.4'e göre kullanılamaz (kanal kapsamı yok). Aşama H İ1-E1'e göre 8 istektir.
 
-**5.2 Aşama H (hız).** 24 istek: rastgele ama tohumlu seçilmiş 24 ana yer-penceresi gününden 1 saatlik üç bileşen
-(TR-5b biçimi), tek akış, sıralı. v = Σ bayt / Σ süre (istek ek süreleri dahil). Bu istekler ölçüde kullanılmaz.
-Gerekçe: KOERI hızı için elimizdeki dört ölçüm 15 kat dağınık: 23 KiB/s (TR-7 §4, 1 saatlik istekler,
-2026-11-11), 40 KiB/s (TR-5 §4.1, 1 günlük), 341,3 KiB/s (TR-7 varlık, tek akış), 632,5 KiB/s (iki paralel akış).
-Hacim tasarımı hız bilinmeden bağlanamaz.
+Aşama 0 betiği `kayit/turetme/tr4/tr4_asama0.py`'dir. `tr5b_asama0.py`'nin düzeltilmiş hâlinden (sürüm 3)
+türetilir ve İNCELEME-1 İ1-E4'ün 14 şartını karşılar. Ağsız kuru kipte ve sahte bir yanıtlayıcıyla sınanır. Betik
+bağımsız bir kod incelemesinden geçer ve ilk ağ isteğinden önce dondurulur (§5.6).
 
-**5.3 Kademe kuralı (veri görülmeden, yalnız v'den).**
-1. t_A = 298,5 GB / v ≤ 7 gün (v ≥ 486 KiB/s) → **A**.
-2. Değilse t_C = 196,7 GB / v ≤ 7 gün (v ≥ 320 KiB/s) → **C**.
-3. Değilse aşama H, en az 2 gün arayla en çok 3 kez yinelenir; v ölçümlerin medyanıdır. 1–2 yeniden uygulanır.
-4. Hâlâ sığmıyorsa: t_C ≤ 21 gün (v ≥ ≈ 106 KiB/s) → **C, uzatılmış** (aynı 0 € düzen, daha çok iş).
-5. Değilse **"ertelendi (aktarım hızı)"**. Seçenekler (proje sahibinin kararı): iki paralel akış (KOERI'ye nezaket
-   sorunu; TR-7'de ×1,85), KOERI ile iletişim, ya da TR-4'ün yalnız T 2021–2024 ile küçültülmüş bir sürüm 2'si
-   (A 151 GB, C 100 GB). Bu belge onların hiçbirini önceden seçmez.
+**5.2 Aşama H (hız).** 8 istek, üretim biçiminde. Her istek, tek bir istasyonun 5 gününün 4 saatlik üç bileşen
+penceresini tek bir dataselect POST isteğinde ister (≈ 28 MB). İstasyon ve günler ana örneklemin yer-pencerelerinden,
+2014–2023 içinden, `sha256("tr4-asamaH|20261202")` tohumuyla seçilir. Tek akış, istekler arası ≥ 2 sn. İstek başına en
+çok 15 dk; aşılırsa o ana kadarki bayt ve süre sayılır. v = Σ bayt / Σ süre (bağlantı ve bekleme dahil). Gövde
+çözülmez, açılmaz, saklanmaz; yalnız bayt sayısı ve sha256 yazılır. Bayt / beklenen örnek sayısı Z9'u ölçer.
+KOERI POST'u reddederse istekler gün gün GET ile atılır, v bu biçimle ölçülür ve üretim de bu biçimle yapılır.
+Gerekçe: 341 ve 633 KiB/s ≤ 1 MB'lık tek isteklerden geldi, 40 KiB/s 11,2 MB'lık 284 sn'lik sürekli aktarımdan.
+Üretim istekleri istasyon-ay başına 110–170 MB'tır. Hız ancak üretim boyutundaki isteklerle ölçülür. Bu istekler
+ölçüde kullanılmaz.
 
-Kural tek akış ister. Sunucu KOERI hızını artırmaz.
+**5.3 Kademe, bütçe ve kesik koşu (veri görülmeden; yalnız v'den ve aşama 0'ın hacminden).** V_A ve V_C, aşama 0'dan
+sonra dolu kalan yer-pencerelerinin §5.4 formülüyle hacmidir (21 yerde 298,5 / 196,7 GB). V_D, bunların T 2017–2021
+kısmıdır (21 yerde 153,6 GB; 74 yer-penceresi; T başına 15 / 16 / 15 / 14 / 14 yer). **Bütçe:** etkin indirme süresi
+21 gün (504 iş-saati) ya da ilk indirme isteğinden itibaren 42 takvim günü; hangisi önce dolarsa.
+1. V_A / v ≤ 7 gün → **A**.
+2. Değilse V_D / v ≤ 21 gün → **C**.
+3. Değilse aşama H, en az 2 gün arayla en çok 2 kez daha koşulur. v üç ölçümün medyanıdır; 1–2 yeniden uygulanır.
+4. Hâlâ seçilmezse hüküm **"veri yok (aktarım hızı)"**dır.
+
+**Kronolojik sıra ve kesik koşu.** İndirme ay ay gider: 2014-01'den 2023-12'ye, her ayda yerler kod sırasıyla. Bir
+yer-penceresi, bütün istasyon-ay istekleri kesin kodla tamamlanınca "indirildi" sayılır. Bütçe dolarsa indirme durur.
+Analiz yalnız bütün yer-pencereleri indirilmiş T'lerle yapılır. Kalıp T'de kademe "[A | C], kesik, T [ilk]–[son]"
+diye yazılır. Bütçe dolduğunda T 2017–2021 tamamlanmamışsa ya da tamamlanan T'lerle kapı (§4.3 adım 0) tutmuyorsa hüküm
+**"veri yok (indirme bütçesi)"**dır. Kesme yalnız takvime bağlıdır: indirme bitmeden ya da kesilmeden hiçbir ε ya da Δ
+hesaplanmaz (§5.5).
+
+**Önceden bildirilen süreler** (21 yer; v = 23 / 40 / 83 / 106 / 341 KiB/s): V_C 97 / 56 / 27 / 21 / 6,5 gün;
+V_D 76 / 43 / 21 / 16 / 5,1 gün. 40 KiB/s ve altında kapıyı koruyan hiçbir 0 € tasarım bütçeye sığmaz. Bu hızlarda
+"veri yok (aktarım hızı)" beklenen sonuçtur.
+
+Kural tek akış ister. İki paralel akış, KOERI ile özel düzen ya da T veya yer kapsamının değiştirilmesi yeni sürüm ve
+yeni inceleme ister. Sunucu KOERI hızını artırmaz.
 
 **5.4 Hacim ve süre** (`tr4_onkayit_sayim.json` → `hacim`; bayt = saat × 3600 × 100 sn⁻¹ × 3 bileşen × 1,3 bayt;
-1,3 bayt/örnek STEIM2 varsayımıdır, doğrulanamadı; 21 yer, ana T 2017–2024).
+1,3 bayt/örnek TR-5 §5.1'de tek bir örnekte ölçüldü (KO.ISK HHZ, 1 gün, 11,2 MB → 1,30); yatay bileşenler ve öteki
+istasyonlar için ölçülmedi. Aşama H oranı yeniden ölçer; 21 yer, ana T 2017–2024).
 
 | Kademe | İstasyon-gün | GB | 23 KiB/s | 40 KiB/s | 341 KiB/s | 633 KiB/s (2 akış) | 1 hafta için gereken |
 |---|---|---|---|---|---|---|---|
@@ -273,13 +326,27 @@ Kural tek akış ister. Sunucu KOERI hızını artırmaz.
 2,4 GB (A) ya da 1,8 GB (C).
 
 **5.5 0 € bulut düzeni.** Her iş ≤ 2 saat, bir durum dosyası (jsonl: istasyon-ay, bayt, sha256, sonuç) tutar ve
-kaldığı yerden sürer. Ham veri istasyon-ay işlendikten sonra silinir; saklanan günlük ÇİF'lerdir (3 çift × 2401
-gecikme × float32 ≈ 29 KB/gün; C'de ≈ 1,0 GB, A'da ≈ 1,5 GB). Disk tepe değeri bir istasyon-aylık ham veridir
-(≈ 0,11–0,17 GB). C, 341 KiB/s'de ≈ 80 iki saatlik iştir. İşlem süresi indirmenin yanında küçüktür (kestirilmedi;
-zayıf nokta Z5). Başarısız istek oranı %5'i aşarsa ε'dan önce tek yeniden deneme turu (TR-5b §5).
+kaldığı yerden sürer. Ham veri istasyon-ay işlendikten sonra silinir. Saklanan,
+**saatlik** ÇİF'lerdir (3 çift × 2401 gecikme × float32 ≈ 29 KB/saat; 4 saatlik günde ≈ 115 KB). Ayrıca her
+saat-bileşen için 0,5–2 Hz RMS'i ve örnek tamlığı saklanır. Gerekçe: TR-5b §3.2 adım 4'ün enerji reddi, medyanı her
+yer-penceresinin kendi [T − 1095, T − 8] saatlerinden alır. Ardışık T'ler aynı günü farklı medyanlarla görür, bu yüzden
+günlük ÇİF T'den bağımsız saklanamaz. Günlük ÇİF her yer-penceresi için saatlik ÇİF'lerden, o pencerenin medyanıyla
+kurulur. 1b'nin gün doluluğu (üç bileşen, saat ≥ %99 tamlık) da saklanan tamlıktan hesaplanır. Saklama C'de ≈ 4,0 GB,
+A'da ≈ 6,1 GB'tır. Dosyalar `/mnt/project-files/` altına yazılır: istasyon-ay başına bir dosya, sha256'sıyla, geçici
+adla yazılıp yeniden adlandırılarak. Durum dosyası da oradadır ve her iş oradan sürer. Yerel disk tepe değeri bir
+istasyon-aylık ham veri (≈ 0,11–0,17 GB) ile o ayın saatlik ÇİF'idir. **İndirme bitmeden ya da §5.3'e göre
+kesilmeden hiçbir ε ya da Δ hesaplanmaz.** Yalnız saatlik ÇİF, RMS ve tamlık yazılır. C, 341 KiB/s'de ≈ 80 iki
+saatlik iştir. İşlem süresi indirmenin yanında küçüktür. Bir istasyon-günün ön işlemi ve saatlik ÇİF'i ≈ 0,54 sn sürer
+(yapay veri, numpy, tek çekirdek; miniSEED çözme ve germe hariç; İNCELEME-1). Bu C'de ≈ 5,3, A'da ≈ 8 saattir. İlk
+indirilen istasyon-ayda gerçek süre ölçülür ve günlüğe yazılır. Başarısız istek oranı %5'i aşarsa ε'dan önce tek yeniden deneme turu (TR-5b §5).
 
-**5.6 Kod donması.** 3. adımdan sonra kod değiştirilemez. Kod ve aşama 0 betiği ilk ağ isteğinden önce commit
-edilir.
+**5.6 Dondurma.** Ön kayıt, `tr4_asama0.py` ve onun ağsız provası aşama 0'ın ilk ağ isteğinden önce dondurulur ve push
+edilir. dv/v koşu kodu (`tr4_kosu.py`) bağımsız kod incelemesinden sonra ve ilk dalga formu indirme isteğinden önce
+dondurulur; sha256'sı kayda geçer. Bundan sonra kod yalnız §11'in "geçersiz (kod)" yoluyla değişir. Koşu kodu
+dondurulmuş saatlik ÇİF'lerden (§5.5) günlük ÇİF'i her yer-penceresi için yeniden kurar. Aşama 0 bir kez koşulur:
+önbellek silinmez, yeniden yoklama yapılmaz. Tek yeniden deneme, İ1-E4 madde 6'nın kesin olmayan kodlar için
+tanımladığıdır. `say` bir kez, bütün istekler tamamlanınca koşulur. `asama0_sonuc.json`, `onbellek.jsonl` ve
+`istekler.json`'un sha256'ları kayda geçer ve push edilir. G0'dan sonra aşama 0'ın hiçbir kuralı değiştirilemez.
 
 ## 6. Yapay doğrulama ve kesinlik
 
@@ -342,12 +409,15 @@ son üç sütun (c) hükmünün olasılığı.
 
 **Okuma.**
 - **σ̂_Δ yansız** (medyan oran 0,95–1,00) ve tek koşuda gerçek değerin ≈ ±%25'i içinde (ρ 0,6'da −%30 / +%40).
-- **Hüküm asimetrik.** σ_Δ ≤ %0,10 ise "karşılandı" ≥ 0,97 olasılıkla gelir. σ_Δ ≈ %0,15'te yazı tura. σ_Δ %0,20'de
-  "belirsiz" neredeyse kesin. **σ_Δ %0,30'da bile "karşılanmadı" ancak 0,00–0,40 olasılıkla** gelir: iki yönlü
-  önyüklemenin σ aralığı geniştir (≈ 0,7 σ) ve tutucudur (kapsama 0,97–1,00, %90 değil). Yani TR-4 "(c) tutar"
-  diyebilir, "(c) tutmaz" demesi zordur. Bu önceden kabul edilir; "belirsiz" hükmü σ̂'yı ve aralığını yine yazar.
-- **q95 aralığı ρ büyükken ve az epokta kapsamasının altında** (0,75–0,85). q95 hükmü bağlamaz; Kalıp T'de aralığıyla
-  yazılır, bu zayıflık Z11'dir.
+- **Hüküm bilerek asimetriktir.** TR-5b için yalnız "karşılandı" bir yeniden açma dayanağıdır. "Belirsiz" ve
+  "karşılanmadı" aynı sonucu doğurur: dayanak yok. Bu yüzden sınırlanan hata yanlış "karşılandı"dır. σ_Δ = %0,20'de
+  "karşılandı" olasılığı ρ 0,3'te 0,01–0,03, ρ 0,6'da 0,08; T 2017–2021 kesik koşuda 0,02 / 0,10. σ_Δ %0,10'da
+  "karşılandı" 0,95–1,00, %0,15'te ≈ 0,4–0,6 olasılıkla gelir. "Karşılanmadı" (L > %0,245; İ1-Ö1) σ_Δ %0,30'da bile
+  ≤ 0,02 olasılıklıdır; yalnız σ_Δ %0,30'un belirgin üstündeyse olasıdır. Bu önceden kabul edilir; "belirsiz" hükmü
+  σ̂'yı ve aralığını yine yazar. Kaynak: İNCELEME-1 `inc1_kesinlik.json`, `inc1_kesinlik_D.json`.
+- **q95 aralığı** 2,5.–97,5. yüzdeliklerdir (§4.2). Kapsaması ρ 0,6'da ve az epokta yine 0,79–0,89'dur. Bu, ortak yıl
+  bileşeninin (ρ) bu örneklemde iyi kestirilemeyeceği anlamına gelir (Z8). Bilgi satırı 5 bu bileşeni kaba olarak
+  yazar.
 - A ile C arasında kesinlik farkı yok denecek kadar küçük; kesinliği yer ve epok sayısı belirler, gün örneklemesi
   değil. Ana örneklemin yarıya inmesi (aşama 0 küçülmesinin kötü ucu) σ aralığını ≈ 0,7'den ≈ 0,93 σ'ya genişletir.
 
@@ -368,8 +438,12 @@ son üç sütun (c) hükmünün olasılığı.
 
 ## 8. Bilgi satırları (hükmü değiştirmez)
 
+0. **Kapı altı taban** (yalnız "veri yok" hükümlerinde; §4.3): σ̂_Δ, q95, %90 / %95 iki yönlü önyükleme aralıkları,
+   n, yer ve T listesi. Ek metin aynen: "Kapı altı; TR-5b (c) için dayanak değildir; hüküm [hüküm adı]."
 1. Olaysızlık değişkeleri: ileri 2 yıl (N 86), M ≥ 7 için 500 km (N 46, kapı altı), pencere içinde M ≥ 5 ≤ 50 km
    olan yer-pencereler dışarıda (N 92), M ≥ 5,5 ≤ 100 km ±1 yıl (N 59, kapı altı). Her biri için σ̂, q95, aralık.
+   Ek değişke: pencerenin kendisinde ([T − 1095, T − 8]) M ≥ 7 ve ≤ 1000 km olayı olan yer-pencereleri dışarıda (Samos
+   2020 ve Kahramanmaraş 2023; T 2021–2024 düşer; N 60, T 2017–2020; kapı geçer).
 2. Doluluk değişkeleri: gevşek (N 118) ve sıkı (N 72, kapı altı).
 3. Örtüşmeyen T kümeleri: 2017/2020/2023 ve 2018/2021/2024 (her biri N 39).
 4. İşaretli dağılım: Δ'nın medyanı ve %2,5 / %97,5 nicelikleri (yön asimetrisi).
@@ -384,7 +458,13 @@ son üç sütun (c) hükmünün olasılığı.
 13. Nisan 2025 M6,2, SLVT: δ_ko (±%2 ızgara, TR-5b §4.2 adım 8 tanımı; T = 2025-04-23; TR-5b P2'deki gibi veri
     [T − 400, T + 30], başvuru [T − 400, T − 8])
     ve kendi A = 0 dağılımına göre yeri (benzetimden: tek istasyonda saptama olasılığı ≤ 0,27). Aşama 0'da SLVT
-    2024-03…2025-05 doluluğu tutmazsa satır "veri yok" yazar.
+    2024-03…2025-05 doluluğu tutmazsa satır "veri yok" yazar. Kademeden bağımsız olarak [T − 69, T + 30] her gün
+    indirilir, [T − 400, T − 70] kademeye göre örneklenir (§5.4'ün ek hacmi bu tanımladır).
+14. 26 Eylül 2019 Silivri Mw 5,7 (`us70005lkl`), SLVT (36,5 km), CRLT (42,9 km), CTKS (47,7 km). δ_ko TR-5b §4.2
+    adım 8 tanımıyla, ±%2 ızgarayla hesaplanır; M5 maskesi bu satırda uygulanmaz. İstasyon başına ve ortalama
+    yazılır. Veri ana örneklemin indirdiği günlerdir (T 2020 penceresi); ek indirme yoktur. Kademe C'de olay sonrası
+    yalnız ayın 1–20. günleri vardır. Saptama olasılığı düşüktür (§3.4'teki 0,05–0,27 mertebesi); "görülmedi"
+    bilgisizdir.
 
 ## 9. Karşılaştırma ve literatür
 
@@ -393,12 +473,12 @@ karşılaştırma başka bölgelerle ve mertebe düzeyindedir.
 
 | Kaynak | Söylediği | Durum |
 |---|---|---|
-| Hillers 2015 (San Jacinto) | Mevsimsel tepeden tepeye ≈ %0,2, 0,5–2 Hz | Doğrulandı (depodaki önceki okuma) |
-| Meier 2010 (Los Angeles) | ≈ %0,1 değişimler ölçülebilir | Doğrulandı |
-| Sens-Schönfelder ve Wegler 2006 (Merapi) | Günlük çözünürlükte ≈ %0,1 doğruluk | Doğrulandı |
-| Taira 2015 (Napa M6,0) | Kosismik ≈ %0,08 | Doğrulandı |
+| Hillers 2015 (San Jacinto), 10.1093/gji/ggv151 | Mevsimsel tepeden tepeye ≈ %0,2, 0,5–2 Hz | Doğrulandı (TR-5 §6.1; TR-5b §3.7) |
+| Meier 2010 (Los Angeles), 10.1111/j.1365-246x.2010.04550.x | ≈ %0,1 değişimler ölçülebilir | Doğrulandı |
+| Sens-Schönfelder ve Wegler 2006 (Merapi), 10.1029/2006gl027797 | Günlük çözünürlükte ≈ %0,1 doğruluk | Doğrulandı |
+| Taira 2015 (Napa M6,0), 10.1002/2015gl065308 | Kosismik ≈ %0,08 | Doğrulandı |
 | Hillers 2014 | Gelgit duyarlılığı ≈ 0,5 MPa⁻¹ (2–8 Hz, sığ) | Doğrulandı; bant farklı |
-| Clements ve Denolle 2023 (Kaliforniya, 700 istasyon) | Çok yıllı hidrolojik dv/v | Nitel doğrulandı; genlik **doğrulanamadı** |
+| Clements ve Denolle 2023 (Kaliforniya, 700 istasyon), 10.1029/2022jb025553 | Çok yıllı hidrolojik dv/v | Nitel doğrulandı; genlik **doğrulanamadı** |
 | van Dinther 2020 (DANA, Kuzey Anadolu, EGU özeti) | 2012–2013 dv/v | Sayı yok; **doğrulanamadı** |
 | Delouche 2022 (Yunanistan) | "Güçlü mevsimsellik" | Sayı yok; **doğrulanamadı** |
 
@@ -412,43 +492,51 @@ genliklerdir; yanlış çıkması TR-4'ün ölçmek istediği şeydir.
   kaydı TR-4'ün q95'ini gürültü tabanı olarak kullanır.
 - TR-5b H0 verirse TR-4 yalnız ölçüm sınırı cümlesi (Kalıp T) olarak kalır.
 - TR-5b güç yok ile kapanırsa ve TR-4 "(c) karşılandı" verirse, TR-5b §11 (c) yolu açılabilir; açılış yeni ön
-  kayıt ister.
+  kayıt ister. TR-5b aşama 0'da "güç yok (aşama 0)" ile kapandı (K₀ 18 / 20; ZINCIR Halka 7). (c) yolunun açılması, K
+  kapısının da yeni ön kayıtta yeniden türetilmesini gerektirir.
 - **İstanbul için mutlak olasılık bu belgenin hiçbir yerinde yazılmaz ve hiçbir sonuçtan türetilmez.**
 
 ## 11. Yeniden açma şartı
 
-"Veri yok" ya da "ertelendi" ile kapanırsa yeniden açma yeni bir sürümle ve şu yollardan biriyle olur:
-- (a) KOERI aktarım hızının kademe C'yi ≤ 21 günde taşıması (yeni aşama H);
+"Veri yok" ile kapanırsa yeniden açma yeni bir sürümle ve şu yollardan biriyle olur:
+- (a) "veri yok (aktarım hızı)" ile kapanırsa: en erken 30 gün sonra, tasarım değişmeden, §5.2–5.3 aynen bir kez daha
+  koşulabilir. Bu yeni sürüm değildir; sürüm 2'nin değişiklik kaydına yazılır ve inceleme gerektirmez. Aşama 0
+  yeniden koşulmaz.
 - (b) KO'nun kutudaki istasyon sayısını artıran yeni üstveri (≥ 2 yeni dolu yer);
 - (c) T ≥ 2026 için kör olmayan veri: körlük kuralı kaldırıldığında, aynı tasarımla ileriye dönük uzatma.
 
 "Taban ölçüldü" tek koşudur; parametre değiştirilerek yeniden koşulmaz. "Geçersiz (kod)" ile kapanırsa düzeltilmiş
-kod yeni bir kod incelemesinden sonra aynı veride bir kez koşabilir; düzeltme kaydı hükümle birlikte yazılır.
+kod yeni bir kod incelemesinden sonra aynı veride bir kez koşabilir; düzeltme kaydı hükümle birlikte yazılır. Bu
+yeniden koşu bir kez yapılır. İkinci kez "geçersiz (kod)" verirse hüküm kesinleşir.
 
 ## 12. Zayıf noktalar (incelemecinin bakması gerekenler)
 
-- **Z1. Aşama 0 betiği yazılmadı.** Bu taslak yalnız istek sayısını kestirdi. Betik `tr5b_asama0.py`'den türetilecek
-  ve kuru kipte sınanacak; G0 ancak onunla bağlanır.
-- **Z2. Hız bilinmiyor.** Dört ölçüm 15 kat dağınık. 23–40 KiB/s doğruysa TR-4 bir haftada koşamaz ve "ertelendi"
-  en olası sonuçtur. Kademe kuralı bunu açıkça kabul eder ama sonucu proje sahibine bırakır.
-- **Z3. Kapı payı dar.** Ana tanımda 2017 ve 2020 14–15 yer; TR-5b'nin ≈ %18'lik küçülmesi ≈ 12'ye indirir. Sıkı
-  doluluk tanımında kapı kırılır. 2022–2024 zaten < 10 yer.
-- **Z4. İstasyon düzeyi σ ile TR-5b'nin kontrol düzeyi σ'sı aynı nesne değil.** (c) karşılaştırması istasyon
-  düzeyinde tutucudur; ama istasyonlar arası ilişki yüksekse (ρ büyük, ortak hidroloji) iki düzey birbirine yaklaşır
-  ve tutuculuk kaybolur. Bilgi satırı 6 bunu ölçer, hükmü değiştirmez.
-- **Z5. İşlem süresi kestirilmedi.** İndirme baskın varsayıldı; 35 000–53 000 istasyon-günün tek çekirdekte işlenme
-  süresi koşudan önce bir istasyon-ayla ölçülmeli (aşama 0'dan sonra, ilk indirilen ayda).
+- **Z1. Aşama 0 betiği (İNCELEME-1 İ1-E4).** Şartlar İ1-E4'te. Betik ve ağsız provası dondurmadan önce yazılır,
+  kod incelemesinden geçer.
+- **Z2. Hız bilinmiyor (İNCELEME-1 İ1-E1).** Kural kapalıdır: A / C yalnız v'den, kronolojik sıra, 21 / 42 günlük
+  bütçe, kesik koşu (en küçük küme T 2017–2021). 40 KiB/s ve altında sonuç "veri yok (aktarım hızı)"dır.
+- **Z3. Kapı payı (İNCELEME-1 İ1-E2).** TR-5b'de Z dışı pencere kaybı ≈ %19'du (üç bileşen %7,9, aygıt %9,6, yatay
+  %2,4). 31 → 18 (%42) bir küme sayısıdır ve Z kaybını içerir. Gün düzeyi kayıp bilinmiyor. Rastgele kayıpta kapının
+  kırılma olasılığı %20'de 0,02–0,13, %30'da 0,26–0,43, %40'ta 0,69–0,75; tek tip kayıpta kapı %29'da kırılır. Kapı
+  kırılırsa hüküm "veri yok"tur ve σ̂_Δ bilgi satırı 0'da yazılır.
+- **Z4. Birim farkı (İNCELEME-1 İ1-Ö1).** "Karşılandı" eşiği U < %0,20 (tutucu), "karşılanmadı" eşiği L > %0,245
+  (= 0,20 / 0,817). Bilgi satırı 6 kontrol düzeyi eşleniğini yazar, hükmü değiştirmez.
+- **Z5. İşlem süresi (İNCELEME-1).** Kaba ölçüm ≈ 0,54 sn/istasyon-gün (C ≈ 5,3 saat, A ≈ 8 saat; miniSEED çözme
+  ve germe hariç). İlk indirilen istasyon-ayda gerçek süre ölçülür.
 - **Z6. Kademe C zincirden sapar.** Gün örneklemesi TR-5b'den farklıdır; yapay dizide geçer, gerçek veride
   (ii-a) ile sınanır. A ile C arasındaki gerçek fark ancak A seçilirse görülür (bilgi satırı 9).
-- **Z7. Olaysızlık eşikleri yargıdır.** 150/300/1000 km ve [T − 5 y, T + 1 y) SAYIM §3.2'den alındı; Samos 2020'yi
-  ana tanımda içeride bırakır (M7,0, Marmara istasyonlarına > 300 km). 500 km değişkesi kapıyı kırar (bilgi satırı 1).
+- **Z7. Olaysızlık eşikleri yargıdır (İNCELEME-1 İ1-Ö5).** 150 / 300 / 1000 km ve [T − 5 y, T + 1 y) SAYIM §3.2'den
+  alındı. Samos 2020 (M7,0), 300 km kuralıyla beş istasyonda T 2020–2024'ü dışlar (GONE, LAP, KRBG, EDC, KCTX; 20
+  istasyon-penceresi). Öteki örneklem istasyonları ≥ 309 km'dedir ve içeride kalır. Kahramanmaraş 2023 (M7,8 / M7,5,
+  664–985 km) T 2024'ün C diliminde içeride kalır. 500 km değişkesi kapıyı kırar. İki etki bilgi satırı 1'de ayrı yazılır.
 - **Z8. Yapay modelde ortam gürültüsü yok.** §6.2'nin σ_Δ'sı serbest parametredir; gerçek değeri ve dağılım biçimi
   (kalın kuyruk, istasyonlar arası ilişki) bilinmiyor. t4 ve ρ değişkeleri yalnız duyarlılıktır.
-- **Z9. 1,3 bayt/örnek** STEIM2 sıkıştırması varsayımıdır; KO verisinde doğrulanmadı. Aşama H bunu da ölçer.
-- **Z10. PK yok.** Zincirin Marmara'da gerçek bir hız değişimini gördüğü bu ön kayıtta gösterilmez.
-- **Z11. Hüküm eşiği asimetrik ve q95 aralığı iyimser.** §6.2: "karşılanmadı" σ_Δ %0,30'da bile ≤ 0,40 olasılıklı;
-  q95'in %90 aralığı ρ büyükken %75–85 kapsıyor. Alternatif (σ̂'nın nokta değeriyle hüküm, ya da %80 aralık)
-  incelemecinin kararına açık bırakıldı; taslak tutucu olanı seçti.
+- **Z9. 1,3 bayt/örnek (İNCELEME-1 İ1-K1).** TR-5 §5.1'de tek bir örnekte ölçüldü (KO.ISK HHZ, 1 gün, 11,2 MB →
+  1,30); yatay bileşenler ve öteki istasyonlar için ölçülmedi. Aşama H oranı yeniden ölçer.
+- **Z10. PK yok (İNCELEME-1 İ1-Ö3).** Uzak PK kapsam dışıdır. "Karşılandı", ancak gerçek olaylı bir PK'yi geçen yeni
+  bir ön kayıtta dayanak olarak kullanılabilir. Bilgi satırları 11 ve 14 bağlayıcı olmayan iki işarettir.
+- **Z11. Asimetri ve q95 aralığı (İNCELEME-1 İ1-Ö2).** Asimetri bilerek kabul edildi ve olasılıklar §6.2'de yazıldı.
+  q95 aralığı %95 iki yönlü önyükleme aralığıdır; kapsaması kendi adıyla birlikte yazılır.
 - **Z12. Benzetimin hücre birimi istasyondur, hükmünki yerdir.** ISK ve KAVV benzetimde ayrı sayıldı (22 istasyon,
   ≈ 110 hücre); hükümde tek yerdir (21 yer, 102). Fark ≈ %7; sonuçları değiştirmesi beklenmez, ama düzeltilmedi.
 
@@ -478,6 +566,10 @@ Girdiler (depo dışı, `/mnt/project-files/turetme/tr5b-ham/`):
 - `tr4_guc.py` `f4f1636035e0d9ee9d691c9e56002fc8373ac830651d20899138de2866f2894f`
 - `tr4_guc_sonuc.json` `ed81dfd06660a1c2e986988e7f8e57ba884179fb4b91a0a39e04db90f6e31ee2`
 - `tr4_yapay_ref.json` `238b6e09289db01819bb9ea1719fc8f964476d4653a5ab9557970ea14e0717b5`
+- `tr4_asama0.py` `e5d8c33cdeb824b5103cf27f27436d1c1b7260b16684883e99078dfd3aa8c550` (İ1-E4; aşama 0 ve aşama H)
+- `tr4_asama0_kuru.json` `ecbde36cb4782261e9a0979cf519c444fdcb56fa6655471c2e89d6064e6969e3` (kuru kip çıktısı; iki koşuda aynı)
+- `tr4_asama0_prova.py` `6ce012b7e41a9667fdc91d91e32878e62059ff24328552ea65993791c8b631da` (ağsız sürdürme provası, İ1-E4 madde 12)
+- `tr4_asama0_prova.json` `42adc1af54b85df15161028f9a23efb3fd7125155af7b913e76464f997ee90ae`
 
 
 Komutlar (her biri `cd /home/user/knotenlinie` ile; `OMP_NUM_THREADS=1`):
@@ -488,4 +580,74 @@ python3 -I -B kayit/turetme/tr4/tr4_guc.py pk
 python3 -I -B kayit/turetme/tr4/tr4_guc.py ref /mnt/project-files/turetme/tr5b-ham/tr5b_yapay_ccf.npz
 python3 -I -B kayit/turetme/tr4/tr4_guc.py kesinlik
 ```
+`olcum` ve `pk` kipleri 4 süreçle koşar (`Pool(4)`). Paylaşılan makinede tek süreçle yeniden üretim
+`inc1_yeniden.py olcum` biçimindedir (C | CC10 ≈ 0,5 satırı 29 sn).
+
+Aşama 0 (`<g>` arşivin açıldığı dizin, `<ob>` aşama 0 dizini; ağ kipleri yalnız `--ag-onay` ile):
+```
+python3 -I -B kayit/turetme/tr4/tr4_asama0.py kuru    <g>/ham/marmara_fed_kanal.txt <g>/doluluk/onbellek.jsonl
+python3 -I -B kayit/turetme/tr4/tr4_asama0.py ustveri <g>/ham/marmara_fed_kanal.txt <g>/doluluk/onbellek.jsonl <ob> 6000 --ag-onay
+python3 -I -B kayit/turetme/tr4/tr4_asama0.py kur     <g>/ham/marmara_fed_kanal.txt <g>/doluluk/onbellek.jsonl <ob> --ag-onay
+python3 -I -B kayit/turetme/tr4/tr4_asama0.py yokla   <g>/ham/marmara_fed_kanal.txt <g>/doluluk/onbellek.jsonl <ob> 6000 --ag-onay
+python3 -I -B kayit/turetme/tr4/tr4_asama0.py say     <g>/ham/marmara_fed_kanal.txt <g>/doluluk/onbellek.jsonl <ob>
+python3 -I -B kayit/turetme/tr4/tr4_asama0.py hiz     <g>/ham/marmara_fed_kanal.txt <g>/doluluk/onbellek.jsonl <ob> 6000 --ag-onay
+python3 -I -B kayit/turetme/tr4/tr4_asama0_prova.py   <g>/ham/marmara_fed_kanal.txt <g>/doluluk/onbellek.jsonl <geçici_kök>
+```
 Süreler: sayım < 1 dk; olcum ≈ 19 dk; pk ≈ 2,5 dk; ref ≈ 1,5 dk; kesinlik ≈ 6 dk.
+
+## Sürüm 1 → 2 değişiklik listesi
+
+Kaynak: `TR-4_INCELEME-1.md` (tek ve son tur; DÜZELTMEYLE KABUL). Metinler incelemenin C bölümünden harfiyen işlendi.
+Sürüm 1 `TR-4_marmara-hiz-tabani_ONKAYIT_surum1.md` adıyla saklandı.
+
+| Bulgu | Yer | Değişiklik |
+|---|---|---|
+| İ1-E1 | Başlık "Koşu düzeni", §4.3 adım 0, §4.5, §5.2, §5.3, §11 (a) ve ilk cümle, Z2 | Aşama H 8 üretim biçiminde istek; kademe, bütçe (21 etkin / 42 takvim günü), kronolojik sıra, kesik koşu (en küçük küme T 2017–2021); iki yeni hüküm ("veri yok (aktarım hızı)", "veri yok (indirme bütçesi)"); "ertelendi" en çok 5 günlük ara durum |
+| İ1-E2 | §4.3 giriş, §4.5 ek metinleri, §8 madde 0, Z3 | "Veri yok"ta dolu yer-pencereleri yine işlenir; bilgi satırı 0 ("kapı altı taban"); < 30 dolu yer-penceresinde indirme yok |
+| İ1-E3 | §5.5, §3.2 Kademe C | Saatlik ÇİF, RMS ve tamlık saklanır (C ≈ 4,0 GB, A ≈ 6,1 GB); işlem süresi ≈ 0,54 sn/istasyon-gün; "gün" = yerel ortalama güneş tarihi d |
+| İ1-E4 | §5.1 tablo ve son paragraf, Z1; `tr4_asama0.py` | İstek tablosu 26 / 468 / 84 / 15 / 30 / 8 = 631; aşama 0 betiği 14 şarta göre yazıldı, ağsız kuru kipte ve sahte yanıtlayıcıyla sınandı |
+| İ1-Ö1 | §1 son madde, §4.3 adım 5, §4.5, Z4 | "Karşılanmadı" eşiği L > %0,245 (= 0,20 / 0,817) |
+| İ1-Ö2 | §4.2, Kalıp T, başlık "Tek cümle", §6.2 "Okuma" iki madde, §4.6 "Karşılanmadı", Z11 | σ için %90, q95 için %95 iki yönlü önyükleme aralığı; kapsamalar; q95'in anlamı (%5 yanlış alarm, yarı yarıya saptama, %80 için q95 + 0,84 σ̂_Δ) |
+| İ1-Ö3 | §4.6 "Karşılandı", §8 madde 14, §3.4 son paragraf, Z10 | "Karşılandı" koşullu (gerçek olaylı PK şartı); bilgi satırı 14 (2019 Silivri) |
+| İ1-Ö4 | §5.6, §11 son cümle | Dondurma anı (ön kayıt + aşama 0 betiği ve provası ilk ağ isteğinden önce; koşu kodu ilk dalga formu isteğinden önce); aşama 0 tek koşu; "geçersiz (kod)" sonrası tek yeniden koşu |
+| İ1-Ö5 | Z7, §2.3, §8 madde 1 | Samos cümlesi düzeltildi; pencere içi M ≥ 7 ≤ 1000 km değişkesi |
+| İ1-K1 | §5.4, Z9 | 1,3 bayt/örnek tek örnekte ölçüldü |
+| İ1-K2 | Z5 | İşlem süresi kaba ölçümü |
+| İ1-K3 | Başlık, §5.1 | 771 → 631 istek (başlıkta İ1-E1'in "≈ 630 hafif istek" metni); `tr4_onkayit_sayim.py` değişmedi |
+| İ1-K4 | §4.4 sonu | Kapının Ek 2'den farkı |
+| İ1-K5 | §8 madde 13 | Bilgi satırı 13'ün örneklemesi |
+| İ1-K6 | §9 | "Doğrulandı (TR-5 §6.1; TR-5b §3.7)"; beş DOI |
+| İ1-K7 | Ek | Paralel süreç notu |
+| İ1-K8 | §10 üçüncü madde | TR-5b'nin aşama 0 kapanışı |
+| İ1-K9 | Durum satırı, §0, bu liste | Sürüm 2, DONDURULDU; öncelik sırasına `TR-4_INCELEME-1.md` |
+
+**İnceleme ve denetim dosyaları (sha256):**
+- `kayit/onkayit/TR-4_INCELEME-1.md` `2769aaefa461bcae276bde73214bc5c5e48df91aa58e9c232b55fdb11e838fa2`
+- `kayit/onkayit/TR-4_marmara-hiz-tabani_ONKAYIT_surum1.md` `ef4d04f928246352fa7ff3c1217b65b5406a56b39668ec19069f3a1dc92fb432`
+- `kayit/turetme/tr4/inc1/inc1_islem_suresi.py` `c2b0ec805e7977d97665da378e7030dddbea75b5220cb8f337e4accfa74395fe`
+- `kayit/turetme/tr4/inc1/inc1_kapi_hacim.py` `14627e3093ac64416e772466dde6c6f199e5ac753b303ab8722d1b083e3cf0f5`
+- `kayit/turetme/tr4/inc1/inc1_kapi_hacim.json` `113a451c46711b82ca2200f6990db5187443daf9e831638eddba0616d5eec9f3`
+- `kayit/turetme/tr4/inc1/inc1_kesinlik.py` `cd64b8bc644024b233305b70ad0ed0a46bc59115c922cf535ddf211dca8846f2`
+- `kayit/turetme/tr4/inc1/inc1_kesinlik.json` `5892ffdccec206c66fd120d39a9ffaa5fc2a0b10d6cc56dc484983f09f6fe480`
+- `kayit/turetme/tr4/inc1/inc1_kesinlik_D.json` `b86e0780ab1bd3ae4a7c16490f0cb048c64f657f9810d75d16c80980a7c2a2dd`
+- `kayit/turetme/tr4/inc1/inc1_yeniden.py` `c17a000ae5985d8467c3b74d73ab71c8d4b40dd85f85849881bfc5032d3122e2`
+- `kayit/turetme/tr4/inc1/inc1_yeniden_olcum.json` `1ca4c83ce22c6076095e6fa79614933cba719e369c9515d1061e6475eda5d0db`
+- `kayit/turetme/tr4/inc1/inc1_yeniden_ref.json` `61e73ff795e222e25e43d4a2d9e9f460073bff24329f7e1238d5520d0038fc63`
+
+**Sayım yeniden koşusu (dondurmada).** `tr4_onkayit_sayim.py` (`5a6f9504…`, değişmedi) arşivlenmiş girdilerle karalama
+dizinindeki bir kopyada yeniden koşuldu (2,2 sn): `tr4_pencereler.csv` `166e42ea…` ve `tr4_onkayit_sayim.json`
+`39e91fce…` bit düzeyinde aynı. İncelemenin hiçbir düzeltmesi sayımı değiştirmez; istek tablosu farkı (771 → 631)
+yalnız `tr4_asama0.py`'de uygulanır.
+
+**Aşama 0 betiğinin ağsız sınaması** (`tr4_asama0_prova.json`): `kuru` iki koşuda aynı sha256'yı verdi; istek tablosu 26 / 468 / 84 / 15 / 30 / 8 ve 105 aday yeniden üretildi; ağ isteği 0. Provada `urlopen` yasaklandı, `_getir` ve `_akit` sahte yanıtlayıcıyla değiştirildi: bayraksız çağrı 0 istek; girdi sha256 uyuşmazlığında iş durdu; 2026 bitişli istek bağlantı kurulmadan reddedildi; üstveri çağrıları 26 / 2 / 0 (kesin olmayan kod ikinci çağrıda yeniden denendi, iki denemeden sonra bırakıldı), üstveri tamamlanmadan `kur` ve `say` koşmadı; süre sınırında `yokla` 172 istekten sonra temiz çıktı, `say` G0 vermedi, sonraki çağrı kalanları sürdürdü; üç ardışık `yokla` çağrısı 597 / 40 / 0 istek attı (hata satırları ikinci çağrıda yeniden denendi, üçüncüde denenmedi), çift kayıt 0; yarım satır `yokla`'yı ve `say`'ı düşürmedi, `say` iki kez aynı baytları yazdı; aşama H'de A ve C kararları, "ertelendi" → 2 gün kuralı → üç ölçümün medyanı → "veri yok (aktarım hızı)", POST reddinde gün gün GET ve süre sınırında sürdürme gösterildi.
+
+## Dondurma notu
+
+İnceleme hükmü DÜZELTMEYLE KABUL'dür; dört engelleyici, beş önemli ve dokuz küçük bulgunun hepsi işlendi, üçüncü tur
+yoktur. Bilinen zayıflıklar dondurmada açıkça kabul edilir:
+- **Aktarım hızı.** KOERI hızı 23–40 KiB/s ise (TR-7 §4, TR-5 §4.1) beklenen sonuç **"veri yok (aktarım hızı)"**dır;
+  kapıyı koruyan hiçbir 0 € küme bütçeye sığmaz (§5.3).
+- **Kapı.** Gerçek dolulukta kapının kırılma olasılığı küçük değildir (rastgele %30 kayıpta 0,26–0,43; tek tip kayıpta
+  %29'da kırılır). Kırılırsa hüküm "veri yok"tur; σ̂_Δ yalnız bilgi satırı 0 olarak yazılır (§4.3).
+- **Pozitif kontrol yok.** Zincirin Marmara'da gerçek bir hız değişimini gördüğü gösterilmez; "karşılandı" ancak gerçek
+  olaylı bir PK'yi geçen yeni bir ön kayıtta dayanak olur (§4.6, Z10).
