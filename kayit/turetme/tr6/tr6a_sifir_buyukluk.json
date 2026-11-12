@@ -1,0 +1,324 @@
+{
+ "aciklama": "TR-6a ön kayıt sürüm 2, K3: \"0 büyüklük\" kuralının Ek 1 önbelleğinde (yalnız olay öncesi, B3 maskeli) doğrulanması.\n\nBütün önbellek okumaları tr6a_onbellek_kor.oku_sorgu üzerinden yapılır (B3 maskesi). Çıktı yalnız maskeden geçen\nsatırların özetidir. Her katalog için: satır sayısı, büyüklük türü boş satırlar, büyüklüğü boş satırlar, büyüklüğü\n<= 0,05 olan satırlar (türü boş / dolu), türü boş ama büyüklüğü > 0,05 olan satırlar; \"0\" satırı taşıyan sorgu\nsahipleri; Ek 1 Mc kuralı (3 örnek pencere, halka, <= 40 km, >= 50 olay: max MAXC + 0,2) iki süzgeçle yeniden:\n(a) Ek 1'deki gibi (süzgeçsiz), (b) önerilen dar kural (türü boş VE büyüklüğü <= 0,05 olan satır atılır).\nKullanım: python3 -I -B tr6a_sifir_buyukluk.py   -> tr6a_sifir_buyukluk.json\n",
+ "maske": {
+  "gun": 365,
+  "L_kat": 4.0
+ },
+ "sahipsiz_sorgu": 0,
+ "katalog_ozeti": {
+  "ComCat": {
+   "sorgu": 465,
+   "satir": 9077,
+   "tur_bos": 306,
+   "buyukluk_bos": 144,
+   "tur_bos_ve_buyukluk_bos": 144,
+   "sifir_tur_bos": 162,
+   "sifir_tur_dolu": 78,
+   "tur_bos_buyukluk_pozitif": 0,
+   "negatif_buyukluk": 66
+  },
+  "EMSC": {
+   "sorgu": 57,
+   "satir": 5523,
+   "tur_bos": 1,
+   "buyukluk_bos": 1,
+   "tur_bos_ve_buyukluk_bos": 1,
+   "sifir_tur_bos": 0,
+   "sifir_tur_dolu": 0,
+   "tur_bos_buyukluk_pozitif": 0,
+   "negatif_buyukluk": 0
+  },
+  "GeoNet": {
+   "sorgu": 49,
+   "satir": 9133,
+   "tur_bos": 0,
+   "buyukluk_bos": 0,
+   "tur_bos_ve_buyukluk_bos": 0,
+   "sifir_tur_bos": 0,
+   "sifir_tur_dolu": 0,
+   "tur_bos_buyukluk_pozitif": 0,
+   "negatif_buyukluk": 0
+  },
+  "ISC": {
+   "sorgu": 825,
+   "satir": 185086,
+   "tur_bos": 8232,
+   "buyukluk_bos": 8232,
+   "tur_bos_ve_buyukluk_bos": 8232,
+   "sifir_tur_bos": 0,
+   "sifir_tur_dolu": 3085,
+   "tur_bos_buyukluk_pozitif": 0,
+   "negatif_buyukluk": 2573
+  },
+  "KOERI": {
+   "sorgu": 44,
+   "satir": 11479,
+   "tur_bos": 0,
+   "buyukluk_bos": 0,
+   "tur_bos_ve_buyukluk_bos": 0,
+   "sifir_tur_bos": 0,
+   "sifir_tur_dolu": 0,
+   "tur_bos_buyukluk_pozitif": 0,
+   "negatif_buyukluk": 0
+  }
+ },
+ "sifir_satiri_olan_sahipler": {
+  "ComCat": {
+   "official20030925195006360_27": 10,
+   "usp000d85g": 3,
+   "official20041226005853450_30": 35,
+   "official20050328160936530_30": 1,
+   "usp000e12e": 1,
+   "usp000exfn": 1,
+   "usp000f2ab": 1,
+   "usp000f34b": 1,
+   "usp000f83m": 2,
+   "usp000fzau": 4,
+   "usp000g650": 1,
+   "usp000gs2d": 1,
+   "usp000h05x": 1,
+   "usp000h1ys": 2,
+   "official20100227063411530_30": 23,
+   "usp000hrw0": 1,
+   "official20110311054624120_30": 50,
+   "usp000j48h": 1,
+   "usp000jdar": 1,
+   "official20120411083836720_20": 18,
+   "usp000jqvm": 2,
+   "usp000jr83": 1,
+   "usc000f1s0": 1
+  }
+ },
+ "mc_yeniden": [
+  {
+   "sahip": "official20030925195006360_27",
+   "katalog": "ComCat",
+   "ek1_mc": 0.3,
+   "ornek_pencere": 3,
+   "mc_suzgecsiz_maskeli": 0.3,
+   "mc_dar_kural_maskeli": 4.3,
+   "dar_kural_mc_yontemi": "birleşik (<50)",
+   "dar_kural_ornek_olay": 25
+  },
+  {
+   "sahip": "official20041226005853450_30",
+   "katalog": "ComCat",
+   "ek1_mc": 4.8,
+   "ornek_pencere": 3,
+   "mc_suzgecsiz_maskeli": 4.8,
+   "mc_dar_kural_maskeli": 4.8,
+   "dar_kural_mc_yontemi": "max(pencere MAXC+0,2)",
+   "dar_kural_ornek_olay": 394
+  },
+  {
+   "sahip": "official20050328160936530_30",
+   "katalog": "ComCat",
+   "ek1_mc": 4.5,
+   "ornek_pencere": 3,
+   "mc_suzgecsiz_maskeli": 4.5,
+   "mc_dar_kural_maskeli": 4.5,
+   "dar_kural_mc_yontemi": "birleşik",
+   "dar_kural_ornek_olay": 84
+  },
+  {
+   "sahip": "official20100227063411530_30",
+   "katalog": "ComCat",
+   "ek1_mc": 3.1,
+   "ornek_pencere": 3,
+   "mc_suzgecsiz_maskeli": 3.1,
+   "mc_dar_kural_maskeli": 3.1,
+   "dar_kural_mc_yontemi": "birleşik",
+   "dar_kural_ornek_olay": 98
+  },
+  {
+   "sahip": "official20110311054624120_30",
+   "katalog": "ComCat",
+   "ek1_mc": 4.6,
+   "ornek_pencere": 3,
+   "mc_suzgecsiz_maskeli": 4.6,
+   "mc_dar_kural_maskeli": 4.6,
+   "dar_kural_mc_yontemi": "max(pencere MAXC+0,2)",
+   "dar_kural_ornek_olay": 355
+  },
+  {
+   "sahip": "official20120411083836720_20",
+   "katalog": "ComCat",
+   "ek1_mc": 0.2,
+   "ornek_pencere": 3,
+   "mc_suzgecsiz_maskeli": 0.2,
+   "mc_dar_kural_maskeli": 4.7,
+   "dar_kural_mc_yontemi": "max(pencere MAXC+0,2)",
+   "dar_kural_ornek_olay": 203
+  },
+  {
+   "sahip": "usc000f1s0",
+   "katalog": "ComCat",
+   "ek1_mc": 4.5,
+   "ornek_pencere": 3,
+   "mc_suzgecsiz_maskeli": 4.5,
+   "mc_dar_kural_maskeli": 4.5,
+   "dar_kural_mc_yontemi": "birleşik (<50)",
+   "dar_kural_ornek_olay": 40
+  },
+  {
+   "sahip": "usp000d85g",
+   "katalog": "ComCat",
+   "ek1_mc": null,
+   "ornek_pencere": 3,
+   "mc_suzgecsiz_maskeli": null,
+   "mc_dar_kural_maskeli": null,
+   "dar_kural_mc_yontemi": "yetersiz (8)",
+   "dar_kural_ornek_olay": 8
+  },
+  {
+   "sahip": "usp000e12e",
+   "katalog": "ComCat",
+   "ek1_mc": null,
+   "ornek_pencere": 3,
+   "mc_suzgecsiz_maskeli": null,
+   "mc_dar_kural_maskeli": null,
+   "dar_kural_mc_yontemi": "yetersiz (3)",
+   "dar_kural_ornek_olay": 3
+  },
+  {
+   "sahip": "usp000exfn",
+   "katalog": "ComCat",
+   "ek1_mc": 4.8,
+   "ornek_pencere": 3,
+   "mc_suzgecsiz_maskeli": 4.8,
+   "mc_dar_kural_maskeli": 4.8,
+   "dar_kural_mc_yontemi": "birleşik (<50)",
+   "dar_kural_ornek_olay": 20
+  },
+  {
+   "sahip": "usp000f2ab",
+   "katalog": "ComCat",
+   "ek1_mc": null,
+   "ornek_pencere": 3,
+   "mc_suzgecsiz_maskeli": null,
+   "mc_dar_kural_maskeli": null,
+   "dar_kural_mc_yontemi": "yetersiz (6)",
+   "dar_kural_ornek_olay": 6
+  },
+  {
+   "sahip": "usp000f34b",
+   "katalog": "ComCat",
+   "ek1_mc": null,
+   "ornek_pencere": 3,
+   "mc_suzgecsiz_maskeli": null,
+   "mc_dar_kural_maskeli": null,
+   "dar_kural_mc_yontemi": "yetersiz (18)",
+   "dar_kural_ornek_olay": 18
+  },
+  {
+   "sahip": "usp000f83m",
+   "katalog": "ComCat",
+   "ek1_mc": 4.7,
+   "ornek_pencere": 3,
+   "mc_suzgecsiz_maskeli": 4.7,
+   "mc_dar_kural_maskeli": 4.7,
+   "dar_kural_mc_yontemi": "max(pencere MAXC+0,2)",
+   "dar_kural_ornek_olay": 77
+  },
+  {
+   "sahip": "usp000fzau",
+   "katalog": "ComCat",
+   "ek1_mc": 4.7,
+   "ornek_pencere": 3,
+   "mc_suzgecsiz_maskeli": null,
+   "mc_dar_kural_maskeli": null,
+   "dar_kural_mc_yontemi": "yetersiz (13)",
+   "dar_kural_ornek_olay": 13
+  },
+  {
+   "sahip": "usp000g650",
+   "katalog": "ComCat",
+   "ek1_mc": null,
+   "ornek_pencere": 3,
+   "mc_suzgecsiz_maskeli": null,
+   "mc_dar_kural_maskeli": null,
+   "dar_kural_mc_yontemi": "yetersiz (2)",
+   "dar_kural_ornek_olay": 2
+  },
+  {
+   "sahip": "usp000gs2d",
+   "katalog": "ComCat",
+   "ek1_mc": null,
+   "ornek_pencere": 3,
+   "mc_suzgecsiz_maskeli": null,
+   "mc_dar_kural_maskeli": null,
+   "dar_kural_mc_yontemi": "yetersiz (3)",
+   "dar_kural_ornek_olay": 3
+  },
+  {
+   "sahip": "usp000h05x",
+   "katalog": "ComCat",
+   "ek1_mc": 4.5,
+   "ornek_pencere": 3,
+   "mc_suzgecsiz_maskeli": null,
+   "mc_dar_kural_maskeli": null,
+   "dar_kural_mc_yontemi": "yetersiz (5)",
+   "dar_kural_ornek_olay": 5
+  },
+  {
+   "sahip": "usp000h1ys",
+   "katalog": "ComCat",
+   "ek1_mc": 4.9,
+   "ornek_pencere": 3,
+   "mc_suzgecsiz_maskeli": 4.9,
+   "mc_dar_kural_maskeli": 4.9,
+   "dar_kural_mc_yontemi": "birleşik (<50)",
+   "dar_kural_ornek_olay": 46
+  },
+  {
+   "sahip": "usp000hrw0",
+   "katalog": "ComCat",
+   "ek1_mc": null,
+   "ornek_pencere": 3,
+   "mc_suzgecsiz_maskeli": null,
+   "mc_dar_kural_maskeli": null,
+   "dar_kural_mc_yontemi": "yetersiz (11)",
+   "dar_kural_ornek_olay": 11
+  },
+  {
+   "sahip": "usp000j48h",
+   "katalog": "ComCat",
+   "ek1_mc": 4.7,
+   "ornek_pencere": 3,
+   "mc_suzgecsiz_maskeli": 4.7,
+   "mc_dar_kural_maskeli": 4.7,
+   "dar_kural_mc_yontemi": "birleşik (<50)",
+   "dar_kural_ornek_olay": 45
+  },
+  {
+   "sahip": "usp000jdar",
+   "katalog": "ComCat",
+   "ek1_mc": null,
+   "ornek_pencere": 3,
+   "mc_suzgecsiz_maskeli": null,
+   "mc_dar_kural_maskeli": null,
+   "dar_kural_mc_yontemi": "yetersiz (2)",
+   "dar_kural_ornek_olay": 2
+  },
+  {
+   "sahip": "usp000jqvm",
+   "katalog": "ComCat",
+   "ek1_mc": null,
+   "ornek_pencere": 3,
+   "mc_suzgecsiz_maskeli": null,
+   "mc_dar_kural_maskeli": null,
+   "dar_kural_mc_yontemi": "yetersiz (7)",
+   "dar_kural_ornek_olay": 7
+  },
+  {
+   "sahip": "usp000jr83",
+   "katalog": "ComCat",
+   "ek1_mc": null,
+   "ornek_pencere": 3,
+   "mc_suzgecsiz_maskeli": null,
+   "mc_dar_kural_maskeli": null,
+   "dar_kural_mc_yontemi": "yetersiz (6)",
+   "dar_kural_ornek_olay": 6
+  }
+ ]
+}
