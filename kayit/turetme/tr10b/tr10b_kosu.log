@@ -1,0 +1,8 @@
+girdi denetimi tamam; indirme başarısız 0 (pay 0.000)
+okuma bitti: 65 dosya; {'satir': 49023666, 'baslik': 0, 'bos': 0, 'aralik_ici': 7593834, 'aralik_disi': 41429832, 'aralik_disi_bozuk': 0, 'bozuk': 0}
+veri kapısı: yer 8, yer-pencere 11, K 2; GEÇMEDİ; nedenler {'doluluk': 6, 'boşluk': 2, 'HDR': 23, 'geçerli': 11, 'kapsam yok': 29, 'uç değeri': 7}
+(a) {'tam': True, 'maske': True, 'elle': True, 'a3': True, 'a4': True}; (b) oran 1.029; 144 satır 0.00286; (c-yapay) True
+(c-gerçek) seçili 5; geçti True
+işaret dosyaları ve okuma anlık görüntüsü yazıldı; gerçek Δv hesaplanıyor
+ölçü kuruldu
+hüküm: TR-10b: veri yok (kural seti B: yer 8 / yer-pencere 11; kapı ≥ 20 / ≥ 40). Bilgi satırı, kapı altı: |Δv| q50 1,59, q95 3,41 [2,23, 3,81] mm/yıl (sünen katmanda hızın %45'si [25, 49]); bu satır bir hüküm değildir. (≤ 3 km'de kümelenince 8 yer kümesi)

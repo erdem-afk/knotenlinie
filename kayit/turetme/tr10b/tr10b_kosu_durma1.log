@@ -1,0 +1,19 @@
+girdi denetimi tamam; indirme başarısız 0 (pay 0.000)
+KOŞU DURDU (biçim; hiçbir Δv hesaplanmadı): DAY/xhr3.day.gz: ⌊gün⌋ = 0 (satır 1)
+{
+ "dosya": "DAY/xhr3.day.gz",
+ "ileti": "⌊gün⌋ = 0",
+ "satir": 1,
+ "alan_sayisi": 3,
+ "desen": [
+  "tam sayı",
+  "tam sayı",
+  "ondalık"
+ ],
+ "sutun1": "1900",
+ "sutun2": "000",
+ "sonrasi": [
+  "***"
+ ],
+ "ilk_5_sayisal": []
+}
