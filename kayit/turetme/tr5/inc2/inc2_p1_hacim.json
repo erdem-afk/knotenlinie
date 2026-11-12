@@ -1,0 +1,28 @@
+{
+ "istasyon_duzeyi_en_yakin": {
+  "istasyon": 22,
+  "istasyon_gunu": 24682,
+  "TB": 0.0941,
+  "merkez_TB": {
+   "IRISDMC": 0.032,
+   "INGV": 0.0181,
+   "ORFEUS": 0.0122,
+   "GEONET": 0.0122,
+   "NOA": 0.0122,
+   "GEOFON": 0.0073
+  }
+ },
+ "kontrol_duzeyi_butun_istasyonlar": {
+  "istasyon": 43,
+  "istasyon_gunu": 50110,
+  "TB": 0.1948,
+  "merkez_TB": {
+   "INGV": 0.0557,
+   "IRISDMC": 0.0524,
+   "NOA": 0.0367,
+   "GEONET": 0.0244,
+   "GEOFON": 0.0134,
+   "ORFEUS": 0.0122
+  }
+ }
+}

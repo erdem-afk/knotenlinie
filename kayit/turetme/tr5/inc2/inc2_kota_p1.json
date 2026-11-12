@@ -1,0 +1,79 @@
+{
+ "dinamik_hepsi_dolu": {
+  "K0": 31,
+  "K_p0": 16,
+  "kontrol_sayisi": {
+   "5": 39,
+   "4": 6
+  }
+ },
+ "dinamik_Z_aygit": {
+  "K0": 28,
+  "K_p0": 15,
+  "kontrol_sayisi": {
+   "5": 40,
+   "4": 5
+  }
+ },
+ "statik_hepsi_dolu": {
+  "K0": 29,
+  "K_p0": 14,
+  "kontrol_4ten_az": [
+   "hv70116556",
+   "us10006n6r",
+   "us1000hwaj",
+   "us20005hzn",
+   "us20009ly0",
+   "us7000asvb",
+   "us7000irfb"
+  ],
+  "kontrol_sayisi": {
+   "5": 26,
+   "4": 12,
+   "3": 6,
+   "2": 1
+  }
+ },
+ "dinamik_volkaniksiz_kota_hepsi_dolu": {
+  "K0": 31,
+  "K_p0": 16
+ },
+ "statik_Z_aygit": {
+  "K0": 26,
+  "K_p0": 11,
+  "kontrol_4ten_az": [
+   "hv70116556",
+   "us10006n6r",
+   "us1000hwaj",
+   "us20002m5s",
+   "us20009ly0",
+   "us7000asvb",
+   "us7000irfb"
+  ],
+  "kontrol_sayisi": {
+   "5": 33,
+   "4": 5,
+   "3": 6,
+   "2": 1
+  }
+ },
+ "dinamik_volkaniksiz_kota_Z_aygit": {
+  "K0": 28,
+  "K_p0": 15
+ },
+ "P1": {
+  "ilk5_istasyon_sayisi": {
+   "1": 88,
+   "2": 39,
+   "3": 68
+  },
+  "ort_1_bolu_n_ilk5": 0.668,
+  "oran_kontrol_istasyon_sigma_bagimsiz": 0.817,
+  "p1_vekil_1aday_istasyon_sayisi": {
+   "1": 10,
+   "3": 12,
+   "2": 2
+  },
+  "p1_vekil_ek_istasyon_penceresi": 26
+ }
+}

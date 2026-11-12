@@ -1,0 +1,11 @@
+{
+ "ek1_kod_dagilimi": {
+  "204": 4837,
+  "200": 8905,
+  "500": 50
+ },
+ "dolu_ana_olay_penceresi": 60,
+ "orta_ay_Z_var_orani": 0.972,
+ "sert_kural_en_az_kayip": 0.083,
+ "kosullu_kural_kayip": 0.0
+}

@@ -1,0 +1,62 @@
+{
+ "N_ist": 300,
+ "cekilis": 2000,
+ "wilcoxon_ulasilabilir_boyut": {
+  "8": 0.0391,
+  "9": 0.0488,
+  "10": 0.042,
+  "11": 0.0415,
+  "12": 0.0461,
+  "13": 0.0471,
+  "14": 0.0453,
+  "15": 0.0473
+ },
+ "kosul": {
+  "CC0,5_mev0,05": {
+   "gecerli_oran": [
+    0.97,
+    0.99
+   ],
+   "dko_medyan_yuzde": [
+    0.0014,
+    -0.0412
+   ],
+   "P_A0_15kume": 0.034,
+   "P_A008_15kume": 0.722,
+   "P_PK_uzaklik_12sinyal_3sifir": 0.551,
+   "P_P2_16sinyal_4sifir": 0.678,
+   "P_P2_14sinyal_6sifir": 0.548
+  },
+  "CC0,5_mev0,10": {
+   "gecerli_oran": [
+    0.987,
+    0.987
+   ],
+   "dko_medyan_yuzde": [
+    -0.0101,
+    -0.0512
+   ],
+   "P_A0_15kume": 0.1,
+   "P_A008_15kume": 0.587,
+   "P_PK_uzaklik_12sinyal_3sifir": 0.464,
+   "P_P2_16sinyal_4sifir": 0.589,
+   "P_P2_14sinyal_6sifir": 0.521
+  },
+  "CC0,7_mev0,05": {
+   "gecerli_oran": [
+    1.0,
+    0.993
+   ],
+   "dko_medyan_yuzde": [
+    0.0005,
+    -0.0458
+   ],
+   "P_A0_15kume": 0.035,
+   "P_A008_15kume": 0.968,
+   "P_PK_uzaklik_12sinyal_3sifir": 0.836,
+   "P_P2_16sinyal_4sifir": 0.93,
+   "P_P2_14sinyal_6sifir": 0.824
+  }
+ },
+ "sure_sn": 224
+}

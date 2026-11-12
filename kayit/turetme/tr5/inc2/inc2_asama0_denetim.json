@@ -1,0 +1,15 @@
+{
+ "1_surdurme": {
+  "ilk_cagri_satir": 30,
+  "toplam_satir": 120,
+  "istek": 120,
+  "cift_kayit": 0
+ },
+ "2_hata_yeniden_denenmez": {
+  "hata_satiri": 40,
+  "ucuncu_cagrida_atilan": 0
+ },
+ "3_yarim_satir_say": "say() düşer: JSONDecodeError",
+ "4_LISTE_SHA": null,
+ "ag_cagrisi": 0
+}
