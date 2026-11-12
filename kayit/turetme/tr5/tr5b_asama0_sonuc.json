@@ -1,0 +1,1038 @@
+{
+ "liste_sha256": "a3a6a45a97d9e6a625f3aa6157093cda75b2190a026740573369d64bd46e8763",
+ "K0": 18,
+ "K_p0": 7,
+ "kapi": {
+  "K": 20,
+  "K_p": 10
+ },
+ "hukum": "güç yok (aşama 0)",
+ "pencere_neden": {
+  "dolu": 478,
+  "z_ay": 547,
+  "aygit": 110,
+  "uc_bilesen_yok": 99,
+  "yatay": 12
+ },
+ "olay": {
+  "usp000br01": {
+   "kume": "usp000br01",
+   "volkanik": true,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [
+    1,
+    5
+   ],
+   "plasebo_kontrol": []
+  },
+  "usp000cmxe": {
+   "kume": "usp000cmxe",
+   "volkanik": false,
+   "olay": true,
+   "plasebo": false,
+   "kontrol": [
+    2,
+    3,
+    4,
+    6
+   ],
+   "plasebo_kontrol": []
+  },
+  "hv6000471": {
+   "kume": "hv6000471",
+   "volkanik": true,
+   "olay": true,
+   "plasebo": false,
+   "kontrol": [
+    1,
+    4,
+    5,
+    6,
+    7
+   ],
+   "plasebo_kontrol": [
+    1,
+    2,
+    6
+   ]
+  },
+  "usp000fuvt": {
+   "kume": "usp000fuvt",
+   "volkanik": false,
+   "olay": true,
+   "plasebo": false,
+   "kontrol": [
+    2,
+    4,
+    6,
+    9,
+    10
+   ],
+   "plasebo_kontrol": []
+  },
+  "usp000g826": {
+   "kume": "usp000g826",
+   "volkanik": false,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [
+    6,
+    7,
+    8
+   ],
+   "plasebo_kontrol": []
+  },
+  "usp000gjgt": {
+   "kume": "usp000gjgt",
+   "volkanik": false,
+   "olay": true,
+   "plasebo": true,
+   "kontrol": [
+    2,
+    3,
+    7,
+    8
+   ],
+   "plasebo_kontrol": [
+    1,
+    2,
+    3,
+    6,
+    7
+   ]
+  },
+  "usp000gvtu": {
+   "kume": "usp000gvtu",
+   "volkanik": false,
+   "olay": true,
+   "plasebo": true,
+   "kontrol": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "plasebo_kontrol": [
+    1,
+    3,
+    6,
+    7,
+    9
+   ]
+  },
+  "usp000jr55": {
+   "kume": "usp000jr55",
+   "volkanik": true,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [
+    1,
+    3,
+    5,
+    8
+   ],
+   "plasebo_kontrol": []
+  },
+  "usp000jtqw": {
+   "kume": "usp000jtqw",
+   "volkanik": true,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [],
+   "plasebo_kontrol": []
+  },
+  "usc000ewqq": {
+   "kume": "usc000ewqq",
+   "volkanik": false,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [
+    3,
+    5
+   ],
+   "plasebo_kontrol": []
+  },
+  "usc000m1w9": {
+   "kume": "usc000m1w9",
+   "volkanik": false,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [
+    3,
+    7,
+    8
+   ],
+   "plasebo_kontrol": [
+    4,
+    6
+   ]
+  },
+  "usb000m8ch": {
+   "kume": "usb000m8ch",
+   "volkanik": false,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [
+    3
+   ],
+   "plasebo_kontrol": []
+  },
+  "usb000r2hc": {
+   "kume": "usb000r2hc",
+   "volkanik": false,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [
+    1,
+    4,
+    7
+   ],
+   "plasebo_kontrol": []
+  },
+  "nc72282711": {
+   "kume": "nc72282711",
+   "volkanik": false,
+   "olay": true,
+   "plasebo": false,
+   "kontrol": [
+    1,
+    4,
+    5,
+    6,
+    8
+   ],
+   "plasebo_kontrol": [
+    3,
+    4,
+    6,
+    7,
+    9
+   ]
+  },
+  "us2000272b": {
+   "kume": "us2000272b",
+   "volkanik": false,
+   "olay": true,
+   "plasebo": true,
+   "kontrol": [
+    1,
+    2,
+    7,
+    8
+   ],
+   "plasebo_kontrol": [
+    1,
+    4,
+    6,
+    10
+   ]
+  },
+  "us20002m5s": {
+   "kume": "us20002m5s",
+   "volkanik": false,
+   "olay": true,
+   "plasebo": false,
+   "kontrol": [
+    1,
+    3,
+    4,
+    10
+   ],
+   "plasebo_kontrol": [
+    5,
+    7
+   ]
+  },
+  "us100031wx": {
+   "kume": "us100031wx",
+   "volkanik": true,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [
+    3,
+    5,
+    8
+   ],
+   "plasebo_kontrol": [
+    1,
+    2,
+    6,
+    8
+   ]
+  },
+  "us10004gy9": {
+   "kume": "us10004gy9",
+   "volkanik": false,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [
+    1,
+    3,
+    4,
+    6,
+    7
+   ],
+   "plasebo_kontrol": [
+    4,
+    6,
+    7,
+    10
+   ]
+  },
+  "us20005hzn": {
+   "kume": "us20005hzn",
+   "volkanik": false,
+   "olay": true,
+   "plasebo": true,
+   "kontrol": [
+    3,
+    5,
+    6,
+    8,
+    10
+   ],
+   "plasebo_kontrol": [
+    1,
+    3,
+    7,
+    8
+   ]
+  },
+  "us20005i1a": {
+   "kume": "us20005hzn",
+   "volkanik": false,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [
+    3,
+    8,
+    10
+   ],
+   "plasebo_kontrol": [
+    3,
+    4,
+    8
+   ]
+  },
+  "us10006g7d": {
+   "kume": "us10006g7d",
+   "volkanik": false,
+   "olay": true,
+   "plasebo": false,
+   "kontrol": [
+    1,
+    2,
+    3,
+    7,
+    8
+   ],
+   "plasebo_kontrol": []
+  },
+  "us10006n6r": {
+   "kume": "us10006n6r",
+   "volkanik": false,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [
+    4,
+    5
+   ],
+   "plasebo_kontrol": [
+    1,
+    3,
+    4,
+    5
+   ]
+  },
+  "us10008mel": {
+   "kume": "us10008mel",
+   "volkanik": false,
+   "olay": true,
+   "plasebo": false,
+   "kontrol": [
+    2,
+    4,
+    6,
+    8,
+    10
+   ],
+   "plasebo_kontrol": [
+    1,
+    2,
+    10
+   ]
+  },
+  "us10008mgu": {
+   "kume": "us10008mel",
+   "volkanik": false,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [
+    7
+   ],
+   "plasebo_kontrol": [
+    2,
+    4,
+    5,
+    6,
+    7
+   ]
+  },
+  "us20009ly0": {
+   "kume": "us20009ly0",
+   "volkanik": false,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [
+    6,
+    7,
+    8
+   ],
+   "plasebo_kontrol": [
+    3,
+    4,
+    5
+   ]
+  },
+  "us20009ynd": {
+   "kume": "us20009ly0",
+   "volkanik": false,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [
+    8
+   ],
+   "plasebo_kontrol": []
+  },
+  "us2000bmhe": {
+   "kume": "us2000bmhe",
+   "volkanik": false,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [
+    4,
+    7,
+    8
+   ],
+   "plasebo_kontrol": []
+  },
+  "hv70116556": {
+   "kume": "hv70116556",
+   "volkanik": true,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [
+    3,
+    5,
+    6
+   ],
+   "plasebo_kontrol": [
+    1,
+    2,
+    3,
+    8
+   ]
+  },
+  "us1000hwaj": {
+   "kume": "us1000hwaj",
+   "volkanik": false,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [
+    1,
+    5,
+    8
+   ],
+   "plasebo_kontrol": []
+  },
+  "ci38443183": {
+   "kume": "ci38443183",
+   "volkanik": false,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [
+    4
+   ],
+   "plasebo_kontrol": [
+    3,
+    6,
+    7
+   ]
+  },
+  "pr2019267000": {
+   "kume": "pr2019267000",
+   "volkanik": false,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [
+    5,
+    8
+   ],
+   "plasebo_kontrol": []
+  },
+  "us70008jr5": {
+   "kume": "us70008jr5",
+   "volkanik": false,
+   "olay": true,
+   "plasebo": false,
+   "kontrol": [
+    3,
+    4,
+    6,
+    8
+   ],
+   "plasebo_kontrol": []
+  },
+  "us7000asvb": {
+   "kume": "us7000asvb",
+   "volkanik": false,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [],
+   "plasebo_kontrol": []
+  },
+  "us7000asx4": {
+   "kume": "us7000asvb",
+   "volkanik": false,
+   "olay": true,
+   "plasebo": false,
+   "kontrol": [
+    2,
+    3,
+    4,
+    5,
+    8
+   ],
+   "plasebo_kontrol": []
+  },
+  "us6000d3zh": {
+   "kume": "us6000d3zh",
+   "volkanik": false,
+   "olay": true,
+   "plasebo": true,
+   "kontrol": [
+    1,
+    2,
+    3,
+    5,
+    7
+   ],
+   "plasebo_kontrol": [
+    2,
+    3,
+    6,
+    7
+   ]
+  },
+  "us7000d18q": {
+   "kume": "us7000d18q",
+   "volkanik": false,
+   "olay": true,
+   "plasebo": false,
+   "kontrol": [
+    3,
+    7,
+    8,
+    10
+   ],
+   "plasebo_kontrol": []
+  },
+  "nc73666231": {
+   "kume": "nc73666231",
+   "volkanik": false,
+   "olay": true,
+   "plasebo": false,
+   "kontrol": [
+    4,
+    6,
+    8,
+    9
+   ],
+   "plasebo_kontrol": []
+  },
+  "us7000gaqu": {
+   "kume": "us7000gaqu",
+   "volkanik": false,
+   "olay": true,
+   "plasebo": false,
+   "kontrol": [
+    1,
+    2,
+    5,
+    9
+   ],
+   "plasebo_kontrol": [
+    7,
+    9
+   ]
+  },
+  "us7000imgl": {
+   "kume": "us7000imgl",
+   "volkanik": false,
+   "olay": true,
+   "plasebo": true,
+   "kontrol": [
+    1,
+    2,
+    5,
+    9
+   ],
+   "plasebo_kontrol": [
+    2,
+    4,
+    5,
+    7,
+    9
+   ]
+  },
+  "us7000irfb": {
+   "kume": "us7000irfb",
+   "volkanik": false,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [
+    2,
+    3,
+    4,
+    6,
+    8
+   ],
+   "plasebo_kontrol": []
+  },
+  "us7000irfm": {
+   "kume": "us7000irfb",
+   "volkanik": false,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [
+    3,
+    7,
+    8,
+    10
+   ],
+   "plasebo_kontrol": []
+  },
+  "us6000jllz": {
+   "kume": "us6000jllz",
+   "volkanik": false,
+   "olay": true,
+   "plasebo": true,
+   "kontrol": [
+    2,
+    5,
+    7,
+    8,
+    9
+   ],
+   "plasebo_kontrol": [
+    2,
+    5,
+    8,
+    9,
+    10
+   ]
+  },
+  "us6000jlm1": {
+   "kume": "us6000jllz",
+   "volkanik": false,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [
+    1,
+    3,
+    9
+   ],
+   "plasebo_kontrol": [
+    4
+   ]
+  },
+  "us6000jlqa": {
+   "kume": "us6000jllz",
+   "volkanik": false,
+   "olay": true,
+   "plasebo": false,
+   "kontrol": [
+    2,
+    5,
+    9,
+    10
+   ],
+   "plasebo_kontrol": [
+    1,
+    5,
+    10
+   ]
+  },
+  "us6000jlrc": {
+   "kume": "us6000jllz",
+   "volkanik": false,
+   "olay": false,
+   "plasebo": false,
+   "kontrol": [
+    4,
+    6,
+    9
+   ],
+   "plasebo_kontrol": [
+    1,
+    4,
+    5,
+    6,
+    10
+   ]
+  }
+ },
+ "p1": [
+  {
+   "olay": "usp000cmxe",
+   "kontrol_sira": 2,
+   "merkez_id": "usp0005cq6",
+   "ist": "KN.AML",
+   "pencere": [
+    "2001-02-24",
+    "2004-02-16"
+   ]
+  },
+  {
+   "olay": "usp000fuvt",
+   "kontrol_sira": 2,
+   "merkez_id": "ci3144585",
+   "ist": "CI.LFP",
+   "pencere": [
+    "2004-12-20",
+    "2007-12-12"
+   ]
+  },
+  {
+   "olay": "usp000g826",
+   "kontrol_sira": 6,
+   "merkez_id": "usp000araj",
+   "ist": "NZ.MXZ",
+   "pencere": [
+    "2005-05-30",
+    "2008-05-21"
+   ]
+  },
+  {
+   "olay": "usp000gjgt",
+   "kontrol_sira": 2,
+   "merkez_id": "usp0001wrg",
+   "ist": "AK.EYAK",
+   "pencere": [
+    "2005-10-07",
+    "2008-09-28"
+   ]
+  },
+  {
+   "olay": "usp000gvtu",
+   "kontrol_sira": 1,
+   "merkez_id": "nn00725272",
+   "ist": "IM.NV31",
+   "pencere": [
+    "2006-04-07",
+    "2009-03-29"
+   ]
+  },
+  {
+   "olay": "usc000ewqq",
+   "kontrol_sira": 3,
+   "merkez_id": "usp0007788",
+   "ist": "GE.EIL",
+   "pencere": [
+    "2010-01-29",
+    "2013-01-20"
+   ]
+  },
+  {
+   "olay": "usc000m1w9",
+   "kontrol_sira": 3,
+   "merkez_id": "usp0000g5v",
+   "ist": "IV.PTCC",
+   "pencere": [
+    "2011-01-14",
+    "2014-01-05"
+   ]
+  },
+  {
+   "olay": "usb000m8ch",
+   "kontrol_sira": 3,
+   "merkez_id": "us20005iis",
+   "ist": "JP.JNU",
+   "pencere": [
+    "2011-01-27",
+    "2014-01-18"
+   ]
+  },
+  {
+   "olay": "usb000r2hc",
+   "kontrol_sira": 1,
+   "merkez_id": "us1000731j",
+   "ist": "IV.NRCA",
+   "pencere": [
+    "2011-05-25",
+    "2014-05-16"
+   ]
+  },
+  {
+   "olay": "nc72282711",
+   "kontrol_sira": 1,
+   "merkez_id": "usp0000g5v",
+   "ist": "IV.PTCC",
+   "pencere": [
+    "2011-08-25",
+    "2014-08-16"
+   ]
+  },
+  {
+   "olay": "us2000272b",
+   "kontrol_sira": 1,
+   "merkez_id": "usp000100b",
+   "ist": "MN.PDG",
+   "pencere": [
+    "2012-04-16",
+    "2015-04-08"
+   ]
+  },
+  {
+   "olay": "us20002m5s",
+   "kontrol_sira": 1,
+   "merkez_id": "usp0001ay4",
+   "ist": "IV.SNAL",
+   "pencere": [
+    "2012-06-04",
+    "2015-05-27"
+   ]
+  },
+  {
+   "olay": "us10004gy9",
+   "kontrol_sira": 1,
+   "merkez_id": "usp000c5h6",
+   "ist": "NZ.MSZ",
+   "pencere": [
+    "2013-01-25",
+    "2016-01-17"
+   ]
+  },
+  {
+   "olay": "us20005hzn",
+   "kontrol_sira": 3,
+   "merkez_id": "usp0001z8j",
+   "ist": "GE.TOLI2",
+   "pencere": [
+    "2013-04-15",
+    "2016-04-06"
+   ]
+  },
+  {
+   "olay": "us20005i1a",
+   "kontrol_sira": 3,
+   "merkez_id": "usp000fyw4",
+   "ist": "HP.PYL",
+   "pencere": [
+    "2013-04-15",
+    "2016-04-06"
+   ]
+  },
+  {
+   "olay": "us10006g7d",
+   "kontrol_sira": 1,
+   "merkez_id": "us6000c9hg",
+   "ist": "AT.SDPT",
+   "pencere": [
+    "2013-08-25",
+    "2016-08-16"
+   ]
+  },
+  {
+   "olay": "us10006n6r",
+   "kontrol_sira": 4,
+   "merkez_id": "ci3144585",
+   "ist": "CI.RIN",
+   "pencere": [
+    "2013-09-09",
+    "2016-08-31"
+   ]
+  },
+  {
+   "olay": "us10008mel",
+   "kontrol_sira": 2,
+   "merkez_id": "ci3031111",
+   "ist": "CI.MSC",
+   "pencere": [
+    "2014-05-02",
+    "2017-04-23"
+   ]
+  },
+  {
+   "olay": "us10008mgu",
+   "kontrol_sira": 7,
+   "merkez_id": "usp000e7jp",
+   "ist": "MX.SRIG",
+   "pencere": [
+    "2014-05-02",
+    "2017-04-23"
+   ]
+  },
+  {
+   "olay": "us20009ly0",
+   "kontrol_sira": 6,
+   "merkez_id": "ci3144585",
+   "ist": "CI.RIN",
+   "pencere": [
+    "2014-06-13",
+    "2017-06-04"
+   ]
+  },
+  {
+   "olay": "us20009ynd",
+   "kontrol_sira": 8,
+   "merkez_id": "usp000e7jp",
+   "ist": "MX.SRIG",
+   "pencere": [
+    "2014-07-21",
+    "2017-07-12"
+   ]
+  },
+  {
+   "olay": "us2000bmhe",
+   "kontrol_sira": 4,
+   "merkez_id": "usp000257x",
+   "ist": "ZC.SADR",
+   "pencere": [
+    "2014-11-14",
+    "2017-11-05"
+   ]
+  },
+  {
+   "olay": "us1000hwaj",
+   "kontrol_sira": 1,
+   "merkez_id": "usp0007r4u",
+   "ist": "CQ.NATA",
+   "pencere": [
+    "2015-11-26",
+    "2018-11-17"
+   ]
+  },
+  {
+   "olay": "ci38443183",
+   "kontrol_sira": 4,
+   "merkez_id": "usp000juhz",
+   "ist": "CN.DIB",
+   "pencere": [
+    "2016-07-04",
+    "2019-06-26"
+   ]
+  }
+ ],
+ "istek": {
+  "toplam": 25315,
+  "atilan": 25315
+ },
+ "istek_durum": {
+  "toplam": {
+   "var": 15831,
+   "bos": 9433,
+   "kisitli": 0,
+   "hata": 51
+  },
+  "rol": {
+   "kontrol": {
+    "var": 11081,
+    "bos": 7224,
+    "kisitli": 0,
+    "hata": 45
+   },
+   "olay": {
+    "var": 2020,
+    "bos": 190,
+    "kisitli": 0,
+    "hata": 3
+   },
+   "plasebo": {
+    "var": 791,
+    "bos": 42,
+    "kisitli": 0,
+    "hata": 3
+   },
+   "plasebo_kontrol": {
+    "var": 5895,
+    "bos": 4342,
+    "kisitli": 0,
+    "hata": 4
+   }
+  },
+  "merkez": {
+   "EPOSFR": {
+    "var": 116,
+    "bos": 10,
+    "kisitli": 0,
+    "hata": 0
+   },
+   "GEOFON": {
+    "var": 1502,
+    "bos": 952,
+    "kisitli": 0,
+    "hata": 0
+   },
+   "GEONET": {
+    "var": 1092,
+    "bos": 45,
+    "kisitli": 0,
+    "hata": 0
+   },
+   "IGN": {
+    "var": 77,
+    "bos": 7,
+    "kisitli": 0,
+    "hata": 0
+   },
+   "INGV": {
+    "var": 1791,
+    "bos": 899,
+    "kisitli": 0,
+    "hata": 0
+   },
+   "IRISDMC": {
+    "var": 6955,
+    "bos": 6475,
+    "kisitli": 0,
+    "hata": 0
+   },
+   "KOERI": {
+    "var": 74,
+    "bos": 9,
+    "kisitli": 0,
+    "hata": 0
+   },
+   "NCEDC": {
+    "var": 677,
+    "bos": 76,
+    "kisitli": 0,
+    "hata": 0
+   },
+   "NOA": {
+    "var": 1963,
+    "bos": 383,
+    "kisitli": 0,
+    "hata": 0
+   },
+   "ORFEUS": {
+    "var": 368,
+    "bos": 503,
+    "kisitli": 0,
+    "hata": 0
+   },
+   "SCEDC": {
+    "var": 1216,
+    "bos": 74,
+    "kisitli": 0,
+    "hata": 51
+   }
+  }
+ },
+ "ustveri_alinamayan": {},
+ "onbellek_sha256": "f663a15d38ba53a3f4e52df43d194b56820a777f632e6b79db3f335a30afb2d0",
+ "istekler_sha256": "ddb88937118e5f5234be734265b7538285e8db5119067cd4a317674d87ae5a87"
+}

@@ -169,3 +169,25 @@ fayıyla doğrultu atımlı fay arasında ve hüküm taşımaz.
 
 Çıkan soru: TR-10b'den yeni bir 0 € soru çıkmadı; yeniden açma şartları defterde (tarihlenmiş aygıt kayıtları,
 başka sünme ağları, NISAR). Sıradaki halkalar TR-7, TR-6a ve TR-5b koşularının biçiminden okunacak.
+
+## Halka 7 (12 Kasım 2026): TR-5b aşama 0, güç yok
+
+TR-5b ön kaydı (M ≥ 6,0 sığ depremlerden önceki son yılda tek istasyon dv/v, küresel olay–kontrol sınavı) iki bağımsız
+incelemeden sonra sürüm 3 olarak donduruldu (bfd9b0a). Sunucu kiralamadan önce koşulması şart koşulan aşama 0 (doluluk
+sayımı; 292 istasyon, 25 315 yoklama isteği, 0 €, dalga formu indirilmeden) bir kez koşuldu.
+
+Sonuç: bağımsız küme K₀ = 18 (kapı 20), eşleşik plasebo kümesi K_p₀ = 7 (kapı 10). Hüküm "güç yok (aşama 0)". Üstveri
+sayımı 31 / 16 idi. 1246 pencerenin 478'i dolu; 547'si Z bileşeninde boş ay, 110'u aygıt değişimi, 99'u üç bileşen
+yok, 12'si yatay bileşen yüzünden düştü. 51 istek (hepsi SCEDC) iki denemede de hata döndü ve kural gereği dolu
+sayılmadı; bunların sonucu değiştirip değiştirmeyeceği ayrıca hesaplanmadı, plasebo kapısı 7 / 10'da. dv/v
+hesaplanmadı, olay verisi indirilmedi; TR-5b'nin olay verisi kör kaldı. Sunucu kiralanmadı (≈1,5 TB indirme
+önlendi); Erdem'e açılan sunucu kartı geri çekildi.
+
+Başarısızlığın biçimi: beşinci kez örneklem, bu kez doluluk. Darboğaz hesap gücü değil, M ≥ 6 öncesinde 3 yıl
+kesintisiz üç bileşenli açık kayıt. Yeniden açma şartları ön kayıt §11'de (Hi-net / F-net gibi yeni açık arşiv;
+istasyon çifti tasarımı; TR-4'ün ölçeceği σ_Δ'nın küçük çıkması).
+
+Çıkan soru: TR-4 (Marmara KO istasyonlarında olaysız dv/v tabanı) artık tek başına anlamlı: hem Marmara'da
+algılanabilir en küçük hız değişimini verir hem de TR-5b'nin (c) yeniden açma şartını ölçer. Ön kaydı sıradaki iş.
+Aynı gün TR-6a ve TR-7'nin koşu kodları bağımsız kod incelemesinden geçti (ikisi de DÜZELTMEYLE KABUL, veri öncesi
+Ek 1); yapay verili bağlayıcı yöntem sınamaları koşuyor.
