@@ -23,6 +23,9 @@ Aσ = 10 kPa'da ve sinyalin üst ucuna karşı SINIRDA (ρ = 2,4). Ayak (a): Com
 155 olaydan, gölge lobunda −10 kPa'yı 1 yılda görecek kadar öncül sismisitesi olan bağımsız küme sayısı
 Aσ = 10 / 20 / 30 / 50 kPa için 44 / 22 / 13 / 3. Gereken sayı 23. Yavaş kayma sınıfında ≈ 4 bağımsız bölge var.
 Kapı durumu: (a) SINIRDA, (b) GEÇMEZ. Aday elenmedi; sayılar Erdem'in kararı içindir.
+**Ek 1 (12 Kasım):** Aσ literatürden 19 kPa'ya sabitlendi (doğrulanmış 10 kosismik dizi kestiriminin medyanı) ve öncül
+sismisite en iyi açık katalogla (çoğunlukla ISC) yeniden sayıldı: koşulabilir bağımsız küme 39, gereken 23. (a) **GEÇTİ**
+ama sonuç kırılgan: Mc + 0,5'te 18, Aσ = 39 kPa'da 11 kümeye düşüyor.
 
 ## 1. Soru ve neyi ölçmediği
 
@@ -315,3 +318,173 @@ JMA dışı katalogların erişimi bu turda sınanmadı).
   Marmara'da yıl ölçekli yükleme değişimi için sismisite, GNSS'in gerisinde.
 - **TR-4** (dv/v): o da en iyi durumda gerilme hızını ölçer; TR-6'nın (b) sonucu TR-4 için bir kıyas çizgisi verir.
 - **VE-5 / K10**: 1999 sonrası viskoelastik gerilme evrimi (b)'nin "bilinen" değeri olabilirdi; sayısı okunmadı.
+
+## Ek 1: (a) ayağı için Aσ ve katalog kapısı (12 Kasım)
+
+Betik `kayit/turetme/tr6/tr6_a_kapi.py`, çıktı `tr6_a_kapi.json`. Yalnız numpy ve standart kütüphane kullanıldı; koşu
+`python3 -I -B` ile yapıldı. Ham yanıtlar depo dışında duruyor: 1706 dosya, 48 MB; yer
+`/tmp/claude-0/-home-user/635decb6-3930-5a4d-9c31-b6f30d64fb94/scratchpad/tr6a/onbellek/`. Her dosyanın URL'si ve
+SHA-256'sı `URL_LISTESI.tsv` içinde. Hüküm satırı koşulmadı: olay sonrası tek sorgu yapılmadı, oran değişimi ve ters
+çözüm hesaplanmadı. Bütün sorgular olaydan 30 gün önce bitiyor; en geç bitiş 2025-11-06.
+
+### E1.1 Aσ, veriden önce literatürden
+
+Doğrulama türleri:
+- **ö**: sayı OpenAlex özetinde geçiyor.
+- **t**: sayı açık tam metinde okundu.
+- **i**: sayı başka bir açık tam metnin aktarımı. Bu satırlarda kaynağın kendi metni kapalı ya da sayıyı özetinde vermiyor.
+
+Wiley (403), Springer (istemci sınaması) ve Bristol deposu (Cloudflare) erişimi reddetti; hiçbiri atlatılmadı.
+
+| Bölge | Ortam | Aσ (kPa) | Yöntem | Kaynak | Doğr. |
+|---|---|---|---|---|---|
+| Landers 1992 | doğrultu atımlı | ≈ 17 | erken artçılarla en çok olabilirlik, gerilme belirsizliği dahil | Hainzl 2009, 10.1029/2008jb006011 | ö |
+| G. Kaliforniya 1986–2003 | doğrultu atımlı | 40 | CRS ileri modeli | Toda 2005, 10.1029/2004jb003415 | i (Cocco 2010) |
+| Kobe 1995 | doğrultu atımlı | 35 ± 15 | artçı oranı ile ΔCFF ilişkisi | Toda 1998, 10.1029/98jb00765 | i (CORSSA 2010, Hainzl 2010/2024) |
+| Kagoshima 1997 | doğrultu atımlı | 40 | hız-durum ileri modeli | Toda & Stein 2003, 10.1029/2003jb002527 | i (Cocco 2010) |
+| Umbria-Marche 1997 | normal | 40 | en çok olabilirlik | Catalli 2008, 10.1029/2007jb005356 | ö |
+| Japonya 1970–2003 | karışık | 12 | fiziksel-istatistiksel kümelenme | Console 2006 | i (CORSSA, Hainzl 2024) |
+| Tohoku 2011 | megathrust | 18 (belirsizliksiz modelde 100) | CRS, Monte Carlo | Cattania 2014, 10.1002/2014jb011183 | t (Tablo 2) |
+| Parkfield 2004 | doğrultu atımlı | 4 (belirsizliksiz modelde 8) | CRS, Monte Carlo | Cattania 2014 | t |
+| Orta İtalya 2016–17 | normal | ≈ 20 | CRS parametre eniyileme | Mancini 2019, 10.1029/2019jb017874 | i (Hainzl 2024) |
+| G. Kaliforniya, 6 ana şok | doğrultu atımlı | < 10 (küçük bölmelerde ≈ 5) | a-pozitif erken artçı, c-değeri | Hainzl, Page & van der Elst 2024, 10.1785/0220240176 | ö, t |
+| Izu 2000 sürüsü | volkanik dayk | 10 | gerilme hızı ile oran ilişkisi | Toda 2002, 10.1038/nature00997 | i |
+| Westmorland 2020 | yavaş kayma + akışkan | 0,4–1,2 | yavaş kaymayla sürülen hız-durum | Sirorattanakul 2022, 10.1029/2022jb024693 | i (Hainzl 2024) |
+| Val d'Agri | baraj kaynaklı | 0,8 | poroelastik + hız-durum | Rinaldi 2020, 10.1016/j.jrmge.2020.04.003 | i |
+
+**Doğrulanamadı.** Aşağıdaki çalışmalarda sayı ne özette ne de erişilebilen bir açık metinde bulunabildi:
+- Dieterich, Cayol & Okubo 2000 (Kilauea)
+- Segall 2006 (Kilauea yavaş kayması)
+- Llenos 2009 ve Llenos & McGuire 2011 (Salton)
+- Toda & Enescu 2011 (Japonya CSEP)
+- Cattania 2018 (Canterbury): tam metin indirildi ama metin çıkarımında Aσ sayısı okunamadı.
+- Jiang, Trugman & González 2026 (T-rate, Reno)
+
+**Aσ'ya çevrilemedi.** Heimisson & Segall 2020 (Bárðarbunga) yalnız boyutsuz A veriyor (1e-5–0,01). Hainzl,
+Zöller & Wang 2010 bir benzetim taraması; 17 kPa için "etkin uydurma parametresi" diyor. Ader 2014 nitel: tek kayma
+bloğu modeli aσ'yı ciddi biçimde düşük kestirebilir.
+
+**Sabitleme kuralı.** Kural, sayımdan önce yazıldı. Yalnız doğal kosismik tektonik diziler alındı (tablonun ilk 10
+satırı). Her çalışmadan tek değer, yazarın tercih ettiği satır kullanıldı. Üst sınırlar kendi değeriyle girdi; bu
+Aσ'yı büyüttüğü için tutucu yöndedir.
+- 10 değer: 4, 10, 12, 17, 18, 20, 35, 40, 40, 40 kPa.
+- **Medyan 19 kPa. Ön kayıt değeri: Aσ = 19 kPa.**
+- Duyarlılık için çeyrekler alındı: **13 ve 39 kPa**. Aralık 4–40 kPa.
+- Sürü, yavaş kayma ve indüklenmiş satırlar eklenince 13 değerin medyanı 17 kPa.
+
+Hainzl 2024, eski kestirimlerin eksik erken artçılar yüzünden yukarı sapmış olabileceğini yazıyor; bu, kapı açısından
+elverişli yönde bir belirsizlik. Gerekli eşik: Δτ = −10 kPa, 1 yıl, %80 güç. Bu eşik Aσ = 19 kPa için
+N₀ ≥ 31,4/yıl, 13 kPa için 17,1/yıl, 39 kPa için 111,2/yıl.
+
+### E1.2 Katalog erişimi
+
+Her servis küçük sorgularla sınandı. User-Agent genel tutuldu, hiçbir form doldurulmadı.
+
+| Servis | Durum |
+|---|---|
+| ComCat | erişildi (155 olay) |
+| ISC Bulletin FDSN | erişildi (155 olay). JMA, CWB/TAP, BJI, GUC gibi yerel ajans katkılarını taşıyor; Japonya'da M 1 düzeyine iniyor. |
+| GeoNet FDSN | erişildi (8 olay). `limit` parametresini reddediyor. |
+| EMSC | erişildi (9 Akdeniz–İran olayı) |
+| KOERI zeqdb | erişildi (6 Türkiye çevresi olayı; yavaş) |
+| INGV FDSN | erişildi; havuzda kutusuna düşen olay yok |
+| JMA birleşik | yıllık `hypo` zip dosyaları açık. Doğrudan kullanılmadı; aynı JMA hiposantrları ISC üzerinden geldi. |
+| CENC | veri portalı kayıt istiyor; **atlandı** |
+| CSN (Şili) | toplu sorgu arayüzü bulunamadı; Şili için ISC kullanıldı |
+| AFAD | tarihsel sorguya boş döndü |
+| NOA FDSN | 204 döndü; Yunanistan için EMSC ve ISC kullanıldı |
+| BMKG | sınanmadı; Endonezya için ISC kullanıldı |
+
+### E1.3 Yeniden sayım yöntemi
+
+Halka ve 0,25 lob/arka plan payı `tr6_a_sayim.py` ile aynı. Dört değişiklik var:
+
+1. **Pencere** [t − 5 y, t − 30 g].
+2. **Derinlik ≤ 40 km.** Alıcılar 7,5 km'de; dalan levha içindeki derin olaylar gölge lobunun nüfusu değil. Tüm
+   derinlikler bilgi satırında ayrıca veriliyor.
+3. **Mc her katalogda ayrı.** Her katalog için üç örnek pencere (45 g) alındı. Mc, en az 50 olaylı pencerelerde
+   MAXC + 0,2 değerlerinin en büyüğü.
+4. **Sayım.** Sayı eşiklere yakınsa 77 olayda tam sayım yapıldı; uzaksa 9 olayda örnekten tahmin edildi.
+
+Her olay için en büyük N₀'ı veren katalog seçildi. Bu katalog 86 olayın 82'sinde en düşük Mc'yi veren katalogla aynı.
+Olaylara göre en iyi katalog:
+
+| En iyi katalog | Olay sayısı |
+|---|---|
+| ISC | 66 |
+| ComCat (Alaska, Kaliforniya, Hawaii) | 14 |
+| GeoNet | 4 |
+| EMSC | 1 |
+| KOERI | 1 |
+| Sığ halkada Mc kestirilemedi (okyanus ya da uzak bölge) | 69 |
+
+**Duyarlılık: Mc + 0,5.** Halka geneli MAXC, kıyıdaki yoğun ağın etkisiyle açık deniz loblarında iyimser olabilir.
+Örneğin Japonya'da ISC Mc'si 0,4–1,8 çıkıyor.
+
+### E1.4 Kapı
+
+Tablodaki her hücre koşulabilir bağımsız küme sayısı (300 km / 5 yıl kuralı).
+
+| Satır | Aσ 13 | **Aσ 19 (sabit)** | Aσ 39 | 10 / 20 / 30 / 50 (eski ızgara) |
+|---|---|---|---|---|
+| ComCat, eski sayım (M ≥ 2,5, tüm derinlik) | 33 | 24 | 6 | 44 / 22 / 13 / 3 |
+| ComCat, kendi Mc'si, ≤ 40 km | 20 | 14 | 4 | 22 / 13 / 8 / 1 |
+| ISC, kendi Mc'si, ≤ 40 km | 39 | 32 | 8 | 46 / 32 / 21 / 8 |
+| **En iyi açık katalog, ≤ 40 km (ana)** | 46 | **39** (48 olay) | 11 | 53 / 39 / 24 / 9 |
+| En iyi açık katalog, Mc + 0,5 | 31 | 18 | 9 | 33 / 16 / 11 / 5 |
+| En iyi açık katalog, tüm derinlik (bilgi) | 52 | 44 | 23 | 59 / 43 / 31 / 12 |
+
+Ana satırda Aσ = 19 kPa için 39 kümenin mekanizma dökümü (ComCat moment tensörü):
+
+| Mekanizma | Küme |
+|---|---|
+| ters, düşük eğimli (çoğu dalma-batma megathrust; Hawaii ayrılma yüzeyi ve Kuril gibi birkaçı dahil) | 20 |
+| doğrultu atımlı | 12 (1999 İzmit, 2023 Kahramanmaraş, 2016 Kumamoto, 2019 Ridgecrest, 2002 Denali dahil) |
+| ters, diğer | 4 |
+| normal | 3 |
+
+Mc + 0,5 satırında döküm 10 / 5 / 3 / 0.
+
+**Gereken K.** Tek yanlı tam binom sınaması kullanıldı: H0 p = 0,5, p₁ = 0,75, α = 0,05.
+- K = 23'te kritik değer 16. Gerçek α = P(X ≥ 16 | 0,5) = 0,047; güç P(X ≥ 16 | 0,75) = 0,804.
+- Güç eğrisi testere dişli: K = 24 / 25 / 27'de güç 0,77 / 0,73 / 0,79'a düşüyor. K ≥ 28'de güç kalıcı olarak 0,8'in
+  üstünde (K = 28'de kritik 19, güç 0,86).
+- Normal yaklaşım: K = [(z_α·0,5 + z_β·√(p₁(1 − p₁))) / (p₁ − 0,5)]² = [(0,822 + 0,365)/0,25]² = 22,5.
+- **Gereken: K = 23 (kritik 16) ya da her K ≥ 28.**
+
+**Hüküm (a-K): GEÇTİ, ama kırılgan.**
+- Sabit Aσ = 19 kPa ve en iyi açık katalogla 39 bağımsız küme var. Bu 23'ün ve kalıcı eşik 28'in üstünde.
+- Aσ = 13 kPa'da da 46 küme ile geçiyor.
+- Aσ = 39 kPa'da (üst çeyrek) 11 kümeyle geçmiyor.
+- Mc + 0,5 ile 18 kümeyle geçmiyor; Aσ = 13 kPa'da ise 31 kümeyle geçiyor.
+
+Önceki "44 üst sınır" kısmen yanlış yönde bir sayıydı. ComCat kendi Mc'si ve ≤ 40 km ile yalnız 14 küme verir.
+Kazanç ISC'den geliyor: JMA ve yerel ajansların katkısı. Megathrust payı yarıya yakın (20/39); doğrultu atımlı alt küme
+tek başına 12 ile geçmez. (a-Y) yavaş kayma sınıfı değişmedi (≈ 4 bölge, GEÇMEZ).
+
+**Koşu öncesi ön kayıt şartı (kırılganlık yüzünden).** Gerçek koşuda Mc halka için değil, her gölge lobu için ayrı
+kestirilir. Kapı, yalnız olay öncesi veriyle yeniden sayılır. Lob Mc'siyle bağımsız küme sayısı Aσ = 19 kPa'da 23'ün
+altına düşerse hüküm satırı koşulmaz. Aday elenmez; yeniden açma şartı şudur: lob Mc'siyle K ≥ 23 (ya da K ≥ 28).
+
+### E1.5 Koşulursa iş yükü ve maliyet
+
+Tahmin; ölçülmedi.
+
+- **Gerilme kaynağı.** Sonlu fay modeli olarak her olayın ComCat `finite-fault` ürünü kullanılır (havuz bu ürünle
+  tanımlı; alt fay kayma dosyası). Duyarlılık için SRCMOD'da varsa ikinci model alınır.
+- **Alıcı düzlem kuralı (önceden).** Halkadaki olay öncesi ComCat moment tensörlerinin medyanı; 0–40 km, en az 5
+  çözüm. Yetmezse ana şok düzlemi kullanılır. Duyarlılık: ana şok mekanizması.
+- **Hesap.** ΔCFF, μ' = 0,4, 7,5 km. Okada (1992) dikdörtgen dislokasyonu numpy ile yazılabilir (≈ 300 satır).
+  Okada 1992'nin yayımlanmış sınama değerleriyle doğrulanır.
+- **Hesap yükü.** Ana satırda 48 olay var. M 7,5 için ≈ 3 000 hücre × 400 alt fay. M 9 halkasında ≈ 3·10⁵ hücre;
+  vektörlü numpy ile dakikalar sürer. Toplam CPU < 1 saat.
+- **Katalog.** Olay sonrası 1 yıllık pencereler ISC'den alınır; bu turdaki hızla birkaç saat sunucu süresi.
+- **Toplam.** 2–4 gün ajan işi, bulut oturumunda. Makine gerekmez; maliyet **0 €**.
+
+### E1.6 Sınırlar
+
+- Halka/lob geometrisi ve 0,25 payı kaba bir beyandır (önceki sayımla aynı).
+- ISC'de büyüklük türleri karışık (JMA M, ML, mb). MAXC, bu karışık türlerin üzerinde hesaplandı.
+- 9 olayın sayısı örnekten tahmin; bunlar eşiğin ya çok altında (N₀ 1–3) ya da çok üstünde (Tohoku, Noto 2024, 2003 Tokachi-oki).
+- ISC'nin son iki yılı gözden geçirilmemiş bülten.
+- Kümeleme ilk-gelen sırasıyla yapıldı.
