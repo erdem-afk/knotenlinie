@@ -1,0 +1,1067 @@
+{
+ "V_GB": {
+  "A": 312.761,
+  "C": 206.102,
+  "D": 153.553
+ },
+ "bilgi13": {
+  "dolu": true,
+  "kanal": {
+   "aygit_hukum": false,
+   "bant": "HH",
+   "loc": "",
+   "yatay": [
+    "N",
+    "E"
+   ]
+  },
+  "yatay": {
+   "2024-03": [
+    "var",
+    "var"
+   ],
+   "2024-04": [
+    "var",
+    "var"
+   ],
+   "2024-05": [
+    "var",
+    "var"
+   ],
+   "2024-06": [
+    "var",
+    "var"
+   ],
+   "2024-07": [
+    "var",
+    "var"
+   ],
+   "2024-08": [
+    "var",
+    "var"
+   ],
+   "2024-09": [
+    "var",
+    "var"
+   ],
+   "2024-10": [
+    "var",
+    "var"
+   ],
+   "2024-11": [
+    "var",
+    "var"
+   ],
+   "2024-12": [
+    "var",
+    "var"
+   ],
+   "2025-01": [
+    "var",
+    "var"
+   ],
+   "2025-02": [
+    "var",
+    "var"
+   ],
+   "2025-03": [
+    "var",
+    "var"
+   ],
+   "2025-04": [
+    "var",
+    "var"
+   ],
+   "2025-05": [
+    "var",
+    "var"
+   ]
+  },
+  "z": {
+   "2024-03": "var",
+   "2024-04": "var",
+   "2024-05": "var",
+   "2024-06": "var",
+   "2024-07": "var",
+   "2024-08": "var",
+   "2024-09": "var",
+   "2024-10": "var",
+   "2024-11": "var",
+   "2024-12": "var",
+   "2025-01": "var",
+   "2025-02": "var",
+   "2025-03": "var",
+   "2025-04": "var",
+   "2025-05": "var"
+  },
+  "z_bosluk": 0,
+  "z_oran": 1.0
+ },
+ "dolu_yer": 23,
+ "dolu_yer_pencere": 105,
+ "girdi_sha256": {
+  "marmara_fed_kanal.txt": "dbcc3ba8ed7564058df2b59381006ee5c342e63206ca5fd4b8991e6797812de9",
+  "onbellek.jsonl": "ce4fe524392baa00ea2a8a34aa3effd895d2a7e9b14cdfca211c3b20f4b0b409",
+  "tr4_onkayit_sayim.json": "39e91fcecb2b6c9554a7f9d79569b1b81fc20427a72ca207244a85b5151cb2ee",
+  "tr4_pencereler.csv": "166e42ea5b2fbe97ed608daf0f533252c13ef0959d78950c9b3213998915a4ef"
+ },
+ "hukum": "G0 geçti",
+ "indirme": "yapılır",
+ "istek": {
+  "b13_yatay": 30,
+  "b13_z": 15,
+  "toplam": 597,
+  "yatay": 468,
+  "z_aday": 84
+ },
+ "istek_durum": {
+  "rol": {
+   "ana": {
+    "bos": 44,
+    "hata": 0,
+    "kisitli": 0,
+    "var": 508
+   },
+   "bilgi13": {
+    "bos": 0,
+    "hata": 0,
+    "kisitli": 0,
+    "var": 45
+   }
+  },
+  "toplam": {
+   "bos": 44,
+   "hata": 0,
+   "kisitli": 0,
+   "var": 553
+  }
+ },
+ "istekler_sha256": "9fd1799f93d9b03e4f0d972a911933bc19ace41af9b036c800a64d84cb0aab34",
+ "kapi": {
+  "ara_yil": 3,
+  "gecti": true,
+  "iyi_epok": [
+   2017,
+   2018,
+   2019,
+   2020,
+   2021,
+   2023,
+   2024
+  ],
+  "ortusmeyen_cift": [
+   [
+    2017,
+    2020
+   ],
+   [
+    2017,
+    2021
+   ],
+   [
+    2017,
+    2023
+   ],
+   [
+    2017,
+    2024
+   ],
+   [
+    2018,
+    2021
+   ],
+   [
+    2018,
+    2023
+   ],
+   [
+    2018,
+    2024
+   ],
+   [
+    2019,
+    2023
+   ],
+   [
+    2019,
+    2024
+   ],
+   [
+    2020,
+    2023
+   ],
+   [
+    2020,
+    2024
+   ],
+   [
+    2021,
+    2024
+   ]
+  ],
+  "yer": 10
+ },
+ "neden": {
+  "aygit": 0,
+  "dolu": 105,
+  "uc_bilesen_yok": 0,
+  "yatay": 0,
+  "yatay_bilgisiz": 0,
+  "z_ay": 0
+ },
+ "onbellek_sha256": "24f446defb4208c74fae9eb8f0afaab1625972094df5b7579a108221d35ab655",
+ "onizleme_farki": [],
+ "pencere": {
+  "KO.ADVT|2017-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.889
+  },
+  "KO.ADVT|2018-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.944
+  },
+  "KO.ADVT|2019-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.944
+  },
+  "KO.ADVT|2020-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 0,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 1.0
+  },
+  "KO.ADVT|2021-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 0,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 1.0
+  },
+  "KO.ARMT|2023-01-01": {
+   "bilgili_dilim": 2,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.861
+  },
+  "KO.BGKT|2017-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.889
+  },
+  "KO.BGKT|2018-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.917
+  },
+  "KO.BGKT|2019-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.944
+  },
+  "KO.BGKT|2020-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.972
+  },
+  "KO.BGKT|2021-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.972
+  },
+  "KO.BGKT|2022-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.944
+  },
+  "KO.BGKT|2023-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.917
+  },
+  "KO.BGKT|2024-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.917
+  },
+  "KO.CAVI|2020-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 3,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.889
+  },
+  "KO.CAVI|2021-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 3,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.806
+  },
+  "KO.CRLT|2019-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 3,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.917
+  },
+  "KO.CRLT|2020-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.944
+  },
+  "KO.CRLT|2021-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.944
+  },
+  "KO.CRLT|2022-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.917
+  },
+  "KO.CRLT|2023-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.889
+  },
+  "KO.CRLT|2024-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.889
+  },
+  "KO.CTKS|2017-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.944
+  },
+  "KO.CTKS|2018-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.944
+  },
+  "KO.CTKS|2019-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.944
+  },
+  "KO.CTKS|2020-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.944
+  },
+  "KO.CTKS|2021-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 0,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 1.0
+  },
+  "KO.CTKS|2022-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 0,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 1.0
+  },
+  "KO.CTKS|2023-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 0,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 1.0
+  },
+  "KO.CTKS|2024-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.972
+  },
+  "KO.CTYL|2017-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.889
+  },
+  "KO.CTYL|2018-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.944
+  },
+  "KO.CTYL|2019-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.944
+  },
+  "KO.CTYL|2020-01-01": {
+   "bilgili_dilim": 2,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.972
+  },
+  "KO.CTYL|2021-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.972
+  },
+  "KO.CTYL|2022-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.972
+  },
+  "KO.CTYL|2023-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 0,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 1.0
+  },
+  "KO.CTYL|2024-01-01": {
+   "bilgili_dilim": 2,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.972
+  },
+  "KO.EDC|2017-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.944
+  },
+  "KO.EDC|2018-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 0,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 1.0
+  },
+  "KO.EDC|2019-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 0,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 1.0
+  },
+  "KO.ERIK|2020-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 0,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 1.0
+  },
+  "KO.ERIK|2021-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 0,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 1.0
+  },
+  "KO.ERIK|2022-01-01": {
+   "bilgili_dilim": 2,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.972
+  },
+  "KO.ERIK|2023-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.972
+  },
+  "KO.ERIK|2024-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.972
+  },
+  "KO.GAZK|2023-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "yeni_yoklama",
+   "z_oran": 0.889
+  },
+  "KO.GAZK|2024-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "yeni_yoklama",
+   "z_oran": 0.889
+  },
+  "KO.GEML|2024-01-01": {
+   "bilgili_dilim": 2,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "yeni_yoklama",
+   "z_oran": 0.861
+  },
+  "KO.GEMT|2017-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 3,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.806
+  },
+  "KO.GEMT|2018-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.917
+  },
+  "KO.HRTX|2017-01-01": {
+   "bilgili_dilim": 2,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 3,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.833
+  },
+  "KO.HRTX|2018-01-01": {
+   "bilgili_dilim": 2,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 3,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.889
+  },
+  "KO.HRTX|2019-01-01": {
+   "bilgili_dilim": 1,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 3,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.861
+  },
+  "KO.HRTX|2020-01-01": {
+   "bilgili_dilim": 2,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 3,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.861
+  },
+  "KO.HRTX|2021-01-01": {
+   "bilgili_dilim": 2,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 3,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.889
+  },
+  "KO.ISK|2017-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.944
+  },
+  "KO.ISK|2018-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 0,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 1.0
+  },
+  "KO.ISK|2019-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 0,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 1.0
+  },
+  "KO.ISK|2020-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.972
+  },
+  "KO.ISK|2021-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.944
+  },
+  "KO.ISK|2022-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.944
+  },
+  "KO.ISK|2023-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.972
+  },
+  "KO.ISK|2024-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 0,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 1.0
+  },
+  "KO.KLYT|2017-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.889
+  },
+  "KO.KLYT|2018-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.972
+  },
+  "KO.KLYT|2022-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 0,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 1.0
+  },
+  "KO.KLYT|2023-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 0,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 1.0
+  },
+  "KO.KLYT|2024-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 0,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 1.0
+  },
+  "KO.KRBG|2018-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 3,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.861
+  },
+  "KO.KRBG|2019-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 3,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.833
+  },
+  "KO.MDNY|2017-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.833
+  },
+  "KO.MDNY|2018-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.889
+  },
+  "KO.MDNY|2019-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.944
+  },
+  "KO.MDNY|2020-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 0,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 1.0
+  },
+  "KO.MDNY|2021-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 0,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 1.0
+  },
+  "KO.MDNY|2022-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 0,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 1.0
+  },
+  "KO.MDNY|2023-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 0,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 1.0
+  },
+  "KO.MDNY|2024-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.972
+  },
+  "KO.MRMT|2017-01-01": {
+   "bilgili_dilim": 2,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.833
+  },
+  "KO.RKY|2017-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.944
+  },
+  "KO.RKY|2018-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.972
+  },
+  "KO.RKY|2019-01-01": {
+   "bilgili_dilim": 2,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.917
+  },
+  "KO.RKY|2020-01-01": {
+   "bilgili_dilim": 2,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.861
+  },
+  "KO.RKY|2021-01-01": {
+   "bilgili_dilim": 2,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.861
+  },
+  "KO.SAUV|2017-01-01": {
+   "bilgili_dilim": 2,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.917
+  },
+  "KO.SAUV|2018-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.972
+  },
+  "KO.SAUV|2019-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.944
+  },
+  "KO.SAUV|2020-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.972
+  },
+  "KO.SAUV|2021-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.972
+  },
+  "KO.SILT|2017-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.944
+  },
+  "KO.SILT|2018-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 0,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 1.0
+  },
+  "KO.SILT|2019-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.972
+  },
+  "KO.SILT|2020-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.889
+  },
+  "KO.SILT|2021-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.806
+  },
+  "KO.SLVT|2017-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.944
+  },
+  "KO.SLVT|2018-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.972
+  },
+  "KO.SLVT|2019-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.944
+  },
+  "KO.SLVT|2020-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.889
+  },
+  "KO.SLVT|2021-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.889
+  },
+  "KO.SLVT|2022-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.917
+  },
+  "KO.SLVT|2023-01-01": {
+   "bilgili_dilim": 3,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.944
+  },
+  "KO.SLVT|2024-01-01": {
+   "bilgili_dilim": 2,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 2,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.861
+  },
+  "KO.YLV|2018-01-01": {
+   "bilgili_dilim": 2,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 1,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.889
+  },
+  "KO.YLV|2019-01-01": {
+   "bilgili_dilim": 2,
+   "dolu": true,
+   "neden": "dolu",
+   "z_bosluk": 3,
+   "z_kaynak": "TR-5_onbellek",
+   "z_oran": 0.806
+  }
+ },
+ "ustveri_alinamayan": {},
+ "yer_T": {
+  "2017": 15,
+  "2018": 16,
+  "2019": 15,
+  "2020": 14,
+  "2021": 14,
+  "2022": 9,
+  "2023": 11,
+  "2024": 11
+ }
+}
