@@ -1,0 +1,4839 @@
+{
+ "okada": {
+  "bilgi_uzak_alan_nokta_integrali": {
+   "deger": 6.998260651607371e-06,
+   "not_": "20×20 nokta kaynak toplamı; orta nokta kuralı hatası ≈ (1/20)² mertebesinde dört kutup terimi"
+  },
+  "1_yuzey_cekme": {
+   "deger": 8.624002426027933e-14,
+   "esik": 1e-08,
+   "gecti": true
+  },
+  "2_denge": {
+   "deger": 9.92173210795104e-07,
+   "esik": 1e-05,
+   "gecti": true
+  },
+  "3_kayma_sureksizligi": {
+   "deger": 6.214698102691152e-06,
+   "esik": 1e-06,
+   "gecti": false,
+   "tani_richardson": 5.10702591327572e-15,
+   "not_": "harfiyen ölçüt ±ε farkının doğrusal terimini (2ε ∂u/∂n) taşır; okuma 5: 2Δ(ε) − Δ(2ε) bu terimi kaldırır (Ek 1 kararı)"
+  },
+  "4_sayisal_turev": {
+   "deger": 5.872590918678545e-08,
+   "esik": 1e-06,
+   "gecti": true
+  },
+  "5_nokta_kaynak_001km": {
+   "deger": 6.90256368147624e-06,
+   "esik": 0.0001,
+   "gecti": true
+  },
+  "5_uzak_alan_20L": {
+   "deger": 0.03397259091345629,
+   "esik": 0.001,
+   "gecti": false,
+   "tani_genel_normal_20_60L": 0.0028325683416939597,
+   "tani_genel_normal_40L": 0.0014432950245048845,
+   "not_": "sonlu boyut (dört kutup) terimi (L/r)² ile azalır; okuma 6 (Ek 1 kararı)"
+  },
+  "6_fay_disi_sureklilik": {
+   "deger": 9.052894178074311e-06,
+   "esik": 1e-06,
+   "gecti": false,
+   "tani_richardson": 1.2212453270876722e-14
+  },
+  "7_ust_uste_binme": {
+   "deger": 2.2464028925423676e-15,
+   "esik": 1e-10,
+   "gecti": true
+  },
+  "bilgi_nokta_kaynak_ozdenetim": {
+   "yuzey_cekme": 1.8041081747857962e-15,
+   "sayisal_turev": 1.6030968760526171e-09
+  },
+  "8a_isaret_uc_pozitif_yan_negatif": {
+   "deger": 0.0,
+   "esik": 0.5,
+   "gecti": true,
+   "tau_uc": [
+    154.15289160530384,
+    154.15289160530347
+   ],
+   "tau_yan": [
+    -95.2390946329046,
+    -95.2390946329046
+   ]
+  },
+  "8b_simetri": {
+   "deger": 1.5854120194619504e-15,
+   "esik": 1e-08,
+   "gecti": true
+  },
+  "8c_dondurme": {
+   "deger": 8.586531853066e-16,
+   "esik": 1e-08,
+   "gecti": true
+  },
+  "9_dcff_izdusumu": {
+   "deger": 1.1102230246251565e-16,
+   "esik": 1e-12,
+   "gecti": true
+  },
+  "tekil_noktalar_sonlu": {
+   "deger": 0.0,
+   "esik": 0.5,
+   "gecti": true,
+   "nokta": 57,
+   "tekil_isaretli": 32
+  },
+  "tablo_durumu": "Okada 1992 tablo değerleri doğrulanamadı",
+  "gecti": false,
+  "ek1": {
+   "gecti": true,
+   "olcutler": {
+    "1_yuzey_cekme": true,
+    "2_denge": true,
+    "4_sayisal_turev": true,
+    "5_nokta_kaynak_001km": true,
+    "7_ust_uste_binme": true,
+    "8a_isaret_uc_pozitif_yan_negatif": true,
+    "8b_simetri": true,
+    "8c_dondurme": true,
+    "9_dcff_izdusumu": true,
+    "tekil_noktalar_sonlu": true,
+    "3_richardson": true,
+    "6_richardson": true,
+    "5_uzak_egim": true,
+    "5_uzak_60L": true,
+    "5_uzak_integral": true,
+    "yayimlanmis_denetim": true
+   },
+   "uzak_alan_egimleri": [
+    {
+     "egim_derece": 30.0,
+     "tur": "dogrultu",
+     "fark_20_40_60L": [
+      0.0015838231827983368,
+      0.0004176645094888191,
+      0.00019105332275783527
+     ],
+     "us": -1.925,
+     "integral_m10_m20": [
+      1.1767367894286965e-05,
+      2.9418495115444017e-06
+     ],
+     "integral_oran": 4.0
+    },
+    {
+     "egim_derece": 30.0,
+     "tur": "egim",
+     "fark_20_40_60L": [
+      0.0018829577072477575,
+      0.0004419581056990419,
+      0.0001933898784164246
+     ],
+     "us": -2.0737,
+     "integral_m10_m20": [
+      1.2350422595545152e-05,
+      3.0876109903445596e-06
+     ],
+     "integral_oran": 4.0
+    },
+    {
+     "egim_derece": 30.0,
+     "tur": "acilma",
+     "fark_20_40_60L": [
+      0.0018963492190716786,
+      0.0004498596564269232,
+      0.00020075736106811185
+     ],
+     "us": -2.0474,
+     "integral_m10_m20": [
+      1.445903707726455e-05,
+      3.6147510497485136e-06
+     ],
+     "integral_oran": 4.0
+    },
+    {
+     "egim_derece": 70.0,
+     "tur": "dogrultu",
+     "fark_20_40_60L": [
+      0.0023036840327817555,
+      0.0005811161835310521,
+      0.00026342191763745486
+     ],
+     "us": -1.9753,
+     "integral_m10_m20": [
+      1.9319244807876535e-05,
+      4.829813943165692e-06
+     ],
+     "integral_oran": 4.0
+    },
+    {
+     "egim_derece": 70.0,
+     "tur": "egim",
+     "fark_20_40_60L": [
+      0.0023363698469440536,
+      0.0005783288321539844,
+      0.00025472571724458753
+     ],
+     "us": -2.0169,
+     "integral_m10_m20": [
+      1.538005790005802e-05,
+      3.845021369052756e-06
+     ],
+     "integral_oran": 4.0
+    },
+    {
+     "egim_derece": 70.0,
+     "tur": "acilma",
+     "fark_20_40_60L": [
+      0.002209289062559114,
+      0.0005429128181209257,
+      0.00024133819886220224
+     ],
+     "us": -2.0165,
+     "integral_m10_m20": [
+      1.4832077922952844e-05,
+      3.7080523816821576e-06
+     ],
+     "integral_oran": 4.0
+    },
+    {
+     "egim_derece": 90.0,
+     "tur": "dogrultu",
+     "fark_20_40_60L": [
+      0.002539223691968717,
+      0.00064235573167992,
+      0.000286374587898653
+     ],
+     "us": -1.9861,
+     "integral_m10_m20": [
+      2.0928645251150163e-05,
+      5.232099265295648e-06
+     ],
+     "integral_oran": 4.0
+    },
+    {
+     "egim_derece": 90.0,
+     "tur": "egim",
+     "fark_20_40_60L": [
+      0.035325023740971094,
+      0.018633736105619185,
+      0.008196546030774984
+     ],
+     "us": -1.2859,
+     "integral_m10_m20": [
+      3.4452363320430505e-05,
+      8.613124720872463e-06
+     ],
+     "integral_oran": 4.0
+    },
+    {
+     "egim_derece": 90.0,
+     "tur": "acilma",
+     "fark_20_40_60L": [
+      0.0022786191913279825,
+      0.0005705874160583562,
+      0.00025338827579926294
+     ],
+     "us": -1.9991,
+     "integral_m10_m20": [
+      1.8979628960000214e-05,
+      4.744917518110683e-06
+     ],
+     "integral_oran": 4.0
+    }
+   ],
+   "yayimlanmis": {
+    "okada85_tablo2_en_kotu_yarim_birim": 0.9753084839612263,
+    "okada85_deger_sayisi": 108,
+    "dc3d_kilavuz_yarim_birim": 0.8563373773995409,
+    "dc3d_kilavuz_bizim": [
+     -37.89814281686887,
+     63.17893518026261,
+     14.960684757864271
+    ],
+    "gecti": true
+   },
+   "ozet": "hepsi tuttu"
+  }
+ },
+ "yapay_katalog": {
+  "tohum": 20261114,
+  "deneme": 20000,
+  "olcutler": [
+   {
+    "ad": "(i) Δτ = 0, N0 31.36: P(D)",
+    "deger": 0.4601,
+    "beklenen": 0.45852,
+    "se": 0.00352,
+    "z": 0.45,
+    "gecti": true,
+    "bilgi": {
+     "kapi_kosullu_PD": 0.6031,
+     "kapi_gecen": 9397
+    }
+   },
+   {
+    "ad": "(i) Δτ = 0, N0 100: P(D)",
+    "deger": 0.47515,
+    "beklenen": 0.47725,
+    "se": 0.00353,
+    "z": -0.6,
+    "gecti": true,
+    "bilgi": {
+     "kapi_kosullu_PD": 0.4752,
+     "kapi_gecen": 20000
+    }
+   },
+   {
+    "ad": "(i) Δτ = 0, N0 500: P(D)",
+    "deger": 0.4686,
+    "beklenen": 0.48985,
+    "se": 0.00353,
+    "z": -6.01,
+    "gecti": false,
+    "bilgi": {
+     "kapi_kosullu_PD": 0.4686,
+     "kapi_gecen": 20000
+    }
+   },
+   {
+    "ad": "(i) kalıcı −10 kPa, N0 31,36: P(D)",
+    "deger": 0.9873,
+    "beklenen": 0.98731,
+    "se": 0.00079,
+    "z": -0.01,
+    "gecti": true,
+    "bilgi": {
+     "tablo": 0.987
+    }
+   },
+   {
+    "ad": "(i) Δτ_est medyanı: −10,23'ün altındaki pay",
+    "deger": 0.4943,
+    "beklenen": 0.5,
+    "se": 0.00354,
+    "z": -1.61,
+    "gecti": true,
+    "bilgi": {
+     "medyan": -10.161,
+     "tablo": -10.23,
+     "n": 20000
+    }
+   },
+   {
+    "ad": "(ii) N0 31.36: p̂₀ beklenen değeri − gerçek P(D) (kapı koşullu)",
+    "deger": 0.00013,
+    "beklenen": 0.0,
+    "se": 0.00558,
+    "z": 0.02,
+    "gecti": true,
+    "bilgi": {
+     "p0_sapka": 0.5845,
+     "P_D": 0.5843,
+     "J": 31101
+    }
+   },
+   {
+    "ad": "(ii) N0 100: p̂₀ beklenen değeri − gerçek P(D) (kapı koşullu)",
+    "deger": 0.003,
+    "beklenen": 0.0,
+    "se": 0.00407,
+    "z": 0.74,
+    "gecti": true,
+    "bilgi": {
+     "p0_sapka": 0.473,
+     "P_D": 0.47,
+     "J": 60000
+    }
+   },
+   {
+    "ad": "(ii) N0 500: p̂₀ beklenen değeri − gerçek P(D) (kapı koşullu)",
+    "deger": -0.00157,
+    "beklenen": 0.0,
+    "se": 0.00408,
+    "z": -0.38,
+    "gecti": true,
+    "bilgi": {
+     "p0_sapka": 0.461,
+     "P_D": 0.4626,
+     "J": 60000
+    }
+   }
+  ],
+  "lob_hucre": 1408,
+  "gecti": false,
+  "ozet": "(i) Δτ = 0, N0 500: P(D) z -6.01"
+ },
+ "tamlik": {
+  "tohum": 20261115,
+  "deneme": 20000,
+  "basamaklar": {
+   "A2": {
+    "hucreler": {
+     "M7 Mc1 N0=31.36 ap0": {
+      "P_D": 0.4494,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0091,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=31.36 ap0.9": {
+      "P_D": 0.4187,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0398,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=100 ap0": {
+      "P_D": 0.6538,
+      "P_D_poisson": 0.4773,
+      "fark": 0.1765,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M7 Mc1 N0=100 ap0.9": {
+      "P_D": 0.4528,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0245,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=500 ap0": {
+      "P_D": 0.5365,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0467,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M7 Mc1 N0=500 ap0.9": {
+      "P_D": 0.4701,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0197,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=4500 ap0": {
+      "P_D": 0.4968,
+      "P_D_poisson": 0.4966,
+      "fark": 0.0002,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=4500 ap0.9": {
+      "P_D": 0.4938,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0028,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=31.36 ap0": {
+      "P_D": 0.4251,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0334,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=31.36 ap0.9": {
+      "P_D": 0.4513,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0072,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=100 ap0": {
+      "P_D": 0.4926,
+      "P_D_poisson": 0.4773,
+      "fark": 0.0154,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=100 ap0.9": {
+      "P_D": 0.4749,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0023,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=500 ap0": {
+      "P_D": 0.5,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0102,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=500 ap0.9": {
+      "P_D": 0.4846,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0052,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=4500 ap0": {
+      "P_D": 0.4929,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0037,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=4500 ap0.9": {
+      "P_D": 0.4926,
+      "P_D_poisson": 0.4966,
+      "fark": -0.004,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=31.36 ap0": {
+      "P_D": 0.4202,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0384,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=31.36 ap0.9": {
+      "P_D": 0.4566,
+      "P_D_poisson": 0.4585,
+      "fark": -0.002,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=100 ap0": {
+      "P_D": 0.4963,
+      "P_D_poisson": 0.4773,
+      "fark": 0.019,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=100 ap0.9": {
+      "P_D": 0.4772,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0001,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=500 ap0": {
+      "P_D": 0.501,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0112,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=500 ap0.9": {
+      "P_D": 0.4904,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0005,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=4500 ap0": {
+      "P_D": 0.4913,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0054,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=4500 ap0.9": {
+      "P_D": 0.4974,
+      "P_D_poisson": 0.4966,
+      "fark": 0.0007,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=31.36 ap0": {
+      "P_D": 0.6989,
+      "P_D_poisson": 0.4585,
+      "fark": 0.2404,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M7.5 Mc1 N0=31.36 ap0.9": {
+      "P_D": 0.4422,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0163,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=100 ap0": {
+      "P_D": 0.8625,
+      "P_D_poisson": 0.4773,
+      "fark": 0.3852,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M7.5 Mc1 N0=100 ap0.9": {
+      "P_D": 0.4171,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0602,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=500 ap0": {
+      "P_D": 0.5557,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0659,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M7.5 Mc1 N0=500 ap0.9": {
+      "P_D": 0.4633,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0265,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=4500 ap0": {
+      "P_D": 0.5057,
+      "P_D_poisson": 0.4966,
+      "fark": 0.009,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=4500 ap0.9": {
+      "P_D": 0.4929,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0037,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=31.36 ap0": {
+      "P_D": 0.4325,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0261,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=31.36 ap0.9": {
+      "P_D": 0.442,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0165,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=100 ap0": {
+      "P_D": 0.5096,
+      "P_D_poisson": 0.4773,
+      "fark": 0.0323,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M7.5 Mc1.8 N0=100 ap0.9": {
+      "P_D": 0.4622,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0151,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=500 ap0": {
+      "P_D": 0.5062,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0164,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=500 ap0.9": {
+      "P_D": 0.4856,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0042,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=4500 ap0": {
+      "P_D": 0.4935,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0031,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=4500 ap0.9": {
+      "P_D": 0.4994,
+      "P_D_poisson": 0.4966,
+      "fark": 0.0027,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=31.36 ap0": {
+      "P_D": 0.4263,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0322,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=31.36 ap0.9": {
+      "P_D": 0.4526,
+      "P_D_poisson": 0.4585,
+      "fark": -0.006,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=100 ap0": {
+      "P_D": 0.4922,
+      "P_D_poisson": 0.4773,
+      "fark": 0.0149,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=100 ap0.9": {
+      "P_D": 0.478,
+      "P_D_poisson": 0.4773,
+      "fark": 0.0008,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=500 ap0": {
+      "P_D": 0.5007,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0108,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=500 ap0.9": {
+      "P_D": 0.4863,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0036,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=4500 ap0": {
+      "P_D": 0.4891,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0075,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=4500 ap0.9": {
+      "P_D": 0.5029,
+      "P_D_poisson": 0.4966,
+      "fark": 0.0063,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1 N0=31.36 ap0": {
+      "P_D": 0.9984,
+      "P_D_poisson": 0.4585,
+      "fark": 0.5399,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1 N0=31.36 ap0.9": {
+      "P_D": 0.998,
+      "P_D_poisson": 0.4585,
+      "fark": 0.5395,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1 N0=100 ap0": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4773,
+      "fark": 0.5227,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1 N0=100 ap0.9": {
+      "P_D": 0.4404,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0369,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1 N0=500 ap0": {
+      "P_D": 0.638,
+      "P_D_poisson": 0.4898,
+      "fark": 0.1481,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1 N0=500 ap0.9": {
+      "P_D": 0.431,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0588,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1 N0=4500 ap0": {
+      "P_D": 0.5564,
+      "P_D_poisson": 0.4966,
+      "fark": 0.0597,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1 N0=4500 ap0.9": {
+      "P_D": 0.4753,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0213,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=31.36 ap0": {
+      "P_D": 0.4966,
+      "P_D_poisson": 0.4585,
+      "fark": 0.0381,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1.8 N0=31.36 ap0.9": {
+      "P_D": 0.4153,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0433,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=100 ap0": {
+      "P_D": 0.6433,
+      "P_D_poisson": 0.4773,
+      "fark": 0.1661,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1.8 N0=100 ap0.9": {
+      "P_D": 0.4401,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0372,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=500 ap0": {
+      "P_D": 0.5615,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0716,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1.8 N0=500 ap0.9": {
+      "P_D": 0.4793,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0106,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=4500 ap0": {
+      "P_D": 0.5003,
+      "P_D_poisson": 0.4966,
+      "fark": 0.0037,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=4500 ap0.9": {
+      "P_D": 0.4957,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0009,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=31.36 ap0": {
+      "P_D": 0.4216,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0369,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=31.36 ap0.9": {
+      "P_D": 0.4612,
+      "P_D_poisson": 0.4585,
+      "fark": 0.0026,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=100 ap0": {
+      "P_D": 0.4975,
+      "P_D_poisson": 0.4773,
+      "fark": 0.0203,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc3 N0=100 ap0.9": {
+      "P_D": 0.4784,
+      "P_D_poisson": 0.4773,
+      "fark": 0.0011,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=500 ap0": {
+      "P_D": 0.4921,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0023,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=500 ap0.9": {
+      "P_D": 0.4944,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0045,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=4500 ap0": {
+      "P_D": 0.5028,
+      "P_D_poisson": 0.4966,
+      "fark": 0.0061,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=4500 ap0.9": {
+      "P_D": 0.4984,
+      "P_D_poisson": 0.4966,
+      "fark": 0.0017,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1 N0=31.36 ap0": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4585,
+      "fark": 0.5415,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=31.36 ap0.9": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4585,
+      "fark": 0.5415,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=100 ap0": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4773,
+      "fark": 0.5227,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=100 ap0.9": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4773,
+      "fark": 0.5227,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=500 ap0": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4898,
+      "fark": 0.5102,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=500 ap0.9": {
+      "P_D": 0.6907,
+      "P_D_poisson": 0.4898,
+      "fark": 0.2009,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=4500 ap0": {
+      "P_D": 0.6362,
+      "P_D_poisson": 0.4966,
+      "fark": 0.1396,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=4500 ap0.9": {
+      "P_D": 0.4345,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0621,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1.8 N0=31.36 ap0": {
+      "P_D": 0.9998,
+      "P_D_poisson": 0.4585,
+      "fark": 0.5412,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1.8 N0=31.36 ap0.9": {
+      "P_D": 0.9998,
+      "P_D_poisson": 0.4585,
+      "fark": 0.5412,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1.8 N0=100 ap0": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4773,
+      "fark": 0.5227,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1.8 N0=100 ap0.9": {
+      "P_D": 0.4366,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0407,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1.8 N0=500 ap0": {
+      "P_D": 0.8986,
+      "P_D_poisson": 0.4898,
+      "fark": 0.4088,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1.8 N0=500 ap0.9": {
+      "P_D": 0.4183,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0715,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1.8 N0=4500 ap0": {
+      "P_D": 0.5573,
+      "P_D_poisson": 0.4966,
+      "fark": 0.0607,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1.8 N0=4500 ap0.9": {
+      "P_D": 0.4768,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0199,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=31.36 ap0": {
+      "P_D": 0.4487,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0098,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=31.36 ap0.9": {
+      "P_D": 0.4218,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0368,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=100 ap0": {
+      "P_D": 0.6495,
+      "P_D_poisson": 0.4773,
+      "fark": 0.1722,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc3 N0=100 ap0.9": {
+      "P_D": 0.4535,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0238,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=500 ap0": {
+      "P_D": 0.5495,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0597,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc3 N0=500 ap0.9": {
+      "P_D": 0.4783,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0116,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=4500 ap0": {
+      "P_D": 0.4955,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0011,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=4500 ap0.9": {
+      "P_D": 0.4882,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0084,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     }
+    },
+    "en_buyuk_fark": 0.5415,
+    "gecti": false,
+    "gecmeyen": [
+     "M7 Mc1 N0=100 ap0",
+     "M7 Mc1 N0=500 ap0",
+     "M7.5 Mc1 N0=31.36 ap0",
+     "M7.5 Mc1 N0=100 ap0",
+     "M7.5 Mc1 N0=500 ap0",
+     "M7.5 Mc1.8 N0=100 ap0",
+     "M8 Mc1 N0=31.36 ap0",
+     "M8 Mc1 N0=31.36 ap0.9",
+     "M8 Mc1 N0=100 ap0",
+     "M8 Mc1 N0=500 ap0",
+     "M8 Mc1 N0=4500 ap0",
+     "M8 Mc1.8 N0=31.36 ap0",
+     "M8 Mc1.8 N0=100 ap0",
+     "M8 Mc1.8 N0=500 ap0",
+     "M8 Mc3 N0=100 ap0",
+     "M9 Mc1 N0=31.36 ap0",
+     "M9 Mc1 N0=31.36 ap0.9",
+     "M9 Mc1 N0=100 ap0",
+     "M9 Mc1 N0=100 ap0.9",
+     "M9 Mc1 N0=500 ap0",
+     "M9 Mc1 N0=500 ap0.9",
+     "M9 Mc1 N0=4500 ap0",
+     "M9 Mc1.8 N0=31.36 ap0",
+     "M9 Mc1.8 N0=31.36 ap0.9",
+     "M9 Mc1.8 N0=100 ap0",
+     "M9 Mc1.8 N0=500 ap0",
+     "M9 Mc1.8 N0=4500 ap0",
+     "M9 Mc3 N0=100 ap0",
+     "M9 Mc3 N0=500 ap0"
+    ],
+    "veri_yok_payi_ort": 0.0
+   },
+   "yedek_a": {
+    "hucreler": {
+     "M7 Mc1 N0=31.36 ap0": {
+      "P_D": 0.4516,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0069,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=31.36 ap0.9": {
+      "P_D": 0.4282,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0303,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=100 ap0": {
+      "P_D": 0.6579,
+      "P_D_poisson": 0.4773,
+      "fark": 0.1806,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M7 Mc1 N0=100 ap0.9": {
+      "P_D": 0.4404,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0369,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=500 ap0": {
+      "P_D": 0.5461,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0562,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M7 Mc1 N0=500 ap0.9": {
+      "P_D": 0.483,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0068,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=4500 ap0": {
+      "P_D": 0.4946,
+      "P_D_poisson": 0.4966,
+      "fark": -0.002,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=4500 ap0.9": {
+      "P_D": 0.4934,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0032,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=31.36 ap0": {
+      "P_D": 0.4231,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0354,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=31.36 ap0.9": {
+      "P_D": 0.4607,
+      "P_D_poisson": 0.4585,
+      "fark": 0.0021,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=100 ap0": {
+      "P_D": 0.489,
+      "P_D_poisson": 0.4773,
+      "fark": 0.0118,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=100 ap0.9": {
+      "P_D": 0.4704,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0069,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=500 ap0": {
+      "P_D": 0.5013,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0115,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=500 ap0.9": {
+      "P_D": 0.4889,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0009,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=4500 ap0": {
+      "P_D": 0.495,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0016,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=4500 ap0.9": {
+      "P_D": 0.4963,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0004,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=31.36 ap0": {
+      "P_D": 0.4228,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0357,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=31.36 ap0.9": {
+      "P_D": 0.4532,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0053,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=100 ap0": {
+      "P_D": 0.4967,
+      "P_D_poisson": 0.4773,
+      "fark": 0.0194,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=100 ap0.9": {
+      "P_D": 0.4799,
+      "P_D_poisson": 0.4773,
+      "fark": 0.0026,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=500 ap0": {
+      "P_D": 0.502,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0122,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=500 ap0.9": {
+      "P_D": 0.4949,
+      "P_D_poisson": 0.4898,
+      "fark": 0.005,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=4500 ap0": {
+      "P_D": 0.5039,
+      "P_D_poisson": 0.4966,
+      "fark": 0.0072,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=4500 ap0.9": {
+      "P_D": 0.4954,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0012,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=31.36 ap0": {
+      "P_D": 0.7032,
+      "P_D_poisson": 0.4585,
+      "fark": 0.2447,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M7.5 Mc1 N0=31.36 ap0.9": {
+      "P_D": 0.4451,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0135,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=100 ap0": {
+      "P_D": 0.8601,
+      "P_D_poisson": 0.4773,
+      "fark": 0.3828,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M7.5 Mc1 N0=100 ap0.9": {
+      "P_D": 0.4229,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0543,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=500 ap0": {
+      "P_D": 0.5517,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0619,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M7.5 Mc1 N0=500 ap0.9": {
+      "P_D": 0.4523,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0375,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=4500 ap0": {
+      "P_D": 0.5012,
+      "P_D_poisson": 0.4966,
+      "fark": 0.0046,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=4500 ap0.9": {
+      "P_D": 0.4894,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0072,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=31.36 ap0": {
+      "P_D": 0.4317,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0268,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=31.36 ap0.9": {
+      "P_D": 0.4421,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0164,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=100 ap0": {
+      "P_D": 0.5104,
+      "P_D_poisson": 0.4773,
+      "fark": 0.0331,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M7.5 Mc1.8 N0=100 ap0.9": {
+      "P_D": 0.465,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0123,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=500 ap0": {
+      "P_D": 0.506,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0162,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=500 ap0.9": {
+      "P_D": 0.4879,
+      "P_D_poisson": 0.4898,
+      "fark": -0.002,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=4500 ap0": {
+      "P_D": 0.4976,
+      "P_D_poisson": 0.4966,
+      "fark": 0.001,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=4500 ap0.9": {
+      "P_D": 0.503,
+      "P_D_poisson": 0.4966,
+      "fark": 0.0064,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=31.36 ap0": {
+      "P_D": 0.4275,
+      "P_D_poisson": 0.4585,
+      "fark": -0.031,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=31.36 ap0.9": {
+      "P_D": 0.4531,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0055,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=100 ap0": {
+      "P_D": 0.4949,
+      "P_D_poisson": 0.4773,
+      "fark": 0.0176,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=100 ap0.9": {
+      "P_D": 0.4741,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0032,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=500 ap0": {
+      "P_D": 0.4958,
+      "P_D_poisson": 0.4898,
+      "fark": 0.006,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=500 ap0.9": {
+      "P_D": 0.4936,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0038,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=4500 ap0": {
+      "P_D": 0.4944,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0023,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=4500 ap0.9": {
+      "P_D": 0.4978,
+      "P_D_poisson": 0.4966,
+      "fark": 0.0012,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1 N0=31.36 ap0": {
+      "P_D": 0.9982,
+      "P_D_poisson": 0.4585,
+      "fark": 0.5397,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1 N0=31.36 ap0.9": {
+      "P_D": 0.9972,
+      "P_D_poisson": 0.4585,
+      "fark": 0.5387,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1 N0=100 ap0": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4773,
+      "fark": 0.5227,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1 N0=100 ap0.9": {
+      "P_D": 0.4389,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0384,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1 N0=500 ap0": {
+      "P_D": 0.6427,
+      "P_D_poisson": 0.4898,
+      "fark": 0.1529,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1 N0=500 ap0.9": {
+      "P_D": 0.4367,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0531,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1 N0=4500 ap0": {
+      "P_D": 0.5552,
+      "P_D_poisson": 0.4966,
+      "fark": 0.0585,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1 N0=4500 ap0.9": {
+      "P_D": 0.4715,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0251,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=31.36 ap0": {
+      "P_D": 0.4966,
+      "P_D_poisson": 0.4585,
+      "fark": 0.0381,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1.8 N0=31.36 ap0.9": {
+      "P_D": 0.4242,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0344,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=100 ap0": {
+      "P_D": 0.6447,
+      "P_D_poisson": 0.4773,
+      "fark": 0.1674,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1.8 N0=100 ap0.9": {
+      "P_D": 0.4387,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0385,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=500 ap0": {
+      "P_D": 0.5501,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0602,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1.8 N0=500 ap0.9": {
+      "P_D": 0.4702,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0196,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=4500 ap0": {
+      "P_D": 0.4928,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0039,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=4500 ap0.9": {
+      "P_D": 0.4872,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0094,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=31.36 ap0": {
+      "P_D": 0.4148,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0437,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=31.36 ap0.9": {
+      "P_D": 0.4582,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0004,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=100 ap0": {
+      "P_D": 0.4943,
+      "P_D_poisson": 0.4773,
+      "fark": 0.017,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=100 ap0.9": {
+      "P_D": 0.4784,
+      "P_D_poisson": 0.4773,
+      "fark": 0.0012,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=500 ap0": {
+      "P_D": 0.498,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0082,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=500 ap0.9": {
+      "P_D": 0.4953,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0054,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=4500 ap0": {
+      "P_D": 0.4996,
+      "P_D_poisson": 0.4966,
+      "fark": 0.003,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=4500 ap0.9": {
+      "P_D": 0.4971,
+      "P_D_poisson": 0.4966,
+      "fark": 0.0005,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1 N0=31.36 ap0": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4585,
+      "fark": 0.5415,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=31.36 ap0.9": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4585,
+      "fark": 0.5415,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=100 ap0": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4773,
+      "fark": 0.5227,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=100 ap0.9": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4773,
+      "fark": 0.5227,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=500 ap0": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4898,
+      "fark": 0.5102,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=500 ap0.9": {
+      "P_D": 0.6992,
+      "P_D_poisson": 0.4898,
+      "fark": 0.2094,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=4500 ap0": {
+      "P_D": 0.6368,
+      "P_D_poisson": 0.4966,
+      "fark": 0.1401,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=4500 ap0.9": {
+      "P_D": 0.439,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0576,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1.8 N0=31.36 ap0": {
+      "P_D": 0.9998,
+      "P_D_poisson": 0.4585,
+      "fark": 0.5413,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1.8 N0=31.36 ap0.9": {
+      "P_D": 0.9998,
+      "P_D_poisson": 0.4585,
+      "fark": 0.5413,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1.8 N0=100 ap0": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4773,
+      "fark": 0.5227,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1.8 N0=100 ap0.9": {
+      "P_D": 0.4389,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0384,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1.8 N0=500 ap0": {
+      "P_D": 0.8969,
+      "P_D_poisson": 0.4898,
+      "fark": 0.407,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1.8 N0=500 ap0.9": {
+      "P_D": 0.4234,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0665,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1.8 N0=4500 ap0": {
+      "P_D": 0.5496,
+      "P_D_poisson": 0.4966,
+      "fark": 0.053,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1.8 N0=4500 ap0.9": {
+      "P_D": 0.4689,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0277,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=31.36 ap0": {
+      "P_D": 0.4459,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0127,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=31.36 ap0.9": {
+      "P_D": 0.4237,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0348,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=100 ap0": {
+      "P_D": 0.6532,
+      "P_D_poisson": 0.4773,
+      "fark": 0.1759,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc3 N0=100 ap0.9": {
+      "P_D": 0.4573,
+      "P_D_poisson": 0.4773,
+      "fark": -0.02,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=500 ap0": {
+      "P_D": 0.5448,
+      "P_D_poisson": 0.4898,
+      "fark": 0.055,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc3 N0=500 ap0.9": {
+      "P_D": 0.4778,
+      "P_D_poisson": 0.4898,
+      "fark": -0.012,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=4500 ap0": {
+      "P_D": 0.499,
+      "P_D_poisson": 0.4966,
+      "fark": 0.0024,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=4500 ap0.9": {
+      "P_D": 0.4908,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0059,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     }
+    },
+    "en_buyuk_fark": 0.5415,
+    "gecti": false,
+    "gecmeyen": [
+     "M7 Mc1 N0=100 ap0",
+     "M7 Mc1 N0=500 ap0",
+     "M7.5 Mc1 N0=31.36 ap0",
+     "M7.5 Mc1 N0=100 ap0",
+     "M7.5 Mc1 N0=500 ap0",
+     "M7.5 Mc1.8 N0=100 ap0",
+     "M8 Mc1 N0=31.36 ap0",
+     "M8 Mc1 N0=31.36 ap0.9",
+     "M8 Mc1 N0=100 ap0",
+     "M8 Mc1 N0=500 ap0",
+     "M8 Mc1 N0=4500 ap0",
+     "M8 Mc1.8 N0=31.36 ap0",
+     "M8 Mc1.8 N0=100 ap0",
+     "M8 Mc1.8 N0=500 ap0",
+     "M9 Mc1 N0=31.36 ap0",
+     "M9 Mc1 N0=31.36 ap0.9",
+     "M9 Mc1 N0=100 ap0",
+     "M9 Mc1 N0=100 ap0.9",
+     "M9 Mc1 N0=500 ap0",
+     "M9 Mc1 N0=500 ap0.9",
+     "M9 Mc1 N0=4500 ap0",
+     "M9 Mc1.8 N0=31.36 ap0",
+     "M9 Mc1.8 N0=31.36 ap0.9",
+     "M9 Mc1.8 N0=100 ap0",
+     "M9 Mc1.8 N0=500 ap0",
+     "M9 Mc1.8 N0=4500 ap0",
+     "M9 Mc3 N0=100 ap0",
+     "M9 Mc3 N0=500 ap0"
+    ],
+    "veri_yok_payi_ort": 0.0
+   },
+   "yedek_b": {
+    "hucreler": {
+     "M7 Mc1 N0=31.36 ap0": {
+      "P_D": 0.4518,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0067,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=31.36 ap0.9": {
+      "P_D": 0.4009,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0576,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=100 ap0": {
+      "P_D": 0.4987,
+      "P_D_poisson": 0.4773,
+      "fark": 0.0214,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M7 Mc1 N0=100 ap0.9": {
+      "P_D": 0.4328,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0445,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=500 ap0": {
+      "P_D": 0.4915,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0017,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=500 ap0.9": {
+      "P_D": 0.4741,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0157,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=4500 ap0": {
+      "P_D": 0.4888,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0079,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=4500 ap0.9": {
+      "P_D": 0.4944,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0022,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=31.36 ap0": {
+      "P_D": 0.4388,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0197,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=31.36 ap0.9": {
+      "P_D": 0.4464,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0122,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=100 ap0": {
+      "P_D": 0.4701,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0072,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=100 ap0.9": {
+      "P_D": 0.4682,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0091,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=500 ap0": {
+      "P_D": 0.4862,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0037,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=500 ap0.9": {
+      "P_D": 0.4931,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0033,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=4500 ap0": {
+      "P_D": 0.4904,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0063,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=4500 ap0.9": {
+      "P_D": 0.4956,
+      "P_D_poisson": 0.4966,
+      "fark": -0.001,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=31.36 ap0": {
+      "P_D": 0.4405,
+      "P_D_poisson": 0.4585,
+      "fark": -0.018,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=31.36 ap0.9": {
+      "P_D": 0.436,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0225,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=100 ap0": {
+      "P_D": 0.4671,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0102,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=100 ap0.9": {
+      "P_D": 0.4721,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0052,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=500 ap0": {
+      "P_D": 0.4888,
+      "P_D_poisson": 0.4898,
+      "fark": -0.001,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=500 ap0.9": {
+      "P_D": 0.4879,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0019,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=4500 ap0": {
+      "P_D": 0.5035,
+      "P_D_poisson": 0.4966,
+      "fark": 0.0069,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=4500 ap0.9": {
+      "P_D": 0.4941,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0025,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=31.36 ap0": {
+      "P_D": 0.7032,
+      "P_D_poisson": 0.4585,
+      "fark": 0.2447,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M7.5 Mc1 N0=31.36 ap0.9": {
+      "P_D": 0.3827,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0758,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=100 ap0": {
+      "P_D": 0.8572,
+      "P_D_poisson": 0.4773,
+      "fark": 0.38,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M7.5 Mc1 N0=100 ap0.9": {
+      "P_D": 0.3948,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0825,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=500 ap0": {
+      "P_D": 0.4825,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0073,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=500 ap0.9": {
+      "P_D": 0.4417,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0481,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=4500 ap0": {
+      "P_D": 0.4889,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0077,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=4500 ap0.9": {
+      "P_D": 0.4852,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0115,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=31.36 ap0": {
+      "P_D": 0.4417,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0168,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=31.36 ap0.9": {
+      "P_D": 0.4195,
+      "P_D_poisson": 0.4585,
+      "fark": -0.039,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=100 ap0": {
+      "P_D": 0.467,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0103,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=100 ap0.9": {
+      "P_D": 0.4587,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0186,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=500 ap0": {
+      "P_D": 0.4875,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0023,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=500 ap0.9": {
+      "P_D": 0.486,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0038,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=4500 ap0": {
+      "P_D": 0.497,
+      "P_D_poisson": 0.4966,
+      "fark": 0.0004,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=4500 ap0.9": {
+      "P_D": 0.4961,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0005,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=31.36 ap0": {
+      "P_D": 0.4435,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0151,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=31.36 ap0.9": {
+      "P_D": 0.4426,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0159,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=100 ap0": {
+      "P_D": 0.4748,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0024,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=100 ap0.9": {
+      "P_D": 0.4666,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0107,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=500 ap0": {
+      "P_D": 0.4873,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0025,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=500 ap0.9": {
+      "P_D": 0.4903,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0004,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=4500 ap0": {
+      "P_D": 0.4911,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0055,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=4500 ap0.9": {
+      "P_D": 0.4976,
+      "P_D_poisson": 0.4966,
+      "fark": 0.001,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1 N0=31.36 ap0": {
+      "P_D": 0.9982,
+      "P_D_poisson": 0.4585,
+      "fark": 0.5397,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1 N0=31.36 ap0.9": {
+      "P_D": 0.9973,
+      "P_D_poisson": 0.4585,
+      "fark": 0.5388,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1 N0=100 ap0": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4773,
+      "fark": 0.5227,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1 N0=100 ap0.9": {
+      "P_D": 0.3755,
+      "P_D_poisson": 0.4773,
+      "fark": -0.1018,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1 N0=500 ap0": {
+      "P_D": 0.4971,
+      "P_D_poisson": 0.4898,
+      "fark": 0.0073,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1 N0=500 ap0.9": {
+      "P_D": 0.4128,
+      "P_D_poisson": 0.4898,
+      "fark": -0.077,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1 N0=4500 ap0": {
+      "P_D": 0.4866,
+      "P_D_poisson": 0.4966,
+      "fark": -0.01,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1 N0=4500 ap0.9": {
+      "P_D": 0.4679,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0287,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=31.36 ap0": {
+      "P_D": 0.4966,
+      "P_D_poisson": 0.4585,
+      "fark": 0.0381,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1.8 N0=31.36 ap0.9": {
+      "P_D": 0.3858,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0727,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=100 ap0": {
+      "P_D": 0.4984,
+      "P_D_poisson": 0.4773,
+      "fark": 0.0211,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1.8 N0=100 ap0.9": {
+      "P_D": 0.4193,
+      "P_D_poisson": 0.4773,
+      "fark": -0.058,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=500 ap0": {
+      "P_D": 0.4799,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0099,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=500 ap0.9": {
+      "P_D": 0.4611,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0288,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=4500 ap0": {
+      "P_D": 0.485,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0116,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=4500 ap0.9": {
+      "P_D": 0.488,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0086,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=31.36 ap0": {
+      "P_D": 0.43,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0285,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=31.36 ap0.9": {
+      "P_D": 0.4472,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0113,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=100 ap0": {
+      "P_D": 0.4744,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0029,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=100 ap0.9": {
+      "P_D": 0.4732,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0041,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=500 ap0": {
+      "P_D": 0.4878,
+      "P_D_poisson": 0.4898,
+      "fark": -0.002,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=500 ap0.9": {
+      "P_D": 0.4844,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0054,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=4500 ap0": {
+      "P_D": 0.495,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0016,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=4500 ap0.9": {
+      "P_D": 0.4969,
+      "P_D_poisson": 0.4966,
+      "fark": 0.0002,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1 N0=31.36 ap0": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4585,
+      "fark": 0.5415,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=31.36 ap0.9": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4585,
+      "fark": 0.5415,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=100 ap0": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4773,
+      "fark": 0.5227,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=100 ap0.9": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4773,
+      "fark": 0.5227,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=500 ap0": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4898,
+      "fark": 0.5102,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=500 ap0.9": {
+      "P_D": 0.6723,
+      "P_D_poisson": 0.4898,
+      "fark": 0.1825,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=4500 ap0": {
+      "P_D": 0.5048,
+      "P_D_poisson": 0.4966,
+      "fark": 0.0081,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1 N0=4500 ap0.9": {
+      "P_D": 0.4094,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0872,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1.8 N0=31.36 ap0": {
+      "P_D": 0.9998,
+      "P_D_poisson": 0.4585,
+      "fark": 0.5413,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1.8 N0=31.36 ap0.9": {
+      "P_D": 0.9998,
+      "P_D_poisson": 0.4585,
+      "fark": 0.5413,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1.8 N0=100 ap0": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4773,
+      "fark": 0.5227,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1.8 N0=100 ap0.9": {
+      "P_D": 0.3772,
+      "P_D_poisson": 0.4773,
+      "fark": -0.1,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1.8 N0=500 ap0": {
+      "P_D": 0.8948,
+      "P_D_poisson": 0.4898,
+      "fark": 0.405,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1.8 N0=500 ap0.9": {
+      "P_D": 0.3998,
+      "P_D_poisson": 0.4898,
+      "fark": -0.09,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1.8 N0=4500 ap0": {
+      "P_D": 0.4799,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0167,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1.8 N0=4500 ap0.9": {
+      "P_D": 0.4613,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0353,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=31.36 ap0": {
+      "P_D": 0.4462,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0123,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=31.36 ap0.9": {
+      "P_D": 0.4003,
+      "P_D_poisson": 0.4585,
+      "fark": -0.0582,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=100 ap0": {
+      "P_D": 0.4948,
+      "P_D_poisson": 0.4773,
+      "fark": 0.0175,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=100 ap0.9": {
+      "P_D": 0.4457,
+      "P_D_poisson": 0.4773,
+      "fark": -0.0316,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=500 ap0": {
+      "P_D": 0.489,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0008,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=500 ap0.9": {
+      "P_D": 0.4712,
+      "P_D_poisson": 0.4898,
+      "fark": -0.0186,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=4500 ap0": {
+      "P_D": 0.4919,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0047,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=4500 ap0.9": {
+      "P_D": 0.4908,
+      "P_D_poisson": 0.4966,
+      "fark": -0.0058,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     }
+    },
+    "en_buyuk_fark": 0.5415,
+    "gecti": false,
+    "gecmeyen": [
+     "M7 Mc1 N0=100 ap0",
+     "M7.5 Mc1 N0=31.36 ap0",
+     "M7.5 Mc1 N0=100 ap0",
+     "M8 Mc1 N0=31.36 ap0",
+     "M8 Mc1 N0=31.36 ap0.9",
+     "M8 Mc1 N0=100 ap0",
+     "M8 Mc1.8 N0=31.36 ap0",
+     "M8 Mc1.8 N0=100 ap0",
+     "M9 Mc1 N0=31.36 ap0",
+     "M9 Mc1 N0=31.36 ap0.9",
+     "M9 Mc1 N0=100 ap0",
+     "M9 Mc1 N0=100 ap0.9",
+     "M9 Mc1 N0=500 ap0",
+     "M9 Mc1 N0=500 ap0.9",
+     "M9 Mc1.8 N0=31.36 ap0",
+     "M9 Mc1.8 N0=31.36 ap0.9",
+     "M9 Mc1.8 N0=100 ap0",
+     "M9 Mc1.8 N0=500 ap0"
+    ],
+    "veri_yok_payi_ort": 0.0
+   },
+   "yedek_c": {
+    "hucreler": {
+     "M7 Mc1 N0=31.36 ap0": {
+      "P_D": 0.434,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0233,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=31.36 ap0.9": {
+      "P_D": 0.4296,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0278,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=100 ap0": {
+      "P_D": 0.4708,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0047,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=100 ap0.9": {
+      "P_D": 0.4608,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0146,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=500 ap0": {
+      "P_D": 0.4869,
+      "P_D_poisson": 0.4889,
+      "fark": -0.002,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=500 ap0.9": {
+      "P_D": 0.4758,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0131,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=4500 ap0": {
+      "P_D": 0.4904,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0059,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=4500 ap0.9": {
+      "P_D": 0.4919,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0045,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=31.36 ap0": {
+      "P_D": 0.4309,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0265,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=31.36 ap0.9": {
+      "P_D": 0.4447,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0127,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=100 ap0": {
+      "P_D": 0.4652,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0102,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=100 ap0.9": {
+      "P_D": 0.468,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0074,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=500 ap0": {
+      "P_D": 0.4863,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0027,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=500 ap0.9": {
+      "P_D": 0.4819,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0071,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=4500 ap0": {
+      "P_D": 0.497,
+      "P_D_poisson": 0.4963,
+      "fark": 0.0006,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=4500 ap0.9": {
+      "P_D": 0.4989,
+      "P_D_poisson": 0.4963,
+      "fark": 0.0025,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=31.36 ap0": {
+      "P_D": 0.4315,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0258,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=31.36 ap0.9": {
+      "P_D": 0.4381,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0193,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=100 ap0": {
+      "P_D": 0.4633,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0121,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=100 ap0.9": {
+      "P_D": 0.4673,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0081,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=500 ap0": {
+      "P_D": 0.4828,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0062,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=500 ap0.9": {
+      "P_D": 0.4819,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0071,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=4500 ap0": {
+      "P_D": 0.4962,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0001,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=4500 ap0.9": {
+      "P_D": 0.498,
+      "P_D_poisson": 0.4963,
+      "fark": 0.0016,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=31.36 ap0": {
+      "P_D": 0.5595,
+      "P_D_poisson": 0.4574,
+      "fark": 0.1021,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M7.5 Mc1 N0=31.36 ap0.9": {
+      "P_D": 0.3821,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0753,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=100 ap0": {
+      "P_D": 0.701,
+      "P_D_poisson": 0.4754,
+      "fark": 0.2256,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M7.5 Mc1 N0=100 ap0.9": {
+      "P_D": 0.4261,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0493,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=500 ap0": {
+      "P_D": 0.4854,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0035,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=500 ap0.9": {
+      "P_D": 0.4682,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0207,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=4500 ap0": {
+      "P_D": 0.4883,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0081,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=4500 ap0.9": {
+      "P_D": 0.4883,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0081,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=31.36 ap0": {
+      "P_D": 0.4352,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0222,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=31.36 ap0.9": {
+      "P_D": 0.4388,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0186,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=100 ap0": {
+      "P_D": 0.4715,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0039,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=100 ap0.9": {
+      "P_D": 0.4673,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0081,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=500 ap0": {
+      "P_D": 0.4807,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0082,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=500 ap0.9": {
+      "P_D": 0.482,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0069,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=4500 ap0": {
+      "P_D": 0.4918,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0045,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=4500 ap0.9": {
+      "P_D": 0.4948,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0016,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=31.36 ap0": {
+      "P_D": 0.4342,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0232,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=31.36 ap0.9": {
+      "P_D": 0.442,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0154,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=100 ap0": {
+      "P_D": 0.4672,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0082,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=100 ap0.9": {
+      "P_D": 0.4733,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0021,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=500 ap0": {
+      "P_D": 0.4829,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0061,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=500 ap0.9": {
+      "P_D": 0.4808,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0081,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=4500 ap0": {
+      "P_D": 0.4985,
+      "P_D_poisson": 0.4963,
+      "fark": 0.0021,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=4500 ap0.9": {
+      "P_D": 0.4949,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0015,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1 N0=31.36 ap0": {
+      "P_D": 0.9926,
+      "P_D_poisson": 0.4574,
+      "fark": 0.5352,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1 N0=31.36 ap0.9": {
+      "P_D": 0.9883,
+      "P_D_poisson": 0.4574,
+      "fark": 0.531,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1 N0=100 ap0": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4754,
+      "fark": 0.5246,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M8 Mc1 N0=100 ap0.9": {
+      "P_D": 0.385,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0904,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1 N0=500 ap0": {
+      "P_D": 0.4691,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0199,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1 N0=500 ap0.9": {
+      "P_D": 0.443,
+      "P_D_poisson": 0.4889,
+      "fark": -0.046,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1 N0=4500 ap0": {
+      "P_D": 0.4829,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0135,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1 N0=4500 ap0.9": {
+      "P_D": 0.4838,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0126,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=31.36 ap0": {
+      "P_D": 0.4375,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0199,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=31.36 ap0.9": {
+      "P_D": 0.4109,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0465,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=100 ap0": {
+      "P_D": 0.4678,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0076,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=100 ap0.9": {
+      "P_D": 0.4466,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0288,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=500 ap0": {
+      "P_D": 0.4818,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0071,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=500 ap0.9": {
+      "P_D": 0.4773,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0116,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=4500 ap0": {
+      "P_D": 0.4854,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0109,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=4500 ap0.9": {
+      "P_D": 0.4914,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0049,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=31.36 ap0": {
+      "P_D": 0.4311,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0262,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=31.36 ap0.9": {
+      "P_D": 0.4376,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0198,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=100 ap0": {
+      "P_D": 0.4607,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0147,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=100 ap0.9": {
+      "P_D": 0.4681,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0074,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=500 ap0": {
+      "P_D": 0.4872,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0018,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=500 ap0.9": {
+      "P_D": 0.4848,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0042,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=4500 ap0": {
+      "P_D": 0.4974,
+      "P_D_poisson": 0.4963,
+      "fark": 0.0011,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=4500 ap0.9": {
+      "P_D": 0.4911,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0052,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1 N0=31.36 ap0": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4574,
+      "fark": 0.5426,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=31.36 ap0.9": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4574,
+      "fark": 0.5426,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=100 ap0": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4754,
+      "fark": 0.5246,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=100 ap0.9": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4754,
+      "fark": 0.5246,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=500 ap0": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4889,
+      "fark": 0.5111,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1 N0=500 ap0.9": {
+      "P_D": 0.4753,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0136,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1 N0=4500 ap0": {
+      "P_D": 0.5126,
+      "P_D_poisson": 0.4963,
+      "fark": 0.0163,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1 N0=4500 ap0.9": {
+      "P_D": 0.4341,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0622,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1.8 N0=31.36 ap0": {
+      "P_D": 0.9996,
+      "P_D_poisson": 0.4574,
+      "fark": 0.5422,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1.8 N0=31.36 ap0.9": {
+      "P_D": 0.9998,
+      "P_D_poisson": 0.4574,
+      "fark": 0.5424,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1.8 N0=100 ap0": {
+      "P_D": 1.0,
+      "P_D_poisson": 0.4754,
+      "fark": 0.5246,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1.8 N0=100 ap0.9": {
+      "P_D": 0.3484,
+      "P_D_poisson": 0.4754,
+      "fark": -0.127,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1.8 N0=500 ap0": {
+      "P_D": 0.9588,
+      "P_D_poisson": 0.4889,
+      "fark": 0.4699,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": false
+     },
+     "M9 Mc1.8 N0=500 ap0.9": {
+      "P_D": 0.4223,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0666,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1.8 N0=4500 ap0": {
+      "P_D": 0.4769,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0194,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1.8 N0=4500 ap0.9": {
+      "P_D": 0.4761,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0202,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=31.36 ap0": {
+      "P_D": 0.4301,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0273,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=31.36 ap0.9": {
+      "P_D": 0.4299,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0274,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=100 ap0": {
+      "P_D": 0.4618,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0136,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=100 ap0.9": {
+      "P_D": 0.4543,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0211,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=500 ap0": {
+      "P_D": 0.4812,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0077,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=500 ap0.9": {
+      "P_D": 0.4779,
+      "P_D_poisson": 0.4889,
+      "fark": -0.011,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=4500 ap0": {
+      "P_D": 0.496,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0003,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=4500 ap0.9": {
+      "P_D": 0.4963,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     }
+    },
+    "en_buyuk_fark": 0.5426,
+    "gecti": false,
+    "gecmeyen": [
+     "M7.5 Mc1 N0=31.36 ap0",
+     "M7.5 Mc1 N0=100 ap0",
+     "M8 Mc1 N0=31.36 ap0",
+     "M8 Mc1 N0=31.36 ap0.9",
+     "M8 Mc1 N0=100 ap0",
+     "M9 Mc1 N0=31.36 ap0",
+     "M9 Mc1 N0=31.36 ap0.9",
+     "M9 Mc1 N0=100 ap0",
+     "M9 Mc1 N0=100 ap0.9",
+     "M9 Mc1 N0=500 ap0",
+     "M9 Mc1.8 N0=31.36 ap0",
+     "M9 Mc1.8 N0=31.36 ap0.9",
+     "M9 Mc1.8 N0=100 ap0",
+     "M9 Mc1.8 N0=500 ap0"
+    ],
+    "veri_yok_payi_ort": 0.0
+   },
+   "yedek_d": {
+    "hucreler": {
+     "M7 Mc1 N0=31.36 ap0": {
+      "P_D": 0.0617,
+      "P_D_poisson": 0.4574,
+      "fark": -0.3957,
+      "n_ok": 81,
+      "veri_yok_payi": 0.996,
+      "esik": 0.1881,
+      "gecti": true
+     },
+     "M7 Mc1 N0=31.36 ap0.9": {
+      "P_D": 0.4296,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0278,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=100 ap0": {
+      "P_D": 0.4708,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0047,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=100 ap0.9": {
+      "P_D": 0.4608,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0146,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=500 ap0": {
+      "P_D": 0.4869,
+      "P_D_poisson": 0.4889,
+      "fark": -0.002,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=500 ap0.9": {
+      "P_D": 0.4758,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0131,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=4500 ap0": {
+      "P_D": 0.4904,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0059,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1 N0=4500 ap0.9": {
+      "P_D": 0.4919,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0045,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=31.36 ap0": {
+      "P_D": 0.0543,
+      "P_D_poisson": 0.4574,
+      "fark": -0.4031,
+      "n_ok": 608,
+      "veri_yok_payi": 0.9696,
+      "esik": 0.0805,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=31.36 ap0.9": {
+      "P_D": 0.4447,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0127,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=100 ap0": {
+      "P_D": 0.4652,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0102,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=100 ap0.9": {
+      "P_D": 0.468,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0074,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=500 ap0": {
+      "P_D": 0.4863,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0027,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=500 ap0.9": {
+      "P_D": 0.4819,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0071,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=4500 ap0": {
+      "P_D": 0.497,
+      "P_D_poisson": 0.4963,
+      "fark": 0.0006,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc1.8 N0=4500 ap0.9": {
+      "P_D": 0.4989,
+      "P_D_poisson": 0.4963,
+      "fark": 0.0025,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=31.36 ap0": {
+      "P_D": 0.0561,
+      "P_D_poisson": 0.4574,
+      "fark": -0.4012,
+      "n_ok": 570,
+      "veri_yok_payi": 0.9715,
+      "esik": 0.0826,
+      "gecti": true
+     },
+     "M7 Mc3 N0=31.36 ap0.9": {
+      "P_D": 0.4381,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0193,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=100 ap0": {
+      "P_D": 0.4633,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0121,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=100 ap0.9": {
+      "P_D": 0.4673,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0081,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=500 ap0": {
+      "P_D": 0.4828,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0062,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=500 ap0.9": {
+      "P_D": 0.4819,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0071,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=4500 ap0": {
+      "P_D": 0.4962,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0001,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7 Mc3 N0=4500 ap0.9": {
+      "P_D": 0.498,
+      "P_D_poisson": 0.4963,
+      "fark": 0.0016,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=31.36 ap0": {
+      "P_D": null,
+      "P_D_poisson": 0.4574,
+      "fark": null,
+      "n_ok": 0,
+      "veri_yok_payi": 1.0,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=31.36 ap0.9": {
+      "P_D": 0.3821,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0753,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=100 ap0": {
+      "P_D": 0.1033,
+      "P_D_poisson": 0.4754,
+      "fark": -0.3722,
+      "n_ok": 1007,
+      "veri_yok_payi": 0.9496,
+      "esik": 0.0665,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=100 ap0.9": {
+      "P_D": 0.4261,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0493,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=500 ap0": {
+      "P_D": 0.4854,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0035,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=500 ap0.9": {
+      "P_D": 0.4682,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0207,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=4500 ap0": {
+      "P_D": 0.4883,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0081,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1 N0=4500 ap0.9": {
+      "P_D": 0.4883,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0081,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=31.36 ap0": {
+      "P_D": 0.0547,
+      "P_D_poisson": 0.4574,
+      "fark": -0.4026,
+      "n_ok": 548,
+      "veri_yok_payi": 0.9726,
+      "esik": 0.0838,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=31.36 ap0.9": {
+      "P_D": 0.4388,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0186,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=100 ap0": {
+      "P_D": 0.4715,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0039,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=100 ap0.9": {
+      "P_D": 0.4673,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0081,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=500 ap0": {
+      "P_D": 0.4807,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0082,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=500 ap0.9": {
+      "P_D": 0.482,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0069,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=4500 ap0": {
+      "P_D": 0.4918,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0045,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc1.8 N0=4500 ap0.9": {
+      "P_D": 0.4948,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0016,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=31.36 ap0": {
+      "P_D": 0.0687,
+      "P_D_poisson": 0.4574,
+      "fark": -0.3887,
+      "n_ok": 524,
+      "veri_yok_payi": 0.9738,
+      "esik": 0.0853,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=31.36 ap0.9": {
+      "P_D": 0.442,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0154,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=100 ap0": {
+      "P_D": 0.4672,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0082,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=100 ap0.9": {
+      "P_D": 0.4733,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0021,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=500 ap0": {
+      "P_D": 0.4829,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0061,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=500 ap0.9": {
+      "P_D": 0.4808,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0081,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=4500 ap0": {
+      "P_D": 0.4985,
+      "P_D_poisson": 0.4963,
+      "fark": 0.0021,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M7.5 Mc3 N0=4500 ap0.9": {
+      "P_D": 0.4949,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0015,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1 N0=31.36 ap0": {
+      "P_D": null,
+      "P_D_poisson": 0.4574,
+      "fark": null,
+      "n_ok": 0,
+      "veri_yok_payi": 1.0,
+      "gecti": true
+     },
+     "M8 Mc1 N0=31.36 ap0.9": {
+      "P_D": 0.1776,
+      "P_D_poisson": 0.4574,
+      "fark": -0.2798,
+      "n_ok": 152,
+      "veri_yok_payi": 0.9924,
+      "esik": 0.1425,
+      "gecti": true
+     },
+     "M8 Mc1 N0=100 ap0": {
+      "P_D": null,
+      "P_D_poisson": 0.4754,
+      "fark": null,
+      "n_ok": 0,
+      "veri_yok_payi": 1.0,
+      "gecti": true
+     },
+     "M8 Mc1 N0=100 ap0.9": {
+      "P_D": 0.385,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0904,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1 N0=500 ap0": {
+      "P_D": 0.4346,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0543,
+      "n_ok": 18783,
+      "veri_yok_payi": 0.0608,
+      "esik": 0.0231,
+      "gecti": true
+     },
+     "M8 Mc1 N0=500 ap0.9": {
+      "P_D": 0.443,
+      "P_D_poisson": 0.4889,
+      "fark": -0.046,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1 N0=4500 ap0": {
+      "P_D": 0.4829,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0135,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1 N0=4500 ap0.9": {
+      "P_D": 0.4838,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0126,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=31.36 ap0": {
+      "P_D": null,
+      "P_D_poisson": 0.4574,
+      "fark": null,
+      "n_ok": 0,
+      "veri_yok_payi": 1.0,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=31.36 ap0.9": {
+      "P_D": 0.4109,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0465,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=100 ap0": {
+      "P_D": 0.4676,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0078,
+      "n_ok": 19994,
+      "veri_yok_payi": 0.0003,
+      "esik": 0.0202,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=100 ap0.9": {
+      "P_D": 0.4466,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0288,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=500 ap0": {
+      "P_D": 0.4818,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0071,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=500 ap0.9": {
+      "P_D": 0.4773,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0116,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=4500 ap0": {
+      "P_D": 0.4854,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0109,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc1.8 N0=4500 ap0.9": {
+      "P_D": 0.4914,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0049,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=31.36 ap0": {
+      "P_D": 0.0458,
+      "P_D_poisson": 0.4574,
+      "fark": -0.4116,
+      "n_ok": 590,
+      "veri_yok_payi": 0.9705,
+      "esik": 0.0815,
+      "gecti": true
+     },
+     "M8 Mc3 N0=31.36 ap0.9": {
+      "P_D": 0.4376,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0198,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=100 ap0": {
+      "P_D": 0.4607,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0147,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=100 ap0.9": {
+      "P_D": 0.4681,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0074,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=500 ap0": {
+      "P_D": 0.4872,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0018,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=500 ap0.9": {
+      "P_D": 0.4848,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0042,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=4500 ap0": {
+      "P_D": 0.4974,
+      "P_D_poisson": 0.4963,
+      "fark": 0.0011,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M8 Mc3 N0=4500 ap0.9": {
+      "P_D": 0.4911,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0052,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1 N0=31.36 ap0": {
+      "P_D": null,
+      "P_D_poisson": 0.4574,
+      "fark": null,
+      "n_ok": 0,
+      "veri_yok_payi": 1.0,
+      "gecti": true
+     },
+     "M9 Mc1 N0=31.36 ap0.9": {
+      "P_D": null,
+      "P_D_poisson": 0.4574,
+      "fark": null,
+      "n_ok": 0,
+      "veri_yok_payi": 1.0,
+      "gecti": true
+     },
+     "M9 Mc1 N0=100 ap0": {
+      "P_D": null,
+      "P_D_poisson": 0.4754,
+      "fark": null,
+      "n_ok": 0,
+      "veri_yok_payi": 1.0,
+      "gecti": true
+     },
+     "M9 Mc1 N0=100 ap0.9": {
+      "P_D": null,
+      "P_D_poisson": 0.4754,
+      "fark": null,
+      "n_ok": 0,
+      "veri_yok_payi": 1.0,
+      "gecti": true
+     },
+     "M9 Mc1 N0=500 ap0": {
+      "P_D": null,
+      "P_D_poisson": 0.4889,
+      "fark": null,
+      "n_ok": 0,
+      "veri_yok_payi": 1.0,
+      "gecti": true
+     },
+     "M9 Mc1 N0=500 ap0.9": {
+      "P_D": 0.3125,
+      "P_D_poisson": 0.4889,
+      "fark": -0.1765,
+      "n_ok": 15263,
+      "veri_yok_payi": 0.2369,
+      "esik": 0.0264,
+      "gecti": true
+     },
+     "M9 Mc1 N0=4500 ap0": {
+      "P_D": 0.3704,
+      "P_D_poisson": 0.4963,
+      "fark": -0.1259,
+      "n_ok": 15484,
+      "veri_yok_payi": 0.2258,
+      "esik": 0.0265,
+      "gecti": true
+     },
+     "M9 Mc1 N0=4500 ap0.9": {
+      "P_D": 0.4341,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0622,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1.8 N0=31.36 ap0": {
+      "P_D": null,
+      "P_D_poisson": 0.4574,
+      "fark": null,
+      "n_ok": 0,
+      "veri_yok_payi": 1.0,
+      "gecti": true
+     },
+     "M9 Mc1.8 N0=31.36 ap0.9": {
+      "P_D": null,
+      "P_D_poisson": 0.4574,
+      "fark": null,
+      "n_ok": 0,
+      "veri_yok_payi": 1.0,
+      "gecti": true
+     },
+     "M9 Mc1.8 N0=100 ap0": {
+      "P_D": null,
+      "P_D_poisson": 0.4754,
+      "fark": null,
+      "n_ok": 0,
+      "veri_yok_payi": 1.0,
+      "gecti": true
+     },
+     "M9 Mc1.8 N0=100 ap0.9": {
+      "P_D": 0.3447,
+      "P_D_poisson": 0.4754,
+      "fark": -0.1307,
+      "n_ok": 19888,
+      "veri_yok_payi": 0.0056,
+      "esik": 0.0209,
+      "gecti": true
+     },
+     "M9 Mc1.8 N0=500 ap0": {
+      "P_D": 0.0926,
+      "P_D_poisson": 0.4889,
+      "fark": -0.3963,
+      "n_ok": 907,
+      "veri_yok_payi": 0.9546,
+      "esik": 0.0692,
+      "gecti": true
+     },
+     "M9 Mc1.8 N0=500 ap0.9": {
+      "P_D": 0.4223,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0666,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1.8 N0=4500 ap0": {
+      "P_D": 0.4769,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0194,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc1.8 N0=4500 ap0.9": {
+      "P_D": 0.4761,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0202,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=31.36 ap0": {
+      "P_D": 0.0435,
+      "P_D_poisson": 0.4574,
+      "fark": -0.4139,
+      "n_ok": 92,
+      "veri_yok_payi": 0.9954,
+      "esik": 0.1776,
+      "gecti": true
+     },
+     "M9 Mc3 N0=31.36 ap0.9": {
+      "P_D": 0.4299,
+      "P_D_poisson": 0.4574,
+      "fark": -0.0274,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=100 ap0": {
+      "P_D": 0.4618,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0136,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=100 ap0.9": {
+      "P_D": 0.4543,
+      "P_D_poisson": 0.4754,
+      "fark": -0.0211,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=500 ap0": {
+      "P_D": 0.4812,
+      "P_D_poisson": 0.4889,
+      "fark": -0.0077,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=500 ap0.9": {
+      "P_D": 0.4779,
+      "P_D_poisson": 0.4889,
+      "fark": -0.011,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=4500 ap0": {
+      "P_D": 0.496,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0003,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     },
+     "M9 Mc3 N0=4500 ap0.9": {
+      "P_D": 0.4963,
+      "P_D_poisson": 0.4963,
+      "fark": -0.0,
+      "n_ok": 20000,
+      "veri_yok_payi": 0.0,
+      "esik": 0.02,
+      "gecti": true
+     }
+    },
+    "en_buyuk_fark": 0.0025,
+    "gecti": true,
+    "gecmeyen": [],
+    "veri_yok_payi_ort": 0.232
+   }
+  },
+  "secilen": "yedek_d",
+  "bolge_carpani": 1.0,
+  "ozet": "seçilen yedek_d"
+ },
+ "baglayici": true,
+ "kod_sha256": {
+  "tr6a_kosu.py": "d5b67d14a0665e0e1155daf1c9038ce9148a1f0df5497d2eba15e1b5bc2193d1",
+  "tr6a_okada.py": "ef0d583169fb859d323aff094c45b8d996fba29664b1d20d61b6b918e7efc4dd",
+  "tr6a_ffm.py": "60871db70e4942d93d80ef39f17dfd3b87b9b07673311f9dc8fa953a6dc6dbf6",
+  "tr6a_katalog.py": "75d430edb20cd556b02f1c5057fa585c7cf6ac0d98315352b7d8b94a5f560fdd",
+  "tr6a_yapay.py": "4da3e1d70df7d552f86533a3d1aa61939b3bac2b7ae571fa032dddc9ce2b3753",
+  "tr6a_onkayit_sayilar.py": "e1d643a402e33218df33b94f81849e200429712c28d8530ff3cf85770962b2ae",
+  "tr6_a_kapi.py": "375d9e76bfdfd6e16e1436d504c7fd677172f7834984b9250fe083a82577835d",
+  "tr6a_onbellek_kor.py": "eb59b6d38911b5239ba1f1cd1ddf6b6cc444c30623eb1f1d9fba05a9cddaf04d",
+  "tr6_sayim.py": "5ad5edfcd0c8cd2422bb2e65f37b20c348cef8218ddc1fb3d239b54854454d5f"
+ },
+ "onkayit_sha256": {
+  "govde": "41ca1e951d330ab72d106be79bb5f700b415d9574dbddff3da0a12ad73fea94e",
+  "tam": "0ffd2752394a29bbe2da7ccade409e4355e6eca0c6e193290332207b7814a3a5"
+ }
+}

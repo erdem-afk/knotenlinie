@@ -1,0 +1,28 @@
+git denetimi: 10 dosya commit edilmiş, HEAD origin/claude/project-thread-hjup0f içinde
+  1_yuzey_cekme: 8.624e-14 (eşik 1e-08) GEÇTİ
+  2_denge: 9.922e-07 (eşik 1e-05) GEÇTİ
+  3_kayma_sureksizligi: 6.215e-06 (eşik 1e-06) GEÇMEDİ
+  4_sayisal_turev: 5.873e-08 (eşik 1e-06) GEÇTİ
+  5_nokta_kaynak_001km: 6.903e-06 (eşik 0.0001) GEÇTİ
+  5_uzak_alan_20L: 3.397e-02 (eşik 0.001) GEÇMEDİ
+  6_fay_disi_sureklilik: 9.053e-06 (eşik 1e-06) GEÇMEDİ
+  7_ust_uste_binme: 2.246e-15 (eşik 1e-10) GEÇTİ
+  8a_isaret_uc_pozitif_yan_negatif: 0.000e+00 (eşik 0.5) GEÇTİ
+  8b_simetri: 1.585e-15 (eşik 1e-08) GEÇTİ
+  8c_dondurme: 8.587e-16 (eşik 1e-08) GEÇTİ
+  9_dcff_izdusumu: 1.110e-16 (eşik 1e-12) GEÇTİ
+  tekil_noktalar_sonlu: 0.000e+00 (eşik 0.5) GEÇTİ
+  (i) Δτ = 0, N0 31.36: P(D): 0.4601 beklenen 0.4585 (z +0.45) GEÇTİ
+  (i) Δτ = 0, N0 100: P(D): 0.4752 beklenen 0.4773 (z -0.60) GEÇTİ
+  (i) Δτ = 0, N0 500: P(D): 0.4686 beklenen 0.4898 (z -6.01) TUTMADI
+  (i) kalıcı −10 kPa, N0 31,36: P(D): 0.9873 beklenen 0.9873 (z -0.01) GEÇTİ
+  (i) Δτ_est medyanı: −10,23'ün altındaki pay: 0.4943 beklenen 0.5000 (z -1.61) GEÇTİ
+  (ii) N0 31.36: p̂₀ beklenen değeri − gerçek P(D) (kapı koşullu): 0.0001 beklenen 0.0000 (z +0.02) GEÇTİ
+  (ii) N0 100: p̂₀ beklenen değeri − gerçek P(D) (kapı koşullu): 0.0030 beklenen 0.0000 (z +0.74) GEÇTİ
+  (ii) N0 500: p̂₀ beklenen değeri − gerçek P(D) (kapı koşullu): -0.0016 beklenen 0.0000 (z -0.38) GEÇTİ
+  tamlık A2: en büyük fark +0.5415 TUTMADI
+  tamlık yedek_a: en büyük fark +0.5415 TUTMADI
+  tamlık yedek_b: en büyük fark +0.5415 TUTMADI
+  tamlık yedek_c: en büyük fark +0.5426 TUTMADI
+  tamlık yedek_d: en büyük fark +0.0025 GEÇTİ
+yazıldı: /home/user/knotenlinie/kayit/turetme/tr6/tr6a_sinama_sonuc.json (commit + push edilmeden manifest aşaması açılmaz)
