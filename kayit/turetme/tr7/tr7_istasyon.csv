@@ -1,0 +1,248 @@
+ag,istasyon,enlem,boylam,kanallar,ilk_epok,son_epok,kaynak,yakin_segmentler,en_yakin_fay_km
+1O,BI01,40.866823,32.759344,HHZ,2022-10-23,2028-12-31,eida_federator,S5 Bolu-Gerede-Ismetpasa; S6 Cerkes-Tosya,1.1
+1O,BI02,40.909337,33.253221,HHZ,2022-10-21,2028-12-31,eida_federator,S6 Cerkes-Tosya,1.3
+1O,BI03,40.897003,33.10326,HHZ,2022-10-21,2028-12-31,eida_federator,S5 Bolu-Gerede-Ismetpasa; S6 Cerkes-Tosya,0.6
+1O,BI04,40.920886,33.014064,HHZ,2022-10-22,2028-12-31,eida_federator,S5 Bolu-Gerede-Ismetpasa; S6 Cerkes-Tosya,3.7
+1O,BI05,40.921034,32.708914,HHZ,2022-10-23,2028-12-31,eida_federator,S5 Bolu-Gerede-Ismetpasa; S6 Cerkes-Tosya,5.1
+1O,BI06,40.875739,32.603524,HHZ,2025-04-11,2028-12-31,eida_federator,S5 Bolu-Gerede-Ismetpasa; S6 Cerkes-Tosya,0.6
+6G,ATIM,40.083,27.563,HHZ,2013-01-01,açık,koeri,S7 Guney kol (Geyve-Biga),19.1
+6G,BAYC,39.741,26.547,HHZ,2013-01-01,açık,koeri,S7 Guney kol (Geyve-Biga),6.4
+6G,BEYO,39.63901,26.93194,HHZ,2013-01-01,açık,koeri,S7 Guney kol (Geyve-Biga),26.7
+6G,BOZC,39.842,26.053,HHZ,2013-01-01,açık,koeri,S7 Guney kol (Geyve-Biga),49.3
+6G,BOZM,40.534,28.782,HHZ,2013-01-01,açık,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit; S7 Guney kol (Geyve-Biga),16.5
+6G,BUHA,39.501,27.077,HHZ,2013-01-01,açık,koeri,S7 Guney kol (Geyve-Biga),45.9
+6G,BUYM,40.852,29.118,HHZ,2013-01-01,açık,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit; S7 Guney kol (Geyve-Biga),6.5
+6G,BZGM,40.173,26.986,HHZ,2013-01-01,açık,koeri,S7 Guney kol (Geyve-Biga),8.0
+6G,CMHM,40.012,27.97,HHZ,2013-01-01,açık,koeri,S7 Guney kol (Geyve-Biga),31.4
+6G,ELBA,41.147,28.43,HHZ,2013-01-01,açık,koeri,S2 Orta Marmara-Adalar,33.9
+6G,EREM,40.045,28.891,HHZ,2013-01-01,açık,koeri,S7 Guney kol (Geyve-Biga),38.7
+6G,ESKM,40.607,28.945,HHZ,2013-01-01,açık,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit; S7 Guney kol (Geyve-Biga),22.5
+6G,GBZM,40.786,29.45,HHZ,2013-01-01,açık,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),7.3
+6G,HAMK,40.171,29.186,HHZ,2013-01-01,açık,koeri,S7 Guney kol (Geyve-Biga),27.9
+6G,IGDM,40.264,29.201,HHZ,2013-01-01,açık,koeri,S7 Guney kol (Geyve-Biga),17.6
+6G,KKZM,41.127,27.345,HHZ,2013-01-01,açık,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar,38.6
+6G,KLCM,40.633,29.398,HHZ,2013-01-01,açık,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),9.7
+6G,KMRM,40.418,27.069,HHZ,2013-01-01,açık,koeri,S1 Ganos-Saros; S7 Guney kol (Geyve-Biga),26.1
+6G,KNLM,40.27,27.526,HHZ,2013-01-01,açık,koeri,S7 Guney kol (Geyve-Biga),1.9
+6G,KOCA,39.502,26.138,HHZ,2013-01-01,açık,koeri,S7 Guney kol (Geyve-Biga),45.3
+6G,KRCM,40.265,28.332,HHZ,2013-01-01,açık,koeri,S7 Guney kol (Geyve-Biga),7.5
+6G,KVKM,40.604,26.888,HHZ,2013-01-01,açık,koeri,S1 Ganos-Saros,1.6
+6G,MADM,40.564,27.665,HHZ,2013-01-01,açık,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar; S7 Guney kol (Geyve-Biga),26.9
+6G,MARM,40.967,27.961,HHZ,2013-01-01,açık,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar,16.5
+6G,MSDM,40.349,28.6,HHZ,2013-01-01,açık,koeri,S7 Guney kol (Geyve-Biga),1.6
+6G,NEVM,39.954,27.263,HHZ,2013-01-01,açık,koeri,S7 Guney kol (Geyve-Biga),23.3
+6G,OMRT,40.971,28.604,HHZ,2013-01-01,açık,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit,13.5
+6G,SART,40.689,27.18,HHZ,2013-01-01,açık,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar,1.6
+6G,SGTM,40.767,27.108,HHZ,2013-01-01,açık,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar,8.7
+6G,SLVM,41.073,28.14,HHZ,2013-01-01,açık,koeri,S2 Orta Marmara-Adalar,27.3
+6G,SNLM,41.228,28.209,HHZ,2013-01-01,açık,koeri,S2 Orta Marmara-Adalar,44.1
+6G,TEPT,41.064,28.509,HHZ,2013-01-01,açık,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit,24.2
+6G,TRNM,40.505,27.778,HHZ,2013-01-01,açık,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar; S7 Guney kol (Geyve-Biga),25.0
+6G,YNKM,40.826,27.397,HHZ,2013-01-01,açık,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar,5.9
+HT,ALN,40.89566,26.04972,BHZ HHZ,2006-01-01,açık,earthscope eida_federator,S1 Ganos-Saros,40.5
+IJ,MAR2,40.7172,27.3123,HHZ,2014-04-10,2016-01-04,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar,2.7
+IJ,MAR3,40.7432,27.2945,HHZ,2014-04-10,2016-07-20,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar,0.5
+IJ,MAR4,40.788,27.3007,HHZ,2014-04-11,2016-02-05,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar,4.9
+IJ,MAR5,40.7954,27.366,HHZ,2014-06-03,2015-03-29,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar,3.7
+IJ,MAR6,40.7041,27.2653,HHZ,2014-04-11,2016-07-20,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar,2.6
+IJ,MAR7,40.7281,27.23533,HHZ,2014-04-11,2016-01-27,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar,0.8
+IJ,MAR8,40.6121,27.5348,HHZ,2014-04-12,2016-01-03,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar; S7 Guney kol (Geyve-Biga),20.5
+IJ,MAR9,40.6196,27.702003,HHZ,2014-04-12,2016-03-06,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar; S7 Guney kol (Geyve-Biga),20.9
+KO,ADVT,40.4332,29.7383,BHZ HHZ,2006-05-19,açık,koeri,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),1.9
+KO,ARMT,40.5683,28.866,BHZ HHZ,2007-12-17,açık,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit; S7 Guney kol (Geyve-Biga),19.2
+KO,BGKT,41.181,28.773,BHZ HHZ,2007-05-29,açık,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit,37.7
+KO,BOLI,40.7175,31.5148,HHZ,2023-12-28,açık,koeri,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,3.0
+KO,BOTS,40.9902,27.981,HHZ,2025-03-14,açık,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar,19.0
+KO,CANM,40.0113,27.0529,EHZ,2017-02-22,açık,koeri,S7 Guney kol (Geyve-Biga),9.6
+KO,CANT,40.6062,33.6193,BHZ HHZ,2006-12-12,açık,koeri,S6 Cerkes-Tosya,37.8
+KO,CAVI,40.2018,29.8377,BHZ HHZ,2007-09-27,açık,koeri,S7 Guney kol (Geyve-Biga),28.5
+KO,CRLT,41.129,27.736,BHZ HHZ,2007-05-15,2024-08-15,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar,35.5
+KO,CTKS,41.2373,28.5072,BHZ HHZ,2007-09-28,açık,koeri,S2 Orta Marmara-Adalar,43.5
+KO,EDC,40.3465,27.8618,BHZ HHZ,2008-07-12,açık,koeri,S7 Guney kol (Geyve-Biga),6.7
+KO,ENEZ,40.7362,26.153,BHZ HHZ,2006-06-21,açık,koeri,S1 Ganos-Saros,21.1
+KO,ERIK,40.6708,26.5132,BHZ HHZ,2008-07-02,açık,koeri,S1 Ganos-Saros,9.9
+KO,EZN,39.8255,26.3246,BHZ HHZ,2006-10-11,açık,koeri,S7 Guney kol (Geyve-Biga),27.3
+KO,GAZK,40.7479,27.3275,HHZ,2019-12-23,açık,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar,0.0
+KO,GELI,40.398,26.4742,BHZ HHZ,2008-07-04,açık,koeri,S1 Ganos-Saros,19.8
+KO,GEML,40.4646,29.2116,HHZ,2020-06-11,açık,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit; S7 Guney kol (Geyve-Biga),4.6
+KO,GEMT,40.435,29.189,BHZ HHZ,2006-07-07,2018-11-04,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit; S7 Guney kol (Geyve-Biga),1.4
+KO,GERE,40.8004,32.2154,HHZ,2023-12-29,açık,koeri,S5 Bolu-Gerede-Ismetpasa; S6 Cerkes-Tosya,0.2
+KO,GONE,40.0466,27.686,BHZ HHZ,2008-06-27,2010-10-23,koeri,S7 Guney kol (Geyve-Biga),24.5
+KO,GULT,40.432,30.5152,BHZ HHZ,2007-09-15,2026-09-03,koeri,S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),19.7
+KO,HRTX,40.8009,29.6729,BHZ HHZ,2008-06-25,açık,koeri,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),9.0
+KO,ISK,41.0615,29.0592,BHZ HHZ,1997-12-16,açık,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit,26.2
+KO,KAVV,41.0638,29.06,BHZ HHZ,2010-02-06,açık,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit,26.5
+KO,KCTX,40.2626,28.3353,BHZ HHZ,2008-07-11,açık,koeri,S7 Guney kol (Geyve-Biga),7.9
+KO,KLYT,41.253,29.042,BHZ HHZ,2006-05-18,açık,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit,47.2
+KO,KRBG,40.3932,27.2977,BHZ HHZ,2008-06-27,açık,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar; S7 Guney kol (Geyve-Biga),21.1
+KO,LAP,40.3703,26.7593,BHZ HHZ,2007-12-27,açık,koeri,S1 Ganos-Saros; S7 Guney kol (Geyve-Biga),26.0
+KO,MDNY,40.3709,28.8846,BHZ HHZ,2008-07-09,açık,koeri,S7 Guney kol (Geyve-Biga),2.7
+KO,MDUB,40.4712,31.1976,BHZ HHZ,2008-05-22,açık,earthscope koeri,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,35.7
+KO,MRMT,40.609,27.5832,BHZ HHZ,2008-10-09,açık,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar; S7 Guney kol (Geyve-Biga),21.6
+KO,NMR2,40.7172,27.3123,HHZ,2025-04-16,açık,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar,2.7
+KO,NMR3,40.7432,27.2944,HHZ,2025-04-16,açık,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar,0.5
+KO,NMR4,40.788,27.3006,HHZ,2025-04-16,açık,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar,4.9
+KO,NMR5,40.7954,27.366,HHZ,2025-04-16,açık,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar,3.7
+KO,NMR6,40.704,27.2653,HHZ,2025-04-16,açık,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar,2.6
+KO,NMR7,40.728,27.2353,HHZ,2025-04-16,açık,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar,0.8
+KO,NMR8,40.612,27.5347,HHZ,2025-05-27,açık,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar; S7 Guney kol (Geyve-Biga),20.5
+KO,NMR9,40.6196,27.702,HHZ,2025-05-27,açık,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar; S7 Guney kol (Geyve-Biga),20.9
+KO,RKY,40.6874,27.1776,BHZ HHZ,2006-04-14,açık,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar,1.6
+KO,RUZG,40.7242,31.7936,HHZ,2019-12-19,açık,koeri,S5 Bolu-Gerede-Ismetpasa,3.1
+KO,SAUV,40.7401,30.3271,BHZ HHZ,2012-02-07,açık,koeri,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),4.1
+KO,SILT,41.153,29.643,BHZ HHZ,2007-07-31,açık,koeri,S3 Cinarcik-Izmit,48.1
+KO,SLVT,41.2288,28.2098,BHZ HHZ,2007-08-01,açık,koeri,S2 Orta Marmara-Adalar,44.2
+KO,SPNC,40.686,30.3083,BHZ HHZ,2008-06-27,2015-03-25,koeri,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),1.6
+KO,SUSR,39.9627,28.0835,EHZ,2018-05-03,açık,koeri,S7 Guney kol (Geyve-Biga),38.1
+KO,TKR,40.9893,27.5351,BHZ HHZ,2007-05-17,açık,koeri,S1 Ganos-Saros; S2 Orta Marmara-Adalar,20.9
+KO,UVEZ,40.904,30.9032,HHZ,2019-12-18,açık,koeri,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,15.5
+KO,YALI,40.7676,32.9822,HHZ,2019-12-20,açık,koeri,S5 Bolu-Gerede-Ismetpasa; S6 Cerkes-Tosya,13.2
+KO,YAYO,39.6113,27.0726,HHZ,2019-03-23,açık,koeri,S7 Guney kol (Geyve-Biga),38.1
+KO,YLV,40.5658,29.3708,BHZ HHZ,2011-09-26,açık,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),15.5
+KO,YUVA,40.391,31.6872,EHZ,2013-09-09,açık,koeri,S5 Bolu-Gerede-Ismetpasa,38.4
+TL,ALTN,40.3578,28.9638,EHZ,2013-05-07,2015-04-09,koeri,S3 Cinarcik-Izmit; S7 Guney kol (Geyve-Biga),5.2
+TL,AVDN,40.2933,29.1646,HHZ,2013-05-08,2016-01-09,koeri,S3 Cinarcik-Izmit; S7 Guney kol (Geyve-Biga),14.3
+TL,CFTB,40.6642,29.2993,EHZ,2013-04-12,2015-12-02,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit; S7 Guney kol (Geyve-Biga),6.2
+TL,ENGR,40.3985,29.1387,EHZ,2013-05-07,2014-06-10,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit; S7 Guney kol (Geyve-Biga),2.5
+TL,ESNK,40.628,28.9752,EHZ,2013-06-06,2016-04-04,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit; S7 Guney kol (Geyve-Biga),21.1
+TL,FSTK,40.4975,28.8955,HHZ,2013-05-31,2015-07-25,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit; S7 Guney kol (Geyve-Biga),11.1
+TL,ILYS,40.6128,29.439,EHZ,2013-05-30,2015-10-04,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),11.9
+TL,KRSK,40.405,29.2582,HHZ,2013-06-06,2015-10-06,koeri,S3 Cinarcik-Izmit; S7 Guney kol (Geyve-Biga),2.1
+TL,SFRN,40.6062,29.2418,HHZ,2014-07-18,2016-03-08,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit; S7 Guney kol (Geyve-Biga),13.6
+TL,SLMY,40.5176,28.9858,HHZ,2013-06-07,2013-07-18,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit; S7 Guney kol (Geyve-Biga),12.1
+TL,STBT,40.1445,29.2384,HHZ,2013-05-09,2016-04-04,koeri,S7 Guney kol (Geyve-Biga),31.0
+TL,TRML,40.6095,29.1735,EHZ HHZ,2012-11-01,2016-03-15,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit; S7 Guney kol (Geyve-Biga),15.7
+TL,TSVK,40.6267,29.0873,HHZ,2013-06-05,2016-04-04,koeri,S2 Orta Marmara-Adalar; S3 Cinarcik-Izmit; S7 Guney kol (Geyve-Biga),17.2
+TL,UNCK,40.1171,28.7216,HHZ,2013-06-03,2013-10-31,koeri,S7 Guney kol (Geyve-Biga),28.6
+TL,YYLC,40.274,28.811,HHZ,2013-04-09,2016-03-15,koeri,S7 Guney kol (Geyve-Biga),12.5
+TL,ZYBG,40.39,28.7948,EHZ,2013-06-04,2014-07-20,koeri,S2 Orta Marmara-Adalar; S7 Guney kol (Geyve-Biga),0.5
+TU,ILGA,41.0521,33.7165,BHZ,2007-07-02,açık,eida_federator,S6 Cerkes-Tosya,8.8
+XW,W01,40.5061,27.7771,BHZ HHZ,2007-06-10,2008-06-01,eida_federator,S1 Ganos-Saros; S2 Orta Marmara-Adalar; S7 Guney kol (Geyve-Biga),25.2
+XW,W02,40.3461,27.8617,BHZ HHZ,2007-06-10,2008-06-01,eida_federator,S7 Guney kol (Geyve-Biga),6.6
+XW,W03,40.1083,28.0581,BHZ HHZ,2007-06-10,2008-06-01,eida_federator,S7 Guney kol (Geyve-Biga),21.8
+XW,W04,39.9178,28.0862,BHZ HHZ,2007-06-11,2008-06-01,eida_federator,S7 Guney kol (Geyve-Biga),43.1
+XY,CDK,40.9683,32.1847,HHZ,2007-06-19,2009-05-15,eida_federator,S5 Bolu-Gerede-Ismetpasa; S6 Cerkes-Tosya,18.5
+XY,KAR,41.0436,30.6622,HHZ,2007-12-04,2009-05-20,eida_federator,S4 Sapanca-Duzce,33.9
+XY,KOY,39.5442,27.1639,HHZ,2007-04-19,2009-05-13,eida_federator,S7 Guney kol (Geyve-Biga),48.9
+XY,KRB,40.2625,28.3353,HHZ,2007-04-20,2008-06-24,eida_federator,S7 Guney kol (Geyve-Biga),7.9
+YH,DA01,40.284401,30.092331,BHZ,2012-05-04,2013-09-27,earthscope,S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),21.8
+YH,DA02,40.365181,30.06197,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),12.6
+YH,DA03,40.437222,30.071939,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),4.7
+YH,DA04,40.480572,30.09218,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),0.1
+YH,DA05,40.548161,30.08835,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),7.4
+YH,DA06,40.61562,30.086969,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),10.5
+YH,DA07,40.68465,30.086821,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),2.9
+YH,DA08,40.742069,30.06188,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),3.3
+YH,DA09,40.809479,30.082689,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),10.9
+YH,DA10,40.859261,30.07119,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),16.4
+YH,DA11,40.934769,30.076151,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce,24.8
+YH,DB01,40.284458,30.165199,BHZ,2012-05-04,2013-09-27,earthscope,S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),22.5
+YH,DB02,40.38702,30.163429,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),11.2
+YH,DB03,40.421169,30.14596,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),7.2
+YH,DB04,40.490028,30.1612,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),0.2
+YH,DB05,40.564919,30.12463,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),8.9
+YH,DB06,40.644669,30.23201,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),6.5
+YH,DB07,40.68021,30.17881,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),2.9
+YH,DB08,40.739311,30.15336,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),3.5
+YH,DB09,40.804958,30.16194,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),10.9
+YH,DB10,40.86179,30.160509,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),17.2
+YH,DB11,40.922901,30.165779,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),24.0
+YH,DC01,40.296879,30.24054,BHZ,2012-05-04,2013-09-27,earthscope,S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),21.9
+YH,DC02,40.359879,30.23488,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),14.8
+YH,DC03,40.42487,30.244539,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),7.8
+YH,DC04,40.482449,30.23563,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),1.3
+YH,DC05,40.56345,30.25181,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),7.5
+YH,DC06,40.616718,30.265751,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),9.4
+YH,DC07,40.66708,30.24217,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),4.0
+YH,DC08,40.744438,30.25013,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),4.7
+YH,DC09,40.80777,30.24419,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),11.6
+YH,DC10,40.880169,30.249041,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),19.7
+YH,DC11,40.92865,30.236441,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),25.0
+YH,DD01,40.285011,30.3167,BHZ,2012-05-04,2013-09-27,earthscope,S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),23.9
+YH,DD02,40.377739,30.310181,BHZ,2012-05-04,2013-09-27,earthscope,S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),13.6
+YH,DD03,40.425571,30.33016,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),8.7
+YH,DD04,40.495331,30.313391,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),1.2
+YH,DD05,40.545219,30.32943,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),5.6
+YH,DD06,40.623539,30.31777,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),8.6
+YH,DD09,40.803261,30.329081,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),11.1
+YH,DD10,40.862099,30.32933,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),17.5
+YH,DD11,40.93145,30.313169,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),25.4
+YH,DE01,40.297451,30.40881,BHZ,2012-05-04,2013-09-27,earthscope,S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),24.3
+YH,DE02,40.362041,30.404369,BHZ,2012-05-04,2013-09-27,earthscope,S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),17.7
+YH,DE03,40.420029,30.408369,BHZ,2012-05-04,2013-09-27,earthscope,S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),12.8
+YH,DE04,40.47908,30.41037,BHZ,2012-05-04,2013-09-27,earthscope,S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),9.6
+YH,DE05,40.522362,30.4098,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),9.6
+YH,DE06,40.609131,30.37994,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),10.9
+YH,DE07,40.679661,30.411539,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),3.5
+YH,DE08,40.748562,30.406469,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),4.2
+YH,DE09,40.80975,30.4098,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),10.9
+YH,DE10,40.87793,30.40003,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),18.5
+YH,DE11,40.92894,30.398809,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),24.1
+YH,DF01,40.30035,30.49719,BHZ,2012-05-04,2013-09-27,earthscope,S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),27.8
+YH,DF02,40.35849,30.49383,BHZ HHZ,2012-05-04,2013-09-27,earthscope,S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),22.7
+YH,DF04,40.4734,30.49432,BHZ,2012-05-04,2013-09-27,earthscope,S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),16.7
+YH,DF05,40.539902,30.490231,BHZ,2012-05-04,2013-09-27,earthscope,S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),16.7
+YH,DF06,40.62751,30.47924,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),10.0
+YH,DF07,40.6782,30.492559,BHZ,2012-05-04,2013-09-27,earthscope,S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),4.5
+YH,DF08,40.736408,30.4963,BHZ,2012-05-04,2013-09-27,earthscope,S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),1.8
+YH,DF09,40.805569,30.49024,BHZ,2012-05-04,2013-09-27,earthscope,S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),9.5
+YH,DF10,40.875259,30.49721,BHZ,2012-05-04,2013-09-27,earthscope,S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),17.1
+YH,DF11,40.929272,30.492519,BHZ,2012-05-04,2013-09-27,earthscope,S4 Sapanca-Duzce,23.2
+YH,GULT,40.431999,30.5156,BHZ,2012-05-04,2013-10-02,earthscope,S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),19.8
+YH,KO01,40.084888,30.30434,BHZ,2012-05-04,2013-09-27,earthscope,S7 Guney kol (Geyve-Biga),45.9
+YH,KO02,40.19659,30.62442,BHZ,2012-05-04,2013-09-27,earthscope,S7 Guney kol (Geyve-Biga),43.6
+YH,KO03,40.428108,30.813141,BHZ,2012-05-04,2013-09-27,earthscope,S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),35.6
+YH,KO04,40.588791,30.81337,BHZ,2012-05-04,2013-09-27,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa; S7 Guney kol (Geyve-Biga),17.9
+YH,KO05,40.871578,30.917471,BHZ,2012-05-04,2013-09-27,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,11.7
+YH,KO06,41.032349,30.65097,BHZ,2012-05-04,2013-09-27,earthscope,S4 Sapanca-Duzce,32.8
+YH,KO07,41.045898,30.1702,BHZ,2012-05-04,2013-09-27,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce,37.7
+YH,SAUV,40.7402,30.3272,HHZ,2012-05-04,2013-10-02,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),4.1
+YH,SPNC,40.686001,30.3083,BHZ,2012-05-04,2013-10-02,earthscope,S3 Cinarcik-Izmit; S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),1.6
+YI,E01,40.9336,30.5546,BHZ HHZ,2008-06-12,2009-05-20,eida_federator,S4 Sapanca-Duzce,22.9
+YI,E02,40.8422,30.6711,BHZ,2008-06-12,2009-04-11,eida_federator,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa; S7 Guney kol (Geyve-Biga),11.6
+YI,E03,40.6758,30.6694,BHZ,2008-06-13,2009-04-11,eida_federator,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa; S7 Guney kol (Geyve-Biga),6.7
+YI,E04,40.5639,30.6355,BHZ,2008-06-13,2009-05-19,eida_federator,S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),18.7
+YI,E05,40.3414,30.4536,BHZ,2008-06-14,2009-05-19,eida_federator,S4 Sapanca-Duzce; S7 Guney kol (Geyve-Biga),21.9
+YI,E06,40.1726,30.4961,BHZ HHZ,2008-06-14,2009-01-19,eida_federator,S7 Guney kol (Geyve-Biga),40.0
+YJ,AR,40.734386,30.827095,EPZ,1999-08-24,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,2.1
+YJ,BU,40.777363,30.612768,EPZ,1999-09-06,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa; S7 Guney kol (Geyve-Biga),5.1
+YJ,BV,40.755245,31.014908,EPZ,1999-09-14,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,2.4
+YJ,CF,40.700577,30.849949,EPZ,1999-08-26,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,6.1
+YJ,CH,40.669827,30.665482,EPZ,1999-09-07,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa; S7 Guney kol (Geyve-Biga),7.4
+YJ,CL,40.754547,30.9193,EPZ,1999-08-25,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,1.1
+YJ,F01,40.728722,30.830286,EPZ,2000-01-29,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,2.7
+YJ,F02,40.727978,30.827562,EPZ,2000-01-30,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,2.8
+YJ,F03,40.72731,30.82506,EPZ,2000-01-30,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,2.8
+YJ,F06,40.728748,30.819485,EPZ,2000-01-25,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,2.6
+YJ,F07,40.728001,30.820166,EPZ,2000-01-28,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,2.7
+YJ,F08,40.727566,30.820452,EPZ,2000-01-25,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,2.7
+YJ,F09,40.727333,30.820829,EPZ,2000-01-28,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,2.8
+YJ,F10,40.727001,30.820829,EPZ,2000-01-28,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,2.8
+YJ,F11,40.726665,30.821165,EPZ,2000-01-25,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,2.9
+YJ,F12,40.725937,30.82099,EPZ,2000-01-25,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,2.9
+YJ,F13,40.725498,30.820833,EPZ,2000-01-28,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,3.0
+YJ,F14,40.725109,30.820839,EPZ,2000-01-25,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,3.0
+YJ,F15,40.724499,30.820665,EPZ,2000-01-28,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,3.1
+YJ,F16,40.723518,30.82025,EPZ,2000-01-25,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,3.2
+YJ,FI,40.722881,30.820026,EPZ,1999-09-04,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,3.2
+YJ,FP,40.744781,30.872047,EPZ,1999-10-29,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,1.6
+YJ,GE,40.776711,30.834471,EPZ HHZ,1999-08-27,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,2.5
+YJ,LS,40.720119,30.792229,EPZ,1999-08-24,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa; S7 Guney kol (Geyve-Biga),3.2
+YJ,MO,40.726688,30.82196,EPZ HHZ,1999-08-26,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,2.9
+YJ,MU,40.761833,31.093332,EPZ,2000-01-31,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,2.7
+YJ,MV,40.760834,31.0935,EPZ,2000-01-31,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,2.8
+YJ,PT,40.708111,30.771067,EPZ,1999-08-24,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa; S7 Guney kol (Geyve-Biga),4.3
+YJ,SL,40.755779,30.765486,EPZ,1999-08-26,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa; S7 Guney kol (Geyve-Biga),1.0
+YJ,TS,40.751793,30.903214,EPZ,1999-08-25,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,1.2
+YJ,TW,40.745003,30.872957,EPZ,1999-08-25,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,1.5
+YJ,VO,40.742928,30.876055,EPZ,1999-09-02,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,1.8
+YJ,WF,40.702469,30.85527,EPZ,1999-09-11,2000-12-31,earthscope,S4 Sapanca-Duzce; S5 Bolu-Gerede-Ismetpasa,6.0
+YL,ALIC,40.978001,33.487,BHZ,2005-06-21,2008-04-30,earthscope,S6 Cerkes-Tosya,5.0
+YL,ALIN,41.061001,32.879002,BHZ,2005-06-22,2008-04-30,earthscope,S5 Bolu-Gerede-Ismetpasa; S6 Cerkes-Tosya,19.9
+YL,ALOR,41.300999,32.869999,BHZ,2006-06-24,2008-04-30,earthscope,S6 Cerkes-Tosya,46.6
+YL,BEDI,41.120998,33.506001,BHZ,2006-06-25,2008-04-29,earthscope,S6 Cerkes-Tosya,20.1
+YL,CUKU,40.604,33.441002,BHZ,2005-06-20,2008-05-02,earthscope,S6 Cerkes-Tosya,34.7
+YL,INCE,40.581001,32.905998,BHZ,2005-06-27,2007-12-28,earthscope,S5 Bolu-Gerede-Ismetpasa; S6 Cerkes-Tosya,33.5
+YL,KUZO,40.903999,32.861,BHZ,2006-06-24,2008-04-30,earthscope,S5 Bolu-Gerede-Ismetpasa; S6 Cerkes-Tosya,2.5
+YL,SEYH,40.855999,32.900002,BHZ,2005-06-23,2008-04-30,earthscope,S5 Bolu-Gerede-Ismetpasa; S6 Cerkes-Tosya,3.0
+YL,SYUN,40.838001,33.528999,BHZ,2006-06-24,2008-04-29,earthscope,S6 Cerkes-Tosya,11.0

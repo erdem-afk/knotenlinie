@@ -1,0 +1,1261 @@
+{
+ "log_ozet": {},
+ "kaynak_kanal_satiri": {
+  "koeri": 185,
+  "eida_federator": 58,
+  "earthscope": 191
+ },
+ "ana": {
+  "esik_kpa": 2.0,
+  "cift_esik_ustu": 120,
+  "taranabilir_cift": 16,
+  "taranabilir_olay": 4,
+  "taranabilir_segment": [
+   "S1 Ganos-Saros",
+   "S2 Orta Marmara-Adalar",
+   "S3 Cinarcik-Izmit",
+   "S4 Sapanca-Duzce",
+   "S5 Bolu-Gerede-Ismetpasa",
+   "S6 Cerkes-Tosya",
+   "S7 Guney kol (Geyve-Biga)"
+  ],
+  "bolgesel_haric_cift": 16,
+  "bolgesel_haric_olay": 4
+ },
+ "ana_epok_ile": {
+  "cift_esik_ustu": 120,
+  "taranabilir_cift": 92,
+  "taranabilir_olay": 17,
+  "taranabilir_segment": [
+   "S1 Ganos-Saros",
+   "S2 Orta Marmara-Adalar",
+   "S3 Cinarcik-Izmit",
+   "S4 Sapanca-Duzce",
+   "S5 Bolu-Gerede-Ismetpasa",
+   "S6 Cerkes-Tosya",
+   "S7 Guney kol (Geyve-Biga)"
+  ],
+  "bolgesel_haric_cift": 78,
+  "bolgesel_haric_olay": 15
+ },
+ "ana_gece_uzatma": {
+  "cift_esik_ustu": 120,
+  "taranabilir_cift": 17,
+  "taranabilir_olay": 5,
+  "taranabilir_segment": [
+   "S1 Ganos-Saros",
+   "S2 Orta Marmara-Adalar",
+   "S3 Cinarcik-Izmit",
+   "S4 Sapanca-Duzce",
+   "S5 Bolu-Gerede-Ismetpasa",
+   "S6 Cerkes-Tosya",
+   "S7 Guney kol (Geyve-Biga)"
+  ],
+  "bolgesel_haric_cift": 17,
+  "bolgesel_haric_olay": 5
+ },
+ "duyarlilik": [
+  {
+   "esik_kpa": 1.0,
+   "pgv_carpan": 0.333,
+   "cift_esik_ustu": 89,
+   "taranabilir_cift": 13,
+   "taranabilir_olay": 3,
+   "taranabilir_segment": [
+    "S1 Ganos-Saros",
+    "S2 Orta Marmara-Adalar",
+    "S3 Cinarcik-Izmit",
+    "S4 Sapanca-Duzce",
+    "S5 Bolu-Gerede-Ismetpasa",
+    "S6 Cerkes-Tosya",
+    "S7 Guney kol (Geyve-Biga)"
+   ],
+   "bolgesel_haric_cift": 13,
+   "bolgesel_haric_olay": 3
+  },
+  {
+   "esik_kpa": 1.0,
+   "pgv_carpan": 1.0,
+   "cift_esik_ustu": 232,
+   "taranabilir_cift": 35,
+   "taranabilir_olay": 8,
+   "taranabilir_segment": [
+    "S1 Ganos-Saros",
+    "S2 Orta Marmara-Adalar",
+    "S3 Cinarcik-Izmit",
+    "S4 Sapanca-Duzce",
+    "S5 Bolu-Gerede-Ismetpasa",
+    "S6 Cerkes-Tosya",
+    "S7 Guney kol (Geyve-Biga)"
+   ],
+   "bolgesel_haric_cift": 35,
+   "bolgesel_haric_olay": 8
+  },
+  {
+   "esik_kpa": 1.0,
+   "pgv_carpan": 3.0,
+   "cift_esik_ustu": 542,
+   "taranabilir_cift": 73,
+   "taranabilir_olay": 17,
+   "taranabilir_segment": [
+    "S1 Ganos-Saros",
+    "S2 Orta Marmara-Adalar",
+    "S3 Cinarcik-Izmit",
+    "S4 Sapanca-Duzce",
+    "S5 Bolu-Gerede-Ismetpasa",
+    "S6 Cerkes-Tosya",
+    "S7 Guney kol (Geyve-Biga)"
+   ],
+   "bolgesel_haric_cift": 73,
+   "bolgesel_haric_olay": 17
+  },
+  {
+   "esik_kpa": 2.0,
+   "pgv_carpan": 0.333,
+   "cift_esik_ustu": 45,
+   "taranabilir_cift": 7,
+   "taranabilir_olay": 1,
+   "taranabilir_segment": [
+    "S1 Ganos-Saros",
+    "S2 Orta Marmara-Adalar",
+    "S3 Cinarcik-Izmit",
+    "S4 Sapanca-Duzce",
+    "S5 Bolu-Gerede-Ismetpasa",
+    "S6 Cerkes-Tosya",
+    "S7 Guney kol (Geyve-Biga)"
+   ],
+   "bolgesel_haric_cift": 7,
+   "bolgesel_haric_olay": 1
+  },
+  {
+   "esik_kpa": 2.0,
+   "pgv_carpan": 1.0,
+   "cift_esik_ustu": 120,
+   "taranabilir_cift": 16,
+   "taranabilir_olay": 4,
+   "taranabilir_segment": [
+    "S1 Ganos-Saros",
+    "S2 Orta Marmara-Adalar",
+    "S3 Cinarcik-Izmit",
+    "S4 Sapanca-Duzce",
+    "S5 Bolu-Gerede-Ismetpasa",
+    "S6 Cerkes-Tosya",
+    "S7 Guney kol (Geyve-Biga)"
+   ],
+   "bolgesel_haric_cift": 16,
+   "bolgesel_haric_olay": 4
+  },
+  {
+   "esik_kpa": 2.0,
+   "pgv_carpan": 3.0,
+   "cift_esik_ustu": 339,
+   "taranabilir_cift": 49,
+   "taranabilir_olay": 12,
+   "taranabilir_segment": [
+    "S1 Ganos-Saros",
+    "S2 Orta Marmara-Adalar",
+    "S3 Cinarcik-Izmit",
+    "S4 Sapanca-Duzce",
+    "S5 Bolu-Gerede-Ismetpasa",
+    "S6 Cerkes-Tosya",
+    "S7 Guney kol (Geyve-Biga)"
+   ],
+   "bolgesel_haric_cift": 49,
+   "bolgesel_haric_olay": 12
+  },
+  {
+   "esik_kpa": 3.0,
+   "pgv_carpan": 0.333,
+   "cift_esik_ustu": 38,
+   "taranabilir_cift": 7,
+   "taranabilir_olay": 1,
+   "taranabilir_segment": [
+    "S1 Ganos-Saros",
+    "S2 Orta Marmara-Adalar",
+    "S3 Cinarcik-Izmit",
+    "S4 Sapanca-Duzce",
+    "S5 Bolu-Gerede-Ismetpasa",
+    "S6 Cerkes-Tosya",
+    "S7 Guney kol (Geyve-Biga)"
+   ],
+   "bolgesel_haric_cift": 7,
+   "bolgesel_haric_olay": 1
+  },
+  {
+   "esik_kpa": 3.0,
+   "pgv_carpan": 1.0,
+   "cift_esik_ustu": 89,
+   "taranabilir_cift": 13,
+   "taranabilir_olay": 3,
+   "taranabilir_segment": [
+    "S1 Ganos-Saros",
+    "S2 Orta Marmara-Adalar",
+    "S3 Cinarcik-Izmit",
+    "S4 Sapanca-Duzce",
+    "S5 Bolu-Gerede-Ismetpasa",
+    "S6 Cerkes-Tosya",
+    "S7 Guney kol (Geyve-Biga)"
+   ],
+   "bolgesel_haric_cift": 13,
+   "bolgesel_haric_olay": 3
+  },
+  {
+   "esik_kpa": 3.0,
+   "pgv_carpan": 3.0,
+   "cift_esik_ustu": 232,
+   "taranabilir_cift": 35,
+   "taranabilir_olay": 8,
+   "taranabilir_segment": [
+    "S1 Ganos-Saros",
+    "S2 Orta Marmara-Adalar",
+    "S3 Cinarcik-Izmit",
+    "S4 Sapanca-Duzce",
+    "S5 Bolu-Gerede-Ismetpasa",
+    "S6 Cerkes-Tosya",
+    "S7 Guney kol (Geyve-Biga)"
+   ],
+   "bolgesel_haric_cift": 35,
+   "bolgesel_haric_olay": 8
+  },
+  {
+   "esik_kpa": 5.0,
+   "pgv_carpan": 0.333,
+   "cift_esik_ustu": 21,
+   "taranabilir_cift": 0,
+   "taranabilir_olay": 0,
+   "taranabilir_segment": [],
+   "bolgesel_haric_cift": 0,
+   "bolgesel_haric_olay": 0
+  },
+  {
+   "esik_kpa": 5.0,
+   "pgv_carpan": 1.0,
+   "cift_esik_ustu": 53,
+   "taranabilir_cift": 8,
+   "taranabilir_olay": 2,
+   "taranabilir_segment": [
+    "S1 Ganos-Saros",
+    "S2 Orta Marmara-Adalar",
+    "S3 Cinarcik-Izmit",
+    "S4 Sapanca-Duzce",
+    "S5 Bolu-Gerede-Ismetpasa",
+    "S6 Cerkes-Tosya",
+    "S7 Guney kol (Geyve-Biga)"
+   ],
+   "bolgesel_haric_cift": 8,
+   "bolgesel_haric_olay": 2
+  },
+  {
+   "esik_kpa": 5.0,
+   "pgv_carpan": 3.0,
+   "cift_esik_ustu": 142,
+   "taranabilir_cift": 21,
+   "taranabilir_olay": 6,
+   "taranabilir_segment": [
+    "S1 Ganos-Saros",
+    "S2 Orta Marmara-Adalar",
+    "S3 Cinarcik-Izmit",
+    "S4 Sapanca-Duzce",
+    "S5 Bolu-Gerede-Ismetpasa",
+    "S6 Cerkes-Tosya",
+    "S7 Guney kol (Geyve-Biga)"
+   ],
+   "bolgesel_haric_cift": 21,
+   "bolgesel_haric_olay": 6
+  },
+  {
+   "esik_kpa": 7.5,
+   "pgv_carpan": 0.333,
+   "cift_esik_ustu": 21,
+   "taranabilir_cift": 0,
+   "taranabilir_olay": 0,
+   "taranabilir_segment": [],
+   "bolgesel_haric_cift": 0,
+   "bolgesel_haric_olay": 0
+  },
+  {
+   "esik_kpa": 7.5,
+   "pgv_carpan": 1.0,
+   "cift_esik_ustu": 42,
+   "taranabilir_cift": 7,
+   "taranabilir_olay": 1,
+   "taranabilir_segment": [
+    "S1 Ganos-Saros",
+    "S2 Orta Marmara-Adalar",
+    "S3 Cinarcik-Izmit",
+    "S4 Sapanca-Duzce",
+    "S5 Bolu-Gerede-Ismetpasa",
+    "S6 Cerkes-Tosya",
+    "S7 Guney kol (Geyve-Biga)"
+   ],
+   "bolgesel_haric_cift": 7,
+   "bolgesel_haric_olay": 1
+  },
+  {
+   "esik_kpa": 7.5,
+   "pgv_carpan": 3.0,
+   "cift_esik_ustu": 108,
+   "taranabilir_cift": 16,
+   "taranabilir_olay": 4,
+   "taranabilir_segment": [
+    "S1 Ganos-Saros",
+    "S2 Orta Marmara-Adalar",
+    "S3 Cinarcik-Izmit",
+    "S4 Sapanca-Duzce",
+    "S5 Bolu-Gerede-Ismetpasa",
+    "S6 Cerkes-Tosya",
+    "S7 Guney kol (Geyve-Biga)"
+   ],
+   "bolgesel_haric_cift": 16,
+   "bolgesel_haric_olay": 4
+  }
+ ],
+ "segment": {
+  "S1 Ganos-Saros": {
+   "cift_esik_ustu": 18,
+   "taranabilir": 2,
+   "ist_yakin_toplam": 38
+  },
+  "S2 Orta Marmara-Adalar": {
+   "cift_esik_ustu": 17,
+   "taranabilir": 3,
+   "ist_yakin_toplam": 61
+  },
+  "S3 Cinarcik-Izmit": {
+   "cift_esik_ustu": 17,
+   "taranabilir": 3,
+   "ist_yakin_toplam": 80
+  },
+  "S4 Sapanca-Duzce": {
+   "cift_esik_ustu": 17,
+   "taranabilir": 2,
+   "ist_yakin_toplam": 122
+  },
+  "S5 Bolu-Gerede-Ismetpasa": {
+   "cift_esik_ustu": 17,
+   "taranabilir": 1,
+   "ist_yakin_toplam": 54
+  },
+  "S6 Cerkes-Tosya": {
+   "cift_esik_ustu": 17,
+   "taranabilir": 1,
+   "ist_yakin_toplam": 20
+  },
+  "S7 Guney kol (Geyve-Biga)": {
+   "cift_esik_ustu": 17,
+   "taranabilir": 4,
+   "ist_yakin_toplam": 148
+  }
+ },
+ "olay_sayisi": {
+  "toplam": 111,
+  "derin": 26,
+  "sig": 85,
+  "ref_kpa>=1.0": 33,
+  "ref_kpa>=2.0": 17,
+  "ref_kpa>=3.0": 12,
+  "ref_kpa>=5.0": 7,
+  "ref_kpa>=7.5": 6
+ },
+ "istasyon": {
+  "toplam_kutu": 276,
+  "fay_50km": 247,
+  "ag": [
+   "1O",
+   "6G",
+   "HT",
+   "IJ",
+   "KO",
+   "TL",
+   "TU",
+   "XW",
+   "XY",
+   "YH",
+   "YI",
+   "YJ",
+   "YL"
+  ]
+ },
+ "diger_ag_availability": {
+  "official20050328160936530_30": 0,
+  "usp000dz2j": 0,
+  "usp000e12e": 0,
+  "usp000ef1h": 0,
+  "usp000eg5g": 0,
+  "usp000ensm": 0,
+  "usp000exfn": 0,
+  "usp000f2ab": 3,
+  "usp000f34b": 3,
+  "usp000f83m": 0,
+  "usp000fjta": 0,
+  "official20070912111026830_34": 0,
+  "usp000fn2b": 0,
+  "usp000fshy": 0,
+  "usp000g650": 12,
+  "usp000gs2d": 25,
+  "usp000gz8j": 18,
+  "usp000h05x": 20,
+  "usp000h1ys": 19,
+  "usp000h237": 19,
+  "usp000h2g9": 18,
+  "usp000h2gd": 18,
+  "official20100227063411530_30": 20,
+  "usp000hat0": 20,
+  "usp000hdwb": 22,
+  "usp000hnj4": 21,
+  "official20110311054624120_30": 22,
+  "usp000hvpa": 22,
+  "usp000hvpg": 22,
+  "official20120411083836720_20": 29,
+  "usp000jhjb": 21,
+  "usp000jr83": 25,
+  "usp000jrsw": 22,
+  "usp000juhz": 25,
+  "ak0138esnzr": 32,
+  "usc000f1s0": 27,
+  "usb000g7x7": 27,
+  "usb000jyiv": 27,
+  "usb000l0gq": 25,
+  "usc000nzvd": 28,
+  "usc000p27i": 28,
+  "usc000phx5": 26,
+  "us20002926": 35,
+  "us20003k7a": 36,
+  "us10004u1y": 34,
+  "us20005j32": 34,
+  "us1000778i": 36,
+  "us20007z80": 36,
+  "us200081v8": 37,
+  "us10007mn3": 37,
+  "us20009x42": 34,
+  "us2000ahv0": 33,
+  "us1000c2zy": 37,
+  "us2000cmy3": 32,
+  "us2000d7q6": 33,
+  "us1000h3p4": 35,
+  "us70003kyy": 28,
+  "us60007idc": 25,
+  "us70008fi4": 30,
+  "us7000asvb": 32,
+  "us6000c9hg": 36,
+  "us6000dg77": 33,
+  "us7000dflf": 35,
+  "ak0219neiszm": 36,
+  "us6000f4ly": 37,
+  "us6000f53e": 37,
+  "us7000i9bw": 38,
+  "us6000jllz": 39,
+  "us6000jlqa": 39,
+  "us6000kd0n": 9,
+  "us7000lff4": 47,
+  "us6000m0xl": 34,
+  "us7000pcdl": 45,
+  "us7000pn9s": 44,
+  "us6000qw60": 46,
+  "us7000qx2g": 47,
+  "us6000rgf4": 46,
+  "us6000rtdt": 45
+ },
+ "log": [
+  {
+   "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?starttime=2005-01-01T00%3A00%3A00&endtime=2025-12-31T23%3A59%3A59&minmagnitude=7.5&orderby=time-asc&format=csv",
+   "durum": "onbellek",
+   "bayt": 20071
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/station/1/query?minlat=39.5&maxlat=41.5&minlon=26.0&maxlon=34.0&level=channel&format=text",
+   "durum": "onbellek",
+   "bayt": 120116
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/station/1/query?minlat=39.5&maxlat=41.5&minlon=26.0&maxlon=34.0&level=channel&format=text",
+   "durum": "onbellek",
+   "bayt": 77654
+  },
+  {
+   "url": "https://service.earthscope.org/fdsnws/station/1/query?minlat=39.5&maxlat=41.5&minlon=26.0&maxlon=34.0&level=channel&format=text",
+   "durum": "onbellek",
+   "bayt": 213077
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2005-03-28T16%3A35%3A12&endtime=2005-03-28T17%3A08%3A24&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2005-03-28T16%3A35%3A12&endtime=2005-03-28T17%3A08%3A24&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2005-09-09T08%3A09%3A32&endtime=2005-09-09T08%3A56%3A15&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2005-09-09T08%3A09%3A32&endtime=2005-09-09T08%3A56%3A15&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2005-10-08T04%3A02%3A36&endtime=2005-10-08T04%3A25%3A13&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2005-10-08T04%3A02%3A36&endtime=2005-10-08T04%3A25%3A13&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2006-04-20T23%3A51%3A30&endtime=2006-04-21T00%3A23%3A36&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2006-04-20T23%3A51%3A30&endtime=2006-04-21T00%3A23%3A36&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2006-05-03T16%3A21%3A49&endtime=2006-05-03T17%3A17%3A49&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2006-05-03T16%3A21%3A49&endtime=2006-05-03T17%3A17%3A49&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2006-07-17T08%3A50%3A42&endtime=2006-07-17T09%3A28%3A20&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2006-07-17T08%3A50%3A42&endtime=2006-07-17T09%3A28%3A20&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2006-11-15T11%3A42%3A56&endtime=2006-11-15T12%3A17%3A32&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2006-11-15T11%3A42%3A56&endtime=2006-11-15T12%3A17%3A32&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2007-01-13T04%3A52%3A23&endtime=2007-01-13T05%3A27%3A12&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2007-01-13T04%3A52%3A23&endtime=2007-01-13T05%3A27%3A12&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 6549
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2007-01-21T12%3A01%3A41&endtime=2007-01-21T12%3A41%3A34&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2007-01-21T12%3A01%3A41&endtime=2007-01-21T12%3A41%3A34&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 6369
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2007-04-01T21%3A24%3A44&endtime=2007-04-01T22%3A13%3A00&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2007-04-01T21%3A24%3A44&endtime=2007-04-01T22%3A13%3A00&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2007-08-16T00%3A21%3A18&endtime=2007-08-16T01%3A06%3A13&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2007-08-16T00%3A21%3A18&endtime=2007-08-16T01%3A06%3A13&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2007-09-12T11%3A38%3A51&endtime=2007-09-12T12%3A14%3A14&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2007-09-12T11%3A38%3A51&endtime=2007-09-12T12%3A14%3A14&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2007-09-13T00%3A16%3A52&endtime=2007-09-13T00%3A51%3A47&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2007-09-13T00%3A16%3A52&endtime=2007-09-13T00%3A51%3A47&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2007-11-14T16%3A21%3A19&endtime=2007-11-14T17%3A06%3A19&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2007-11-14T16%3A21%3A19&endtime=2007-11-14T17%3A06%3A19&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2008-05-12T06%3A48%3A47&endtime=2008-05-12T07%3A18%3A16&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2008-05-12T06%3A48%3A47&endtime=2008-05-12T07%3A18%3A16&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 6819
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2009-01-03T20%3A19%3A58&endtime=2009-01-03T21%3A01%3A35&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2009-01-03T20%3A19%3A58&endtime=2009-01-03T21%3A01%3A35&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 652749
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2009-07-15T10%3A16%3A39&endtime=2009-07-15T11%3A12%3A05&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2009-07-15T10%3A16%3A39&endtime=2009-07-15T11%3A12%3A05&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 166029
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2009-08-10T20%3A17%3A07&endtime=2009-08-10T20%3A47%3A11&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2009-08-10T20%3A17%3A07&endtime=2009-08-10T20%3A47%3A11&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 368709
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2009-09-29T18%3A42%3A26&endtime=2009-09-29T19%3A37%3A25&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2009-09-29T18%3A42%3A26&endtime=2009-09-29T19%3A37%3A25&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 42909
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2009-09-30T10%3A43%3A12&endtime=2009-09-30T11%3A17%3A33&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2009-09-30T10%3A43%3A12&endtime=2009-09-30T11%3A17%3A33&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 7719
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2009-10-07T22%3A51%3A40&endtime=2009-10-07T23%3A42%3A44&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2009-10-07T22%3A51%3A40&endtime=2009-10-07T23%3A42%3A44&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 10599
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2009-10-07T23%3A07%3A07&endtime=2009-10-07T23%3A58%3A04&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2009-10-07T23%3A07%3A07&endtime=2009-10-07T23%3A58%3A04&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 10599
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2010-02-27T07%3A18%3A22&endtime=2010-02-27T08%3A06%3A08&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2010-02-27T07%3A18%3A22&endtime=2010-02-27T08%3A06%3A08&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 27789
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2010-04-06T22%3A40%3A32&endtime=2010-04-06T23%3A13%3A40&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2010-04-06T22%3A40%3A32&endtime=2010-04-06T23%3A13%3A40&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 13569
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2010-06-12T19%3A49%3A34&endtime=2010-06-12T20%3A20%3A33&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2010-06-12T19%3A49%3A34&endtime=2010-06-12T20%3A20%3A33&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 16539
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2010-10-25T15%3A10%3A12&endtime=2010-10-25T15%3A45%3A06&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 810
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2010-10-25T15%3A10%3A12&endtime=2010-10-25T15%3A45%3A06&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 183759
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2011-03-11T06%3A15%3A13&endtime=2011-03-11T06%3A50%3A21&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2011-03-11T06%3A15%3A13&endtime=2011-03-11T06%3A50%3A21&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 152439
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2011-03-11T06%3A44%3A43&endtime=2011-03-11T07%3A20%3A07&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2011-03-11T06%3A44%3A43&endtime=2011-03-11T07%3A20%3A07&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 152439
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2011-03-11T06%3A55%3A10&endtime=2011-03-11T07%3A30%3A42&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2011-03-11T06%3A55%3A10&endtime=2011-03-11T07%3A30%3A42&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 152439
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2012-04-11T09%3A03%3A04&endtime=2012-04-11T09%3A35%3A19&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 1710
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2012-04-11T09%3A03%3A04&endtime=2012-04-11T09%3A35%3A19&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 37869
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2012-04-11T11%3A07%3A52&endtime=2012-04-11T11%3A40%3A17&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 1710
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2012-04-11T11%3A07%3A52&endtime=2012-04-11T11%3A40%3A17&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 31299
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2012-08-31T13%3A19%3A13&endtime=2012-08-31T13%3A57%3A17&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 810
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2012-08-31T13%3A19%3A13&endtime=2012-08-31T13%3A57%3A17&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 932109
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2012-09-05T15%3A19%3A04&endtime=2012-09-05T16%3A00%3A56&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2012-09-05T15%3A19%3A04&endtime=2012-09-05T16%3A00%3A56&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 1218309
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2012-10-28T03%3A35%3A34&endtime=2012-10-28T04%3A10%3A41&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 630
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2012-10-28T03%3A35%3A34&endtime=2012-10-28T04%3A10%3A41&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 49569
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2013-01-05T09%3A28%3A57&endtime=2013-01-05T10%3A03%3A29&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2013-01-05T09%3A28%3A57&endtime=2013-01-05T10%3A03%3A29&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 87909
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2013-02-06T01%3A59%3A55&endtime=2013-02-06T02%3A50%3A15&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 2520
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2013-02-06T01%3A59%3A55&endtime=2013-02-06T02%3A50%3A15&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 10059
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2013-04-16T10%3A54%3A15&endtime=2013-04-16T11%3A15%3A05&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 2700
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2013-04-16T10%3A54%3A15&endtime=2013-04-16T11%3A15%3A05&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 8709
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2013-09-24T11%3A40%3A53&endtime=2013-09-24T12%3A02%3A40&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 2880
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2013-09-24T11%3A40%3A53&endtime=2013-09-24T12%3A02%3A40&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 2859
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2013-11-17T09%3A48%3A22&endtime=2013-11-17T10%3A34%3A26&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 3330
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2013-11-17T09%3A48%3A22&endtime=2013-11-17T10%3A34%3A26&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 10959
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2014-04-02T00%3A26%3A55&endtime=2014-04-02T01%3A11%3A40&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 1080
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2014-04-02T00%3A26%3A55&endtime=2014-04-02T01%3A11%3A40&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 14199
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2014-04-03T03%3A23%3A29&endtime=2014-04-03T04%3A08%3A20&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 1530
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2014-04-03T03%3A23%3A29&endtime=2014-04-03T04%3A08%3A20&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 20319
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2014-04-12T21%3A01%3A29&endtime=2014-04-12T21%3A51%3A21&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2014-04-12T21%3A01%3A29&endtime=2014-04-12T21%3A51%3A21&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 10059
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2015-04-25T06%3A27%3A34&endtime=2015-04-25T06%3A53%3A28&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 4860
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2015-04-25T06%3A27%3A34&endtime=2015-04-25T06%3A53%3A28&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 58479
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2015-09-16T23%3A37%3A30&endtime=2015-09-17T00%3A24%3A22&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 5760
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2015-09-16T23%3A37%3A30&endtime=2015-09-17T00%3A24%3A22&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 3448059
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2016-03-02T13%3A16%3A30&endtime=2016-03-02T13%3A50%3A26&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 3780
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2016-03-02T13%3A16%3A30&endtime=2016-03-02T13%3A50%3A26&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 323619
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2016-04-17T00%3A36%3A34&endtime=2016-04-17T01%3A19%3A28&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 5490
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2016-04-17T00%3A36%3A34&endtime=2016-04-17T01%3A19%3A28&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 487059
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2016-11-13T11%3A58%3A37&endtime=2016-11-13T12%3A55%3A25&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 2340
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2016-11-13T11%3A58%3A37&endtime=2016-11-13T12%3A55%3A25&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 20229
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2016-12-08T18%3A25%3A14&endtime=2016-12-08T19%3A14%3A49&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 3690
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2016-12-08T18%3A25%3A14&endtime=2016-12-08T19%3A14%3A49&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 673719
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2016-12-17T11%3A33%3A59&endtime=2016-12-17T12%3A20%3A43&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 3780
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2016-12-17T11%3A33%3A59&endtime=2016-12-17T12%3A20%3A43&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 5109
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2016-12-25T15%3A08%3A12&endtime=2016-12-25T15%3A57%3A02&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 3420
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2016-12-25T15%3A08%3A12&endtime=2016-12-25T15%3A57%3A02&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 12309
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2017-07-18T00%3A02%3A53&endtime=2017-07-18T00%3A36%3A50&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 180
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2017-07-18T00%3A02%3A53&endtime=2017-07-18T00%3A36%3A50&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 141639
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2017-09-08T05%3A27%3A04&endtime=2017-09-08T06%3A09%3A18&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 3330
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2017-09-08T05%3A27%3A04&endtime=2017-09-08T06%3A09%3A18&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 1972509
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2018-01-10T03%3A26%3A06&endtime=2018-01-10T04%3A06%3A00&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2018-01-10T03%3A26%3A06&endtime=2018-01-10T04%3A06%3A00&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 164319
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2018-01-23T10%3A02%3A27&endtime=2018-01-23T10%3A37%3A05&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2018-01-23T10%3A02%3A27&endtime=2018-01-23T10%3A37%3A05&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 175389
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2018-02-25T18%3A24%3A59&endtime=2018-02-25T19%3A09%3A50&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2018-02-25T18%3A24%3A59&endtime=2018-02-25T19%3A09%3A50&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 101769
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2018-09-28T10%3A35%3A12&endtime=2018-09-28T11%3A13%3A55&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 180
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2018-09-28T10%3A35%3A12&endtime=2018-09-28T11%3A13%3A55&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 73959
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2019-05-14T13%3A40%3A52&endtime=2019-05-14T14%3A27%3A19&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 270
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2019-05-14T13%3A40%3A52&endtime=2019-05-14T14%3A27%3A19&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 13839
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2020-01-28T19%3A43%3A15&endtime=2020-01-28T20%3A21%3A52&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2020-01-28T19%3A43%3A15&endtime=2020-01-28T20%3A21%3A52&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 37599
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2020-03-25T03%3A18%3A07&endtime=2020-03-25T03%3A52%3A36&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2020-03-25T03%3A18%3A07&endtime=2020-03-25T03%3A52%3A36&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 69459
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2020-07-22T06%3A43%3A40&endtime=2020-07-22T07%3A18%3A40&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2020-07-22T06%3A43%3A40&endtime=2020-07-22T07%3A18%3A40&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 29499
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2020-10-19T21%3A25%3A43&endtime=2020-10-19T22%3A00%3A50&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2020-10-19T21%3A25%3A43&endtime=2020-10-19T22%3A00%3A50&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 192039
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2021-02-10T14%3A12%3A08&endtime=2021-02-10T15%3A06%3A19&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2021-02-10T14%3A12%3A08&endtime=2021-02-10T15%3A06%3A19&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 293829
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2021-03-04T20%3A25%3A12&endtime=2021-03-04T21%3A22%3A49&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2021-03-04T20%3A25%3A12&endtime=2021-03-04T21%3A22%3A49&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 39219
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2021-07-29T06%3A46%3A40&endtime=2021-07-29T07%3A21%3A34&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2021-07-29T06%3A46%3A40&endtime=2021-07-29T07%3A21%3A34&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 16449
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2021-08-12T19%3A12%3A40&endtime=2021-08-12T19%3A55%3A36&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2021-08-12T19%3A12%3A40&endtime=2021-08-12T19%3A55%3A36&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 7359
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2021-08-12T19%3A15%3A21&endtime=2021-08-12T19%3A58%3A27&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2021-08-12T19%3A15%3A21&endtime=2021-08-12T19%3A58%3A27&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 7359
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2022-09-19T18%3A43%3A57&endtime=2022-09-19T19%3A26%3A40&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2022-09-19T18%3A43%3A57&endtime=2022-09-19T19%3A26%3A40&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 11139
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2023-02-06T01%3A19%3A18&endtime=2023-02-06T01%3A33%3A15&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2023-02-06T01%3A19%3A18&endtime=2023-02-06T01%3A33%3A15&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 12399
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2023-02-06T10%3A26%3A22&endtime=2023-02-06T10%3A40%3A22&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2023-02-06T10%3A26%3A22&endtime=2023-02-06T10%3A40%3A22&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 12399
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2023-05-19T03%3A49%3A03&endtime=2023-05-19T04%3A43%3A04&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2023-05-19T03%3A49%3A03&endtime=2023-05-19T04%3A43%3A04&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 879
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2023-12-02T15%3A09%3A13&endtime=2023-12-02T15%3A47%3A41&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 273150
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2023-12-02T15%3A09%3A13&endtime=2023-12-02T15%3A47%3A41&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 11409
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2024-01-01T07%3A38%3A03&endtime=2024-01-01T08%3A12%3A36&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 235710
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2024-01-01T07%3A38%3A03&endtime=2024-01-01T08%3A12%3A36&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 25449
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2025-02-08T23%3A57%3A28&endtime=2025-02-09T00%3A37%3A07&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 0
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2025-02-08T23%3A57%3A28&endtime=2025-02-09T00%3A37%3A07&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 47049
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2025-03-28T06%3A41%3A25&endtime=2025-03-28T07%3A10%3A47&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 654390
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2025-03-28T06%3A41%3A25&endtime=2025-03-28T07%3A10%3A47&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 6009
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2025-07-29T23%3A53%3A00&endtime=2025-07-30T00%3A26%3A49&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 1594710
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2025-07-29T23%3A53%3A00&endtime=2025-07-30T00%3A26%3A49&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 8799
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2025-09-18T19%3A26%3A16&endtime=2025-09-18T19%3A59%3A56&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 2657880
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2025-09-18T19%3A26%3A16&endtime=2025-09-18T19%3A59%3A56&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 19149
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2025-10-10T21%3A15%3A13&endtime=2025-10-10T22%3A03%3A23&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 486000
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2025-10-10T21%3A15%3A13&endtime=2025-10-10T22%3A03%3A23&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 278349
+  },
+  {
+   "url": "https://eida.koeri.boun.edu.tr/fdsnws/availability/1/query?network=6G,IJ,KO,TL&station=*&channel=?HZ,?PZ&starttime=2025-12-08T14%3A43%3A15&endtime=2025-12-08T15%3A17%3A46&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 236340
+  },
+  {
+   "url": "https://federator.orfeus-eu.org/fdsnws/availability/1/query?network=1O,HT,TU,XW,XY,YH,YI,YJ,YL&station=*&channel=?HZ,?PZ&starttime=2025-12-08T14%3A43%3A15&endtime=2025-12-08T15%3A17%3A46&format=text&merge=samplerate,quality,overlap",
+   "durum": "onbellek",
+   "bayt": 6639
+  }
+ ]
+}
