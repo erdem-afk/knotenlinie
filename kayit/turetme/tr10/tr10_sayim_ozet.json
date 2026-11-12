@@ -1,0 +1,1087 @@
+{
+ "ozet": {
+  "usgs_istasyon_N": 47,
+  "usgs_istasyon_ilk_yil_aralik": [
+   1966.0,
+   2009.0
+  ],
+  "olay_havuzu_M55_N": 322,
+  "sayim": {
+   "USGS_surunme_olcer|R30|M5.5": {
+    "N": 4,
+    "K": 4
+   },
+   "USGS_surunme_olcer|R30|M6.0": {
+    "N": 1,
+    "K": 1
+   },
+   "USGS_surunme_olcer|R30|M6.0|dogrultu_atimli_Mw": {
+    "N": 1,
+    "K": 1
+   },
+   "USGS_surunme_olcer|R50|M5.5": {
+    "N": 11,
+    "K": 6
+   },
+   "USGS_surunme_olcer|R50|M6.0": {
+    "N": 4,
+    "K": 3
+   },
+   "USGS_surunme_olcer|R50|M6.0|dogrultu_atimli_Mw": {
+    "N": 2,
+    "K": 2
+   },
+   "literatur_serileri|R30|M5.5": {
+    "N": 9,
+    "K": 5
+   },
+   "literatur_serileri|R30|M6.0": {
+    "N": 6,
+    "K": 5
+   },
+   "literatur_serileri|R30|M6.0|dogrultu_atimli_Mw": {
+    "N": 4,
+    "K": 3
+   },
+   "literatur_serileri|R50|M5.5": {
+    "N": 18,
+    "K": 8
+   },
+   "literatur_serileri|R50|M6.0": {
+    "N": 9,
+    "K": 7
+   },
+   "literatur_serileri|R50|M6.0|dogrultu_atimli_Mw": {
+    "N": 5,
+    "K": 4
+   },
+   "literatur_surekli|R30|M5.5": {
+    "N": 8,
+    "K": 4
+   },
+   "literatur_surekli|R30|M6.0": {
+    "N": 5,
+    "K": 4
+   },
+   "literatur_surekli|R30|M6.0|dogrultu_atimli_Mw": {
+    "N": 4,
+    "K": 3
+   },
+   "literatur_surekli|R50|M5.5": {
+    "N": 17,
+    "K": 7
+   },
+   "literatur_surekli|R50|M6.0": {
+    "N": 8,
+    "K": 6
+   },
+   "literatur_surekli|R50|M6.0|dogrultu_atimli_Mw": {
+    "N": 5,
+    "K": 4
+   },
+   "USGS+literatur|R30|M5.5": {
+    "N": 13,
+    "K": 9
+   },
+   "USGS+literatur|R30|M6.0": {
+    "N": 7,
+    "K": 6
+   },
+   "USGS+literatur|R30|M6.0|dogrultu_atimli_Mw": {
+    "N": 5,
+    "K": 4
+   },
+   "USGS+literatur|R50|M5.5": {
+    "N": 29,
+    "K": 14
+   },
+   "USGS+literatur|R50|M6.0": {
+    "N": 13,
+    "K": 10
+   },
+   "USGS+literatur|R50|M6.0|dogrultu_atimli_Mw": {
+    "N": 7,
+    "K": 6
+   },
+   "LiCSAR_ust_sinir|R30|M5.5": {
+    "N": 35,
+    "K": 9
+   },
+   "LiCSAR_ust_sinir|R30|M6.0": {
+    "N": 14,
+    "K": 9
+   },
+   "LiCSAR_ust_sinir|R30|M6.0|dogrultu_atimli_Mw": {
+    "N": 8,
+    "K": 7
+   },
+   "LiCSAR_ust_sinir|R50|M5.5": {
+    "N": 40,
+    "K": 9
+   },
+   "LiCSAR_ust_sinir|R50|M6.0": {
+    "N": 14,
+    "K": 9
+   },
+   "LiCSAR_ust_sinir|R50|M6.0|dogrultu_atimli_Mw": {
+    "N": 8,
+    "K": 7
+   },
+   "hepsi|R30|M5.5": {
+    "N": 42,
+    "K": 16
+   },
+   "hepsi|R30|M6.0": {
+    "N": 18,
+    "K": 13
+   },
+   "hepsi|R30|M6.0|dogrultu_atimli_Mw": {
+    "N": 10,
+    "K": 9
+   },
+   "hepsi|R50|M5.5": {
+    "N": 58,
+    "K": 21
+   },
+   "hepsi|R50|M6.0": {
+    "N": 23,
+    "K": 17
+   },
+   "hepsi|R50|M6.0|dogrultu_atimli_Mw": {
+    "N": 12,
+    "K": 11
+   }
+  }
+ },
+ "usgs_lit_olaylar": {
+  "nc1046962": {
+   "tarih": "1979-08-06",
+   "m": 5.8,
+   "mt": "ml",
+   "yer": "The 1979 Coyote Lake, California Earthquake",
+   "seriler": {
+    "USGS_XSH1": 18.9,
+    "USGS_HLC1": 29.1,
+    "USGS_HLD1": 30.7,
+    "USGS_XSJ2": 29.8,
+    "USGS_XHR1": 37.8,
+    "USGS_CWC3": 40.9,
+    "USGS_CWN1": 40.9
+   }
+  },
+  "nc1091100": {
+   "tarih": "1983-05-02",
+   "m": 6.7,
+   "mt": "ml",
+   "yer": "The 1983 Coalinga, California Earthquake",
+   "seriler": {
+    "USGS_XMP1": 43.6,
+    "USGS_XMP2": 43.6,
+    "USGS_WKR1": 42.2,
+    "USGS_CRR1": 44.3,
+    "USGS_XGH1": 45.9
+   }
+  },
+  "usp0001uxb": {
+   "tarih": "1983-05-02",
+   "m": 5.5,
+   "mt": "mb",
+   "yer": "11 km NNE of Coalinga, California",
+   "seriler": {
+    "USGS_XMP1": 45.6,
+    "USGS_XMP2": 45.6,
+    "USGS_WKR1": 42.4,
+    "USGS_CRR1": 44.4,
+    "USGS_XGH1": 45.9
+   }
+  },
+  "nc17204": {
+   "tarih": "1984-04-24",
+   "m": 6.2,
+   "mt": "ml",
+   "yer": "The 1984 Morgan Hill, California Earthquake",
+   "seriler": {
+    "USGS_XSH1": 45.7
+   }
+  },
+  "nc52348": {
+   "tarih": "1985-08-04",
+   "m": 5.6,
+   "mt": "ml",
+   "yer": "8 km SW of Huron, California",
+   "seriler": {
+    "USGS_XSC1": 43.3,
+    "USGS_XMM1": 37.3,
+    "USGS_XPK1": 37.1,
+    "USGS_WKR1": 38.1,
+    "USGS_CRR1": 39.0,
+    "USGS_XGH1": 39.8
+   }
+  },
+  "nc64626": {
+   "tarih": "1986-01-26",
+   "m": 5.5,
+   "mt": "ml",
+   "yer": "3 km ENE of Tres Pinos, California",
+   "seriler": {
+    "USGS_XSH1": 21.0,
+    "USGS_HLC1": 12.2,
+    "USGS_HLD1": 11.3,
+    "USGS_XSJ2": 21.3,
+    "USGS_XHR1": 12.7,
+    "USGS_CWC3": 10.8,
+    "USGS_CWN1": 10.8,
+    "USGS_XFL1": 15.5,
+    "USGS_XMR1": 24.9,
+    "USGS_MRW1": 26.2,
+    "USGS_XDL2": 39.3
+   }
+  },
+  "nc216859": {
+   "tarih": "1989-10-18",
+   "m": 6.9,
+   "mt": "mw",
+   "yer": "The 1989 Loma Prieta, California Earthquake",
+   "seriler": {
+    "USGS_XSH1": 40.0,
+    "USGS_HLC1": 46.7,
+    "USGS_HLD1": 47.6,
+    "USGS_XSJ2": 38.9
+   }
+  },
+  "nc30228270": {
+   "tarih": "2004-09-28",
+   "m": 5.97,
+   "mt": "mw",
+   "yer": "2004 Parkfield, California Earthquake",
+   "seriler": {
+    "USGS_XSC1": 36.2,
+    "USGS_XMM1": 19.8,
+    "USGS_XMD1": 17.5,
+    "USGS_XVA1": 14.4,
+    "USGS_XRSW": 13.0,
+    "USGS_XPK1": 11.6,
+    "USGS_XTA1": 9.7,
+    "USGS_XHSW": 6.9,
+    "USGS_WKR1": 5.0,
+    "USGS_CRR1": 1.9,
+    "USGS_XGH1": 1.6,
+    "USGS_X461": 13.2,
+    "USGS_TWR1": 31.6
+   }
+  },
+  "nc1050040": {
+   "tarih": "1980-01-24",
+   "m": 5.8,
+   "mt": "ml",
+   "yer": "The 1980 Livermore, California Earthquake",
+   "seriler": {
+    "USGS_HWR1": 33.6,
+    "USGS_HWR2": 33.6,
+    "USGS_HWE1": 33.3,
+    "USGS_HWW1": 33.3,
+    "USGS_HWP1": 33.3
+   }
+  },
+  "nc68932": {
+   "tarih": "1986-03-31",
+   "m": 5.7,
+   "mt": "ml",
+   "yer": "15 km NE of East Foothills, California",
+   "seriler": {
+    "USGS_HWR1": 42.1,
+    "USGS_HWR2": 42.1,
+    "USGS_HWE1": 40.6,
+    "USGS_HWW1": 40.6,
+    "USGS_HWP1": 39.8
+   }
+  },
+  "nc72282711": {
+   "tarih": "2014-08-24",
+   "m": 6.02,
+   "mt": "mw",
+   "yer": "The 2014 South Napa, California Earthquake",
+   "seriler": {
+    "USGS_CPP1": 25.3,
+    "USGS_CTM1": 41.9
+   }
+  },
+  "usp0009u3d": {
+   "tarih": "2000-06-06",
+   "m": 6.0,
+   "mt": "mwc",
+   "yer": "12 km NW of Orta, Turkey",
+   "seriler": {
+    "Ismetpasa_duvar+surunme_olcer": 38.4,
+    "Ismetpasa_InSAR_ERS-Envisat-ALOS": 24.6
+   }
+  },
+  "usp000cexg": {
+   "tarih": "2003-12-10",
+   "m": 6.8,
+   "mt": "mwb",
+   "yer": "92 km E of Yujing, Taiwan",
+   "seriler": {
+    "Chihshang_surunme_olcer": 17.1
+   }
+  },
+  "usp000ede6": {
+   "tarih": "2006-04-01",
+   "m": 6.1,
+   "mt": "mwb",
+   "yer": "88 km ESE of Yujing, Taiwan",
+   "seriler": {
+    "Chihshang_surunme_olcer": 28.6
+   }
+  },
+  "usp000eemh": {
+   "tarih": "2006-04-15",
+   "m": 5.9,
+   "mt": "mwb",
+   "yer": "99 km ESE of Yujing, Taiwan",
+   "seriler": {
+    "Chihshang_surunme_olcer": 38.2
+   }
+  },
+  "usp000g4nm": {
+   "tarih": "2008-04-23",
+   "m": 6.0,
+   "mt": "mwc",
+   "yer": "121 km S of Hualien City, Taiwan",
+   "seriler": {
+    "Chihshang_surunme_olcer": 48.7
+   }
+  },
+  "usp000h8nd": {
+   "tarih": "2010-03-04",
+   "m": 6.3,
+   "mt": "mwc",
+   "yer": "41 km SE of Yujing, Taiwan",
+   "seriler": {
+    "Chihshang_surunme_olcer": 49.0
+   }
+  },
+  "us10004fhj": {
+   "tarih": "2016-01-19",
+   "m": 5.6,
+   "mt": "mww",
+   "yer": "92 km ESE of Yujing, Taiwan",
+   "seriler": {
+    "Chihshang_surunme_olcer": 30.4
+   }
+  },
+  "us6000h6nr": {
+   "tarih": "2022-03-22",
+   "m": 6.7,
+   "mt": "mww",
+   "yer": "65 km S of Hualien City, Taiwan",
+   "seriler": {
+    "Chihshang_surunme_olcer": 49.6
+   }
+  },
+  "us6000h6rn": {
+   "tarih": "2022-03-22",
+   "m": 5.9,
+   "mt": "mb",
+   "yer": "62 km S of Hualien City, Taiwan",
+   "seriler": {
+    "Chihshang_surunme_olcer": 43.3
+   }
+  },
+  "us6000h6sl": {
+   "tarih": "2022-03-22",
+   "m": 5.8,
+   "mt": "mww",
+   "yer": "63 km S of Hualien City, Taiwan",
+   "seriler": {
+    "Chihshang_surunme_olcer": 43.7
+   }
+  },
+  "us7000i8ui": {
+   "tarih": "2022-09-17",
+   "m": 6.5,
+   "mt": "mww",
+   "yer": "96 km SE of Lugu, Taiwan",
+   "seriler": {
+    "Chihshang_surunme_olcer": 19.8
+   }
+  },
+  "us7000i8v9": {
+   "tarih": "2022-09-17",
+   "m": 5.5,
+   "mt": "mww",
+   "yer": "Taiwan region",
+   "seriler": {
+    "Chihshang_surunme_olcer": 18.4
+   }
+  },
+  "us7000i903": {
+   "tarih": "2022-09-18",
+   "m": 5.6,
+   "mt": "mww",
+   "yer": "87 km E of Yujing, Taiwan",
+   "seriler": {
+    "Chihshang_surunme_olcer": 9.8
+   }
+  },
+  "us7000i90q": {
+   "tarih": "2022-09-18",
+   "m": 6.9,
+   "mt": "mww",
+   "yer": "90 km E of Yujing, Taiwan",
+   "seriler": {
+    "Chihshang_surunme_olcer": 12.8
+   }
+  },
+  "us7000i928": {
+   "tarih": "2022-09-18",
+   "m": 5.9,
+   "mt": "mww",
+   "yer": "80 km SE of Lugu, Taiwan",
+   "seriler": {
+    "Chihshang_surunme_olcer": 13.1
+   }
+  },
+  "us7000i96l": {
+   "tarih": "2022-09-19",
+   "m": 5.5,
+   "mt": "mww",
+   "yer": "68 km SSW of Hualien City, Taiwan",
+   "seriler": {
+    "Chihshang_surunme_olcer": 36.5
+   }
+  },
+  "us6000qjj5": {
+   "tarih": "2025-06-11",
+   "m": 5.9,
+   "mt": "mww",
+   "yer": "67 km S of Hualien City, Taiwan",
+   "seriler": {
+    "Chihshang_surunme_olcer": 49.5
+   }
+  },
+  "us7000rkjm": {
+   "tarih": "2025-12-24",
+   "m": 6.0,
+   "mt": "mww",
+   "yer": "2025 Taitung, Taiwan Earthquake",
+   "seriler": {
+    "Chihshang_surunme_olcer": 24.8
+   }
+  }
+ },
+ "licsar_olaylar": {
+  "us60007ewc": {
+   "tarih": "2020-01-24",
+   "m": 6.7,
+   "yer": "13 km N of Do?anyol, Turkey",
+   "seri": "LiCSAR_S1_DAF_Puturge",
+   "d": 9.4
+  },
+  "us6000b930": {
+   "tarih": "2020-08-04",
+   "m": 5.6,
+   "yer": "18 km NNE of Sincik, Turkey",
+   "seri": "LiCSAR_S1_DAF_Puturge",
+   "d": 3.3
+  },
+  "us6000d3dd": {
+   "tarih": "2020-12-27",
+   "m": 5.5,
+   "yer": "7 km WNW of Sivrice, Turkey",
+   "seri": "LiCSAR_S1_DAF_Puturge",
+   "d": 4.8
+  },
+  "us6000jm1y": {
+   "tarih": "2023-02-06",
+   "m": 6.0,
+   "yer": "12 km W of Çelikhan, Turkey",
+   "seri": "LiCSAR_S1_DAF_Puturge",
+   "d": 26.4
+  },
+  "us6000jlql": {
+   "tarih": "2023-02-06",
+   "m": 5.7,
+   "yer": "7 km SW of Ye?ilyurt, Turkey",
+   "seri": "LiCSAR_S1_DAF_Puturge",
+   "d": 31.6
+  },
+  "us6000nyzk": {
+   "tarih": "2024-10-16",
+   "m": 6.0,
+   "yer": "19 km W of Doğanyol, Turkey",
+   "seri": "LiCSAR_S1_DAF_Puturge",
+   "d": 10.2
+  },
+  "us7000i59t": {
+   "tarih": "2022-09-05",
+   "m": 6.6,
+   "yer": "44 km SE of Kangding, China",
+   "seri": "LiCSAR_S1_Xianshuihe",
+   "d": 15.1
+  },
+  "us6000e2mt": {
+   "tarih": "2021-04-18",
+   "m": 5.5,
+   "yer": "21 km S of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 6.7
+  },
+  "us6000e2mv": {
+   "tarih": "2021-04-18",
+   "m": 5.8,
+   "yer": "15 km SSW of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 0.7
+  },
+  "us6000h6nr": {
+   "tarih": "2022-03-22",
+   "m": 6.7,
+   "yer": "65 km S of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 24.6
+  },
+  "us6000h6rn": {
+   "tarih": "2022-03-22",
+   "m": 5.9,
+   "yer": "62 km S of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 11.6
+  },
+  "us6000h6s3": {
+   "tarih": "2022-03-22",
+   "m": 5.5,
+   "yer": "52 km S of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 13.7
+  },
+  "us6000h6sl": {
+   "tarih": "2022-03-22",
+   "m": 5.8,
+   "yer": "63 km S of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 13.9
+  },
+  "us7000him8": {
+   "tarih": "2022-06-20",
+   "m": 5.9,
+   "yer": "38 km SSW of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 2.0
+  },
+  "us7000i8ui": {
+   "tarih": "2022-09-17",
+   "m": 6.5,
+   "yer": "96 km SE of Lugu, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 15.1
+  },
+  "us7000i8v9": {
+   "tarih": "2022-09-17",
+   "m": 5.5,
+   "yer": "Taiwan region",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 1.4
+  },
+  "us7000i903": {
+   "tarih": "2022-09-18",
+   "m": 5.6,
+   "yer": "87 km E of Yujing, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 6.2
+  },
+  "us7000i90q": {
+   "tarih": "2022-09-18",
+   "m": 6.9,
+   "yer": "90 km E of Yujing, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 7.7
+  },
+  "us7000i928": {
+   "tarih": "2022-09-18",
+   "m": 5.9,
+   "yer": "80 km SE of Lugu, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 0.2
+  },
+  "us7000i96l": {
+   "tarih": "2022-09-19",
+   "m": 5.5,
+   "yer": "68 km SSW of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 9.5
+  },
+  "us6000j9by": {
+   "tarih": "2022-12-15",
+   "m": 5.9,
+   "yer": "31 km SE of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 31.3
+  },
+  "us7000m9gc": {
+   "tarih": "2024-04-03",
+   "m": 6.4,
+   "yer": "15 km NNE of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 21.5
+  },
+  "us7000m9gh": {
+   "tarih": "2024-04-03",
+   "m": 5.6,
+   "yer": "21 km NNE of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 27.0
+  },
+  "us7000m9gp": {
+   "tarih": "2024-04-03",
+   "m": 5.6,
+   "yer": "24 km NNE of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 30.4
+  },
+  "us7000mbfv": {
+   "tarih": "2024-04-03",
+   "m": 5.7,
+   "yer": "27 km SE of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 28.0
+  },
+  "us7000mdti": {
+   "tarih": "2024-04-22",
+   "m": 5.6,
+   "yer": "30 km S of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 15.6
+  },
+  "us7000mduw": {
+   "tarih": "2024-04-22",
+   "m": 5.8,
+   "yer": "27 km S of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 10.0
+  },
+  "us6000mt0r": {
+   "tarih": "2024-04-22",
+   "m": 6.1,
+   "yer": "29 km S of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 18.4
+  },
+  "us6000mt0s": {
+   "tarih": "2024-04-22",
+   "m": 6.1,
+   "yer": "13 km SSW of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 4.5
+  },
+  "us6000mt1n": {
+   "tarih": "2024-04-22",
+   "m": 5.5,
+   "yer": "35 km S of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 16.1
+  },
+  "us6000mt3f": {
+   "tarih": "2024-04-23",
+   "m": 5.8,
+   "yer": "22 km SSE of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 16.9
+  },
+  "us6000mwnf": {
+   "tarih": "2024-05-06",
+   "m": 5.6,
+   "yer": "28 km S of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 11.9
+  },
+  "us6000mxpi": {
+   "tarih": "2024-05-10",
+   "m": 5.8,
+   "yer": "38 km NE of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 44.7
+  },
+  "us7000n7b8": {
+   "tarih": "2024-08-15",
+   "m": 6.1,
+   "yer": "30 km SSE of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 27.6
+  },
+  "us7000px8h": {
+   "tarih": "2025-05-05",
+   "m": 5.6,
+   "yer": "37 km ESE of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 42.6
+  },
+  "us6000qjj5": {
+   "tarih": "2025-06-11",
+   "m": 5.9,
+   "yer": "67 km S of Hualien City, Taiwan",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 26.5
+  },
+  "us7000rkjm": {
+   "tarih": "2025-12-24",
+   "m": 6.0,
+   "yer": "2025 Taitung, Taiwan Earthquake",
+   "seri": "LiCSAR_S1_Longitudinal_Valley",
+   "d": 5.7
+  },
+  "us6000bgbr": {
+   "tarih": "2020-08-18",
+   "m": 6.6,
+   "yer": "13 km E of San Pedro, Philippines",
+   "seri": "LiCSAR_S1_Filipin_Masbate",
+   "d": 24.9
+  },
+  "us6000plql": {
+   "tarih": "2025-01-22",
+   "m": 5.7,
+   "yer": "3 km NNW of San Francisco, Philippines",
+   "seri": "LiCSAR_S1_Filipin_Leyte",
+   "d": 13.4
+  },
+  "us6000jp76": {
+   "tarih": "2023-02-15",
+   "m": 6.1,
+   "yer": "9 km NNE of Miaga, Philippines",
+   "seri": "LiCSAR_S1_Filipin_Masbate",
+   "d": 23.1
+  }
+ },
+ "usgs_istasyonlar": [
+  {
+   "kod": "XSH1",
+   "lat": 36.943,
+   "lon": -121.445,
+   "bas": 1971.0,
+   "fay": "Calaveras Fault"
+  },
+  {
+   "kod": "SHR2",
+   "lat": 36.943,
+   "lon": -121.445,
+   "bas": 1986.0,
+   "fay": "Calaveras Fault"
+  },
+  {
+   "kod": "HLC1",
+   "lat": 36.857,
+   "lon": -121.405,
+   "bas": 1970.0,
+   "fay": "Calaveras Fault"
+  },
+  {
+   "kod": "HLD1",
+   "lat": 36.842,
+   "lon": -121.403,
+   "bas": 1970.0,
+   "fay": "Calaveras Fault"
+  },
+  {
+   "kod": "CPP1",
+   "lat": 37.99,
+   "lon": -122.356,
+   "bas": 1995.0,
+   "fay": "Hayward Fault"
+  },
+  {
+   "kod": "CTM1",
+   "lat": 37.844,
+   "lon": -122.227,
+   "bas": 1997.0,
+   "fay": "Hayward Fault"
+  },
+  {
+   "kod": "COZ1",
+   "lat": 37.753,
+   "lon": -122.15,
+   "bas": 1996.0,
+   "fay": "Hayward Fault"
+  },
+  {
+   "kod": "HWR1",
+   "lat": 37.68,
+   "lon": -122.092,
+   "bas": 1968.0,
+   "fay": "Hayward Fault"
+  },
+  {
+   "kod": "HWR2",
+   "lat": 37.68,
+   "lon": -122.092,
+   "bas": 1968.0,
+   "fay": "Hayward Fault"
+  },
+  {
+   "kod": "HWE1",
+   "lat": 37.67,
+   "lon": -122.08,
+   "bas": 1968.0,
+   "fay": "Hayward Fault"
+  },
+  {
+   "kod": "HWW1",
+   "lat": 37.67,
+   "lon": -122.08,
+   "bas": 1968.0,
+   "fay": "Hayward Fault"
+  },
+  {
+   "kod": "HWP1",
+   "lat": 37.663,
+   "lon": -122.074,
+   "bas": 1968.0,
+   "fay": "Hayward Fault"
+  },
+  {
+   "kod": "CHP1",
+   "lat": 37.663,
+   "lon": -122.074,
+   "bas": 1994.0,
+   "fay": "Hayward Fault"
+  },
+  {
+   "kod": "CFW1",
+   "lat": 37.532,
+   "lon": -121.952,
+   "bas": 1993.0,
+   "fay": "Hayward Fault"
+  },
+  {
+   "kod": "SJN1",
+   "lat": 36.8546,
+   "lon": -121.521,
+   "bas": 2004.0,
+   "fay": "San Andreas Fault",
+   "not": "boylam sayfada 0; XSJ2'den"
+  },
+  {
+   "kod": "XSJ2",
+   "lat": 36.836,
+   "lon": -121.521,
+   "bas": 1969.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "XSJ3",
+   "lat": 36.836,
+   "lon": -121.521,
+   "bas": 2007.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "XHR1",
+   "lat": 36.772,
+   "lon": -121.422,
+   "bas": 1970.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "XHR2",
+   "lat": 36.772,
+   "lon": -121.422,
+   "bas": 1985.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "XHR3",
+   "lat": 36.772,
+   "lon": -121.422,
+   "bas": 2009.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "CWC3",
+   "lat": 36.75,
+   "lon": -121.385,
+   "bas": 1968.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "CWN1",
+   "lat": 36.75,
+   "lon": -121.385,
+   "bas": 1972.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "XFL1",
+   "lat": 36.665,
+   "lon": -121.272,
+   "bas": 1973.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "XMR1",
+   "lat": 36.595,
+   "lon": -121.187,
+   "bas": 1969.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "MRW1",
+   "lat": 36.585,
+   "lon": -121.177,
+   "bas": 1972.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "XDL2",
+   "lat": 36.492,
+   "lon": -121.078,
+   "bas": 1978.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "BIT1",
+   "lat": 36.398,
+   "lon": -120.982,
+   "bas": 1979.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "XMP1",
+   "lat": 36.217,
+   "lon": -120.798,
+   "bas": 1969.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "XMP2",
+   "lat": 36.217,
+   "lon": -120.798,
+   "bas": 1969.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "XSC1",
+   "lat": 36.065,
+   "lon": -120.628,
+   "bas": 1979.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "XMM1",
+   "lat": 35.958,
+   "lon": -120.502,
+   "bas": 1979.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "XMBC",
+   "lat": 35.958,
+   "lon": -120.502,
+   "bas": 2004.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "XMD1",
+   "lat": 35.943,
+   "lon": -120.485,
+   "bas": 1986.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "XVA1",
+   "lat": 35.922,
+   "lon": -120.462,
+   "bas": 1987.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "XRSW",
+   "lat": 35.907,
+   "lon": -120.46,
+   "bas": 1987.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "XPK1",
+   "lat": 35.902,
+   "lon": -120.442,
+   "bas": 1979.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "XPK2",
+   "lat": 35.902,
+   "lon": -120.442,
+   "bas": 2004.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "XTA1",
+   "lat": 35.89,
+   "lon": -120.427,
+   "bas": 1985.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "TABC",
+   "lat": 35.89,
+   "lon": -120.427,
+   "bas": 2004.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "XHSW",
+   "lat": 35.862,
+   "lon": -120.42,
+   "bas": 1987.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "WKR1",
+   "lat": 35.858,
+   "lon": -120.392,
+   "bas": 1976.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "CRR1",
+   "lat": 35.835,
+   "lon": -120.363,
+   "bas": 1966.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "XGH1",
+   "lat": 35.82,
+   "lon": -120.348,
+   "bas": 1969.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "C461",
+   "lat": 35.724,
+   "lon": -120.282,
+   "bas": 2004.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "X461",
+   "lat": 35.723,
+   "lon": -120.278,
+   "bas": 1986.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "TWR1",
+   "lat": 35.597,
+   "lon": -120.147,
+   "bas": 1976.0,
+   "fay": "San Andreas Fault"
+  },
+  {
+   "kod": "XPH1",
+   "lat": 35.148,
+   "lon": -119.692,
+   "bas": 1977.0,
+   "fay": "San Andreas Fault"
+  }
+ ]
+}
