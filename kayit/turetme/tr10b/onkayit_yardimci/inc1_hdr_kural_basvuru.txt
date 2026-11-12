@@ -1,0 +1,104 @@
+# inc1_hdr_kural.py başvuru çıktısı (README sha256 6b1e95c0…; TR-10b ön kayıt sürüm 2 §6.4 madde 5(ii)).
+# Komut: python3 -I -B kayit/turetme/tr10b/onkayit_yardimci/inc1_hdr_kural.py <README_CREEP.txt> <inc1 listeler.json>
+Olaylar (README vekili; yeni kural):
+  CRR1	satır 430	D	[1966-05-01 → 1998-02-10] (tarihsiz)		['electronic']	has "caltech" style electronics
+  CRR1	satır 433	K	1998-02-10	tam	['fail', 'removed']	sensor failed on feb 10 1998; sensor removed.
+  CRR1	satır 436	D	1998-01-01	yalin	['scale factor']	change in scale factor in 1998
+  CRR1	satır 439	K	1999-12-02	tam	['delet']	to reconcile micrometer and telemetry data, the telemet
+  CRR1	satır 447	K	2004-01-01	yalin	['loosen', 'peg', 'slid']	2004 parkfield (sept 28) 'pegged' the creepmeter; loose
+  CRR1	satır 451	D	2007-04-01	tam	['dcp', 'electronic', 'scale factor']	april 2007 dcp was swapped out for new one; electronics
+  CRR1	satır 455	D	[2007-04-01 → 2023-10-16] (tarihsiz)		['scale factor']	scale factor is now 146.6 counts(mv) per mm fault slip 
+  CWC3	satır 484	K	2000-01-01	yalin	['unreliab']	creepmeter is more or less unreliable since 2000; bolts
+  CWN1	satır 465	K	2003-06-04	tam	['offset', 'tighten']	june 4, 2003; site visit; tighten bolts holding 'pacifi
+  CWN1	satır 470	D	2008-05-01	tam	['dcp', 'electronic', 'scale factor']	may 2008 swap-out electronics and dcp for a new version
+  CWN1	satır 474	K	2012-04-20	tam	['bent', 'bump', 'offset', 'removed']	april 20, 2012 -- noticed that creepmeter was "bumped" 
+  CWN1	satır 478	K	2013-03-19	tam	['offset', 'replac']	march 19, 2013 -- rod had to be replaced, but may have 
+  WKR1	satır 491	D	[1976-01-01 → 2004-01-01] (tarihsiz)		['electronic']	has "caltech" style electronics
+  WKR1	satır 494	K	2004-01-01	yalin	['loosen', 'peg', 'slid']	2004 parkfield (sept 28) 'pegged' the creepmeter; loose
+  WKR1	satır 498	D	2004-11-15	tam	['scale factor']	for the field visits on nov 15 2004 and jan 3, 2005, no
+  WKR1	satır 508	D	2006-11-01	tam	['dcp', 'electronic', 'scale factor']	november 2006; dcp was swapped out for new one; electro
+  WKR1	satır 512	D	[2006-11-01 → 2023-10-16] (tarihsiz)		['scale factor']	scale factor is now 271 counts(mv) per mm fault slip (c
+  XGH1	satır 529	K	1998-04-17	tam	['bogus', 'delet', 'offset']	in april 17, 1998, site was visited and it was observed
+  XGH1	satır 544	K	2004-06-08	tam	['calibrat', 'slid']	june 8, 2004; noted that recent (last few years) of mic
+  XGH1	satır 552	D	2006-11-01	tam	['dcp', 'electronic', 'scale factor']	november 2006 swap-out electronics and dcp for a new ve
+  XHR2	satır 562	K	2004-06-01	tam	['abandon', 'broke', 'caved']	in june 2004, the meter broke because the conduit housi
+  XHR2	satır 565	K	2009-08-01	tam	['repair']	in august 2009, instrument conduit was repair; new data
+  XHR2	satır 569	K	2009-08-01	tam	['repair']	conduit to xhr2 was repaired in august 2009; instrument
+  XHSW	satır 573	K	1998-12-01	tam	['touch']	as of december 1998 maintenance check, observed that pi
+  XHSW	satır 580	K	2010-07-01	tam	['caved']	july 2010 observed that pipe has caved in. electronics 
+  XMBC	satır 584	K	2011-01-12	tam	['fail', 'offline']	xmbc parkfield "big creep", large scale creepmeter went
+  XMD1	satır 594	K	2004-09-28	tam	['peg', 'tension']	the sept 28, 2004 parkfield earthquake caused the wire 
+  XMD1	satır 599	D	[2004-09-28 → 2006-11-01] (tarihsiz)		['electronic']	the big creep counter gauge works (more or less). elect
+  XMD1	satır 602	D	2006-11-01	tam	['dcp', 'electronic', 'scale factor']	november 2006 swap-out electronics and dcp for a new ve
+  XMM1	satır 612	K	1996-03-07	tam	['offset']	electronics for this instrument were changed on march 7
+  XMM1	satır 620	K	2004-09-28	tam	['peg', 'tension']	the sept 28, 2004 parkfield earthquake caused the wire 
+  XMM1	satır 625	D	[1993-01-01 → 2004-09-28] (tarihsiz)		['electronic']	it appears the both the 'big creep' counter gauge and e
+  XMM1	satır 629	K	1993-01-01	yalin	['calibrat', 'mis-calibrat']	examination of the differences between the micrometer a
+  XMM1	satır 637	K	2005-09-01	tam	['cave-in', 'replac']	sept-october 2005; the wire had lots of friction due to
+  XMM1	satır 642	D	2007-05-01	tam	['dcp', 'electronic', 'scale factor']	may 2007; swap-out electronics and dcp for a new versio
+  XMR1	satır 651	D	2008-05-01	tam	['dcp', 'electronic', 'scale factor']	may 2008 swap-out electronics and dcp for a new version
+  XMR1	satır 655	K	2010-07-01	tam	['cave-in']	july 2010 conduit cave-in around invar creep wire notic
+  XMR1	satır 657	K	2010-10-01	tam	['reset', 'rodent']	october 2010 noticed that creep mechanical bale had bee
+  XPK1	satır 665	K	1998-12-01	tam	['touch']	as of december 1998 maintenance check, observed that pi
+  XPK1	satır 672	K	2004-01-01	yalin	['broke', 'zero']	wire broke during 2004 parkfield eq (sept 28) zero has 
+  XPK1	satır 675	K	[2004-01-01 → 2006-11-01] (tarihsiz)		['calibrat']	comparison of micrometer data with the telemetry data f
+  XPK1	satır 681	D	2006-11-01	tam	['dcp', 'electronic', 'scale factor']	november 2006 swap-out electronics and dcp for a new ve
+  XRSW	satır 691	K	1998-08-01	tam	['broke', 'offset']	invar wire broke in august 1998; wasn't discovered unti
+  XRSW	satır 695	K	2005-09-01	tam	['abandon', 'broke']	invar wire broke in sept 2005; instrument has been aban
+  XSC1	satır 705	K	1997-03-06	tam	['fail', 'offset', 'replac']	on march 6, 1997, the transducer for this instrument wa
+  XSC1	satır 712	D	2007-01-23	tam	['dcp', 'electronic', 'scale factor']	around jan 23, 2007, the dcp and electronics amplifier 
+  XSJ2	satır 730	K	2006-07-01	tam	['broke']	july 2006 wire broke; needed to wait until farm field w
+  XSJ2	satır 733	K	2007-02-01	tam	['zero']	feb 2007 excavate the anchor end. install new invar wir
+  XSJ2	satır 737	D	2007-11-01	tam	['dcp', 'electronic', 'scale factor']	november 2007 swap-out electronics and dcp for a new ve
+  XTA1	satır 746	K	2004-09-28	tam	['loosen', 'reset', 'slid']	sept 28 2004 parkfield eq caused wire to extend beyond 
+  XTA1	satır 750	D	[2004-09-28 → 2006-11-01] (tarihsiz)		['electronic']	big creep counter and electronics appear to work
+  XTA1	satır 752	D	2006-11-01	tam	['dcp', 'electronic', 'scale factor']	november 2006 swap-out electronics and dcp for a new ve
+  XVA1	satır 765	K	2004-09-28	tam	['peg', 'slid', 'tension']	the sept 28, 2004 parkfield earthquake caused the wire 
+  XVA1	satır 771	D	[2004-09-28 → 2006-11-01] (tarihsiz)		['electronic']	it appears the both the 'big creep' counter gauge and e
+  XVA1	satır 775	D	2006-11-01	tam	['dcp', 'electronic', 'scale factor']	november 2006 swap-out electronics and dcp for a new ve
+
+K_OLAY karşılaştırması (README yorum bölümünde açıklaması bulunan olaylar):
+   CRR1 1998-02-10 BULUNDU 1998-02-10 | sensör arızası, ölçek değişimi
+   CRR1 1999-12-02 BULUNDU 1999-12-02 | telemetri silindi + 5,9 mm eklendi (1999-12-02..2000-02-21)
+   CRR1 2004-09-28 BULUNDU 2004-01-01 | Parkfield taşma, tel kaydırıldı
+   CWN1 2003-06-04 BULUNDU 2003-06-04 | ankraj sıkıldı, ≈2 mm olası ötelenme
+   CWN1 2012-04-20 BULUNDU 2012-04-20 | çarpma, mil eğik
+   CWN1 2013-03-19 BULUNDU 2012-04-20 | çubuk değişti
+   CWC3 2000-01-01 BULUNDU 2000-01-01 | 2000'den beri güvenilmez (cıvata)
+   WKR1 2004-09-28 BULUNDU 2004-01-01 | Parkfield taşma
+   WKR1 2004-11-01 BULUNDU 2004-01-01 | ölçek düzeltmesi 2004-11..2005-02
+   XGH1 1997-12-01 KAÇTI | sahte sol yanal hareket 1997-12..1998-04, zorlanmış ötelenme
+   XHR2 2004-06-01 BULUNDU 2004-06-01 | kanal göçtü, ölçer terk
+   XHSW 1998-12-01 BULUNDU 1998-12-01 | boru tele değiyor
+   XHSW 2010-07-01 BULUNDU 2010-07-01 | boru göçtü, elektronik söküldü
+   XMD1 2004-09-28 BULUNDU 2004-09-28 | Parkfield taşma; elektronik %50 kayıt
+   XMM1 1996-03-07 BULUNDU 1996-03-07 | elektronik değişimi, olası ötelenme
+   XMM1 1993-01-01 BULUNDU 1993-01-01 | 1993-1996 kalibrasyon hatası
+   XMM1 1986-01-01 KAÇTI | 1986-1988 olası kalibrasyon hatası
+   XMM1 2004-09-28 BULUNDU 2004-09-28 | Parkfield taşma
+   XMM1 2005-09-01 BULUNDU 2004-09-28 | kanal ayrıldı, tel değişti
+   XMR1 2010-07-01 BULUNDU 2010-07-01 | kanal göçtü
+   XMR1 2010-10-01 BULUNDU 2010-07-01 | kemirgen, ≥1 mm uyuşmazlık
+   XPK1 1998-12-01 BULUNDU 1998-12-01 | boru tele değiyor
+   XPK1 2004-09-28 BULUNDU 2004-01-01 | tel koptu, sıfır kayboldu
+   XRSW 1998-08-01 BULUNDU 1998-08-01 | tel koptu, bilinmeyen ötelenme (1999-01'e dek)
+   XRSW 2005-09-01 BULUNDU 2005-09-01 | tel koptu, terk
+   XSC1 1997-03-06 BULUNDU 1997-03-06 | transdüser değişti, bağ belirsiz
+   XSJ2 2006-07-01 BULUNDU 2006-07-01 | tel koptu
+   yorum yok: XSJ3 2007-02-15
+   XTA1 2004-09-28 BULUNDU 2004-09-28 | Parkfield taşma
+   XVA1 2004-09-28 BULUNDU 2004-09-28 | Parkfield taşma
+   yorum yok: XFL1 1995-03-11
+   XMBC 2011-01-12 BULUNDU 2011-01-12 | potansiyometre arızası, çevrimdışı
+yakalanan 28 / 30; kaçan [('XGH1', datetime.date(1997, 12, 1)), ('XMM1', datetime.date(1986, 1, 1))]
+sahte son veren olay: 0 (kural son veren tür üretmez); eski son veren sözcüklerini taşıyan K olayı: 2
+
+Epok düzeyi: K_OLAY 26 (istasyon, epok); kural 27; ortak 25
+   K_OLAY'da olup kuralda olmayan: [('XMM1', 1988)]
+   kuralda olup K_OLAY'da olmayan: [('XGH1', 2008), ('XHR2', 2013)]
+B_U: kuralın K olaylarıyla düşen []; D olaylarıyla ('D dışarıda' bilgi satırı) düşen [('CRR1', 1973), ('CRR1', 1978), ('CRR1', 2013), ('CRR1', 2018), ('WKR1', 2013), ('WKR1', 2018)]
+A_U: kuralın K olaylarıyla düşen []; D olaylarıyla ('D dışarıda' bilgi satırı) düşen [('CRR1', 1973), ('CRR1', 1978), ('CRR1', 2018), ('WKR1', 2018)]
+B_R2: kuralın K olaylarıyla düşen []; D olaylarıyla ('D dışarıda' bilgi satırı) düşen [('CRR1', 1973), ('CRR1', 1978), ('CRR1', 2013), ('CRR1', 2018), ('WKR1', 2013), ('WKR1', 2018)]
+madde 4 sayacı (README vekili): K olaylarından notunda 'creep(s)'/'event(s)' sözcüğü geçen: [('XMBC', '2011-01-12'), ('XMR1', '2010-07-01'), ('XMR1', '2010-10-01')]
+sürüm 1 kuralı (tarih tanıma: taslak (katı, 3 harfli ay, virgülsüz)): son veren [('CRR1', datetime.date(1998, 2, 10)), ('CWN1', datetime.date(2008, 5, 1)), ('XRSW', datetime.date(1999, 1, 1))]; B_U'dan düşen [('CRR1', 2013), ('CRR1', 2018), ('CWN1', 2018)]
+sürüm 1 kuralı (tarih tanıma: gevşek (tam ay adı, virgül)): son veren [('CRR1', datetime.date(1998, 2, 10)), ('CWN1', datetime.date(2012, 4, 20)), ('XHR2', datetime.date(2004, 6, 1)), ('XRSW', datetime.date(2005, 9, 1))]; B_U'dan düşen [('CRR1', 2013), ('CRR1', 2018), ('CWN1', 2018)]
