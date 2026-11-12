@@ -1,0 +1,1691 @@
+{
+ "tarih": "2026-11-12",
+ "girdi_sha256": {
+  "marmara_fed_kanal": "dbcc3ba8ed7564058df2b59381006ee5c342e63206ca5fd4b8991e6797812de9",
+  "doluluk_onbellek": "ce4fe524392baa00ea2a8a34aa3effd895d2a7e9b14cdfca211c3b20f4b0b409",
+  "m5_1990.csv": "7369617d215117fe78d4d9ea2c693954b62983174fcfac520440aa84c6bce3f7",
+  "m5_2002.csv": "0dd381d5f3f8b57e77d370697b36c32fc5b41d640e75824e2589caf7db9bfad8",
+  "m5_2010.csv": "046a6f1001f334fdc888609711bc26b6db9745593d0318e56e494ff676355f48",
+  "m5_2018.csv": "9c54cef374f7b05e4551ea1e6fc30240f67a088930e903e16a81bfb1ae99fa6a"
+ },
+ "tanim": {
+  "pencere": "[T-1095, T-8]",
+  "T": "yıllık 1 Ocak",
+  "ana_T": [
+   "2017-01-01",
+   "2018-01-01",
+   "2019-01-01",
+   "2020-01-01",
+   "2021-01-01",
+   "2022-01-01",
+   "2023-01-01",
+   "2024-01-01"
+  ],
+  "olaysizlik": {
+   "ana": {
+    "esik": [
+     [
+      6.0,
+      40,
+      150
+     ],
+     [
+      7.0,
+      70,
+      300
+     ],
+     [
+      8.0,
+      70,
+      1000
+     ]
+    ],
+    "once_gun": 1826,
+    "sonra_gun": 365,
+    "ek": null
+   },
+   "ileri_2y": {
+    "esik": [
+     [
+      6.0,
+      40,
+      150
+     ],
+     [
+      7.0,
+      70,
+      300
+     ],
+     [
+      8.0,
+      70,
+      1000
+     ]
+    ],
+    "once_gun": 1826,
+    "sonra_gun": 730,
+    "ek": null
+   },
+   "M7_500": {
+    "esik": [
+     [
+      6.0,
+      40,
+      150
+     ],
+     [
+      7.0,
+      70,
+      500
+     ],
+     [
+      8.0,
+      70,
+      1000
+     ]
+    ],
+    "once_gun": 1826,
+    "sonra_gun": 365,
+    "ek": null
+   },
+   "M5_50_pencere": {
+    "esik": [
+     [
+      6.0,
+      40,
+      150
+     ],
+     [
+      7.0,
+      70,
+      300
+     ],
+     [
+      8.0,
+      70,
+      1000
+     ]
+    ],
+    "once_gun": 1826,
+    "sonra_gun": 365,
+    "ek": [
+     "M5",
+     5.0,
+     70,
+     50,
+     0,
+     0
+    ]
+   },
+   "M55_100_genis": {
+    "esik": [
+     [
+      6.0,
+      40,
+      150
+     ],
+     [
+      7.0,
+      70,
+      300
+     ],
+     [
+      8.0,
+      70,
+      1000
+     ]
+    ],
+    "once_gun": 1826,
+    "sonra_gun": 365,
+    "ek": [
+     "M55",
+     5.5,
+     70,
+     100,
+     365,
+     365
+    ]
+   }
+  },
+  "maske": {
+   "M": 5.0,
+   "z": 70,
+   "R_km": 50.0,
+   "gun": 60
+  },
+  "dolu": {
+   "ana": [
+    0.8,
+    3
+   ],
+   "gevsek": [
+    0.6,
+    6
+   ],
+   "siki": [
+    0.9,
+    2
+   ]
+  },
+  "kapi": {
+   "istasyon": 10,
+   "epok_arasi_yil": 3,
+   "epok": 2
+  }
+ },
+ "istasyon_sayisi_kutu": 38,
+ "yoklanan_istasyon": 24,
+ "cok_istasyonlu_yer": {
+  "KO.ISK": [
+   "KO.ISK",
+   "KO.KAVV"
+  ]
+ },
+ "ozet": {
+  "Z_dolu_ana": {
+   "epok": {
+    "2017": 15,
+    "2018": 16,
+    "2019": 15,
+    "2020": 14,
+    "2021": 14,
+    "2022": 9,
+    "2023": 10,
+    "2024": 9
+   },
+   "yer_pencere": 102,
+   "yer": 21,
+   "istasyonlar": [
+    "KO.ADVT",
+    "KO.ARMT",
+    "KO.BGKT",
+    "KO.CAVI",
+    "KO.CRLT",
+    "KO.CTKS",
+    "KO.CTYL",
+    "KO.EDC",
+    "KO.ERIK",
+    "KO.GEMT",
+    "KO.HRTX",
+    "KO.ISK",
+    "KO.KLYT",
+    "KO.KRBG",
+    "KO.MDNY",
+    "KO.MRMT",
+    "KO.RKY",
+    "KO.SAUV",
+    "KO.SILT",
+    "KO.SLVT",
+    "KO.YLV"
+   ],
+   "istasyon_duzeyi_epok": {
+    "2017": 16,
+    "2018": 17,
+    "2019": 16,
+    "2020": 15,
+    "2021": 15,
+    "2022": 10,
+    "2023": 11,
+    "2024": 10
+   },
+   "kapi": {
+    "iyi_epok": [
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2023
+    ],
+    "ortusmeyen_cift": [
+     [
+      2017,
+      2020
+     ],
+     [
+      2017,
+      2021
+     ],
+     [
+      2017,
+      2023
+     ],
+     [
+      2018,
+      2021
+     ],
+     [
+      2018,
+      2023
+     ],
+     [
+      2019,
+      2023
+     ],
+     [
+      2020,
+      2023
+     ]
+    ],
+    "gecti": true
+   }
+  },
+  "Z_dolu_gevsek": {
+   "epok": {
+    "2017": 17,
+    "2018": 19,
+    "2019": 17,
+    "2020": 16,
+    "2021": 17,
+    "2022": 11,
+    "2023": 11,
+    "2024": 10
+   },
+   "yer_pencere": 118,
+   "yer": 21,
+   "istasyonlar": [
+    "KO.ADVT",
+    "KO.ARMT",
+    "KO.BGKT",
+    "KO.CAVI",
+    "KO.CRLT",
+    "KO.CTKS",
+    "KO.CTYL",
+    "KO.EDC",
+    "KO.ERIK",
+    "KO.GEMT",
+    "KO.HRTX",
+    "KO.ISK",
+    "KO.KLYT",
+    "KO.KRBG",
+    "KO.MDNY",
+    "KO.MRMT",
+    "KO.RKY",
+    "KO.SAUV",
+    "KO.SILT",
+    "KO.SLVT",
+    "KO.YLV"
+   ],
+   "istasyon_duzeyi_epok": {
+    "2017": 18,
+    "2018": 20,
+    "2019": 18,
+    "2020": 17,
+    "2021": 18,
+    "2022": 12,
+    "2023": 12,
+    "2024": 11
+   },
+   "kapi": {
+    "iyi_epok": [
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024
+    ],
+    "ortusmeyen_cift": [
+     [
+      2017,
+      2020
+     ],
+     [
+      2017,
+      2021
+     ],
+     [
+      2017,
+      2022
+     ],
+     [
+      2017,
+      2023
+     ],
+     [
+      2017,
+      2024
+     ],
+     [
+      2018,
+      2021
+     ],
+     [
+      2018,
+      2022
+     ],
+     [
+      2018,
+      2023
+     ],
+     [
+      2018,
+      2024
+     ],
+     [
+      2019,
+      2022
+     ],
+     [
+      2019,
+      2023
+     ],
+     [
+      2019,
+      2024
+     ],
+     [
+      2020,
+      2023
+     ],
+     [
+      2020,
+      2024
+     ],
+     [
+      2021,
+      2024
+     ]
+    ],
+    "gecti": true
+   }
+  },
+  "Z_dolu_siki": {
+   "epok": {
+    "2017": 7,
+    "2018": 12,
+    "2019": 11,
+    "2020": 9,
+    "2021": 9,
+    "2022": 9,
+    "2023": 8,
+    "2024": 7
+   },
+   "yer_pencere": 72,
+   "yer": 15,
+   "istasyonlar": [
+    "KO.ADVT",
+    "KO.BGKT",
+    "KO.CRLT",
+    "KO.CTKS",
+    "KO.CTYL",
+    "KO.EDC",
+    "KO.ERIK",
+    "KO.GEMT",
+    "KO.ISK",
+    "KO.KLYT",
+    "KO.MDNY",
+    "KO.RKY",
+    "KO.SAUV",
+    "KO.SILT",
+    "KO.SLVT"
+   ],
+   "istasyon_duzeyi_epok": {
+    "2017": 8,
+    "2018": 13,
+    "2019": 12,
+    "2020": 9,
+    "2021": 10,
+    "2022": 10,
+    "2023": 9,
+    "2024": 8
+   },
+   "kapi": {
+    "iyi_epok": [
+     2018,
+     2019
+    ],
+    "ortusmeyen_cift": [],
+    "gecti": false
+   }
+  },
+  "ustveri_uygun": {
+   "epok": {
+    "2017": 21,
+    "2018": 21,
+    "2019": 19,
+    "2020": 17,
+    "2021": 17,
+    "2022": 12,
+    "2023": 13,
+    "2024": 14
+   },
+   "yer_pencere": 134,
+   "yer": 24,
+   "istasyonlar": [
+    "KO.ADVT",
+    "KO.ARMT",
+    "KO.BGKT",
+    "KO.CAVI",
+    "KO.CRLT",
+    "KO.CTKS",
+    "KO.CTYL",
+    "KO.EDC",
+    "KO.ERIK",
+    "KO.GAZK",
+    "KO.GEML",
+    "KO.GEMT",
+    "KO.HRTX",
+    "KO.ISK",
+    "KO.KCTX",
+    "KO.KLYT",
+    "KO.KRBG",
+    "KO.MDNY",
+    "KO.MRMT",
+    "KO.RKY",
+    "KO.SAUV",
+    "KO.SILT",
+    "KO.SLVT",
+    "KO.YLV"
+   ],
+   "istasyon_duzeyi_epok": {
+    "2017": 22,
+    "2018": 22,
+    "2019": 20,
+    "2020": 18,
+    "2021": 18,
+    "2022": 13,
+    "2023": 14,
+    "2024": 15
+   },
+   "kapi": {
+    "iyi_epok": [
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2022,
+     2023,
+     2024
+    ],
+    "ortusmeyen_cift": [
+     [
+      2017,
+      2020
+     ],
+     [
+      2017,
+      2021
+     ],
+     [
+      2017,
+      2022
+     ],
+     [
+      2017,
+      2023
+     ],
+     [
+      2017,
+      2024
+     ],
+     [
+      2018,
+      2021
+     ],
+     [
+      2018,
+      2022
+     ],
+     [
+      2018,
+      2023
+     ],
+     [
+      2018,
+      2024
+     ],
+     [
+      2019,
+      2022
+     ],
+     [
+      2019,
+      2023
+     ],
+     [
+      2019,
+      2024
+     ],
+     [
+      2020,
+      2023
+     ],
+     [
+      2020,
+      2024
+     ],
+     [
+      2021,
+      2024
+     ]
+    ],
+    "gecti": true
+   }
+  },
+  "Z_dolu_ana__ileri_2y": {
+   "epok": {
+    "2017": 15,
+    "2018": 16,
+    "2019": 13,
+    "2020": 14,
+    "2021": 9,
+    "2022": 9,
+    "2023": 10,
+    "2024": 0
+   },
+   "yer_pencere": 86,
+   "yer": 21,
+   "istasyonlar": [
+    "KO.ADVT",
+    "KO.ARMT",
+    "KO.BGKT",
+    "KO.CAVI",
+    "KO.CRLT",
+    "KO.CTKS",
+    "KO.CTYL",
+    "KO.EDC",
+    "KO.ERIK",
+    "KO.GEMT",
+    "KO.HRTX",
+    "KO.ISK",
+    "KO.KLYT",
+    "KO.KRBG",
+    "KO.MDNY",
+    "KO.MRMT",
+    "KO.RKY",
+    "KO.SAUV",
+    "KO.SILT",
+    "KO.SLVT",
+    "KO.YLV"
+   ],
+   "istasyon_duzeyi_epok": {
+    "2017": 16,
+    "2018": 17,
+    "2019": 14,
+    "2020": 15,
+    "2021": 10,
+    "2022": 10,
+    "2023": 11,
+    "2024": 0
+   },
+   "kapi": {
+    "iyi_epok": [
+     2017,
+     2018,
+     2019,
+     2020,
+     2023
+    ],
+    "ortusmeyen_cift": [
+     [
+      2017,
+      2020
+     ],
+     [
+      2017,
+      2023
+     ],
+     [
+      2018,
+      2023
+     ],
+     [
+      2019,
+      2023
+     ],
+     [
+      2020,
+      2023
+     ]
+    ],
+    "gecti": true
+   }
+  },
+  "Z_dolu_ana__M7_500": {
+   "epok": {
+    "2017": 15,
+    "2018": 16,
+    "2019": 15,
+    "2020": 0,
+    "2021": 0,
+    "2022": 0,
+    "2023": 0,
+    "2024": 0
+   },
+   "yer_pencere": 46,
+   "yer": 18,
+   "istasyonlar": [
+    "KO.ADVT",
+    "KO.BGKT",
+    "KO.CRLT",
+    "KO.CTKS",
+    "KO.CTYL",
+    "KO.EDC",
+    "KO.GEMT",
+    "KO.HRTX",
+    "KO.ISK",
+    "KO.KLYT",
+    "KO.KRBG",
+    "KO.MDNY",
+    "KO.MRMT",
+    "KO.RKY",
+    "KO.SAUV",
+    "KO.SILT",
+    "KO.SLVT",
+    "KO.YLV"
+   ],
+   "istasyon_duzeyi_epok": {
+    "2017": 16,
+    "2018": 17,
+    "2019": 16,
+    "2020": 0,
+    "2021": 0,
+    "2022": 0,
+    "2023": 0,
+    "2024": 0
+   },
+   "kapi": {
+    "iyi_epok": [
+     2017,
+     2018,
+     2019
+    ],
+    "ortusmeyen_cift": [],
+    "gecti": false
+   }
+  },
+  "Z_dolu_ana__M5_50_pencere": {
+   "epok": {
+    "2017": 15,
+    "2018": 16,
+    "2019": 15,
+    "2020": 11,
+    "2021": 11,
+    "2022": 6,
+    "2023": 10,
+    "2024": 8
+   },
+   "yer_pencere": 92,
+   "yer": 21,
+   "istasyonlar": [
+    "KO.ADVT",
+    "KO.ARMT",
+    "KO.BGKT",
+    "KO.CAVI",
+    "KO.CRLT",
+    "KO.CTKS",
+    "KO.CTYL",
+    "KO.EDC",
+    "KO.ERIK",
+    "KO.GEMT",
+    "KO.HRTX",
+    "KO.ISK",
+    "KO.KLYT",
+    "KO.KRBG",
+    "KO.MDNY",
+    "KO.MRMT",
+    "KO.RKY",
+    "KO.SAUV",
+    "KO.SILT",
+    "KO.SLVT",
+    "KO.YLV"
+   ],
+   "istasyon_duzeyi_epok": {
+    "2017": 16,
+    "2018": 17,
+    "2019": 16,
+    "2020": 12,
+    "2021": 12,
+    "2022": 7,
+    "2023": 11,
+    "2024": 9
+   },
+   "kapi": {
+    "iyi_epok": [
+     2017,
+     2018,
+     2019,
+     2020,
+     2021,
+     2023
+    ],
+    "ortusmeyen_cift": [
+     [
+      2017,
+      2020
+     ],
+     [
+      2017,
+      2021
+     ],
+     [
+      2017,
+      2023
+     ],
+     [
+      2018,
+      2021
+     ],
+     [
+      2018,
+      2023
+     ],
+     [
+      2019,
+      2023
+     ],
+     [
+      2020,
+      2023
+     ]
+    ],
+    "gecti": true
+   }
+  },
+  "Z_dolu_ana__M55_100_genis": {
+   "epok": {
+    "2017": 15,
+    "2018": 16,
+    "2019": 5,
+    "2020": 6,
+    "2021": 6,
+    "2022": 1,
+    "2023": 1,
+    "2024": 9
+   },
+   "yer_pencere": 59,
+   "yer": 20,
+   "istasyonlar": [
+    "KO.ADVT",
+    "KO.BGKT",
+    "KO.CAVI",
+    "KO.CRLT",
+    "KO.CTKS",
+    "KO.CTYL",
+    "KO.EDC",
+    "KO.ERIK",
+    "KO.GEMT",
+    "KO.HRTX",
+    "KO.ISK",
+    "KO.KLYT",
+    "KO.KRBG",
+    "KO.MDNY",
+    "KO.MRMT",
+    "KO.RKY",
+    "KO.SAUV",
+    "KO.SILT",
+    "KO.SLVT",
+    "KO.YLV"
+   ],
+   "istasyon_duzeyi_epok": {
+    "2017": 16,
+    "2018": 17,
+    "2019": 5,
+    "2020": 6,
+    "2021": 6,
+    "2022": 1,
+    "2023": 1,
+    "2024": 10
+   },
+   "kapi": {
+    "iyi_epok": [
+     2017,
+     2018
+    ],
+    "ortusmeyen_cift": [],
+    "gecti": false
+   }
+  },
+  "Z_dolu_ana__ortusmeyen_2018_2021_2024": {
+   "epok": {
+    "2018": 16,
+    "2021": 14,
+    "2024": 9
+   },
+   "yer_pencere": 39,
+   "yer": 19,
+   "istasyonlar": [
+    "KO.ADVT",
+    "KO.BGKT",
+    "KO.CAVI",
+    "KO.CRLT",
+    "KO.CTKS",
+    "KO.CTYL",
+    "KO.EDC",
+    "KO.ERIK",
+    "KO.GEMT",
+    "KO.HRTX",
+    "KO.ISK",
+    "KO.KLYT",
+    "KO.KRBG",
+    "KO.MDNY",
+    "KO.RKY",
+    "KO.SAUV",
+    "KO.SILT",
+    "KO.SLVT",
+    "KO.YLV"
+   ],
+   "istasyon_duzeyi_epok": {
+    "2018": 17,
+    "2021": 15,
+    "2024": 10
+   },
+   "kapi": {
+    "iyi_epok": [
+     2018,
+     2021
+    ],
+    "ortusmeyen_cift": [
+     [
+      2018,
+      2021
+     ]
+    ],
+    "gecti": true
+   }
+  },
+  "Z_dolu_ana__ortusmeyen_2017_2020_2023": {
+   "epok": {
+    "2017": 15,
+    "2020": 14,
+    "2023": 10
+   },
+   "yer_pencere": 39,
+   "yer": 19,
+   "istasyonlar": [
+    "KO.ADVT",
+    "KO.ARMT",
+    "KO.BGKT",
+    "KO.CAVI",
+    "KO.CRLT",
+    "KO.CTKS",
+    "KO.CTYL",
+    "KO.EDC",
+    "KO.ERIK",
+    "KO.GEMT",
+    "KO.HRTX",
+    "KO.ISK",
+    "KO.KLYT",
+    "KO.MDNY",
+    "KO.MRMT",
+    "KO.RKY",
+    "KO.SAUV",
+    "KO.SILT",
+    "KO.SLVT"
+   ],
+   "istasyon_duzeyi_epok": {
+    "2017": 16,
+    "2020": 15,
+    "2023": 11
+   },
+   "kapi": {
+    "iyi_epok": [
+     2017,
+     2020,
+     2023
+    ],
+    "ortusmeyen_cift": [
+     [
+      2017,
+      2020
+     ],
+     [
+      2017,
+      2023
+     ],
+     [
+      2020,
+      2023
+     ]
+    ],
+    "gecti": true
+   }
+  }
+ },
+ "eleme_nedeni_ana_T": {
+  "dolu": 110,
+  "olaysızlık (ana)": 44,
+  "Z ay doluluğu (dolu_ana değil)": 29,
+  "kanal kapsamı yok (üstveri)": 115,
+  "Z ay yoklaması yok (aday)": 3,
+  "aygıt değişimi (Z önizleme)": 3
+ },
+ "olaysizlik_neden_olay": {
+  "us7000c7y0": 20,
+  "us7000irp8": 18,
+  "usb000r2hc": 6
+ },
+ "olay_uzaklik": {
+  "usb000r2hc": {
+   "t": "2014-05-24",
+   "M": 6.9,
+   "z": 6.43,
+   "yer": "21 km SSW of Kamariótissa, Greece",
+   "L_km": 42.8,
+   "istasyon_km": {
+    "KO.ADVT": 368.8,
+    "KO.ARMT": 295.9,
+    "KO.BGKT": 301.9,
+    "KO.BOTS": 232.2,
+    "KO.CAVI": 377.7,
+    "KO.CRLT": 218.8,
+    "KO.CTKS": 283.0,
+    "KO.CTYL": 277.3,
+    "KO.EDC": 209.7,
+    "KO.ERIK": 104.1,
+    "KO.GAZK": 171.6,
+    "KO.GEML": 324.4,
+    "KO.GEMT": 322.4,
+    "KO.GONE": 197.0,
+    "KO.HRTX": 366.4,
+    "KO.ISK": 321.2,
+    "KO.KAVV": 321.3,
+    "KO.KCTX": 250.0,
+    "KO.KLYT": 325.7,
+    "KO.KRBG": 162.2,
+    "KO.LAP": 116.5,
+    "KO.MDNY": 296.4,
+    "KO.MRMT": 189.0,
+    "KO.NMR2": 169.4,
+    "KO.NMR3": 168.8,
+    "KO.NMR4": 170.8,
+    "KO.NMR5": 176.3,
+    "KO.NMR6": 165.2,
+    "KO.NMR7": 163.5,
+    "KO.NMR8": 185.1,
+    "KO.NMR9": 199.1,
+    "KO.RKY": 157.6,
+    "KO.SAUV": 420.4,
+    "KO.SILT": 371.1,
+    "KO.SLVT": 259.5,
+    "KO.SPNC": 418.3,
+    "KO.TKR": 197.1,
+    "KO.YLV": 338.4
+   }
+  },
+  "us20009ly0": {
+   "t": "2017-06-12",
+   "M": 6.3,
+   "z": 12.0,
+   "yer": "5 km S of Plomári, Greece",
+   "L_km": 18.9,
+   "istasyon_km": {
+    "KO.ADVT": 333.6,
+    "KO.ARMT": 280.9,
+    "KO.BGKT": 323.5,
+    "KO.BOTS": 267.3,
+    "KO.CAVI": 329.5,
+    "KO.CRLT": 271.0,
+    "KO.CTKS": 314.7,
+    "KO.CTYL": 326.9,
+    "KO.EDC": 203.1,
+    "KO.ERIK": 194.0,
+    "KO.GAZK": 218.2,
+    "KO.GEML": 297.4,
+    "KO.GEMT": 294.0,
+    "KO.GONE": 168.2,
+    "KO.HRTX": 350.7,
+    "KO.ISK": 329.9,
+    "KO.KAVV": 330.1,
+    "KO.KCTX": 224.6,
+    "KO.KLYT": 344.3,
+    "KO.KRBG": 181.3,
+    "KO.LAP": 163.7,
+    "KO.MDNY": 268.7,
+    "KO.MRMT": 213.8,
+    "KO.NMR2": 214.6,
+    "KO.NMR3": 216.7,
+    "KO.NMR4": 221.5,
+    "KO.NMR5": 224.4,
+    "KO.NMR6": 211.8,
+    "KO.NMR7": 213.3,
+    "KO.NMR8": 212.1,
+    "KO.NMR9": 219.9,
+    "KO.RKY": 207.4,
+    "KO.SAUV": 393.6,
+    "KO.SILT": 372.8,
+    "KO.SLVT": 300.0,
+    "KO.SPNC": 389.3,
+    "KO.TKR": 249.8,
+    "KO.YLV": 314.8
+   }
+  },
+  "us70005lkl": {
+   "t": "2019-09-26",
+   "M": 5.7,
+   "z": 8.0,
+   "yer": "17 km ESE of Marmara Ere?lisi, Turkey",
+   "L_km": 8.4,
+   "istasyon_km": {
+    "KO.ADVT": 143.8,
+    "KO.ARMT": 70.9,
+    "KO.BGKT": 60.7,
+    "KO.BOTS": 17.2,
+    "KO.CAVI": 162.5,
+    "KO.CRLT": 42.9,
+    "KO.CTKS": 47.7,
+    "KO.CTYL": 64.7,
+    "KO.EDC": 66.5,
+    "KO.ERIK": 140.2,
+    "KO.GAZK": 71.4,
+    "KO.GEML": 101.9,
+    "KO.GEMT": 101.9,
+    "KO.GONE": 103.1,
+    "KO.HRTX": 128.6,
+    "KO.ISK": 78.3,
+    "KO.KAVV": 78.4,
+    "KO.KCTX": 73.0,
+    "KO.KLYT": 84.2,
+    "KO.KRBG": 91.6,
+    "KO.LAP": 131.5,
+    "KO.MDNY": 85.7,
+    "KO.MRMT": 57.9,
+    "KO.NMR2": 73.5,
+    "KO.NMR3": 74.2,
+    "KO.NMR4": 72.6,
+    "KO.NMR5": 67.0,
+    "KO.NMR6": 77.7,
+    "KO.NMR7": 79.4,
+    "KO.NMR8": 61.1,
+    "KO.NMR9": 49.2,
+    "KO.RKY": 85.3,
+    "KO.SAUV": 184.1,
+    "KO.SILT": 128.3,
+    "KO.SLVT": 36.5,
+    "KO.SPNC": 183.3,
+    "KO.TKR": 52.5,
+    "KO.YLV": 109.5
+   }
+  },
+  "us7000c7y0": {
+   "t": "2020-10-30",
+   "M": 7.0,
+   "z": 21.0,
+   "yer": "13 km NNE of Néon Karlovásion, Greece",
+   "L_km": 49.0,
+   "istasyon_km": {
+    "KO.ADVT": 379.9,
+    "KO.ARMT": 346.9,
+    "KO.BGKT": 403.0,
+    "KO.BOTS": 358.9,
+    "KO.CAVI": 367.7,
+    "KO.CRLT": 368.5,
+    "KO.CTKS": 399.7,
+    "KO.CTYL": 418.3,
+    "KO.EDC": 287.8,
+    "KO.ERIK": 309.3,
+    "KO.GAZK": 320.4,
+    "KO.GEML": 353.9,
+    "KO.GEMT": 350.1,
+    "KO.GONE": 251.4,
+    "KO.HRTX": 407.3,
+    "KO.ISK": 402.4,
+    "KO.KAVV": 402.6,
+    "KO.KCTX": 295.1,
+    "KO.KLYT": 420.3,
+    "KO.KRBG": 281.0,
+    "KO.LAP": 275.0,
+    "KO.MDNY": 329.3,
+    "KO.MRMT": 309.3,
+    "KO.NMR2": 316.8,
+    "KO.NMR3": 319.5,
+    "KO.NMR4": 324.5,
+    "KO.NMR5": 326.1,
+    "KO.NMR6": 314.8,
+    "KO.NMR7": 317.1,
+    "KO.NMR8": 308.7,
+    "KO.NMR9": 312.9,
+    "KO.RKY": 312.1,
+    "KO.SAUV": 439.0,
+    "KO.SILT": 437.2,
+    "KO.SLVT": 390.1,
+    "KO.SPNC": 433.7,
+    "KO.TKR": 349.8,
+    "KO.YLV": 371.0
+   }
+  },
+  "us7000irp8": {
+   "t": "2022-11-23",
+   "M": 6.1,
+   "z": 10.0,
+   "yer": "15 km W of Düzce, Turkey",
+   "L_km": 14.4,
+   "istasyon_km": {
+    "KO.ADVT": 114.2,
+    "KO.ARMT": 180.9,
+    "KO.BGKT": 189.4,
+    "KO.BOTS": 252.8,
+    "KO.CAVI": 119.8,
+    "KO.CRLT": 274.5,
+    "KO.CTKS": 212.4,
+    "KO.CTYL": 236.5,
+    "KO.EDC": 269.1,
+    "KO.ERIK": 376.9,
+    "KO.GAZK": 307.9,
+    "KO.GEML": 155.0,
+    "KO.GEMT": 157.8,
+    "KO.GONE": 292.5,
+    "KO.HRTX": 110.3,
+    "KO.ISK": 163.5,
+    "KO.KAVV": 163.5,
+    "KO.KCTX": 232.6,
+    "KO.KLYT": 169.3,
+    "KO.KRBG": 314.9,
+    "KO.LAP": 360.3,
+    "KO.MDNY": 184.5,
+    "KO.MRMT": 287.6,
+    "KO.NMR2": 309.4,
+    "KO.NMR3": 310.7,
+    "KO.NMR4": 309.9,
+    "KO.NMR5": 304.4,
+    "KO.NMR6": 313.4,
+    "KO.NMR7": 315.8,
+    "KO.NMR8": 291.6,
+    "KO.NMR9": 277.5,
+    "KO.RKY": 320.9,
+    "KO.SAUV": 56.2,
+    "KO.SILT": 117.9,
+    "KO.SLVT": 236.7,
+    "KO.SPNC": 59.2,
+    "KO.TKR": 290.2,
+    "KO.YLV": 139.2
+   }
+  },
+  "us7000lg2l": {
+   "t": "2023-12-04",
+   "M": 5.1,
+   "z": 10.117,
+   "yer": "7 km NNW of Mudanya, Turkey",
+   "L_km": 3.7,
+   "istasyon_km": {
+    "KO.ADVT": 75.4,
+    "KO.ARMT": 14.7,
+    "KO.BGKT": 83.0,
+    "KO.BOTS": 95.5,
+    "KO.CAVI": 87.9,
+    "KO.CRLT": 121.2,
+    "KO.CTKS": 93.5,
+    "KO.CTYL": 124.7,
+    "KO.EDC": 84.1,
+    "KO.ERIK": 199.0,
+    "KO.GAZK": 133.0,
+    "KO.GEML": 30.9,
+    "KO.GEMT": 28.9,
+    "KO.GONE": 107.8,
+    "KO.HRTX": 80.5,
+    "KO.ISK": 71.7,
+    "KO.KAVV": 71.9,
+    "KO.KCTX": 47.6,
+    "KO.KLYT": 92.2,
+    "KO.KRBG": 131.3,
+    "KO.LAP": 177.0,
+    "KO.MDNY": 8.0,
+    "KO.MRMT": 108.6,
+    "KO.NMR2": 133.4,
+    "KO.NMR3": 135.5,
+    "KO.NMR4": 136.3,
+    "KO.NMR5": 131.3,
+    "KO.NMR6": 136.9,
+    "KO.NMR7": 140.0,
+    "KO.NMR8": 112.7,
+    "KO.NMR9": 99.0,
+    "KO.RKY": 143.8,
+    "KO.SAUV": 129.4,
+    "KO.SILT": 104.0,
+    "KO.SLVT": 103.1,
+    "KO.SPNC": 126.4,
+    "KO.TKR": 126.5,
+    "KO.YLV": 46.5
+   }
+  },
+  "us7000pufs": {
+   "t": "2025-04-23",
+   "M": 6.2,
+   "z": 12.736,
+   "yer": "24 km SE of Marmara Ereğlisi, Turkey",
+   "L_km": 16.5,
+   "istasyon_km": {
+    "KO.ADVT": 138.1,
+    "KO.ARMT": 64.2,
+    "KO.BGKT": 62.3,
+    "KO.BOTS": 24.7,
+    "KO.CAVI": 156.0,
+    "KO.CRLT": 50.2,
+    "KO.CTKS": 52.1,
+    "KO.CTYL": 71.9,
+    "KO.EDC": 60.9,
+    "KO.ERIK": 142.4,
+    "KO.GAZK": 73.2,
+    "KO.GEML": 95.5,
+    "KO.GEMT": 95.3,
+    "KO.GONE": 97.4,
+    "KO.HRTX": 124.9,
+    "KO.ISK": 77.3,
+    "KO.KAVV": 77.4,
+    "KO.KCTX": 64.7,
+    "KO.KLYT": 85.3,
+    "KO.KRBG": 89.9,
+    "KO.LAP": 131.3,
+    "KO.MDNY": 78.1,
+    "KO.MRMT": 56.9,
+    "KO.NMR2": 75.0,
+    "KO.NMR3": 76.0,
+    "KO.NMR4": 75.0,
+    "KO.NMR5": 69.5,
+    "KO.NMR6": 79.2,
+    "KO.NMR7": 81.2,
+    "KO.NMR8": 60.5,
+    "KO.NMR9": 47.5,
+    "KO.RKY": 86.8,
+    "KO.SAUV": 180.2,
+    "KO.SILT": 127.0,
+    "KO.SLVT": 43.9,
+    "KO.SPNC": 179.2,
+    "KO.TKR": 57.6,
+    "KO.YLV": 103.9
+   }
+  },
+  "us6000qznb": {
+   "t": "2025-08-10",
+   "M": 6.1,
+   "z": 10.0,
+   "yer": "10 km WSW of Bigadiç, Turkey",
+   "L_km": 14.4,
+   "istasyon_km": {
+    "KO.ADVT": 188.5,
+    "KO.ARMT": 151.5,
+    "KO.BGKT": 211.2,
+    "KO.BOTS": 180.1,
+    "KO.CAVI": 180.9,
+    "KO.CRLT": 196.9,
+    "KO.CTKS": 211.7,
+    "KO.CTYL": 235.2,
+    "KO.EDC": 109.3,
+    "KO.ERIK": 193.1,
+    "KO.GAZK": 164.0,
+    "KO.GEML": 158.7,
+    "KO.GEMT": 154.9,
+    "KO.GONE": 80.3,
+    "KO.HRTX": 212.4,
+    "KO.ISK": 207.8,
+    "KO.KAVV": 208.0,
+    "KO.KCTX": 102.8,
+    "KO.KLYT": 226.6,
+    "KO.KRBG": 129.2,
+    "KO.LAP": 154.5,
+    "KO.MDNY": 133.6,
+    "KO.MRMT": 142.5,
+    "KO.NMR2": 161.3,
+    "KO.NMR3": 164.5,
+    "KO.NMR4": 168.9,
+    "KO.NMR5": 167.8,
+    "KO.NMR6": 161.4,
+    "KO.NMR7": 164.9,
+    "KO.NMR8": 144.0,
+    "KO.NMR9": 141.4,
+    "KO.RKY": 162.9,
+    "KO.SAUV": 248.7,
+    "KO.SILT": 241.5,
+    "KO.SLVT": 207.2,
+    "KO.SPNC": 243.8,
+    "KO.TKR": 184.6,
+    "KO.YLV": 176.0
+   }
+  }
+ },
+ "pk2025_istasyon": {
+  "KO.BOTS": {
+   "km": 24.7,
+   "kanal_kapsar": false,
+   "aygit_Z_bozuk": null,
+   "ilk_epok": "2025-03-14"
+  },
+  "KO.NMR9": {
+   "km": 47.5,
+   "kanal_kapsar": false,
+   "aygit_Z_bozuk": null,
+   "ilk_epok": "2025-05-27"
+  },
+  "KO.SLVT": {
+   "km": 43.9,
+   "kanal_kapsar": true,
+   "aygit_Z_bozuk": false,
+   "ilk_epok": "2007-08-01"
+  }
+ },
+ "pk2025_hacim_GB": {
+  "A_her_gun_4s": 2.42,
+  "H_her_gun_3s": 1.82,
+  "B_her_gun_2s": 1.21,
+  "C_20g_4s": 1.78,
+  "G_20g_3s": 1.34,
+  "D_20g_2s": 0.89,
+  "F_16g_4s": 1.54,
+  "E_16g_2s": 0.77
+ },
+ "hacim": {
+  "ana (Z dolu, T 2017-2024)": {
+   "A_her_gun_4s": {
+    "istasyon": 21,
+    "istasyon_gun": 53150,
+    "istek_ay": 1752,
+    "GB": 298.5,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 146.75,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 84.41,
+     "TR-7 varlık (1 saat, tek akış)": 9.95,
+     "TR-7 varlık (2 paralel akış, toplam)": 5.39
+    },
+    "bir_hafta_icin_KiBs": 486.0
+   },
+   "H_her_gun_3s": {
+    "istasyon": 21,
+    "istasyon_gun": 53150,
+    "istek_ay": 1752,
+    "GB": 223.9,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 110.08,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 63.32,
+     "TR-7 varlık (1 saat, tek akış)": 7.47,
+     "TR-7 varlık (2 paralel akış, toplam)": 4.06
+    },
+    "bir_hafta_icin_KiBs": 365.0
+   },
+   "B_her_gun_2s": {
+    "istasyon": 21,
+    "istasyon_gun": 53150,
+    "istek_ay": 1752,
+    "GB": 149.2,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 73.4,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 42.23,
+     "TR-7 varlık (1 saat, tek akış)": 5.0,
+     "TR-7 varlık (2 paralel akış, toplam)": 2.73
+    },
+    "bir_hafta_icin_KiBs": 243.0
+   },
+   "C_20g_4s": {
+    "istasyon": 21,
+    "istasyon_gun": 35020,
+    "istek_ay": 1752,
+    "GB": 196.7,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 96.71,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 55.63,
+     "TR-7 varlık (1 saat, tek akış)": 6.57,
+     "TR-7 varlık (2 paralel akış, toplam)": 3.58
+    },
+    "bir_hafta_icin_KiBs": 320.0
+   },
+   "G_20g_3s": {
+    "istasyon": 21,
+    "istasyon_gun": 35020,
+    "istek_ay": 1752,
+    "GB": 147.5,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 72.55,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 41.74,
+     "TR-7 varlık (1 saat, tek akış)": 4.95,
+     "TR-7 varlık (2 paralel akış, toplam)": 2.7
+    },
+    "bir_hafta_icin_KiBs": 240.0
+   },
+   "D_20g_2s": {
+    "istasyon": 21,
+    "istasyon_gun": 35020,
+    "istek_ay": 1752,
+    "GB": 98.3,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 48.39,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 27.85,
+     "TR-7 varlık (1 saat, tek akış)": 3.32,
+     "TR-7 varlık (2 paralel akış, toplam)": 1.82
+    },
+    "bir_hafta_icin_KiBs": 160.0
+   },
+   "F_16g_4s": {
+    "istasyon": 21,
+    "istasyon_gun": 28012,
+    "istek_ay": 1752,
+    "GB": 157.3,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 77.37,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 44.51,
+     "TR-7 varlık (1 saat, tek akış)": 5.27,
+     "TR-7 varlık (2 paralel akış, toplam)": 2.87
+    },
+    "bir_hafta_icin_KiBs": 256.0
+   },
+   "E_16g_2s": {
+    "istasyon": 21,
+    "istasyon_gun": 28012,
+    "istek_ay": 1752,
+    "GB": 78.7,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 38.72,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 22.29,
+     "TR-7 varlık (1 saat, tek akış)": 2.67,
+     "TR-7 varlık (2 paralel akış, toplam)": 1.47
+    },
+    "bir_hafta_icin_KiBs": 128.0
+   }
+  },
+  "ana, örtüşmeyen T 2018/2021/2024": {
+   "A_her_gun_4s": {
+    "istasyon": 19,
+    "istasyon_gun": 42432,
+    "istek_ay": 1404,
+    "GB": 238.3,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 117.15,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 67.38,
+     "TR-7 varlık (1 saat, tek akış)": 7.94,
+     "TR-7 varlık (2 paralel akış, toplam)": 4.31
+    }
+   },
+   "H_her_gun_3s": {
+    "istasyon": 19,
+    "istasyon_gun": 42432,
+    "istek_ay": 1404,
+    "GB": 178.7,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 87.88,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 50.55,
+     "TR-7 varlık (1 saat, tek akış)": 5.97,
+     "TR-7 varlık (2 paralel akış, toplam)": 3.24
+    }
+   },
+   "B_her_gun_2s": {
+    "istasyon": 19,
+    "istasyon_gun": 42432,
+    "istek_ay": 1404,
+    "GB": 119.1,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 58.6,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 33.72,
+     "TR-7 varlık (1 saat, tek akış)": 3.99,
+     "TR-7 varlık (2 paralel akış, toplam)": 2.18
+    }
+   },
+   "C_20g_4s": {
+    "istasyon": 19,
+    "istasyon_gun": 28050,
+    "istek_ay": 1404,
+    "GB": 157.5,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 77.46,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 44.56,
+     "TR-7 varlık (1 saat, tek akış)": 5.27,
+     "TR-7 varlık (2 paralel akış, toplam)": 2.86
+    }
+   },
+   "G_20g_3s": {
+    "istasyon": 19,
+    "istasyon_gun": 28050,
+    "istek_ay": 1404,
+    "GB": 118.1,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 58.11,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 33.43,
+     "TR-7 varlık (1 saat, tek akış)": 3.96,
+     "TR-7 varlık (2 paralel akış, toplam)": 2.16
+    }
+   },
+   "D_20g_2s": {
+    "istasyon": 19,
+    "istasyon_gun": 28050,
+    "istek_ay": 1404,
+    "GB": 78.8,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 38.76,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 22.31,
+     "TR-7 varlık (1 saat, tek akış)": 2.66,
+     "TR-7 varlık (2 paralel akış, toplam)": 1.46
+    }
+   },
+   "F_16g_4s": {
+    "istasyon": 19,
+    "istasyon_gun": 22434,
+    "istek_ay": 1404,
+    "GB": 126.0,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 61.96,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 35.65,
+     "TR-7 varlık (1 saat, tek akış)": 4.22,
+     "TR-7 varlık (2 paralel akış, toplam)": 2.3
+    }
+   },
+   "E_16g_2s": {
+    "istasyon": 19,
+    "istasyon_gun": 22434,
+    "istek_ay": 1404,
+    "GB": 63.0,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 31.01,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 17.85,
+     "TR-7 varlık (1 saat, tek akış)": 2.13,
+     "TR-7 varlık (2 paralel akış, toplam)": 1.17
+    }
+   }
+  },
+  "ana, yalnız T 2021-2024": {
+   "A_her_gun_4s": {
+    "istasyon": 16,
+    "istasyon_gun": 26898,
+    "istek_ay": 888,
+    "GB": 151.1,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 74.27,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 42.72,
+     "TR-7 varlık (1 saat, tek akış)": 5.03,
+     "TR-7 varlık (2 paralel akış, toplam)": 2.73
+    }
+   },
+   "H_her_gun_3s": {
+    "istasyon": 16,
+    "istasyon_gun": 26898,
+    "istek_ay": 888,
+    "GB": 113.3,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 55.71,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 32.04,
+     "TR-7 varlık (1 saat, tek akış)": 3.78,
+     "TR-7 varlık (2 paralel akış, toplam)": 2.06
+    }
+   },
+   "B_her_gun_2s": {
+    "istasyon": 16,
+    "istasyon_gun": 26898,
+    "istek_ay": 888,
+    "GB": 75.5,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 37.15,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 21.37,
+     "TR-7 varlık (1 saat, tek akış)": 2.53,
+     "TR-7 varlık (2 paralel akış, toplam)": 1.38
+    }
+   },
+   "C_20g_4s": {
+    "istasyon": 16,
+    "istasyon_gun": 17744,
+    "istek_ay": 888,
+    "GB": 99.7,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 49.0,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 28.19,
+     "TR-7 varlık (1 saat, tek akış)": 3.33,
+     "TR-7 varlık (2 paralel akış, toplam)": 1.81
+    }
+   },
+   "G_20g_3s": {
+    "istasyon": 16,
+    "istasyon_gun": 17744,
+    "istek_ay": 888,
+    "GB": 74.7,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 36.76,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 21.15,
+     "TR-7 varlık (1 saat, tek akış)": 2.51,
+     "TR-7 varlık (2 paralel akış, toplam)": 1.37
+    }
+   },
+   "D_20g_2s": {
+    "istasyon": 16,
+    "istasyon_gun": 17744,
+    "istek_ay": 888,
+    "GB": 49.8,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 24.52,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 14.11,
+     "TR-7 varlık (1 saat, tek akış)": 1.68,
+     "TR-7 varlık (2 paralel akış, toplam)": 0.92
+    }
+   },
+   "F_16g_4s": {
+    "istasyon": 16,
+    "istasyon_gun": 14192,
+    "istek_ay": 888,
+    "GB": 79.7,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 39.2,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 22.55,
+     "TR-7 varlık (1 saat, tek akış)": 2.67,
+     "TR-7 varlık (2 paralel akış, toplam)": 1.46
+    }
+   },
+   "E_16g_2s": {
+    "istasyon": 16,
+    "istasyon_gun": 14192,
+    "istek_ay": 888,
+    "GB": 39.9,
+    "gun_sure": {
+     "TR-7 §4 (1 saat, 2026-11-11)": 19.61,
+     "TR-5 §4.1 (1 gün, 2026-11-12)": 11.29,
+     "TR-7 varlık (1 saat, tek akış)": 1.35,
+     "TR-7 varlık (2 paralel akış, toplam)": 0.74
+    }
+   }
+  }
+ },
+ "asama0_istek": {
+  "ustveri_istasyon": 26,
+  "yatay_istek": 502,
+  "z_aday_istek": 84,
+  "pk_z_istek": 45,
+  "pk_yatay_istek": 90,
+  "hiz_denemesi_istek": 24,
+  "toplam_istek": 771,
+  "sure_saat_3sn": 0.64
+ },
+ "hiz_KiBs": {
+  "TR-7 §4 (1 saat, 2026-11-11)": 23.0,
+  "TR-5 §4.1 (1 gün, 2026-11-12)": 40.0,
+  "TR-7 varlık (1 saat, tek akış)": 341.3,
+  "TR-7 varlık (2 paralel akış, toplam)": 632.5
+ },
+ "bayt_ornek": 1.3
+}
