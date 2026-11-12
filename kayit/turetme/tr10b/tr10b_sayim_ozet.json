@@ -1,0 +1,4805 @@
+{
+ "meta": {
+  "sayfa_sha256": "74b3eb437b530436231e9758fe3d1c18d71c09c351530820e08bc32bb0f0edc1",
+  "readme_sha256": "6b1e95c03d3eae822d614f764fa6ed286845cdf2470bc754d8316c813923b13b",
+  "comcat_sha256": "cbd2bc88b726d2c791b3407a59a3c53f3050cea0d4e543017963e5ab89c9bc98",
+  "comcat_olay_N": 1674,
+  "epoklar": [
+   1973,
+   1978,
+   1983,
+   1988,
+   1993,
+   1998,
+   2003,
+   2008,
+   2013,
+   2018,
+   2023
+  ],
+  "S1": {
+   "M": 5.0,
+   "R": 50.0,
+   "Z": 30.0,
+   "once": 2,
+   "sonra": 2
+  },
+  "S2": {
+   "M": 6.0,
+   "R": 150.0,
+   "Z": 40.0,
+   "once": 5,
+   "sonra": 2
+  },
+  "S3": {
+   "M": 7.0,
+   "R": 500.0,
+   "Z": 70.0,
+   "once": 2,
+   "sonra": 0
+  },
+  "B1": {
+   "M": 4.5,
+   "R": null,
+   "RL": 5.0,
+   "Rmin": 10.0,
+   "Z": 30.0,
+   "once": 2,
+   "sonra": 0
+  },
+  "B2": {
+   "M": 5.5,
+   "R": 50.0,
+   "Z": 30.0,
+   "once": null,
+   "sonra": 2
+  },
+  "B3": {
+   "M": 7.0,
+   "R": 500.0,
+   "Z": 70.0,
+   "once": 0,
+   "sonra": 0
+  },
+  "big_creep_disarida": [
+   "TABC",
+   "XMBC"
+  ],
+  "K_olay_N": 32,
+  "K_son_N": 8
+ },
+ "sonuc": {
+  "ana": {
+   "istasyon_pencere": 22,
+   "istasyon": 19,
+   "site_pencere": 22,
+   "site": 19,
+   "kesim": 4,
+   "kesim_basina_site_pencere": {
+    "CAL_Hollister": 1,
+    "HAY": 5,
+    "SAF_Parkfield": 12,
+    "SAF_SJB": 4
+   },
+   "epok_basina_site_pencere": {
+    "1973": 1,
+    "1978": 2,
+    "1983": 0,
+    "1988": 0,
+    "1993": 0,
+    "1998": 0,
+    "2003": 5,
+    "2008": 0,
+    "2013": 0,
+    "2018": 14,
+    "2023": 0
+   },
+   "tur": {
+    "tele": 22
+   }
+  },
+  "kapsam_yalniz_R": {
+   "istasyon_pencere": 213,
+   "istasyon": 42,
+   "site_pencere": 197,
+   "site": 34,
+   "kesim": 6,
+   "kesim_basina_site_pencere": {
+    "CAL_Hollister": 23,
+    "HAY": 37,
+    "SAF_Parkfield": 68,
+    "SAF_SJB": 21,
+    "SAF_guney_gecis": 10,
+    "SAF_sunen_orta": 38
+   },
+   "epok_basina_site_pencere": {
+    "1973": 1,
+    "1978": 14,
+    "1983": 18,
+    "1988": 22,
+    "1993": 29,
+    "1998": 23,
+    "2003": 27,
+    "2008": 19,
+    "2013": 14,
+    "2018": 15,
+    "2023": 15
+   },
+   "tur": {
+    "man": 49,
+    "tele": 148
+   }
+  },
+  "kapsam_yalniz_R2": {
+   "istasyon_pencere": 226,
+   "istasyon": 43,
+   "site_pencere": 210,
+   "site": 34,
+   "kesim": 6,
+   "kesim_basina_site_pencere": {
+    "CAL_Hollister": 23,
+    "HAY": 37,
+    "SAF_Parkfield": 76,
+    "SAF_SJB": 26,
+    "SAF_guney_gecis": 10,
+    "SAF_sunen_orta": 38
+   },
+   "epok_basina_site_pencere": {
+    "1973": 1,
+    "1978": 14,
+    "1983": 18,
+    "1988": 22,
+    "1993": 29,
+    "1998": 23,
+    "2003": 27,
+    "2008": 19,
+    "2013": 20,
+    "2018": 21,
+    "2023": 16
+   },
+   "tur": {
+    "man": 49,
+    "tele": 161
+   }
+  },
+  "kapsam_yalniz_U": {
+   "istasyon_pencere": 328,
+   "istasyon": 44,
+   "site_pencere": 269,
+   "site": 34,
+   "kesim": 6,
+   "kesim_basina_site_pencere": {
+    "CAL_Hollister": 28,
+    "HAY": 51,
+    "SAF_Parkfield": 82,
+    "SAF_SJB": 32,
+    "SAF_guney_gecis": 16,
+    "SAF_sunen_orta": 60
+   },
+   "epok_basina_site_pencere": {
+    "1973": 4,
+    "1978": 15,
+    "1983": 19,
+    "1988": 23,
+    "1993": 29,
+    "1998": 29,
+    "2003": 33,
+    "2008": 33,
+    "2013": 34,
+    "2018": 34,
+    "2023": 16
+   },
+   "tur": {
+    "tele/man": 269
+   }
+  },
+  "degiskeler": {
+   "U_ust_sinir_kapsam": {
+    "istasyon_pencere": 38,
+    "istasyon": 30,
+    "site_pencere": 31,
+    "site": 25,
+    "kesim": 5,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 3,
+     "HAY": 10,
+     "SAF_Parkfield": 12,
+     "SAF_SJB": 4,
+     "SAF_guney_gecis": 2
+    },
+    "epok_basina_site_pencere": {
+     "1973": 4,
+     "1978": 2,
+     "1983": 0,
+     "1988": 0,
+     "1993": 0,
+     "1998": 0,
+     "2003": 7,
+     "2008": 0,
+     "2013": 0,
+     "2018": 18,
+     "2023": 0
+    },
+    "tur": {
+     "tele/man": 31
+    }
+   },
+   "R_kati_kapsam": {
+    "istasyon_pencere": 16,
+    "istasyon": 15,
+    "site_pencere": 16,
+    "site": 15,
+    "kesim": 4,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 1,
+     "HAY": 5,
+     "SAF_Parkfield": 8,
+     "SAF_SJB": 2
+    },
+    "epok_basina_site_pencere": {
+     "1973": 1,
+     "1978": 2,
+     "1983": 0,
+     "1988": 0,
+     "1993": 0,
+     "1998": 0,
+     "2003": 5,
+     "2008": 0,
+     "2013": 0,
+     "2018": 8,
+     "2023": 0
+    },
+    "tur": {
+     "tele": 16
+    }
+   },
+   "S1_kapali": {
+    "istasyon_pencere": 43,
+    "istasyon": 34,
+    "site_pencere": 39,
+    "site": 28,
+    "kesim": 5,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 4,
+     "HAY": 11,
+     "SAF_Parkfield": 12,
+     "SAF_SJB": 6,
+     "SAF_sunen_orta": 6
+    },
+    "epok_basina_site_pencere": {
+     "1973": 1,
+     "1978": 14,
+     "1983": 0,
+     "1988": 0,
+     "1993": 0,
+     "1998": 0,
+     "2003": 5,
+     "2008": 3,
+     "2013": 0,
+     "2018": 16,
+     "2023": 0
+    },
+    "tur": {
+     "man": 7,
+     "tele": 32
+    }
+   },
+   "S2_kapali": {
+    "istasyon_pencere": 49,
+    "istasyon": 26,
+    "site_pencere": 49,
+    "site": 26,
+    "kesim": 6,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 4,
+     "HAY": 8,
+     "SAF_Parkfield": 21,
+     "SAF_SJB": 7,
+     "SAF_guney_gecis": 4,
+     "SAF_sunen_orta": 5
+    },
+    "epok_basina_site_pencere": {
+     "1973": 1,
+     "1978": 2,
+     "1983": 6,
+     "1988": 2,
+     "1993": 0,
+     "1998": 0,
+     "2003": 5,
+     "2008": 4,
+     "2013": 12,
+     "2018": 17,
+     "2023": 0
+    },
+    "tur": {
+     "man": 4,
+     "tele": 45
+    }
+   },
+   "S3_kapali": {
+    "istasyon_pencere": 44,
+    "istasyon": 24,
+    "site_pencere": 44,
+    "site": 23,
+    "kesim": 6,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 1,
+     "HAY": 7,
+     "SAF_Parkfield": 25,
+     "SAF_SJB": 7,
+     "SAF_guney_gecis": 2,
+     "SAF_sunen_orta": 2
+    },
+    "epok_basina_site_pencere": {
+     "1973": 1,
+     "1978": 2,
+     "1983": 0,
+     "1988": 0,
+     "1993": 2,
+     "1998": 8,
+     "2003": 5,
+     "2008": 2,
+     "2013": 0,
+     "2018": 14,
+     "2023": 10
+    },
+    "tur": {
+     "man": 2,
+     "tele": 42
+    }
+   },
+   "S1_S2_S3_kapali": {
+    "istasyon_pencere": 206,
+    "istasyon": 43,
+    "site_pencere": 191,
+    "site": 34,
+    "kesim": 6,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 23,
+     "HAY": 37,
+     "SAF_Parkfield": 61,
+     "SAF_SJB": 24,
+     "SAF_guney_gecis": 10,
+     "SAF_sunen_orta": 36
+    },
+    "epok_basina_site_pencere": {
+     "1973": 1,
+     "1978": 14,
+     "1983": 18,
+     "1988": 21,
+     "1993": 28,
+     "1998": 18,
+     "2003": 23,
+     "2008": 13,
+     "2013": 18,
+     "2018": 21,
+     "2023": 16
+    },
+    "tur": {
+     "man": 48,
+     "tele": 143
+    }
+   },
+   "S1_M4.5": {
+    "istasyon_pencere": 12,
+    "istasyon": 12,
+    "site_pencere": 12,
+    "site": 12,
+    "kesim": 2,
+    "kesim_basina_site_pencere": {
+     "HAY": 3,
+     "SAF_Parkfield": 9
+    },
+    "epok_basina_site_pencere": {
+     "1973": 0,
+     "1978": 0,
+     "1983": 0,
+     "1988": 0,
+     "1993": 0,
+     "1998": 0,
+     "2003": 3,
+     "2008": 0,
+     "2013": 0,
+     "2018": 9,
+     "2023": 0
+    },
+    "tur": {
+     "tele": 12
+    }
+   },
+   "S1_R30": {
+    "istasyon_pencere": 33,
+    "istasyon": 28,
+    "site_pencere": 30,
+    "site": 24,
+    "kesim": 5,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 1,
+     "HAY": 10,
+     "SAF_Parkfield": 12,
+     "SAF_SJB": 4,
+     "SAF_sunen_orta": 3
+    },
+    "epok_basina_site_pencere": {
+     "1973": 1,
+     "1978": 6,
+     "1983": 0,
+     "1988": 0,
+     "1993": 0,
+     "1998": 0,
+     "2003": 5,
+     "2008": 2,
+     "2013": 0,
+     "2018": 16,
+     "2023": 0
+    },
+    "tur": {
+     "man": 4,
+     "tele": 26
+    }
+   },
+   "S2_R100": {
+    "istasyon_pencere": 30,
+    "istasyon": 21,
+    "site_pencere": 30,
+    "site": 21,
+    "kesim": 5,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 4,
+     "HAY": 5,
+     "SAF_Parkfield": 12,
+     "SAF_SJB": 7,
+     "SAF_guney_gecis": 2
+    },
+    "epok_basina_site_pencere": {
+     "1973": 1,
+     "1978": 2,
+     "1983": 1,
+     "1988": 1,
+     "1993": 0,
+     "1998": 0,
+     "2003": 5,
+     "2008": 3,
+     "2013": 3,
+     "2018": 14,
+     "2023": 0
+    },
+    "tur": {
+     "man": 1,
+     "tele": 29
+    }
+   },
+   "S3_once5_sonra2": {
+    "istasyon_pencere": 3,
+    "istasyon": 2,
+    "site_pencere": 3,
+    "site": 2,
+    "kesim": 1,
+    "kesim_basina_site_pencere": {
+     "SAF_Parkfield": 3
+    },
+    "epok_basina_site_pencere": {
+     "1973": 1,
+     "1978": 2,
+     "1983": 0,
+     "1988": 0,
+     "1993": 0,
+     "1998": 0,
+     "2003": 0,
+     "2008": 0,
+     "2013": 0,
+     "2018": 0,
+     "2023": 0
+    },
+    "tur": {
+     "tele": 3
+    }
+   },
+   "K_kapali": {
+    "istasyon_pencere": 22,
+    "istasyon": 19,
+    "site_pencere": 22,
+    "site": 19,
+    "kesim": 4,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 1,
+     "HAY": 5,
+     "SAF_Parkfield": 12,
+     "SAF_SJB": 4
+    },
+    "epok_basina_site_pencere": {
+     "1973": 1,
+     "1978": 2,
+     "1983": 0,
+     "1988": 0,
+     "1993": 0,
+     "1998": 0,
+     "2003": 5,
+     "2008": 0,
+     "2013": 0,
+     "2018": 14,
+     "2023": 0
+    },
+    "tur": {
+     "tele": 22
+    }
+   },
+   "D_acik_(DCP_degisimi_duser)": {
+    "istasyon_pencere": 22,
+    "istasyon": 19,
+    "site_pencere": 22,
+    "site": 19,
+    "kesim": 4,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 1,
+     "HAY": 5,
+     "SAF_Parkfield": 12,
+     "SAF_SJB": 4
+    },
+    "epok_basina_site_pencere": {
+     "1973": 1,
+     "1978": 2,
+     "1983": 0,
+     "1988": 0,
+     "1993": 0,
+     "1998": 0,
+     "2003": 5,
+     "2008": 0,
+     "2013": 0,
+     "2018": 14,
+     "2023": 0
+    },
+    "tur": {
+     "tele": 22
+    }
+   },
+   "yalniz_telemetri_(MIC_yok)": {
+    "istasyon_pencere": 22,
+    "istasyon": 19,
+    "site_pencere": 22,
+    "site": 19,
+    "kesim": 4,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 1,
+     "HAY": 5,
+     "SAF_Parkfield": 12,
+     "SAF_SJB": 4
+    },
+    "epok_basina_site_pencere": {
+     "1973": 1,
+     "1978": 2,
+     "1983": 0,
+     "1988": 0,
+     "1993": 0,
+     "1998": 0,
+     "2003": 5,
+     "2008": 0,
+     "2013": 0,
+     "2018": 14,
+     "2023": 0
+    },
+    "tur": {
+     "tele": 22
+    }
+   },
+   "Big_Creep_dahil": {
+    "istasyon_pencere": 23,
+    "istasyon": 20,
+    "site_pencere": 22,
+    "site": 19,
+    "kesim": 4,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 1,
+     "HAY": 5,
+     "SAF_Parkfield": 12,
+     "SAF_SJB": 4
+    },
+    "epok_basina_site_pencere": {
+     "1973": 1,
+     "1978": 2,
+     "1983": 0,
+     "1988": 0,
+     "1993": 0,
+     "1998": 0,
+     "2003": 5,
+     "2008": 0,
+     "2013": 0,
+     "2018": 14,
+     "2023": 0
+    },
+    "tur": {
+     "tele": 22
+    }
+   }
+  },
+  "B_ana": {
+   "istasyon_pencere": 42,
+   "istasyon": 23,
+   "site_pencere": 41,
+   "site": 22,
+   "kesim": 5,
+   "kesim_basina_site_pencere": {
+    "CAL_Hollister": 2,
+    "HAY": 10,
+    "SAF_Parkfield": 21,
+    "SAF_SJB": 4,
+    "SAF_sunen_orta": 4
+   },
+   "epok_basina_site_pencere": {
+    "1973": 1,
+    "1978": 3,
+    "1983": 0,
+    "1988": 0,
+    "1993": 0,
+    "1998": 1,
+    "2003": 5,
+    "2008": 2,
+    "2013": 13,
+    "2018": 16,
+    "2023": 0
+   },
+   "tur": {
+    "man": 2,
+    "tele": 39
+   }
+  },
+  "B_degiskeler": {
+   "B_U_ust_sinir_kapsam": {
+    "istasyon_pencere": 78,
+    "istasyon": 35,
+    "site_pencere": 62,
+    "site": 29,
+    "kesim": 6,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 6,
+     "HAY": 19,
+     "SAF_Parkfield": 21,
+     "SAF_SJB": 4,
+     "SAF_guney_gecis": 4,
+     "SAF_sunen_orta": 8
+    },
+    "epok_basina_site_pencere": {
+     "1973": 4,
+     "1978": 3,
+     "1983": 0,
+     "1988": 0,
+     "1993": 0,
+     "1998": 3,
+     "2003": 7,
+     "2008": 4,
+     "2013": 20,
+     "2018": 21,
+     "2023": 0
+    },
+    "tur": {
+     "tele/man": 62
+    }
+   },
+   "B_R_kati_kapsam": {
+    "istasyon_pencere": 32,
+    "istasyon": 19,
+    "site_pencere": 31,
+    "site": 18,
+    "kesim": 5,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 2,
+     "HAY": 10,
+     "SAF_Parkfield": 13,
+     "SAF_SJB": 2,
+     "SAF_sunen_orta": 4
+    },
+    "epok_basina_site_pencere": {
+     "1973": 1,
+     "1978": 3,
+     "1983": 0,
+     "1988": 0,
+     "1993": 0,
+     "1998": 1,
+     "2003": 5,
+     "2008": 2,
+     "2013": 9,
+     "2018": 10,
+     "2023": 0
+    },
+    "tur": {
+     "man": 2,
+     "tele": 29
+    }
+   },
+   "B1_kapali": {
+    "istasyon_pencere": 118,
+    "istasyon": 41,
+    "site_pencere": 111,
+    "site": 33,
+    "kesim": 6,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 12,
+     "HAY": 19,
+     "SAF_Parkfield": 35,
+     "SAF_SJB": 15,
+     "SAF_guney_gecis": 6,
+     "SAF_sunen_orta": 24
+    },
+    "epok_basina_site_pencere": {
+     "1973": 1,
+     "1978": 6,
+     "1983": 11,
+     "1988": 17,
+     "1993": 0,
+     "1998": 18,
+     "2003": 10,
+     "2008": 11,
+     "2013": 16,
+     "2018": 21,
+     "2023": 0
+    },
+    "tur": {
+     "man": 24,
+     "tele": 87
+    }
+   },
+   "B2_kapali": {
+    "istasyon_pencere": 49,
+    "istasyon": 28,
+    "site_pencere": 46,
+    "site": 24,
+    "kesim": 5,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 2,
+     "HAY": 15,
+     "SAF_Parkfield": 21,
+     "SAF_SJB": 4,
+     "SAF_sunen_orta": 4
+    },
+    "epok_basina_site_pencere": {
+     "1973": 1,
+     "1978": 6,
+     "1983": 0,
+     "1988": 0,
+     "1993": 0,
+     "1998": 1,
+     "2003": 5,
+     "2008": 2,
+     "2013": 15,
+     "2018": 16,
+     "2023": 0
+    },
+    "tur": {
+     "man": 5,
+     "tele": 41
+    }
+   },
+   "B3_kapali": {
+    "istasyon_pencere": 53,
+    "istasyon": 23,
+    "site_pencere": 52,
+    "site": 22,
+    "kesim": 5,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 3,
+     "HAY": 17,
+     "SAF_Parkfield": 21,
+     "SAF_SJB": 7,
+     "SAF_sunen_orta": 4
+    },
+    "epok_basina_site_pencere": {
+     "1973": 1,
+     "1978": 3,
+     "1983": 0,
+     "1988": 0,
+     "1993": 0,
+     "1998": 1,
+     "2003": 5,
+     "2008": 4,
+     "2013": 13,
+     "2018": 16,
+     "2023": 9
+    },
+    "tur": {
+     "man": 2,
+     "tele": 50
+    }
+   },
+   "B1_RL10": {
+    "istasyon_pencere": 13,
+    "istasyon": 12,
+    "site_pencere": 13,
+    "site": 12,
+    "kesim": 3,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 1,
+     "SAF_Parkfield": 9,
+     "SAF_SJB": 3
+    },
+    "epok_basina_site_pencere": {
+     "1973": 0,
+     "1978": 1,
+     "1983": 0,
+     "1988": 0,
+     "1993": 0,
+     "1998": 0,
+     "2003": 0,
+     "2008": 0,
+     "2013": 0,
+     "2018": 12,
+     "2023": 0
+    },
+    "tur": {
+     "tele": 13
+    }
+   },
+   "B1_RL3": {
+    "istasyon_pencere": 55,
+    "istasyon": 26,
+    "site_pencere": 54,
+    "site": 25,
+    "kesim": 6,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 7,
+     "HAY": 12,
+     "SAF_Parkfield": 22,
+     "SAF_SJB": 5,
+     "SAF_guney_gecis": 4,
+     "SAF_sunen_orta": 4
+    },
+    "epok_basina_site_pencere": {
+     "1973": 1,
+     "1978": 3,
+     "1983": 1,
+     "1988": 1,
+     "1993": 0,
+     "1998": 5,
+     "2003": 7,
+     "2008": 5,
+     "2013": 13,
+     "2018": 18,
+     "2023": 0
+    },
+    "tur": {
+     "man": 7,
+     "tele": 47
+    }
+   },
+   "B1_M4.0": {
+    "istasyon_pencere": 42,
+    "istasyon": 23,
+    "site_pencere": 41,
+    "site": 22,
+    "kesim": 5,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 2,
+     "HAY": 10,
+     "SAF_Parkfield": 21,
+     "SAF_SJB": 4,
+     "SAF_sunen_orta": 4
+    },
+    "epok_basina_site_pencere": {
+     "1973": 1,
+     "1978": 3,
+     "1983": 0,
+     "1988": 0,
+     "1993": 0,
+     "1998": 1,
+     "2003": 5,
+     "2008": 2,
+     "2013": 13,
+     "2018": 16,
+     "2023": 0
+    },
+    "tur": {
+     "man": 2,
+     "tele": 39
+    }
+   },
+   "B1_once5": {
+    "istasyon_pencere": 26,
+    "istasyon": 19,
+    "site_pencere": 25,
+    "site": 18,
+    "kesim": 5,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 1,
+     "HAY": 10,
+     "SAF_Parkfield": 11,
+     "SAF_SJB": 1,
+     "SAF_sunen_orta": 2
+    },
+    "epok_basina_site_pencere": {
+     "1973": 0,
+     "1978": 3,
+     "1983": 0,
+     "1988": 0,
+     "1993": 0,
+     "1998": 0,
+     "2003": 5,
+     "2008": 2,
+     "2013": 2,
+     "2018": 13,
+     "2023": 0
+    },
+    "tur": {
+     "man": 1,
+     "tele": 24
+    }
+   },
+   "B3_R300": {
+    "istasyon_pencere": 53,
+    "istasyon": 23,
+    "site_pencere": 52,
+    "site": 22,
+    "kesim": 5,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 3,
+     "HAY": 17,
+     "SAF_Parkfield": 21,
+     "SAF_SJB": 7,
+     "SAF_sunen_orta": 4
+    },
+    "epok_basina_site_pencere": {
+     "1973": 1,
+     "1978": 3,
+     "1983": 0,
+     "1988": 0,
+     "1993": 0,
+     "1998": 1,
+     "2003": 5,
+     "2008": 4,
+     "2013": 13,
+     "2018": 16,
+     "2023": 9
+    },
+    "tur": {
+     "man": 2,
+     "tele": 50
+    }
+   },
+   "B_yalniz_telemetri": {
+    "istasyon_pencere": 39,
+    "istasyon": 20,
+    "site_pencere": 39,
+    "site": 20,
+    "kesim": 5,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 2,
+     "HAY": 10,
+     "SAF_Parkfield": 21,
+     "SAF_SJB": 4,
+     "SAF_sunen_orta": 2
+    },
+    "epok_basina_site_pencere": {
+     "1973": 1,
+     "1978": 2,
+     "1983": 0,
+     "1988": 0,
+     "1993": 0,
+     "1998": 0,
+     "2003": 5,
+     "2008": 2,
+     "2013": 13,
+     "2018": 16,
+     "2023": 0
+    },
+    "tur": {
+     "tele": 39
+    }
+   },
+   "B_D_acik": {
+    "istasyon_pencere": 42,
+    "istasyon": 23,
+    "site_pencere": 41,
+    "site": 22,
+    "kesim": 5,
+    "kesim_basina_site_pencere": {
+     "CAL_Hollister": 2,
+     "HAY": 10,
+     "SAF_Parkfield": 21,
+     "SAF_SJB": 4,
+     "SAF_sunen_orta": 4
+    },
+    "epok_basina_site_pencere": {
+     "1973": 1,
+     "1978": 3,
+     "1983": 0,
+     "1988": 0,
+     "1993": 0,
+     "1998": 1,
+     "2003": 5,
+     "2008": 2,
+     "2013": 13,
+     "2018": 16,
+     "2023": 0
+    },
+    "tur": {
+     "man": 2,
+     "tele": 39
+    }
+   }
+  },
+  "B_eleyen_olaylar_ilk25": [
+   {
+    "tarih": "1983-05-02",
+    "M": 6.7,
+    "yer": "The 1983 Coalinga, California Earthquake",
+    "kural": [
+     "B1"
+    ],
+    "eledigi": 36
+   },
+   {
+    "tarih": "1989-10-18",
+    "M": 6.9,
+    "yer": "The 1989 Loma Prieta, California Earthquake",
+    "kural": [
+     "B1",
+     "B2"
+    ],
+    "eledigi": 34
+   },
+   {
+    "tarih": "1992-06-28",
+    "M": 7.3,
+    "yer": "The 1992 Landers, California Earthquake",
+    "kural": [
+     "B1",
+     "B3"
+    ],
+    "eledigi": 25
+   },
+   {
+    "tarih": "2019-07-06",
+    "M": 7.1,
+    "yer": "Ridgecrest Earthquake Sequence",
+    "kural": [
+     "B1",
+     "B3"
+    ],
+    "eledigi": 16
+   },
+   {
+    "tarih": "1992-04-25",
+    "M": 7.2,
+    "yer": "The 1992 Petrolia, California Earthquake",
+    "kural": [
+     "B1",
+     "B3"
+    ],
+    "eledigi": 15
+   },
+   {
+    "tarih": "1984-04-24",
+    "M": 6.2,
+    "yer": "The 1984 Morgan Hill, California Earthquake",
+    "kural": [
+     "B1",
+     "B2"
+    ],
+    "eledigi": 14
+   },
+   {
+    "tarih": "2004-09-28",
+    "M": 5.97,
+    "yer": "2004 Parkfield, California Earthquake",
+    "kural": [
+     "B1",
+     "B2"
+    ],
+    "eledigi": 14
+   },
+   {
+    "tarih": "1988-02-20",
+    "M": 5.1,
+    "yer": "1 km NE of Tres Pinos, California",
+    "kural": [
+     "B1"
+    ],
+    "eledigi": 13
+   },
+   {
+    "tarih": "1999-10-16",
+    "M": 7.1,
+    "yer": "The 1999 Hector Mine, California Earthquake",
+    "kural": [
+     "B1",
+     "B3"
+    ],
+    "eledigi": 13
+   },
+   {
+    "tarih": "1979-08-06",
+    "M": 5.8,
+    "yer": "The 1979 Coyote Lake, California Earthquake",
+    "kural": [
+     "B1",
+     "B2"
+    ],
+    "eledigi": 12
+   },
+   {
+    "tarih": "1998-08-12",
+    "M": 5.1,
+    "yer": "10 km SW of Ridgemark, California",
+    "kural": [
+     "B1"
+    ],
+    "eledigi": 10
+   },
+   {
+    "tarih": "1980-01-24",
+    "M": 5.8,
+    "yer": "The 1980 Livermore, California Earthquake",
+    "kural": [
+     "B1",
+     "B2"
+    ],
+    "eledigi": 10
+   },
+   {
+    "tarih": "1986-01-26",
+    "M": 5.5,
+    "yer": "3 km ENE of Tres Pinos, California",
+    "kural": [
+     "B1"
+    ],
+    "eledigi": 9
+   },
+   {
+    "tarih": "2003-12-22",
+    "M": 6.5,
+    "yer": "10 km NE of San Simeon, California",
+    "kural": [
+     "B1"
+    ],
+    "eledigi": 8
+   },
+   {
+    "tarih": "1985-08-04",
+    "M": 5.6,
+    "yer": "8 km SW of Huron, California",
+    "kural": [
+     "B1",
+     "B2"
+    ],
+    "eledigi": 7
+   },
+   {
+    "tarih": "1974-11-28",
+    "M": 5.2,
+    "yer": "9 km NW of Hollister, California",
+    "kural": [
+     "B1"
+    ],
+    "eledigi": 6
+   },
+   {
+    "tarih": "1990-04-18",
+    "M": 5.4,
+    "yer": "5 km NNW of Aromas, California",
+    "kural": [
+     "B1"
+    ],
+    "eledigi": 6
+   },
+   {
+    "tarih": "2014-08-24",
+    "M": 6.02,
+    "yer": "The 2014 South Napa, California Earthquake",
+    "kural": [
+     "B1",
+     "B2"
+    ],
+    "eledigi": 6
+   },
+   {
+    "tarih": "1976-12-02",
+    "M": 4.57,
+    "yer": "20 km SSE of Tres Pinos, California",
+    "kural": [
+     "B1"
+    ],
+    "eledigi": 6
+   },
+   {
+    "tarih": "1982-08-10",
+    "M": 4.5,
+    "yer": "22 km SSE of Tres Pinos, California",
+    "kural": [
+     "B1"
+    ],
+    "eledigi": 6
+   },
+   {
+    "tarih": "1994-12-20",
+    "M": 4.9,
+    "yer": "3 km NW of Parkfield, California",
+    "kural": [
+     "B1"
+    ],
+    "eledigi": 6
+   },
+   {
+    "tarih": "1980-11-08",
+    "M": 7.2,
+    "yer": "The 1980 Eureka, California Earthquake",
+    "kural": [
+     "B3"
+    ],
+    "eledigi": 5
+   },
+   {
+    "tarih": "1993-11-14",
+    "M": 4.82,
+    "yer": "8 km NW of Parkfield, California",
+    "kural": [
+     "B1"
+    ],
+    "eledigi": 5
+   },
+   {
+    "tarih": "1993-01-16",
+    "M": 4.91,
+    "yer": "9 km E of Gilroy, California",
+    "kural": [
+     "B1"
+    ],
+    "eledigi": 4
+   },
+   {
+    "tarih": "1986-03-31",
+    "M": 5.7,
+    "yer": "15 km NE of East Foothills, California",
+    "kural": [
+     "B1"
+    ],
+    "eledigi": 4
+   }
+  ],
+  "B_ana_liste": [
+   [
+    "CFW1",
+    2003,
+    "tele",
+    "HAY"
+   ],
+   [
+    "CFW1",
+    2018,
+    "tele",
+    "HAY"
+   ],
+   [
+    "CHP1",
+    2003,
+    "tele",
+    "HAY"
+   ],
+   [
+    "CHP1",
+    2008,
+    "tele",
+    "HAY"
+   ],
+   [
+    "CHP1",
+    2013,
+    "tele",
+    "HAY"
+   ],
+   [
+    "COZ1",
+    2003,
+    "tele",
+    "HAY"
+   ],
+   [
+    "COZ1",
+    2008,
+    "tele",
+    "HAY"
+   ],
+   [
+    "COZ1",
+    2013,
+    "tele",
+    "HAY"
+   ],
+   [
+    "CPP1",
+    2003,
+    "tele",
+    "HAY"
+   ],
+   [
+    "CRR1",
+    1973,
+    "tele",
+    "SAF_Parkfield"
+   ],
+   [
+    "CRR1",
+    1978,
+    "tele",
+    "SAF_Parkfield"
+   ],
+   [
+    "CRR1",
+    2013,
+    "tele",
+    "SAF_Parkfield"
+   ],
+   [
+    "CRR1",
+    2018,
+    "tele",
+    "SAF_Parkfield"
+   ],
+   [
+    "CTM1",
+    2003,
+    "tele",
+    "HAY"
+   ],
+   [
+    "CWN1",
+    2018,
+    "tele",
+    "SAF_SJB"
+   ],
+   [
+    "SJN1",
+    2018,
+    "tele",
+    "SAF_SJB"
+   ],
+   [
+    "WKR1",
+    2013,
+    "tele",
+    "SAF_Parkfield"
+   ],
+   [
+    "WKR1",
+    2018,
+    "tele",
+    "SAF_Parkfield"
+   ],
+   [
+    "X461",
+    2013,
+    "tele",
+    "SAF_Parkfield"
+   ],
+   [
+    "X461",
+    2018,
+    "tele",
+    "SAF_Parkfield"
+   ],
+   [
+    "XDL2",
+    1998,
+    "man",
+    "SAF_sunen_orta"
+   ],
+   [
+    "XGH1",
+    1978,
+    "tele",
+    "SAF_Parkfield"
+   ],
+   [
+    "XGH1",
+    2013,
+    "tele",
+    "SAF_Parkfield"
+   ],
+   [
+    "XGH1",
+    2018,
+    "tele",
+    "SAF_Parkfield"
+   ],
+   [
+    "XHR3",
+    2018,
+    "tele",
+    "SAF_SJB"
+   ],
+   [
+    "XMD1",
+    2013,
+    "tele",
+    "SAF_Parkfield"
+   ],
+   [
+    "XMD1",
+    2018,
+    "tele",
+    "SAF_Parkfield"
+   ],
+   [
+    "XMM1",
+    2013,
+    "tele",
+    "SAF_Parkfield"
+   ],
+   [
+    "XMM1",
+    2018,
+    "tele",
+    "SAF_Parkfield"
+   ],
+   [
+    "XMP1",
+    1978,
+    "man",
+    "SAF_sunen_orta"
+   ],
+   [
+    "XMP2",
+    1978,
+    "man",
+    "SAF_sunen_orta"
+   ],
+   [
+    "XPK2",
+    2013,
+    "tele",
+    "SAF_Parkfield"
+   ],
+   [
+    "XPK2",
+    2018,
+    "tele",
+    "SAF_Parkfield"
+   ],
+   [
+    "XSC1",
+    2013,
+    "tele",
+    "SAF_sunen_orta"
+   ],
+   [
+    "XSC1",
+    2018,
+    "tele",
+    "SAF_sunen_orta"
+   ],
+   [
+    "XSH1",
+    2013,
+    "tele",
+    "CAL_Hollister"
+   ],
+   [
+    "XSH1",
+    2018,
+    "tele",
+    "CAL_Hollister"
+   ],
+   [
+    "XSJ3",
+    2018,
+    "tele",
+    "SAF_SJB"
+   ],
+   [
+    "XTA1",
+    2013,
+    "tele",
+    "SAF_Parkfield"
+   ],
+   [
+    "XTA1",
+    2018,
+    "tele",
+    "SAF_Parkfield"
+   ],
+   [
+    "XVA1",
+    2013,
+    "tele",
+    "SAF_Parkfield"
+   ],
+   [
+    "XVA1",
+    2018,
+    "tele",
+    "SAF_Parkfield"
+   ]
+  ],
+  "eleyen_olaylar_ilk40": [
+   {
+    "id": "nc17204",
+    "tarih": "1984-04-24",
+    "M": 6.2,
+    "yer": "The 1984 Morgan Hill, California Earthquake",
+    "kural": [
+     "S1",
+     "S2"
+    ],
+    "eledigi_istasyon_pencere": 51,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc216859",
+    "tarih": "1989-10-18",
+    "M": 6.9,
+    "yer": "The 1989 Loma Prieta, California Earthquake",
+    "kural": [
+     "S1",
+     "S2"
+    ],
+    "eledigi_istasyon_pencere": 45,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc21323712",
+    "tarih": "2003-12-22",
+    "M": 6.5,
+    "yer": "10 km NE of San Simeon, California",
+    "kural": [
+     "S2"
+    ],
+    "eledigi_istasyon_pencere": 39,
+    "tek_neden": 16
+   },
+   {
+    "id": "nc1091100",
+    "tarih": "1983-05-02",
+    "M": 6.7,
+    "yer": "The 1983 Coalinga, California Earthquake",
+    "kural": [
+     "S1",
+     "S2"
+    ],
+    "eledigi_istasyon_pencere": 36,
+    "tek_neden": 4
+   },
+   {
+    "id": "ci3031111",
+    "tarih": "1992-06-28",
+    "M": 7.3,
+    "yer": "The 1992 Landers, California Earthquake",
+    "kural": [
+     "S3"
+    ],
+    "eledigi_istasyon_pencere": 26,
+    "tek_neden": 10
+   },
+   {
+    "id": "nc269151",
+    "tarih": "1992-04-25",
+    "M": 7.2,
+    "yer": "The 1992 Petrolia, California Earthquake",
+    "kural": [
+     "S3"
+    ],
+    "eledigi_istasyon_pencere": 25,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc10086194",
+    "tarih": "1988-02-20",
+    "M": 5.1,
+    "yer": "1 km NE of Tres Pinos, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 22,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc30190473",
+    "tarih": "1998-08-12",
+    "M": 5.1,
+    "yer": "10 km SW of Ridgemark, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 18,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc10089611",
+    "tarih": "1987-02-14",
+    "M": 5.3,
+    "yer": "4 km NNE of Coalinga, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 17,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc20091154",
+    "tarih": "1990-04-18",
+    "M": 5.4,
+    "yer": "5 km NNW of Aromas, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 16,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc20091155",
+    "tarih": "1990-04-18",
+    "M": 5.1,
+    "yer": "4 km E of Interlaken, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 16,
+    "tek_neden": 0
+   },
+   {
+    "id": "ci38457511",
+    "tarih": "2019-07-06",
+    "M": 7.1,
+    "yer": "Ridgecrest Earthquake Sequence",
+    "kural": [
+     "S3"
+    ],
+    "eledigi_istasyon_pencere": 16,
+    "tek_neden": 10
+   },
+   {
+    "id": "nc72282711",
+    "tarih": "2014-08-24",
+    "M": 6.02,
+    "yer": "The 2014 South Napa, California Earthquake",
+    "kural": [
+     "S1",
+     "S2"
+    ],
+    "eledigi_istasyon_pencere": 15,
+    "tek_neden": 7
+   },
+   {
+    "id": "nc30228270",
+    "tarih": "2004-09-28",
+    "M": 5.97,
+    "yer": "2004 Parkfield, California Earthquake",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 14,
+    "tek_neden": 0
+   },
+   {
+    "id": "ci9108652",
+    "tarih": "1999-10-16",
+    "M": 7.1,
+    "yer": "The 1999 Hector Mine, California Earthquake",
+    "kural": [
+     "S3"
+    ],
+    "eledigi_istasyon_pencere": 13,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc21401069",
+    "tarih": "2004-09-29",
+    "M": 5.0,
+    "yer": "8 km NW of Parkfield, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 13,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc1046962",
+    "tarih": "1979-08-06",
+    "M": 5.8,
+    "yer": "The 1979 Coyote Lake, California Earthquake",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 12,
+    "tek_neden": 0
+   },
+   {
+    "id": "usp0001uxb",
+    "tarih": "1983-05-02",
+    "M": 5.5,
+    "yer": "11 km NNE of Coalinga, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 11,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc1093715",
+    "tarih": "1983-05-09",
+    "M": 5.2,
+    "yer": "12 km NNE of Coalinga, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 11,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc1098982",
+    "tarih": "1983-07-22",
+    "M": 5.37,
+    "yer": "11 km NNW of Coalinga, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 11,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc1099288",
+    "tarih": "1983-07-25",
+    "M": 5.04,
+    "yer": "10 km NNW of Coalinga, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 11,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc1102223",
+    "tarih": "1983-09-09",
+    "M": 5.47,
+    "yer": "11 km NE of Coalinga, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 11,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc64626",
+    "tarih": "1986-01-26",
+    "M": 5.5,
+    "yer": "3 km ENE of Tres Pinos, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 10,
+    "tek_neden": 0
+   },
+   {
+    "id": "ushis3186",
+    "tarih": "1972-02-27",
+    "M": 5.22,
+    "yer": "25 km NE of Soledad, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 10,
+    "tek_neden": 2
+   },
+   {
+    "id": "nc1050040",
+    "tarih": "1980-01-24",
+    "M": 5.8,
+    "yer": "The 1980 Livermore, California Earthquake",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 10,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc1050041",
+    "tarih": "1980-01-24",
+    "M": 5.1,
+    "yer": "11 km E of Blackhawk, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 10,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc1050437",
+    "tarih": "1980-01-27",
+    "M": 5.4,
+    "yer": "9 km NE of Livermore, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 10,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc1021949",
+    "tarih": "1974-11-28",
+    "M": 5.2,
+    "yer": "9 km NW of Hollister, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 9,
+    "tek_neden": 0
+   },
+   {
+    "id": "iscgem776436",
+    "tarih": "1972-02-24",
+    "M": 5.06,
+    "yer": "3 km W of Soledad, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 8,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc10087352",
+    "tarih": "1988-06-13",
+    "M": 5.3,
+    "yer": "6 km E of East Foothills, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 8,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc52348",
+    "tarih": "1985-08-04",
+    "M": 5.6,
+    "yer": "8 km SW of Huron, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 8,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc40204628",
+    "tarih": "2007-10-31",
+    "M": 5.45,
+    "yer": "6 km NNE of East Foothills, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 6,
+    "tek_neden": 3
+   },
+   {
+    "id": "nc1080773",
+    "tarih": "1982-10-25",
+    "M": 5.4,
+    "yer": "22 km SSW of Three Rocks, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 6,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc10139668",
+    "tarih": "1988-06-27",
+    "M": 5.3,
+    "yer": "8 km ESE of Lexington Hills, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 5,
+    "tek_neden": 0
+   },
+   {
+    "id": "usp0001aq1",
+    "tarih": "1980-11-08",
+    "M": 7.2,
+    "yer": "The 1980 Eureka, California Earthquake",
+    "kural": [
+     "S3"
+    ],
+    "eledigi_istasyon_pencere": 5,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc68932",
+    "tarih": "1986-03-31",
+    "M": 5.7,
+    "yer": "15 km NE of East Foothills, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 4,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc10089897",
+    "tarih": "1989-08-08",
+    "M": 5.4,
+    "yer": "4 km ESE of Lexington Hills, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 3,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc71863625",
+    "tarih": "2012-10-21",
+    "M": 5.29,
+    "yer": "24 km NE of San Lucas, California",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 3,
+    "tek_neden": 2
+   },
+   {
+    "id": "ci3144585",
+    "tarih": "1994-01-17",
+    "M": 6.7,
+    "yer": "Northridge, California, earthquake",
+    "kural": [
+     "S2"
+    ],
+    "eledigi_istasyon_pencere": 3,
+    "tek_neden": 0
+   },
+   {
+    "id": "nc73799091",
+    "tarih": "2022-10-25",
+    "M": 5.06,
+    "yer": "15km ESE of Alum Rock, CA",
+    "kural": [
+     "S1"
+    ],
+    "eledigi_istasyon_pencere": 2,
+    "tek_neden": 0
+   }
+  ],
+  "eleme_kural_basina": {
+   "S1": 127,
+   "S2": 130,
+   "S3": 87
+  },
+  "eleme_K": 20
+ },
+ "istasyonlar": [
+  {
+   "kod": "XSH1",
+   "ad": "Shore Rd #1",
+   "fay": "Calaveras Fault",
+   "kesim": "CAL_Hollister",
+   "lat": 36.943,
+   "lon": -121.445,
+   "ilk_gozlem_sayfa": "1971",
+   "dosyalar": [
+    "HDR",
+    "MIC",
+    "10MIN",
+    "DAY"
+   ],
+   "boy": {
+    "HDR": [
+     2510
+    ],
+    "MIC": [
+     1076
+    ],
+    "10MIN": [
+     8095914
+    ],
+    "DAY": [
+     31747
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2026-11-11",
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": true,
+   "R2_tele": [
+    [
+     "1971-06-14",
+     "2025-12-31"
+    ]
+   ],
+   "R2_man": [
+    [
+     "1971-06-15",
+     "2020-06-30"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1971-06-15",
+      "2013-03-20"
+     ]
+    ],
+    "DAY": [
+     [
+      "1971-06-14",
+      "1997-07-31"
+     ]
+    ]
+   },
+   "ana_site_pencere": 1,
+   "not_": ""
+  },
+  {
+   "kod": "SHR2",
+   "ad": "Shore Rd #2",
+   "fay": "Calaveras Fault",
+   "kesim": "CAL_Hollister",
+   "lat": 36.943,
+   "lon": -121.445,
+   "ilk_gozlem_sayfa": "Apr-86",
+   "dosyalar": [
+    "MIC"
+   ],
+   "boy": {
+    "MIC": [
+     314
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": null,
+    "DAY": null
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [],
+   "R2_man": [
+    [
+     "1986-04-01",
+     "1999-08-30"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1985-05-16",
+      "1999-08-30"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "HLC1",
+   "ad": "Hollister Central",
+   "fay": "Calaveras Fault",
+   "kesim": "CAL_Hollister",
+   "lat": 36.857,
+   "lon": -121.405,
+   "ilk_gozlem_sayfa": "Apr-70",
+   "dosyalar": [
+    "MIC"
+   ],
+   "boy": {
+    "MIC": [
+     1649
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": null,
+    "DAY": null
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [],
+   "R2_man": [
+    [
+     "1970-04-28",
+     "2009-07-30"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1970-04-28",
+      "2009-07-30"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "HLD1",
+   "ad": "Hollister D St",
+   "fay": "Calaveras Fault",
+   "kesim": "CAL_Hollister",
+   "lat": 36.842,
+   "lon": -121.403,
+   "ilk_gozlem_sayfa": "Apr-70",
+   "dosyalar": [
+    "MIC"
+   ],
+   "boy": {
+    "MIC": [
+     1111
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": null,
+    "DAY": null
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [],
+   "R2_man": [
+    [
+     "1970-04-09",
+     "2008-05-28"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1970-04-09",
+      "2008-05-28"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "CPP1",
+   "ad": "Pt Pinole",
+   "fay": "Hayward Fault",
+   "kesim": "HAY",
+   "lat": 37.99,
+   "lon": -122.356,
+   "ilk_gozlem_sayfa": "Aug.  1995",
+   "dosyalar": [
+    "HDR",
+    "10MIN"
+   ],
+   "boy": {
+    "HDR": [
+     3832
+    ],
+    "10MIN": [
+     12289498
+    ]
+   },
+   "last_modified": {
+    "MIC": null,
+    "10MIN": "2026-11-11",
+    "DAY": null
+   },
+   "etkin_10MIN": true,
+   "R2_tele": [
+    [
+     "1995-08-01",
+     "2025-12-31"
+    ]
+   ],
+   "R2_man": [],
+   "readme": {},
+   "ana_site_pencere": 1,
+   "not_": ""
+  },
+  {
+   "kod": "CTM1",
+   "ad": "Temescal",
+   "fay": "Hayward Fault",
+   "kesim": "HAY",
+   "lat": 37.844,
+   "lon": -122.227,
+   "ilk_gozlem_sayfa": "Mar.  1997",
+   "dosyalar": [
+    "HDR",
+    "10MIN"
+   ],
+   "boy": {
+    "HDR": [
+     2161
+    ],
+    "10MIN": [
+     14500085
+    ]
+   },
+   "last_modified": {
+    "MIC": null,
+    "10MIN": "2026-11-11",
+    "DAY": null
+   },
+   "etkin_10MIN": true,
+   "R2_tele": [
+    [
+     "1997-03-01",
+     "2025-12-31"
+    ]
+   ],
+   "R2_man": [],
+   "readme": {},
+   "ana_site_pencere": 1,
+   "not_": ""
+  },
+  {
+   "kod": "COZ1",
+   "ad": "Oakland Zoo",
+   "fay": "Hayward Fault",
+   "kesim": "HAY",
+   "lat": 37.753,
+   "lon": -122.15,
+   "ilk_gozlem_sayfa": "Nov.  1996",
+   "dosyalar": [
+    "HDR",
+    "10MIN"
+   ],
+   "boy": {
+    "HDR": [
+     2401
+    ],
+    "10MIN": [
+     15247187
+    ]
+   },
+   "last_modified": {
+    "MIC": null,
+    "10MIN": "2026-11-11",
+    "DAY": null
+   },
+   "etkin_10MIN": true,
+   "R2_tele": [
+    [
+     "1996-11-01",
+     "2025-12-31"
+    ]
+   ],
+   "R2_man": [],
+   "readme": {},
+   "ana_site_pencere": 1,
+   "not_": ""
+  },
+  {
+   "kod": "HWR1",
+   "ad": "Hayward, Rose St #1",
+   "fay": "Hayward Fault",
+   "kesim": "HAY",
+   "lat": 37.68,
+   "lon": -122.092,
+   "ilk_gozlem_sayfa": "Apr-68",
+   "dosyalar": [
+    "MIC"
+   ],
+   "boy": {
+    "MIC": [
+     6505
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": null,
+    "DAY": null
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [],
+   "R2_man": [
+    [
+     "1969-06-10",
+     "1988-09-10"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1969-06-10",
+      "1988-09-10"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "HWR2",
+   "ad": "Hayward, Rose St #2",
+   "fay": "Hayward Fault",
+   "kesim": "HAY",
+   "lat": 37.68,
+   "lon": -122.092,
+   "ilk_gozlem_sayfa": "Apr-68",
+   "dosyalar": [
+    "MIC"
+   ],
+   "boy": {
+    "MIC": [
+     6834
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": null,
+    "DAY": null
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [],
+   "R2_man": [
+    [
+     "1969-06-10",
+     "1995-06-08"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1969-06-10",
+      "1995-06-08"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "HWE1",
+   "ad": "Hayward, D St #1",
+   "fay": "Hayward Fault",
+   "kesim": "HAY",
+   "lat": 37.67,
+   "lon": -122.08,
+   "ilk_gozlem_sayfa": "Apr-68",
+   "dosyalar": [
+    "MIC"
+   ],
+   "boy": {
+    "MIC": [
+     6245
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": null,
+    "DAY": null
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [],
+   "R2_man": [
+    [
+     "1969-06-12",
+     "1995-04-08"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1969-06-12",
+      "1995-04-08"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "HWW1",
+   "ad": "Hayward, D St #2",
+   "fay": "Hayward Fault",
+   "kesim": "HAY",
+   "lat": 37.67,
+   "lon": -122.08,
+   "ilk_gozlem_sayfa": "Apr-68",
+   "dosyalar": [
+    "MIC"
+   ],
+   "boy": {
+    "MIC": [
+     7257
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": null,
+    "DAY": null
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [],
+   "R2_man": [
+    [
+     "1969-06-12",
+     "1994-10-22"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1969-06-12",
+      "1994-10-22"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "HWP1",
+   "ad": "Hayward,  Palisades St #1",
+   "fay": "Hayward Fault",
+   "kesim": "HAY",
+   "lat": 37.663,
+   "lon": -122.074,
+   "ilk_gozlem_sayfa": "Apr-68",
+   "dosyalar": [
+    "MIC"
+   ],
+   "boy": {
+    "MIC": [
+     14495
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": null,
+    "DAY": null
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [],
+   "R2_man": [
+    [
+     "1970-05-01",
+     "1993-12-18"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1970-05-01",
+      "1993-12-18"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "CHP1",
+   "ad": "Hayward, Palisades St #2",
+   "fay": "Hayward Fault",
+   "kesim": "HAY",
+   "lat": 37.663,
+   "lon": -122.074,
+   "ilk_gozlem_sayfa": "Apr-94",
+   "dosyalar": [
+    "HDR",
+    "10MIN"
+   ],
+   "boy": {
+    "HDR": [
+     2205
+    ],
+    "10MIN": [
+     17849840
+    ]
+   },
+   "last_modified": {
+    "MIC": null,
+    "10MIN": "2026-11-11",
+    "DAY": null
+   },
+   "etkin_10MIN": true,
+   "R2_tele": [
+    [
+     "1994-04-01",
+     "2025-12-31"
+    ]
+   ],
+   "R2_man": [],
+   "readme": {},
+   "ana_site_pencere": 1,
+   "not_": ""
+  },
+  {
+   "kod": "CFW1",
+   "ad": "Fremont Winery",
+   "fay": "Hayward Fault",
+   "kesim": "HAY",
+   "lat": 37.532,
+   "lon": -121.952,
+   "ilk_gozlem_sayfa": "Dec.  1993",
+   "dosyalar": [
+    "HDR",
+    "10MIN"
+   ],
+   "boy": {
+    "HDR": [
+     2242
+    ],
+    "10MIN": [
+     15394906
+    ]
+   },
+   "last_modified": {
+    "MIC": null,
+    "10MIN": "2026-11-11",
+    "DAY": null
+   },
+   "etkin_10MIN": true,
+   "R2_tele": [
+    [
+     "1993-12-01",
+     "2025-12-31"
+    ]
+   ],
+   "R2_man": [
+    [
+     "1993-12-04",
+     "1994-02-26"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1993-12-04",
+      "1994-02-26"
+     ]
+    ]
+   },
+   "ana_site_pencere": 1,
+   "not_": ""
+  },
+  {
+   "kod": "SJN1",
+   "ad": "San Juan Bautista; Nyland",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_SJB",
+   "lat": 36.8546,
+   "lon": -121.521,
+   "ilk_gozlem_sayfa": "2004",
+   "dosyalar": [
+    "HDR",
+    "10MIN"
+   ],
+   "boy": {
+    "HDR": [
+     2712
+    ],
+    "10MIN": [
+     7670165
+    ]
+   },
+   "last_modified": {
+    "MIC": null,
+    "10MIN": "2026-11-11",
+    "DAY": null
+   },
+   "etkin_10MIN": true,
+   "R2_tele": [
+    [
+     "2004-01-01",
+     "2025-12-31"
+    ]
+   ],
+   "R2_man": [],
+   "readme": {},
+   "ana_site_pencere": 1,
+   "not_": "boylam sayfada 0; XSJ2'den"
+  },
+  {
+   "kod": "XSJ2",
+   "ad": "San Juan Bautista #2",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_SJB",
+   "lat": 36.836,
+   "lon": -121.521,
+   "ilk_gozlem_sayfa": "Jun-69",
+   "dosyalar": [
+    "HDR",
+    "MIC",
+    "10MIN",
+    "DAY"
+   ],
+   "boy": {
+    "HDR": [
+     2116
+    ],
+    "MIC": [
+     98
+    ],
+    "10MIN": [
+     2356927
+    ],
+    "DAY": [
+     39634
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2020-07-09",
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [
+    [
+     "1969-06-04",
+     "2006-07-29"
+    ],
+    [
+     "1991-02-13",
+     "2006-07-30"
+    ]
+   ],
+   "R2_man": [
+    [
+     "2007-02-15",
+     "2010-02-11"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "2007-02-15",
+      "2010-02-11"
+     ]
+    ],
+    "DAY": [
+     [
+      "1969-06-04",
+      "2006-07-29"
+     ]
+    ],
+    "CL10": [
+     [
+      "1991-02-13",
+      "2006-07-30"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "XSJ3",
+   "ad": "San Juan Bautista #3",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_SJB",
+   "lat": 36.836,
+   "lon": -121.521,
+   "ilk_gozlem_sayfa": "Jan. 2007",
+   "dosyalar": [
+    "HDR",
+    "MIC",
+    "10MIN",
+    "DAY"
+   ],
+   "boy": {
+    "HDR": [
+     2604
+    ],
+    "MIC": [
+     154
+    ],
+    "10MIN": [
+     1492575
+    ],
+    "DAY": [
+     6663
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2020-07-09",
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [
+    [
+     "2007-01-01",
+     "2020-06-30"
+    ]
+   ],
+   "R2_man": [
+    [
+     "2007-02-15",
+     "2020-06-30"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "2007-02-15",
+      "2013-03-22"
+     ]
+    ],
+    "DAY": [
+     [
+      "2007-01-01",
+      "2013-07-09"
+     ]
+    ],
+    "CL10": [
+     [
+      "2007-01-01",
+      "2013-07-10"
+     ]
+    ]
+   },
+   "ana_site_pencere": 1,
+   "not_": ""
+  },
+  {
+   "kod": "XHR1",
+   "ad": "Harris Ranch #1",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_SJB",
+   "lat": 36.772,
+   "lon": -121.422,
+   "ilk_gozlem_sayfa": "1970",
+   "dosyalar": [
+    "HDR",
+    "MIC",
+    "10MIN"
+   ],
+   "boy": {
+    "HDR": [
+     2945
+    ],
+    "MIC": [
+     824
+    ],
+    "10MIN": [
+     516995
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2020-07-09",
+    "DAY": null
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [],
+   "R2_man": [],
+   "readme": {},
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "XHR2",
+   "ad": "Harris Ranch #2",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_SJB",
+   "lat": 36.772,
+   "lon": -121.422,
+   "ilk_gozlem_sayfa": "Apr-85",
+   "dosyalar": [
+    "HDR",
+    "MIC",
+    "10MIN",
+    "DAY"
+   ],
+   "boy": {
+    "HDR": [
+     1894
+    ],
+    "MIC": [
+     459
+    ],
+    "10MIN": [
+     2050383
+    ],
+    "DAY": [
+     25325
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2020-07-09",
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [
+    [
+     "1985-04-05",
+     "2005-06-26"
+    ],
+    [
+     "1991-11-22",
+     "2005-06-27"
+    ]
+   ],
+   "R2_man": [
+    [
+     "1985-04-01",
+     "2008-05-05"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1985-04-01",
+      "2008-05-05"
+     ]
+    ],
+    "DAY": [
+     [
+      "1985-04-05",
+      "2005-06-26"
+     ]
+    ],
+    "CL10": [
+     [
+      "1991-11-22",
+      "2005-06-27"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "XHR3",
+   "ad": "Harris Ranch #3",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_SJB",
+   "lat": 36.772,
+   "lon": -121.422,
+   "ilk_gozlem_sayfa": "Aug. 2009",
+   "dosyalar": [
+    "HDR",
+    "MIC",
+    "10MIN",
+    "DAY"
+   ],
+   "boy": {
+    "HDR": [
+     2028
+    ],
+    "MIC": [
+     130
+    ],
+    "10MIN": [
+     7009358
+    ],
+    "DAY": [
+     41
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2026-11-11",
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": true,
+   "R2_tele": [
+    [
+     "2009-08-20",
+     "2025-12-31"
+    ]
+   ],
+   "R2_man": [
+    [
+     "2009-08-21",
+     "2020-06-30"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "2009-08-21",
+      "2013-03-22"
+     ]
+    ],
+    "DAY": [
+     [
+      "2009-08-20",
+      "2013-07-08"
+     ]
+    ],
+    "CL10": [
+     [
+      "2009-08-20",
+      "2013-07-10"
+     ]
+    ]
+   },
+   "ana_site_pencere": 1,
+   "not_": ""
+  },
+  {
+   "kod": "CWC3",
+   "ad": "Cienega Winery Central",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_SJB",
+   "lat": 36.75,
+   "lon": -121.385,
+   "ilk_gozlem_sayfa": "Nov.  1968",
+   "dosyalar": [
+    "HDR",
+    "MIC",
+    "10MIN",
+    "DAY"
+   ],
+   "boy": {
+    "HDR": [
+     3933
+    ],
+    "MIC": [
+     766
+    ],
+    "10MIN": [
+     1385781
+    ],
+    "DAY": [
+     28917
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2020-07-09",
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [
+    [
+     "1968-11-14",
+     "1999-03-07"
+    ],
+    [
+     "1991-11-22",
+     "2000-12-11"
+    ]
+   ],
+   "R2_man": [
+    [
+     "1977-01-01",
+     "2004-01-14"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1977-01-01",
+      "2004-01-14"
+     ]
+    ],
+    "DAY": [
+     [
+      "1968-11-14",
+      "1999-03-07"
+     ]
+    ],
+    "CL10": [
+     [
+      "1991-11-22",
+      "2000-12-11"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "CWN1",
+   "ad": "Cienega Winery North",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_SJB",
+   "lat": 36.75,
+   "lon": -121.385,
+   "ilk_gozlem_sayfa": "Jun-72",
+   "dosyalar": [
+    "HDR",
+    "MIC",
+    "10MIN",
+    "DAY"
+   ],
+   "boy": {
+    "HDR": [
+     3933
+    ],
+    "MIC": [
+     1045
+    ],
+    "10MIN": [
+     10449032
+    ],
+    "DAY": [
+     45427
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2023-12-23",
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [
+    [
+     "1972-06-28",
+     "2023-12-23"
+    ]
+   ],
+   "R2_man": [
+    [
+     "1972-06-29",
+     "2020-06-30"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1972-06-29",
+      "2013-03-20"
+     ]
+    ],
+    "DAY": [
+     [
+      "1972-06-28",
+      "2013-07-09"
+     ]
+    ],
+    "CL10": [
+     [
+      "1991-11-22",
+      "2013-07-10"
+     ]
+    ]
+   },
+   "ana_site_pencere": 1,
+   "not_": ""
+  },
+  {
+   "kod": "XFL1",
+   "ad": "Frank Lewis Long",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_sunen_orta",
+   "lat": 36.665,
+   "lon": -121.272,
+   "ilk_gozlem_sayfa": "Apr-73",
+   "dosyalar": [
+    "MIC",
+    "DAY"
+   ],
+   "boy": {
+    "MIC": [
+     702
+    ],
+    "DAY": [
+     24805
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": null,
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [
+    [
+     "1973-04-23",
+     "1995-03-11"
+    ]
+   ],
+   "R2_man": [
+    [
+     "1973-04-15",
+     "1996-08-05"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1973-04-15",
+      "1996-08-05"
+     ]
+    ],
+    "DAY": [
+     [
+      "1973-04-23",
+      "1995-03-11"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "XMR1",
+   "ad": "Melendy Ranch",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_sunen_orta",
+   "lat": 36.595,
+   "lon": -121.187,
+   "ilk_gozlem_sayfa": "Jun-69",
+   "dosyalar": [
+    "HDR",
+    "MIC",
+    "10MIN",
+    "DAY"
+   ],
+   "boy": {
+    "HDR": [
+     4102
+    ],
+    "MIC": [
+     1200
+    ],
+    "10MIN": [
+     19347510
+    ],
+    "DAY": [
+     62201
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2026-11-11",
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": true,
+   "R2_tele": [
+    [
+     "1969-06-04",
+     "2025-12-31"
+    ]
+   ],
+   "R2_man": [
+    [
+     "1969-06-05",
+     "2020-06-30"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1969-06-05",
+      "2013-03-23"
+     ]
+    ],
+    "DAY": [
+     [
+      "1969-06-04",
+      "2013-07-09"
+     ]
+    ],
+    "CL10": [
+     [
+      "1991-11-22",
+      "2013-07-10"
+     ]
+    ],
+    "PKF_EQ": [
+     [
+      "2004-04-01",
+      "2005-04-04"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "MRW1",
+   "ad": "Melendy Windmill",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_sunen_orta",
+   "lat": 36.585,
+   "lon": -121.177,
+   "ilk_gozlem_sayfa": "Sept.  1972",
+   "dosyalar": [
+    "MIC"
+   ],
+   "boy": {
+    "MIC": [
+     787
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": null,
+    "DAY": null
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [],
+   "R2_man": [
+    [
+     "1972-10-04",
+     "2004-10-05"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1972-10-04",
+      "2004-10-05"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "XDL2",
+   "ad": "Dry Lake Long",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_sunen_orta",
+   "lat": 36.492,
+   "lon": -121.078,
+   "ilk_gozlem_sayfa": "1978",
+   "dosyalar": [
+    "MIC"
+   ],
+   "boy": {
+    "MIC": [
+     459
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": null,
+    "DAY": null
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [],
+   "R2_man": [
+    [
+     "1978-01-01",
+     "2002-02-12"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1977-01-01",
+      "2002-02-12"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "BIT1",
+   "ad": "Bitterwater",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_sunen_orta",
+   "lat": 36.398,
+   "lon": -120.982,
+   "ilk_gozlem_sayfa": "Jul-79",
+   "dosyalar": [
+    "MIC"
+   ],
+   "boy": {
+    "MIC": [
+     910
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": null,
+    "DAY": null
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [],
+   "R2_man": [
+    [
+     "1979-07-01",
+     "1995-11-28"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1969-07-02",
+      "1995-11-28"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "XMP1",
+   "ad": "Monarch Peak #1",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_sunen_orta",
+   "lat": 36.217,
+   "lon": -120.798,
+   "ilk_gozlem_sayfa": "Jun-69",
+   "dosyalar": [
+    "MIC"
+   ],
+   "boy": {
+    "MIC": [
+     652
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": null,
+    "DAY": null
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [],
+   "R2_man": [
+    [
+     "1969-06-05",
+     "1988-08-05"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1969-06-05",
+      "1988-08-05"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "XMP2",
+   "ad": "Monarch Peak #1",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_sunen_orta",
+   "lat": 36.217,
+   "lon": -120.798,
+   "ilk_gozlem_sayfa": "Jun-69",
+   "dosyalar": [
+    "MIC"
+   ],
+   "boy": {
+    "MIC": [
+     846
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": null,
+    "DAY": null
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [],
+   "R2_man": [
+    [
+     "1969-06-05",
+     "1997-06-24"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1969-06-05",
+      "1997-06-24"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "XSC1",
+   "ad": "Slacks Canyon",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_sunen_orta",
+   "lat": 36.065,
+   "lon": -120.628,
+   "ilk_gozlem_sayfa": "Jun-79",
+   "dosyalar": [
+    "HDR",
+    "MIC",
+    "10MIN",
+    "DAY"
+   ],
+   "boy": {
+    "HDR": [
+     3405
+    ],
+    "MIC": [
+     1228
+    ],
+    "10MIN": [
+     6455292
+    ],
+    "DAY": [
+     65145
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2026-11-11",
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": true,
+   "R2_tele": [
+    [
+     "1979-06-01",
+     "2025-12-31"
+    ]
+   ],
+   "R2_man": [
+    [
+     "1979-06-01",
+     "2020-06-30"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1969-06-05",
+      "2013-03-20"
+     ]
+    ],
+    "DAY": [
+     [
+      "1969-06-04",
+      "2013-07-09"
+     ]
+    ],
+    "CL10": [
+     [
+      "1985-04-10",
+      "2013-07-10"
+     ]
+    ],
+    "PKF_EQ": [
+     [
+      "2004-04-01",
+      "2005-06-14"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "XMM1",
+   "ad": "Middle Mtn",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.958,
+   "lon": -120.502,
+   "ilk_gozlem_sayfa": "Oct.  1979",
+   "dosyalar": [
+    "HDR",
+    "MIC",
+    "10MIN",
+    "DAY"
+   ],
+   "boy": {
+    "HDR": [
+     3867
+    ],
+    "MIC": [
+     894
+    ],
+    "10MIN": [
+     6420151
+    ],
+    "DAY": [
+     46153
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2026-11-11",
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": true,
+   "R2_tele": [
+    [
+     "1979-10-01",
+     "2025-12-31"
+    ]
+   ],
+   "R2_man": [
+    [
+     "1979-10-01",
+     "2020-06-30"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1979-09-25",
+      "2013-02-15"
+     ]
+    ],
+    "DAY": [
+     [
+      "1979-09-26",
+      "2013-07-09"
+     ]
+    ],
+    "CL10": [
+     [
+      "1984-09-24",
+      "2013-07-10"
+     ]
+    ],
+    "PKF_EQ": [
+     [
+      "2004-04-01",
+      "2005-06-14"
+     ]
+    ]
+   },
+   "ana_site_pencere": 1,
+   "not_": ""
+  },
+  {
+   "kod": "XMBC",
+   "ad": "Middle Mtn; Big Creep",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.958,
+   "lon": -120.502,
+   "ilk_gozlem_sayfa": "Apr-04",
+   "dosyalar": [
+    "HDR",
+    "MIC",
+    "10MIN",
+    "DAY"
+   ],
+   "boy": {
+    "HDR": [
+     1908
+    ],
+    "MIC": [
+     543
+    ],
+    "10MIN": [
+     957645
+    ],
+    "DAY": [
+     6264
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2020-07-09",
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [
+    [
+     "2004-04-01",
+     "2011-06-09"
+    ],
+    [
+     "2004-04-01",
+     "2011-06-10"
+    ]
+   ],
+   "R2_man": [
+    [
+     "2004-04-01",
+     "2011-01-09"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1985-04-22",
+      "2011-01-09"
+     ]
+    ],
+    "DAY": [
+     [
+      "2004-04-01",
+      "2011-06-09"
+     ]
+    ],
+    "CL10": [
+     [
+      "2004-04-01",
+      "2011-06-10"
+     ]
+    ],
+    "PKF_EQ": [
+     [
+      "2004-04-01",
+      "2005-06-14"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "XMD1",
+   "ad": "Middle Ridge",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.943,
+   "lon": -120.485,
+   "ilk_gozlem_sayfa": "Jul-86",
+   "dosyalar": [
+    "HDR",
+    "MIC",
+    "10MIN",
+    "DAY"
+   ],
+   "boy": {
+    "HDR": [
+     4892
+    ],
+    "MIC": [
+     584
+    ],
+    "10MIN": [
+     6188513
+    ],
+    "DAY": [
+     34689
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2026-11-11",
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": true,
+   "R2_tele": [
+    [
+     "1986-09-20",
+     "2025-12-31"
+    ]
+   ],
+   "R2_man": [
+    [
+     "1986-07-25",
+     "2020-06-30"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1986-07-25",
+      "2013-03-06"
+     ]
+    ],
+    "DAY": [
+     [
+      "1986-09-20",
+      "2013-07-09"
+     ]
+    ],
+    "CL10": [
+     [
+      "1986-09-20",
+      "2013-07-10"
+     ]
+    ],
+    "PKF_EQ": [
+     [
+      "2004-04-01",
+      "2005-06-14"
+     ]
+    ]
+   },
+   "ana_site_pencere": 1,
+   "not_": ""
+  },
+  {
+   "kod": "XVA1",
+   "ad": "Varian",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.922,
+   "lon": -120.462,
+   "ilk_gozlem_sayfa": "Apr-87",
+   "dosyalar": [
+    "HDR",
+    "MIC",
+    "10MIN",
+    "DAY"
+   ],
+   "boy": {
+    "HDR": [
+     2750
+    ],
+    "MIC": [
+     532
+    ],
+    "10MIN": [
+     4797198
+    ],
+    "DAY": [
+     40569
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2020-07-09",
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [
+    [
+     "1987-05-27",
+     "2020-06-30"
+    ]
+   ],
+   "R2_man": [
+    [
+     "1987-04-23",
+     "2020-06-30"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1987-04-23",
+      "2013-03-16"
+     ]
+    ],
+    "DAY": [
+     [
+      "1987-05-27",
+      "2013-07-09"
+     ]
+    ],
+    "CL10": [
+     [
+      "1987-05-27",
+      "2013-07-10"
+     ]
+    ],
+    "PKF_EQ": [
+     [
+      "2004-04-01",
+      "2005-06-14"
+     ]
+    ]
+   },
+   "ana_site_pencere": 1,
+   "not_": ""
+  },
+  {
+   "kod": "XRSW",
+   "ad": "Roberson, SW trace",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.907,
+   "lon": -120.46,
+   "ilk_gozlem_sayfa": "May-87",
+   "dosyalar": [
+    "HDR",
+    "MIC",
+    "10MIN",
+    "DAY"
+   ],
+   "boy": {
+    "HDR": [
+     1983
+    ],
+    "MIC": [
+     365
+    ],
+    "10MIN": [
+     2789386
+    ],
+    "DAY": [
+     23585
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2020-07-09",
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [
+    [
+     "1987-06-10",
+     "2005-09-22"
+    ],
+    [
+     "1987-06-10",
+     "2005-09-23"
+    ]
+   ],
+   "R2_man": [
+    [
+     "1987-05-28",
+     "2005-09-08"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1987-05-28",
+      "2005-09-08"
+     ]
+    ],
+    "DAY": [
+     [
+      "1987-06-10",
+      "2005-09-22"
+     ]
+    ],
+    "CL10": [
+     [
+      "1987-06-10",
+      "2005-09-23"
+     ]
+    ],
+    "PKF_EQ": [
+     [
+      "2004-04-01",
+      "2005-06-14"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "XPK1",
+   "ad": "Parkfield, #1",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.902,
+   "lon": -120.442,
+   "ilk_gozlem_sayfa": "Oct.  1979",
+   "dosyalar": [
+    "HDR",
+    "MIC",
+    "10MIN",
+    "DAY"
+   ],
+   "boy": {
+    "HDR": [
+     2421
+    ],
+    "MIC": [
+     668
+    ],
+    "10MIN": [
+     3017801
+    ],
+    "DAY": [
+     34028
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2020-07-09",
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [
+    [
+     "1979-10-01",
+     "2004-09-28"
+    ],
+    [
+     "1985-08-23",
+     "2004-09-29"
+    ]
+   ],
+   "R2_man": [
+    [
+     "1979-10-01",
+     "2004-09-27"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1977-01-01",
+      "2004-09-27"
+     ]
+    ],
+    "DAY": [
+     [
+      "1979-09-25",
+      "2004-09-28"
+     ]
+    ],
+    "CL10": [
+     [
+      "1985-08-23",
+      "2004-09-29"
+     ]
+    ],
+    "PKF_EQ": [
+     [
+      "2004-03-20",
+      "2004-09-29"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "XPK2",
+   "ad": "Parkfield, #2",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.902,
+   "lon": -120.442,
+   "ilk_gozlem_sayfa": "Sept. 2004",
+   "dosyalar": [
+    "HDR",
+    "MIC",
+    "10MIN",
+    "DAY"
+   ],
+   "boy": {
+    "HDR": [
+     2757
+    ],
+    "MIC": [
+     195
+    ],
+    "10MIN": [
+     3038124
+    ],
+    "DAY": [
+     11867
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2026-11-11",
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": true,
+   "R2_tele": [
+    [
+     "2004-09-29",
+     "2025-12-31"
+    ]
+   ],
+   "R2_man": [
+    [
+     "2004-09-30",
+     "2020-06-30"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "2004-09-30",
+      "2013-02-13"
+     ]
+    ],
+    "DAY": [
+     [
+      "2004-09-29",
+      "2013-07-09"
+     ]
+    ],
+    "CL10": [
+     [
+      "2004-09-29",
+      "2013-07-10"
+     ]
+    ],
+    "PKF_EQ": [
+     [
+      "2004-09-29",
+      "2005-06-14"
+     ]
+    ]
+   },
+   "ana_site_pencere": 1,
+   "not_": ""
+  },
+  {
+   "kod": "XTA1",
+   "ad": "Taylor Ranch",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.89,
+   "lon": -120.427,
+   "ilk_gozlem_sayfa": "Sept.  1985",
+   "dosyalar": [
+    "HDR",
+    "MIC",
+    "10MIN",
+    "DAY"
+   ],
+   "boy": {
+    "HDR": [
+     2693
+    ],
+    "MIC": [
+     608
+    ],
+    "10MIN": [
+     6851322
+    ],
+    "DAY": [
+     43383
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2026-11-11",
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": true,
+   "R2_tele": [
+    [
+     "1985-12-16",
+     "2025-12-31"
+    ]
+   ],
+   "R2_man": [
+    [
+     "1985-09-27",
+     "2020-06-30"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1985-09-27",
+      "2012-12-21"
+     ]
+    ],
+    "DAY": [
+     [
+      "1985-12-16",
+      "2013-07-09"
+     ]
+    ],
+    "CL10": [
+     [
+      "1985-12-16",
+      "2013-07-10"
+     ]
+    ],
+    "PKF_EQ": [
+     [
+      "2004-04-01",
+      "2005-06-14"
+     ]
+    ]
+   },
+   "ana_site_pencere": 1,
+   "not_": ""
+  },
+  {
+   "kod": "TABC",
+   "ad": "Taylor Ranch; Big Creep",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.89,
+   "lon": -120.427,
+   "ilk_gozlem_sayfa": "Mar-04",
+   "dosyalar": [
+    "MIC",
+    "10MIN",
+    "DAY"
+   ],
+   "boy": {
+    "MIC": [
+     590
+    ],
+    "10MIN": [
+     1384649
+    ],
+    "DAY": [
+     11794
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2020-07-09",
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [
+    [
+     "2004-04-01",
+     "2020-06-30"
+    ]
+   ],
+   "R2_man": [
+    [
+     "2004-03-01",
+     "2020-06-30"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1985-09-27",
+      "2012-12-21"
+     ]
+    ],
+    "DAY": [
+     [
+      "2004-04-01",
+      "2013-07-09"
+     ]
+    ],
+    "CL10": [
+     [
+      "2004-04-01",
+      "2013-07-10"
+     ]
+    ],
+    "PKF_EQ": [
+     [
+      "2004-04-01",
+      "2005-06-14"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "XHSW",
+   "ad": "Hearst, SW trace",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.862,
+   "lon": -120.42,
+   "ilk_gozlem_sayfa": "Jun-87",
+   "dosyalar": [
+    "HDR",
+    "MIC",
+    "10MIN",
+    "DAY"
+   ],
+   "boy": {
+    "HDR": [
+     2012
+    ],
+    "MIC": [
+     384
+    ],
+    "10MIN": [
+     3303166
+    ],
+    "DAY": [
+     26154
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2020-07-09",
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [
+    [
+     "1987-07-07",
+     "2010-07-11"
+    ],
+    [
+     "1987-07-07",
+     "2010-07-12"
+    ]
+   ],
+   "R2_man": [
+    [
+     "1987-06-25",
+     "2009-12-04"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1987-06-25",
+      "2009-12-04"
+     ]
+    ],
+    "DAY": [
+     [
+      "1987-07-07",
+      "2010-07-11"
+     ]
+    ],
+    "CL10": [
+     [
+      "1987-07-07",
+      "2010-07-12"
+     ]
+    ],
+    "PKF_EQ": [
+     [
+      "2004-04-01",
+      "2005-06-14"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "WKR1",
+   "ad": "Work Ranch",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.858,
+   "lon": -120.392,
+   "ilk_gozlem_sayfa": "1976",
+   "dosyalar": [
+    "HDR",
+    "MIC",
+    "10MIN",
+    "DAY"
+   ],
+   "boy": {
+    "HDR": [
+     4873
+    ],
+    "MIC": [
+     939
+    ],
+    "10MIN": [
+     7078112
+    ],
+    "DAY": [
+     53604
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2026-11-11",
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": true,
+   "R2_tele": [
+    [
+     "1976-09-25",
+     "2025-12-31"
+    ]
+   ],
+   "R2_man": [
+    [
+     "1977-01-18",
+     "2020-06-30"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1977-01-18",
+      "2013-02-14"
+     ]
+    ],
+    "DAY": [
+     [
+      "1976-09-25",
+      "2013-07-09"
+     ]
+    ],
+    "CL10": [
+     [
+      "1985-11-19",
+      "2013-07-10"
+     ]
+    ],
+    "PKF_EQ": [
+     [
+      "2004-04-01",
+      "2005-06-14"
+     ]
+    ]
+   },
+   "ana_site_pencere": 1,
+   "not_": ""
+  },
+  {
+   "kod": "CRR1",
+   "ad": "Carr Ranch",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.835,
+   "lon": -120.363,
+   "ilk_gozlem_sayfa": "May-66",
+   "dosyalar": [
+    "HDR",
+    "MIC",
+    "10MIN",
+    "DAY"
+   ],
+   "boy": {
+    "HDR": [
+     2927
+    ],
+    "MIC": [
+     1135
+    ],
+    "10MIN": [
+     4445559
+    ],
+    "DAY": [
+     46322
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2020-07-09",
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [
+    [
+     "1966-06-26",
+     "2020-06-30"
+    ]
+   ],
+   "R2_man": [
+    [
+     "1966-06-27",
+     "2020-06-30"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1966-06-27",
+      "2012-11-15"
+     ]
+    ],
+    "DAY": [
+     [
+      "1966-06-26",
+      "2013-07-09"
+     ]
+    ],
+    "CL10": [
+     [
+      "1989-03-02",
+      "2013-07-10"
+     ]
+    ],
+    "PKF_EQ": [
+     [
+      "2004-04-01",
+      "2005-06-14"
+     ]
+    ]
+   },
+   "ana_site_pencere": 3,
+   "not_": ""
+  },
+  {
+   "kod": "XGH1",
+   "ad": "Gold Hill",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.82,
+   "lon": -120.348,
+   "ilk_gozlem_sayfa": "Jul-69",
+   "dosyalar": [
+    "HDR",
+    "MIC",
+    "10MIN",
+    "DAY"
+   ],
+   "boy": {
+    "HDR": [
+     4031
+    ],
+    "MIC": [
+     809
+    ],
+    "10MIN": [
+     6469612
+    ],
+    "DAY": [
+     47808
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2023-06-15",
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [
+    [
+     "1969-07-14",
+     "2023-06-15"
+    ]
+   ],
+   "R2_man": [
+    [
+     "1977-02-04",
+     "2020-06-30"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1977-02-04",
+      "2012-11-16"
+     ]
+    ],
+    "DAY": [
+     [
+      "1969-07-14",
+      "2013-07-09"
+     ]
+    ],
+    "CL10": [
+     [
+      "1985-04-01",
+      "2013-07-10"
+     ]
+    ],
+    "PKF_EQ": [
+     [
+      "2004-04-01",
+      "2005-06-14"
+     ]
+    ]
+   },
+   "ana_site_pencere": 2,
+   "not_": ""
+  },
+  {
+   "kod": "C461",
+   "ad": "Highway 46",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.724,
+   "lon": -120.282,
+   "ilk_gozlem_sayfa": "Sept. 2004",
+   "dosyalar": [
+    "10MIN"
+   ],
+   "boy": {
+    "10MIN": [
+     null
+    ]
+   },
+   "last_modified": {
+    "MIC": null,
+    "10MIN": null,
+    "DAY": null
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [],
+   "R2_man": [],
+   "readme": {},
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "X461",
+   "ad": "Highway 46",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.723,
+   "lon": -120.278,
+   "ilk_gozlem_sayfa": "Aug.  1986",
+   "dosyalar": [
+    "HDR",
+    "MIC",
+    "10MIN",
+    "DAY"
+   ],
+   "boy": {
+    "HDR": [
+     2159
+    ],
+    "MIC": [
+     445
+    ],
+    "10MIN": [
+     4796365
+    ],
+    "DAY": [
+     32990
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": "2020-07-09",
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [
+    [
+     "1986-10-30",
+     "2020-06-30"
+    ]
+   ],
+   "R2_man": [
+    [
+     "1986-08-22",
+     "2020-06-30"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1986-08-22",
+      "2013-02-15"
+     ]
+    ],
+    "DAY": [
+     [
+      "1986-10-30",
+      "2013-07-09"
+     ]
+    ],
+    "CL10": [
+     [
+      "1986-10-30",
+      "2013-07-10"
+     ]
+    ],
+    "PKF_EQ": [
+     [
+      "2004-04-01",
+      "2005-06-14"
+     ]
+    ]
+   },
+   "ana_site_pencere": 1,
+   "not_": ""
+  },
+  {
+   "kod": "TWR1",
+   "ad": "Twisselman Ranch",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_guney_gecis",
+   "lat": 35.597,
+   "lon": -120.147,
+   "ilk_gozlem_sayfa": "Nov.  1976",
+   "dosyalar": [
+    "MIC",
+    "DAY"
+   ],
+   "boy": {
+    "MIC": [
+     627
+    ],
+    "DAY": [
+     15179
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": null,
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [
+    [
+     "1979-12-07",
+     "1992-02-29"
+    ]
+   ],
+   "R2_man": [
+    [
+     "1977-04-01",
+     "2007-06-18"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1977-04-01",
+      "2007-06-18"
+     ]
+    ],
+    "DAY": [
+     [
+      "1979-12-07",
+      "1992-02-29"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  },
+  {
+   "kod": "XPH1",
+   "ad": "Panorama Hills",
+   "fay": "San Andreas Fault",
+   "kesim": "SAF_guney_gecis",
+   "lat": 35.148,
+   "lon": -119.692,
+   "ilk_gozlem_sayfa": "Aug.  1977",
+   "dosyalar": [
+    "MIC",
+    "DAY"
+   ],
+   "boy": {
+    "MIC": [
+     388
+    ],
+    "DAY": [
+     13664
+    ]
+   },
+   "last_modified": {
+    "MIC": "2020-07-09",
+    "10MIN": null,
+    "DAY": "2020-07-09"
+   },
+   "etkin_10MIN": false,
+   "R2_tele": [
+    [
+     "1977-08-27",
+     "1991-11-09"
+    ]
+   ],
+   "R2_man": [
+    [
+     "1977-08-27",
+     "2007-10-17"
+    ]
+   ],
+   "readme": {
+    "MIC": [
+     [
+      "1977-08-27",
+      "2007-10-17"
+     ]
+    ],
+    "DAY": [
+     [
+      "1977-08-27",
+      "1991-11-09"
+     ]
+    ]
+   },
+   "ana_site_pencere": 0,
+   "not_": ""
+  }
+ ],
+ "ana_liste": [
+  {
+   "kod": "CFW1",
+   "Y": 2003,
+   "tur": "tele",
+   "site": "37.532,-121.952",
+   "kesim": "HAY"
+  },
+  {
+   "kod": "CHP1",
+   "Y": 2003,
+   "tur": "tele",
+   "site": "37.663,-122.074",
+   "kesim": "HAY"
+  },
+  {
+   "kod": "COZ1",
+   "Y": 2003,
+   "tur": "tele",
+   "site": "37.753,-122.150",
+   "kesim": "HAY"
+  },
+  {
+   "kod": "CPP1",
+   "Y": 2003,
+   "tur": "tele",
+   "site": "37.990,-122.356",
+   "kesim": "HAY"
+  },
+  {
+   "kod": "CRR1",
+   "Y": 1973,
+   "tur": "tele",
+   "site": "35.835,-120.363",
+   "kesim": "SAF_Parkfield"
+  },
+  {
+   "kod": "CRR1",
+   "Y": 1978,
+   "tur": "tele",
+   "site": "35.835,-120.363",
+   "kesim": "SAF_Parkfield"
+  },
+  {
+   "kod": "CRR1",
+   "Y": 2018,
+   "tur": "tele",
+   "site": "35.835,-120.363",
+   "kesim": "SAF_Parkfield"
+  },
+  {
+   "kod": "CTM1",
+   "Y": 2003,
+   "tur": "tele",
+   "site": "37.844,-122.227",
+   "kesim": "HAY"
+  },
+  {
+   "kod": "CWN1",
+   "Y": 2018,
+   "tur": "tele",
+   "site": "36.750,-121.385",
+   "kesim": "SAF_SJB"
+  },
+  {
+   "kod": "SJN1",
+   "Y": 2018,
+   "tur": "tele",
+   "site": "36.855,-121.521",
+   "kesim": "SAF_SJB"
+  },
+  {
+   "kod": "WKR1",
+   "Y": 2018,
+   "tur": "tele",
+   "site": "35.858,-120.392",
+   "kesim": "SAF_Parkfield"
+  },
+  {
+   "kod": "X461",
+   "Y": 2018,
+   "tur": "tele",
+   "site": "35.723,-120.278",
+   "kesim": "SAF_Parkfield"
+  },
+  {
+   "kod": "XGH1",
+   "Y": 1978,
+   "tur": "tele",
+   "site": "35.820,-120.348",
+   "kesim": "SAF_Parkfield"
+  },
+  {
+   "kod": "XGH1",
+   "Y": 2018,
+   "tur": "tele",
+   "site": "35.820,-120.348",
+   "kesim": "SAF_Parkfield"
+  },
+  {
+   "kod": "XHR3",
+   "Y": 2018,
+   "tur": "tele",
+   "site": "36.772,-121.422",
+   "kesim": "SAF_SJB"
+  },
+  {
+   "kod": "XMD1",
+   "Y": 2018,
+   "tur": "tele",
+   "site": "35.943,-120.485",
+   "kesim": "SAF_Parkfield"
+  },
+  {
+   "kod": "XMM1",
+   "Y": 2018,
+   "tur": "tele",
+   "site": "35.958,-120.502",
+   "kesim": "SAF_Parkfield"
+  },
+  {
+   "kod": "XPK2",
+   "Y": 2018,
+   "tur": "tele",
+   "site": "35.902,-120.442",
+   "kesim": "SAF_Parkfield"
+  },
+  {
+   "kod": "XSH1",
+   "Y": 2018,
+   "tur": "tele",
+   "site": "36.943,-121.445",
+   "kesim": "CAL_Hollister"
+  },
+  {
+   "kod": "XSJ3",
+   "Y": 2018,
+   "tur": "tele",
+   "site": "36.836,-121.521",
+   "kesim": "SAF_SJB"
+  },
+  {
+   "kod": "XTA1",
+   "Y": 2018,
+   "tur": "tele",
+   "site": "35.890,-120.427",
+   "kesim": "SAF_Parkfield"
+  },
+  {
+   "kod": "XVA1",
+   "Y": 2018,
+   "tur": "tele",
+   "site": "35.922,-120.462",
+   "kesim": "SAF_Parkfield"
+  }
+ ]
+}
