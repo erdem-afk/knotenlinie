@@ -1,0 +1,1048 @@
+{
+ "aciklama": "TR-10b HDR adımı (§6.4) sonucu: olayların aday listelerine etkisi (veri öncesi; U kapsamı üst sınırı). Notlardaki kayma/hız ifadeleri kayda alınmaz.",
+ "girdi": {
+  "manifest_sha256": "b998bf1e1030edb036c1339f72abee76a943c1c5413f90d4d6792749f3ab7f9a",
+  "listeler_json_sha256": "d0c2246007c25f11027cc3325ff3cfa53b3984296d0cf6c82f30e8dacffdcba5",
+  "kural_kodu_sha256": {
+   "inc1_hdr_kural.py": "69894531e0a69ae4ad20f8265b52f9c66bed34181613fbae8313aad58cbc74b6",
+   "tr10b_hdr.py": "ad20b37f311720810e6cdca69285d881bae9750fc9be5b01869638c772356ec2"
+  },
+  "onkayit_sha256": "6993ae4a6432f482d0507dde5e479ade18bf4517adbd5540584bbeec51b64da4"
+ },
+ "olay_sayisi": {
+  "K": 394,
+  "D": 72,
+  "tarihsiz_K": 47,
+  "tarihsiz_D": 20,
+  "yalin_yil": 30
+ },
+ "dosyalar": [
+  {
+   "dosya": "HDR/cfw1.hdr1",
+   "istasyon": "CFW1",
+   "not_sayisi": 15,
+   "olay": 5,
+   "tarihli_not": 11,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/chp1.hdr1",
+   "istasyon": "CHP1",
+   "not_sayisi": 16,
+   "olay": 4,
+   "tarihli_not": 12,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/coz1.hdr1",
+   "istasyon": "COZ1",
+   "not_sayisi": 18,
+   "olay": 4,
+   "tarihli_not": 14,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/cpp1.hdr1",
+   "istasyon": "CPP1",
+   "not_sayisi": 29,
+   "olay": 12,
+   "tarihli_not": 25,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/crr1.hdr1",
+   "istasyon": "CRR1",
+   "not_sayisi": 21,
+   "olay": 12,
+   "tarihli_not": 14,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/ctm1.hdr1",
+   "istasyon": "CTM1",
+   "not_sayisi": 13,
+   "olay": 3,
+   "tarihli_not": 9,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/cwc3.hdr1",
+   "istasyon": "CWC3",
+   "not_sayisi": 32,
+   "olay": 17,
+   "tarihli_not": 26,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/cwn1.hdr1",
+   "istasyon": "CWN1",
+   "not_sayisi": 32,
+   "olay": 17,
+   "tarihli_not": 26,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/sjn1.hdr1",
+   "istasyon": "SJN1",
+   "not_sayisi": 14,
+   "olay": 6,
+   "tarihli_not": 10,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/wkr1.hdr1",
+   "istasyon": "WKR1",
+   "not_sayisi": 81,
+   "olay": 29,
+   "tarihli_not": 74,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/x461.hdr1",
+   "istasyon": "X461",
+   "not_sayisi": 12,
+   "olay": 5,
+   "tarihli_not": 6,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/xgh1.hdr1",
+   "istasyon": "XGH1",
+   "not_sayisi": 26,
+   "olay": 13,
+   "tarihli_not": 20,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/xhr1.hdr1",
+   "istasyon": "XHR1",
+   "not_sayisi": 8,
+   "olay": 2,
+   "tarihli_not": 4,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/xhr2.hdr1",
+   "istasyon": "XHR2",
+   "not_sayisi": 7,
+   "olay": 2,
+   "tarihli_not": 4,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/xhr3.hdr1",
+   "istasyon": "XHR3",
+   "not_sayisi": 12,
+   "olay": 7,
+   "tarihli_not": 9,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/xhsw.hdr1",
+   "istasyon": "XHSW",
+   "not_sayisi": 8,
+   "olay": 2,
+   "tarihli_not": 4,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/xmbc.hdr1",
+   "istasyon": "XMBC",
+   "not_sayisi": 7,
+   "olay": 1,
+   "tarihli_not": 4,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/xmd1.hdr1",
+   "istasyon": "XMD1",
+   "not_sayisi": 31,
+   "olay": 13,
+   "tarihli_not": 18,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/xmm1.hdr1",
+   "istasyon": "XMM1",
+   "not_sayisi": 25,
+   "olay": 13,
+   "tarihli_not": 19,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/xmr1.hdr1",
+   "istasyon": "XMR1",
+   "not_sayisi": 38,
+   "olay": 13,
+   "tarihli_not": 32,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/xpk1.hdr1",
+   "istasyon": "XPK1",
+   "not_sayisi": 17,
+   "olay": 3,
+   "tarihli_not": 11,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/xpk2.hdr1",
+   "istasyon": "XPK2",
+   "not_sayisi": 19,
+   "olay": 6,
+   "tarihli_not": 12,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/xrsw.hdr1",
+   "istasyon": "XRSW",
+   "not_sayisi": 8,
+   "olay": 2,
+   "tarihli_not": 4,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/xsc1.hdr1",
+   "istasyon": "XSC1",
+   "not_sayisi": 22,
+   "olay": 13,
+   "tarihli_not": 17,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/xsh1.hdr1",
+   "istasyon": "XSH1",
+   "not_sayisi": 13,
+   "olay": 2,
+   "tarihli_not": 9,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/xsj2.hdr1",
+   "istasyon": "XSJ2",
+   "not_sayisi": 10,
+   "olay": 3,
+   "tarihli_not": 5,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/xsj3.hdr1",
+   "istasyon": "XSJ3",
+   "not_sayisi": 18,
+   "olay": 7,
+   "tarihli_not": 12,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/xta1.hdr1",
+   "istasyon": "XTA1",
+   "not_sayisi": 20,
+   "olay": 8,
+   "tarihli_not": 13,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/xva1.hdr1",
+   "istasyon": "XVA1",
+   "not_sayisi": 15,
+   "olay": 7,
+   "tarihli_not": 8,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/c461.hdr1",
+   "istasyon": "C461",
+   "not_sayisi": 12,
+   "olay": 4,
+   "tarihli_not": 9,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/cfw1.hdr1",
+   "istasyon": "CFW1",
+   "not_sayisi": 14,
+   "olay": 5,
+   "tarihli_not": 11,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/chp1.hdr1",
+   "istasyon": "CHP1",
+   "not_sayisi": 15,
+   "olay": 4,
+   "tarihli_not": 12,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/coz1.hdr1",
+   "istasyon": "COZ1",
+   "not_sayisi": 17,
+   "olay": 4,
+   "tarihli_not": 14,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/cpp1.hdr1",
+   "istasyon": "CPP1",
+   "not_sayisi": 28,
+   "olay": 12,
+   "tarihli_not": 25,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/crr1.hdr1",
+   "istasyon": "CRR1",
+   "not_sayisi": 20,
+   "olay": 12,
+   "tarihli_not": 14,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/ctm1.hdr1",
+   "istasyon": "CTM1",
+   "not_sayisi": 12,
+   "olay": 3,
+   "tarihli_not": 9,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/cwc3.hdr1",
+   "istasyon": "CWC3",
+   "not_sayisi": 31,
+   "olay": 17,
+   "tarihli_not": 26,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/cwn1.hdr1",
+   "istasyon": "CWN1",
+   "not_sayisi": 31,
+   "olay": 17,
+   "tarihli_not": 26,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/sjn1.hdr1",
+   "istasyon": "SJN1",
+   "not_sayisi": 13,
+   "olay": 6,
+   "tarihli_not": 10,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/wkr1.hdr1",
+   "istasyon": "WKR1",
+   "not_sayisi": 80,
+   "olay": 29,
+   "tarihli_not": 74,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/x461.hdr1",
+   "istasyon": "X461",
+   "not_sayisi": 11,
+   "olay": 5,
+   "tarihli_not": 6,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/xgh1.hdr1",
+   "istasyon": "XGH1",
+   "not_sayisi": 25,
+   "olay": 13,
+   "tarihli_not": 20,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/xhr1.hdr1",
+   "istasyon": "XHR1",
+   "not_sayisi": 7,
+   "olay": 2,
+   "tarihli_not": 4,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/xhr2.hdr1",
+   "istasyon": "XHR2",
+   "not_sayisi": 6,
+   "olay": 2,
+   "tarihli_not": 4,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/xhr3.hdr1",
+   "istasyon": "XHR3",
+   "not_sayisi": 11,
+   "olay": 7,
+   "tarihli_not": 9,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/xhsw.hdr1",
+   "istasyon": "XHSW",
+   "not_sayisi": 7,
+   "olay": 2,
+   "tarihli_not": 4,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/xmbc.hdr1",
+   "istasyon": "XMBC",
+   "not_sayisi": 6,
+   "olay": 1,
+   "tarihli_not": 4,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/xmd1.hdr1",
+   "istasyon": "XMD1",
+   "not_sayisi": 31,
+   "olay": 13,
+   "tarihli_not": 18,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/xmm1.hdr1",
+   "istasyon": "XMM1",
+   "not_sayisi": 24,
+   "olay": 13,
+   "tarihli_not": 19,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/xmr1.hdr1",
+   "istasyon": "XMR1",
+   "not_sayisi": 37,
+   "olay": 13,
+   "tarihli_not": 32,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/xpk1.hdr1",
+   "istasyon": "XPK1",
+   "not_sayisi": 16,
+   "olay": 3,
+   "tarihli_not": 11,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/xpk2.hdr1",
+   "istasyon": "XPK2",
+   "not_sayisi": 18,
+   "olay": 6,
+   "tarihli_not": 12,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/xrsw.hdr1",
+   "istasyon": "XRSW",
+   "not_sayisi": 7,
+   "olay": 2,
+   "tarihli_not": 4,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/xsc1.hdr1",
+   "istasyon": "XSC1",
+   "not_sayisi": 21,
+   "olay": 13,
+   "tarihli_not": 17,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/xsh1.hdr1",
+   "istasyon": "XSH1",
+   "not_sayisi": 12,
+   "olay": 2,
+   "tarihli_not": 9,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/xsj2.hdr1",
+   "istasyon": "XSJ2",
+   "not_sayisi": 9,
+   "olay": 3,
+   "tarihli_not": 5,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/xsj3.hdr1",
+   "istasyon": "XSJ3",
+   "not_sayisi": 17,
+   "olay": 7,
+   "tarihli_not": 12,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/xta1.hdr1",
+   "istasyon": "XTA1",
+   "not_sayisi": 19,
+   "olay": 8,
+   "tarihli_not": 13,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR2025/xva1.hdr1",
+   "istasyon": "XVA1",
+   "not_sayisi": 14,
+   "olay": 7,
+   "tarihli_not": 8,
+   "ilk_gozlem_notu": "",
+   "bos_satirsiz": false
+  },
+  {
+   "dosya": "HDR/caveat.txt",
+   "not_sayisi": 16,
+   "istasyon": "(caveat)"
+  }
+ ],
+ "caveat_notlari": [
+  {
+   "satir": 1,
+   "kodlar": [],
+   "tur": null,
+   "es": [],
+   "tarih": null,
+   "cins": null
+  },
+  {
+   "satir": 2,
+   "kodlar": [],
+   "tur": null,
+   "es": [],
+   "tarih": null,
+   "cins": null
+  },
+  {
+   "satir": 3,
+   "kodlar": [],
+   "tur": null,
+   "es": [],
+   "tarih": null,
+   "cins": null
+  },
+  {
+   "satir": 4,
+   "kodlar": [],
+   "tur": null,
+   "es": [],
+   "tarih": null,
+   "cins": null
+  },
+  {
+   "satir": 5,
+   "kodlar": [],
+   "tur": null,
+   "es": [],
+   "tarih": null,
+   "cins": null
+  },
+  {
+   "satir": 6,
+   "kodlar": [],
+   "tur": null,
+   "es": [],
+   "tarih": null,
+   "cins": null
+  },
+  {
+   "satir": 7,
+   "kodlar": [],
+   "tur": null,
+   "es": [],
+   "tarih": null,
+   "cins": null
+  },
+  {
+   "satir": 8,
+   "kodlar": [],
+   "tur": null,
+   "es": [],
+   "tarih": null,
+   "cins": null
+  },
+  {
+   "satir": 9,
+   "kodlar": [],
+   "tur": null,
+   "es": [],
+   "tarih": null,
+   "cins": null
+  },
+  {
+   "satir": 10,
+   "kodlar": [],
+   "tur": null,
+   "es": [],
+   "tarih": null,
+   "cins": null
+  },
+  {
+   "satir": 11,
+   "kodlar": [],
+   "tur": null,
+   "es": [],
+   "tarih": null,
+   "cins": null
+  },
+  {
+   "satir": 12,
+   "kodlar": [],
+   "tur": null,
+   "es": [],
+   "tarih": null,
+   "cins": null
+  },
+  {
+   "satir": 13,
+   "kodlar": [],
+   "tur": null,
+   "es": [],
+   "tarih": null,
+   "cins": null
+  },
+  {
+   "satir": 14,
+   "kodlar": [],
+   "tur": null,
+   "es": [],
+   "tarih": null,
+   "cins": null
+  },
+  {
+   "satir": 15,
+   "kodlar": [],
+   "tur": null,
+   "es": [],
+   "tarih": null,
+   "cins": null
+  },
+  {
+   "satir": 16,
+   "kodlar": [],
+   "tur": null,
+   "es": [],
+   "tarih": null,
+   "cins": null
+  }
+ ],
+ "etki": {
+  "B": {
+   "once": {
+    "istasyon_pencere": 78,
+    "istasyon": 35,
+    "yer_pencere": 62,
+    "yer": 29,
+    "kesim": 6,
+    "kesim_basina_yer_pencere": {
+     "CAL_Hollister": 6,
+     "HAY": 19,
+     "SAF_Parkfield": 21,
+     "SAF_SJB": 4,
+     "SAF_guney_gecis": 4,
+     "SAF_sunen_orta": 8
+    }
+   },
+   "K_sonrasi": {
+    "istasyon_pencere": 55,
+    "istasyon": 26,
+    "yer_pencere": 43,
+    "yer": 22,
+    "kesim": 6,
+    "kesim_basina_yer_pencere": {
+     "CAL_Hollister": 6,
+     "HAY": 18,
+     "SAF_Parkfield": 7,
+     "SAF_SJB": 2,
+     "SAF_guney_gecis": 4,
+     "SAF_sunen_orta": 6
+    }
+   },
+   "K_dusen": [
+    "CFW1|2018",
+    "CHP1|2013",
+    "CRR1|2013",
+    "CRR1|2018",
+    "CWN1|2018",
+    "WKR1|2013",
+    "WKR1|2018",
+    "X461|2018",
+    "XGH1|2018",
+    "XHR3|2018",
+    "XMD1|2013",
+    "XMD1|2018",
+    "XMM1|2018",
+    "XPK2|2018",
+    "XSC1|2013",
+    "XSC1|2018",
+    "XSH1|2013",
+    "XSH1|2018",
+    "XSJ3|2018",
+    "XTA1|2013",
+    "XTA1|2018",
+    "XVA1|2013",
+    "XVA1|2018"
+   ],
+   "K_dusen_creep_event": 1,
+   "D_disarida_dusen": [
+    "CRR1|2013",
+    "CRR1|2018",
+    "WKR1|2013",
+    "WKR1|2018",
+    "X461|2018",
+    "XGH1|2018",
+    "XSC1|2013"
+   ],
+   "K_ve_D_sonrasi": {
+    "istasyon_pencere": 55,
+    "istasyon": 26,
+    "yer_pencere": 43,
+    "yer": 22,
+    "kesim": 6,
+    "kesim_basina_yer_pencere": {
+     "CAL_Hollister": 6,
+     "HAY": 18,
+     "SAF_Parkfield": 7,
+     "SAF_SJB": 2,
+     "SAF_guney_gecis": 4,
+     "SAF_sunen_orta": 6
+    }
+   }
+  },
+  "A": {
+   "once": {
+    "istasyon_pencere": 38,
+    "istasyon": 30,
+    "yer_pencere": 31,
+    "yer": 25,
+    "kesim": 5,
+    "kesim_basina_yer_pencere": {
+     "CAL_Hollister": 3,
+     "HAY": 10,
+     "SAF_Parkfield": 12,
+     "SAF_SJB": 4,
+     "SAF_guney_gecis": 2
+    }
+   },
+   "K_sonrasi": {
+    "istasyon_pencere": 25,
+    "istasyon": 19,
+    "yer_pencere": 20,
+    "yer": 16,
+    "kesim": 5,
+    "kesim_basina_yer_pencere": {
+     "CAL_Hollister": 3,
+     "HAY": 10,
+     "SAF_Parkfield": 3,
+     "SAF_SJB": 2,
+     "SAF_guney_gecis": 2
+    }
+   },
+   "K_dusen": [
+    "CRR1|2018",
+    "CWN1|2018",
+    "WKR1|2018",
+    "X461|2018",
+    "XGH1|2018",
+    "XHR3|2018",
+    "XMD1|2018",
+    "XMM1|2018",
+    "XPK2|2018",
+    "XSH1|2018",
+    "XSJ3|2018",
+    "XTA1|2018",
+    "XVA1|2018"
+   ],
+   "K_dusen_creep_event": 1,
+   "D_disarida_dusen": [
+    "CRR1|2018",
+    "WKR1|2018",
+    "X461|2018",
+    "XGH1|2018"
+   ],
+   "K_ve_D_sonrasi": {
+    "istasyon_pencere": 25,
+    "istasyon": 19,
+    "yer_pencere": 20,
+    "yer": 16,
+    "kesim": 5,
+    "kesim_basina_yer_pencere": {
+     "CAL_Hollister": 3,
+     "HAY": 10,
+     "SAF_Parkfield": 3,
+     "SAF_SJB": 2,
+     "SAF_guney_gecis": 2
+    }
+   }
+  },
+  "B_R2": {
+   "once": {
+    "istasyon_pencere": 42,
+    "istasyon": 23,
+    "yer_pencere": 41,
+    "yer": 22,
+    "kesim": 5,
+    "kesim_basina_yer_pencere": {
+     "CAL_Hollister": 2,
+     "HAY": 10,
+     "SAF_Parkfield": 21,
+     "SAF_SJB": 4,
+     "SAF_sunen_orta": 4
+    }
+   },
+   "K_sonrasi": {
+    "istasyon_pencere": 19,
+    "istasyon": 14,
+    "yer_pencere": 18,
+    "yer": 13,
+    "kesim": 4,
+    "kesim_basina_yer_pencere": {
+     "HAY": 8,
+     "SAF_Parkfield": 7,
+     "SAF_SJB": 1,
+     "SAF_sunen_orta": 2
+    }
+   },
+   "K_dusen": [
+    "CFW1|2018",
+    "CHP1|2013",
+    "CRR1|2013",
+    "CRR1|2018",
+    "CWN1|2018",
+    "WKR1|2013",
+    "WKR1|2018",
+    "X461|2018",
+    "XGH1|2018",
+    "XHR3|2018",
+    "XMD1|2013",
+    "XMD1|2018",
+    "XMM1|2018",
+    "XPK2|2018",
+    "XSC1|2013",
+    "XSC1|2018",
+    "XSH1|2013",
+    "XSH1|2018",
+    "XSJ3|2018",
+    "XTA1|2013",
+    "XTA1|2018",
+    "XVA1|2013",
+    "XVA1|2018"
+   ],
+   "K_dusen_creep_event": 1,
+   "D_disarida_dusen": [
+    "CRR1|2013",
+    "CRR1|2018",
+    "WKR1|2013",
+    "WKR1|2018",
+    "X461|2018",
+    "XGH1|2018",
+    "XSC1|2013"
+   ],
+   "K_ve_D_sonrasi": {
+    "istasyon_pencere": 19,
+    "istasyon": 14,
+    "yer_pencere": 18,
+    "yer": 13,
+    "kesim": 4,
+    "kesim_basina_yer_pencere": {
+     "HAY": 8,
+     "SAF_Parkfield": 7,
+     "SAF_SJB": 1,
+     "SAF_sunen_orta": 2
+    }
+   }
+  },
+  "A_R2": {
+   "once": {
+    "istasyon_pencere": 22,
+    "istasyon": 19,
+    "yer_pencere": 22,
+    "yer": 19,
+    "kesim": 4,
+    "kesim_basina_yer_pencere": {
+     "CAL_Hollister": 1,
+     "HAY": 5,
+     "SAF_Parkfield": 12,
+     "SAF_SJB": 4
+    }
+   },
+   "K_sonrasi": {
+    "istasyon_pencere": 9,
+    "istasyon": 8,
+    "yer_pencere": 9,
+    "yer": 8,
+    "kesim": 3,
+    "kesim_basina_yer_pencere": {
+     "HAY": 5,
+     "SAF_Parkfield": 3,
+     "SAF_SJB": 1
+    }
+   },
+   "K_dusen": [
+    "CRR1|2018",
+    "CWN1|2018",
+    "WKR1|2018",
+    "X461|2018",
+    "XGH1|2018",
+    "XHR3|2018",
+    "XMD1|2018",
+    "XMM1|2018",
+    "XPK2|2018",
+    "XSH1|2018",
+    "XSJ3|2018",
+    "XTA1|2018",
+    "XVA1|2018"
+   ],
+   "K_dusen_creep_event": 1,
+   "D_disarida_dusen": [
+    "CRR1|2018",
+    "WKR1|2018",
+    "X461|2018",
+    "XGH1|2018"
+   ],
+   "K_ve_D_sonrasi": {
+    "istasyon_pencere": 9,
+    "istasyon": 8,
+    "yer_pencere": 9,
+    "yer": 8,
+    "kesim": 3,
+    "kesim_basina_yer_pencere": {
+     "HAY": 5,
+     "SAF_Parkfield": 3,
+     "SAF_SJB": 1
+    }
+   }
+  },
+  "B1_gecmis5": {
+   "once": {
+    "istasyon_pencere": 52,
+    "istasyon": 30,
+    "yer_pencere": 39,
+    "yer": 25,
+    "kesim": 6,
+    "kesim_basina_yer_pencere": {
+     "CAL_Hollister": 3,
+     "HAY": 19,
+     "SAF_Parkfield": 11,
+     "SAF_SJB": 1,
+     "SAF_guney_gecis": 2,
+     "SAF_sunen_orta": 3
+    }
+   },
+   "K_sonrasi": {
+    "istasyon_pencere": 38,
+    "istasyon": 20,
+    "yer_pencere": 27,
+    "yer": 16,
+    "kesim": 5,
+    "kesim_basina_yer_pencere": {
+     "CAL_Hollister": 3,
+     "HAY": 18,
+     "SAF_Parkfield": 2,
+     "SAF_guney_gecis": 2,
+     "SAF_sunen_orta": 2
+    }
+   },
+   "K_dusen": [
+    "CFW1|2018",
+    "CHP1|2013",
+    "CRR1|2018",
+    "CWN1|2018",
+    "WKR1|2018",
+    "X461|2018",
+    "XGH1|2018",
+    "XMD1|2018",
+    "XMM1|2018",
+    "XPK2|2018",
+    "XSC1|2018",
+    "XSH1|2018",
+    "XTA1|2018",
+    "XVA1|2018"
+   ],
+   "K_dusen_creep_event": 1,
+   "D_disarida_dusen": [
+    "CRR1|2018",
+    "WKR1|2018",
+    "X461|2018",
+    "XGH1|2018"
+   ],
+   "K_ve_D_sonrasi": {
+    "istasyon_pencere": 38,
+    "istasyon": 20,
+    "yer_pencere": 27,
+    "yer": 16,
+    "kesim": 5,
+    "kesim_basina_yer_pencere": {
+     "CAL_Hollister": 3,
+     "HAY": 18,
+     "SAF_Parkfield": 2,
+     "SAF_guney_gecis": 2,
+     "SAF_sunen_orta": 2
+    }
+   }
+  }
+ },
+ "kapi_ust_sinir_B": {
+  "yer": 22,
+  "yer_pencere": 43,
+  "ulasilabilir": true
+ }
+}

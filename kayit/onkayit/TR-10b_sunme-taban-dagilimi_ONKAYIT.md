@@ -851,3 +851,19 @@ yer-penceresini listeden çıkarmak): İNCELEME-1 onu önermiyor, liste değişm
 | K7 | §14 madde 6 | İki işaret dosyası |
 | K8 | §2.3, §5, §10.2 (b), §6.4 madde 2 | Üç metin düzeltmesi; 144 satırlık denetim yapay olarak doğrulandı (≤ 0,0030) |
 | Tutarlılık | §0 öncelik sırası; başlık ve durum satırı; §4 R2 sha256'larının tam yazımı; §19 | Öncelik sırası: sürüm 2 > İNCELEME-1 > SAYIM. R2 sha256'ları kısaltılmış biçimden tam biçime |
+
+---
+
+## Ek 1 (12 Kasım 2026, dondurmadan sonra, hiçbir sünme verisi açılmadan)
+
+Bu ek, dondurulmuş metni değiştirmez; koşu öncesi adımlarda ortaya çıkan okumaları ve §6.4'ün ürettiği aygıt olayı tablosunu kayda geçirir. Yazıldığı anda hiçbir telemetri, MIC, 10MIN ya da HaywardCreep dosyası indirilmemiş ve açılmamıştır.
+
+**E1.1 Aygıt kayıtları (HDR) adımı yapıldı.** 60 dosya (29 HDR, 30 HDR2025, caveat.txt) okundu; manifest `kayit/turetme/tr10b/tr10b_manifest_hdr.json`, olay tablosu `tr10b_hdr_olaylar.csv`, listelere etkisi `tr10b_hdr_etki.json`. 394 K olayı (47 tarihsiz), 72 D olayı (20 tarihsiz). Veri öncesi üst sınır: B 43 yer-pencere / 22 yer / 6 kesim (önce 62 / 29); A 20 / 16; B_R2 18 / 13; B1 geçmiş 5 y 27 / 16. Kapı (≥ 20 yer, ≥ 40 yer-pencere) B'de yalnız üst sınırda ulaşılabilir; "veri yok" çok olası. Karar 2 gereği dağılım kapı altında da bilgi satırı olarak yazılır.
+
+**E1.2 HDR biçim uyarlaması (§6.4 madde 5).** HDR dosyalarında README'de bulunmayan bir tablo biçimi çıktı. Uyarlama yalnız ekleme yapar: her tablo satırı (girintili devam satırlarıyla) ayrı bir nottur; üç zaman damgası biçimi tam tarih olarak tanınır. Uyarlanmış kural README başvuru çıktısını bayt bayt yeniden üretir. Kural bir kez koşuldu; kod `tr10b_hdr.py` (sha256 ad20b37f…) ve `onkayit_yardimci/inc1_hdr_kural.py` (69894531…) bu ekle aynı commit'tedir.
+
+**E1.3 Tablo başlık satırları.** "Possible Offsets:" gibi tablo başlıkları ayrı tarihsiz not olarak işlendi (tutucu okuma; sayımdan önce seçildi). Bu okuma B'den 7 istasyon-pencere düşürür (CHP1, CRR1, XSC1, XSH1, XTA1, XVA1 2013; XSH1 2018). Başlık ilk tablo satırına katılsaydı B 47 yer-pencere / 25 yer olurdu. Bağlayıcı olan tutucu okumadır; öteki okuma yalnız "başlık katılmış" adlı bilgi satırı olarak yazılır ve hükmü değiştirmez. Kodlayıcı, okumayı seçerken CRR1 üzerindeki etkisini düşündüğünü bildirmiştir; bu burada kayıtlıdır.
+
+**E1.4 Elle ölçüm (MIC) okuma aralığı.** §8.2'nin 90 günlük braket ve 180 günlük aralık şartı, okuma aralığı [w0 − 15 g, T + 15 g] ile sınırlı kalırsa uygulanamaz (uçlarda fiilen 15 gün olur). Yazılı kuralı işler kılan okuma bağlayıcıdır: **yalnız MIC kaynaklarında okuma aralığı [w0 − 90 g, T + 90 g]'dır**, üst ucu 2023-10-16'yı aşamaz; telemetri ve 10MIN kaynaklarında aralık değişmez. Dar okuma ([w0 − 15, T + 15]) "MIC dar aralık" bilgi satırı olarak yazılır. Bu karar hiçbir MIC dosyası görülmeden verildi.
+
+**E1.5 Öteki kodlayıcı okumaları.** Kodlayıcının bildirdiği 24 okuma (kayıt: bu commit'in iletisi ve `TR-10b_KOD-INCELEME.md`) en dar/tutucu okuma ilkesiyle uygulanmıştır; kod incelemesi her birini denetler. (a) denetiminde x(t)'nin zaman başlangıcı okuma aralığının başıdır (SAYIM'daki 0,00045 doğrulaması bu başlangıçla yapılmıştır).

@@ -1,0 +1,1694 @@
+{
+ "aciklama": "TR-10b aday listeleri (ön kayıt sürüm 2 §4, §11 madde 9) ve istasyon üstverisi; tr10b_liste_dondur.py ile üretildi; sakinlik yeniden hesaplanmadı.",
+ "dosya_sayisi": {
+  "10MIN": 21,
+  "DAY": 16,
+  "MIC": 29
+ },
+ "istasyon": {
+  "BIT1": {
+   "dosya": {
+    "10MIN": [],
+    "DAY": [],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/bit1.m.gz"
+    ]
+   },
+   "fay": "San Andreas Fault",
+   "hdr": [],
+   "ilk": "1979-07-01",
+   "ilk_sayfa": "Jul-79",
+   "kesim": "SAF_sunen_orta",
+   "lat": 36.398,
+   "lon": -120.982,
+   "not_": "",
+   "site": "36.398,-120.982"
+  },
+  "CFW1": {
+   "dosya": {
+    "10MIN": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/10MIN/cfw1.10min.gz"
+    ],
+    "DAY": [],
+    "MIC": []
+   },
+   "fay": "Hayward Fault",
+   "hdr": [
+    "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/HDR/cfw1.hdr1"
+   ],
+   "ilk": "1993-12-01",
+   "ilk_sayfa": "Dec.  1993",
+   "kesim": "HAY",
+   "lat": 37.532,
+   "lon": -121.952,
+   "not_": "",
+   "site": "37.532,-121.952"
+  },
+  "CHP1": {
+   "dosya": {
+    "10MIN": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/10MIN/chp1.10min.gz"
+    ],
+    "DAY": [],
+    "MIC": []
+   },
+   "fay": "Hayward Fault",
+   "hdr": [
+    "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/HDR/chp1.hdr1"
+   ],
+   "ilk": "1994-04-01",
+   "ilk_sayfa": "Apr-94",
+   "kesim": "HAY",
+   "lat": 37.663,
+   "lon": -122.074,
+   "not_": "",
+   "site": "37.663,-122.074"
+  },
+  "COZ1": {
+   "dosya": {
+    "10MIN": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/10MIN/coz1.10min.gz"
+    ],
+    "DAY": [],
+    "MIC": []
+   },
+   "fay": "Hayward Fault",
+   "hdr": [
+    "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/HDR/coz1.hdr1"
+   ],
+   "ilk": "1996-11-01",
+   "ilk_sayfa": "Nov.  1996",
+   "kesim": "HAY",
+   "lat": 37.753,
+   "lon": -122.15,
+   "not_": "",
+   "site": "37.753,-122.150"
+  },
+  "CPP1": {
+   "dosya": {
+    "10MIN": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/10MIN/cpp1.10min.gz"
+    ],
+    "DAY": [],
+    "MIC": []
+   },
+   "fay": "Hayward Fault",
+   "hdr": [
+    "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/HDR/cpp1.hdr1"
+   ],
+   "ilk": "1995-08-01",
+   "ilk_sayfa": "Aug.  1995",
+   "kesim": "HAY",
+   "lat": 37.99,
+   "lon": -122.356,
+   "not_": "",
+   "site": "37.990,-122.356"
+  },
+  "CRR1": {
+   "dosya": {
+    "10MIN": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/10MIN/crr1.10min.gz"
+    ],
+    "DAY": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/DAY/crr1.day.gz"
+    ],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/crr1.m.gz"
+    ]
+   },
+   "fay": "San Andreas Fault",
+   "hdr": [
+    "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/HDR/crr1.hdr1"
+   ],
+   "ilk": "1966-05-01",
+   "ilk_sayfa": "May-66",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.835,
+   "lon": -120.363,
+   "not_": "",
+   "site": "35.835,-120.363"
+  },
+  "CTM1": {
+   "dosya": {
+    "10MIN": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/10MIN/ctm1.10min.gz"
+    ],
+    "DAY": [],
+    "MIC": []
+   },
+   "fay": "Hayward Fault",
+   "hdr": [
+    "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/HDR/ctm1.hdr1"
+   ],
+   "ilk": "1997-03-01",
+   "ilk_sayfa": "Mar.  1997",
+   "kesim": "HAY",
+   "lat": 37.844,
+   "lon": -122.227,
+   "not_": "",
+   "site": "37.844,-122.227"
+  },
+  "CWN1": {
+   "dosya": {
+    "10MIN": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/10MIN/cwn1.10min.gz"
+    ],
+    "DAY": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/DAY/cwn1.day.gz"
+    ],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/cwn1.m.gz"
+    ]
+   },
+   "fay": "San Andreas Fault",
+   "hdr": [
+    "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/HDR/cwn1.hdr1"
+   ],
+   "ilk": "1972-06-01",
+   "ilk_sayfa": "Jun-72",
+   "kesim": "SAF_SJB",
+   "lat": 36.75,
+   "lon": -121.385,
+   "not_": "",
+   "site": "36.750,-121.385"
+  },
+  "HLC1": {
+   "dosya": {
+    "10MIN": [],
+    "DAY": [],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/hlc1.m.gz"
+    ]
+   },
+   "fay": "Calaveras Fault",
+   "hdr": [],
+   "ilk": "1970-04-01",
+   "ilk_sayfa": "Apr-70",
+   "kesim": "CAL_Hollister",
+   "lat": 36.857,
+   "lon": -121.405,
+   "not_": "",
+   "site": "36.857,-121.405"
+  },
+  "HLD1": {
+   "dosya": {
+    "10MIN": [],
+    "DAY": [],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/hld1.m.gz"
+    ]
+   },
+   "fay": "Calaveras Fault",
+   "hdr": [],
+   "ilk": "1970-04-01",
+   "ilk_sayfa": "Apr-70",
+   "kesim": "CAL_Hollister",
+   "lat": 36.842,
+   "lon": -121.403,
+   "not_": "",
+   "site": "36.842,-121.403"
+  },
+  "HWE1": {
+   "dosya": {
+    "10MIN": [],
+    "DAY": [],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/hwe1.m.gz"
+    ]
+   },
+   "fay": "Hayward Fault",
+   "hdr": [],
+   "ilk": "1968-04-01",
+   "ilk_sayfa": "Apr-68",
+   "kesim": "HAY",
+   "lat": 37.67,
+   "lon": -122.08,
+   "not_": "",
+   "site": "37.670,-122.080"
+  },
+  "HWP1": {
+   "dosya": {
+    "10MIN": [],
+    "DAY": [],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/hwp1.m.gz"
+    ]
+   },
+   "fay": "Hayward Fault",
+   "hdr": [],
+   "ilk": "1968-04-01",
+   "ilk_sayfa": "Apr-68",
+   "kesim": "HAY",
+   "lat": 37.663,
+   "lon": -122.074,
+   "not_": "",
+   "site": "37.663,-122.074"
+  },
+  "HWR1": {
+   "dosya": {
+    "10MIN": [],
+    "DAY": [],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/hwr1.m.gz"
+    ]
+   },
+   "fay": "Hayward Fault",
+   "hdr": [],
+   "ilk": "1968-04-01",
+   "ilk_sayfa": "Apr-68",
+   "kesim": "HAY",
+   "lat": 37.68,
+   "lon": -122.092,
+   "not_": "",
+   "site": "37.680,-122.092"
+  },
+  "HWR2": {
+   "dosya": {
+    "10MIN": [],
+    "DAY": [],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/hwr2.m.gz"
+    ]
+   },
+   "fay": "Hayward Fault",
+   "hdr": [],
+   "ilk": "1968-04-01",
+   "ilk_sayfa": "Apr-68",
+   "kesim": "HAY",
+   "lat": 37.68,
+   "lon": -122.092,
+   "not_": "",
+   "site": "37.680,-122.092"
+  },
+  "HWW1": {
+   "dosya": {
+    "10MIN": [],
+    "DAY": [],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/hww1.m.gz"
+    ]
+   },
+   "fay": "Hayward Fault",
+   "hdr": [],
+   "ilk": "1968-04-01",
+   "ilk_sayfa": "Apr-68",
+   "kesim": "HAY",
+   "lat": 37.67,
+   "lon": -122.08,
+   "not_": "",
+   "site": "37.670,-122.080"
+  },
+  "SHR2": {
+   "dosya": {
+    "10MIN": [],
+    "DAY": [],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/shr2.m.gz"
+    ]
+   },
+   "fay": "Calaveras Fault",
+   "hdr": [],
+   "ilk": "1986-04-01",
+   "ilk_sayfa": "Apr-86",
+   "kesim": "CAL_Hollister",
+   "lat": 36.943,
+   "lon": -121.445,
+   "not_": "",
+   "site": "36.943,-121.445"
+  },
+  "SJN1": {
+   "dosya": {
+    "10MIN": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/10MIN/sjn1.10min.gz"
+    ],
+    "DAY": [],
+    "MIC": []
+   },
+   "fay": "San Andreas Fault",
+   "hdr": [
+    "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/HDR/sjn1.hdr1"
+   ],
+   "ilk": "2004-01-01",
+   "ilk_sayfa": "2004",
+   "kesim": "SAF_SJB",
+   "lat": 36.8546,
+   "lon": -121.521,
+   "not_": "boylam sayfada 0; XSJ2'den",
+   "site": "36.855,-121.521"
+  },
+  "TWR1": {
+   "dosya": {
+    "10MIN": [],
+    "DAY": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/DAY/twr1.day.gz"
+    ],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/twr1.m.gz"
+    ]
+   },
+   "fay": "San Andreas Fault",
+   "hdr": [],
+   "ilk": "1976-11-01",
+   "ilk_sayfa": "Nov.  1976",
+   "kesim": "SAF_guney_gecis",
+   "lat": 35.597,
+   "lon": -120.147,
+   "not_": "",
+   "site": "35.597,-120.147"
+  },
+  "WKR1": {
+   "dosya": {
+    "10MIN": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/10MIN/wkr1.10min.gz"
+    ],
+    "DAY": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/DAY/wkr1.day.gz"
+    ],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/wkr1.m.gz"
+    ]
+   },
+   "fay": "San Andreas Fault",
+   "hdr": [
+    "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/HDR/wkr1.hdr1"
+   ],
+   "ilk": "1976-01-01",
+   "ilk_sayfa": "1976",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.858,
+   "lon": -120.392,
+   "not_": "",
+   "site": "35.858,-120.392"
+  },
+  "X461": {
+   "dosya": {
+    "10MIN": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/10MIN/x461.10min.gz"
+    ],
+    "DAY": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/DAY/x461.day.gz"
+    ],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/x461.m.gz"
+    ]
+   },
+   "fay": "San Andreas Fault",
+   "hdr": [
+    "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/HDR/x461.hdr1"
+   ],
+   "ilk": "1986-08-01",
+   "ilk_sayfa": "Aug.  1986",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.723,
+   "lon": -120.278,
+   "not_": "",
+   "site": "35.723,-120.278"
+  },
+  "XDL2": {
+   "dosya": {
+    "10MIN": [],
+    "DAY": [],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/xdl2.m.gz"
+    ]
+   },
+   "fay": "San Andreas Fault",
+   "hdr": [],
+   "ilk": "1978-01-01",
+   "ilk_sayfa": "1978",
+   "kesim": "SAF_sunen_orta",
+   "lat": 36.492,
+   "lon": -121.078,
+   "not_": "",
+   "site": "36.492,-121.078"
+  },
+  "XGH1": {
+   "dosya": {
+    "10MIN": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/10MIN/xgh1.10min.gz"
+    ],
+    "DAY": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/DAY/xgh1.day.gz"
+    ],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/xgh1.m.gz"
+    ]
+   },
+   "fay": "San Andreas Fault",
+   "hdr": [
+    "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/HDR/xgh1.hdr1"
+   ],
+   "ilk": "1969-07-01",
+   "ilk_sayfa": "Jul-69",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.82,
+   "lon": -120.348,
+   "not_": "",
+   "site": "35.820,-120.348"
+  },
+  "XHR1": {
+   "dosya": {
+    "10MIN": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/10MIN/xhr1.10min.gz"
+    ],
+    "DAY": [],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/xhr1.m.gz"
+    ]
+   },
+   "fay": "San Andreas Fault",
+   "hdr": [
+    "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/HDR/xhr1.hdr1"
+   ],
+   "ilk": "1970-01-01",
+   "ilk_sayfa": "1970",
+   "kesim": "SAF_SJB",
+   "lat": 36.772,
+   "lon": -121.422,
+   "not_": "",
+   "site": "36.772,-121.422"
+  },
+  "XHR3": {
+   "dosya": {
+    "10MIN": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/10MIN/xhr3.10min.gz"
+    ],
+    "DAY": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/DAY/xhr3.day.gz"
+    ],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/xhr3.m.gz"
+    ]
+   },
+   "fay": "San Andreas Fault",
+   "hdr": [
+    "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/HDR/xhr3.hdr1"
+   ],
+   "ilk": "2009-08-01",
+   "ilk_sayfa": "Aug. 2009",
+   "kesim": "SAF_SJB",
+   "lat": 36.772,
+   "lon": -121.422,
+   "not_": "",
+   "site": "36.772,-121.422"
+  },
+  "XMD1": {
+   "dosya": {
+    "10MIN": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/10MIN/xmd1.10min.gz"
+    ],
+    "DAY": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/DAY/xmd1.day.gz"
+    ],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/xmd1.m.gz"
+    ]
+   },
+   "fay": "San Andreas Fault",
+   "hdr": [
+    "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/HDR/xmd1.hdr1"
+   ],
+   "ilk": "1986-07-01",
+   "ilk_sayfa": "Jul-86",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.943,
+   "lon": -120.485,
+   "not_": "",
+   "site": "35.943,-120.485"
+  },
+  "XMM1": {
+   "dosya": {
+    "10MIN": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/10MIN/xmm1.10min.gz"
+    ],
+    "DAY": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/DAY/xmm1.day.gz"
+    ],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/xmm1.m.gz"
+    ]
+   },
+   "fay": "San Andreas Fault",
+   "hdr": [
+    "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/HDR/xmm1.hdr1"
+   ],
+   "ilk": "1979-10-01",
+   "ilk_sayfa": "Oct.  1979",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.958,
+   "lon": -120.502,
+   "not_": "",
+   "site": "35.958,-120.502"
+  },
+  "XMP1": {
+   "dosya": {
+    "10MIN": [],
+    "DAY": [],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/xmp1.m.gz"
+    ]
+   },
+   "fay": "San Andreas Fault",
+   "hdr": [],
+   "ilk": "1969-06-01",
+   "ilk_sayfa": "Jun-69",
+   "kesim": "SAF_sunen_orta",
+   "lat": 36.217,
+   "lon": -120.798,
+   "not_": "",
+   "site": "36.217,-120.798"
+  },
+  "XMP2": {
+   "dosya": {
+    "10MIN": [],
+    "DAY": [],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/xmp2.m.gz"
+    ]
+   },
+   "fay": "San Andreas Fault",
+   "hdr": [],
+   "ilk": "1969-06-01",
+   "ilk_sayfa": "Jun-69",
+   "kesim": "SAF_sunen_orta",
+   "lat": 36.217,
+   "lon": -120.798,
+   "not_": "",
+   "site": "36.217,-120.798"
+  },
+  "XPH1": {
+   "dosya": {
+    "10MIN": [],
+    "DAY": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/DAY/xph1.day.gz"
+    ],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/xph1.m.gz"
+    ]
+   },
+   "fay": "San Andreas Fault",
+   "hdr": [],
+   "ilk": "1977-08-01",
+   "ilk_sayfa": "Aug.  1977",
+   "kesim": "SAF_guney_gecis",
+   "lat": 35.148,
+   "lon": -119.692,
+   "not_": "",
+   "site": "35.148,-119.692"
+  },
+  "XPK2": {
+   "dosya": {
+    "10MIN": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/10MIN/xpk2.10min.gz"
+    ],
+    "DAY": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/DAY/xpk2.day.gz"
+    ],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/xpk2.m.gz"
+    ]
+   },
+   "fay": "San Andreas Fault",
+   "hdr": [
+    "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/HDR/xpk2.hdr1"
+   ],
+   "ilk": "2004-09-01",
+   "ilk_sayfa": "Sept. 2004",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.902,
+   "lon": -120.442,
+   "not_": "",
+   "site": "35.902,-120.442"
+  },
+  "XSC1": {
+   "dosya": {
+    "10MIN": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/10MIN/xsc1.10min.gz"
+    ],
+    "DAY": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/DAY/xsc1.day.gz"
+    ],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/xsc1.m.gz"
+    ]
+   },
+   "fay": "San Andreas Fault",
+   "hdr": [
+    "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/HDR/xsc1.hdr1"
+   ],
+   "ilk": "1979-06-01",
+   "ilk_sayfa": "Jun-79",
+   "kesim": "SAF_sunen_orta",
+   "lat": 36.065,
+   "lon": -120.628,
+   "not_": "",
+   "site": "36.065,-120.628"
+  },
+  "XSH1": {
+   "dosya": {
+    "10MIN": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/10MIN/xsh1.10min.gz"
+    ],
+    "DAY": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/DAY/xsh1.day.gz"
+    ],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/xsh1.m.gz"
+    ]
+   },
+   "fay": "Calaveras Fault",
+   "hdr": [
+    "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/HDR/xsh1.hdr1"
+   ],
+   "ilk": "1971-01-01",
+   "ilk_sayfa": "1971",
+   "kesim": "CAL_Hollister",
+   "lat": 36.943,
+   "lon": -121.445,
+   "not_": "",
+   "site": "36.943,-121.445"
+  },
+  "XSJ3": {
+   "dosya": {
+    "10MIN": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/10MIN/xsj3.10min.gz"
+    ],
+    "DAY": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/DAY/xsj3.day.gz"
+    ],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/xsj3.m.gz"
+    ]
+   },
+   "fay": "San Andreas Fault",
+   "hdr": [
+    "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/HDR/xsj3.hdr1"
+   ],
+   "ilk": "2007-01-01",
+   "ilk_sayfa": "Jan. 2007",
+   "kesim": "SAF_SJB",
+   "lat": 36.836,
+   "lon": -121.521,
+   "not_": "",
+   "site": "36.836,-121.521"
+  },
+  "XTA1": {
+   "dosya": {
+    "10MIN": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/10MIN/xta1.10min.gz"
+    ],
+    "DAY": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/DAY/xta1.day.gz"
+    ],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/xta1.m.gz"
+    ]
+   },
+   "fay": "San Andreas Fault",
+   "hdr": [
+    "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/HDR/xta1.hdr1"
+   ],
+   "ilk": "1985-09-01",
+   "ilk_sayfa": "Sept.  1985",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.89,
+   "lon": -120.427,
+   "not_": "",
+   "site": "35.890,-120.427"
+  },
+  "XVA1": {
+   "dosya": {
+    "10MIN": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/10MIN/xva1.10min.gz"
+    ],
+    "DAY": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/DAY/xva1.day.gz"
+    ],
+    "MIC": [
+     "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/MIC/xva1.m.gz"
+    ]
+   },
+   "fay": "San Andreas Fault",
+   "hdr": [
+    "https://escweb.wr.usgs.gov/share/langbein/Archive/CREEP/HDR/xva1.hdr1"
+   ],
+   "ilk": "1987-04-01",
+   "ilk_sayfa": "Apr-87",
+   "kesim": "SAF_Parkfield",
+   "lat": 35.922,
+   "lon": -120.462,
+   "not_": "",
+   "site": "35.922,-120.462"
+  }
+ },
+ "kaynak": {
+  "liste_sha256": {
+   "A": "c027949015ff962f9e8ec56990f2808642c1a39c81c725c9bb615f094857a422",
+   "A_R2": "cc238e03b244ec752928c705967647830e859b92d0c9e11f23df427e44b71426",
+   "B": "17f120d295447f7aa102f3d8d18c223e7f0822ac9ca0467e6690b5c094997101",
+   "B1_gecmis5": "33b8eafab4782c417c70f55a1606aecdf4fb1466e2c96817a53f2ef453d20b52",
+   "B_R2": "560b49c1c634202a5451c85da8e26fb87059fe6e025a1956f53989cece6d036d"
+  },
+  "sayfa_sha256": "74b3eb437b530436231e9758fe3d1c18d71c09c351530820e08bc32bb0f0edc1"
+ },
+ "listeler": {
+  "A": [
+   [
+    "CFW1",
+    2003
+   ],
+   [
+    "CHP1",
+    2003
+   ],
+   [
+    "COZ1",
+    2003
+   ],
+   [
+    "CPP1",
+    2003
+   ],
+   [
+    "CRR1",
+    1973
+   ],
+   [
+    "CRR1",
+    1978
+   ],
+   [
+    "CRR1",
+    2018
+   ],
+   [
+    "CTM1",
+    2003
+   ],
+   [
+    "CWN1",
+    2018
+   ],
+   [
+    "HLC1",
+    2018
+   ],
+   [
+    "HLD1",
+    2018
+   ],
+   [
+    "HWE1",
+    1973
+   ],
+   [
+    "HWE1",
+    2003
+   ],
+   [
+    "HWP1",
+    1973
+   ],
+   [
+    "HWP1",
+    2003
+   ],
+   [
+    "HWR1",
+    1973
+   ],
+   [
+    "HWR1",
+    2003
+   ],
+   [
+    "HWR2",
+    1973
+   ],
+   [
+    "HWR2",
+    2003
+   ],
+   [
+    "HWW1",
+    1973
+   ],
+   [
+    "HWW1",
+    2003
+   ],
+   [
+    "SHR2",
+    2018
+   ],
+   [
+    "SJN1",
+    2018
+   ],
+   [
+    "TWR1",
+    2018
+   ],
+   [
+    "WKR1",
+    2018
+   ],
+   [
+    "X461",
+    2018
+   ],
+   [
+    "XGH1",
+    1978
+   ],
+   [
+    "XGH1",
+    2018
+   ],
+   [
+    "XHR1",
+    2018
+   ],
+   [
+    "XHR3",
+    2018
+   ],
+   [
+    "XMD1",
+    2018
+   ],
+   [
+    "XMM1",
+    2018
+   ],
+   [
+    "XPH1",
+    2018
+   ],
+   [
+    "XPK2",
+    2018
+   ],
+   [
+    "XSH1",
+    2018
+   ],
+   [
+    "XSJ3",
+    2018
+   ],
+   [
+    "XTA1",
+    2018
+   ],
+   [
+    "XVA1",
+    2018
+   ]
+  ],
+  "A_R2": [
+   [
+    "CFW1",
+    2003
+   ],
+   [
+    "CHP1",
+    2003
+   ],
+   [
+    "COZ1",
+    2003
+   ],
+   [
+    "CPP1",
+    2003
+   ],
+   [
+    "CRR1",
+    1973
+   ],
+   [
+    "CRR1",
+    1978
+   ],
+   [
+    "CRR1",
+    2018
+   ],
+   [
+    "CTM1",
+    2003
+   ],
+   [
+    "CWN1",
+    2018
+   ],
+   [
+    "SJN1",
+    2018
+   ],
+   [
+    "WKR1",
+    2018
+   ],
+   [
+    "X461",
+    2018
+   ],
+   [
+    "XGH1",
+    1978
+   ],
+   [
+    "XGH1",
+    2018
+   ],
+   [
+    "XHR3",
+    2018
+   ],
+   [
+    "XMD1",
+    2018
+   ],
+   [
+    "XMM1",
+    2018
+   ],
+   [
+    "XPK2",
+    2018
+   ],
+   [
+    "XSH1",
+    2018
+   ],
+   [
+    "XSJ3",
+    2018
+   ],
+   [
+    "XTA1",
+    2018
+   ],
+   [
+    "XVA1",
+    2018
+   ]
+  ],
+  "B": [
+   [
+    "BIT1",
+    1998
+   ],
+   [
+    "CFW1",
+    2003
+   ],
+   [
+    "CFW1",
+    2018
+   ],
+   [
+    "CHP1",
+    2003
+   ],
+   [
+    "CHP1",
+    2008
+   ],
+   [
+    "CHP1",
+    2013
+   ],
+   [
+    "COZ1",
+    2003
+   ],
+   [
+    "COZ1",
+    2008
+   ],
+   [
+    "COZ1",
+    2013
+   ],
+   [
+    "CPP1",
+    2003
+   ],
+   [
+    "CRR1",
+    1973
+   ],
+   [
+    "CRR1",
+    1978
+   ],
+   [
+    "CRR1",
+    2013
+   ],
+   [
+    "CRR1",
+    2018
+   ],
+   [
+    "CTM1",
+    2003
+   ],
+   [
+    "CWN1",
+    2018
+   ],
+   [
+    "HLC1",
+    2013
+   ],
+   [
+    "HLC1",
+    2018
+   ],
+   [
+    "HLD1",
+    2013
+   ],
+   [
+    "HLD1",
+    2018
+   ],
+   [
+    "HWE1",
+    1973
+   ],
+   [
+    "HWE1",
+    2003
+   ],
+   [
+    "HWE1",
+    2008
+   ],
+   [
+    "HWE1",
+    2013
+   ],
+   [
+    "HWP1",
+    1973
+   ],
+   [
+    "HWP1",
+    2003
+   ],
+   [
+    "HWP1",
+    2008
+   ],
+   [
+    "HWP1",
+    2013
+   ],
+   [
+    "HWR1",
+    1973
+   ],
+   [
+    "HWR1",
+    2003
+   ],
+   [
+    "HWR1",
+    2008
+   ],
+   [
+    "HWR1",
+    2013
+   ],
+   [
+    "HWR2",
+    1973
+   ],
+   [
+    "HWR2",
+    2003
+   ],
+   [
+    "HWR2",
+    2008
+   ],
+   [
+    "HWR2",
+    2013
+   ],
+   [
+    "HWW1",
+    1973
+   ],
+   [
+    "HWW1",
+    2003
+   ],
+   [
+    "HWW1",
+    2008
+   ],
+   [
+    "HWW1",
+    2013
+   ],
+   [
+    "SHR2",
+    2013
+   ],
+   [
+    "SHR2",
+    2018
+   ],
+   [
+    "SJN1",
+    2018
+   ],
+   [
+    "TWR1",
+    2013
+   ],
+   [
+    "TWR1",
+    2018
+   ],
+   [
+    "WKR1",
+    2013
+   ],
+   [
+    "WKR1",
+    2018
+   ],
+   [
+    "X461",
+    2013
+   ],
+   [
+    "X461",
+    2018
+   ],
+   [
+    "XDL2",
+    1998
+   ],
+   [
+    "XDL2",
+    2013
+   ],
+   [
+    "XDL2",
+    2018
+   ],
+   [
+    "XGH1",
+    1978
+   ],
+   [
+    "XGH1",
+    2013
+   ],
+   [
+    "XGH1",
+    2018
+   ],
+   [
+    "XHR1",
+    2018
+   ],
+   [
+    "XHR3",
+    2018
+   ],
+   [
+    "XMD1",
+    2013
+   ],
+   [
+    "XMD1",
+    2018
+   ],
+   [
+    "XMM1",
+    2013
+   ],
+   [
+    "XMM1",
+    2018
+   ],
+   [
+    "XMP1",
+    1978
+   ],
+   [
+    "XMP1",
+    1998
+   ],
+   [
+    "XMP2",
+    1978
+   ],
+   [
+    "XMP2",
+    1998
+   ],
+   [
+    "XPH1",
+    2013
+   ],
+   [
+    "XPH1",
+    2018
+   ],
+   [
+    "XPK2",
+    2013
+   ],
+   [
+    "XPK2",
+    2018
+   ],
+   [
+    "XSC1",
+    2013
+   ],
+   [
+    "XSC1",
+    2018
+   ],
+   [
+    "XSH1",
+    2013
+   ],
+   [
+    "XSH1",
+    2018
+   ],
+   [
+    "XSJ3",
+    2018
+   ],
+   [
+    "XTA1",
+    2013
+   ],
+   [
+    "XTA1",
+    2018
+   ],
+   [
+    "XVA1",
+    2013
+   ],
+   [
+    "XVA1",
+    2018
+   ]
+  ],
+  "B1_gecmis5": [
+   [
+    "CFW1",
+    2003
+   ],
+   [
+    "CFW1",
+    2018
+   ],
+   [
+    "CHP1",
+    2003
+   ],
+   [
+    "CHP1",
+    2008
+   ],
+   [
+    "CHP1",
+    2013
+   ],
+   [
+    "COZ1",
+    2003
+   ],
+   [
+    "COZ1",
+    2008
+   ],
+   [
+    "COZ1",
+    2013
+   ],
+   [
+    "CPP1",
+    2003
+   ],
+   [
+    "CRR1",
+    1978
+   ],
+   [
+    "CRR1",
+    2018
+   ],
+   [
+    "CTM1",
+    2003
+   ],
+   [
+    "CWN1",
+    2018
+   ],
+   [
+    "HLC1",
+    2018
+   ],
+   [
+    "HLD1",
+    2018
+   ],
+   [
+    "HWE1",
+    1973
+   ],
+   [
+    "HWE1",
+    2003
+   ],
+   [
+    "HWE1",
+    2008
+   ],
+   [
+    "HWE1",
+    2013
+   ],
+   [
+    "HWP1",
+    1973
+   ],
+   [
+    "HWP1",
+    2003
+   ],
+   [
+    "HWP1",
+    2008
+   ],
+   [
+    "HWP1",
+    2013
+   ],
+   [
+    "HWR1",
+    1973
+   ],
+   [
+    "HWR1",
+    2003
+   ],
+   [
+    "HWR1",
+    2008
+   ],
+   [
+    "HWR1",
+    2013
+   ],
+   [
+    "HWR2",
+    1973
+   ],
+   [
+    "HWR2",
+    2003
+   ],
+   [
+    "HWR2",
+    2008
+   ],
+   [
+    "HWR2",
+    2013
+   ],
+   [
+    "HWW1",
+    1973
+   ],
+   [
+    "HWW1",
+    2003
+   ],
+   [
+    "HWW1",
+    2008
+   ],
+   [
+    "HWW1",
+    2013
+   ],
+   [
+    "SHR2",
+    2018
+   ],
+   [
+    "TWR1",
+    2018
+   ],
+   [
+    "WKR1",
+    2018
+   ],
+   [
+    "X461",
+    2018
+   ],
+   [
+    "XDL2",
+    2018
+   ],
+   [
+    "XGH1",
+    1978
+   ],
+   [
+    "XGH1",
+    2018
+   ],
+   [
+    "XMD1",
+    2018
+   ],
+   [
+    "XMM1",
+    2018
+   ],
+   [
+    "XMP1",
+    1978
+   ],
+   [
+    "XMP2",
+    1978
+   ],
+   [
+    "XPH1",
+    2018
+   ],
+   [
+    "XPK2",
+    2018
+   ],
+   [
+    "XSC1",
+    2018
+   ],
+   [
+    "XSH1",
+    2018
+   ],
+   [
+    "XTA1",
+    2018
+   ],
+   [
+    "XVA1",
+    2018
+   ]
+  ],
+  "B_R2": [
+   [
+    "CFW1",
+    2003
+   ],
+   [
+    "CFW1",
+    2018
+   ],
+   [
+    "CHP1",
+    2003
+   ],
+   [
+    "CHP1",
+    2008
+   ],
+   [
+    "CHP1",
+    2013
+   ],
+   [
+    "COZ1",
+    2003
+   ],
+   [
+    "COZ1",
+    2008
+   ],
+   [
+    "COZ1",
+    2013
+   ],
+   [
+    "CPP1",
+    2003
+   ],
+   [
+    "CRR1",
+    1973
+   ],
+   [
+    "CRR1",
+    1978
+   ],
+   [
+    "CRR1",
+    2013
+   ],
+   [
+    "CRR1",
+    2018
+   ],
+   [
+    "CTM1",
+    2003
+   ],
+   [
+    "CWN1",
+    2018
+   ],
+   [
+    "SJN1",
+    2018
+   ],
+   [
+    "WKR1",
+    2013
+   ],
+   [
+    "WKR1",
+    2018
+   ],
+   [
+    "X461",
+    2013
+   ],
+   [
+    "X461",
+    2018
+   ],
+   [
+    "XDL2",
+    1998
+   ],
+   [
+    "XGH1",
+    1978
+   ],
+   [
+    "XGH1",
+    2013
+   ],
+   [
+    "XGH1",
+    2018
+   ],
+   [
+    "XHR3",
+    2018
+   ],
+   [
+    "XMD1",
+    2013
+   ],
+   [
+    "XMD1",
+    2018
+   ],
+   [
+    "XMM1",
+    2013
+   ],
+   [
+    "XMM1",
+    2018
+   ],
+   [
+    "XMP1",
+    1978
+   ],
+   [
+    "XMP2",
+    1978
+   ],
+   [
+    "XPK2",
+    2013
+   ],
+   [
+    "XPK2",
+    2018
+   ],
+   [
+    "XSC1",
+    2013
+   ],
+   [
+    "XSC1",
+    2018
+   ],
+   [
+    "XSH1",
+    2013
+   ],
+   [
+    "XSH1",
+    2018
+   ],
+   [
+    "XSJ3",
+    2018
+   ],
+   [
+    "XTA1",
+    2013
+   ],
+   [
+    "XTA1",
+    2018
+   ],
+   [
+    "XVA1",
+    2013
+   ],
+   [
+    "XVA1",
+    2018
+   ]
+  ]
+ }
+}
