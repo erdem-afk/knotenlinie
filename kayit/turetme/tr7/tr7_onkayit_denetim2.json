@@ -1,0 +1,876 @@
+{
+ "n_pencere": 100,
+ "sonuclar": [
+  {
+   "denetim": "A300",
+   "ek": null,
+   "tohum": 20261412,
+   "n": 1,
+   "sonuc": {
+    "A300_bolu_A_etkin_yarim_sinus": 0.7065,
+    "not_": "zarfın kendisinden (gürültüsüz); sinyal RMS oranı aynı zarfla ölçeklenir"
+   }
+  },
+  {
+   "denetim": "D5b",
+   "ek": "1",
+   "tohum": 20261413,
+   "n": 100,
+   "sonuc": {
+    "p_le_001_orani": 0.39,
+    "bos_dagilim": "kaydirma",
+    "kaydirma": 200
+   }
+  },
+  {
+   "denetim": "D5b",
+   "ek": "1",
+   "tohum": 4243,
+   "n": 100,
+   "sonuc": {
+    "p_le_001_orani": 0.38,
+    "bos_dagilim": "kaydirma",
+    "kaydirma": 200
+   }
+  },
+  {
+   "denetim": "D5b",
+   "ek": "1",
+   "tohum": 20261414,
+   "n": 100,
+   "sonuc": {
+    "p_le_001_orani": 0.88,
+    "bos_dagilim": "karistirma",
+    "kaydirma": 200
+   }
+  },
+  {
+   "denetim": "D5b",
+   "ek": "3",
+   "tohum": 20261415,
+   "n": 100,
+   "sonuc": {
+    "p_le_001_orani": 0.47,
+    "bos_dagilim": "kaydirma",
+    "kaydirma": 200
+   }
+  },
+  {
+   "denetim": "D5b",
+   "ek": "3",
+   "tohum": 4245,
+   "n": 100,
+   "sonuc": {
+    "p_le_001_orani": 0.36,
+    "bos_dagilim": "kaydirma",
+    "kaydirma": 200
+   }
+  },
+  {
+   "denetim": "D5b",
+   "ek": "3",
+   "tohum": 20261416,
+   "n": 100,
+   "sonuc": {
+    "p_le_001_orani": 0.74,
+    "bos_dagilim": "karistirma",
+    "kaydirma": 200
+   }
+  },
+  {
+   "denetim": "D6",
+   "ek": "20",
+   "tohum": 20261417,
+   "n": 100,
+   "sonuc": {
+    "algilama": 0.0,
+    "darbe_atilma_algilananda": null,
+    "algilanmama_ya_da_darbe": 1.0,
+    "yanlis_yumusak_algilanmama_ya_da_darbe": 1.0,
+    "katalog_maskesi_atilma": null
+   }
+  },
+  {
+   "denetim": "D6",
+   "ek": "20",
+   "tohum": 4247,
+   "n": 100,
+   "sonuc": {
+    "algilama": 0.0,
+    "darbe_atilma_algilananda": null,
+    "algilanmama_ya_da_darbe": 1.0,
+    "yanlis_yumusak_algilanmama_ya_da_darbe": 1.0,
+    "katalog_maskesi_atilma": null
+   }
+  },
+  {
+   "denetim": "D6b",
+   "ek": "3:20",
+   "tohum": 20261418,
+   "n": 100,
+   "sonuc": {
+    "algilama": 0.0,
+    "darbe_atilma_algilananda": null,
+    "algilanmama_ya_da_darbe": 1.0,
+    "yanlis_yumusak_algilanmama_ya_da_darbe": 1.0,
+    "katalog_maskesi_atilma": null
+   }
+  },
+  {
+   "denetim": "D6b",
+   "ek": "3:20",
+   "tohum": 4248,
+   "n": 100,
+   "sonuc": {
+    "algilama": 0.0,
+    "darbe_atilma_algilananda": null,
+    "algilanmama_ya_da_darbe": 1.0,
+    "yanlis_yumusak_algilanmama_ya_da_darbe": 1.0,
+    "katalog_maskesi_atilma": null
+   }
+  },
+  {
+   "denetim": "D6b",
+   "ek": "5:20",
+   "tohum": 20261419,
+   "n": 100,
+   "sonuc": {
+    "algilama": 0.0,
+    "darbe_atilma_algilananda": null,
+    "algilanmama_ya_da_darbe": 1.0,
+    "yanlis_yumusak_algilanmama_ya_da_darbe": 1.0,
+    "katalog_maskesi_atilma": null
+   }
+  },
+  {
+   "denetim": "D6b",
+   "ek": "5:20",
+   "tohum": 4249,
+   "n": 100,
+   "sonuc": {
+    "algilama": 0.0,
+    "darbe_atilma_algilananda": null,
+    "algilanmama_ya_da_darbe": 1.0,
+    "yanlis_yumusak_algilanmama_ya_da_darbe": 1.0,
+    "katalog_maskesi_atilma": null
+   }
+  },
+  {
+   "denetim": "D6b",
+   "ek": "8:20",
+   "tohum": 20261420,
+   "n": 100,
+   "sonuc": {
+    "algilama": 0.03,
+    "darbe_atilma_algilananda": 1.0,
+    "algilanmama_ya_da_darbe": 1.0,
+    "yanlis_yumusak_algilanmama_ya_da_darbe": 0.97,
+    "katalog_maskesi_atilma": 1.0
+   }
+  },
+  {
+   "denetim": "D6b",
+   "ek": "8:20",
+   "tohum": 4250,
+   "n": 100,
+   "sonuc": {
+    "algilama": 0.02,
+    "darbe_atilma_algilananda": 1.0,
+    "algilanmama_ya_da_darbe": 1.0,
+    "yanlis_yumusak_algilanmama_ya_da_darbe": 0.98,
+    "katalog_maskesi_atilma": 1.0
+   }
+  },
+  {
+   "denetim": "D6",
+   "ek": "100",
+   "tohum": 20261421,
+   "n": 100,
+   "sonuc": {
+    "algilama": 0.48,
+    "darbe_atilma_algilananda": 1.0,
+    "algilanmama_ya_da_darbe": 1.0,
+    "yanlis_yumusak_algilanmama_ya_da_darbe": 0.52,
+    "katalog_maskesi_atilma": 1.0
+   }
+  },
+  {
+   "denetim": "D6",
+   "ek": "100",
+   "tohum": 4251,
+   "n": 100,
+   "sonuc": {
+    "algilama": 0.48,
+    "darbe_atilma_algilananda": 1.0,
+    "algilanmama_ya_da_darbe": 1.0,
+    "yanlis_yumusak_algilanmama_ya_da_darbe": 0.52,
+    "katalog_maskesi_atilma": 1.0
+   }
+  },
+  {
+   "denetim": "D6b",
+   "ek": "3:100",
+   "tohum": 20261422,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "darbe_atilma_algilananda": 0.0,
+    "algilanmama_ya_da_darbe": 0.0,
+    "yanlis_yumusak_algilanmama_ya_da_darbe": 0.0,
+    "katalog_maskesi_atilma": 1.0
+   }
+  },
+  {
+   "denetim": "D6b",
+   "ek": "3:100",
+   "tohum": 4252,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "darbe_atilma_algilananda": 0.0,
+    "algilanmama_ya_da_darbe": 0.0,
+    "yanlis_yumusak_algilanmama_ya_da_darbe": 0.0,
+    "katalog_maskesi_atilma": 1.0
+   }
+  },
+  {
+   "denetim": "D6b",
+   "ek": "5:100",
+   "tohum": 20261423,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "darbe_atilma_algilananda": 0.29,
+    "algilanmama_ya_da_darbe": 0.29,
+    "yanlis_yumusak_algilanmama_ya_da_darbe": 0.0,
+    "katalog_maskesi_atilma": 1.0
+   }
+  },
+  {
+   "denetim": "D6b",
+   "ek": "5:100",
+   "tohum": 4253,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "darbe_atilma_algilananda": 0.27,
+    "algilanmama_ya_da_darbe": 0.27,
+    "yanlis_yumusak_algilanmama_ya_da_darbe": 0.0,
+    "katalog_maskesi_atilma": 1.0
+   }
+  },
+  {
+   "denetim": "D6b",
+   "ek": "8:100",
+   "tohum": 20261424,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "darbe_atilma_algilananda": 0.96,
+    "algilanmama_ya_da_darbe": 0.96,
+    "yanlis_yumusak_algilanmama_ya_da_darbe": 0.0,
+    "katalog_maskesi_atilma": 1.0
+   }
+  },
+  {
+   "denetim": "D6b",
+   "ek": "8:100",
+   "tohum": 4254,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "darbe_atilma_algilananda": 0.97,
+    "algilanmama_ya_da_darbe": 0.97,
+    "yanlis_yumusak_algilanmama_ya_da_darbe": 0.0,
+    "katalog_maskesi_atilma": 1.0
+   }
+  },
+  {
+   "denetim": "D7",
+   "ek": null,
+   "tohum": 20261425,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "darbe_ya_da_sizinti_atilma": 0.0,
+    "tam_kural_atilma_3a_dahil": 0.0,
+    "yanlis_on_esik_atilma": 0.08,
+    "sizinti_atilma": 0.0,
+    "yanlis_z_sizinti_atilma": 0.0,
+    "inc1_I_sizinti_atilma": 0.0
+   }
+  },
+  {
+   "denetim": "D7",
+   "ek": null,
+   "tohum": 4255,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "darbe_ya_da_sizinti_atilma": 0.0,
+    "tam_kural_atilma_3a_dahil": 0.0,
+    "yanlis_on_esik_atilma": 0.11,
+    "sizinti_atilma": 0.0,
+    "yanlis_z_sizinti_atilma": 0.0,
+    "inc1_I_sizinti_atilma": 0.0
+   }
+  },
+  {
+   "denetim": "D7b",
+   "ek": "3",
+   "tohum": 20261426,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "darbe_ya_da_sizinti_atilma": 0.0,
+    "tam_kural_atilma_3a_dahil": 0.0,
+    "yanlis_on_esik_atilma": 0.05,
+    "sizinti_atilma": 0.0,
+    "yanlis_z_sizinti_atilma": 0.0,
+    "inc1_I_sizinti_atilma": 0.01
+   }
+  },
+  {
+   "denetim": "D7b",
+   "ek": "3",
+   "tohum": 4256,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "darbe_ya_da_sizinti_atilma": 0.0,
+    "tam_kural_atilma_3a_dahil": 0.0,
+    "yanlis_on_esik_atilma": 0.05,
+    "sizinti_atilma": 0.0,
+    "yanlis_z_sizinti_atilma": 0.0,
+    "inc1_I_sizinti_atilma": 0.0
+   }
+  },
+  {
+   "denetim": "D7b",
+   "ek": "10",
+   "tohum": 20261427,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "darbe_ya_da_sizinti_atilma": 0.0,
+    "tam_kural_atilma_3a_dahil": 0.0,
+    "yanlis_on_esik_atilma": 0.05,
+    "sizinti_atilma": 0.0,
+    "yanlis_z_sizinti_atilma": 0.0,
+    "inc1_I_sizinti_atilma": 0.0
+   }
+  },
+  {
+   "denetim": "D7b",
+   "ek": "10",
+   "tohum": 4257,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "darbe_ya_da_sizinti_atilma": 0.0,
+    "tam_kural_atilma_3a_dahil": 0.0,
+    "yanlis_on_esik_atilma": 0.09,
+    "sizinti_atilma": 0.0,
+    "yanlis_z_sizinti_atilma": 0.0,
+    "inc1_I_sizinti_atilma": 0.0
+   }
+  },
+  {
+   "denetim": "D7b",
+   "ek": "30",
+   "tohum": 20261428,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "darbe_ya_da_sizinti_atilma": 0.01,
+    "tam_kural_atilma_3a_dahil": 0.01,
+    "yanlis_on_esik_atilma": 0.09,
+    "sizinti_atilma": 0.0,
+    "yanlis_z_sizinti_atilma": 0.0,
+    "inc1_I_sizinti_atilma": 0.0
+   }
+  },
+  {
+   "denetim": "D7b",
+   "ek": "30",
+   "tohum": 4258,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "darbe_ya_da_sizinti_atilma": 0.0,
+    "tam_kural_atilma_3a_dahil": 0.0,
+    "yanlis_on_esik_atilma": 0.08,
+    "sizinti_atilma": 0.0,
+    "yanlis_z_sizinti_atilma": 0.0,
+    "inc1_I_sizinti_atilma": 0.0
+   }
+  },
+  {
+   "denetim": "D7c",
+   "ek": "3:gauss",
+   "tohum": 20261429,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "darbe_ya_da_sizinti_atilma": 0.0,
+    "tam_kural_atilma_3a_dahil": 0.0,
+    "yanlis_on_esik_atilma": 0.06,
+    "sizinti_atilma": 0.0,
+    "yanlis_z_sizinti_atilma": 0.0,
+    "inc1_I_sizinti_atilma": 0.44
+   }
+  },
+  {
+   "denetim": "D7c",
+   "ek": "3:gauss",
+   "tohum": 4259,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "darbe_ya_da_sizinti_atilma": 0.0,
+    "tam_kural_atilma_3a_dahil": 0.0,
+    "yanlis_on_esik_atilma": 0.04,
+    "sizinti_atilma": 0.0,
+    "yanlis_z_sizinti_atilma": 0.0,
+    "inc1_I_sizinti_atilma": 0.42
+   }
+  },
+  {
+   "denetim": "D7c",
+   "ek": "10:gauss",
+   "tohum": 20261430,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "darbe_ya_da_sizinti_atilma": 0.0,
+    "tam_kural_atilma_3a_dahil": 0.0,
+    "yanlis_on_esik_atilma": 0.03,
+    "sizinti_atilma": 0.0,
+    "yanlis_z_sizinti_atilma": 0.0,
+    "inc1_I_sizinti_atilma": 0.22
+   }
+  },
+  {
+   "denetim": "D7c",
+   "ek": "10:gauss",
+   "tohum": 4260,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "darbe_ya_da_sizinti_atilma": 0.0,
+    "tam_kural_atilma_3a_dahil": 0.0,
+    "yanlis_on_esik_atilma": 0.07,
+    "sizinti_atilma": 0.0,
+    "yanlis_z_sizinti_atilma": 0.0,
+    "inc1_I_sizinti_atilma": 0.24
+   }
+  },
+  {
+   "denetim": "D7c",
+   "ek": "3:kentsel",
+   "tohum": 20261431,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "darbe_ya_da_sizinti_atilma": 0.0,
+    "tam_kural_atilma_3a_dahil": 0.0,
+    "yanlis_on_esik_atilma": 0.04,
+    "sizinti_atilma": 0.0,
+    "yanlis_z_sizinti_atilma": 0.13,
+    "inc1_I_sizinti_atilma": 0.09
+   }
+  },
+  {
+   "denetim": "D7c",
+   "ek": "3:kentsel",
+   "tohum": 4261,
+   "n": 100,
+   "sonuc": {
+    "algilama": 0.99,
+    "darbe_ya_da_sizinti_atilma": 0.0,
+    "tam_kural_atilma_3a_dahil": 0.0,
+    "yanlis_on_esik_atilma": 0.03,
+    "sizinti_atilma": 0.0,
+    "yanlis_z_sizinti_atilma": 0.182,
+    "inc1_I_sizinti_atilma": 0.141
+   }
+  },
+  {
+   "denetim": "D7c",
+   "ek": "10:kentsel",
+   "tohum": 20261432,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "darbe_ya_da_sizinti_atilma": 0.0,
+    "tam_kural_atilma_3a_dahil": 0.0,
+    "yanlis_on_esik_atilma": 0.06,
+    "sizinti_atilma": 0.0,
+    "yanlis_z_sizinti_atilma": 0.33,
+    "inc1_I_sizinti_atilma": 0.14
+   }
+  },
+  {
+   "denetim": "D7c",
+   "ek": "10:kentsel",
+   "tohum": 4262,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "darbe_ya_da_sizinti_atilma": 0.0,
+    "tam_kural_atilma_3a_dahil": 0.0,
+    "yanlis_on_esik_atilma": 0.03,
+    "sizinti_atilma": 0.0,
+    "yanlis_z_sizinti_atilma": 0.35,
+    "inc1_I_sizinti_atilma": 0.17
+   }
+  },
+  {
+   "denetim": "D7d",
+   "ek": "gauss",
+   "tohum": 20261433,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "sizinti_atilma": 1.0,
+    "yanlis_ters_sizinti_atilma": 0.0,
+    "yanlis_z_sizinti_atilma": 0.0,
+    "inc1_I_sizinti_atilma": 1.0
+   }
+  },
+  {
+   "denetim": "D7d",
+   "ek": "gauss",
+   "tohum": 4263,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "sizinti_atilma": 1.0,
+    "yanlis_ters_sizinti_atilma": 0.0,
+    "yanlis_z_sizinti_atilma": 0.0,
+    "inc1_I_sizinti_atilma": 1.0
+   }
+  },
+  {
+   "denetim": "D7d",
+   "ek": "kentsel",
+   "tohum": 20261434,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "sizinti_atilma": 1.0,
+    "yanlis_ters_sizinti_atilma": 0.0,
+    "yanlis_z_sizinti_atilma": 1.0,
+    "inc1_I_sizinti_atilma": 1.0
+   }
+  },
+  {
+   "denetim": "D7d",
+   "ek": "kentsel",
+   "tohum": 4264,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "sizinti_atilma": 1.0,
+    "yanlis_ters_sizinti_atilma": 0.0,
+    "yanlis_z_sizinti_atilma": 1.0,
+    "inc1_I_sizinti_atilma": 0.98
+   }
+  },
+  {
+   "denetim": "D10",
+   "ek": "yarim",
+   "tohum": 20261435,
+   "n": 100,
+   "sonuc": {
+    "n_algilanan": 100,
+    "kestirilen_bolu_A300_dogru": 1.041,
+    "q05_q95": [
+     1.034,
+     1.047
+    ],
+    "yanlis_I_artieksi60": 0.875,
+    "yanlis_A_etkin_paydasi": 0.735
+   }
+  },
+  {
+   "denetim": "D10",
+   "ek": "yarim",
+   "tohum": 4265,
+   "n": 100,
+   "sonuc": {
+    "n_algilanan": 100,
+    "kestirilen_bolu_A300_dogru": 1.04,
+    "q05_q95": [
+     1.033,
+     1.046
+    ],
+    "yanlis_I_artieksi60": 0.875,
+    "yanlis_A_etkin_paydasi": 0.735
+   }
+  },
+  {
+   "denetim": "D10",
+   "ek": "sabit",
+   "tohum": 20261436,
+   "n": 100,
+   "sonuc": {
+    "n_algilanan": 100,
+    "kestirilen_bolu_A300_dogru": 1.03,
+    "q05_q95": [
+     1.026,
+     1.035
+    ],
+    "yanlis_I_artieksi60": 0.87,
+    "yanlis_A_etkin_paydasi": 1.03
+   }
+  },
+  {
+   "denetim": "D10",
+   "ek": "sabit",
+   "tohum": 4266,
+   "n": 100,
+   "sonuc": {
+    "n_algilanan": 100,
+    "kestirilen_bolu_A300_dogru": 1.03,
+    "q05_q95": [
+     1.025,
+     1.034
+    ],
+    "yanlis_I_artieksi60": 0.869,
+    "yanlis_A_etkin_paydasi": 1.03
+   }
+  },
+  {
+   "denetim": "D12",
+   "ek": null,
+   "tohum": 20261437,
+   "n": 100,
+   "sonuc": {
+    "algilama_maskesiz": 1.0,
+    "ayiklamadan_sag_maskesiz": 1.0,
+    "maske_atilma_kuyruk240": 1.0,
+    "maske_atilma_kuyruk60": 0.0
+   }
+  },
+  {
+   "denetim": "D12",
+   "ek": null,
+   "tohum": 4267,
+   "n": 100,
+   "sonuc": {
+    "algilama_maskesiz": 1.0,
+    "ayiklamadan_sag_maskesiz": 1.0,
+    "maske_atilma_kuyruk240": 1.0,
+    "maske_atilma_kuyruk60": 0.0
+   }
+  },
+  {
+   "denetim": "D12b",
+   "ek": "2:30",
+   "tohum": 20261438,
+   "n": 100,
+   "sonuc": {
+    "algilama_maskesiz": 0.96,
+    "ayiklamadan_sag_maskesiz": 1.0,
+    "maske_atilma_kuyruk60": 1.0,
+    "maske_atilma_kuyruk30": 1.0
+   }
+  },
+  {
+   "denetim": "D12b",
+   "ek": "3:30",
+   "tohum": 20261439,
+   "n": 100,
+   "sonuc": {
+    "algilama_maskesiz": 1.0,
+    "ayiklamadan_sag_maskesiz": 1.0,
+    "maske_atilma_kuyruk60": 1.0,
+    "maske_atilma_kuyruk30": 1.0
+   }
+  },
+  {
+   "denetim": "D12b",
+   "ek": "5:30",
+   "tohum": 20261440,
+   "n": 100,
+   "sonuc": {
+    "algilama_maskesiz": 1.0,
+    "ayiklamadan_sag_maskesiz": 1.0,
+    "maske_atilma_kuyruk60": 1.0,
+    "maske_atilma_kuyruk30": 0.38
+   }
+  },
+  {
+   "denetim": "D12b",
+   "ek": "5:60",
+   "tohum": 20261441,
+   "n": 100,
+   "sonuc": {
+    "algilama_maskesiz": 1.0,
+    "ayiklamadan_sag_maskesiz": 1.0,
+    "maske_atilma_kuyruk60": 0.0,
+    "maske_atilma_kuyruk30": 0.0
+   }
+  },
+  {
+   "denetim": "D13",
+   "ek": null,
+   "tohum": 20261442,
+   "n": 100,
+   "sonuc": {
+    "A_300": [
+     0.237,
+     0.251,
+     0.282,
+     0.316,
+     0.355,
+     0.398,
+     0.422,
+     0.447,
+     0.501,
+     0.562,
+     0.631,
+     0.708,
+     0.75,
+     0.794
+    ],
+    "P": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.04,
+     0.35,
+     0.79,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "A50_basamak_j20": 0.44668359215096315,
+    "A90_basamak_j20": 0.5011872336272722,
+    "A50_basamak_j8_yanlis": 0.5623413251903491,
+    "A90_basamak_j8_yanlis": 0.5623413251903491,
+    "A50_ara_deger": 0.4272348454153184,
+    "A90_ara_deger": 0.47445002755086607
+   }
+  },
+  {
+   "denetim": "D13",
+   "ek": null,
+   "tohum": 4272,
+   "n": 100,
+   "sonuc": {
+    "A_300": [
+     0.237,
+     0.251,
+     0.282,
+     0.316,
+     0.355,
+     0.398,
+     0.422,
+     0.447,
+     0.501,
+     0.562,
+     0.631,
+     0.708,
+     0.75,
+     0.794
+    ],
+    "P": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.03,
+     0.39,
+     0.87,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0,
+     1.0
+    ],
+    "A50_basamak_j20": 0.44668359215096315,
+    "A90_basamak_j20": 0.5011872336272722,
+    "A50_basamak_j8_yanlis": 0.5623413251903491,
+    "A90_basamak_j8_yanlis": 0.5623413251903491,
+    "A50_ara_deger": 0.4245962854730377,
+    "A90_ara_deger": 0.4587102678234387
+   }
+  },
+  {
+   "denetim": "D14",
+   "ek": "jeofon4.5",
+   "tohum": 20261443,
+   "n": 100,
+   "sonuc": {
+    "yanit": "jeofon4.5",
+    "g_2_4_6_8Hz": [
+     0.195,
+     0.626,
+     0.879,
+     0.959
+    ],
+    "A50_yanitli": 0.6099947355922785,
+    "A90_yanitli": 0.6518241316912337,
+    "A50_duz_yanlis": 0.428055419586204,
+    "A90_duz_yanlis": 0.45375161293484617
+   }
+  },
+  {
+   "denetim": "D14",
+   "ek": "jeofon4.5",
+   "tohum": 4273,
+   "n": 100,
+   "sonuc": {
+    "yanit": "jeofon4.5",
+    "g_2_4_6_8Hz": [
+     0.195,
+     0.626,
+     0.879,
+     0.959
+    ],
+    "A50_yanitli": 0.6064386680974028,
+    "A90_yanitli": 0.6297676208532171,
+    "A50_duz_yanlis": 0.4302788507706685,
+    "A90_duz_yanlis": 0.44902728055586366
+   }
+  },
+  {
+   "denetim": "D14",
+   "ek": "bh20",
+   "tohum": 20261444,
+   "n": 100,
+   "sonuc": {
+    "yanit": "bh20",
+    "g_2_4_6_8Hz": [
+     1.0,
+     1.0,
+     0.978,
+     0.254
+    ],
+    "A50_yanitli": 0.4426115342729547,
+    "A90_yanitli": 0.46840875084935735,
+    "A50_duz_yanlis": 0.4289896442573255,
+    "A90_duz_yanlis": 0.4573978487088627
+   }
+  },
+  {
+   "denetim": "O4",
+   "ek": null,
+   "tohum": 20261445,
+   "n": 100,
+   "sonuc": {
+    "algilama_ayiklamasiz": 0.0,
+    "taban_3a_atilma_algilananda": null
+   }
+  }
+ ]
+}

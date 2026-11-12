@@ -1,0 +1,108 @@
+{
+ "comcat_sha256": {
+  "usp000e12e": "ff779a9962f0c0b81cddb6e1242ab8e41bfde1a1d1ed19466b28d86919601558",
+  "usp000exfn": "cbcca211e104eee2e74300a08fa155627cc02ae88b776c9db7afa0c59a59f31f",
+  "usp000f2ab": "d1f1a977bef0ddef5f526f4757e1b92f8cd1743858cf0707febf17cfd48e7515",
+  "official20070912111026830_34": "9f559fb9bd883f18caf702b47ecc5360b8d39215bf87e2f91d36d1d92d8ac96c",
+  "usp000g650": "0e17a44c4349bfa2070c6d3682f77a092a02428fe9aa993e84b3bf3808007499",
+  "official20100227063411530_30": "859771c87d068d8c54552a842c1571cfe2ed04f044157f749467b0c4dce3b216",
+  "official20110311054624120_30": "9f19da6a04e9c9ad36e4f885d0edb296d665ec43bd1eacfccb40e0c889f845c9",
+  "WHARTON2012": "ad18f1898ed17aea2e6d5527ebe532ff8c3d24a7eb74a69e6f4be44395c9a9af",
+  "usb000g7x7": "8841490d6e3f7f7d9febdb6f90c21bd8041d9c138b7ff3a33b3d324010f83f12",
+  "usb000jyiv": "ad74846815993abf4127b66139e7653ecc1a30098e8d3999539592327910f89f",
+  "us20002926": "0a0adc1e790ac226c2d084e28917c884068c79d8630d8824d09e505cfca8c8b3",
+  "us20003k7a": "0c5d0e53ba8f59b8a87930d199ed6505b5b75e6bfd154453724e2f3ed9d44610",
+  "ak0219neiszm": "70b0097f307eeb63aa2cda8cd2e4e3b3f75004131cf598c0941841ec172db756",
+  "us6000jllz": "909d42e9add36512d0c48539dfbf9db423693519c671722ba90768a44e7a03d1",
+  "us6000jlqa": "909d42e9add36512d0c48539dfbf9db423693519c671722ba90768a44e7a03d1",
+  "us6000qw60": "da7199f9e11b9f6ea364345e264e8441acef7d02a524a70cda84a164465c316c",
+  "PARKFIELD": "9f19da6a04e9c9ad36e4f885d0edb296d665ec43bd1eacfccb40e0c889f845c9"
+ },
+ "birim": {
+  "usp000e12e": {
+   "n": 10,
+   "genisletilmis": 0,
+   "kahramanmaras": 0
+  },
+  "usp000exfn": {
+   "n": 10,
+   "genisletilmis": 0,
+   "kahramanmaras": 0
+  },
+  "usp000f2ab": {
+   "n": 10,
+   "genisletilmis": 0,
+   "kahramanmaras": 0
+  },
+  "official20070912111026830_34": {
+   "n": 10,
+   "genisletilmis": 0,
+   "kahramanmaras": 0
+  },
+  "usp000g650": {
+   "n": 10,
+   "genisletilmis": 0,
+   "kahramanmaras": 0
+  },
+  "official20100227063411530_30": {
+   "n": 10,
+   "genisletilmis": 0,
+   "kahramanmaras": 0
+  },
+  "official20110311054624120_30": {
+   "n": 10,
+   "genisletilmis": 0,
+   "kahramanmaras": 0
+  },
+  "WHARTON2012": {
+   "n": 10,
+   "genisletilmis": 0,
+   "kahramanmaras": 0
+  },
+  "usb000g7x7": {
+   "n": 10,
+   "genisletilmis": 0,
+   "kahramanmaras": 0
+  },
+  "usb000jyiv": {
+   "n": 10,
+   "genisletilmis": 0,
+   "kahramanmaras": 0
+  },
+  "us20002926": {
+   "n": 10,
+   "genisletilmis": 0,
+   "kahramanmaras": 0
+  },
+  "us20003k7a": {
+   "n": 10,
+   "genisletilmis": 0,
+   "kahramanmaras": 0
+  },
+  "ak0219neiszm": {
+   "n": 10,
+   "genisletilmis": 0,
+   "kahramanmaras": 0
+  },
+  "us6000jllz": {
+   "n": 10,
+   "genisletilmis": 0,
+   "kahramanmaras": 1
+  },
+  "us6000jlqa": {
+   "n": 10,
+   "genisletilmis": 0,
+   "kahramanmaras": 1
+  },
+  "us6000qw60": {
+   "n": 10,
+   "genisletilmis": 0,
+   "kahramanmaras": 0
+  },
+  "PARKFIELD_TOHOKU": {
+   "n": 10,
+   "genisletilmis": 0
+  }
+ },
+ "toplam": 170
+}

@@ -1,0 +1,41 @@
+{
+ "n_pencere": 100,
+ "sonuclar": [
+  {
+   "denetim": "D12b",
+   "ek": "2:30",
+   "tohum": 4268,
+   "n": 100,
+   "sonuc": {
+    "algilama_maskesiz": 0.93,
+    "ayiklamadan_sag_maskesiz": 1.0,
+    "maske_atilma_kuyruk60": 1.0,
+    "maske_atilma_kuyruk30": 1.0
+   }
+  },
+  {
+   "denetim": "D12b",
+   "ek": "3:30",
+   "tohum": 4269,
+   "n": 100,
+   "sonuc": {
+    "algilama_maskesiz": 1.0,
+    "ayiklamadan_sag_maskesiz": 1.0,
+    "maske_atilma_kuyruk60": 1.0,
+    "maske_atilma_kuyruk30": 1.0
+   }
+  },
+  {
+   "denetim": "D12b",
+   "ek": "5:30",
+   "tohum": 4270,
+   "n": 100,
+   "sonuc": {
+    "algilama_maskesiz": 1.0,
+    "ayiklamadan_sag_maskesiz": 1.0,
+    "maske_atilma_kuyruk60": 1.0,
+    "maske_atilma_kuyruk30": 0.32
+   }
+  }
+ ]
+}

@@ -1,27 +1,33 @@
 # TR-7 ön kaydı: Marmara ve batı KAF'ta uzak depremlerin yüzey dalgalarıyla tetiklenmiş tremor taraması
 
-Tarih: 12 Kasım 2026. Durum: **TASLAK sürüm 1, incelemeye hazır.** Dondurulmadı; inceleme bulguları işlendikten sonra
-"DONDURULDU" başlığıyla commit edilir, ondan sonra metin değişmez, ekler ayrı başlıkla yazılır.
-Türediği yer: `kayit/onkayit/TR-7_SAYIM.md` (tasarım §2, sayım §3–§5, Ek 1 veri varlığı yoklaması; K0 GEÇTİ).
-Kod: `kayit/turetme/tr7/` içinde `tr7_sayim.py`, `tr7_varlik.py` (sayım) ve bu ön kayıt için `tr7_onkayit_sayilar.py`,
-`tr7_onkayit_yapay.py`, `tr7_onkayit_modulasyon.py`. Bu belgedeki her sayı bu betiklerin çıktısından
-(`tr7_onkayit_sayilar.json`, `tr7_onkayit_yapay.json`, `tr7_dondurulan_liste.csv`, `tr7_parkfield_liste.csv`) alındı.
-Maliyet 0 €. Bu belge yazılırken hiçbir dalga formu indirilmedi ya da açılmadı; yalnız Parkfield için NCEDC ve
-EarthScope istasyon üstverisi (kanal düzeyi, metin) çekildi.
+Tarih: 12 Kasım 2026. Durum: **TASLAK sürüm 2 (İNCELEME-1 düzeltmeleri işlendi), ikinci incelemeye hazır.**
+Dondurulmadı; ikinci inceleme bulguları işlendikten sonra "DONDURULDU" başlığıyla commit edilir, ondan sonra metin
+değişmez, ekler ayrı başlıkla yazılır. İkinci incelemenin önce bakması gereken yer: §17 (İNCELEME-1 metninden
+sapmalar; en önemlisi S1, E1 maskesinin büyüklük ve süre kuralı).
+Türediği yerler: `kayit/onkayit/TR-7_SAYIM.md` (tasarım §2, sayım §3–§5, Ek 1; K0 GEÇTİ) ve
+`kayit/onkayit/TR-7_INCELEME-1.md` (DÜZELTMEYLE KABUL; E1–E3, Ö1–Ö8, K1–K7).
+Kod (`kayit/turetme/tr7/`): sayım `tr7_sayim.py`, `tr7_varlik.py`; ön kayıt `tr7_onkayit_sayilar.py`,
+`tr7_onkayit_yapay.py`, `tr7_onkayit_modulasyon.py`; sürüm 2'de eklenen `tr7_parkfield_varlik.py` (E2),
+`tr7_e1_maske.py` (E1), `tr7_negatif_pencere.py` (Ö4), `tr7_onkayit_denetim2.py` ve `tr7_onkayit_denetim2_kos.py`
+(yeni yapay denetimler); İNCELEME-1'in betikleri `tr7_inc1_d10.py`, `tr7_inc1_d10b.py`, `tr7_inc1_modv.py`,
+`tr7_inc1_modreal.py`, `tr7_inc1_darbe.py` olarak kopyalandı. Bu belgedeki her sayı bu betiklerin çıktısından alındı.
+Maliyet 0 €. Bu belge yazılırken tek dalga formu erişimi §3.2'deki Parkfield varlık yoklamasıdır (112 satır, 10'ar sn;
+yalnız HTTP kodu ve bayt; içerik çözülmedi, diske yazılmadı). Marmara'nın hiçbir dalga formu istenmedi.
 
 ## 0. Bağlayıcı metinlerin sırası
 
-Çelişkide sıra: (1) dondurulan liste `tr7_dondurulan_liste.csv` ve `tr7_parkfield_liste.csv` (sha256 §3); (2) bu
-belge; (3) `TR-7_SAYIM.md` §2 ve Ek 1. Bu belge SAYIM §2.5–§2.10'un yerine geçer; aradaki farklar §15'te tek tek
-yazılı ve gerekçelidir. Metin ile kod çelişirse liste ve bu belgedeki sayısal tanım geçerlidir; koşu kodu listeyi
-yeniden kurmaz, okur ve sha256'sını denetler.
+Çelişkide sıra: (1) **bu metin (sürüm 2)**; §3'te sha256'sı verilen dosyalar (listeler, negatif pencereler, E1 maske
+önhesabı) bu metnin parçasıdır; (2) **İNCELEME-1'in düzeltme metinleri**, yalnız bu metnin sustuğu yerde; bu metnin
+onlardan bilerek saptığı yerler §17'de gerekçeleriyle yazılıdır ve orada bu metin geçerlidir; (3) **`TR-7_SAYIM.md`**
+§2 ve Ek 1. Bu belge SAYIM §2.5–§2.10'un yerine geçer; farklar §15'te. Metin ile kod çelişirse metindeki sayısal tanım
+geçerlidir; koşu kodu listeleri yeniden kurmaz, okur ve sha256'larını denetler.
 
 ## 1. Soru ve neyi ölçmediği
 
 Soru: 2005–2025 arasındaki büyük uzak depremlerin yüzey dalgaları geçerken KAF'ın Marmara kesimlerinde (S1 Ganos–Saros,
-S2 Orta Marmara–Adalar, S3 Çınarcık–İzmit) 2–8 Hz'te, birden çok istasyonda tutarlı, yerel depremle açıklanamayan ve
-yüzey dalgasının fazına kilitli bir tremor oluşuyor mu? Oluşmuyorsa hangi kaba dinamik gerilmenin üstünde, hangi
-genliğin üstünde "görülmedi" denebilir?
+S2 Orta Marmara–Adalar, S3 Çınarcık–İzmit) 2–8 Hz'te, birden çok istasyonda tutarlı, yerel depremle ve öteki büyük
+olayların cisim dalgalarıyla açıklanamayan ve yüzey dalgasıyla eş periyotlu modülasyonlu bir tremor oluşuyor mu?
+Oluşmuyorsa hangi kaba dinamik gerilmenin üstünde, hangi genliğin üstünde "görülmedi" denebilir?
 
 Ölçmedikleri: ortam (tetiklenmemiş) tremor; sığ sünme (TR-10'un konusu); tremor ile deprem olasılığı arasındaki bağ;
 2026 sonrası. İstanbul için mutlak olasılık bu belgede ve koşu çıktısında hiçbir yerde yazılmaz (§13).
@@ -33,7 +39,7 @@ genliğin üstünde "görülmedi" denebilir?
 | Kaynak | Bulgu | Doğrulama |
 |---|---|---|
 | Peng vd. 2009, 10.1029/2008jb006049 | Parkfield–Cholame, 2001+ 31 Mw≥7,5 olayın 10'u tetikledi; eşik ~2–3 kPa; tremor Love parçacık hızıyla eş fazlı | özetten doğrulandı. Eşiğin PGV'den hangi bileşenle hesaplandığı ve eşik üstü olaylarda oran: doğrulanamadı |
-| Chao vd. 2011, 10.1111/j.1365-246x.2011.05261.x | Tayvan, 45 olayın 9'u; eşik ~0,1 cm/s ≈ 7–8 kPa, "kısmen gürültü düzeyine bağlı"; 10–30 sn dalgalar da tetikleyebiliyor | özetten doğrulandı (bu ön kayıt için yeniden okundu) |
+| Chao vd. 2011, 10.1111/j.1365-246x.2011.05261.x | Tayvan, 45 olayın 9'u; eşik ~0,1 cm/s ≈ 7–8 kPa, "kısmen gürültü düzeyine bağlı"; 10–30 sn dalgalar da tetikleyebiliyor | özetten doğrulandı |
 | Chao vd. 2012, 10.1785/0120110151 | Calaveras ve San Jacinto'da 42 olaydan yalnız Denali 2002; Parkfield'da 12; fark yalnız gürültüden değil | özetten doğrulandı; görsel inceleme yöntemi |
 | Hill vd. 2013, 10.1785/0120120114 | Tohoku 2011 Parkfield'da (~8200 km) tremor tetikledi; PKD'de kayıtlı; S'de başlıyor, Love'da belirgin, 20–30 sn Rayleigh ile modüle; derinlik 20–30 km; tepe dinamik Coulomb gerilmesi 0,7–10 kPa | özetten doğrulandı |
 | Pfohl vd. 2015, 10.1785/0120140312 | Merkezî KAF, ~400 km kesimde 2 yıllık geçici geniş bant ağ; yüzey dalgasıyla tetiklenmiş tremor yok; ortam tremoru benzeri sinyaller istasyonlar arasında tutarsız | özetten doğrulandı. İstasyon sayısı, gürültü düzeyi, incelenen olay listesi ve sayısal eşik: doğrulanamadı |
@@ -43,54 +49,94 @@ türü düşük etkin gerilmeli, tetiklenebilir bir kaynak var ve bugünkü yüz
 (R2) kaynak yok ya da var ama gürültü tabanının altında (0,80); (R3) kaynak yalnız Tayvan türü yüksek eşikli,
 tetikleyici gerilmeleri yetmiyor (0,10). Bu ölçüm R2 ile R3'ü ayıramaz.
 
-## 3. Veri, dondurulan liste, manifest
+## 3. Veri, dondurulan dosyalar, manifest
 
 **3.1 Dondurulan Marmara listesi.** `kayit/turetme/tr7/tr7_dondurulan_liste.csv`, sha256
-`c8877cc26996010bc3c7036fd8b761791355cfad5a621dd076ed0429b40bde28`. Üretimi:
-`python3 -I -B tr7_onkayit_sayilar.py <comcat_m75.csv> --parkfield <ncedc.txt> <earthscope.txt> --yaz`.
-Girdi sha256'ları (ayrıca `tr7_onkayit_sayilar.json` içinde):
+`0f3cbd36876a46354b46355016f949f113ddaadcce4d26b6bc9e7a0b1da4358b` (sürüm 1'deki 19 sütun birebir aynı; sürüm 2
+üç sütun ekler, §3.1 sonu). Üretimi: `python3 -I -B tr7_onkayit_sayilar.py <comcat_m75.csv> --parkfield <ncedc.txt>
+<earthscope.txt> --yaz` (bu dizinde `tr7_parkfield_varlik.csv` bulunmalı). Girdi sha256'ları (ayrıca
+`tr7_onkayit_sayilar.json` içinde; json'un kendi sha256'sı §18):
 - `tr7_varlik.csv` a795a7f98198e6c20b1b24bca282dabb35addc9c50023694379110d8c90d48e8
 - `tr7_varlik_ozet.json` 621791d083c071f0c53617a26dd65ae513a9f3a6f20d72140006af17510d174d
 - `tr7_istasyon.csv` a7bb0892d3fb19d1ea0b882857bf1be6340ea3600f61586edcf0da56e4050db7
 - `tr7_tetikleyici.csv` dec0cdd0b0b441ae792a98564d55164edd2bb858a0b7eebf235e6355f95ceb8c
 - ComCat önbelleği `comcat_m75.csv` (depo dışı, `tr7_sayim.py`'nin çektiği yanıt; betik uyuşmazlıkta durur)
   ae9117d0fe64aae4be19a45a0151e830bd2b35de40056e3b322a3c4a06833e61
+- `tr7_parkfield_varlik.csv` 951d7797fcbb2d4427f43f35e3b0a2ceec46e8a684421f535be70371fd5305d0
 
 Kural: Ek 1 yoklamasında "var" çıkan (200, >0 bayt) istasyonlardan, bir (tetikleyici × segment) çiftinde ≥3 istasyon
 "var" ise çift listeye girer. İçerik: **71 çift, 17 olay, 475 istasyon-tetikleyici, 884 satır** (SAYIM Ek 1 ile aynı).
 Her satır: birim, tetikleyici, T0, M, dış merkez, segment, kaba τ (segment ortası, ×1), Kahramanmaraş bayrağı, ağ,
-istasyon, koordinat, yoklama kanalı, dış merkez uzaklığı, başvuru penceresi R ve yüzey dalgası penceresi W. Listeye
-istasyon eklenmez; tam taramada yalnız düşebilir (§4.2).
+istasyon, koordinat, yoklama kanalı, dış merkez uzaklığı, başvuru penceresi R, yüzey dalgası penceresi W ve sürüm 2'de
+eklenen **`iz_km`** (istasyonun segment izine uzaklığı, `nokta_cizgi`), **`iz_sira`** (o çiftte ize yakınlık sırası;
+eşitlikte ağ, sonra istasyon adı alfabetik) ve **`ilk12`** (sıra ≤ 12). Listeye istasyon eklenmez, listeden satır
+silinmez; tam taramada istasyon yalnız düşebilir (§4.2) ve 12 sınırı (§6.0) örtüden geçenlere koşuda yeniden uygulanır.
+`ilk12` sütunu yalnız önsayım içindir: 884 satırın 623'ü, 475 istasyon-tetikleyicinin 391'i ilk 12'dedir. S1–S3'ün
+34 çiftinden 8'inde 12'den çok istasyon var (en çok: İran 2013 S3'te 59).
 
-**3.2 Dondurulan Parkfield listesi.** `tr7_parkfield_liste.csv`, sha256
-`cba4cea81a4b6b231133a99d0f2d19cce956a950885d7789390504c2aa471a77`. Kaynak: NCEDC ve EarthScope fdsnws/station
-(kanal düzeyi, 35,3–36,6° K, 121,3–119,6° B, 2011-03-11T05:00–08:00); yanıt sha256'ları NCEDC
+**3.2 Dondurulan Parkfield listesi ve varlık yoklaması (E2).** `tr7_parkfield_liste.csv`, sha256
+`9dca3380815196a8db15a8a5929441d38dd9b07fd7ed982845543e179957b2b8` (sürüm 1'deki 9 sütun birebir aynı; sürüm 2
+`var_R`, `var_W`, `iz_sira`, `ilk12` ekler). Kaynak: NCEDC ve EarthScope fdsnws/station (kanal düzeyi, 35,3–36,6° K,
+121,3–119,6° B, 2011-03-11T05:00–08:00); yanıt sha256'ları NCEDC
 ab9b0d28014f1ef54d569a9aba45e3a47543a73391d559caa4508fc20eaa2e8e, EarthScope
-86a5d5bc1729bbbb73b163775ae6566d13a956eb1acc364b4d203ae2bc32566d (yanıtlar depo dışında). Marmara'yla aynı seçim kuralları (Z bileşeni, bant H/B/E/S, alet H/P, ≥20 Hz, ZQ/SY
-dışarıda, ize ≤50 km). Ek kural: PB ağı ve derinliği ≥50 m kanallar (kuyu jeofonları) dışarıda, çünkü Marmara
-listesinde kuyu sensörü yok. İz (kaba, ±5 km): (120,80° B, 36,20° K) – (120,50; 35,97) – (120,35; 35,83) –
-(120,20; 35,65), Hill 2013'ün tremor kesimini (Parkfield'ın 30 km KB'sı ile 40 km GD'su) örter. Sonuç: **56 yüzey
-istasyonu** (NC 47, CI 6, BK 2, NP 1); BK.PKD listede. Tohoku'nun iz ortasına uzaklığı 8171 km;
-W = 2011-03-11T06:13:38–06:45:02 UTC (iz ortası). Kaba τ (aynı Prag bağıntısıyla) 27,1 kPa; Hill 2013'ün hesapladığı
-tepe Coulomb gerilmesi 0,7–10 kPa. Bu fark kaba τ'nun M9'da 3–40 kat fazla olabileceğini gösterir (§12).
+86a5d5bc1729bbbb73b163775ae6566d13a956eb1acc364b4d203ae2bc32566d (yanıtlar depo dışında). Marmara'yla aynı seçim
+kuralları (Z bileşeni, bant H/B/E/S, alet H/P, ≥20 Hz, ZQ/SY dışarıda, ize ≤50 km). Ek kural: PB ağı ve derinliği
+≥50 m kanallar (kuyu jeofonları) dışarıda, çünkü Marmara listesinde kuyu sensörü yok. İz (kaba, ±5 km): (120,80° B,
+36,20° K) – (120,50; 35,97) – (120,35; 35,83) – (120,20; 35,65), Hill 2013'ün tremor kesimini (Parkfield'ın 30 km KB'sı
+ile 40 km GD'su) örter. Sonuç: **56 yüzey istasyonu** (NC 47, CI 6, BK 2, NP 1); BK.PKD listede. Tohoku'nun iz
+ortasına (iz köşe ortalaması) uzaklığı 8171 km; W = 2011-03-11T06:13:38–06:45:02 UTC (iz ortası). Kaba τ (aynı Prag
+bağıntısıyla) 27,12 kPa; Hill 2013'ün hesapladığı tepe Coulomb gerilmesi 0,7–10 kPa. Bu fark kaba τ'nun M9'da 3–40 kat
+fazla olabileceğini gösterir (§12).
 
-**3.3 Koşu manifesti (dalga formundan önce commit edilir).** Koşu kodu, hiçbir dalga formu istemeden önce şunları üretir
-ve commit eder: (a) negatif kontrol pencereleri `tr7_negatif_pencere.csv` (§7.3); (b) yerel katalog ayıklaması için
-EMSC (seismicportal fdsnws/event) ve ComCat sorgu yanıtlarının sha256'ları (§6.5); (c) her kanalın StationXML yanıt
-özeti (duyarlılık, 0,02 Hz ve 1 Hz'teki yanıt oranı, PGV uygunluğu §6.6) ve sha256; (d) indirme planı (istasyon,
-kanal, başlangıç–bitiş, servis). Dalga formu indirildikçe manifest satırı: istek, HTTP kodu, bayt, miniSEED sha256,
-örtü kesri. Ham miniSEED depoya girmez, işlendikten sonra silinir (§6.1).
+**Parkfield varlık yoklaması (dondurmadan önce, 0 €; `tr7_parkfield_varlik.py`).** 56 istasyonun her biri için listedeki
+Z kanalından (HHZ > BHZ > EHZ > SHZ) iki 10 sn'lik NCEDC dataselect isteği yapıldı (EarthScope yalnız NCEDC 404 dönerse
+denendi): R ortası (2011-03-11T05:16:24–05:16:34) ve iz ortası W ortası (06:29:20–06:29:30). Yalnız HTTP kodu ve bayt
+kaydedildi; içerik çözülmedi, diske yazılmadı. Tek akış, istekler arası ≥0,35 sn, genel User-Agent; 429/503 ve 401/403
+gelmedi. 112 satır (104 NCEDC 200; 4 istasyonun 8 isteği NCEDC'de 404, EarthScope'ta da 404; toplam 120 HTTP isteği,
+503 808 bayt). Çıktılar `tr7_parkfield_varlik.csv` (sha256 §3.1) ve `tr7_parkfield_varlik_ozet.json`
+(71be3c1b52d78c6656bf43f64f9dec96b6a33de89b35464e3b3a898b085cce12). Sonuç listeye `var_R` ve `var_W` sütunları olarak
+eklendi. **İki örnekte de "var" olan istasyon sayısı 52'dir** (56'dan eksik dördü: NP.PJQC, CI.SMM, CI.SMR, CI.CAR; ikisi
+de "yok", "kısıtlı" yok). Sürüm 1 sırasının ilk 12'sinde 11 (eksik NP.PJQC). Sayı ≥ 3 olduğundan ön kayıt bu tasarımla
+dondurulabilir. K1 kümesi yalnız bu 52 istasyondur; 12 sınırı (§6.0) bunlardan örtüden geçenlere uygulanır. Varlık
+örneğine göre ize en yakın 12'si (`ilk12`): NC.PGH, PHF, PTR, PMM, PAGB, PSN, PMPB, PSM, PPT, PKL, PL11B, PHA (10'u
+EHZ/SHZ kısa periyot, PAGB ve PMPB HHZ). Yoklama %90 örtüyü doğrulamaz (§12).
 
-**3.4 Veri sınırı.** Bütün tetikleyiciler ≤ 2025-12-31; listede en geç pencere Kamçatka 2025-07-29. Hiçbir pencere
-2026-01-01'i geçemez (negatif kontroller dahil; geçen aday atlanır). Marmara GNSS verisine dokunulmaz.
+HRSN (BP) kuyu istasyonları için İNCELEME-1'in isteğe bağlı önerdiği ayrı liste ve yoklama bu sürümde yapılmadı (§17 S2).
+
+**3.3 Dondurulan negatif kontrol pencereleri (Ö4; `tr7_negatif_pencere.py`).** `tr7_negatif_pencere.csv`, sha256
+`ae4fa9c1d84ff3a461c9659ffc58c5a366f82671e1df74233cb3283253a6a59b`; özet `tr7_negatif_pencere_ozet.json` (ComCat M ≥ 6,5
+yanıtlarının sha256'ları içinde). §7.3'teki kuralla, yalnız katalogdan üretildi: 16 birim × 10 + Parkfield 10 =
+**170 pencere**; her birimde 10 pencere ±30 gün içinde bulundu (±31–60 genişletmesine gerek olmadı). Koşu kodu bu
+listeyi yeniden kurmaz, okur.
+
+**3.4 Dondurulan E1 maske önhesabı (`tr7_e1_maske.py`).** `tr7_e1_maske.csv` (sha256
+`aef412df1d805fbbee65c1d4f7a76df67ce9b43ec9ee2a8bb3f1345bffccf391`; olay × pencere × faz, iasp91 varış anları) ve
+`tr7_e1_maske_ozet.json` (128720470ea39479108329960f605bc49f3795e19f50c410bfefd1d9b1a13e7c; ComCat M ≥ 6,0 yanıtlarının
+sha256'ları, pencere başına maskeli paylar). Önhesap segment orta noktasıyla ve listedeki W'lerin birleşimiyle yapıldı
+(17 tetikleyici, 71 pencere-segment + Parkfield). Koşuda tetikleyici ve Parkfield pencerelerinin maskesi bu dosyadaki varış anlarından §6.5.1a kuralıyla
+kurulur; negatif pencerelerinki manifestte aynı kodla üretilir (§3.5 b). Sonuçlar §6.5 madde 1a'da.
+
+**3.5 Koşu manifesti (dalga formundan önce commit edilir).** Koşu kodu, hiçbir dalga formu istemeden önce şunları üretir
+ve commit eder: (a) §3.1–§3.4 dosyalarının sha256 denetimi; (b) yerel katalog maskesi (§6.5.1) için EMSC (seismicportal
+fdsnws/event) ve ComCat sorgu yanıtları, negatif pencereler için E1 sorgu yanıtları (§6.5.1a) ve sha256'ları; (c) her
+kanalın StationXML özeti: duyarlılık S, örnekleme hızı, sayısallaştırıcı bit sayısı b (StationXML'de yoksa
+"bilinmiyor"), 0,02 Hz ve 1 Hz'teki yanıt oranı ve PGV uygunluğu (§6.6), g(f) = |H(f)|/S değerleri f = 2, 4, 6 ve 8 Hz'te;
+g ∉ [0,5, 2] olan kanal sayısı segment başına bilgi satırına yazılır; (d) indirme planı (istasyon, kanal, başlangıç–bitiş,
+servis, planlı istek sayısı). Dalga formu indirildikçe manifest satırı: istek, HTTP kodu, bayt, miniSEED sha256, örtü
+kesri. Ham miniSEED depoya girmez, işlendikten sonra silinir (§6.1).
+
+**3.6 Veri sınırı.** Bütün tetikleyiciler ≤ 2025-12-31; listede en geç pencere Kamçatka 2025-07-29 (W sonu
+2025-07-30T00:27:26). Hiçbir pencere 2026-01-01'i geçemez (negatif kontroller dahil). Bütün katalog sorgularının bitişi
+≤ 2025-12-31T23:59:59. Marmara GNSS verisine dokunulmaz.
 
 ## 4. Tetikleyici birimleri ve K0
 
 **4.1 Birimler.** Bağımsızlık birimi "birim"dir:
 - Wharton Basin 2012 ana şoku (official20120411083836720_20) ile 2 saat sonraki artçısı (usp000jhjb) tek birimdir
   (`WHARTON2012`). Birimde iki pencere vardır; birim, pencerelerinden en az biri bir segmentte ≥3 istasyonla
-  taranabiliyorsa o segmentte sayılır, pencerelerinden birinde algılama varsa algılama sayılır; kaba τ'su iki
-  olayınkinin büyüğüdür (ana şok).
+  taranabiliyorsa o segmentte sayılır, pencerelerinden birinde algılama varsa algılama sayılır. **Birimin kaba τ'su,
+  K0-tam'dan sağ çıkan pencerelerindeki olayların kaba τ'larının en büyüğüdür** (Ö1). Önsayımda iki pencere de
+  listede olduğundan değer ana şokunkidir (S2'de 9,39 kPa; yalnız artçı kalırsa 3,68 kPa).
 - Kahramanmaraş 2023'ün iki olayı (us6000jllz, us6000jlqa; bölgesel, 771–800 km) ana sayıma girmez. Aynı kodla
   taranır, ayrı **bilgi satırı** olarak yazılır (süzgeç sızıntısı ve artçı riski). Hiçbir hükmü değiştirmez.
 - Listede 16 birim var; 14'ü ana sayıma girer.
@@ -98,11 +144,13 @@ kanal, başlangıç–bitiş, servis). Dalga formu indirildikçe manifest satır
 **4.2 K0, yeniden sayım.** Tam taramada bir istasyon, bir pencere için şu durumlarda o pencereden düşer: W'nin ya da
 R'nin örtüsü <%90 (örtü: Z kanalında, kesintisiz örnek bulunan saniye / pencere saniyesi); StationXML'de yanıt yok;
 kırpılma (§6.2). Bir çift ≥3 istasyon şartını kaybederse düşer; yerine istasyon ya da çift alınmaz. K0 bu gerçek
-örtüyle yeniden sayılır: segment başına, ≥3 istasyonla taranabilen ana birim sayısı n.
+örtüyle yeniden sayılır: segment başına, ≥3 istasyonla taranabilen ana birim sayısı n. 12 sınırı (§6.0) n'yi
+değiştirmez (≥3 şartı sınırdan önce uygulanır). E1 maskesi (§6.5.1a) de n'yi değiştirmez.
 - **n ≥ 8: tam bant. n = 5–7: zayıf bant. n < 5: "veri yok"**; bulgular yine bilgi satırı olarak yazılır, eleme yok.
 - Bant, tetikleyici pencerelerinde hiçbir algılama hesaplanmadan önce belirlenir ve dosyaya yazılır.
 
-**4.3 Önsayım (yoklamayla; ×1 kaba τ ≥ 2 kPa, birim kuralıyla).**
+**4.3 Önsayım (yoklamayla; ×1 kaba τ ≥ 2 kPa; Kahramanmaraş hariç, Wharton tek birim; 12 sınırından sonra koddan
+yeniden üretildi, `tr7_onkayit_sayilar.json` `K0_on`).**
 
 | Segment | n (×1) | bant | kaba τ₍₈₎ (kPa) | kaba τ₍ₙ₎ (kPa) | ×1/3: n / bant | ×3 (alt sınır): n |
 |---|---|---|---|---|---|---|
@@ -114,12 +162,21 @@ kırpılma (§6.2). Bir çift ≥3 istasyon şartını kaybederse düşer; yerin
 | S6 Çerkeş–Tosya | 5 | zayıf | — | 2,44 | 1 / veri yok | 5 |
 | S7 Güney kol | 10 | tam | 2,82 | 2,41 | 4 / veri yok | 11 |
 
+**12 sınırı sayıları değiştirmedi:** S1 9, S2 8, S3 8 (×1); ×1/3'te 4, 4, 3. S2 ve S3 sürüm 1'de olduğu gibi 8 birimde,
+tam bandın tam sınırındadır. S2/S3'te çift başına istasyon sayısı sınırdan önce 7–59, sınırdan sonra 7–12.
 S2 birimleri (kaba τ, kPa): Tohoku 2011 23,25; Kamçatka 2025 12,35; Wharton 2012 9,39; Maule 2010 6,00; İran 2013
 4,68; Pakistan 2013 3,97; Nepal 2015 2,82; Chignik 2021 2,75. S3 aynı sekiz birim (Tohoku 23,53 … Chignik 2,75). S1
-bunlara Illapel 2015'i (2,02) ekler. Sonuç: **S2 ve S3 tam bandın tam sınırında**; tam taramada tek bir birim düşerse
-zayıf banda iner. ×1/3 ile S1–S3'ün hepsi "veri yok" bandına düşer (en çok 4 birim kalır: Tohoku, Kamçatka, Wharton,
-Maule). Bu, hükmün kaba τ ölçeğine ne kadar duyarlı olduğunu önceden gösterir ve §8'deki zorunlu ×1/3 satırıyla
-yazılır. ×3 sütunu alt sınırdır: yalnız ×1 adayları yoklandı.
+bunlara Illapel 2015'i (2,02) ekler. Sonuç: **S2 ve S3'te tam taramada tek bir birim düşerse zayıf banda iner.** ×1/3 ile
+S1–S3'ün hepsi "veri yok" bandına düşer (en çok 4 birim kalır: Tohoku, Kamçatka, Wharton, Maule). Bu, hükmün kaba τ
+ölçeğine ne kadar duyarlı olduğunu önceden gösterir ve §8'deki zorunlu ölçek uyarısıyla yazılır. ×3 sütunu alt sınırdır:
+yalnız ×1 adayları yoklandı.
+
+**S5/S6'nın bağımsız satırı (K4): S5 n = 2 (Kamçatka, Chignik), S6 n = 1 (Kamçatka); ikisi de "veri yok".** Tablodaki
+S5/S6 bantları yöntem karşılaştırma satırınındır (§8 sonu).
+
+**E1'in önsayıma etkisi (bilgi; n değişmez).** Tohoku'nun S1/S2/S3 pencerelerinin W'si E1 maskesiyle %66/%65/%65
+maskelidir (§6.5.1a); birim kural gereği sayılır, ama o birimde algılama şansı öteki birimlerden küçüktür. Bu, "görülmedi"
+cümlesinin bilgi satırında maskeli payla birlikte yazılır (§9.1).
 
 ## 5. Pencereler
 
@@ -128,25 +185,38 @@ Her istasyon için, kendi dış merkez uzaklığı Δ (km, küresel büyük dair
   başından Rayleigh kodasına; 600 sn kuyruk). Değerler listede saniyeye yuvarlanmış olarak yazılıdır;
 - başvuru penceresi **R = [T0 − 3600 s, T0)** (P varışından tümüyle önce; SAYIM §2.5'in somut okuması);
 - indirme dolgusu: [R başı − 600 s, W sonu + 600 s] (süzgeç geçişleri için; dolgu hiçbir istatistiğe girmez).
-Listede R+W ortalaması 6314 sn (en az 4393, en çok 9050). W, S ve SS fazlarını dışarıda bırakır; Hill 2013'te
-Tohoku'nun S'deki küçük tremor patlaması bu yüzden sayılmaz, Love ile gelen belirgin patlama W içindedir.
-Parkfield için aynı formül, Δ istasyon başına. Negatif kontrol pencereleri bu pencerelerin tam gün kaydırılmışıdır (§7.3).
+İstasyon-tetikleyici başına R başı–W sonu açıklığının ortalaması 6314 sn (satır ortalaması 6209; en az 4393, en çok
+9050); R ile W'nin yalnız toplamı istasyon-tetikleyici başına 5131 sn (satır başına 5084). W, S ve SS fazlarını dışarıda
+bırakır; Hill 2013'te Tohoku'nun S'deki küçük tremor patlaması bu yüzden sayılmaz, Love ile gelen belirgin patlama W
+içindedir. Parkfield için aynı formül, Δ istasyon başına. Negatif kontrol pencereleri bu pencerelerin tam gün
+kaydırılmışıdır (§7.3).
 
 ## 6. İşleme zinciri (bütün sayılar sabit)
+
+**6.0 İstasyon sınırı (Marmara ve Parkfield'da aynı; E3).** Her (pencere, segment) için örtüden geçen (§4.2)
+istasyonlardan, o segmentin izine en yakın **en çok 12'si** kullanılır. Uzaklık `tr7_onkayit_sayilar.py`'deki
+`nokta_cizgi` ile hesaplanır, eşitlikte ağ ve istasyon adı alfabetik sıralanır. Sınır §6.3, §6.4 (küme istasyonları),
+§7.3 ve §7.4'ün hepsine uygulanır; §6.4'ün uzun periyot başvuru istasyonu ve §6.6'nın PGV istasyonları sınırın dışındadır.
+Parkfield'da sınır yalnız `var_R = var_W = 1` olan 52 istasyona uygulanır.
 
 **6.1 İndir–zarfla–sil.** obspy (pip, sürüm koşu başında `pip freeze` ile manifeste yazılır), scipy, numpy. Servis:
 KO/TL/IJ/6G → KOERI; EIDA ağları → ORFEUS federatör; YH/YL → EarthScope; Parkfield → NCEDC (yoksa EarthScope).
 Nezaket: servis başına en çok 2 eşzamanlı akış, aynı akışta istekler arası ≥0,5 sn, genel User-Agent; 429/503'te
 Retry-After (yoksa 30 sn × deneme), en çok 2 yeniden deneme; 401/403 "kısıtlı" yazılır, atlatılmaz. Bir istasyonun
-seçilen Z kanalıyla aynı konum ve bant kodlu yatay kanallar (N/E ya da 1/2) da istenir. İşlem bittiğinde ham veri
-silinir; kalan yalnız aşağıdaki 1 Hz seriler (float32, npz) ve manifesttir. Seriler depo dışında
-`/mnt/project-files/turetme/tr7-zarf/` altında tutulur (tahmini ≈0,9 GB: 475 × 11 pencere × 7 seri × ortalama 6314 sn
-× 4 B); depoya yalnız dosya başına sha256 manifesti girer.
+seçilen Z kanalıyla aynı konum ve bant kodlu yatay kanallar (N/E ya da 1/2) da istenir. İndirme planı her
+(pencere, segment) için `iz_sira` sırasıyla ilerler; bir çiftte örtüden geçen 12 istasyon bulununca o çiftin kalan
+istasyonları, başka bir çift için gerekmiyorsa, indirilmez. İşlem bittiğinde ham veri silinir; kalan yalnız aşağıdaki
+1 Hz seriler (float32, npz) ve manifesttir. Seriler depo dışında `/mnt/project-files/turetme/tr7-zarf/` altında tutulur
+(tahmini ≤ 0,9 GB: 475 × 11 pencere × 7 seri × 6314 sn × 4 B; 12 sınırıyla 391 istasyon-tetikleyici); depoya yalnız
+dosya başına sha256 manifesti girer. **MDA kaydı (K6):** her (segment, negatif pencere, A basamağı) için algılama E/H ve
+enjeksiyon başlangıcı depoda `tr7_mda.csv`'ye yazılır. MDA'nın yeniden üretimi yeniden indirme gerektirir; yeniden
+indirilen miniSEED'in sha256'sı manifesttekinden farklıysa sonuç "veri değişti" notuyla yazılır.
 
 **6.2 İstasyon düzeyi (her bileşen ayrı).**
 1. Ortalama ve doğrusal eğilim çıkarılır; 1/2 bileşenleri StationXML yönelimiyle N/E'ye döndürülür.
-2. Kırpılma: W içinde, ham sayımın mutlak en büyük değerine eşit ≥5 ardışık örnek varsa ve bu değer ≥10⁶ sayımsa
-   istasyon o pencereden düşer.
+2. Kırpılma: W içinde, ham sayımın mutlak en büyük değerine eşit ≥5 ardışık örnek varsa ve bu değer
+   ≥ min(10⁶; 0,95 · (2^(b−1) − 1)) sayımsa istasyon o pencereden düşer (b: manifest (c)'deki bit sayısı;
+   bilinmiyorsa b = 24, yani eşik 10⁶).
 3. Yüksek frekans yolu: sayım / InstrumentSensitivity (m/s). 4 kutuplu Butterworth bant geçiren, ileri-geri (sıfır
    faz; obspy `bandpass, corners=4, zerophase=True`): **2–8 Hz** ve **0,5–1 Hz**. Hilbert zarfı (scipy, kesintisiz
    her parçada ayrı; parçaların ilk ve son 10 sn'si atılır). 1 sn'lik kutularda ortalama → 1 Hz zarf e(t).
@@ -155,50 +225,82 @@ silinir; kalan yalnız aşağıdaki 1 Hz seriler (float32, npz) ve manifesttir. 
    örneklenir → v_Z, v_R, v_T (1 Hz, m/s).
 5. Birleşik zarf C(t) = √(ortalama_bileşen e(t)²) (yatay yoksa yalnız Z). Saklanan seriler: e_Z, e_N, e_E (2–8 Hz),
    C₀,₅₋₁ (0,5–1 Hz birleşik), v_Z, v_R, v_T.
-6. L(t) = log10(5 sn merkezli kayan ortalama C). m = medyan(L, R), σ = 1,4826 · MAD(L, R) (R'nin kenardaki 5'er sn'si
-   hariç). σ = 0 olursa istasyon o pencereden düşer.
+6. L(t) = log10(5 sn merkezli kayan ortalama C). m = medyan(L, R), σ = 1,4826 · MAD(L, R) (R'nin kenardaki 5'er sn'si,
+   R'deki maskeli (§6.5.1, 1a) ve kayıtsız saniyeler hariç). σ = 0 olursa istasyon o pencereden düşer. 0,5–1 Hz için
+   aynı tanımla L_d, m_d.
 7. **Aşım:** W içinde L > m + 4σ olan saniyeler. Aradaki boşluğu ≤20 sn olan aşım saniyeleri tek parçada birleşir.
-   Parça, açıklığı ≥30 sn ve aşım saniyesi ≥15 ise "istasyon aşımı"dır. Maskelenen (§6.5) ya da kayıtsız saniyeler
-   aşım değildir ve köprülenmez.
+   Parça, açıklığı ≥30 sn ve aşım saniyesi ≥15 ise "istasyon aşımı"dır. Maskelenen (§6.5.1, 1a) ya da kayıtsız
+   saniyeler aşım değildir ve köprülenmez (içinde maskeli ya da kayıtsız saniye bulunan boşluk birleştirilmez).
 
 **6.3 Tutarlılık (segment düzeyi).** Bir (pencere, segment) için, istasyon aşımlarının her biri ±20 sn genişletilince
 birbiriyle örtüşen ≥3 farklı istasyonun aşımları bir **küme** kurar (bağlantılı bileşen). Küme aralığı
-I = [en erken başlangıç − 60, en geç bitiş + 60] ∩ W. Küme içindeki her istasyon çifti için L serilerinin I üzerindeki
-Pearson ilişkisinin gecikme −10…+10 sn (1 sn adım) üzerindeki en büyüğü alınır. **≥3 çiftte ≥0,5** ise küme
-tutarlıdır. Pencere-segment için en az bir tutarlı küme ayıklamalardan (§6.5) sağ çıkarsa: **algılama**. Görsel ya da
-elle seçim yoktur; hiçbir eşik veriyle ayarlanmaz.
+I = [en erken başlangıç − 60, en geç bitiş + 60] ∩ W; kümenin aşım aralığı I′ = [en erken aşım başı, en geç aşım sonu].
+Küme içindeki her istasyon çifti için L serilerinin I üzerindeki (maskeli saniyeler çıkarılarak) Pearson ilişkisinin
+gecikme −10…+10 sn (1 sn adım) üzerindeki en büyüğü alınır. **≥3 çiftte ≥0,5** ise küme tutarlıdır. Pencere-segment
+için en az bir tutarlı küme ayıklamalardan (§6.5) sağ çıkarsa: **algılama**. Görsel ya da elle seçim yoktur; hiçbir
+eşik veriyle ayarlanmaz.
 
 **6.4 Modülasyon ölçüsü (yalnız olumlu iddia için).** Her segment için "uzun periyot başvuru istasyonu": PGV'ye uygun
 (§6.6), W ve R örtüsü ≥%90 olan, segment orta noktasına (köşe noktalarının ortalaması) en yakın istasyon. Yoksa
 modülasyon "ölçülemedi". φ_c(t) = v_c'nin W üzerindeki analitik sinyalinin fazı (c ∈ {Z, R, T}). L_k(t) = küme
-istasyonlarının L'lerinin saniye başına medyanı. Ölçü:
+istasyonlarının L'lerinin saniye başına medyanı (maskeli saniyeler çıkarılır). Ölçü:
 M = en büyük_{c, s∈{+1,−1}, gecikme 0…10 sn} Pearson(L_k, max(0, s·cos φ_c(t − gecikme))) I üzerinde.
 Boş dağılım: üç bileşen birlikte, W uzunluğunda dairesel kaydırma, kaydırma tamsayı ~ U[120, |W| − 120] sn, 1000
 kaydırma, üreteç `numpy.random.default_rng(20261112 + 3)` (kümeler birim, segment, zaman sırasıyla). p = (1 + #{M₀ ≥
-M}) / 1001. **Modülasyon var: p ≤ 0,01.** Faz yerine hızın kendisi kullanılmaz: yapay sınamada (aşağıda) hız
-kullanan ilk sürüm sabit (modülasyonsuz) tremorda %20 yanlış p ≤ 0,01 verdi, çünkü yalnız paketle eş zamanlılığı
-ölçüyordu.
+M}) / 1001. **Modülasyon var: p ≤ 0,01.** Bu ölçü faz kilidini değil, **yüzey dalgasıyla eş periyotlu modülasyonu**
+ölçer (Ö2): s ve gecikme araması 20 sn periyotta faz farkının hemen tamamını tarar, dairesel kaydırma boş dağılımı da
+"periyot uyuşmuyor" hipotezini sınar. Faz yerine hızın kendisi kullanılmaz: yapay sınamada hız kullanan ilk sürüm sabit
+(modülasyonsuz) tremorda %20 yanlış p ≤ 0,01 verdi.
 
-Yapay sınama (`tr7_onkayit_modulasyon.py`, `tr7_onkayit_yapay.json`; dispersiyonlu 40→15 sn paket, 200 kaydırma):
-p ≤ 0,01 oranı kilitli tremorda A = 0,5 / 0,7 / 1,0 için 1,00 / 1,00 / 1,00; sabit tremorda 0,00 (A 1 ve 3); rastgele
-patlamalı tremorda 0,00 (A 1 ve 3); **20 sn sabit periyotlu ama dalgaya kilitli olmayan tremorda 0,35** (bilinen zayıflık
-§12: ölçü kilitlenmeyi tesadüfi 20 sn periyodikliğinden ayıramaz).
+Yapay sınama (`tr7_onkayit_modulasyon.py`, `tr7_onkayit_yapay.json`; İNCELEME-1 `tr7_inc1_modv.py`,
+`tr7_inc1_modreal.py`; bu sürüm `tr7_onkayit_denetim2.py` D5b; dispersiyonlu 40→15 sn paket, 200 kaydırma):
+p ≤ 0,01 oranı kilitli tremorda A = 0,5 / 0,7 / 1,0 için 1,00 / 1,00 / 1,00 (gerçek zarf zincirinde A = 0,7 / 1 / 2'de
+1,00); sabit tremorda 0,00 (A 1 ve 3); rastgele patlamalı tremorda 0,00 (A 1 ve 3); **20 sn sabit periyotlu, dalgaya
+kilitli olmayan tremorda 0,36–0,47 (sürüm 2, A = 1 ve 3, iki tohum; İNCELEME-1: 0,33–0,56)** (SNR ile artar; bilinen zayıflık §12). Arama daraltılınca (yalnız s = +1,
+gecikme 0–5 sn) kilitsiz A = 1'de 0,31; daraltma sorunu çözmez, metin bu yüzden aramayı değiştirmez.
 
-**6.5 Ayıklama kuralları (tetikleyici ve negatif pencerelere aynen).**
+**6.5 Ayıklama kuralları (tetikleyici, negatif ve Parkfield pencerelerine aynen).**
 1. **Katalog maskesi.** Marmara: EMSC (KOERI ve AFAD katkılı) ve ComCat; Parkfield: ComCat. Büyüklük türü serbest.
-   Segment izine ≤150 km ve M ≥ 2,0 olan her olay için [t₀, t₀ + d/3 km/s + 60 s]; ≤1000 km ve M ≥ 4,0 olan her olay
-   için [t₀, t₀ + d/3 km/s + 180 s] maskelenir (d: olayın ize uzaklığı). Maskeli saniyeler bütün istasyonlarda aşım
-   dışıdır. Sorgular bir kez yapılır, sha256'larıyla manifeste girer (§3.3).
-2. **Darbe kuralı (kataloglanmamış yerel deprem).** Kümedeki her istasyon aşımında C'nin (yumuşatılmamış) en büyük
-   değeri c_p, zamanı t_p. [t_p − 2, t_p) içinde C ≤ c_p/8 olan bir saniye varsa **ve** (t_p, t_p + 20] içinde
-   C ≤ c_p/2 olan bir saniye varsa o istasyon aşımı "darbe"dir. İstasyonların ≥ yarısı darbe ise küme atılır.
-3. **Sızıntı kuralı.** Küme aralığında her istasyon için z_y(t) = (L − m)/σ (2–8 Hz) ve z_d(t) aynı tanımla 0,5–1 Hz
-   birleşik zarftan. medyan_I z_d ≥ medyan_I z_y ise istasyon "sızıntı"dır. İstasyonların ≥ yarısı sızıntı ise küme atılır.
-4. Ayıklanan küme sayısı ve nedeni her pencere için yazılır.
+   Sorgu aralığı [R başı − 1 sa, W sonu]. İki katalogdan herhangi birinde şartı sağlayan her kayıt maskelenir; kayıtlar
+   eşleştirilmez (birleşim). Segment izine ≤150 km ve M ≥ 2,0 olan her olay için [t₀, t₀ + d/3 km/s + 60 s]; ≤1000 km ve
+   M ≥ 4,0 olan her olay için [t₀, t₀ + d/3 km/s + 180 s] maskelenir (d: olayın ize uzaklığı). Maskeli saniyeler bütün
+   istasyonlarda aşım dışıdır. R'deki maskeli ve kayıtsız saniyeler m ve σ hesabından, I'daki maskeli saniyeler Pearson
+   ilişkisinden ve L_k'dan çıkarılır. Sorgular bir kez yapılır, sha256'larıyla manifeste girer (§3.5).
+
+1a. **Teleseismik cisim dalgası maskesi (E1; büyüklük ve süre kuralı İNCELEME-1'den saptı, §17 S1).** Her pencere için
+   (tetikleyici, negatif ve Parkfield) ComCat'ten [R başı − 3 sa, W sonu] aralığındaki bütün M ≥ 6,0 olaylar alınır;
+   tetikleyici olayın kendisi dışarıda kalır (Wharton biriminde öteki olay dahildir). Her olay için segment orta
+   noktasına (Parkfield'da iz köşe ortalamasına) Δ ile `obspy.taup.TauPyModel("iasp91")` üzerinden, olay derinliğinde
+   t_P (adı P ile başlayan fazların en erkeni: P, Pdiff, PKP…) ve t_S (adı S ile başlayan fazların en erkeni)
+   hesaplanır. Maskelenen aralıklar:
+   - **M ≥ 7,0:** [t₀ + t_P − 10 s, t₀ + t_P + 240 s] ve [t₀ + t_S − 10 s, t₀ + t_S + 240 s];
+   - **6,0 ≤ M < 7,0:** yalnız [t₀ + t_P − 10 s, t₀ + t_P + 60 s].
+
+   Maske bütün istasyonlarda geçerlidir (§6.5.1'deki maske gibi: aşım değildir, köprülenmez). Sorgu yanıtı sha256'sıyla
+   manifeste girer (tetikleyici ve Parkfield pencereleri için §3.4'te donduruldu). Pencere başına maskeli saniye payı
+   çıktı tablosuna (§9.1) yazılır. Bu madde birim sayımını (§4.2) değiştirmez.
+
+   Önhesap (§3.4; W'nin maskeli payı, segment orta noktasıyla): **Tohoku S1/S2/S3 %66/%65/%65**, Parkfield W %58 ve K1
+   aralığı (§7.2 b) %65 (en uzun açık parça 173 sn); Maule %5; Illapel S1 %10; Kahramanmaraş %9; Kamçatka %4; öteki
+   S1–S3 pencereleri %0. Tohoku penceresinde 3 M ≥ 7,0 (Parkfield; Marmara'da 4) ve 25 (Marmara'da 24–25) M 6,0–6,9
+   cisim dalgası varışı var. İNCELEME-1'in metni olduğu gibi uygulansaydı (M ≥ 6,0, P ve S, +240 sn) Tohoku'nun bütün
+   Marmara pencereleri ve Parkfield K1 penceresi **%100** maskelenirdi (§17 S1).
+2. **Darbe kuralı (kataloglanmamış yerel deprem).** Kümedeki her istasyon için, o istasyonun kümedeki aşım
+   parçalarından C'nin (yumuşatılmamış) en büyük değeri c_p en büyük olan parça değerlendirilir; c_p'nin zamanı t_p.
+   [t_p − 2, t_p) içinde C ≤ c_p/8 olan bir saniye varsa **ve** (t_p, t_p + 20] içinde C ≤ c_p/2 olan bir saniye varsa o
+   istasyon "darbe"dir. İstasyonların ≥ yarısı darbe ise küme atılır.
+3. **Sızıntı kuralı (Ö6; değerlendirme saniyeleri İNCELEME-1'den saptı, §17 S8).** Kümedeki her istasyon için, o
+   istasyonun kümedeki aşım parçalarının içinde kalan aşım saniyeleri (L > m + 4σ, maskesiz) üzerinde
+   Δ_y = medyan(L − m) (2–8 Hz) ve Δ_d = medyan(L_d − m_d) (0,5–1 Hz birleşik zarf) hesaplanır (log10 genlik artışı;
+   σ ile bölünmez). Δ_d ≥ Δ_y ise istasyon "sızıntı"dır. İstasyonların ≥ yarısı sızıntı ise küme atılır.
+
+3a. **Taban kayması (Ö4).** Kümedeki istasyonların ≥ yarısında aşım parçası W'nin son 60 sn'sine kadar sürüyorsa küme
+   atılır (parça sonu ≥ W sonu − 60 sn).
+4. Ayıklanan küme sayısı ve nedeni (maske, darbe, sızıntı, taban) her pencere için yazılır.
 
 **6.6 Ölçülen dinamik gerilme (karar: ana değer değil, zorunlu ikinci değer).** PGV'ye uygun istasyon: bant kodu B ya
 da H, alet kodu H, StationXML yanıt genliği |H(0,02 Hz)| / |H(1 Hz)| ≥ 0,5 (dalga formu görülmeden manifeste yazılır).
-Her (pencere, segment) için PGV_ölç = uygun istasyonlarda en büyük_{t∈W} max(|v_Z|, |v_N|, |v_E|) değerlerinin
+Her (pencere, segment) için PGV_ölç = uygun istasyonlarda en büyük_{t∈W} max(|v_Z|, |v_R|, |v_T|) değerlerinin
 medyanı; τ_ölç = G · PGV_ölç / c (G 30 GPa, c 3,5 km/s; 1 cm/s ≈ 85,7 kPa). Uygun istasyon yoksa "ölçülemedi"
 (yanıt düzeltmesi yapılamadığı açıkça yazılır). Bilgi: yalnız düşey PGV ile τ.
 
@@ -206,191 +308,301 @@ Gerekçe: (i) bant (§4.2) ve hüküm cümlesinin X'i veri görülmeden sabitlen
 tetikleyicinin sayılacağı veriye bakılarak değişir; (ii) yüzeyde ölçülen PGV de 20–30 km derinlikteki fay üstü
 gerilmenin kaba bir vekilidir (Hill 2013'te tek olay için 0,7–10 kPa); (iii) yine de literatür eşikleri (Chao 2011:
 0,1 cm/s ≈ 7–8 kPa) ölçülmüş PGV'den hesaplanır, bu yüzden τ_ölç hükümde zorunlu ikinci değerdir. Kural (§8):
-n_ölç = τ_ölç ≥ 2 kPa olan ana birim sayısı; bant_ölç = aynı bant kuralıyla. bant_ölç, kaba banttan düşükse hüküm
-cümlesine "(ölçülen τ ile yalnız n_ölç birim ≥ 2 kPa; bant_ölç)" eki zorunludur. Bant ve hüküm türü değişmez.
+n_ölç = τ_ölç ≥ 2 kPa olan ana birim sayısı; bant_ölç = aynı bant kuralıyla. Hüküm türü değişmez; ölçek uyarısı §8'de.
 
-## 7. Kapılar ve kontroller (sıra: KD → kod incelemesi → K1 → K0-tam → K2 ve MDA → tetikleyici pencereleri → hüküm)
+## 7. Kapılar ve kontroller (sıra: KD → kod incelemesi → manifest → K1 → K0-tam → K2 ve MDA → tetikleyici pencereleri → hüküm)
 
 **7.1 KD, kod denetimi (yalnız yapay veri).** Kod yalnız yapay veriyle geliştirilir. Koşu kodunun kendisi (aynı
 fonksiyonlar, 100 Hz, Butterworth) yapay girdiyle şu denetimlerden geçmelidir; biri kalırsa kod gerçek veri görülmeden
-düzeltilir ve "koşu öncesi düzeltme" başlığıyla kayda geçer. Referans değerler bu ön kayıt için bağımsız yazılmış
-`tr7_onkayit_yapay.py` ile önceden hesaplandı (FFT ile |H|² süzgeç, 20 Hz; durağan Gauss gürültüsü, 20 sn yarım sinüs
-modüleli 300 sn tremor; A = tremorun etkin örneklerindeki bileşen başına 2–8 Hz RMS / gürültünün bileşen başına RMS'i).
+düzeltilir ve "koşu öncesi düzeltme" başlığıyla kayda geçer. Kod metne uygun olduğu hâlde bir denetim kuralın kendisi
+yüzünden kalırsa (bağımsız referans betik de aynı sonucu verirse), kural gerçek veri görülmeden, yalnız yapay sonuçlara
+dayanarak ve bağımsız bir incelemeden geçerek "koşu öncesi ek" başlığıyla değiştirilebilir. Referans değerler bu ön kayıt
+için bağımsız yazılmış `tr7_onkayit_yapay.py` (D1–D3) ve `tr7_onkayit_denetim2.py` (sürüm 2'de eklenenler; toplayıcı
+`tr7_onkayit_denetim2_kos.py`, çıktı `tr7_onkayit_denetim2.json` ve D12b'nin ikinci tohumu için `--ek` ile
+`tr7_onkayit_denetim2_ek.json`) ile önceden hesaplandı: FFT ile |H|² süzgeç, 20 Hz;
+durağan Gauss gürültüsü (D7c/D7d'de ayrıca "kentsel": 2–8 Hz gürültüye ≈300 sn'lik rastgele ×exp(0,35 z) genlik
+oynaması); 3 istasyon; 100 pencere; iki bağımsız tohum (20261112 + 300 + i ve 4242 + i). Genlik tanımları: **A_etkin**
+= tremorun etkin (zarf > 0) örneklerindeki bileşen başına 2–8 Hz RMS / gürültünün bileşen başına 2–8 Hz RMS'i (D2, D3,
+D7, D7b, D7c'de); **A_300** = tremorun 300 sn'lik süresi boyunca (sıfır yarım dönemler dahil) aynı RMS (D10, D13, D14;
+§7.4). 20 sn yarım sinüs zarfta A_300 = 0,7065 · A_etkin (zarftan hesaplandı). Ani başlangıçlı sinyallerde (D6, D6b, D7d,
+D12) genlik başlangıçtan sonraki ilk 5 sn'deki RMS'tir. Her satırda "doğru" iki tohumun değeri, "yanlış" bilinen yanlış
+kodun aynı pencerelerdeki değeridir; bant, doğrunun içinde, yanlışın dışında kalacak biçimde konuldu.
 
-| # | Denetim (yapay) | Şart | Önceden hesaplanan |
-|---|---|---|---|
-| D1 | Durağan Gauss, 3 istasyon, 200 pencere, tremor yok | yanlış algılama ≤ 0,01 | 0/200 |
-| D2 | Aynı, A basamağı 10^(j/40); 3 istasyon | A50 ∈ [0,56, 0,67], A90 ∈ [0,59, 0,72] | A50 ≈ 0,61, A90 ≈ 0,65 (100 Hz'te de 0,61) |
-| D3 | Aynı, 8 istasyon, 100 pencere | A50 ∈ [0,52, 0,62] | ≈ 0,57 |
-| D4 | Modülasyon (dispersiyonlu paket; kilitli tremor A = 0,7, 100 pencere, 1000 kaydırma) | p ≤ 0,01 oranı ≥ 0,90 | 1,00 (200 kaydırmayla) |
-| D5 | Modülasyon, sabit ve rastgele patlamalı tremor (A = 1 ve 3) | p ≤ 0,01 oranı ≤ 0,05 | 0,00 |
-| D6 | Yapay yerel deprem (ani başlangıç, C ×20 sıçrama, 5 sn e-katlı sönüm) A ≫ eşik, katalogsuz, 100 pencere | darbe kuralıyla atılma ≥ 0,95; aynı olay katalogdaysa maske ile 1,00 | — (yeni) |
-| D7 | Yapay tremor A = 10 (yarım sinüs), 100 pencere | darbe ya da sızıntıyla atılma ≤ 0,05 | — (yeni) |
-| D8 | Birim: sıfır gürültüye 100 nm/s RMS 2–8 Hz bileşen; bilinen duyarlılık | ölçülen RMS ±%5; §6.6 PGV'si bilinen PAZ yanıtlı 20 sn sinüste ±%5 | — |
-| D9 | Pencere: bilinen Δ ve T0 | W ve R listedeki değere ±1 sn; 2026 sınırı ihlali kodu durdurur | — |
-| D10 | Genlik kestirici (§7.5) sabit tremor A/N = 3 | kestirilen / gerçek ∈ [0,85, 1,15] | — |
-| D11 | Bant ve hüküm cümlesi üretici: elle kurulmuş 6 senaryo (§8'in her dalı) | metin birebir | — |
+| # | Denetim (yapay) | Şart (kabul bandı) | Doğru kod (tohum 1 / 2) | Bilinen yanlış kod |
+|---|---|---|---|---|
+| D1 | Durağan Gauss, 3 istasyon, 200 pencere, tremor yok | yanlış algılama ≤ 0,01 | 0/200 (İNCELEME-1: 0/400) | — |
+| D2 | Aynı, A_etkin basamağı 10^(j/40); 3 istasyon; A50, A90 P'nin log10 A'ya göre doğrusal ara değerlemesiyle | A50 ∈ [0,56, 0,67], A90 ∈ [0,59, 0,72] | A50 ≈ 0,61, A90 ≈ 0,645 (İNCELEME-1: iki tohum, bant içinde) | 3σ: A50 ≈ 0,52; 5σ: ≈ 0,70 (dışarıda) |
+| D3 | Aynı, 8 istasyon, 100 pencere | A50 ∈ [0,52, 0,62] | ≈ 0,57 / ≈ 0,565 | — |
+| D4 | Modülasyon (dispersiyonlu paket; kilitli tremor A = 0,7, 100 pencere, 1000 kaydırma) | p ≤ 0,01 oranı ≥ 0,90 | 1,00 (200 kaydırmayla) | — |
+| D5 | Modülasyon, sabit ve rastgele patlamalı tremor (A = 1 ve 3) | p ≤ 0,01 oranı ≤ 0,05 | 0,00 | hız kullanan ilk sürüm: 0,20 |
+| D5b | Modülasyon, 20 sn periyotlu kilitsiz yarım sinüs tremor, A = 1 ve 3, 100 pencere, 200 kaydırma | p ≤ 0,01 oranı ∈ [0,25, 0,65] (şart değil, oran yazılır; dışına düşerse kod incelenir) | A = 1: 0,39 / 0,38; A = 3: 0,47 / 0,36 | boş dağılım dairesel kaydırma yerine faz serisinin karıştırılması: A = 1: 0,88; A = 3: 0,74 |
+| D6 | Yapay yerel deprem (ani başlangıç, C ×20 ve ×100 sıçrama, 5 sn e-katlı sönüm), katalogsuz, 100 pencere | algılanmama ya da darbeyle atılma ≥ 0,95; aynı olay katalogdaysa maske ile atılma 1,00 | ×20: 1,00 / 1,00 (algılama 0,00 / 0,00); ×100: 1,00 / 1,00 (algılama 0,48 / 0,48, algılananların hepsi darbeyle); katalogda maske ile 1,00 / 1,00 | darbe kuralı 5 sn yumuşatılmış C'de: ×100: 0,52 / 0,52 (×20'de 1,00 / 1,00: ayırt etmez) |
+| D6b | Yapay yerel deprem; P tepenin 1/4'ü, S–P = 3, 5 ve 8 sn; ×20 (şart) ve ×100; katalogsuz; 100 pencere | algılanmama ya da darbeyle atılma ≥ 0,95 (×20'de üç S–P; ×100'de S–P = 8) | ×20, S–P 3 / 5 / 8: 1,00 / 1,00; 1,00 / 1,00; 1,00 / 1,00; ×100, S–P 8: 0,96 / 0,97; ×100, S–P 3 / 5 (bilgi, şart dışı, §17 S9): 0,00 / 0,00; 0,29 / 0,27 | yumuşatılmış C: ×100, S–P 8: 0,00 / 0,00 (×20, S–P 8: 0,97 / 0,98: ayırt etmez) |
+| D7 | Yapay tremor A_etkin = 10 (yarım sinüs), 100 pencere; tremor W sonundan ≥ 60 sn önce biter; §6.5'in 2, 3 ve 3a kurallarıyla | darbe, sızıntı ya da taban kaymasıyla atılma ≤ 0,03 | 0,00 / 0,00 (algılama 1,00 / 1,00) | darbe ön şartı c_p/2: 0,08 / 0,11 |
+| D7b | Patlamalı tremor (5–15 sn patlamalar, aralıklar üstel ortalama 15 sn, 2 sn kenar yükselmesi), A_etkin = 3, 10 ve 30 | darbe ya da sızıntıyla atılma ≤ 0,03 | A = 3: 0,00 / 0,00; A = 10: 0,00 / 0,00; A = 30: 0,01 / 0,00 | darbe ön şartı c_p/8 yerine c_p/2: A = 3: 0,05 / 0,05; A = 10: 0,05 / 0,09; A = 30: 0,09 / 0,08 |
+| D7c | Spektrumu 0,5–8 Hz'te düz tremor, A_etkin = 3 ve 10; Gauss ve kentsel gürültü | sızıntıyla atılma ≤ 0,05 | A = 3 Gauss: 0,00 / 0,00; A = 10 Gauss: 0,00 / 0,00; A = 3 kentsel: 0,00 / 0,00; A = 10 kentsel: 0,00 / 0,00 | İNCELEME-1 metni (Δ küme aralığı I'nın medyanıyla): A = 3 Gauss: 0,44 / 0,42; A = 10 Gauss: 0,22 / 0,24; A = 3 kentsel: 0,09 / 0,14; A = 10 kentsel: 0,14 / 0,17; sürüm 1'in z kuralı: A = 3 Gauss: 0,00 / 0,00; A = 10 Gauss: 0,00 / 0,00; A = 3 kentsel: 0,13 / 0,18; A = 10 kentsel: 0,33 / 0,35 |
+| D7d | Yapay bölgesel deprem kodası (0,5–8 Hz, genlik ∝ f⁻¹, 1 sn yükselme, 40 sn e-katlı sönüm, ×20); Gauss ve kentsel | sızıntıyla atılma ≥ 0,95 | Gauss: 1,00 / 1,00; kentsel: 1,00 / 1,00 | eşitsizlik ters (Δ_y ≥ Δ_d): Gauss: 0,00 / 0,00; kentsel: 0,00 / 0,00 |
+| D8 | Birim: sıfır gürültüye 100 nm/s RMS 2–8 Hz bileşen; bilinen duyarlılık | ölçülen RMS ±%5; §6.6 PGV'si bilinen PAZ yanıtlı 20 sn sinüste ±%5 | — | — |
+| D9 | Pencere: bilinen Δ ve T0 | W ve R listedeki değere ±1 sn; 2026 sınırı ihlali kodu durdurur | — | — |
+| D10 | Kestirici (§7.5, I′), A_etkin = 3, 100 pencere; sabit ve yarım sinüs tremor | kestirilen / A_300 ∈ [0,90, 1,15] (ikisinde de) | sabit 1,03 / 1,03; yarım sinüs 1,04 / 1,04 | I (±60 sn): sabit 0,87 / 0,87; yarım sinüs 0,88 / 0,88; payda A_etkin: yarım sinüs 0,735 / 0,735 |
+| D11 | Bant ve hüküm cümlesi üretici: elle kurulmuş senaryolar (§8'in her dalı, K1'in (a)–(d) dalları ve ölçek uyarısı ön eki dahil) | metin birebir | — | — |
+| D12 | 3 istasyon, 100 pencere; W içine eş zamanlı (istasyonlar arası ±2 sn) yapay teleseismik P zarfı: ani başlangıç, C ×5 sıçrama, 60 sn e-katlı sönüm | maskesiz algılanır; olay katalogda (M ≥ 7,0 kuralı, +240 sn) iken maske ile atılma 1,00 | maskesiz algılama 1,00 / 1,00; maske ile atılma 1,00 / 1,00 | maske kuyruğu +60 sn: 0,00 / 0,00 |
+| D12b | Aynı, 6,0 ≤ M < 7,0 vekili: C ×2, ×3, ×5 sıçrama, 30 sn e-katlı sönüm; ×5 ve 60 sn sönüm (bilgi) | 30 sn sönümlülerde +60 sn maske ile atılma ≥ 0,95 | ×2: 1,00 / 1,00; ×3: 1,00 / 1,00; ×5: 1,00 / 1,00; bilgi ×5, 60 sn sönüm: 0,00 | maske kuyruğu +30 sn: ×2: 1,00 / 1,00; ×3: 1,00 / 1,00; ×5: 0,38 / 0,32 |
+| D13 | MDA basamak kuralı (§7.4): A_300 basamakları 10^(j/20), yarım sinüs, 3 istasyon, tam ayıklama | A50_basamak ∈ [0,42, 0,48], A90_basamak ∈ [0,44, 0,53] | A50 0,447 / 0,447, A90 0,501 / 0,501 (ara değerlemeyle A50 0,427 / 0,425, A90 0,474 / 0,459) | sürüm 1 basamağı 10^(j/8): A50 = A90 = 0,562 / 0,562 |
+| D14 | Yanıtla çarpılmış enjeksiyon (§7.4): kanal yanıtı 4,5 Hz jeofon (g = 0,20 / 0,63 / 0,88 / 0,96, f = 2 / 4 / 6 / 8 Hz); A50 yer biriminde (A_300), iki bağımsız tohumun oranı | A50(tohum 2) / A50(tohum 1) ∈ [0,93, 1,07] ve A50 ∈ [0,55, 0,67] | A50 0,610 / 0,606 (oran 0,994); A90 0,652 / 0,630 | yanıtsız düz enjeksiyon: A50 0,428 / 0,430 (yanıtlının 0,70 katı: A90 bu kadar iyimser çıkar) |
+
+Bilgi satırları (şart değil): R'den W sonuna doğrusal ×2 yükselen 2–8 Hz gürültü (Ö4), 100 pencere: ayıklamasız algılama 0,00; taban kuralı bu gürültüde sınanamadı (algılama yok). 20 sps BH
+benzeri yanıtta (7 Hz'te dik alçak geçiren; g = 1,00 / 1,00 / 0,98 / 0,25) düz enjeksiyonun A50'si yanıtlıdan
+0,429 / 0,443 = 0,97 katıdır.
 
 D2'nin bandı (≈ ±%9) eşik çarpanı 4σ yerine 3σ ya da 5σ kullanan bir kodu ayırır (yapayda A50 0,52 / 0,70) ve yanlış
-birim ya da yumuşatmasız zarf gibi kaba hataları yakalar. Doğru kodun bandın dışına düşme payı küçüktür: 200 pencerede
-geçiş dik (A 0,596'da 0,31, 0,631'de 0,81) ve sonuç örneklemeden bağımsız (100 Hz, 60 pencere: 0,596'da 0,28, 0,631'de
-0,82). Yine de D2'nin bandı tek gerçekleşmeye dayanır; kod incelemesi aynı denetimi bağımsız tohumla yinelemelidir. Not (önceden doğrulandı): SAYIM §2.7'deki "≥30 sn kesintisiz aşım"
-kuralı 20 sn yarım sinüs modüleli tremoru A = 1,0'da bile 0/100 algıladı; §6.2 madde 7'deki boşluk köprüleme bu
-yüzden konuldu (§15).
+birim ya da yumuşatmasız zarf gibi kaba hataları yakalar. Bağımsız tohumlarla yinelendi (İNCELEME-1 §E: P(0,596) =
+0,295 / 0,345 / 0,29; P(0,631) = 0,805 / 0,85 / 0,80). Referans betik `tr7_onkayit_yapay.py` kümeyi komşuluk olarak
+kurar; koşu kodu ve `tr7_onkayit_denetim2.py` §6.3'teki bağlantılı bileşeni kullanır. D2 ve D3 bantları bu fark için
+yeterince geniştir (K5). Not: SAYIM §2.7'deki "≥30 sn kesintisiz aşım" kuralı 20 sn yarım sinüs modüleli tremoru
+A = 1,0'da bile 0/100 algıladı; §6.2 madde 7'deki boşluk köprüleme bu yüzden konuldu (§15).
 
-**7.2 K1, pozitif kontrol: Parkfield–Tohoku 2011.** Kod incelemesinden sonra, Marmara'nın hiçbir dalga formundan
-önce. Aynı kod, aynı sabitler; istasyonlar `tr7_parkfield_liste.csv`; segment Parkfield izi (§3.2); katalog ComCat.
-**Geçme şartı: Tohoku penceresinde ≥3 istasyonla taranabilirlik ve en az bir algılama (§6.3 + §6.5).** Kalırsa ya
-da ≥3 istasyon örtüsü sağlanamazsa koşu durur, Marmara verisi indirilmez, TR-7 hükmü "ölçü sınanamadı" olur. Eşik,
-pencere, istasyon kuralı değiştirilip yeniden denenmez; yalnız yeni bir ön kayıt açılabilir. Bilgi satırları
-(K1'i değiştirmez): Parkfield modülasyon p'si; Parkfield'da 10 negatif pencerenin algılama oranı (Cholame ortam tremoru
-yüzünden yüksek olabilir, bu yüzden şart değil); yalnız ize en yakın 10 istasyonla algılama; tremor genliği A_PK
-(§7.5); Parkfield MDA'sı (§7.4 yöntemiyle). **Parkfield modülasyonu p > 0,01 çıkarsa Marmara'da "VAR" hükmü
-verilemez, en çok "aday (modülasyon ölçüsü pozitif kontrolde doğrulanmadı)" yazılır.**
+**7.2 K1, pozitif kontrol: Parkfield–Tohoku 2011.** Kod incelemesinden ve manifestten sonra, Marmara'nın hiçbir dalga
+formundan önce. Aynı kod, aynı sabitler; istasyonlar `tr7_parkfield_liste.csv`'de `var_R = var_W = 1` olan 52 istasyon,
+12 sınırıyla (§6.0); segment Parkfield izi (§3.2); katalog ComCat; E1 maskesi §3.4'teki önhesaptan.
 
-**7.3 K2, negatif kontrol.** Her birim (Kahramanmaraş bilgi birimleri dahil) için 10 pencere. Aday kaydırmalar
-d ∈ {−30, …, −1, +1, …, +30} gün (tam gün: aynı UTC saati, R ve W birlikte kayar; Wharton'ın iki penceresi aynı d ile).
-Üreteç `numpy.random.default_rng(20261112)`; birimler ana şok T0 sırasıyla; her birim için `rng.permutation` ile
-adaylar sıralanır ve şu şartları sağlayan ilk 10 alınır: kaydırılmış [min R başı − 3 sa, max W sonu] aralığında ComCat
-M ≥ 6,5 olay yok; kaydırılmış W sonu < 2026-01-01. Parkfield için ayrı üreteç `default_rng(20261112 + 1)`. Liste
-dalga formundan önce commit edilir. Yerel M ≥ 3 olan pencereler atılmaz: yerel depremler tetikleyici pencerelerinde
-de §6.5 ile ayıklanır, simetri korunur (§15). Negatif pencerede örtü kuralı aynıdır; ≥3 istasyonu kalmayan pencere
-düşer, yerine pencere alınmaz.
+**K1 sonucu (sıra bağlayıcı).**
+- (a) Tohoku penceresinde ≥3 istasyon örtüsü yoksa: **"ölçü sınanamadı (Parkfield verisi yok)"**.
+- (b) Tohoku penceresinde, aşım aralığı I′ (§6.3) **[2011-03-11T06:16:01, 06:31:48] UTC** aralığıyla kesişen en az
+  bir algılama varsa (§6.3 ve §6.5, E1 maskesi dahil; aralık, iz ortasında T0 + Δ/4,6 km/s ile T0 + Δ/3,0 km/s
+  arasıdır, Δ = 8171,4 km, en yakın saniyeye yuvarlanmış; `tr7_onkayit_sayilar.json` `parkfield.K1_araligi`;
+  İNCELEME-1'deki 06:16:00 kesilmiş değerdir): **K1 GEÇTİ**. Ayrıca Parkfield'ın negatif pencerelerinde
+  FAR_PK = f_PK / N_PK > 0,30 ise (N_PK = 10'da f_PK ≥ 4) K1 **"geçti, ayırt edici değil"** olarak yazılır ve
+  Marmara'da "VAR" hükmü verilemez (en çok "aday").
+- (c) Algılama yoksa ve Parkfield MDA'sı (§7.4 yöntemi, Parkfield negatif pencerelerinde) tanımlıysa ve
+  A90_PK ≤ 100 µm/s ise: **"ölçü sınanamadı (Tohoku tremoru Parkfield yüzey ağının gürültüsünde görülmedi;
+  A90_PK = [..] nm/s)"**.
+- (d) Öteki durumlar: **"ölçü sınanamadı (yöntem)"**.
 
-Segment başına N = kullanılabilir negatif pencere sayısı (ana birimlerin), f = algılama sayısı, FAR = f/N.
-**K2: FAR ≤ 0,05** (f ≤ ⌊0,05 N⌋; N = 80 için f ≤ 4). Kalırsa o segmentin hükmü "ölçü güvenilmez" olur; eşik
-değişmez; tetikleyici bulguları bilgi satırı olarak yazılır. Negatif pencereler ve MDA tetikleyici pencerelerinden önce
-işlenir ve dosyaya yazılır.
+(b) dışındaki her durumda Marmara verisi indirilmez.
+
+**Uygulama hatası yolu (bir kez).** K1 (c) ya da (d) ile kalırsa ve kodun bu metne aykırı olduğu, K1 verisine
+bakılmadan yazılmış bir yapay denetimle gösterilirse, kod bir kez düzeltilir. Düzeltme bağımsız kod incelemesinden
+geçer ve K1 bir kez yeniden koşulur. Tanım, eşik, pencere, liste ve birim kuralı değişmez. Bu yol yalnız bir kez
+kullanılır ve "K1 sonrası düzeltme" başlığıyla kayda geçer.
+
+**Tanı satırları (K1'i değiştirmez).** Tohoku penceresinde ayıklamadan önceki küme sayısı ve her kümenin atılma nedeni
+(maske, darbe, sızıntı, taban); K1'i geçiren her kümenin I′'su içine düşen M 6,0–6,9 P varışları (§3.4) ve
+maskelenmeyen M 6,0–6,9 S varışları. HRSN (BP) kuyu koşusu bu sürümde yapılmaz (§17 S2).
+
+**Bilgi satırları (K1'i değiştirmez).** Parkfield modülasyon p'si ("Parkfield modülasyonu geçti" = K1 aralığıyla kesişen
+Tohoku kümelerinden en az birinde p ≤ 0,01; K7); Parkfield FAR_PK; tremor genliği A_PK (§7.5); A90_PK; τ_ölç / kaba τ
+(Parkfield–Tohoku, §6.6 ile; uygun istasyon yoksa "ölçülemedi"). **Parkfield modülasyonu geçmezse Marmara'da "VAR"
+hükmü verilemez, en çok "aday (modülasyon ölçüsü pozitif kontrolde doğrulanmadı)" yazılır.**
+
+**7.3 K2, negatif kontrol.** Her birim (Kahramanmaraş bilgi birimleri dahil) için 10 pencere; liste sürüm 2 ile
+donduruldu (§3.3). Seçim kuralı: aday kaydırmalar d ∈ {−30, …, −1, +1, …, +30} gün (tam gün: aynı UTC saati, R ve W
+birlikte kayar; Wharton'ın iki penceresi aynı d ile), yetmezse d ∈ {−60, …, −31, +31, …, +60}. Üreteç
+`numpy.random.default_rng(20261112)`; birimler ana şok T0 sırasıyla; her birim için önce ±1–30 adayları, sonra ±31–60
+adayları, ikisi de her birimde sırayla `rng.permutation` ile karıştırılır ve şu şartları sağlayan ilk 10 alınır:
+(i) kaydırılmış [min R başı − 3 sa, max W sonu] aralığında ComCat M ≥ 6,5 olay yok; (ii) kaydırılmış W sonu
+< 2026-01-01; (iii) kaydırılmış T0'ın yerel gün türü (Pazartesi–Cuma ya da Cumartesi–Pazar; Marmara'da Türkiye,
+Parkfield'da ABD Pasifik saati; resmî tatil dikkate alınmaz) tetikleyicininkiyle aynıdır; (iv) kaydırılmış pencerenin
+yerel saat farkı (yaz saati durumu), min R başında ve max W sonunda, tetikleyicininkiyle aynıdır. Parkfield için ayrı
+üreteç `default_rng(20261112 + 1)`. Bütün birimlerde 10 pencere ±30 gün içinde bulundu (§3.3). Yerel M ≥ 3 olan
+pencereler atılmaz: yerel depremler tetikleyici pencerelerinde de §6.5 ile ayıklanır, simetri korunur (§15). Negatif
+pencerede örtü kuralı aynıdır; ≥3 istasyonu kalmayan pencere düşer, yerine pencere alınmaz. E1 maskesi negatif
+pencerelere de uygulanır (M ≥ 6,5 olaylar seçimde dışlandığından yalnız 6,0 ≤ M < 6,5 olayların P'si).
+
+Segment başına N = kullanılabilir negatif pencere sayısı (ana birimlerin), f = algılama sayısı, FAR = f/N. Wharton
+biriminin bir negatif penceresi iki alt pencereden oluşur: N'ye 1 katkı yapar, alt pencerelerden birinde algılama varsa
+algılama sayılır. **K2: FAR ≤ 0,05** (f ≤ ⌊0,05 N⌋; N = 80 için f ≤ 4). Kalırsa o segmentin hükmü "ölçü güvenilmez"
+olur; eşik değişmez; tetikleyici bulguları bilgi satırı olarak yazılır. **N < 5n ise** o segmentin hükmü "ölçü
+güvenilmez (negatif kontrol yetersiz)" olur. Negatif pencereler ve MDA tetikleyici pencerelerinden önce işlenir ve
+dosyaya yazılır.
 
 **7.4 Algılanabilir en küçük tremor genliği (MDA).** Koşu sırasında, yalnız negatif kontrol pencerelerine
 (tetikleyici pencerelerinin dışında), algılama vermemiş her negatif pencereye ham veri bellekteyken yapay tremor
 eklenir. Model: kaynak segment orta noktasının 25 km altında; istasyon i'de genlik A·25/r_i (r_i hiposantr uzaklığı),
 varış gecikmesi r_i / 3,5 km/s; üç bileşende eşit RMS, her istasyon ve bileşende bağımsız Gauss gerçekleşmesi, 2–8 Hz
 süzülmüş; zarf 300 sn, 20 sn periyotlu yarım sinüs, 10 sn kenar yumuşatma (yapay sınamayla aynı); başlangıç W'nin
-göreli konumunda U[60, |W| − 360] sn. Üreteç `default_rng(20261112 + 2)`. A basamakları 10^(j/8) nm/s, j = 0…40
-(1 nm/s – 100 µm/s). Süzgeç ve Hilbert doğrusal olduğundan zarf |a_veri + A·a_yapay| olarak her basamak için hesaplanır;
-R'ye ekleme yapılmaz. P(A) = algılama veren pencere payı (segment başına). **A50 ve A90 = P ≥ 0,5 ve P ≥ 0,9 olan en
-küçük basamak** (yukarı yuvarlanır; adım ×1,33). Hiçbir basamak ulaşmazsa "> 100 µm/s". A, kaynağın tam üstünde
-(25 km) bileşen başına 2–8 Hz RMS'tir (nm/s). Kısa periyotlu ve jeofon kanallarında doğal frekansın altında
-duyarlılık bölmesi genliği küçük gösterir (§12). MDA algılama içindir, modülasyon şartını içermez.
+göreli konumunda U[60, |W| − 360] sn. Üreteç `default_rng(20261112 + 2)`. Parkfield'da her algılama vermemiş negatif
+pencereye aynı üreteçle üç ayrı başlangıç çekilir (deneme = pencere × başlangıç); Marmara'da pencere başına bir başlangıç.
+**A basamakları 10^(j/20) nm/s, j = 0…100** (1 nm/s – 100 µm/s). Yapay tremor eklenmeden önce, frekans ortamında
+kanalın StationXML yanıtının normalize edilmiş karmaşık değeri H(f)/InstrumentSensitivity ile çarpılır; böylece veri ile
+yapay sinyal aynı ölçekte kalır (Ö5; D14). Süzgeç ve Hilbert doğrusal olduğundan zarf |a_veri + A·a_yapay| olarak her
+basamak için hesaplanır; R'ye ekleme yapılmaz. P(A) = algılama veren deneme payı (segment başına), ana birimlerin
+algılama vermemiş negatif pencerelerinden (Parkfield'da denemelerinden) **en az 20** tanesiyle hesaplanır; daha azsa
+A90 "belirsiz" yazılır. **A50 ve A90, P ≥ 0,5 ve P ≥ 0,9 olan ve üstündeki bütün basamaklarda da bu şartı sağlayan en
+küçük basamaktır** (adım ×1,122). Hiçbir basamak ulaşmazsa "> 100 µm/s". **A, kaynağın tam üstünde (25 km) tremorun
+300 sn'lik süresi boyunca (sıfır yarım dönemler dahil) bileşen başına 2–8 Hz RMS'tir (nm/s; A_300).** §7.1'deki yapay A
+(A_etkin, etkin örneklerde) ile bağıntı: A_300 = 0,7065 · A_etkin. D2 ve D3 bantları A_etkin ölçeğindedir. MDA algılama
+içindir, modülasyon şartını içermez.
 
-**7.5 Tremor genliği kestiricisi (bilgi).** Algılanan kümede istasyon i için a_i = √(max(0, ⟨C²⟩_I − ⟨C²⟩_R) · 2/π),
-25 km'ye indirgenmiş a_i · r_i / 25; segment değeri medyan. Parkfield'daki A_PK bu tanımla. **Bilgi satırı: her
-Marmara segmenti için A90(S_k) / A_PK** ("Parkfield'daki Tohoku tremoru bu gürültüde görülür müydü").
+**7.5 Tremor genliği kestiricisi (bilgi).** Algılanan kümede istasyon i için a_i = √(max(0, ⟨C²⟩_I′ − ⟨C²⟩_R) · 2/π),
+I′ = [kümedeki en erken aşım başı, en geç aşım sonu]; 25 km'ye indirgenmiş a_i · r_i / 25; segment değeri medyan
+(A_300 ölçeğinde kestirir; D10). Parkfield'daki A_PK bu tanımla, K1'i geçiren kümeden (birden çoksa en büyüğü).
+**Bilgi satırı: her Marmara segmenti için A90(S_k) / A_PK** ("Parkfield'daki Tohoku tremoru bu gürültüde görülür
+müydü"). A_PK = 0 ya da tanımsızsa (K1 geçmedi) oran "tanımsız" yazılır.
 
 ## 8. Hüküm kuralları (tam sayısal; sıra bağlayıcı)
 
 Tanımlar, segment başına: n (K0-tam ana birim), bant (§4.2), N, f (§7.3), X_alg = algılama veren ana birim sayısı,
 X_mod = algılama veren **ve** o algılama kümelerinden en az birinde modülasyon p ≤ 0,01 olan ana birim sayısı.
 p_üst = f/N için tek yanlı %95 Clopper–Pearson üst sınırı. X_min(n, f) = P(Bin(n, p_üst) ≥ X) ≤ 0,05 olan en küçük X,
-en az 2. Önceden hesaplanmış örnekler (`tr7_onkayit_sayilar.json`):
+en az 2; X ∈ [2, n] arasında şartı sağlayan yoksa X_min yoktur ve o segmentte "VAR" verilemez. N, o segmentin ana
+birimlerinden kullanılabilir negatif pencere sayısıdır (Wharton: §7.3). X_min, algılama FAR'ından hesaplanır ve X_mod'a
+uygulanır; bu bilerek tutucu bir seçimdir. Önceden hesaplanmış X_min (`tr7_onkayit_sayilar.json` `X_min_tablo`, N = 10n;
+"K2" = K2 kalır):
 
 | n | N | f = 0 | f = 1 | f = 2 | f = 3 | f = 4 | f = 5 |
 |---|---|---|---|---|---|---|---|
-| 8 | 80 | 2 | 3 | 3 | 3 | 3 | K2 kalır |
-| 9 | 90 | 2 | 3 | 3 | 3 | 4 | K2 kalır |
+| 5 | 50 | 2 | 3 | 3 | K2 | K2 | K2 |
+| 6 | 60 | 2 | 3 | 3 | 3 | K2 | K2 |
+| 7 | 70 | 2 | 3 | 3 | 3 | K2 | K2 |
+| 8 | 80 | 2 | 3 | 3 | 3 | 3 | K2 |
+| 9 | 90 | 2 | 3 | 3 | 3 | 4 | K2 |
 | 10 | 100 | 2 | 3 | 3 | 3 | 4 | 4 |
-| 5 | 50 | 2 | 3 | 3 | K2 kalır | K2 kalır | K2 kalır |
 
-(FAR = 0,05'te 8 birimde rastlantıyla ≥2 algılama olasılığı 0,057; bu yüzden düz "≥2" yetmez.)
+(FAR = 0,05'te 8 birimde rastlantıyla ≥2 algılama olasılığı 0,057, bu yüzden düz "≥2" yetmez. Kaynak yokken en az bir
+algılama olasılığı 1 − 0,95ⁿ: n = 8'de 0,337, n = 9'da 0,370; "aday" hükmü büyük olasılıkla bundan çıkar ve aday kalıbı
+bunu taşır.)
+
+**Marmara özeti için kuyruk eşiği 0,05/3 (Ö3).** Özetin "gözlendi" cümlesi için en az bir S1–S3 segmentinde
+X_mod ≥ X_min^(0,05/3)(n, f) gerekir (tanım aynı, kuyruk eşiği 0,0167; N = 10n), f = 0…5 sırasıyla:
+n = 5: 3, 3, 3, K2, K2, K2; n = 6: 3, 3, 3, 4, K2, K2; n = 7: 3, 3, 4, 4, K2, K2; n = 8: 3, 3, 4, 4, 4, K2;
+n = 9: 3, 3, 4, 4, 4, K2; n = 10: 3, 3, 4, 4, 4, 4. Segment satırı 0,05'lik X_min ile yazılır. S1, S2 ve S3 aynı
+istasyonları paylaştığı için üç segmentin sınamaları bağımsız değildir; 0,05/3 bu bağımlılıkta da tutucudur.
 
 Sıra:
-1. K1 kaldı → bütün segmentler **"ölçü sınanamadı"**.
+1. K1 (a), (c) ya da (d) → bütün segmentler **"ölçü sınanamadı ([K1 nedeni])"**.
 2. bant = veri yok (n < 5) → **"veri yok"** (bulgular bilgi satırı).
-3. K2 kaldı → **"ölçü güvenilmez"** (bulgular bilgi satırı).
-4. X_mod ≥ X_min(n, f) ve Parkfield modülasyonu geçti ve uzun periyot başvuru istasyonu var →
-   **"tetiklenmiş tremor VAR"**.
-5. X_alg ≥ 1 ve 4 sağlanmıyor → **"aday, doğrulanmadı"** (X_alg = 1 ise her durumda bu).
-6. X_alg = 0 → **"görülmedi"**.
+3. N < 5n → **"ölçü güvenilmez (negatif kontrol yetersiz)"** (bulgular bilgi satırı).
+4. K2 kaldı → **"ölçü güvenilmez"** (bulgular bilgi satırı).
+5. X_min var ve X_mod ≥ X_min(n, f) ve Parkfield modülasyonu geçti ve K1 "ayırt edici değil" değil ve uzun periyot
+   başvuru istasyonu var → **"tetiklenmiş tremor VAR"**.
+6. X_alg ≥ 1 ve 5 sağlanmıyor → **"aday, doğrulanmadı"** (X_alg = 1 ise her durumda bu).
+7. X_alg = 0 → **"görülmedi"**.
 
 Dışlama oranı: n birimde algılama yoksa, tetikleyici başına ≥ p_min olasılıkla A90'ı aşan tremor üreten bir kaynak %95
 düzeyinde dışlanır; p_min = (1 − 0,05^(1/n)) / 0,9. Değerler: n 5 → 0,50; 6 → 0,44; 7 → 0,39; 8 → 0,35; 9 → 0,32;
 10 → 0,29.
 
 **Hüküm kalıpları (yalnız bu biçimlerde; köşeli yerler koddan doldurulur):**
-- VAR: "S_k: tetiklenmiş tremor VAR. n bağımsız tetikleyicinin X_mod'unda, yerel deprem maskesi ve darbe/sızıntı
-  ayıklamasından sonra ≥3 istasyonda tutarlı ve yüzey dalgası fazına kilitli (p ≤ 0,01) 2–8 Hz tremor; negatif
-  kontrolde FAR = f/N; kaba τ ≥ [en küçük algılayan birimin kaba τ'su] kPa (ölçülen τ ≥ [..] kPa)."
-- Aday: "S_k: aday, doğrulanmadı. [X_alg] tetikleyicide algılama; VAR şartlarından sağlanmayan: [liste]."
+- VAR: "S_k: tetiklenmiş tremor VAR. n bağımsız tetikleyicinin X_mod'unda, yerel deprem ve teleseismik cisim dalgası
+  maskesi ile darbe/sızıntı/taban ayıklamasından sonra ≥3 istasyonda tutarlı ve yüzey dalgasıyla eş periyotlu
+  modülasyonlu (p ≤ 0,01; ölçü faz kilidini 20 sn periyodik, kilitsiz modülasyondan ayıramaz, yapayda yanlış pozitif
+  0,33–0,56) 2–8 Hz tremor; negatif kontrolde FAR = f/N; kaba τ ≥ [en küçük algılayan birimin kaba τ'su] kPa
+  (ölçülen τ ≥ [..] kPa)."
+- Aday: "S_k: aday, doğrulanmadı. [X_alg] tetikleyicide algılama; negatif kontrole göre n tetikleyicide beklenen yanlış
+  algılama n·f/N = [..], P(Bin(n, p_üst) ≥ X_alg) = [..]; VAR şartlarından sağlanmayan: [liste]."
 - Görülmedi: "S_k: kaba τ ≥ X kPa üstündeki n bağımsız tetikleyicide tetiklenmiş tremor görülmedi; algılanabilir en
-  küçük genlik A90 = [..] nm/s (25 km'de, 2–8 Hz RMS; A50 = [..]); tetikleyici başına ≥ p_min olasılıkla bu genliği
-  aşan tremor üreten bir kaynak %95 düzeyinde dışlanır. [bant zayıfsa: 'zayıf bant'.] Ölçülen τ ile [n_ölç] birim
-  ≥ 2 kPa." Burada X = kaba τ₍ₙ₎ (taranan ana birimlerin en küçük kaba τ'su).
-- Veri yok / ölçü güvenilmez / ölçü sınanamadı: o sözcüklerle, ardından bilgi satırları.
+  küçük genlik A90 = [..] nm/s (25 km'de, 300 sn boyunca 2–8 Hz RMS; A50 = [..]); tetikleyici başına ≥ p_min
+  olasılıkla bu genliği aşan tremor üreten bir kaynak %95 düzeyinde dışlanır. [bant zayıfsa: 'zayıf bant'.] Ölçek
+  uyarısı: kaba τ ×1/3 alınırsa [n₁/₃] birim ≥ 2 kPa ([bant₁/₃]); ölçülen τ ile [n_ölç] birim ≥ 2 kPa ([bant_ölç]);
+  Parkfield–Tohoku'da τ_ölç / kaba τ = [..]." Burada X = kaba τ₍ₙ₎ (taranan ana birimlerin en küçük kaba τ'su).
+  bant₁/₃ ya da bant_ölç "veri yok" ise cümle "S_k (yalnız kaba τ ölçeğinde):" ile başlar.
+- Veri yok / ölçü güvenilmez / ölçü sınanamadı: o sözcüklerle (parantez içi nedeniyle), ardından bilgi satırları.
 - **Zorunlu ×1/3 satırı** (her segment, her hükümde): "Kaba τ ×1/3 alınırsa [n₁/₃] birim ≥ 2 kPa (bant: ..)." ×3
   satırı da yazılır (alt sınır notuyla).
 
-Marmara özeti (S1–S3 birlikte): en az bir segment VAR ise "Marmara'da dinamik gerilmeye duyarlı derin kayma bölgesi
-gözlendi"; üçü de "görülmedi" ise "bu duyarlılıkla (A90 ve kaba τ değerleriyle) gözlenmedi"; öteki durumlarda segment
-satırları özetsiz yazılır. S4–S7 ikinci satırlardır, özete girmez. S5/S6'da 2005–2008 birimleri (Kashmir 2005,
+Marmara özeti (S1–S3 birlikte): en az bir segment VAR ve o segmentte X_mod ≥ X_min^(0,05/3) ise "Marmara'da dinamik
+gerilmeye duyarlı derin kayma bölgesi gözlendi"; üçü de "görülmedi" ise "bu duyarlılıkla (A90 ve kaba τ değerleriyle)
+gözlenmedi"; özete giren bir segmentte "(yalnız kaba τ ölçeğinde)" ön eki varsa özet cümlesi "bu duyarlılıkla (A90 ve
+kaba τ değerleriyle; kaba τ ölçeği ×1/3'te ya da ölçülen τ ile veri yok bandında) gözlenmedi" olur; öteki durumlarda
+segment satırları özetsiz yazılır. S4–S7 ikinci satırlardır, özete girmez. S5/S6'da 2005–2008 birimleri (Kashmir 2005,
 Kuril 2006, Kuril 2007, Bengkulu 2007; YL verisi, Pfohl 2015'in incelediği veri) ayrı satırda "yöntem karşılaştırması,
-bağımsız değil" diye yazılır; S5/S6'nın bağımsız satırı yalnız 2009 sonrası birimlerle (S5: Kamçatka, Chignik; S6:
-Kamçatka) kurulur ve bant kuralına tabidir. Kahramanmaraş satırları ayrı ve yalnız bilgi.
+bağımsız değil" diye yazılır; S5/S6'nın bağımsız satırı yalnız 2009 sonrası birimlerle (S5: Kamçatka, Chignik, n = 2;
+S6: Kamçatka, n = 1) kurulur ve bant kuralına tabidir: önsayımda ikisi de "veri yok". Kahramanmaraş satırları ayrı ve
+yalnız bilgi.
 
 ## 9. Çıktı tabloları
 
 `tr7_sonuc.json` ve `tr7_sonuc.md` (tek koşu, "x" kipinde):
 1. Birim × segment: birim, olay(lar), T0, M, kaba τ, kaba τ ×1/3, τ_ölç (ve uygun istasyon sayısı), örtüden geçen
-   istasyon sayısı, küme sayısı, ayıklanan küme (maske / darbe / sızıntı), algılama E/H, modülasyon p, en uzun küme
-   süresi, a (§7.5), o birimin negatif pencerelerinde f/10.
-2. Segment: n, bant, n_ölç ve bant_ölç, N, f, FAR, p_üst, X_alg, X_mod, X_min, A50, A90, A90/A_PK, kaba τ₍ₙ₎, ×1/3 ve ×3
-   satırları, hüküm cümlesi.
-3. K1 satırı ve Parkfield bilgi satırları; KD sonuçları; manifest özeti (istek, HTTP dağılımı, bayt, düşen istasyon
-   ve nedeni); negatif pencerelerin hafta içi/sonu dağılımı (bilgi).
+   istasyon sayısı ve 12 sınırıyla kullanılan, W'nin ve R'nin maskeli saniye payı (§6.5.1 ve 1a ayrı), küme sayısı,
+   ayıklanan küme (maske / darbe / sızıntı / taban), algılama E/H, modülasyon p, en uzun küme süresi, a (§7.5), o birimin
+   negatif pencerelerinde f/10.
+2. Segment: n, bant, n_ölç ve bant_ölç, N, f, FAR, p_üst, X_alg, X_mod, X_min ve X_min^(0,05/3), A50, A90 (deneme
+   sayısıyla), A90/A_PK, kaba τ₍ₙ₎, ×1/3 ve ×3 satırları, g ∉ [0,5, 2] olan kanal sayısı, hüküm cümlesi.
+3. K1 satırı ((a)–(d) dalı) ve Parkfield tanı ve bilgi satırları; KD sonuçları; manifest özeti (istek, HTTP dağılımı,
+   bayt, düşen istasyon ve nedeni); negatif pencerelerin gün türü ve yerel saat farkı dağılımı (bilgi).
 
 ## 10. Koşu sırası, körlük, tek koşu
 
-1. Bu ön kayıt incelenir, düzeltilir, dondurulur, commit + push edilir.
+1. Bu ön kayıt ikinci incelemeden geçer, düzeltilir, dondurulur, commit + push edilir.
 2. Kod yazılır; **yalnız yapay veriyle** geliştirilir ve KD (§7.1) geçer. Gerçek hiçbir dalga formu (Parkfield dahil)
    indirilmez. Kod incelemesi yapılır ("koşulabilir" hükmü gerekir).
-3. Manifest (§3.3) üretilir ve commit edilir (üstveri ve katalog; dalga formu yok).
-4. K1: Parkfield indirilir ve işlenir. Kalırsa dur (§7.2).
+3. Manifest (§3.5) üretilir ve commit edilir (üstveri ve katalog; dalga formu yok).
+4. K1: Parkfield indirilir ve işlenir. (b) dışındaki her dalda dur (§7.2).
 5. Marmara: indir–zarfla–sil; önce örtü ve K0-tam bandı yazılır, sonra negatif pencereler, K2 ve MDA yazılır, sonra
    tetikleyici pencereleri işlenir, en son hüküm.
-6. Tek koşu. Çıktı ne olursa olsun yazılır. Koşu kodu başlangıçta depo dışında bir bekçi dosyası
-   (`TR7_GERCEK_KOSU_BASLADI`) oluşturur; dosya varsa yeniden koşmaz. İndirme hatası: istasyon-pencere düzeyinde
-   kayda geçer; servis hatası (5xx, zaman aşımı; 204/404 değil) payı %10'u aşarsa koşu, hiçbir algılama hesaplanmadan
-   durur ve tek bir yeniden deneme turu yapılır. **Biçim hatası koşuyu durdurur**: miniSEED ya da StationXML
-   ayrıştırılamazsa (istasyon-pencerelerin >%1'i) ya da liste/Parkfield listesi sha256'sı uyuşmazsa, hiçbir algılama
-   hesaplanmadan durur; "veri yok" yazılmaz. Herhangi bir algılama değeri görüldükten sonraki her kod değişikliği
-   "koşu sonrası değişiklik" başlığıyla yazılır; tanım, eşik, liste ya da birim kuralı değişmez.
+6. **Tek koşu (Ö8).** Koşu kodu, her aşamanın başında depodaki `kayit/turetme/tr7/TR7_KOSU_DURUM.json` dosyasına aşama
+   adını yazar ve commit eder. Aşamalar: manifest, K1-indirme, K1-algılama, Marmara-indirme, Marmara-algılama, hüküm.
+   Aynı bilgi depo dışında bir bekçi dosyasına (`TR7_GERCEK_KOSU_BASLADI`) da yazılır. K1-algılama ya da
+   Marmara-algılama aşamasına bir kez girilmişse, koşu §7.2'deki uygulama hatası yolu dışında yeniden başlatılmaz. Bu
+   aşamalardan önce duran bir koşu, durma nedeni kayda geçtikten sonra kaldığı aşamadan sürdürülür. Bunun için kod
+   değişikliği gerekiyorsa yalnız indirme ve ayrıştırma katmanında yapılabilir ve "koşu öncesi düzeltme" başlığıyla
+   yazılır. Çıktı ne olursa olsun yazılır.
+   - **Servis hatası** (5xx, zaman aşımı; 204/404 değil): payın paydası manifest (d)'deki planlı istek sayısıdır. Pay
+     %10'u aşarsa koşu, hiçbir algılama hesaplanmadan durur ve tek bir yeniden deneme turu yapılır. Yeniden deneme
+     turundan sonra pay hâlâ %10'dan büyükse eksik istasyon-pencereler örtü kuralıyla (§4.2) düşer ve koşu sürer.
+   - **Biçim hatası:** miniSEED ya da StationXML ayrıştırılamazsa ve payı (payda: HTTP 200 dönen istasyon-pencere
+     sayısı) %1'i aşarsa, ya da §3'teki herhangi bir dosyanın sha256'sı uyuşmazsa, koşu hiçbir algılama hesaplanmadan
+     durur; "veri yok" yazılmaz; yukarıdaki sürdürme kuralı geçerlidir.
+   - Herhangi bir algılama değeri görüldükten sonraki her kod değişikliği "koşu sonrası değişiklik" başlığıyla yazılır;
+     tanım, eşik, liste ya da birim kuralı değişmez.
 
-Körlük beyanı: Ek 1 yoklamasında 935 adet 10 sn'lik istek yapıldı; yalnız HTTP kodu ve bayt sayıldı, içerik çözülmedi
-ve diske yazılmadı. SAYIM §4'teki iki erişim denemesinin içeriği de açılmadı. Bugüne dek hiçbir Marmara ya da Parkfield
-dalga formu işlenmedi. Yazar Kahramanmaraş'ın başka bölgelerde tremor tetiklediğini (Inbal 2024; Yao 2024) ve Hill
-2013'ü literatürden biliyor; Marmara için yayımlanmış bir tremor gözlemi bulunamadı (SAYIM §8).
+Körlük beyanı: Ek 1 yoklamasında 935 adet 10 sn'lik Marmara isteği, sürüm 2 için 112 satırlık (120 HTTP isteği)
+Parkfield yoklaması yapıldı; ikisinde de yalnız HTTP kodu ve bayt sayıldı, içerik çözülmedi ve diske yazılmadı. SAYIM
+§4'teki iki erişim denemesinin içeriği de açılmadı. Bugüne dek hiçbir Marmara ya da Parkfield dalga formu işlenmedi. E1
+ve negatif pencere önhesapları yalnız katalogdan. Yazar Kahramanmaraş'ın başka bölgelerde tremor tetiklediğini (Inbal
+2024; Yao 2024) ve Hill 2013'ü literatürden biliyor; Marmara için yayımlanmış bir tremor gözlemi bulunamadı (SAYIM §8).
 
 ## 11. Önceden beyan edilen beklenti
 
 En olası sonuç **"görülmedi"**dir ve bu önceden kabul edilir; ölçümün asıl ürünü A90 ve hangi kaba τ'nun üstünde kaç
-bağımsız tetikleyici tarandığıdır. Yazarın sınav öncesi güveni (Marmara özeti): görülmedi (tam ya da zayıf bant) 0,55;
-aday 0,10; VAR 0,03; ölçü sınanamadı (K1 kalır) 0,20; veri yok ya da ölçü güvenilmez 0,12. S2 ve S3 tam bandın tam
-sınırında olduğundan (n = 8) zayıf banda inme olasılığı yüksektir. Yapay sınamaya göre durağan gürültüde A50 bileşen
-başına gürültü RMS'inin ~0,6 katıdır; gerçek kentsel gürültü durağan olmadığı için σ ve dolayısıyla A90 daha büyük
-çıkacaktır. Mutlak A90 değeri önceden kestirilmedi.
+bağımsız tetikleyici tarandığıdır. Yazarın sınav öncesi güveni (Marmara özeti): görülmedi (tam ya da zayıf bant) 0,50;
+aday 0,10; VAR 0,03; ölçü sınanamadı (K1 kalır) 0,25; veri yok ya da ölçü güvenilmez 0,12. Sürüm 1'e göre "ölçü
+sınanamadı" yükseltildi: E1 maskesi K1 aralığının %65'ini kapatıyor (en uzun açık parça 173 sn) ve K1 artık zamanlı. S2
+ve S3 tam bandın tam sınırında olduğundan (n = 8) zayıf banda inme olasılığı yüksektir. Yapay sınamaya göre durağan
+gürültüde A50 bileşen başına gürültü RMS'inin ~0,6 katıdır (A_etkin; A_300 ölçeğinde ~0,43); gerçek kentsel gürültü
+durağan olmadığı için σ ve dolayısıyla A90 daha büyük çıkacaktır. Mutlak A90 değeri önceden kestirilmedi.
 
 ## 12. Bilinen zayıflıklar
 
 - **Kültürel gürültü.** S2/S3 istasyonlarının çoğu KO yüzey istasyonudur; 2–8 Hz gürültü yüksek ve gündüz/gece,
-  hafta içi/sonu değişkendir. Negatif kontrol aynı UTC saatindedir; hafta günü eşlenmez, 2016 öncesinde yaz saati
-  geçişi ±30 gün içinde yerel saati 1 sa kaydırabilir.
+  hafta içi/sonu değişkendir. Negatif kontrol aynı UTC saatini, gün türünü ve yaz saati durumunu eşler (§7.3); resmî
+  tatiller eşlenmez. S2'nin 4 biriminde (Tohoku, Maule, Nepal, Chignik) R yerel sabah artışının içinde, W sonrasında;
+  taban kayması kuralı (§6.5.3a) yalnız W sonuna kadar süren aşımları atar, W içinde sönen bir yükselişi atmaz.
+- **Teleseismik cisim dalgaları (E1).** Maske M ≥ 7,0 için P ve S'yi 240 sn, 6,0 ≤ M < 7,0 için yalnız P'yi 60 sn
+  kapatır. Daha uzun P kodası ya da görünür S veren bir M 6,x olay maske dışında kalan bir kümeyi açıklayabilir:
+  yapayda C ×5, 60 sn sönümlü bir P +60 sn maskeyle 0,00 oranında atılır (D12b). Tohoku penceresinde Parkfield'da
+  25 M 6,0–6,9 varışı var. Bu risk K1 tanı satırıyla görünür kılınır, giderilmez.
 - **Kuyu sensörü yok.** GONAF kuyu sismometreleri açık FDSN'de yok (yalnız gerinimölçer). Parkfield pozitif kontrolü
-  bu yüzden kuyu istasyonlarını dışarıda bırakır; yine de Parkfield kırsal, Marmara kentseldir: K1'in geçmesi
-  duyarlılığın eşit olduğu anlamına gelmez; duyarlılık A90 ve A90/A_PK ile ölçülür.
+  bu yüzden kuyu istasyonlarını dışarıda bırakır; Hill 2013 tremoru PKD'de, Peng 2009 Cholame'de büyük ölçüde HRSN
+  kuyularında gördü. Parkfield kırsal, Marmara kentseldir: K1'in geçmesi duyarlılığın eşit olduğu anlamına gelmez;
+  duyarlılık A90 ve A90/A_PK ile ölçülür. K1 (c) bu farkı ayrı bir sonuç olarak yazar.
+- **İstasyon sayısı.** 12 sınırı (§6.0) Parkfield ile Marmara'yı ve Marmara birimlerini birbirine yaklaştırır, ama
+  7–11 istasyonlu pencereler kalır; yanlış algılama olasılığı birimler arasında yine biraz farklıdır, binom şartı (§8)
+  tek p varsayar.
 - **6G, TL, 1O, TU verisinin yokluğu.** 6G'nin 2015 sonrası, TL ve 1O/TU'nun hiçbir isteği gelmedi (Ek 1); kısıtlı mı
   yok mu ayrılamadı. S2/S3 pratikte yalnız KO ile taranır.
-- **Tek 10 sn varlık örneği.** Listedeki her istasyon W'nin ortasındaki tek bir 10 sn'lik örnekle "var" sayıldı;
-  %90 örtü doğrulanmadı. S2 ve S3'te tek birim düşmesi bandı değiştirir.
+- **Tek 10 sn varlık örneği.** Marmara'da her istasyon W'nin ortasındaki tek bir 10 sn'lik örnekle, Parkfield'da R ve W
+  ortasındaki iki örnekle "var" sayıldı; %90 örtü doğrulanmadı. S2 ve S3'te tek birim düşmesi bandı değiştirir.
 - **Kaba τ.** Prag bağıntısı ders kitabından, özetten doğrulanmadı; M>8 doygunluğu yok sayılıyor; ×1/3'te S1–S3 "veri
   yok" bandına düşer. Parkfield–Tohoku'da kaba τ 27 kPa iken Hill 2013'ün Coulomb gerilmesi 0,7–10 kPa: kaba τ
-  büyük olaylarda büyük olasılıkla fazladır. ×1/3 satırı bu yüzden zorunludur.
+  büyük olaylarda büyük olasılıkla fazladır. Ölçek uyarısı bu yüzden hüküm cümlesinin içindedir (§8).
 - **Pencere S'yi dışlar** (W 5,0 km/s'de başlar); S ile tetiklenen tremor sayılmaz.
-- **Modülasyon ölçüsü** kilitlenmeyi tesadüfi 20 sn periyodikliğinden ayıramaz (yapayda %35); sabit ya da rastgele
-  patlamalı zarflarda yanlış pozitif vermez.
-- **Kısa periyotlu kanallar.** 2–8 Hz genliği yalnız duyarlılık bölmesiyle; jeofonlarda doğal frekansın altında genlik
-  küçük görünür, A90 bu kanallarda iyimser olabilir.
+- **Modülasyon ölçüsü** faz kilidini 20 sn periyodik, kilitsiz modülasyondan ayıramaz (yapayda %33–56, SNR ile
+  artar); sabit ya da rastgele patlamalı zarflarda yanlış pozitif vermez.
+- **Kanal yanıtı ve genlik ölçeği (Ö5).** S1–S3'te kısa periyot kanal yok. BH kanallarında 6–8 Hz yumuşatma süzgecine
+  yakın. Enjeksiyon yanıttan geçirildiği için A90 bu yüzden iyimser değildir; mutlak genlik yine de yalnız duyarlılık
+  bölmesine dayanır. Parkfield'ın ilk 12'sinin 10'u kısa periyot (EHZ/SHZ); doğal frekansları 2–8 Hz'in altındaysa
+  sorun küçüktür.
+- **Darbe kuralı** ani kenarlı, yüksek SNR'li patlamalı tremoru atabilir (İNCELEME-1: kutu biçimli A = 10'da 8/40);
+  2 sn kenar yükselmeli patlamalarda D7b A = 3: 0,00 / 0,00; A = 10: 0,00 / 0,00; A = 30: 0,01 / 0,00. Kataloglanmamış, çok güçlü (×100) ve S–P ≤ 5 sn'lik yerel
+  depremleri atmaz (D6b bilgi satırı: S–P 3: 0,00 / 0,00, S–P 5: 0,29 / 0,27; §17 S9).
+- **Çoklu karşılaştırma.** S1–S3 istasyon paylaşır (Tohoku'da S2/S3 ortak 5, Nepal'de 8); özet için 0,05/3 kuyruk eşiği
+  (§8) tutucudur ama bağımlılığı modellemez.
 - **Kaynak modeli** (25 km derinlik, 1/r, Q yok) kabadır; A90 bir karşılaştırma ölçüsüdür, kaynak genliği değildir.
-- Segment izleri elle sayısallaştırılmış (±5–10 km); orta nokta köşe ortalamasıdır.
+- Segment izleri elle sayısallaştırılmış (±5–10 km); orta nokta köşe ortalamasıdır; E1 maskesi segment orta noktasıyla
+  hesaplanır (istasyonlar arası varış farkı birkaç saniye, maske payı −10 sn).
 - Pfohl 2015'in istasyon sayısı, olay listesi ve gürültü düzeyi doğrulanamadı; S5/S6 karşılaştırması bu yüzden yalnız
   niteldir.
 
@@ -408,7 +620,8 @@ Hüküm "görülmedi", "veri yok", "ölçü güvenilmez" ya da "ölçü sınanam
 yeniden açar: (a) Marmara'da açık erişimli kuyu sismometresi verisi (GONAF ya da benzeri) ≥5 tetikleyiciyi kapsar;
 (b) 6G, TL ya da 1O verisi açılır ve S2/S3'te ≥8 birimi ≥3 istasyonla örter; (c) 2026 sonrası bir tetikleyici
 Marmara'da kaba τ ×1/3 ≥ 2 kPa verir (2026 bugün kördür, bu ön kayıtta kullanılmaz); (d) K1 kaldıysa, kuyu
-istasyonlarına izin veren ya da algılayıcıyı değiştiren yeni bir tasarım, yalnız yeni bir ön kayıtla.
+istasyonlarına (HRSN/BP, PB) izin veren, başka bir Parkfield tetikleyicisini kullanan ya da algılayıcıyı değiştiren yeni
+bir tasarım, yalnız yeni bir ön kayıtla.
 
 ## 15. SAYIM'dan sapmalar (veri görülmeden, gerekçeli)
 
@@ -419,17 +632,116 @@ istasyonlarına izin veren ya da algılayıcıyı değiştiren yeni bir tasarım
 3. Yerel deprem: "±60 sn ve 150 km içinde herhangi bir olay varsa aşım atılır" yerine büyüklüğe bağlı zaman maskesi;
    Parkfield'ın yoğun mikrodepremliliğinde eski kural K1'i olanaksız kılabilirdi. Darbe kuralı 1 Hz çözünürlüğe
    uyarlandı (eski "yükselme <2 sn" 5 sn yumuşatılmış seride hiç tetiklenemezdi).
-4. Sızıntı: niteliksel "hızlı yükselirse" yerine medyan z karşılaştırması.
+4. Sızıntı: niteliksel "hızlı yükselirse" yerine log10 artışı karşılaştırması (§6.5.3).
 5. Negatif kontrol: yerel M ≥ 3 içeren pencereler atılmaz (simetri); yalnız küresel M ≥ 6,5 dışlanır.
 6. R penceresi [T0 − 3600, T0); R örtüsü de ≥%90 şartı.
 7. Ana değer kaba τ; ölçülen τ zorunlu ikinci değer (SAYIM §2.1 "koşuda ölçülenle değiştirilir" diyordu).
 8. "VAR" için ≥2 yerine X_min(n, f) (FAR'a bağlı binom şartı) ve modülasyon şartı.
 9. Hüküm bandı Kahramanmaraş hariç ve Wharton tek birimle sayılır (kök oturum kararları 1–2).
+10. Teleseismik cisim dalgası maskesi, taban kayması kuralı ve pencere başına 12 istasyon sınırı (İNCELEME-1).
 
 ## 16. Doğrulanamayanlar
 
 Peng 2009 eşiğinin hangi PGV tanımından geldiği ve eşik üstü olaylarda tetikleme oranı; Pfohl 2015'in istasyon sayısı,
 olay listesi, gürültü düzeyi ve eşiği; Parkfield'ı Tohoku'da tetikleyen tremorun 2–8 Hz genliği (A_PK koşuda ölçülür);
-Prag Ms bağıntısının katsayıları (ders kitabı); Tohoku'da Parkfield yüzey istasyonlarının veri varlığı (yoklanmadı:
-K1'in en büyük riski); KOERI'nin 2'den fazla eşzamanlı akışa izni (kullanılmayacak). 2012 tarihli DOI'siz "Searching
-for Tectonic Tremor on the North Anatolian Fault" kaydı okunamadı (SAYIM §8).
+Prag Ms bağıntısının katsayıları (ders kitabı); Tohoku'da Parkfield yüzey istasyonlarının %90 örtüsü (yalnız iki 10
+sn'lik örnek yoklandı: 52/56 "var"); teleseismik M 6,x P'nin 2–8 Hz'te Parkfield ve Marmara'da görünür olup olmadığı;
+KOERI'nin 2'den fazla eşzamanlı akışa izni (kullanılmayacak). 2012 tarihli DOI'siz "Searching for Tectonic Tremor on
+the North Anatolian Fault" kaydı okunamadı (SAYIM §8).
+
+## 17. İNCELEME-1 metninden sapmalar ve uygulanmayanlar (ikinci inceleme için)
+
+Bütün bulgular işlendi (§18). Düzeltme metninden bilerek sapılan ya da uygulanmayan yerler:
+
+- **S1 (E1, büyüklük ve süre kuralı) — ikinci incelemenin kararı gerekir.** İNCELEME-1'in metni (M ≥ 6,0 bütün olaylar,
+  P ve S, [−10, +240] sn) olduğu gibi uygulandığında ComCat'teki Tohoku artçıları (penceresinde 17 M 6,1–6,7 ve 2 M ≥ 7,7)
+  yüzünden **Tohoku'nun Marmara pencereleri (S1–S4, S7) ve Parkfield K1 penceresi %100 maskelenir** (`tr7_e1_maske_ozet.json`,
+  `E1-lit`). O zaman K1 (b) veri görülmeden olanaksızdır ve K1 her durumda "ölçü sınanamadı" verir; ayrıca Tohoku birimi
+  hiç taranmadan n'de sayılır. İnceleme notundaki beklenti ("Love ve Rayleigh'in ana bölümü açık kalır") yalnız iki büyük
+  artçıyı hesaba katmıştı. Sürüm 2'nin işleyen kuralı (E1-C): M ≥ 7,0 için metin aynen (P ve S, +240); 6,0 ≤ M < 7,0 için
+  yalnız P, +60 sn. Gerekçe: teleseismik S'nin soğurulması P'ninkinden çok büyüktür (t*_S ≈ 4 t*_P), 2–8 Hz'te M < 7
+  olaylarının S'si beklenmez; M 6,x P vekili (C ×2–×5, 30 sn sönüm) yapayda +60 sn ile atılır (D12b). Bedeli: Tohoku W'sinin
+  %65'i, K1 aralığının %65'i maskeli kalır. Seçenekler ve önhesapları (W maskeli payı Parkfield / Tohoku S2; K1 aralığı;
+  en uzun açık K1 parçası):
+
+  | Değişke | Kural | Parkfield W | Tohoku S2 W | K1 aralığı | En uzun açık (K1) |
+  |---|---|---|---|---|---|
+  | E1-lit (İNCELEME-1) | M ≥ 6,0, P ve S, +240 | %100 | %100 | %100 | 0 sn |
+  | E1-B | M ≥ 7,0 +240; 6,0–6,9 P ve S +60 | %79 | %83 | %82 | 77 sn |
+  | **E1-C (sürüm 2)** | M ≥ 7,0 P ve S +240; 6,0–6,9 yalnız P +60 | %58 | %65 | %65 | 173 sn |
+  | E1-A | yalnız M ≥ 7,0, P ve S +240 | %28 | %38 | %26 | 670 sn |
+
+  E1-A, inceleme notunun beklediği durumdur ama M 6,x P'leri maskesiz bırakır (D12b: C ×2, 30 sn sönümlü maskesiz bir P
+  0,96 / 0,93 (ayıklamadan sağ: 1,00 / 1,00) oranında tutarlı küme verir). Hiçbir değişke Tohoku'yu K1 için temiz bir pencere yapmaz; temiz bir
+  pozitif kontrol başka bir Parkfield tetikleyicisi gerektirir ve bu yeni bir ön kayıttır (§14 d).
+- **S2 (E2, kuyu listesi).** İsteğe bağlı HRSN (BP) kuyu listesi ve yoklaması yapılmadı; bu sürümün dalga formu erişim
+  yetkisi 56 yüzey istasyonunun 112 isteğiyle sınırlıydı. E3'ün kuyu tanı satırı bu yüzden kaldırıldı. Yoklama 52/56 verdiği
+  için PB/BP'yi K1'e alan bir seçenek metni gerekmedi.
+- **S3 (E3, K1 aralığı).** "Kümesi … aralığıyla kesişen" ifadesindeki küme aralığı, I ile I′ arasındaki belirsizliği
+  kapatmak için I′ (aşım aralığı) olarak tanımlandı; I'nın ±60 sn'si aralığı yapay olarak genişletirdi. Aralığın başı
+  06:16:00 yerine 06:16:01 (en yakın saniye; inceleme kesmişti).
+- **S4 (K1 ile E3 (c) çelişkisi).** K1'in "P(A) en az 20 negatif pencereyle" şartı, Parkfield'ın 10 negatif penceresiyle
+  hiç sağlanamaz ve E3 (c)'yi olanaksız kılardı. Parkfield'da pencere başına üç enjeksiyon başlangıcı (en çok 30 deneme)
+  konuldu (§7.4).
+- **S5 (Ö4, negatif pencereler).** Seçim koşuya bırakılmadı, sürüm 2 ile katalogdan üretilip donduruldu (§3.3); yaz saati
+  şartı pencerenin iki ucunda denetlenir; ±31–60 genişletme kümesi her birimde her zaman çekilir (üreteç akışı sonuçtan
+  bağımsız). Bütün birimlerde ±30 gün yetti.
+- **S6 (D. tablo, nokta 6: kırpılma).** İnceleme yalnız bit sayısının manifeste yazılmasını önerdi; sürüm 2 bunu eşiğe de
+  bağladı (§6.2.2), yoksa kayda geçen bit sayısı hiçbir kuralı değiştirmezdi.
+- **S7 (Ö2, D5b).** İnceleme D5b için "şart yok, beklenen 0,3–0,6" dedi; sürüm 2 bir bilgi bandı koydu ([0,25, 0,65]): şart
+  değildir, dışına düşen oran kod incelemesini tetikler.
+- **S8 (Ö6, sızıntı kuralının değerlendirme saniyeleri).** İNCELEME-1'in metni Δ'yı küme aralığı I'nın medyanıyla
+  tanımlıyordu. Yapayda bu tanım İNCELEME-1'in kendi D7c denetimini geçemedi: 0,5–8 Hz düz tremorda sızıntıyla atılma
+  0,09–0,44 (şart ≤ 0,05). Nedeni: I, aşımın ±60 sn'sini ve yarım sinüsün sıfır yarım dönemlerini içerir; medyan
+  tremorsuz saniyelere düşer, Δ_y ile Δ_d'nin karşılaştırması yazı turaya döner. Sürüm 2 aynı karşılaştırmayı
+  istasyonun aşım saniyelerinde yapar (§6.5.3): D7c 0,00, D7d 1,00. Sürüm 1'in z kuralı Gauss
+  gürültüde D7c'yi geçer ama kentsel gürültüde geçemez (kentsel gürültüde 0,13–0,35).
+- **S9 (Ö6, D6b genliği).** İNCELEME-1 D6b'nin genliğini belirtmedi; sürüm 2 şartı D6'nın ×20'siyle koyar. ×100'de
+  (bilgi) darbe kuralı S–P = 3 ve 5 sn'lik yerel depremleri atmaz (S–P 3: 0,00 / 0,00, S–P 5: 0,29 / 0,27): P'nin kodası S tepesinden önceki 2 sn'de
+  C'yi c_p/8'in üstünde tutar. Böyle bir olay 2–8 Hz'te gürültünün ~100 katıdır; Marmara ve Parkfield katalog
+  tamlığında (M ≈ 1,5–2) katalog maskesine (§6.5.1) girmesi beklenir, ama kural kataloglanmamış böyle bir olayı
+  atmaz. Kural değiştirilmedi: kenarı tepeye değil başlangıca bakan bir darbe kuralı yarım sinüs tremoru atar.
+- **S10 (bant sıkılaştırma).** D7 ve D7b'nin bandı ≤ 0,05 yerine ≤ 0,03: bilinen yanlış kod (darbe ön şartı c_p/2) ≤ 0,05
+  bandının içine düşebiliyordu (0,05–0,09).
+
+## 18. Sürüm 1 → 2 değişiklik listesi
+
+| Bulgu (İNCELEME-1) | Ne değişti | Bölüm |
+|---|---|---|
+| E1 | Teleseismik cisim dalgası maskesi (madde 1a; büyüklük/süre kuralı §17 S1), maske önhesabı dondu, D12/D12b, maskeli pay çıktıda, K1 tanı satırı | §3.4, §6.5.1a, §7.1, §7.2, §9.1, §12, §17 |
+| E2 | Parkfield varlık yoklaması: 52/56 R ve W'de var; liste `var_R`/`var_W` ile yeniden üretildi; K1 kümesi 52 istasyon | §3.2, §7.2, §10, §16 |
+| E3 | 12 istasyon sınırı (liste `iz_km`/`iz_sira`/`ilk12`; önsayım değişmedi); K1 (a)–(d) dalları, zamanlı geçme şartı, FAR_PK > 0,30 kuralı, uygulama hatası yolu, tanı satırları | §3.1, §4.2, §4.3, §6.0, §6.1, §7.2, §8 |
+| Ö1 | Wharton τ'su sağ kalan pencerelerden; ölçek uyarısı "görülmedi" kalıbının içinde; "(yalnız kaba τ ölçeğinde)" ön eki ve özet cümlesi | §4.1, §8 |
+| Ö2 | "fazına kilitli" → "eş periyotlu modülasyonlu" ve yapay yanlış pozitif oranı; D5b; §12 oranı | §6.4, §7.1, §8, §12 |
+| Ö3 | X_min yoksa VAR yok; N tanımı ve Wharton negatif penceresi; N < 5n kuralı; özet için 0,05/3; n = 6, 7 satırları; aday kalıbı | §7.3, §8 |
+| Ö4 | Negatif pencerelerde gün türü ve yaz saati eşleme, ±60 genişletme, liste dondu; taban kayması 3a; D7 3a ile; rampa bilgi satırı | §3.3, §6.5.3a, §7.1, §7.3, §12 |
+| Ö5 | Enjeksiyon yanıtla çarpılır; manifestte örnekleme hızı ve g(f); D14; §12 kısa periyot maddesi değişti | §3.5, §7.4, §7.1, §12 |
+| Ö6 | Darbe kuralında en büyük c_p'li parça; sızıntı log10 artışıyla, istasyonun aşım saniyelerinde (§17 S8); D6b (§17 S9), D7b, D7c, D7d; "kural kalırsa" yolu | §6.5.2–3, §7.1, §12, §17 |
+| Ö7 | A_300 tanımı; kestirici I′; D10 yeni bant | §7.1, §7.4, §7.5 |
+| Ö8 | Aşama durumu depoda `TR7_KOSU_DURUM.json`, her aşama commit; sürdürme kuralı; paydalar; ikinci turdan sonrası | §10 |
+| K1 | D2 ara değerleme; MDA basamağı 10^(j/20), "üstündeki bütün basamaklarda" kuralı, ≥20 deneme; D13 | §7.1, §7.4 |
+| K2 | PGV bileşenleri v_Z, v_R, v_T | §6.6 |
+| K3 | Katalog birleşimi, sorgu aralığı, maskeli saniyelerin m/σ/Pearson/L_k'dan çıkarılması | §6.2.6, §6.3, §6.4, §6.5.1 |
+| K4 | S5/S6 bağımsız satırı n = 2 / 1, "veri yok" | §4.3, §8 |
+| K5 | Referans betik komşuluk / koşu kodu bağlantılı bileşen notu | §7.1 |
+| K6 | `tr7_mda.csv` ve yeniden üretim notu | §6.1 |
+| K7 | R başı–W sonu açıklığı 6314 (istasyon-tetikleyici) / 6209 (satır); A_PK tanımsızsa oran tanımsız; "Parkfield modülasyonu geçti" tanımı | §5, §7.2, §7.5 |
+| D, nokta 6 | Sayısallaştırıcı bit sayısı manifestte ve kırpılma eşiğinde | §3.5, §6.2.2 |
+| — | §0 öncelik sırası; durum satırı; §17 sapmalar | §0, başlık, §17 |
+
+Dosyalar (sürüm 1 → sürüm 2 sha256):
+- `tr7_dondurulan_liste.csv`: c8877cc26996010bc3c7036fd8b761791355cfad5a621dd076ed0429b40bde28 →
+  0f3cbd36876a46354b46355016f949f113ddaadcce4d26b6bc9e7a0b1da4358b (3 sütun eklendi; satırlar ve eski sütunlar aynı)
+- `tr7_parkfield_liste.csv`: cba4cea81a4b6b231133a99d0f2d19cce956a950885d7789390504c2aa471a77 →
+  9dca3380815196a8db15a8a5929441d38dd9b07fd7ed982845543e179957b2b8 (4 sütun eklendi)
+- `tr7_onkayit_sayilar.json`: 90ad2f69cb0f8ac1dcfe39fd7617f9323491b850b96ce408e2a29bde90cc3807 →
+  be439bf6dec47e309671c382325f5266b69ee60949cb4cdac2d920c630452728
+  (`K0_on` ve `var_kurali` sürüm 1 ile aynı)
+- Yeni: `tr7_parkfield_varlik.csv` 951d7797fcbb2d4427f43f35e3b0a2ceec46e8a684421f535be70371fd5305d0,
+  `tr7_parkfield_varlik_ozet.json` 71be3c1b52d78c6656bf43f64f9dec96b6a33de89b35464e3b3a898b085cce12,
+  `tr7_negatif_pencere.csv` ae4fa9c1d84ff3a461c9659ffc58c5a366f82671e1df74233cb3283253a6a59b,
+  `tr7_negatif_pencere_ozet.json` 16ac030f9370bc528dd0bf9669328bada317acf50481d7db76680e1b5adbcbc8,
+  `tr7_e1_maske.csv` aef412df1d805fbbee65c1d4f7a76df67ce9b43ec9ee2a8bb3f1345bffccf391,
+  `tr7_e1_maske_ozet.json` 128720470ea39479108329960f605bc49f3795e19f50c410bfefd1d9b1a13e7c,
+  `tr7_onkayit_denetim2.json` 8d9dd1644344f5c68e01b1a5a6dd664285542a52fabc2fc48b03ee8864410b0e,
+  `tr7_onkayit_denetim2_ek.json` (D12b ikinci tohum) d304e4363021c911bf126d85d857867e1e90eeeffc54906cf0c91cc5ba4ff8be

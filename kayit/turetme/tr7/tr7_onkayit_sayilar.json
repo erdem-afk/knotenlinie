@@ -12,7 +12,373 @@
   "istasyon_tetikleyici": 475,
   "satir": 884,
   "birim": 16,
-  "ana_birim": 14
+  "ana_birim": 14,
+  "RW_ortalama_satir_s": 5084,
+  "RW_ortalama_istasyon_tetikleyici_s": 5131,
+  "RW_en_az_s": 4285,
+  "RW_en_cok_s": 6334,
+  "Rbas_Wson_ortalama_satir_s": 6209,
+  "Rbas_Wson_ortalama_istasyon_tetikleyici_s": 6314,
+  "Rbas_Wson_en_az_s": 4393,
+  "Rbas_Wson_en_cok_s": 9050,
+  "ilk12_satir": 623
+ },
+ "istasyon_sayisi": {
+  "usp000e12e|S5": {
+   "birim": "usp000e12e",
+   "tum": 3,
+   "sinirli": 3
+  },
+  "usp000e12e|S6": {
+   "birim": "usp000e12e",
+   "tum": 5,
+   "sinirli": 5
+  },
+  "usp000exfn|S5": {
+   "birim": "usp000exfn",
+   "tum": 4,
+   "sinirli": 4
+  },
+  "usp000exfn|S6": {
+   "birim": "usp000exfn",
+   "tum": 9,
+   "sinirli": 9
+  },
+  "usp000f2ab|S5": {
+   "birim": "usp000f2ab",
+   "tum": 4,
+   "sinirli": 4
+  },
+  "usp000f2ab|S6": {
+   "birim": "usp000f2ab",
+   "tum": 9,
+   "sinirli": 9
+  },
+  "official20070912111026830_34|S5": {
+   "birim": "official20070912111026830_34",
+   "tum": 3,
+   "sinirli": 3
+  },
+  "official20070912111026830_34|S6": {
+   "birim": "official20070912111026830_34",
+   "tum": 8,
+   "sinirli": 8
+  },
+  "official20070912111026830_34|S7": {
+   "birim": "official20070912111026830_34",
+   "tum": 4,
+   "sinirli": 4
+  },
+  "usp000g650|S7": {
+   "birim": "usp000g650",
+   "tum": 5,
+   "sinirli": 5
+  },
+  "official20100227063411530_30|S1": {
+   "birim": "official20100227063411530_30",
+   "tum": 7,
+   "sinirli": 7
+  },
+  "official20100227063411530_30|S2": {
+   "birim": "official20100227063411530_30",
+   "tum": 10,
+   "sinirli": 10
+  },
+  "official20100227063411530_30|S3": {
+   "birim": "official20100227063411530_30",
+   "tum": 8,
+   "sinirli": 8
+  },
+  "official20100227063411530_30|S4": {
+   "birim": "official20100227063411530_30",
+   "tum": 5,
+   "sinirli": 5
+  },
+  "official20100227063411530_30|S7": {
+   "birim": "official20100227063411530_30",
+   "tum": 11,
+   "sinirli": 11
+  },
+  "official20110311054624120_30|S1": {
+   "birim": "official20110311054624120_30",
+   "tum": 7,
+   "sinirli": 7
+  },
+  "official20110311054624120_30|S2": {
+   "birim": "official20110311054624120_30",
+   "tum": 10,
+   "sinirli": 10
+  },
+  "official20110311054624120_30|S3": {
+   "birim": "official20110311054624120_30",
+   "tum": 7,
+   "sinirli": 7
+  },
+  "official20110311054624120_30|S4": {
+   "birim": "official20110311054624120_30",
+   "tum": 3,
+   "sinirli": 3
+  },
+  "official20110311054624120_30|S7": {
+   "birim": "official20110311054624120_30",
+   "tum": 9,
+   "sinirli": 9
+  },
+  "official20120411083836720_20|S1": {
+   "birim": "WHARTON2012",
+   "tum": 8,
+   "sinirli": 8
+  },
+  "official20120411083836720_20|S2": {
+   "birim": "WHARTON2012",
+   "tum": 11,
+   "sinirli": 11
+  },
+  "official20120411083836720_20|S3": {
+   "birim": "WHARTON2012",
+   "tum": 11,
+   "sinirli": 11
+  },
+  "official20120411083836720_20|S4": {
+   "birim": "WHARTON2012",
+   "tum": 7,
+   "sinirli": 7
+  },
+  "official20120411083836720_20|S7": {
+   "birim": "WHARTON2012",
+   "tum": 14,
+   "sinirli": 12
+  },
+  "usp000jhjb|S1": {
+   "birim": "WHARTON2012",
+   "tum": 8,
+   "sinirli": 8
+  },
+  "usp000jhjb|S2": {
+   "birim": "WHARTON2012",
+   "tum": 11,
+   "sinirli": 11
+  },
+  "usp000jhjb|S3": {
+   "birim": "WHARTON2012",
+   "tum": 11,
+   "sinirli": 11
+  },
+  "usp000jhjb|S4": {
+   "birim": "WHARTON2012",
+   "tum": 7,
+   "sinirli": 7
+  },
+  "usp000jhjb|S7": {
+   "birim": "WHARTON2012",
+   "tum": 14,
+   "sinirli": 12
+  },
+  "usb000g7x7|S1": {
+   "birim": "usb000g7x7",
+   "tum": 12,
+   "sinirli": 12
+  },
+  "usb000g7x7|S2": {
+   "birim": "usb000g7x7",
+   "tum": 18,
+   "sinirli": 12
+  },
+  "usb000g7x7|S3": {
+   "birim": "usb000g7x7",
+   "tum": 59,
+   "sinirli": 12
+  },
+  "usb000g7x7|S4": {
+   "birim": "usb000g7x7",
+   "tum": 75,
+   "sinirli": 12
+  },
+  "usb000g7x7|S7": {
+   "birim": "usb000g7x7",
+   "tum": 89,
+   "sinirli": 12
+  },
+  "usb000jyiv|S1": {
+   "birim": "usb000jyiv",
+   "tum": 8,
+   "sinirli": 8
+  },
+  "usb000jyiv|S2": {
+   "birim": "usb000jyiv",
+   "tum": 13,
+   "sinirli": 12
+  },
+  "usb000jyiv|S3": {
+   "birim": "usb000jyiv",
+   "tum": 12,
+   "sinirli": 12
+  },
+  "usb000jyiv|S4": {
+   "birim": "usb000jyiv",
+   "tum": 9,
+   "sinirli": 9
+  },
+  "usb000jyiv|S7": {
+   "birim": "usb000jyiv",
+   "tum": 22,
+   "sinirli": 12
+  },
+  "us20002926|S1": {
+   "birim": "us20002926",
+   "tum": 18,
+   "sinirli": 12
+  },
+  "us20002926|S2": {
+   "birim": "us20002926",
+   "tum": 22,
+   "sinirli": 12
+  },
+  "us20002926|S3": {
+   "birim": "us20002926",
+   "tum": 12,
+   "sinirli": 12
+  },
+  "us20002926|S4": {
+   "birim": "us20002926",
+   "tum": 6,
+   "sinirli": 6
+  },
+  "us20002926|S7": {
+   "birim": "us20002926",
+   "tum": 24,
+   "sinirli": 12
+  },
+  "us20003k7a|S1": {
+   "birim": "us20003k7a",
+   "tum": 15,
+   "sinirli": 12
+  },
+  "ak0219neiszm|S1": {
+   "birim": "ak0219neiszm",
+   "tum": 8,
+   "sinirli": 8
+  },
+  "ak0219neiszm|S2": {
+   "birim": "ak0219neiszm",
+   "tum": 12,
+   "sinirli": 12
+  },
+  "ak0219neiszm|S3": {
+   "birim": "ak0219neiszm",
+   "tum": 10,
+   "sinirli": 10
+  },
+  "ak0219neiszm|S4": {
+   "birim": "ak0219neiszm",
+   "tum": 6,
+   "sinirli": 6
+  },
+  "ak0219neiszm|S5": {
+   "birim": "ak0219neiszm",
+   "tum": 4,
+   "sinirli": 4
+  },
+  "ak0219neiszm|S7": {
+   "birim": "ak0219neiszm",
+   "tum": 14,
+   "sinirli": 12
+  },
+  "us6000jllz|S1": {
+   "birim": "us6000jllz",
+   "tum": 9,
+   "sinirli": 9
+  },
+  "us6000jllz|S2": {
+   "birim": "us6000jllz",
+   "tum": 12,
+   "sinirli": 12
+  },
+  "us6000jllz|S3": {
+   "birim": "us6000jllz",
+   "tum": 9,
+   "sinirli": 9
+  },
+  "us6000jllz|S4": {
+   "birim": "us6000jllz",
+   "tum": 6,
+   "sinirli": 6
+  },
+  "us6000jllz|S5": {
+   "birim": "us6000jllz",
+   "tum": 3,
+   "sinirli": 3
+  },
+  "us6000jllz|S7": {
+   "birim": "us6000jllz",
+   "tum": 17,
+   "sinirli": 12
+  },
+  "us6000jlqa|S1": {
+   "birim": "us6000jlqa",
+   "tum": 8,
+   "sinirli": 8
+  },
+  "us6000jlqa|S2": {
+   "birim": "us6000jlqa",
+   "tum": 12,
+   "sinirli": 12
+  },
+  "us6000jlqa|S3": {
+   "birim": "us6000jlqa",
+   "tum": 10,
+   "sinirli": 10
+  },
+  "us6000jlqa|S4": {
+   "birim": "us6000jlqa",
+   "tum": 6,
+   "sinirli": 6
+  },
+  "us6000jlqa|S5": {
+   "birim": "us6000jlqa",
+   "tum": 3,
+   "sinirli": 3
+  },
+  "us6000jlqa|S7": {
+   "birim": "us6000jlqa",
+   "tum": 16,
+   "sinirli": 12
+  },
+  "us6000qw60|S1": {
+   "birim": "us6000qw60",
+   "tum": 15,
+   "sinirli": 12
+  },
+  "us6000qw60|S2": {
+   "birim": "us6000qw60",
+   "tum": 18,
+   "sinirli": 12
+  },
+  "us6000qw60|S3": {
+   "birim": "us6000qw60",
+   "tum": 9,
+   "sinirli": 9
+  },
+  "us6000qw60|S4": {
+   "birim": "us6000qw60",
+   "tum": 6,
+   "sinirli": 6
+  },
+  "us6000qw60|S5": {
+   "birim": "us6000qw60",
+   "tum": 7,
+   "sinirli": 7
+  },
+  "us6000qw60|S6": {
+   "birim": "us6000qw60",
+   "tum": 3,
+   "sinirli": 3
+  },
+  "us6000qw60|S7": {
+   "birim": "us6000qw60",
+   "tum": 14,
+   "sinirli": 12
+  }
  },
  "K0_on": {
   "x1": {
@@ -789,11 +1155,156 @@
    "K2_gecer": true
   }
  },
+ "X_min_tablo": {
+  "0.05": {
+   "5": [
+    2,
+    3,
+    3,
+    "K2",
+    "K2",
+    "K2"
+   ],
+   "6": [
+    2,
+    3,
+    3,
+    3,
+    "K2",
+    "K2"
+   ],
+   "7": [
+    2,
+    3,
+    3,
+    3,
+    "K2",
+    "K2"
+   ],
+   "8": [
+    2,
+    3,
+    3,
+    3,
+    3,
+    "K2"
+   ],
+   "9": [
+    2,
+    3,
+    3,
+    3,
+    4,
+    "K2"
+   ],
+   "10": [
+    2,
+    3,
+    3,
+    3,
+    4,
+    4
+   ],
+   "11": [
+    2,
+    3,
+    3,
+    3,
+    4,
+    4
+   ],
+   "12": [
+    2,
+    3,
+    3,
+    3,
+    4,
+    4
+   ]
+  },
+  "0.05/3": {
+   "5": [
+    3,
+    3,
+    3,
+    "K2",
+    "K2",
+    "K2"
+   ],
+   "6": [
+    3,
+    3,
+    3,
+    4,
+    "K2",
+    "K2"
+   ],
+   "7": [
+    3,
+    3,
+    4,
+    4,
+    "K2",
+    "K2"
+   ],
+   "8": [
+    3,
+    3,
+    4,
+    4,
+    4,
+    "K2"
+   ],
+   "9": [
+    3,
+    3,
+    4,
+    4,
+    4,
+    "K2"
+   ],
+   "10": [
+    3,
+    3,
+    4,
+    4,
+    4,
+    4
+   ],
+   "11": [
+    3,
+    3,
+    4,
+    4,
+    4,
+    4
+   ],
+   "12": [
+    3,
+    3,
+    4,
+    4,
+    4,
+    4
+   ]
+  }
+ },
+ "rastlanti_en_az_1_FAR005": {
+  "5": 0.226,
+  "6": 0.265,
+  "7": 0.302,
+  "8": 0.337,
+  "9": 0.37,
+  "10": 0.401,
+  "11": 0.431,
+  "12": 0.46
+ },
  "rastlanti_2_of_8_FAR005": 0.0572,
  "parkfield_girdi_sha256": {
   "nc_st.txt": "ab9b0d28014f1ef54d569a9aba45e3a47543a73391d559caa4508fc20eaa2e8e",
   "es_st.txt": "86a5d5bc1729bbbb73b163775ae6566d13a956eb1acc364b4d203ae2bc32566d"
  },
+ "parkfield_varlik_sha256": "951d7797fcbb2d4427f43f35e3b0a2ceec46e8a684421f535be70371fd5305d0",
  "parkfield": {
   "istasyon": 56,
   "ag": {
@@ -804,6 +1315,25 @@
   },
   "BK_PKD": true,
   "uzaklik_orta_km": 8171,
+  "var_R_ve_W": 52,
+  "ilk12": [
+   "NC.PGH",
+   "NC.PHF",
+   "NC.PTR",
+   "NC.PMM",
+   "NC.PAGB",
+   "NC.PSN",
+   "NC.PMPB",
+   "NC.PSM",
+   "NC.PPT",
+   "NC.PKL",
+   "NC.PL11B",
+   "NC.PHA"
+  ],
+  "K1_araligi": [
+   "2011-03-11T06:16:01",
+   "2011-03-11T06:31:48"
+  ],
   "tau_kaba_kpa": 27.12,
   "W_orta": [
    "2011-03-11T06:13:38",
