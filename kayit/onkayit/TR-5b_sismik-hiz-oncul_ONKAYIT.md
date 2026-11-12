@@ -773,7 +773,24 @@ istasyon; kümenin genliği A'nın 0,5–1,5 katı arasında tekdüze; toparlanm
 (havuz başına 1000 yapay istasyon, 2000 çekiliş) gelir; tabloda havuzlar arası ortalama ve [en küçük; en büyük].
 Kaba-ince ızgara aramasının tam ızgarayla eşdeğerliği 60 istasyonda sınandı (en büyük δ_ko farkı 0).
 
-E3_TABLO_YER_TUTUCU
+| A (%) | P(PK geçer), CC₁₀ ≈ 0,5, mevsim %0,05 | CC₁₀ ≈ 0,7, mevsim %0,05 | CC₁₀ ≈ 0,5, mevsim %0,10 | δ_ko medyanı (%), CC 0,5 / 0,7 / 0,5-%0,10 |
+|---|---|---|---|---|
+| 0 | 0,051 [0,042; 0,058] | 0,042 [0,036; 0,053] | 0,043 [0,030; 0,060] | −0,003 / 0,000 / +0,001 |
+| 0,02 | 0,167 [0,124; 0,186] | 0,235 [0,216; 0,257] | 0,112 [0,086; 0,169] | −0,013 / −0,013 / −0,009 |
+| 0,05 | 0,451 [0,395; 0,516] | 0,738 [0,691; 0,772] | 0,350 [0,290; 0,391] | −0,031 / −0,032 / −0,034 |
+| **0,08 (Napa ölçeği)** | **0,795 [0,753; 0,829]** | **0,973 [0,964; 0,980]** | **0,601 [0,530; 0,664]** | −0,055 / −0,052 / −0,051 |
+| 0,15 | 0,995 [0,994; 0,996] | 1,000 [1,000; 1,000] | 0,975 [0,963; 0,982] | −0,098 / −0,100 / −0,100 |
+
+Geçerli δ_ko oranı her satırda ≥ 0,973. Sonuç dosyası `tr5b_yapay2_e3_sonuc.json`; süre 32 dk (4 süreç).
+
+Okuma:
+- **A = 0'da yanlış geçme ≈ düzey.** Ortalamalar 0,051 / 0,042 / 0,043. En kötü havuz 0,060 (2000 çekilişte Monte
+  Carlo standart hatası ≈ 0,005). Fazlalık örnekleme gürültüsü düzeyindedir; düzeltme yapılmaz, §9'da açık madde
+  olarak kalır.
+- **δ_ko medyanı, A'nın ≈ %65'idir.** Bunun bir kısmı toparlanmadan (50 gün yarı ömürle 30 günlük ortalamada
+  ≈ %18 kayıp), bir kısmı germe küçülmesinden gelir; kalan ayrıştırılmadı. Napa ölçeğinde (A %0,08) düşük SNR'de geçme 0,80, yüksek
+  mevsimde 0,60'tır. PK geçmediğinde "güç yok" ya da "ayırt edilemez (PK geçmedi)" hükmünün (§4.6) olasılığı bu
+  nedenle göz ardı edilemez.
 
 **6.2 Güç ve geçme olasılıkları (`tr5b_guc2.py`, tohum 20261113).** Hüküm olasılıkları §4.4'tedir. Ek sonuçlar:
 - **r'nin sd'si.** n_c = 5 için kuramsal √((n+2)/(12n)) = 0,342.
@@ -858,7 +875,10 @@ E3_TABLO_YER_TUTUCU
 4. **P1'in birimi.** σ̂_P1 istasyon düzeyindedir, 4. adımın σ_Δ'sı kontrol düzeyindedir. Kural tutucu yöndedir
    (fazla "güç yok"), ama ne kadar tutucu olduğu bilinmiyor.
 5. **PK'nin geçme olasılığı.** Gerçek kosismik genliğe ve istasyon uzaklığına bağlıdır. PK kümelerinin en yakın
-   istasyonları 6–71 km arasında. E3 yalnız yapay gürültüyle hesaplandı; enerji reddi yapay veride yok.
+   istasyonları 6–71 km arasında. E3 yalnız yapay gürültüyle hesaplandı; enerji reddi yapay veride yok. Napa
+   ölçeğinde (A %0,08) geçme 0,60–0,97 arasında (§6.1); düşük SNR ve yüksek mevsimde ≈ %40 olasılıkla PK geçmez.
+   A = 0'da yanlış geçme 0,051 / 0,042 / 0,043 (en kötü havuz 0,060): düzeyin %5'inin örnekleme gürültüsü
+   içinde aşılması kabul edildi; eşik (p ≤ 0,05) değiştirilmedi.
 6. **Plasebo şartı gücü yarıya indiriyor.** δ = 0,75 σ_Δ'da ana aralığın gücü 0,93, tam H1'in gücü 0,51. Bu bilerek
    kabul edildi (İNCELEME-1 D: yer yanlılığına karşı tek koruma).
 7. **Hidroloji.** Kontrol, yerel çok yıllı kuraklığı eşlemez. H1 çıkarsa ilk rakip açıklama budur; metin bunu
@@ -999,7 +1019,7 @@ Her satır İNCELEME-1'in bir bulgusunu ya da yazarın bu sürümdeki bir deği�
 | `tr5b_guc.py` | `be4fa04cec346b95b8e3679eaaa193a50d275c4771ab5fed5e86078cd257815c` | `tr5b_guc2.py` | `69c8a096c485bd1d25a131757c342095900dbd66d413bb714b532c24de903de5` |
 | `tr5b_guc_sonuc.json` | `ab13c9d45dcf02f9bd2e035e0649a69a4f10f9a832ba2809207a35e19e1234a2` | `tr5b_guc2_sonuc.json` | `40eea7ca202c97a7390079dbe0f87203a3363e5455e8f685b715e0710175607c` |
 | `tr5b_yapay.py` | `70e8fbaba4b01753798b03976d261101cef30e7d9ea44dcf874b443de7b6c024` | (değişmedi) + `tr5b_yapay2.py` | `785690b0fbe7d6cb758c62607c603b448afa65167c5b1a282053e1a374822fbf` |
-| `tr5b_yapay_sonuc.json` | `b8495bde85d131e9a344527938c96cb884e9b3cd5a7371473b799764fc8277d2` | `tr5b_yapay2_e3_sonuc.json`, `tr5b_yapay_ccf_ref.json` | E3SONUC_SHA; `36339a46ac3ac75423573852ec5e0677a425d1da951e732dee52123a02580e5c` |
+| `tr5b_yapay_sonuc.json` | `b8495bde85d131e9a344527938c96cb884e9b3cd5a7371473b799764fc8277d2` | `tr5b_yapay2_e3_sonuc.json`, `tr5b_yapay_ccf_ref.json` | `ed24793333b6c06b16d69e17a2ea19063bf3cb22cc15244f5b3b8e3594facaa5`; `36339a46ac3ac75423573852ec5e0677a425d1da951e732dee52123a02580e5c` |
 | – | – | `tr5b_asama0.py` | `d01781962d217988bf70607920a776b91fc303b07ea655cf4a78e75c64e236c5` |
 | – | – | `tr5b_asama0_kuru.json` | `5a782a84fbb44ce31bec71bce0b6a343feed86eea4fac987fb6a44908fae6330` |
 | – | – | `tr5b_pilot_s2.csv` | `f36cfe746d736d4ef1b13ece33963be3b52621af97daa8dc570f70f57ad04ec9` |
