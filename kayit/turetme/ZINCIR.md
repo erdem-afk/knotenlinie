@@ -135,3 +135,37 @@ sünme hızı değişimi (NISAR serisi bekleniyor).
 
 Üç turun özeti: TR-1 güç yok (koşulmadı), TR-2 H0, TR-3 güç yok, TR-8 elendi, TR-11 ölçek verdi, TR-12 veri yok.
 Zaman eksenini yıl ölçeğine indiren bir terim bulunmadı; yeni bir iddia kanıtlanmadı.
+
+## Halka 6 (12 Kasım 2026): bütün açık adaylar ilerletildi, eleme yok
+
+Erdem'in talimatı (12 Kasım 00:41Z): "Tüm açık ihtimalleri götür, seçim yapmadan ilerlet, ihtimalleri elemeyelim."
+Halka 5'teki "yeni iş paketi, seçim Erdem'in" cümlesinin yerini bu aldı: altı adayın her biri için ayrıntılı 0 €
+sayım ve güç kapısı yapıldı; kapıyı geçenler ön kayıt, bağımsız inceleme ve tek koşu hattına girdi.
+
+Sayım sonuçları (hepsi 0 €):
+
+| Aday | Kapı | Durum |
+|---|---|---|
+| TR-9 artçı cephesi ile jeodezik sınır | 4–6 bağımsız küme, kapı 20: geçmedi | aday olarak duruyor (yeniden açma şartlarıyla) |
+| TR-10 sünme hızı değişimi → yakın M≥6 | 17 küme, açık veriyle 3, kapı 20: geçmedi | aday; olaysız taban ölçümü TR-10b türetildi |
+| TR-10b sünme ölçer taban dağılımı | üstveride sınırda (22 yer / 41 pencere) | TEK KOŞU: veri yok (8 yer / 11 pencere) |
+| TR-7 tetiklenmiş tremor taraması | 935 varlık yoklamasıyla geçti (71 çift, 17 olay) | ön kayıt sürüm 3 donduruldu; kod yazılıyor |
+| TR-6 (b) Marmara çözünürlüğü | 15–134 kPa/yıl, sinyal üst ucu ≈6,5: geçmedi | aday (Mc ≈ 1 katalog şartıyla) |
+| TR-6 (a) küresel kör doğrulama | Aσ 19 kPa sabit; 39 küme, yeni kurallarla 29 (gereken 23): geçti, kırılgan | ön kayıt sürüm 2, ikinci incelemede |
+| TR-5 küresel sismik hız öncül sınavı | ana tasarım K 8–15 geçmedi; M≥6,0 / 3 yıl / tek yer biçimi gerçek dolulukla K 37, plasebo 20: geçti | TR-5b ön kaydı yazılıyor; koşu sunucu ister (karar Erdem'de) |
+| TR-4 Marmara sismik hız tabanı | 24 KO istasyonu; doluluk %76 yoklandı, sınırda | yoklama sürüyor |
+
+TR-10b sonucu (ilk biten koşu). Ön kayıt sürüm 2 + Ek 1 + Ek 2; 66 dosya, 49 milyon satır. Sakinlik kuralı B'de
+aygıt kaydı, kapsam, doluluk ve uç şartlarından sonra 8 yer / 11 yer-pencere / 2 fay kesimi kaldı (kapı ≥ 20 / ≥ 40):
+hüküm "veri yok". Kod denetimleri ve pozitif kontrol geçti. Kapı altı bilgi satırı (hüküm değil): sakin pencerelerde
+2 yıllık sünme hızı değişimi |Δv| medyan 1,59, %95 3,41 [2,23, 3,81] mm/yıl; sünen istasyonlarda hızın %45'i; 11
+pencerenin 9'u yavaşlama yönünde. Aygıt kayıtları uygulanmazsa %95 5,70 [2,77, 13,85] mm/yıl (27 pencere).
+
+Başarısızlığın biçimi: yine örneklem. Üstveri sayımı (43 pencere) gerçek veriyle 4 kat küçüldü; küçülmenin yarısından
+fazlası aygıt kayıtlarındaki tarihsiz notlardan. Önceki turların dersi (kaba sayım 3–5 kat iyimser) dördüncü kez
+tuttu. Yan bilgi: yayımlanmış tek sayılı öncül sünme iddiası (Chihshang 2003, −8 mm/yıl) bu 11 pencerelik kapı altı
+dağılımın %95'inin (3,41) üstünde, ama aygıt kayıtsız dağılımın belirsizlik aralığının içinde; karşılaştırma bindirme
+fayıyla doğrultu atımlı fay arasında ve hüküm taşımaz.
+
+Çıkan soru: TR-10b'den yeni bir 0 € soru çıkmadı; yeniden açma şartları defterde (tarihlenmiş aygıt kayıtları,
+başka sünme ağları, NISAR). Sıradaki halkalar TR-7, TR-6a ve TR-5b koşularının biçiminden okunacak.
