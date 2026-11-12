@@ -1,0 +1,43 @@
+{
+ "V_A_gun": 57.1,
+ "V_C_gun": 37.6,
+ "V_D_gun": 28.0,
+ "V_GB": {
+  "A": 312.761,
+  "C": 206.102,
+  "D": 153.553
+ },
+ "bicim": "POST",
+ "ek_metin": "ölçülen hız 61.96 KiB/s (ölçüm 1 adet); V_D / v = 28.0 gün",
+ "gerekce": "ertelendi (aktarım hızı)",
+ "kademe": "ertelendi (aktarım hızı)",
+ "olcum": {
+  "1": {
+   "bayt": 235646464,
+   "bayt_ornek": {
+    "KO.ARMT": 1.255,
+    "KO.CTYL": 1.875,
+    "KO.ERIK": 1.421,
+    "KO.ISK": 1.351,
+    "KO.KLYT": 1.346,
+    "KO.KRBG": 1.568,
+    "KO.RKY": 1.845
+   },
+   "kesik": 0,
+   "kod": {
+    "0": 200,
+    "1": 200,
+    "2": 200,
+    "3": 200,
+    "4": 200,
+    "5": 200,
+    "6": "ConnectionResetError",
+    "7": 200
+   },
+   "sn": 3714.1,
+   "tamam": true,
+   "v_KiBs": 61.96
+  }
+ },
+ "v_medyan_KiBs": 61.96
+}
