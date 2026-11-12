@@ -74,6 +74,50 @@ KOD_DOSYALARI = ("tr6a_kosu.py", "tr6a_okada.py", "tr6a_ffm.py", "tr6a_katalog.p
 OKADA_EK1_KARAR = dict(hukum="ek1_olcutu", olcut="Ek 1 E1.1 (tr6a_okada.dogrulama()['ek1'])")
 TAMLIK_KURALLARI = ("A2", "yedek_a", "yedek_b", "yedek_c", "yedek_d")    # (d): Ek 1 E1.3 ((e) tanımlanmadı)
 
+# ------------------------------------------------------------------ TR-6c (tasarım c; fark belgesi)
+# `--tasarim c` bu modülün dosya yollarını ve kurallarını TR-6c'ye çevirir (tasarim_sec). Varsayılan "a" TR-6a'dır ve
+# hiçbir davranışı değişmez. TR-6c ön kaydı TASLAK iken TR6C_ONKAYIT_SHA None'dur: bağlayıcı aşamalar koşmaz.
+TASARIM = "a"
+TR6A_ONKAYIT, TR6A_ONKAYIT_SHA, TR6A_GOVDE_BAYT = ONKAYIT, ONKAYIT_SHA, ONKAYIT_GOVDE_BAYT
+TR6C_ONKAYIT = os.path.join(DEPO, "kayit", "onkayit", "TR-6c_gerilme-olcer-kor-dogrulama_ONKAYIT.md")
+TR6C_ONKAYIT_SHA = None             # dondurulunca: TR-6c gövdesinin sha256'sı
+TR6C_GOVDE_BAYT = None              # dondurulunca: TR-6c gövdesinin bayt uzunluğu
+TR6C_N0_UST = None                  # §C4 kenar etkisi kuralının kapı N0 sınırı (olay/yıl; aşağıda N0_UST_C)
+
+
+def tasarim_sec(t):
+    """'a' (varsayılan, TR-6a) ya da 'c' (TR-6c): dosya yolları, ön kayıt denetimi ve tamlık kuralı."""
+    g = globals()
+    if t == "a":
+        return
+    if t != "c":
+        raise ValueError(t)
+    g.update(TASARIM="c", ONKAYIT=TR6C_ONKAYIT, ONKAYIT_SHA=TR6C_ONKAYIT_SHA, ONKAYIT_GOVDE_BAYT=TR6C_GOVDE_BAYT,
+             SINAMA_CIKTI=os.path.join(BURAYA, "tr6c_sinama_sonuc.json"),
+             MANIFEST=os.path.join(BURAYA, "tr6c_manifest.json"),
+             ON_HAM_SHA=os.path.join(BURAYA, "tr6c_on_ham_sha256.txt"),
+             SON_HAM_SHA=os.path.join(BURAYA, "tr6c_son_ham_sha256.txt"),
+             SON_KAYIT=os.path.join(BURAYA, "tr6c_son_kayit.json"),
+             SONUC_JSON=os.path.join(BURAYA, "tr6c_sonuc.json"), SONUC_MD=os.path.join(BURAYA, "tr6c_sonuc.md"),
+             ISARET_AD="TR6C_OLAY_SONRASI_OYLAR_SAYILDI", ANLIK_AD="TR6C_KOSU_ANLIK.pickle",
+             KOD_INCELEME=os.path.join(DEPO, "kayit", "onkayit", "TR-6c_KOD-INCELEME.md"),
+             TAMLIK_KURALLARI=("yedek_d",))
+
+
+def onkayit_uyusmuyor():
+    """TR-6a: gövde sha256 dondurulan değerle uyuşmuyor mu. TR-6c: ayrıca TR-6a gövdesi (devralınan kurallar) denetlenir;
+    TR-6c TASLAK iken (sha yok) KosuDur."""
+    if TASARIM == "a":
+        return onkayit_govde_sha() != ONKAYIT_SHA
+    if ONKAYIT_SHA is None or ONKAYIT_GOVDE_BAYT is None:
+        raise KosuDur("TR-6c ön kaydı TASLAK (dondurulmadı): bağlayıcı aşamalar koşmaz")
+    with open(TR6A_ONKAYIT, "rb") as f:
+        b = f.read(TR6A_GOVDE_BAYT)
+    if hashlib.sha256(b).hexdigest() != TR6A_ONKAYIT_SHA:
+        return True
+    return onkayit_govde_sha() != ONKAYIT_SHA
+
+
 ESIK = {a: KAPI.gereken_n0(math.exp(-S.DTAU_ESIK / a)) for a in (13.0, 19.0, 39.0)}
 N0_YIL = S.T_ON_G / 365.25                      # 1796 g, yıl
 T_ON = float(S.T_ON_G)
@@ -600,11 +644,16 @@ class Analiz:
         KK = B["kat"][k]
         E, on = KK["E"], (B["t0"] - ON_A, B["t0"] - ON_B)
         out = {}
-        for lob in ("golge", "pozitif", "notr", "D3a", "D3b", "D5", "D8"):
+        # yalniz_golge: yalnız yapay tek birim sınamasında (TR-6c provası) hız için; gölge sayıları aynıdır
+        loblar = ("golge",) if getattr(self, "yalniz_golge", False) else ("golge", "pozitif", "notr", "D3a", "D3b",
+                                                                          "D5", "D8")
+        for lob in loblar:
             ev = ev_maske(E, B["M"][lob])
             mcl, bilgi = self.mc_lob(E, ev, on, KK["mc_halka"])
             n_on = self.say(E, ev, on, None, None, mcl)[0]
             out[lob] = dict(mc_lob=mcl, mc_bilgi=bilgi, n_on=n_on, N0=round(n_on / N0_YIL, 4))
+        if getattr(self, "yalniz_golge", False):
+            return out
         ev = ev_maske(E, B["M"]["golge"])
         g = out["golge"]
         n1 = self.say(E, ev, on, None, None, g["mc_lob"] + 0.5)[0]
@@ -1350,8 +1399,45 @@ class ArsivKaynak:
 
 
 # ================================================================== aşamalar
+def asama_sinama_c(a, log=print):
+    """TR-6c §C3: Okada (Ek 1 E1.1), yapay katalog sınaması (HUCRELER_C, tohum 20261116, parçalı) ve tamlık sınaması
+    (yalnız (d), tohum 20261117). --prova: dondurma öncesi tam ölçekli prova (bağlayıcı olmayan tohum)."""
+    import tr6a_yapay as Y
+    if sum(map(bool, (a.baglayici, a.gelistirme, a.prova))) != 1:
+        raise KosuDur("sinama --tasarim c: --baglayici, --gelistirme ya da --prova'dan tam olarak biri")
+    if a.baglayici:
+        if os.path.exists(SINAMA_CIKTI):
+            raise KosuDur("bağlayıcı sınama çıktısı zaten var; bir kez koşulur (TR-6c §C3)")
+        if not a.parca_dizini:
+            raise KosuDur("--parca-dizini gerekli (parçalar kesintiden sonra kaldığı yerden sürer)")
+        git_denetle([TR6A_ONKAYIT, ONKAYIT] + [os.path.join(BURAYA, k) for k in KOD_DOSYALARI], log)
+        if onkayit_uyusmuyor():
+            raise KosuDur("ön kayıt gövdelerinin sha256'sı dondurulan değerlerle uyuşmuyor")
+        sonuc = Y.baglayici_sinamalar_c(a.parca_dizini, log=log)
+        sonuc["kod_sha256"] = kod_sha()
+        sonuc["onkayit_sha256"] = dict(tr6a_govde=TR6A_ONKAYIT_SHA, govde=ONKAYIT_SHA, tam=sha256_dosya(ONKAYIT))
+        x_yaz(SINAMA_CIKTI, json_metni(sonuc))
+        log(f"yazıldı: {SINAMA_CIKTI} (commit + push edilmeden manifest aşaması açılmaz)")
+        return 0
+    if not a.parca_dizini:
+        raise KosuDur("--parca-dizini gerekli")
+    hucreler = a.hucreler.split(",") if a.hucreler else list(Y.HUCRELER_C)
+    try:
+        if a.prova:
+            Y.prova_c(a.tohum, a.deneme, hucreler, a.parca_dizini, cikti_dizini=(BURAYA if a.yaz else None), log=log)
+        else:
+            sonuc = {h: Y.hucre_kos_c(h, a.tohum, a.deneme, a.parca_dizini, log=log) for h in hucreler}
+            if a.cikti:
+                x_yaz(a.cikti, json_metni(sonuc))
+    except ValueError as e:
+        raise KosuDur(str(e)) from e
+    return 0
+
+
 def asama_sinama(a, log=print):
     import tr6a_yapay as Y
+    if TASARIM == "c":
+        return asama_sinama_c(a, log)
     if a.baglayici and a.gelistirme:
         raise KosuDur("--baglayici ve --gelistirme birlikte verilemez")
     if a.baglayici:
@@ -1359,7 +1445,7 @@ def asama_sinama(a, log=print):
             raise KosuDur("bağlayıcı sınama çıktısı zaten var; her basamak bir kez koşulur (§9 adım 2)")
         # Ek 1 (E1.1–E1.3) sınama ölçütlerini değiştirir: ön kayıt (gövde + Ek 1) commit + push edilmiş olmalı
         git_denetle([ONKAYIT] + [os.path.join(BURAYA, k) for k in KOD_DOSYALARI], log)
-        if onkayit_govde_sha() != ONKAYIT_SHA:
+        if onkayit_uyusmuyor():
             raise KosuDur("ön kayıt gövdesinin sha256'sı dondurulan değerle uyuşmuyor")
         sonuc = Y.baglayici_sinamalar(log=log)
         sonuc["kod_sha256"] = kod_sha()
@@ -1403,7 +1489,7 @@ def asama_manifest(a, log=print):
         if os.path.exists(y):
             raise KosuDur(f"{os.path.basename(y)} zaten var (\"x\" kipi)")
     git_denetle([SINAMA_CIKTI, ONKAYIT, LISTE, SAYILAR_JSON] + [os.path.join(BURAYA, k) for k in KOD_DOSYALARI], log)
-    if onkayit_govde_sha() != ONKAYIT_SHA:
+    if onkayit_uyusmuyor():
         raise KosuDur("ön kayıt gövdesinin (ilk ONKAYIT_GOVDE_BAYT bayt) sha256'sı dondurulan değerle uyuşmuyor")
     sin = json.load(open(SINAMA_CIKTI, encoding="utf-8"))
     kosulmadi, kural = sinama_degerlendir(sin)
@@ -1506,7 +1592,7 @@ def asama_kos(a, log=print):
     girdi = dict(onkayit=onkayit_govde_sha(), onkayit_tam=sha256_dosya(ONKAYIT), liste=sha256_dosya(LISTE),
                  sayilar_json=sha256_dosya(SAYILAR_JSON),
                  kosu_kodu=sha256_dosya(os.path.abspath(__file__)))
-    if girdi["onkayit"] != ONKAYIT_SHA:
+    if onkayit_uyusmuyor():
         raise KosuDur("ön kayıt sha256 uyuşmuyor")
     sin_yol = SINAMA_CIKTI
     git_denetle([sin_yol], log)
@@ -1634,6 +1720,8 @@ def yaz(sonuc, md, log):
 
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    p.add_argument("--tasarim", choices=("a", "c"), default="a",
+                   help="a: TR-6a (varsayılan, değişmez); c: TR-6c fark belgesi (yollar tr6c_*, tamlık kuralı (d))")
     alt = p.add_subparsers(dest="asama", required=True)
     s1 = alt.add_parser("sinama")
     s1.add_argument("--baglayici", action="store_true")
@@ -1641,6 +1729,10 @@ def main(argv=None):
     s1.add_argument("--tohum", type=int, default=7)
     s1.add_argument("--deneme", type=int, default=400)
     s1.add_argument("--cikti")
+    s1.add_argument("--prova", action="store_true", help="--tasarim c: dondurma öncesi tam ölçekli prova")
+    s1.add_argument("--hucreler", help="--tasarim c: virgülle hücreler (ör. i:500,ii:4500,adim:31.36)")
+    s1.add_argument("--parca-dizini", help="--tasarim c: parça dosyalarının dizini")
+    s1.add_argument("--yaz", action="store_true", help="--prova: tr6c_prova_<hücre>.json'u kod dizinine yaz")
     s2 = alt.add_parser("manifest")
     s2.add_argument("--ham-kok", default=HAM_KOK)
     s2.add_argument("--ham-dizin", help="var olan ön ham dizini (yarıda kalanı sürdürmek / bölünmüş indirme)")
@@ -1654,6 +1746,7 @@ def main(argv=None):
     s4.add_argument("--veri", default=HAM_KOK)
     s4.add_argument("--devam", action="store_true")
     a = p.parse_args(argv)
+    tasarim_sec(a.tasarim)
     try:
         return dict(sinama=asama_sinama, manifest=asama_manifest, kos=asama_kos)[a.asama](a) \
             if a.asama != "son-indir" else asama_son_indir(a)
