@@ -1,0 +1,1949 @@
+{
+ "istat": {
+  "aday": 3348,
+  "mw_disi": 97,
+  "mekanizma_yok": 1,
+  "ss_degil": 1801,
+  "artci_ya_da_oncu_golgesi": 274
+ },
+ "f_bg_gk74_comcat": 0.204,
+ "ana_sok": 1175,
+ "kume_tum": 538,
+ "tablo": {
+  "M6.0|mc|N3bg>=25": {
+   "olay": 78,
+   "K": 52,
+   "K_temiz": 39,
+   "K_temiz_kontrollu": 31,
+   "K_temiz_yalniz_ComCat": 15,
+   "K_temiz_ref": 19,
+   "K_temiz_ref_kontrollu": 14,
+   "K_temiz_ref_tol03": 23
+  },
+  "M6.0|mc|N3bg>=50": {
+   "olay": 59,
+   "K": 40,
+   "K_temiz": 31,
+   "K_temiz_kontrollu": 24,
+   "K_temiz_yalniz_ComCat": 11,
+   "K_temiz_ref": 13,
+   "K_temiz_ref_kontrollu": 9,
+   "K_temiz_ref_tol03": 17
+  },
+  "M6.0|mc|N3bg>=100": {
+   "olay": 45,
+   "K": 32,
+   "K_temiz": 24,
+   "K_temiz_kontrollu": 18,
+   "K_temiz_yalniz_ComCat": 9,
+   "K_temiz_ref": 11,
+   "K_temiz_ref_kontrollu": 8,
+   "K_temiz_ref_tol03": 13
+  },
+  "M6.0|mc|N3bg>=200": {
+   "olay": 26,
+   "K": 20,
+   "K_temiz": 15,
+   "K_temiz_kontrollu": 9,
+   "K_temiz_yalniz_ComCat": 7,
+   "K_temiz_ref": 6,
+   "K_temiz_ref_kontrollu": 4,
+   "K_temiz_ref_tol03": 8
+  },
+  "M6.0|mc05|N3bg>=25": {
+   "olay": 55,
+   "K": 37,
+   "K_temiz": 28,
+   "K_temiz_kontrollu": 21,
+   "K_temiz_yalniz_ComCat": 10,
+   "K_temiz_ref": 19,
+   "K_temiz_ref_kontrollu": 12,
+   "K_temiz_ref_tol03": 20
+  },
+  "M6.0|mc05|N3bg>=50": {
+   "olay": 39,
+   "K": 29,
+   "K_temiz": 22,
+   "K_temiz_kontrollu": 15,
+   "K_temiz_yalniz_ComCat": 9,
+   "K_temiz_ref": 14,
+   "K_temiz_ref_kontrollu": 8,
+   "K_temiz_ref_tol03": 14
+  },
+  "M6.0|mc05|N3bg>=100": {
+   "olay": 24,
+   "K": 19,
+   "K_temiz": 14,
+   "K_temiz_kontrollu": 9,
+   "K_temiz_yalniz_ComCat": 6,
+   "K_temiz_ref": 7,
+   "K_temiz_ref_kontrollu": 4,
+   "K_temiz_ref_tol03": 7
+  },
+  "M6.0|mc05|N3bg>=200": {
+   "olay": 12,
+   "K": 11,
+   "K_temiz": 6,
+   "K_temiz_kontrollu": 3,
+   "K_temiz_yalniz_ComCat": 5,
+   "K_temiz_ref": 6,
+   "K_temiz_ref_kontrollu": 3,
+   "K_temiz_ref_tol03": 6
+  },
+  "M6.0|m30|N3bg>=25": {
+   "olay": 45,
+   "K": 36,
+   "K_temiz": 23,
+   "K_temiz_kontrollu": 13,
+   "K_temiz_yalniz_ComCat": 8,
+   "K_temiz_ref": 19,
+   "K_temiz_ref_kontrollu": 9,
+   "K_temiz_ref_tol03": 20
+  },
+  "M6.0|m30|N3bg>=50": {
+   "olay": 25,
+   "K": 24,
+   "K_temiz": 12,
+   "K_temiz_kontrollu": 5,
+   "K_temiz_yalniz_ComCat": 5,
+   "K_temiz_ref": 9,
+   "K_temiz_ref_kontrollu": 3,
+   "K_temiz_ref_tol03": 10
+  },
+  "M6.0|m30|N3bg>=100": {
+   "olay": 11,
+   "K": 11,
+   "K_temiz": 4,
+   "K_temiz_kontrollu": 3,
+   "K_temiz_yalniz_ComCat": 1,
+   "K_temiz_ref": 2,
+   "K_temiz_ref_kontrollu": 1,
+   "K_temiz_ref_tol03": 2
+  },
+  "M6.0|m30|N3bg>=200": {
+   "olay": 4,
+   "K": 4,
+   "K_temiz": 1,
+   "K_temiz_kontrollu": 0,
+   "K_temiz_yalniz_ComCat": 0,
+   "K_temiz_ref": 1,
+   "K_temiz_ref_kontrollu": 0,
+   "K_temiz_ref_tol03": 1
+  },
+  "M6.0|m40|N3bg>=25": {
+   "olay": 10,
+   "K": 9,
+   "K_temiz": 0,
+   "K_temiz_kontrollu": 0,
+   "K_temiz_yalniz_ComCat": 0,
+   "K_temiz_ref": 0,
+   "K_temiz_ref_kontrollu": 0,
+   "K_temiz_ref_tol03": 0
+  },
+  "M6.0|m40|N3bg>=50": {
+   "olay": 5,
+   "K": 5,
+   "K_temiz": 0,
+   "K_temiz_kontrollu": 0,
+   "K_temiz_yalniz_ComCat": 0,
+   "K_temiz_ref": 0,
+   "K_temiz_ref_kontrollu": 0,
+   "K_temiz_ref_tol03": 0
+  },
+  "M6.0|m40|N3bg>=100": {
+   "olay": 2,
+   "K": 2,
+   "K_temiz": 0,
+   "K_temiz_kontrollu": 0,
+   "K_temiz_yalniz_ComCat": 0,
+   "K_temiz_ref": 0,
+   "K_temiz_ref_kontrollu": 0,
+   "K_temiz_ref_tol03": 0
+  },
+  "M6.0|m40|N3bg>=200": {
+   "olay": 1,
+   "K": 1,
+   "K_temiz": 0,
+   "K_temiz_kontrollu": 0,
+   "K_temiz_yalniz_ComCat": 0,
+   "K_temiz_ref": 0,
+   "K_temiz_ref_kontrollu": 0,
+   "K_temiz_ref_tol03": 0
+  },
+  "M6.5|mc|N3bg>=25": {
+   "olay": 53,
+   "K": 41,
+   "K_temiz": 29,
+   "K_temiz_kontrollu": 21,
+   "K_temiz_yalniz_ComCat": 9,
+   "K_temiz_ref": 13,
+   "K_temiz_ref_kontrollu": 9,
+   "K_temiz_ref_tol03": 17
+  },
+  "M6.5|mc|N3bg>=50": {
+   "olay": 43,
+   "K": 36,
+   "K_temiz": 25,
+   "K_temiz_kontrollu": 18,
+   "K_temiz_yalniz_ComCat": 8,
+   "K_temiz_ref": 8,
+   "K_temiz_ref_kontrollu": 5,
+   "K_temiz_ref_tol03": 12
+  },
+  "M6.5|mc|N3bg>=100": {
+   "olay": 35,
+   "K": 29,
+   "K_temiz": 21,
+   "K_temiz_kontrollu": 14,
+   "K_temiz_yalniz_ComCat": 7,
+   "K_temiz_ref": 7,
+   "K_temiz_ref_kontrollu": 4,
+   "K_temiz_ref_tol03": 9
+  },
+  "M6.5|mc|N3bg>=200": {
+   "olay": 21,
+   "K": 18,
+   "K_temiz": 13,
+   "K_temiz_kontrollu": 7,
+   "K_temiz_yalniz_ComCat": 6,
+   "K_temiz_ref": 5,
+   "K_temiz_ref_kontrollu": 3,
+   "K_temiz_ref_tol03": 7
+  },
+  "M6.5|mc05|N3bg>=25": {
+   "olay": 40,
+   "K": 33,
+   "K_temiz": 22,
+   "K_temiz_kontrollu": 15,
+   "K_temiz_yalniz_ComCat": 7,
+   "K_temiz_ref": 14,
+   "K_temiz_ref_kontrollu": 7,
+   "K_temiz_ref_tol03": 15
+  },
+  "M6.5|mc05|N3bg>=50": {
+   "olay": 31,
+   "K": 26,
+   "K_temiz": 19,
+   "K_temiz_kontrollu": 12,
+   "K_temiz_yalniz_ComCat": 7,
+   "K_temiz_ref": 11,
+   "K_temiz_ref_kontrollu": 5,
+   "K_temiz_ref_tol03": 11
+  },
+  "M6.5|mc05|N3bg>=100": {
+   "olay": 19,
+   "K": 17,
+   "K_temiz": 12,
+   "K_temiz_kontrollu": 7,
+   "K_temiz_yalniz_ComCat": 5,
+   "K_temiz_ref": 6,
+   "K_temiz_ref_kontrollu": 3,
+   "K_temiz_ref_tol03": 6
+  },
+  "M6.5|mc05|N3bg>=200": {
+   "olay": 11,
+   "K": 11,
+   "K_temiz": 6,
+   "K_temiz_kontrollu": 3,
+   "K_temiz_yalniz_ComCat": 5,
+   "K_temiz_ref": 6,
+   "K_temiz_ref_kontrollu": 3,
+   "K_temiz_ref_tol03": 6
+  },
+  "M6.5|m30|N3bg>=25": {
+   "olay": 40,
+   "K": 36,
+   "K_temiz": 22,
+   "K_temiz_kontrollu": 12,
+   "K_temiz_yalniz_ComCat": 7,
+   "K_temiz_ref": 17,
+   "K_temiz_ref_kontrollu": 8,
+   "K_temiz_ref_tol03": 18
+  },
+  "M6.5|m30|N3bg>=50": {
+   "olay": 25,
+   "K": 24,
+   "K_temiz": 12,
+   "K_temiz_kontrollu": 5,
+   "K_temiz_yalniz_ComCat": 5,
+   "K_temiz_ref": 9,
+   "K_temiz_ref_kontrollu": 3,
+   "K_temiz_ref_tol03": 10
+  },
+  "M6.5|m30|N3bg>=100": {
+   "olay": 11,
+   "K": 11,
+   "K_temiz": 4,
+   "K_temiz_kontrollu": 3,
+   "K_temiz_yalniz_ComCat": 1,
+   "K_temiz_ref": 2,
+   "K_temiz_ref_kontrollu": 1,
+   "K_temiz_ref_tol03": 2
+  },
+  "M6.5|m30|N3bg>=200": {
+   "olay": 4,
+   "K": 4,
+   "K_temiz": 1,
+   "K_temiz_kontrollu": 0,
+   "K_temiz_yalniz_ComCat": 0,
+   "K_temiz_ref": 1,
+   "K_temiz_ref_kontrollu": 0,
+   "K_temiz_ref_tol03": 1
+  },
+  "M6.5|m40|N3bg>=25": {
+   "olay": 10,
+   "K": 9,
+   "K_temiz": 0,
+   "K_temiz_kontrollu": 0,
+   "K_temiz_yalniz_ComCat": 0,
+   "K_temiz_ref": 0,
+   "K_temiz_ref_kontrollu": 0,
+   "K_temiz_ref_tol03": 0
+  },
+  "M6.5|m40|N3bg>=50": {
+   "olay": 5,
+   "K": 5,
+   "K_temiz": 0,
+   "K_temiz_kontrollu": 0,
+   "K_temiz_yalniz_ComCat": 0,
+   "K_temiz_ref": 0,
+   "K_temiz_ref_kontrollu": 0,
+   "K_temiz_ref_tol03": 0
+  },
+  "M6.5|m40|N3bg>=100": {
+   "olay": 2,
+   "K": 2,
+   "K_temiz": 0,
+   "K_temiz_kontrollu": 0,
+   "K_temiz_yalniz_ComCat": 0,
+   "K_temiz_ref": 0,
+   "K_temiz_ref_kontrollu": 0,
+   "K_temiz_ref_tol03": 0
+  },
+  "M6.5|m40|N3bg>=200": {
+   "olay": 1,
+   "K": 1,
+   "K_temiz": 0,
+   "K_temiz_kontrollu": 0,
+   "K_temiz_yalniz_ComCat": 0,
+   "K_temiz_ref": 0,
+   "K_temiz_ref_kontrollu": 0,
+   "K_temiz_ref_tol03": 0
+  }
+ },
+ "gecen_N3bg_mc_50": [
+  {
+   "id": "usp0001aq1",
+   "zaman": "1980-11-08",
+   "M": 7.2,
+   "yer": "The 1980 Eureka, California Earthquake",
+   "R_km": 156.7,
+   "katalog": "ComCat",
+   "mc": 1.6,
+   "N3bg_mc": 462,
+   "N3bg_mc05": 225,
+   "oncu_M6_kirli": true,
+   "kontrol_pencere": 0,
+   "kume": 293,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "tam",
+    "mc_ref": 1.4,
+    "Nrefbg_mc": 272,
+    "Nrefbg_mc05": 175
+   }
+  },
+  {
+   "id": "ci700917",
+   "zaman": "1986-07-08",
+   "M": 6.0,
+   "yer": "The 1986 North Palm Springs, California Earthquake",
+   "R_km": 50.0,
+   "katalog": "ComCat",
+   "mc": 2.0,
+   "N3bg_mc": 284,
+   "N3bg_mc05": 86,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 0,
+   "kume": 397,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "tam",
+    "mc_ref": 1.7,
+    "Nrefbg_mc": 479,
+    "Nrefbg_mc05": 161
+   }
+  },
+  {
+   "id": "ci134894",
+   "zaman": "1987-11-24",
+   "M": 6.2,
+   "yer": "The 1987 Elmore Ranch, California Earthquake",
+   "R_km": 50.0,
+   "katalog": "ComCat",
+   "mc": 1.8,
+   "N3bg_mc": 313,
+   "N3bg_mc05": 109,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 0,
+   "kume": 397,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "tam",
+    "mc_ref": 1.9,
+    "Nrefbg_mc": 440,
+    "Nrefbg_mc05": 166
+   }
+  },
+  {
+   "id": "ci628016",
+   "zaman": "1987-11-24",
+   "M": 6.6,
+   "yer": "The 1987 Superstition Hills, California Earthquake",
+   "R_km": 66.5,
+   "katalog": "ComCat",
+   "mc": 2.0,
+   "N3bg_mc": 215,
+   "N3bg_mc05": 49,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 0,
+   "kume": 397,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "tam",
+    "mc_ref": 1.7,
+    "Nrefbg_mc": 445,
+    "Nrefbg_mc05": 147
+   }
+  },
+  {
+   "id": "usp0003aq8",
+   "zaman": "1987-11-30",
+   "M": 7.9,
+   "yer": "200 km WSW of Yakutat, Alaska",
+   "R_km": 425.6,
+   "katalog": "ComCat",
+   "mc": 3.2,
+   "N3bg_mc": 51,
+   "N3bg_mc05": 28,
+   "oncu_M6_kirli": true,
+   "kontrol_pencere": 0,
+   "kume": 243,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "tam",
+    "mc_ref": 3.6,
+    "Nrefbg_mc": 128,
+    "Nrefbg_mc05": 72
+   }
+  },
+  {
+   "id": "nc216859",
+   "zaman": "1989-10-18",
+   "M": 6.9,
+   "yer": "The 1989 Loma Prieta, California Earthquake",
+   "R_km": 102.1,
+   "katalog": "ComCat",
+   "mc": 1.3,
+   "N3bg_mc": 608,
+   "N3bg_mc05": 317,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 0,
+   "kume": 160,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "tam",
+    "mc_ref": 1.4,
+    "Nrefbg_mc": 1121,
+    "Nrefbg_mc05": 597
+   }
+  },
+  {
+   "id": "ci3019681",
+   "zaman": "1992-04-23",
+   "M": 6.1,
+   "yer": "The 1992 Joshua Tree, California Earthquake",
+   "R_km": 50.0,
+   "katalog": "ComCat",
+   "mc": 2.2,
+   "N3bg_mc": 136,
+   "N3bg_mc05": 44,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 0,
+   "kume": 397,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "tam",
+    "mc_ref": 2.0,
+    "Nrefbg_mc": 194,
+    "Nrefbg_mc05": 66
+   }
+  },
+  {
+   "id": "ci3031111",
+   "zaman": "1992-06-28",
+   "M": 7.3,
+   "yer": "The 1992 Landers, California Earthquake",
+   "R_km": 180.7,
+   "katalog": "ComCat",
+   "mc": 2.2,
+   "N3bg_mc": 512,
+   "N3bg_mc05": 171,
+   "oncu_M6_kirli": true,
+   "kontrol_pencere": 0,
+   "kume": 397,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "tam",
+    "mc_ref": 2.0,
+    "Nrefbg_mc": 1503,
+    "Nrefbg_mc05": 434
+   }
+  },
+  {
+   "id": "usp0006efu",
+   "zaman": "1994-06-18",
+   "M": 6.8,
+   "yer": "56 km NW of Oxford, New Zealand",
+   "R_km": 88.5,
+   "katalog": "GeoNet_tam3",
+   "mc": 2.9,
+   "N3bg_mc": 56,
+   "N3bg_mc05": 21,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 1,
+   "kume": 327,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 1,
+    "mc_ref": null,
+    "Nrefbg_mc": 5.8,
+    "Nrefbg_mc05": 5.8
+   }
+  },
+  {
+   "id": "usp0006hsx",
+   "zaman": "1994-09-01",
+   "M": 7.1,
+   "yer": "121 km W of Ferndale, California",
+   "R_km": 135.8,
+   "katalog": "ComCat",
+   "mc": 1.8,
+   "N3bg_mc": 121,
+   "N3bg_mc05": 99,
+   "oncu_M6_kirli": true,
+   "kontrol_pencere": 0,
+   "kume": 293,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "tam",
+    "mc_ref": 2.8,
+    "Nrefbg_mc": 312,
+    "Nrefbg_mc05": 250
+   }
+  },
+  {
+   "id": "usp0006kdp",
+   "zaman": "1994-10-04",
+   "M": 8.3,
+   "yer": "48 km E of Shikotan, Russia",
+   "R_km": 753.4,
+   "katalog": "ISC_tam3",
+   "mc": 3.0,
+   "N3bg_mc": 458,
+   "N3bg_mc05": 222,
+   "oncu_M6_kirli": true,
+   "kontrol_pencere": 0,
+   "kume": 297,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 132,
+    "mc_ref": 3.2,
+    "Nrefbg_mc": 632.6,
+    "Nrefbg_mc05": 325.0
+   }
+  },
+  {
+   "id": "usp0006rew",
+   "zaman": "1995-01-16",
+   "M": 6.9,
+   "yer": "8 km S of Akashi, Japan",
+   "R_km": 102.1,
+   "katalog": "ISC_tam3",
+   "mc": 2.6,
+   "N3bg_mc": 194,
+   "N3bg_mc05": 57,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 1,
+   "kume": 303,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 107,
+    "mc_ref": 2.5,
+    "Nrefbg_mc": 330.8,
+    "Nrefbg_mc05": 110.3
+   }
+  },
+  {
+   "id": "ak995cti1ypa",
+   "zaman": "1995-10-06",
+   "M": 6.0,
+   "yer": "36 km E of Minto, Alaska",
+   "R_km": 50.0,
+   "katalog": "ComCat",
+   "mc": 1.8,
+   "N3bg_mc": 67,
+   "N3bg_mc05": 26,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 1,
+   "kume": 474,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "tam",
+    "mc_ref": 1.6,
+    "Nrefbg_mc": 74,
+    "Nrefbg_mc05": 27
+   }
+  },
+  {
+   "id": "usp0007788",
+   "zaman": "1995-11-22",
+   "M": 7.2,
+   "yer": "27 km SSE of Nuwaybi‘a, Egypt",
+   "R_km": 156.7,
+   "katalog": "ISC_tam3",
+   "mc": 2.0,
+   "N3bg_mc": 124,
+   "N3bg_mc05": 81,
+   "oncu_M6_kirli": true,
+   "kontrol_pencere": 1,
+   "kume": 326,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 9,
+    "mc_ref": null,
+    "Nrefbg_mc": 23.2,
+    "Nrefbg_mc05": 11.6
+   }
+  },
+  {
+   "id": "usp0009d4z",
+   "zaman": "1999-08-17",
+   "M": 7.6,
+   "yer": "4 km ESE of Derince, Turkey",
+   "R_km": 277.4,
+   "katalog": "ComCat",
+   "mc": 2.9,
+   "N3bg_mc": 227,
+   "N3bg_mc05": 55,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 2,
+   "kume": 395,
+   "marmara_kutusu": true,
+   "ref": {
+    "tur": "tam",
+    "mc_ref": 2.9,
+    "Nrefbg_mc": 663,
+    "Nrefbg_mc05": 191
+   }
+  },
+  {
+   "id": "ci9108652",
+   "zaman": "1999-10-16",
+   "M": 7.1,
+   "yer": "The 1999 Hector Mine, California Earthquake",
+   "R_km": 135.8,
+   "katalog": "ComCat",
+   "mc": 1.6,
+   "N3bg_mc": 991,
+   "N3bg_mc05": 378,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 0,
+   "kume": 397,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "tam",
+    "mc_ref": 1.8,
+    "Nrefbg_mc": 1388,
+    "Nrefbg_mc05": 571
+   }
+  },
+  {
+   "id": "ak002e435qpj",
+   "zaman": "2002-11-03",
+   "M": 7.9,
+   "yer": "2002 Denali Fault, Alaska Earthquake",
+   "R_km": 425.6,
+   "katalog": "ComCat",
+   "mc": 1.6,
+   "N3bg_mc": 2205,
+   "N3bg_mc05": 1018,
+   "oncu_M6_kirli": true,
+   "kontrol_pencere": 0,
+   "kume": 474,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "tam",
+    "mc_ref": 2.0,
+    "Nrefbg_mc": 4564,
+    "Nrefbg_mc05": 2318
+   }
+  },
+  {
+   "id": "usp000djku",
+   "zaman": "2005-03-20",
+   "M": 6.6,
+   "yer": "28 km NNW of Maebaru-ch??, Japan",
+   "R_km": 66.5,
+   "katalog": "ISC_tam3",
+   "mc": 0.6,
+   "N3bg_mc": 233,
+   "N3bg_mc05": 109,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 3,
+   "kume": 543,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 1,
+    "mc_ref": null,
+    "Nrefbg_mc": 5.8,
+    "Nrefbg_mc05": 5.8
+   }
+  },
+  {
+   "id": "usp000dt25",
+   "zaman": "2005-06-15",
+   "M": 7.2,
+   "yer": "153 km W of Big Lagoon, California",
+   "R_km": 156.7,
+   "katalog": "ComCat",
+   "mc": 2.4,
+   "N3bg_mc": 112,
+   "N3bg_mc05": 74,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 0,
+   "kume": 1141,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "tam",
+    "mc_ref": 2.5,
+    "Nrefbg_mc": 260,
+    "Nrefbg_mc05": 154
+   }
+  },
+  {
+   "id": "usp000g650",
+   "zaman": "2008-05-12",
+   "M": 7.9,
+   "yer": "58 km W of Tianpeng, China",
+   "R_km": 425.6,
+   "katalog": "ISC_tam3",
+   "mc": 2.9,
+   "N3bg_mc": 164,
+   "N3bg_mc05": 73,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 1,
+   "kume": 928,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 40,
+    "mc_ref": 3.4,
+    "Nrefbg_mc": 185.7,
+    "Nrefbg_mc05": 58.0
+   }
+  },
+  {
+   "id": "usp000h0gm",
+   "zaman": "2009-08-17",
+   "M": 6.7,
+   "yer": "114 km SW of Ishigaki, Japan",
+   "R_km": 76.7,
+   "katalog": "ISC_tam3",
+   "mc": 2.1,
+   "N3bg_mc": 58,
+   "N3bg_mc05": 40,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 1,
+   "kume": 689,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 43,
+    "mc_ref": 1.7,
+    "Nrefbg_mc": 87.1,
+    "Nrefbg_mc05": 23.2
+   }
+  },
+  {
+   "id": "usp000h7qu",
+   "zaman": "2010-02-26",
+   "M": 7.0,
+   "yer": "70 km SE of Katsuren-haebaru, Japan",
+   "R_km": 117.8,
+   "katalog": "ISC_tam3",
+   "mc": 2.2,
+   "N3bg_mc": 123,
+   "N3bg_mc05": 72,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 0,
+   "kume": 710,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 53,
+    "mc_ref": 2.5,
+    "Nrefbg_mc": 139.3,
+    "Nrefbg_mc05": 63.8
+   }
+  },
+  {
+   "id": "ci14607652",
+   "zaman": "2010-04-04",
+   "M": 7.2,
+   "yer": "The 2010 Sierra El Mayor, B.C., Mexico Earthquake",
+   "R_km": 156.7,
+   "katalog": "ComCat",
+   "mc": 1.6,
+   "N3bg_mc": 687,
+   "N3bg_mc05": 334,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 2,
+   "kume": 712,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "tam",
+    "mc_ref": 2.0,
+    "Nrefbg_mc": 1866,
+    "Nrefbg_mc05": 904
+   }
+  },
+  {
+   "id": "usp000hk46",
+   "zaman": "2010-09-03",
+   "M": 7.0,
+   "yer": "19 km NE of Methven, New Zealand",
+   "R_km": 117.8,
+   "katalog": "GeoNet_tam3",
+   "mc": 2.7,
+   "N3bg_mc": 100,
+   "N3bg_mc05": 28,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 1,
+   "kume": 727,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 82,
+    "mc_ref": 2.3,
+    "Nrefbg_mc": 139.3,
+    "Nrefbg_mc05": 23.2
+   }
+  },
+  {
+   "id": "official20120411083836720_20",
+   "zaman": "2012-04-11",
+   "M": 8.6,
+   "yer": "2012 Wharton Basin Earthquake",
+   "R_km": 1156.2,
+   "katalog": "ISC_tam3",
+   "mc": 3.8,
+   "N3bg_mc": 428,
+   "N3bg_mc05": 104,
+   "oncu_M6_kirli": true,
+   "kontrol_pencere": 0,
+   "kume": 1071,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 371,
+    "mc_ref": 4.2,
+    "Nrefbg_mc": 1897.9,
+    "Nrefbg_mc05": 667.4
+   }
+  },
+  {
+   "id": "usb000iivv",
+   "zaman": "2013-07-21",
+   "M": 6.5,
+   "yer": "38 km ESE of Blenheim, New Zealand",
+   "R_km": 57.7,
+   "katalog": "GeoNet_tam3",
+   "mc": 2.6,
+   "N3bg_mc": 74,
+   "N3bg_mc05": 21,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 3,
+   "kume": 802,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 126,
+    "mc_ref": 2.3,
+    "Nrefbg_mc": 81.3,
+    "Nrefbg_mc05": 5.8
+   }
+  },
+  {
+   "id": "usb000m8ch",
+   "zaman": "2014-01-26",
+   "M": 6.1,
+   "yer": "1 km ENE of Lixoúri, Greece",
+   "R_km": 50.0,
+   "katalog": "ISC_tam3",
+   "mc": 2.1,
+   "N3bg_mc": 137,
+   "N3bg_mc05": 48,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 2,
+   "kume": 959,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 273,
+    "mc_ref": 2.2,
+    "Nrefbg_mc": 1253.6,
+    "Nrefbg_mc05": 650.0
+   }
+  },
+  {
+   "id": "usb000r2hc",
+   "zaman": "2014-05-24",
+   "M": 6.9,
+   "yer": "21 km SSW of Kamariótissa, Greece",
+   "R_km": 102.1,
+   "katalog": "ISC_tam3",
+   "mc": 2.3,
+   "N3bg_mc": 154,
+   "N3bg_mc05": 33,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 2,
+   "kume": 841,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 70,
+    "mc_ref": 3.0,
+    "Nrefbg_mc": 388.9,
+    "Nrefbg_mc05": 319.2
+   }
+  },
+  {
+   "id": "usb000rtp6",
+   "zaman": "2014-07-17",
+   "M": 6.0,
+   "yer": "90 km NNW of Yakutat, Alaska",
+   "R_km": 50.0,
+   "katalog": "ComCat",
+   "mc": 1.6,
+   "N3bg_mc": 147,
+   "N3bg_mc05": 50,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 4,
+   "kume": 847,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "tam",
+    "mc_ref": 1.3,
+    "Nrefbg_mc": 524,
+    "Nrefbg_mc05": 140
+   }
+  },
+  {
+   "id": "nc72282711",
+   "zaman": "2014-08-24",
+   "M": 6.02,
+   "yer": "The 2014 South Napa, California Earthquake",
+   "R_km": 50.0,
+   "katalog": "ComCat",
+   "mc": 1.4,
+   "N3bg_mc": 251,
+   "N3bg_mc05": 118,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 4,
+   "kume": 854,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "tam",
+    "mc_ref": 1.4,
+    "Nrefbg_mc": 603,
+    "Nrefbg_mc05": 255
+   }
+  },
+  {
+   "id": "us10003y71",
+   "zaman": "2015-11-13",
+   "M": 6.7,
+   "yer": "140 km WSW of Makurazaki, Japan",
+   "R_km": 76.7,
+   "katalog": "ISC_tam3",
+   "mc": 1.6,
+   "N3bg_mc": 117,
+   "N3bg_mc05": 72,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 4,
+   "kume": 882,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 21,
+    "mc_ref": 2.3,
+    "Nrefbg_mc": 75.5,
+    "Nrefbg_mc05": 17.4
+   }
+  },
+  {
+   "id": "us10003ywp",
+   "zaman": "2015-11-17",
+   "M": 6.5,
+   "yer": "19 km SSW of Lefkáda, Greece",
+   "R_km": 57.7,
+   "katalog": "ISC_tam3",
+   "mc": 1.9,
+   "N3bg_mc": 132,
+   "N3bg_mc05": 49,
+   "oncu_M6_kirli": true,
+   "kontrol_pencere": 0,
+   "kume": 959,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 81,
+    "mc_ref": 3.4,
+    "Nrefbg_mc": 388.9,
+    "Nrefbg_mc05": 307.6
+   }
+  },
+  {
+   "id": "us100044k6",
+   "zaman": "2015-12-07",
+   "M": 7.2,
+   "yer": "104 km W of Murghob, Tajikistan",
+   "R_km": 156.7,
+   "katalog": "ISC_tam3",
+   "mc": 2.7,
+   "N3bg_mc": 175,
+   "N3bg_mc05": 132,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 1,
+   "kume": 1102,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 23,
+    "mc_ref": 3.8,
+    "Nrefbg_mc": 133.5,
+    "Nrefbg_mc05": 121.9
+   }
+  },
+  {
+   "id": "us20005hzn",
+   "zaman": "2016-04-14",
+   "M": 6.2,
+   "yer": "2 km SSE of Kumamoto, Japan",
+   "R_km": 50.0,
+   "katalog": "ISC_tam3",
+   "mc": 0.5,
+   "N3bg_mc": 755,
+   "N3bg_mc05": 324,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 5,
+   "kume": 901,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 921,
+    "mc_ref": 0.4,
+    "Nrefbg_mc": 2530.5,
+    "Nrefbg_mc05": 818.3
+   }
+  },
+  {
+   "id": "us20005iis",
+   "zaman": "2016-04-15",
+   "M": 7.0,
+   "yer": "6 km ESE of Kumamoto, Japan",
+   "R_km": 117.8,
+   "katalog": "ISC_tam3",
+   "mc": 0.5,
+   "N3bg_mc": 4225,
+   "N3bg_mc05": 1775,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 2,
+   "kume": 901,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 5441,
+    "mc_ref": 0.4,
+    "Nrefbg_mc": 12727.8,
+    "Nrefbg_mc05": 4323.9
+   }
+  },
+  {
+   "id": "us10006pdp",
+   "zaman": "2016-09-14",
+   "M": 6.0,
+   "yer": "32 km ENE of Mutatá, Colombia",
+   "R_km": 50.0,
+   "katalog": "ISC_tam3",
+   "mc": 1.9,
+   "N3bg_mc": 56,
+   "N3bg_mc05": 29,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 5,
+   "kume": 910,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 15,
+    "mc_ref": null,
+    "Nrefbg_mc": 63.8,
+    "Nrefbg_mc05": 23.2
+   }
+  },
+  {
+   "id": "us20007fta",
+   "zaman": "2016-10-21",
+   "M": 6.2,
+   "yer": "6 km S of Kurayoshi, Japan",
+   "R_km": 50.0,
+   "katalog": "ISC_tam3",
+   "mc": 0.7,
+   "N3bg_mc": 342,
+   "N3bg_mc05": 141,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 4,
+   "kume": 911,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 111,
+    "mc_ref": 0.7,
+    "Nrefbg_mc": 249.6,
+    "Nrefbg_mc05": 104.5
+   }
+  },
+  {
+   "id": "us10008npq",
+   "zaman": "2017-05-03",
+   "M": 6.0,
+   "yer": "29 km NNW of Karakenja, Tajikistan",
+   "R_km": 50.0,
+   "katalog": "ISC_tam3",
+   "mc": 2.6,
+   "N3bg_mc": 53,
+   "N3bg_mc05": 20,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 3,
+   "kume": 1102,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 28,
+    "mc_ref": 3.1,
+    "Nrefbg_mc": 116.1,
+    "Nrefbg_mc05": 46.4
+   }
+  },
+  {
+   "id": "us2000cmy3",
+   "zaman": "2018-01-23",
+   "M": 7.9,
+   "yer": "261 km SE of Chiniak, Alaska",
+   "R_km": 425.6,
+   "katalog": "ComCat",
+   "mc": 1.8,
+   "N3bg_mc": 575,
+   "N3bg_mc05": 280,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 0,
+   "kume": 942,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "tam",
+    "mc_ref": 2.1,
+    "Nrefbg_mc": 1156,
+    "Nrefbg_mc05": 650
+   }
+  },
+  {
+   "id": "us1000chhc",
+   "zaman": "2018-02-06",
+   "M": 6.4,
+   "yer": "18 km NNE of Hualien City, Taiwan",
+   "R_km": 50.0,
+   "katalog": "ISC_tam3",
+   "mc": 1.6,
+   "N3bg_mc": 98,
+   "N3bg_mc05": 48,
+   "oncu_M6_kirli": true,
+   "kontrol_pencere": 0,
+   "kume": 1174,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 2126,
+    "mc_ref": 2.2,
+    "Nrefbg_mc": 9936.2,
+    "Nrefbg_mc05": 4991.3
+   }
+  },
+  {
+   "id": "us1000h3p4",
+   "zaman": "2018-09-28",
+   "M": 7.5,
+   "yer": "72 km N of Palu, Indonesia",
+   "R_km": 240.5,
+   "katalog": "ISC_tam3",
+   "mc": 3.2,
+   "N3bg_mc": 135,
+   "N3bg_mc05": 50,
+   "oncu_M6_kirli": true,
+   "kontrol_pencere": 0,
+   "kume": 1115,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 56,
+    "mc_ref": 3.4,
+    "Nrefbg_mc": 133.5,
+    "Nrefbg_mc05": 46.4
+   }
+  },
+  {
+   "id": "us1000hhb1",
+   "zaman": "2018-10-25",
+   "M": 6.8,
+   "yer": "32 km SW of Lithakiá, Greece",
+   "R_km": 88.5,
+   "katalog": "EMSC_tam3",
+   "mc": 2.4,
+   "N3bg_mc": 216,
+   "N3bg_mc05": 92,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 0,
+   "kume": 959,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 59,
+    "mc_ref": 2.8,
+    "Nrefbg_mc": 272.8,
+    "Nrefbg_mc05": 110.3
+   }
+  },
+  {
+   "id": "us70003kyy",
+   "zaman": "2019-05-14",
+   "M": 7.6,
+   "yer": "48 km NE of Kokopo, Papua New Guinea",
+   "R_km": 277.4,
+   "katalog": "ISC_tam3",
+   "mc": 3.6,
+   "N3bg_mc": 123,
+   "N3bg_mc05": 49,
+   "oncu_M6_kirli": true,
+   "kontrol_pencere": 0,
+   "kume": 1121,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 119,
+    "mc_ref": 4.3,
+    "Nrefbg_mc": 632.6,
+    "Nrefbg_mc05": 243.8
+   }
+  },
+  {
+   "id": "ci38443183",
+   "zaman": "2019-07-04",
+   "M": 6.4,
+   "yer": "Ridgecrest Earthquake Sequence",
+   "R_km": 50.0,
+   "katalog": "ComCat",
+   "mc": 1.4,
+   "N3bg_mc": 175,
+   "N3bg_mc05": 71,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 4,
+   "kume": 979,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "tam",
+    "mc_ref": 1.3,
+    "Nrefbg_mc": 460,
+    "Nrefbg_mc05": 191
+   }
+  },
+  {
+   "id": "ci38457511",
+   "zaman": "2019-07-06",
+   "M": 7.1,
+   "yer": "Ridgecrest Earthquake Sequence",
+   "R_km": 135.8,
+   "katalog": "ComCat",
+   "mc": 1.4,
+   "N3bg_mc": 576,
+   "N3bg_mc05": 206,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 4,
+   "kume": 979,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "tam",
+    "mc_ref": 1.4,
+    "Nrefbg_mc": 1851,
+    "Nrefbg_mc05": 694
+   }
+  },
+  {
+   "id": "us60007ewc",
+   "zaman": "2020-01-24",
+   "M": 6.7,
+   "yer": "13 km N of Do?anyol, Turkey",
+   "R_km": 76.7,
+   "katalog": "ISC_tam3",
+   "mc": 1.5,
+   "N3bg_mc": 281,
+   "N3bg_mc05": 134,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 3,
+   "kume": 1137,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 122,
+    "mc_ref": 2.5,
+    "Nrefbg_mc": 708.1,
+    "Nrefbg_mc05": 580.4
+   }
+  },
+  {
+   "id": "us60007idc",
+   "zaman": "2020-01-28",
+   "M": 7.7,
+   "yer": "123 km NNW of Lucea, Jamaica",
+   "R_km": 319.9,
+   "katalog": "ISC_tam3",
+   "mc": 2.2,
+   "N3bg_mc": 310,
+   "N3bg_mc05": 110,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 0,
+   "kume": 1139,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 28,
+    "mc_ref": 3.2,
+    "Nrefbg_mc": 139.3,
+    "Nrefbg_mc05": 116.1
+   }
+  },
+  {
+   "id": "us70008jr5",
+   "zaman": "2020-03-31",
+   "M": 6.5,
+   "yer": "Stanley, Idaho",
+   "R_km": 57.7,
+   "katalog": "ComCat",
+   "mc": 1.8,
+   "N3bg_mc": 56,
+   "N3bg_mc05": 20,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 5,
+   "kume": 1010,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "tam",
+    "mc_ref": null,
+    "Nrefbg_mc": 51,
+    "Nrefbg_mc05": 29
+   }
+  },
+  {
+   "id": "us6000ae4n",
+   "zaman": "2020-06-18",
+   "M": 7.4,
+   "yer": "south of the Kermadec Islands",
+   "R_km": 208.5,
+   "katalog": "ISC_tam3",
+   "mc": 4.0,
+   "N3bg_mc": 63,
+   "N3bg_mc05": 33,
+   "oncu_M6_kirli": true,
+   "kontrol_pencere": 0,
+   "kume": 1013,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 56,
+    "mc_ref": 4.4,
+    "Nrefbg_mc": 191.5,
+    "Nrefbg_mc05": 52.2
+   }
+  },
+  {
+   "id": "us7000dffl",
+   "zaman": "2021-03-04",
+   "M": 7.3,
+   "yer": "182 km NE of Gisborne, New Zealand",
+   "R_km": 180.7,
+   "katalog": "ISC_tam3",
+   "mc": 2.6,
+   "N3bg_mc": 431,
+   "N3bg_mc05": 178,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 0,
+   "kume": 1035,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 130,
+    "mc_ref": 2.8,
+    "Nrefbg_mc": 423.7,
+    "Nrefbg_mc05": 150.9
+   }
+  },
+  {
+   "id": "us6000f53e",
+   "zaman": "2021-08-12",
+   "M": 8.1,
+   "yer": "2021 South Sandwich Islands Earthquake",
+   "R_km": 566.3,
+   "katalog": "ISC_tam3",
+   "mc": 4.0,
+   "N3bg_mc": 91,
+   "N3bg_mc05": 49,
+   "oncu_M6_kirli": true,
+   "kontrol_pencere": 0,
+   "kume": 1091,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 69,
+    "mc_ref": 4.3,
+    "Nrefbg_mc": 261.2,
+    "Nrefbg_mc05": 81.3
+   }
+  },
+  {
+   "id": "us7000g8n3",
+   "zaman": "2022-01-03",
+   "M": 6.2,
+   "yer": "66 km E of Hualien City, Taiwan",
+   "R_km": 50.0,
+   "katalog": "ISC_tam3",
+   "mc": 2.4,
+   "N3bg_mc": 63,
+   "N3bg_mc05": 34,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 0,
+   "kume": 1174,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 337,
+    "mc_ref": 2.2,
+    "Nrefbg_mc": 859.0,
+    "Nrefbg_mc05": 452.7
+   }
+  },
+  {
+   "id": "us7000i90q",
+   "zaman": "2022-09-18",
+   "M": 6.9,
+   "yer": "90 km E of Yujing, Taiwan",
+   "R_km": 102.1,
+   "katalog": "ISC_tam3",
+   "mc": 1.8,
+   "N3bg_mc": 612,
+   "N3bg_mc05": 412,
+   "oncu_M6_kirli": true,
+   "kontrol_pencere": 0,
+   "kume": 1174,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 9958,
+    "mc_ref": 1.2,
+    "Nrefbg_mc": 11607.7,
+    "Nrefbg_mc05": 4823.0
+   }
+  },
+  {
+   "id": "us6000jllz",
+   "zaman": "2023-02-06",
+   "M": 7.8,
+   "yer": "Pazarcik earthquake, Kahramanmaras earthquake sequence",
+   "R_km": 369.0,
+   "katalog": "ISC_tam3",
+   "mc": 1.6,
+   "N3bg_mc": 2951,
+   "N3bg_mc05": 1143,
+   "oncu_M6_kirli": true,
+   "kontrol_pencere": 0,
+   "kume": 1137,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 1088,
+    "mc_ref": 2.1,
+    "Nrefbg_mc": 4207.8,
+    "Nrefbg_mc05": 1659.9
+   }
+  },
+  {
+   "id": "us6000nyzk",
+   "zaman": "2024-10-16",
+   "M": 6.0,
+   "yer": "19 km W of Doğanyol, Turkey",
+   "R_km": 50.0,
+   "katalog": "ISC_tam3",
+   "mc": 1.4,
+   "N3bg_mc": 185,
+   "N3bg_mc05": 101,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 3,
+   "kume": 1137,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 34,
+    "mc_ref": 1.8,
+    "Nrefbg_mc": 156.7,
+    "Nrefbg_mc05": 58.0
+   }
+  },
+  {
+   "id": "us7000nr0v",
+   "zaman": "2024-11-10",
+   "M": 6.8,
+   "yer": "42 km SSW of Bartolomé Masó, Cuba",
+   "R_km": 88.5,
+   "katalog": "ISC_tam3",
+   "mc": 1.0,
+   "N3bg_mc": 156,
+   "N3bg_mc05": 88,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 4,
+   "kume": 1139,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 52,
+    "mc_ref": 2.1,
+    "Nrefbg_mc": 261.2,
+    "Nrefbg_mc05": 214.7
+   }
+  },
+  {
+   "id": "nc75095651",
+   "zaman": "2024-12-05",
+   "M": 7.0,
+   "yer": "2024 Offshore Cape Mendocino, California Earthquake",
+   "R_km": 117.8,
+   "katalog": "ComCat",
+   "mc": 2.0,
+   "N3bg_mc": 87,
+   "N3bg_mc05": 62,
+   "oncu_M6_kirli": true,
+   "kontrol_pencere": 1,
+   "kume": 1141,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "tam",
+    "mc_ref": 2.4,
+    "Nrefbg_mc": 269,
+    "Nrefbg_mc05": 170
+   }
+  },
+  {
+   "id": "us6000pxvx",
+   "zaman": "2025-03-10",
+   "M": 6.5,
+   "yer": "34 km NE of Olonkinbyen, Svalbard and Jan Mayen",
+   "R_km": 57.7,
+   "katalog": "ISC_tam3",
+   "mc": 1.7,
+   "N3bg_mc": 223,
+   "N3bg_mc05": 114,
+   "oncu_M6_kirli": false,
+   "kontrol_pencere": 2,
+   "kume": 1144,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 31,
+    "mc_ref": 1.9,
+    "Nrefbg_mc": 145.1,
+    "Nrefbg_mc05": 81.3
+   }
+  },
+  {
+   "id": "us7000rkjm",
+   "zaman": "2025-12-24",
+   "M": 6.0,
+   "yer": "2025 Taitung, Taiwan Earthquake",
+   "R_km": 50.0,
+   "katalog": "ISC_tam3",
+   "mc": 2.6,
+   "N3bg_mc": 70,
+   "N3bg_mc05": 29,
+   "oncu_M6_kirli": true,
+   "kontrol_pencere": 0,
+   "kume": 1174,
+   "marmara_kutusu": false,
+   "ref": {
+    "tur": "örnekten tahmin",
+    "n_ornek": 1450,
+    "mc_ref": 1.6,
+    "Nrefbg_mc": 435.3,
+    "Nrefbg_mc05": 133.5
+   }
+  }
+ ],
+ "marmara_kutusu": [
+  {
+   "id": "usp0009d4z",
+   "zaman": "1999-08-17",
+   "M": 7.6,
+   "katalog": "ComCat",
+   "mc": 2.9,
+   "N3bg": {
+    "mc": 227,
+    "mc05": 55,
+    "m30": 160,
+    "m40": 7,
+    "m45": 2
+   }
+  },
+  {
+   "id": "us7000irp8",
+   "zaman": "2022-11-23",
+   "M": 6.1,
+   "katalog": "ISC_ornek",
+   "mc": 1.9,
+   "N3bg": {
+    "mc": 24.9,
+    "mc05": 2.5,
+    "m30": 0,
+    "m40": 0,
+    "m45": 0
+   }
+  },
+  {
+   "id": "us7000pufs",
+   "zaman": "2025-04-23",
+   "M": 6.2,
+   "katalog": "ISC_tam3",
+   "mc": 2.1,
+   "N3bg": {
+    "mc": 38,
+    "mc05": 17,
+    "m30": 8,
+    "m40": 1,
+    "m45": 1
+   }
+  }
+ ],
+ "guc": {
+  "gk": {
+   "25": {
+    "N3bg_gerceklesen": 26.8,
+    "z0_sd": 1.51,
+    "yanlis_alarm_z1645": 0.145,
+    "yanlis_alarm_z2326": 0.065,
+    "f_min_guc08": {
+     "10": 0.343,
+     "15": 0.281,
+     "20": 0.262,
+     "30": 0.227
+    },
+    "d_std": {
+     "0.05": 0.05,
+     "0.1": -0.19,
+     "0.15": -0.23,
+     "0.2": -0.42,
+     "0.3": -0.77,
+     "0.5": -1.6
+    },
+    "guc_K20": {
+     "0.05": 0.021,
+     "0.1": 0.203,
+     "0.15": 0.256,
+     "0.2": 0.568,
+     "0.3": 0.944,
+     "0.5": 1.0
+    }
+   },
+   "50": {
+    "N3bg_gerceklesen": 54.4,
+    "z0_sd": 1.38,
+    "yanlis_alarm_z1645": 0.1275,
+    "yanlis_alarm_z2326": 0.065,
+    "f_min_guc08": {
+     "10": 0.262,
+     "15": 0.232,
+     "20": 0.196,
+     "30": 0.172
+    },
+    "d_std": {
+     "0.05": -0.04,
+     "0.1": -0.39,
+     "0.15": -0.41,
+     "0.2": -0.61,
+     "0.3": -1.09,
+     "0.5": -1.69
+    },
+    "guc_K20": {
+     "0.05": 0.084,
+     "0.1": 0.519,
+     "0.15": 0.564,
+     "0.2": 0.819,
+     "0.3": 0.997,
+     "0.5": 1.0
+    }
+   },
+   "100": {
+    "N3bg_gerceklesen": 100.7,
+    "z0_sd": 1.66,
+    "yanlis_alarm_z1645": 0.155,
+    "yanlis_alarm_z2326": 0.0775,
+    "f_min_guc08": {
+     "10": 0.293,
+     "15": 0.23,
+     "20": 0.186,
+     "30": 0.118
+    },
+    "d_std": {
+     "0.05": -0.27,
+     "0.1": -0.45,
+     "0.15": -0.47,
+     "0.2": -0.58,
+     "0.3": -0.76,
+     "0.5": -0.98
+    },
+    "guc_K20": {
+     "0.05": 0.316,
+     "0.1": 0.616,
+     "0.15": 0.692,
+     "0.2": 0.843,
+     "0.3": 0.98,
+     "0.5": 0.994
+    }
+   },
+   "200": {
+    "N3bg_gerceklesen": 141.4,
+    "z0_sd": 2.24,
+    "yanlis_alarm_z1645": 0.2525,
+    "yanlis_alarm_z2326": 0.1575,
+    "f_min_guc08": {
+     "10": null,
+     "15": null,
+     "20": null,
+     "30": null
+    },
+    "d_std": {
+     "0.05": -0.12,
+     "0.1": -0.18,
+     "0.15": -0.21,
+     "0.2": -0.37,
+     "0.3": -0.32,
+     "0.5": -0.32
+    },
+    "guc_K20": {
+     "0.05": 0.083,
+     "0.1": 0.182,
+     "0.15": 0.219,
+     "0.2": 0.536,
+     "0.3": 0.434,
+     "0.5": 0.427
+    }
+   },
+   "400": {
+    "N3bg_gerceklesen": 126.7,
+    "z0_sd": 2.3,
+    "yanlis_alarm_z1645": 0.3675,
+    "yanlis_alarm_z2326": 0.2475,
+    "f_min_guc08": {
+     "10": null,
+     "15": null,
+     "20": null,
+     "30": null
+    },
+    "d_std": {
+     "0.05": 0.12,
+     "0.1": 0.04,
+     "0.15": -0.05,
+     "0.2": -0.13,
+     "0.3": -0.23,
+     "0.5": -0.25
+    },
+    "guc_K20": {
+     "0.05": 0.013,
+     "0.1": 0.053,
+     "0.15": 0.081,
+     "0.2": 0.161,
+     "0.3": 0.27,
+     "0.5": 0.261
+    }
+   }
+  },
+  "kahin": {
+   "25": {
+    "N3bg_gerceklesen": 22.4,
+    "z0_sd": 1.38,
+    "yanlis_alarm_z1645": 0.115,
+    "yanlis_alarm_z2326": 0.0575,
+    "f_min_guc08": {
+     "10": 0.266,
+     "15": 0.228,
+     "20": 0.194,
+     "30": 0.156
+    },
+    "d_std": {
+     "0.05": -0.0,
+     "0.1": -0.23,
+     "0.15": -0.48,
+     "0.2": -0.65,
+     "0.3": -1.1,
+     "0.5": -2.44
+    },
+    "guc_K20": {
+     "0.05": 0.049,
+     "0.1": 0.266,
+     "0.15": 0.644,
+     "0.2": 0.82,
+     "0.3": 0.995,
+     "0.5": 1.0
+    }
+   },
+   "50": {
+    "N3bg_gerceklesen": 50.4,
+    "z0_sd": 1.33,
+    "yanlis_alarm_z1645": 0.115,
+    "yanlis_alarm_z2326": 0.045,
+    "f_min_guc08": {
+     "10": 0.178,
+     "15": 0.15,
+     "20": 0.136,
+     "30": 0.114
+    },
+    "d_std": {
+     "0.05": -0.12,
+     "0.1": -0.42,
+     "0.15": -0.66,
+     "0.2": -0.97,
+     "0.3": -1.7,
+     "0.5": -2.89
+    },
+    "guc_K20": {
+     "0.05": 0.143,
+     "0.1": 0.575,
+     "0.15": 0.892,
+     "0.2": 0.995,
+     "0.3": 1.0,
+     "0.5": 1.0
+    }
+   },
+   "100": {
+    "N3bg_gerceklesen": 100.5,
+    "z0_sd": 1.44,
+    "yanlis_alarm_z1645": 0.0775,
+    "yanlis_alarm_z2326": 0.02,
+    "f_min_guc08": {
+     "10": 0.129,
+     "15": 0.114,
+     "20": 0.098,
+     "30": 0.087
+    },
+    "d_std": {
+     "0.05": -0.28,
+     "0.1": -0.53,
+     "0.15": -0.99,
+     "0.2": -1.33,
+     "0.3": -2.27,
+     "0.5": -4.38
+    },
+    "guc_K20": {
+     "0.05": 0.351,
+     "0.1": 0.816,
+     "0.15": 1.0,
+     "0.2": 1.0,
+     "0.3": 1.0,
+     "0.5": 1.0
+    }
+   },
+   "200": {
+    "N3bg_gerceklesen": 204.0,
+    "z0_sd": 1.54,
+    "yanlis_alarm_z1645": 0.14,
+    "yanlis_alarm_z2326": 0.0575,
+    "f_min_guc08": {
+     "10": 0.093,
+     "15": 0.082,
+     "20": 0.075,
+     "30": 0.052
+    },
+    "d_std": {
+     "0.05": -0.42,
+     "0.1": -0.82,
+     "0.15": -1.41,
+     "0.2": -2.16,
+     "0.3": -3.55,
+     "0.5": -6.06
+    },
+    "guc_K20": {
+     "0.05": 0.618,
+     "0.1": 0.989,
+     "0.15": 1.0,
+     "0.2": 1.0,
+     "0.3": 1.0,
+     "0.5": 1.0
+    }
+   }
+  }
+ },
+ "guc_parametre": {
+  "MC": 2.5,
+  "B": 1.0,
+  "MMAX": 7.5,
+  "alfa_log10": 1.0,
+  "p": 1.1,
+  "c_gun": 0.01,
+  "q_uz": 1.5,
+  "d0_km": 0.5,
+  "gamma": 0.5,
+  "dallanma": 0.6,
+  "hucre_km": 5.0,
+  "w_km": 2.0,
+  "R_km": 80.0,
+  "pencere": "ref [t-10y, t-3y), önce [t-3y, t)",
+  "q_V": 0.5,
+  "tohum": 20261112,
+  "n0": 400,
+  "nf": 200,
+  "kumesizlestirme": "kahin"
+ },
+ "etas_ana_sok_oncesi": {
+  "yil": 6000,
+  "M_hedef": 5.5,
+  "n_hedef": 241,
+  "n_rastgele": 399,
+  "z_hedef_ort": -0.015494374862550637,
+  "z_rast_ort": -0.3820344324343938,
+  "z_rast_sd": 1.6331991458038966,
+  "fark_std": 0.22443071839314738,
+  "fark_se": 0.10520360520017566,
+  "yanlis_alarm_hedef_z1645": 0.12033195020746888,
+  "yanlis_alarm_rast_z1645": 0.19799498746867167,
+  "n_olay": 920917
+ }
+}

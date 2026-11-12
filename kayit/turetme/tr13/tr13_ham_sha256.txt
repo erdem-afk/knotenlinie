@@ -1,0 +1,32 @@
+TR-13 ham veri (depoda değil). 12 Kasım 2026. Bütün sorguların bitişi <= 2025-12-31; indirilen en geç olay 2025-12-11.
+
+Arşiv: /mnt/project-files/turetme/tr13-ham/tr13_ham_2026-11-12.tar.gz (84 679 070 B)
+  sha256 2e11e7d2fd331b20a8b653be35217267e30999018a69e26c03518b1ff685c069
+  içerik: ham/ = aday_mt.csv, aday_fm.csv, havuz_m55.csv, mekanizma_ek.jsonl, kat_ComCat_<id>.npz (1175),
+          orn_{ISC,EMSC,GeoNet}_<id>.npz (örnek pencere), tam3_{ISC,GeoNet,EMSC}_<id>.npz (önce-pencere tam),
+          ref_{ISC,GeoNet,EMSC}_<id>.npz (referans örnek), onbellek_*/ (ham FDSN yanıtları, sha256[:24] adlı),
+          sayim_tam_satirlar.json (= scratch sayim4.json, olay başına bütün satırlar)
+
+Tek dosyalar (scratch kopyası):
+  aday_mt.csv          8bda7aaefdb6c763549e57eeb7aca2ee0b576b974051398e47257276abbbc93f
+  aday_fm.csv          9216a3c679a340970173d17602cd906482b7f9be482849151913b08c75af9f1e
+  havuz_m55.csv        a71c2887166170a2e1ac3500a2846a9d04f561eac83d8f85c1aaa18ace2ce964
+  mekanizma_ek.jsonl   89c2515e86ef418d23f88c831c9cff5fa2e71f9b0469101970ede5b221130f59
+  sayim4.json          0ae42bc0d93392bf3f933fe7e176d11694349c6b51eeee74fb73596d7df618ca
+
+Yeniden kullanılan: TR-2 anlık görüntüsü /mnt/project-files/turetme/tr2-ham/tr2_ham_2026-11-11.tar.gz
+  sha256 07881910d94d8b66c377c9ae42ce8f1e18843b5117a92cec53aaa527f61efd59 (yalnız ham/mekanizma.jsonl okundu)
+
+Komut sırası (python3 -I -B, scratch S=.../scratchpad/tr13):
+  tr13_sayim.py anasok  $S/ham $S/tr2ham/ham
+  tr13_sayim.py katalog $S/ham $S/tr2ham/ham ComCat
+  tr13_sayim.py ornek   $S/ham $S/tr2ham/ham ISC|EMSC|INGV|GeoNet $S/isc_ids.txt   (ComCat N3bg_mc < 100 olanlar)
+  tr13_sayim.py say     $S/ham $S/tr2ham/ham $S/sayim.json
+  tr13_sayim.py tam3    $S/ham $S/tr2ham/ham ISC|GeoNet|EMSC $S/sayim{,2}.json        (örnek N3bg_mc >= 25)
+  tr13_sayim.py ref_ornek $S/ham $S/tr2ham/ham ISC|GeoNet|EMSC $S/ref_ids_<srv>.txt
+  tr13_sayim.py say     $S/ham $S/tr2ham/ham $S/sayim4.json
+  tr13_guc.py $S/guc_gk_a.json tam gk 25,50,100 --
+  tr13_guc.py $S/guc_gk_b.json tam gk 200,400 --
+  tr13_guc.py $S/guc_kahin_a.json tam kahin 25,50,100,200 --
+  tr13_guc.py $S/guc_gk_oncesi.json tam gk 25 oncesi
+  tr13_ozet.py $S/sayim4.json $S/guc_gk_a.json $S/guc_gk_b.json $S/guc_kahin_a.json $S/guc_gk_oncesi.json tr13_ozet.json
