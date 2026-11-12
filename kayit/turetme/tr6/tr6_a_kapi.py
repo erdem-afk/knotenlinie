@@ -134,6 +134,10 @@ _kilit = threading.Lock()
 
 
 def getir(url, onb, zaman_asimi=600, deneme=6):
+    # TR-6a ön kaydı sürüm 3 (§9 adım 3, İNCELEME-2 K8): TR-6a önbelleği (tr6a_onbellek_kor.arsivden_ac ile açılmış,
+    # ".tr6a_kor" işaretli dizin) bu işlevle maskesiz açılamaz; tek okuma yolu tr6a_onbellek_kor.oku_sorgu'dur.
+    if os.path.exists(os.path.join(onb, ".tr6a_kor")):
+        raise PermissionError("TR-6a önbelleği maskesiz açılamaz: tr6a_onbellek_kor.oku_sorgu kullanılır")
     h = hashlib.sha256(url.encode()).hexdigest()[:24]
     yol = os.path.join(onb, h + ".txt")
     if os.path.exists(yol):

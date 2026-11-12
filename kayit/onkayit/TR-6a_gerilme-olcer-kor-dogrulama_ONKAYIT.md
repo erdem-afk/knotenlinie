@@ -1,31 +1,44 @@
 # TR-6a ön kaydı: hız-durum gerilme ölçeri bilinen kosismik Coulomb gölgelerini kör olarak doğru işaretle buluyor mu?
 
-Tarih: 12 Kasım 2026. Durum: **TASLAK sürüm 2 (İNCELEME-1 düzeltmeleri işlendi), ikinci incelemeye hazır.**
-Dondurulmadı. İkinci inceleme bulguları işlendikten sonra "DONDURULDU" başlığıyla commit edilir; ondan sonra metin
-değişmez, ekler ayrı başlıkla yazılır. İkinci incelemenin önce bakması gereken yerler: §16 (İNCELEME-1 düzeltme
-metinlerinden sapmalar), §4.6 (p₀ kalibrasyonu ve sahte zamanların geçerlilik kuralı), §3.7 (son pencere kesmesi),
-§5 (işlem sırası ve testere dişinin p₀'a bağlı çözümü), §10 (yeni önsayım ve P(K < 23)).
+Tarih: 12 Kasım 2026. Durum: **DONDURULDU sürüm 3 (12 Kasım 2026; bu commit dondurma kaydıdır) (İNCELEME-1 ve İNCELEME-2 düzeltmeleri işlendi).**
+Üçüncü inceleme turu yoktur. Metin "DONDURULDU" başlığıyla commit edilir; ondan sonra değişmez, ekler ayrı başlıkla
+yazılır. İNCELEME-2 bulgularının işlendiği yerler sondaki "Sürüm 2 → 3 değişiklik listesi"ndedir.
+
+**Kök oturum kararı.** Kaba önsayım 29 küme, yazar önseli P(K < 23) ≈ 0,7; buna rağmen ön kayıt dondurulur; kapı
+gerçek koşuda yalnız olay öncesi veriyle sayılır; K < 23 ise olay sonrası veri indirilmez, hüküm 'güç yok', aday
+elenmez.
 
 **Önsayım özeti (başta, açıkça).** Ek 1'in kaba kapısı (halka Mc'si, lob payı 0,25 varsayımı) sürüm 2 kurallarıyla
 yeniden sayıldı (§3.1, §10): Aσ 19 kPa'da **K_kaba = 29** (sürüm 1'de 37). Bu 23'ün üstündedir; bu yüzden ön kayıt
 koşulabilir bir sınav olarak dondurulabilir. Ancak pay dar: kaba N0'lar yarıya indirilirse K_kaba 19, Mc + 0,5 ile 11
 olur. Gerçek lob tanımı ve lob Mc'si K'yi aşağı çeker. Yazarın önseli **P(K < 23) ≈ 0,7**'dir (sürüm 1: 0,5). K < 23
-çıkarsa kural sürüm 1'deki gibidir: hüküm "güç yok", olay sonrası veri indirilmez, aday elenmez (§5). Ön kaydın
-"güç yok" olasılığı yüksek bir sınav olarak dondurulup dondurulmayacağı kök oturumun kararıdır.
+çıkarsa kural sürüm 1'deki gibidir: hüküm "güç yok", olay sonrası veri indirilmez, aday elenmez (§5). Kök oturum
+bu koşullarla dondurma kararı verdi (yukarıda). Sürüm 3 kuralları kaba önsayımı değiştirmez (K_kaba 29). Aynı kaba
+varsayımla pozitif kontrol kapısından (N0⁺ ≥ 10,0) K⁺ = 29, nötr kapıdan (N0_nt ≥ 31,36) K_nt = 29 küme geçer; bu iki
+sayı lob payı varsayımının kopyasıdır, gerçek alanlar ΔCFF'ye bağlıdır (§10).
 
 Türediği yerler: `kayit/onkayit/TR-6_SAYIM.md` (tasarım §2.1, sayım §4, Ek 1: Aσ ve katalog kapısı) ve
-`kayit/onkayit/TR-6a_INCELEME-1.md` (DÜZELTMEYLE KABUL; A1–A4 engelleyici, B1–B10 önemli, K1–K8 küçük).
+`kayit/onkayit/TR-6a_INCELEME-1.md` (DÜZELTMEYLE KABUL; A1–A4 engelleyici, B1–B10 önemli, K1–K8 küçük) ve
+`kayit/onkayit/TR-6a_INCELEME-2.md` (DÜZELTMEYLE KABUL; A1–A3 engelleyici, B1–B6 önemli, K1–K15 küçük; son tur).
 
 Kod (`kayit/turetme/tr6/`, yalnız numpy ve standart kitaplık, `python3 -I -B`, `__pycache__` bırakmaz, ağ yok):
 - `tr6a_onkayit_sayilar.py` → `tr6a_olay_listesi.json` (dondurulan liste) ve `tr6a_onkayit_sayilar.json`;
   `--md` bu belgedeki tabloları basar;
-- `tr6a_onbellek_kor.py`: önbelleğin tek okuma yolu, İNCELEME-1 B3 maskesiyle (§9 adım 3);
+- `tr6a_onbellek_kor.py`: önbelleğin tek okuma yolu, İNCELEME-1 B3 maskesiyle (§9 adım 3); önbellek yalnız ham
+  arşivden sha256 denetimiyle açılır, yol argümanla ya da `TR6A_ONBELLEK` ortam değişkeniyle verilir; `tr6_a_kapi.getir`
+  bu dizini açmayı reddeder;
 - `tr6a_sifir_buyukluk.py` → `tr6a_sifir_buyukluk.json`: "0 büyüklük" denetimi (§3.5);
 - `tr6a_inc1_denetim.py` → `tr6a_inc1_denetim.json`: İNCELEME-1'in `denetim1.py`–`denetim5.py` betiklerinin
   (scipy) numpy ile yeniden yazımı ve genişletmesi (aşırı saçılım, tamlık ızgarası, McNemar gücü; İNCELEME-1 B3 çift
-  sayımı `tr6a_onkayit_sayilar.py` içinde).
+  sayımı `tr6a_onkayit_sayilar.py` içinde);
+- `tr6a_inc2_b1.py`–`tr6a_inc2_b4.py`: İNCELEME-2'nin bağımsız denetim betiklerinin (b1–b3 scipy kullanıyordu) numpy
+  ve standart kitaplıkla yeniden yazımı: binom ve p₀ ızgarası denetimi, ortak veri ve temsil benzetimleri, sahte
+  geçerlilik ve öncül komşu;
+- `tr6a_md_denetim.py`: `--md` çıktısındaki her tablo satırının bu metinde birebir bulunduğunu denetler.
 
-Bu belgedeki her sayı bu dosyalardan ya da Ek 1 çıktısı `tr6_a_kapi.json`'dan alınmıştır. Maliyet: 0 €.
+Bu belgedeki her sayı bu dosyalardan ya da Ek 1 çıktısı `tr6_a_kapi.json`'dan alınmıştır. "Yapay hesap (İNCELEME-2)"
+diye anılan sayılar incelemecinin hesaplarıdır; `tr6a_inc2_b2.py` ve `tr6a_inc2_b3.py` onları Monte Carlo hatası
+içinde yeniden üretir (Ek B). Maliyet: 0 €.
 
 **Körlük beyanı (yazar).** Bu taslak yazılırken hiçbir olay sonrası katalog sorgusu yapılmadı. Hiçbir lobda oran ya da
 oran değişimi hesaplanmadı. Hiçbir ΔCFF hesaplanmadı. Sürüm 2'de hiçbir yeni katalog sorgusu yapılmadı. Görülen veri:
@@ -33,6 +46,9 @@ Ek 1'in olay öncesi özet sayımları, halka Mc'leri, küme listesi ve ComCat m
 adayların olay sonrası pencerelerini kapsıyor (§9 adım 3). Sürüm 1'in yazarı bu önbellekte yalnız Ek 1 betiğinin özet
 çıktılarını gördü. Sürüm 2'de önbellek yalnız bir kez açıldı: "0 büyüklük" denetimi için (§3.5), yalnız
 `tr6a_onbellek_kor.py`'nin maskeli okuma yoluyla. O denetimin çıktısı yalnız katalog toplamları ve iki olayın Mc'sidir.
+Sürüm 3'te hiçbir katalog sorgusu yapılmadı ve hiçbir lobda oran hesaplanmadı. Önbellek bir kez daha açıldı: yalnız
+`tr6a_sifir_buyukluk.py`'nin yeni okuma yolundan (ham arşivden sha256 denetimiyle açılan dizin, maskeli
+`oku_sorgu`) bayt bayt aynı çıktıyı verdiğini denetlemek için. Karşılaştırılan yalnız çıktının sha256'sıdır.
 
 Yazar literatürden üç kümenin sonucunu kısmen biliyor:
 - Kumamoto 2016 ve Ridgecrest 2019'da gölge loblarında artçı bulunduğunu (Hardebeck & Harris 2025);
@@ -44,10 +60,13 @@ Yazar literatürden üç kümenin sonucunu kısmen biliyor:
 ## 0. Bağlayıcı metinlerin sırası
 
 Çelişkide sıra şöyledir:
-1. **Bu metin (sürüm 2).** §3.1'de sha256'sı verilen `tr6a_olay_listesi.json` bu metnin parçasıdır.
-2. **İNCELEME-1'in düzeltme metinleri**, yalnız bu metnin sustuğu yerde. Bu metnin onlardan bilerek saptığı yerler
-   §16'da gerekçeleriyle yazılıdır; orada bu metin geçerlidir.
-3. **`TR-6_SAYIM.md`** §2.1 ve Ek 1.
+1. **Bu metin (sürüm 3).** §3.1'de sha256'sı verilen `tr6a_olay_listesi.json` bu metnin parçasıdır.
+2. **İNCELEME-2'nin düzeltme metinleri**, yalnız bu metnin sustuğu yerde.
+3. **İNCELEME-1'in düzeltme metinleri**, yalnız bu metnin ve İNCELEME-2'nin sustuğu yerde.
+4. **`TR-6_SAYIM.md`** §2.1 ve Ek 1.
+
+Bu metnin inceleme düzeltme metinlerinden bilerek saptığı yerler §16'da gerekçeleriyle yazılıdır; orada bu metin
+geçerlidir.
 
 Metin ile kod çelişirse metindeki sayısal tanım geçerlidir. Koşu kodu listeyi yeniden kurmaz; okur ve sha256'sını
 denetler.
@@ -59,7 +78,8 @@ hesaplanan kosismik Coulomb gölge loblarında (ΔCFF ≤ −10 kPa) olay sonras
 rastlantıdan anlamlı biçimde fazlasında buluyor mu?
 
 Hüküm satırı: K bağımsız kümede "düşüş oyu" sayısı X; tek yanlı kesin binom, α 0,05. Boş hipotezin oy olasılığı
-p₀ = max(0,50; ⌈100 p̂₀⌉/100)'dür. p̂₀ olay öncesi sahte zamanlardan kalibre edilir (§4.6). Kümeler Aσ = 19 kPa ile
+p₀ = max(0,50; ⌈100 p̂₀⌉/100)'dür (J < 30 ise taban 0,52; §4.6). p̂₀ olay öncesi sahte zamanlardan kalibre edilir
+(§4.6). Kümeler Aσ = 19 kPa ile
 sayılan güç kapısından geçen, bilinen sonuçlu ve kısa pencereli kümeleri çıkarılmış kümelerdir (§3, §5, §6).
 
 ### 1.1 Soru, neden ve neyi ölçmediği
@@ -113,8 +133,8 @@ M ≥ 6,0, derinlik ≤ 30 km. Olay grupları (§3.2) birleştirilince **151 bir
 olay grubu demektir.
 
 Dondurulan liste `kayit/turetme/tr6/tr6a_olay_listesi.json`, **sha256
-0cde4fa1433eaa11f513460b1c728e4f3f142d3dc091c120f4f55b677728048f**. Liste olay sonrası hiçbir katalog bilgisi
-taşımaz. İçeriği:
+0cde4fa1433eaa11f513460b1c728e4f3f142d3dc091c120f4f55b677728048f** (sürüm 3 listeyi değiştirmedi). Liste olay
+sonrası hiçbir katalog bilgisi taşımaz. İçeriği:
 - `olaylar` (155): kimlik, zaman, M, dış merkez, L, Ek 1 halkası, Ek 1'de Mc'si kestirilebilen kataloglar (Mc, kaba N0,
   Mc + 0,5 kaba N0, "0 büyüklük" işareti), Ek 1 en iyi katalog, Ek 1 küme numarası, ComCat mekanizma sınıfı, grup;
 - `birimler` (151): üyeler, en büyük üye, t0, t_s, son pencere başı, kesilmemiş son pencere sonu, tarih kuralı, ISC
@@ -127,7 +147,8 @@ Girdi dosyalarının sha256'sı listenin içinde yazılıdır:
 - `tr6a_sifir_buyukluk.json`: ff20aebfd73ef84498da5826488a7031e8ecc360ed5637707ee83b0f105bc732.
 
 Ek 1 ham önbelleği: `/mnt/project-files/turetme/tr6a-ham/tr6a_onbellek_2026-11-12.tar.gz`, sha256
-f350d2e091be2d82b4026db03262a8eecbdb732aad26bf328a23224c9ced0d60 (sürüm 1'de doğrulandı).
+f350d2e091be2d82b4026db03262a8eecbdb732aad26bf328a23224c9ced0d60 (sürüm 1'de doğrulandı, sürüm 3'te yeniden;
+`kayit/turetme/tr6/tr6a_ham_sha256.txt`).
 
 **Tarih kuralı (karar 5).** Kesilmemiş son pencere [t0 + 30 g, t0 + 365 g) 2025-12-31T23:59:59'u aşan birim listeden
 çıkar. Havuzda **7 birim** çıkar: us6000pi9w (2025-01-07), us7000pcdl (2025-02-08), us7000pn9s (2025-03-28),
@@ -160,8 +181,12 @@ Havuz dışındaki öncüler (ör. Ridgecrest 2019 M 6,4) toplanmaz (§11).
 
 ### 3.3 Gerilme kaynağı ve ΔCFF
 
-- **Sonlu fay modeli.** Her üyenin ComCat `finite-fault` ürünü manifest anında bir kez indirilir. Ürün kimliği,
-  `code`, `updateTime`, indirme zamanı ve dosyanın sha256'sı manifeste yazılır. Ham dosya
+- **Sonlu fay modeli.** Her üyenin ComCat `finite-fault` ürünü manifest anında bir kez indirilir. Bir üyenin birden
+  çok `finite-fault` ürünü varsa ComCat'in indirme anındaki tercihli ürünü (olay ayrıntı yanıtında ilk listelenen)
+  alınır. Ötekilerin kimlikleri ve `updateTime`'ları manifestte yazılır. Ürünün `updateTime`'ı 2025-12-31'den sonra
+  olabilir; tarih sınırı katalog olaylarına uygulanır, kaynak modele uygulanmaz. Bir grup üyesi "veri yok" olursa
+  bütün birim "veri yok" olur, çünkü grup ΔCFF'si eksik kalır. Ürün kimliği, `code`, `updateTime`, indirme zamanı ve
+  dosyanın sha256'sı manifeste yazılır. Ham dosya
   `/mnt/project-files/turetme/tr6a-ham/` altına arşivlenir. Koşu yeniden indirmez; arşivdeki dosyayı sha256'sını
   doğrulayarak okur.
   - Okunan dosya `basic_inversion.param`'dır. Bu dosya yoksa `.fsp` okunur; ikisi de yoksa olay "veri yok" olur.
@@ -185,8 +210,37 @@ Havuz dışındaki öncüler (ör. Ridgecrest 2019 M 6,4) toplanmaz (§11).
   5. kaynak boyutu 0,01 km'ye küçültülünce sonlu kaynak, ayrıca yazılan nokta kaynak (DC3D0 karşılığı) çözümüyle 1e−4
      göreli içinde uyuşur. Uzak alanda (r > 20 L) aynı karşılaştırma 1e−3 içinde tutar.
 
-  Ek olarak King vd. (1994) dört lob işaret deseni denetlenir. Bir sınama başarısız olursa olay sonrası veri
-  indirilmez.
+  Doğrulama listesinin 6–9 maddeleri (İNCELEME-2 B4) yönelim, işaret, fay dışı süreklilik ve ΔCFF izdüşümünü sınar;
+  tablo değerleri okunsa da okunmasa da koşulur:
+  6. **Süreklilik.** Fay düzleminin uzantısında, dikdörtgenin dışında (kenardan en az 0,05 W uzakta), ±1e−6 W iki yan
+     arasındaki yer değiştirme farkı birim kaymanın 1e−6'sından küçüktür.
+  7. **Üst üste binme.** Bir dikdörtgen dört eş parçaya bölünür. Parçaların toplam çözümü tek dikdörtgen çözümüyle
+     yer değiştirme ve gerilmede 1e−10 göreli içinde uyuşur.
+  8. **Yönelim ve simetri.** Düşey, sağ yanal, 0–15 km derinlikte, boyu 30 km bir fay alınır; doğrultusu 0°, 90° ve
+     225° olan üç hâli koşulur. Alıcı kaynakla aynıdır, μ' = 0, derinlik 7,5 km.
+     - Fay ucunun doğrultu uzantısında, uçtan 15 km ötede Δτ > 0'dır.
+     - Fay ortasından faya dik 15 km ötede Δτ < 0'dır.
+     - Fay merkezli yerel eksenlerde (x doğrultu, y dik) |Δτ(x, y) − Δτ(−x, y)| ve |Δτ(x, y) − Δτ(x, −y)| değerleri
+       max|Δτ|'nin 1e−8'inden küçüktür. |Δσ_n(x, y) + Δσ_n(−x, y)| için de aynı sınır geçerlidir.
+     - Üç doğrultunun çözümleri koordinat döndürmesiyle 1e−8 göreli içinde uyuşur.
+  9. **ΔCFF izdüşümü.** Doğu-kuzey-yukarı eksenlerinde, çekme pozitif. Alıcı normali tavan bloğuna doğrudur; kayma
+     vektörü Aki & Richards kuralıyla cos λ · ŝ − sin λ · d̂'dir (ŝ doğrultu, d̂ eğim aşağı birim vektörü).
+     - (a) Yalnız σ_EN = s; alıcı doğrultu 0°, eğim 90°, rake 180° → Δτ = −s, Δσ_n = 0.
+     - (b) Yalnız σ_EE = s; aynı alıcı → Δτ = 0, Δσ_n = +s.
+     - (c) Yalnız σ_EU = s; alıcı doğrultu 0°, eğim 30°, rake 90° → Δτ = −s · cos 60° = −0,5 s,
+       Δσ_n = s · sin 60° = 0,866 s.
+
+     Üçü de 1e−12 göreli içinde tutar.
+
+  Tekil noktalar: sınamalar, DC3D'nin tekil kümelerinde (kenar uzantıları, fay düzlemi) en az 50 nokta içerir. Kod
+  orada sonlu bir değer ya da açık bir "tekil" işareti döndürür. Izgaraya NaN ya da sonsuz değer girmez.
+
+  **Izgara kuralı (§3.4'e de yazılır).** Hücre merkezinin, kayması sıfırdan büyük herhangi bir alt fay
+  dikdörtgenine 3B uzaklığı 5 km'den küçükse hücre "tekil yakın alan" sayılır. Böyle bir hücre hiçbir loba ve nötr
+  bölgeye girmez. Sayısı aday başına manifestte yazılır.
+
+  Ek olarak King vd. (1994) dört lob işaret deseni denetlenir; nicel karşılığı 8. maddedir. Bir sınama başarısız
+  olursa olay sonrası veri indirilmez; hüküm "koşulmadı (yöntem: Okada sınaması)" olur (§6.4).
 - **Izgara.** Dış merkezde (grupta en büyük üyenin) ortalanmış azimutal eşit uzaklık izdüşümünde 10 km hücre; hücre
   merkezinde ΔCFF.
 
@@ -215,6 +269,9 @@ iki düğüm düzlemi birlikte (§7).
   L = 10^(−3,55 + 0,74 M) km).
 - **Gölge lobu:** bölgede ΔCFF ≤ −10 kPa olan hücrelerin birleşimi. **Pozitif lob:** ΔCFF ≥ +10 kPa. **Nötr bölge**
   (yalnız S7): |ΔCFF| ≤ 2 kPa. Arası atılır.
+- **Tekil yakın alan (§3.3 ızgara kuralı).** Hücre merkezinin, kayması sıfırdan büyük herhangi bir alt fay
+  dikdörtgenine 3B uzaklığı 5 km'den küçükse hücre "tekil yakın alan" sayılır. Böyle bir hücre hiçbir loba ve nötr
+  bölgeye girmez. Sayısı aday başına manifestte yazılır.
 - **Olayın atanması:** olayın dış merkezi aynı izdüşümle düzleme taşınır ve içine düştüğü 10 km hücrenin sınıfını
   alır. Hücre sınıfı hücre merkezindeki ΔCFF'den gelir. r_k hücre merkezi için hesaplanır. Olay derinliği yalnız
   ≤ 40 km süzgecine girer.
@@ -271,11 +328,10 @@ iki düğüm düzlemi birlikte (§7).
   - Önsayımda (§10) bu kural üç birimi kapıdan düşürür: Noto 2024 (us6000m0xl, ISC N0 1912,8), Hyūganada 2024
     (us6000nith, 426,3) ve Loyalty Adaları 2023 (us6000kd0n, 53,3). Kahramanmaraş 2023 ISC'den KOERI'ye geçer (kaba N0
     623,6 → 147,8). nc75095651'in seçimi zaten ComCat'tir.
-  - **"0 büyüklük" işaretli** (yukarıda) Ek 1 satırları seçime girmez; manifestte satır o katalog için yukarıdaki
-    kurallarla yeniden kestirilir.
+  - **"0 büyüklük" işaretli** Ek 1 satırları (2012 Hint Okyanusu ve 2003 Tokachi-oki, ComCat) bu olaylar için seçime
+    ve hiçbir satıra girmez; yeniden kestirilmez.
 - **Sorgu:** dış merkezden R = 2L + (kırık izinin dış merkeze en uzak noktasının uzaklığı) yarıçaplı daire (bölgeyi
-  kapsar), minmagnitude = Mc_halka − 0,05 (Mc_halka = o kataloğun Ek 1 Mc'si; geçersiz satırda manifestteki yeniden
-  kestirim), yıllık parçalar. Bölge süzgeci yerelde uygulanır. Olay sonrası sorgu da aynı daire ve aynı taban büyüklükle
+  kapsar), minmagnitude = Mc_halka − 0,05 (Mc_halka = o kataloğun Ek 1 Mc'si), yıllık parçalar. Bölge süzgeci yerelde uygulanır. Olay sonrası sorgu da aynı daire ve aynı taban büyüklükle
   yapılır. Satır sınırı kuralı §5 madde 1'dedir.
 - **MAXC:** `tr6_a_kapi.maxc` ile aynı (0,1 kutu, en sık kutu; eşitlikte küçük olan).
 - **Mc_lob** (her lob için ayrı, yalnız olay öncesi): max(Mc_halka, MAXC(lobun ön penceresindeki olaylar) + 0,2).
@@ -288,7 +344,8 @@ iki düğüm düzlemi birlikte (§7).
      olaylardan MAXC + 0,2 hesaplanır; Mc_son bunların en büyüğüdür. 50'den az olaylı bir alt pencere bir sonrakiyle
      birleştirilir; sonuncusu 50'ye ulaşmazsa bir öncekiyle birleştirilir. Hiçbir birleşim 50'ye ulaşmazsa
      Mc_son = Mc_lob + 0,3 olur. Negatif kontrolde ve sahte olaylarda (§4.6) aynı alt pencere düzeni o pencerenin kendi
-     başlangıcına göre kurulur.
+     başlangıcına göre kurulur (sahte j'de gün sayısı t'_j + (t_s − t0)'dan, S2'de t0 − 395 g + (t_s − t0)'dan
+     sayılır).
   3. **Mc_kul** = max(Mc_lob, Mc_son). Hem ön hem son pencere sayımı Mc_kul ile yapılır.
 
   Gerekçe: Mc_son olay sonrası veriden hesaplanır, ama lobun sayı farkından değil, bölgenin büyüklük dağılımının
@@ -307,7 +364,9 @@ pencereli; bağımlı olay ana olay olamaz.
 - Her lob ayrı kümesizleştirilir. **Yalnız o lobun içindeki olaylar** (Mc_kul üstü) ana olay ve bağımlı olabilir. Ana
   şok ve lob dışındaki olaylar ana olay olamaz. Gerekçe: ana şokun GK penceresi (M 7'de ≈ 70 km, ≈ 2,5 yıl) bütün lobu
   silerdi; yakın alandaki büyük artçıları ana olay saymak da son pencereyi asimetrik olarak boşaltır ve gölgede H1
-  lehine yanlılık yaratır.
+  lehine yanlılık yaratır. Kapı (§4.2) ve sahte oylar için ön katalog Mc_lob (sahtede sahte Mc_lob) üstü olaylarla
+  kümesizleştirilir. Oy için ön ve son katalog Mc_kul üstü olaylarla ayrıca kümesizleştirilir. İki kümesizleştirme
+  aynı kuralladır.
 - **Pencereler ayrı ayrı ve aynı tampon yapısıyla kümesizleştirilir.**
   - Ön katalog [t0 − 1826 g − 730 g, t0 − 30 g) aralığında kümesizleştirilir. İlk 730 günün lob içi olayları ana olay
     olabilir, sayılmaz.
@@ -327,8 +386,10 @@ pencereli; bağımlı olay ana olay olamaz.
   değildir; manifest, tek bağlantıda birleşecek küme çiftlerinin sayısını yazar.
 - **Temsilci:** kümenin zamanca ilk birimi. Bir kümenin tek oyu temsilcisinin oyudur. Kümenin sonraki olayları,
   temsilcinin son penceresine düşüyorsa onun "yanıtının" parçasıdır; lob içindeyseler kümesizleştirmede ana olay olurlar.
-- **Son pencerenin kesilmesi (İNCELEME-1 B4).** Temsilcinin son penceresinde, [t_s + 30 g, t0 + 365 g) aralığında ve bölgesinde
-  (dış merkezinin r_k'si ≤ 2L) havuzdan bir olay (grup dışı) varsa, son pencere o olaydan bir gün önce biter. T_son ve
+- **Son pencerenin kesilmesi (İNCELEME-1 B4).** Temsilcinin son penceresinde, [t_s + 30 g, t0 + 365 g) aralığında ve
+  bölgesinde (havuz olayının dış merkezinin, temsilci grubunun kırık izi nokta kümesine (§3.4) yatay uzaklığı ≤ 2L;
+  L grubun en büyük üyesinden; olay hücreye atanmaz ve 20 km iç sınır uygulanmaz) havuzdan bir olay (grup dışı)
+  varsa, son pencere o olaydan bir gün önce biter. T_son ve
   π buna göre yeniden hesaplanır. **T_son < 60 g kalırsa küme ana hükümden çıkar** ve §7 B3'te yazılır. Kesme yalnız
   dondurulan havuz listesine dayanır, lob sayısına değil; manifestte yazılır. Kümelemenin kendisi değişmez. Böyle bir
   olay başka bir kümenin temsilcisiyse, o kümenin ön penceresi bu temsilcinin son penceresiyle örtüşür; bu çift B3'te
@@ -337,7 +398,9 @@ pencereli; bağımlı olay ana olay olamaz.
     1994 Hokkaidō (usp0006kdp; 1994 Sanriku ile T_son 54,0 g), 2006 Kuril (usp000exfn; 2007 Kuril ile 27,7 g), 2012
     Haida Gwaii (usp000juhz; ak0138esnzr ile 38,2 g), 2020 Simeonof (us7000asvb; Sand Point ile 58,6 g).
   - 2004 Sumatra kümesi kalır (Nias ile T_son 61,6 g). Dış merkez ≤ 3L ile de sonuç değişmez (K_kaba 29).
-  - Bağlayıcı karar manifestte r_k ile verilir.
+  - Bağlayıcı karar manifestte r_k ile verilir. Önsayımda dış merkez ≤ 3L ile K_kaba değişmedi (29); r_k ≤ 2L, dış
+    merkezi bu sınırın içinde kalan bütün olayları kapsar. 81 koşu adayının hiçbirinde [t0, t_s + 30 g) aralığında,
+    3L içinde grup dışı bir havuz olayı yoktur (`ilk30_gun_3L`).
 - Manifest bayrağı (bilgi): temsilcinin [t0, t0 + 365 g) penceresinde ve 2L içinde havuzdan başka bir olay.
 
 ## 4. Ölçü
@@ -355,7 +418,8 @@ Bir birim ve bir lob için:
 Gölge lobunun ön penceresinde, **Mc_lob** ile ve yalnız ön kataloğun kümesizleştirmesiyle: **N0 = n_on / (1796/365,25)
 ≥ 31,36 olay/yıl** (yani n_on ≥ 155). Eşik, Aσ = 19 kPa'da Δτ = −10 kPa'lık adımın 1 yılda %80 güçle (tek yanlı
 α 0,05) görülmesi için gereken orandır: N0 ≥ [(z_α + z_β √k)/(1 − k)]², k = e^(−10/19) (`tr6_a_kapi.gereken_n0`).
-Duyarlılık eşikleri: Aσ 13 kPa → 17,08; Aσ 39 kPa → 111,21. Aσ veriden kestirilmez (karar 1).
+Duyarlılık eşikleri: Aσ 13 kPa → 17,08; Aσ 39 kPa → 111,21 (n_on ≥ 84 ve n_on ≥ 547). Aσ veriden kestirilmez
+(karar 1).
 
 K_kapı = kapıdan geçen birimlerin bağımsız küme sayısı, §3.4 ve §3.7 çıkarmalarından sonra. Kapı yalnız olay öncesi
 veriyle sayılır ve manifestte dondurulur.
@@ -484,30 +548,58 @@ havuzdan (grup dışı) bir A olayı şu iki koşulu birlikte sağlıyorsa:
 - [t_A, t_A + 365 g), kesilmemiş sahte son pencere [t'_j + (t_s − t0) + 30 g, t'_j + 365 g) ile kesişiyor;
 - A ile temsilcinin dış merkez uzaklığı < 3 L_A + 3 L_temsilci.
 
-Gerekçeler:
+Ayrıca sahte j, sahte ön penceredeki kümesizleştirilmiş gölge lobu sayısı n_on' (sahte Mc_lob ile, §3.6'nın 730 g
+tamponuyla) 155'ten küçükse geçersizdir (neden: "sahte kapı"; manifestte yazılır). Gerekçe: gerçek oylar kapıdan
+geçmiş loblardan gelir. Poisson H0'da P(D) N0 ile artar ve n ≤ 4'te düşüş oyu tanım gereği 0'dır. Kapı altı sahte
+oylar p̂₀'ı aşağı, H1 yönüne çeker.
+
+Geçerlilik ölçütü (3 L_A + 3 L_temsilci) "olay yok" dünyasının fiziksel ölçütüdür. §9 adım 3'teki 4 L_A maskesi
+yalnız ad hoc önbellek okumaları içindir; manifest sahte oyları adayın kendi indirmesinden, maskesiz sayar.
+
+Gerekçeler (havuz ölçütü):
 - (i) O sahte pencere "olay yok" dünyasını temsil etmez: A'nın artçı dizisi sahte oyu bir yöne iter.
 - (ii) O sahte oy, A'nın olay sonrası penceresinde bölgesel bir sayı özeti olurdu (körlük, §9 adım 3).
 
 Önsayımın 29 kümesinde 87 sahte zamanın 64'ü geçerlidir (`onsayim.19.sahte_gecerli_toplam`). Tohoku, 2012 Hint
 Okyanusu, 1994 Sanriku, 2004 Sumatra ve 2024 Mendocino (nc75095651) temsilcilerinde hiçbir sahte zaman geçerli değil.
-Sahte j'de §3.7 kesmesi ayrıca uygulanmaz; geçerlilik kuralı onun yerine geçer.
+Sahte j'de §3.7 kesmesi ayrıca uygulanmaz; geçerlilik kuralı onun yerine geçer. Sahte kapı önsayımda uygulanamaz
+(sahte ön penceredeki lob sayısı gerekir); manifestteki J bu yüzden 64'ün altında kalabilir.
 
 **Kestirim ve eşik.** Sahte düşüş oyu D'_ij'dir; J geçerli sahte zaman sayısıdır.
 - p̂₀ = Σ D'_ij / J ve p̂₀⁺ = Σ A'_ij / J (sahte artış oyu payı).
-- **p₀ = max(0,50; ⌈100 p̂₀⌉/100)**: p̂₀ yukarı doğru iki ondalığa yuvarlanır. Tamsayı aritmetiğiyle
+- **J ≥ 30 ise p₀ = max(0,50; ⌈100 p̂₀⌉/100)**: p̂₀ yukarı doğru iki ondalığa yuvarlanır. Tamsayı aritmetiğiyle
   ⌈100 S / J⌉, S = Σ D'_ij. Bu yuvarlama, §6.1'deki p₀ ızgara tablosunu tek anlamlı ve bağlayıcı yapar; tablo dışı ara
   değer yoktur.
-- Ters yön için p₀⁺ = max(0,50; ⌈100 p̂₀⁺⌉/100).
-- J < 30 ise kalibrasyon yapılmaz: p₀ = p₀⁺ = 0,50 ve hüküm adına "(p₀ kalibre edilemedi: J = …)" eklenir.
+- Ters yön için (J ≥ 30) p₀⁺ = max(0,50; ⌈100 p̂₀⁺⌉/100).
+- **J < 30 ise kalibrasyon zayıftır.** O zaman p₀ = max(0,52; ⌈100 S / J⌉/100) ve p₀⁺ = max(0,52; ⌈100 S⁺ / J⌉/100)
+  olur (S⁺ = Σ A'_ij; J = 0 ise ikisi de 0,52). p₀ > 0,60 ve p₀⁺ > 0,60 kuralları aynen uygulanır. Hüküm adına
+  "kalibrasyon zayıf: J = …, p₀ = …" niteleyicisi eklenir (§6.4). Gerekçe: §4.3 aşırı saçılım ızgarasının en kötü
+  hücresinde (N0 31,36, φ = 5) P(D | H0) = 0,5151'dir. Bu dünyada p₀ = 0,50'ye karşı gerçek α K = 23–45'te en çok
+  0,072, p₀ = 0,52'ye karşı en çok 0,044'tür. J < 30'da p̂₀ yalnız p₀'ı yukarı itebilir.
 - **p₀ > 0,60 ise** (yani p̂₀ > 0,60): ölçü H0 altında yanlıdır. Hüküm satırı koşulmaz ve olay sonrası veri
-  indirilmez. Hüküm **"güç yok (ölçü olay öncesi sahte zamanlarda yanlı: p̂₀ = …)"** olur. Gerekçe: p₀ = 0,60'ta güç
-  0,80'e ancak K ≥ 62'de ulaşır (§6.1). Bu sınavın K'si bunun çok altındadır (§10).
-- **p₀⁺ > 0,60 ise** ters yön notu sınanmaz ve "ters yön sınanamadı (p̂₀⁺ = …)" yazılır.
+  indirilmez. Hüküm **"güç yok (ölçü yanlı)"** olur (§6.4); §6.3 kalıbı p̂₀ ve J'yi yazar. Gerekçe: p₀ = 0,60'ta
+  güç 0,80'e ancak K ≥ 62'de ulaşır (§6.1). Bu sınavın K'si bunun çok altındadır (§10).
+- **p₀⁺ > 0,60 ise** ters yön notu sınanmaz ve onun yerine "ters yön sınanamadı (p̂₀⁺ = …)" yazılır (§6.4 madde 4).
 - c(K) = P(X ≥ c | K, p₀) ≤ 0,05 koşulunu sağlayan en küçük c'dir. Ters yön eşiği c⁺(K) aynı biçimde p₀⁺ ile
   hesaplanır. H0 eşiği h(K) değişmez (p₁ = 0,75'e karşı).
 - Testere dişi tablosu p₀ ile çözülür (§5).
-- p̂₀, p̂₀⁺, J, p₀, p₀⁺, c(K), c⁺(K) ve testere dişi çözümü manifestte, olay sonrası indirmeden önce dondurulur.
-  Sahte oyların küme başına dökümü manifestte yazılır.
+- p̂₀, p̂₀⁺, J, J < 30 kuralının uygulanıp uygulanmadığı, p₀, p₀⁺, c(K), c⁺(K) ve testere dişi çözümü manifestte,
+  olay sonrası indirmeden önce dondurulur. Sahte oyların küme başına dökümü manifestte yazılır.
+- Bilgi (hükmü değiştirmez): manifest şunları ayrıca yazar:
+  - p̂₀'ı, kapı N0'ı K_kapı medyanının altında ve üstünde kalan kümeler için ayrı ayrı;
+  - hiç geçerli sahte zamanı olmayan küme sayısı K_0 ve bu kümelerin kimlikleri, kapı N0'ları.
+
+J < 30 tabanının dayanağı (`tr6a_onkayit_sayilar.json` `j30_dali`; K = 23–45'te en büyük gerçek α ve o K; ilk satır
+§4.3 ızgarasının en kötü hücresi):
+
+| P(D \| H0) | en çok α, p₀ 0,50 (K) | en çok α, p₀ 0,52 (K) |
+|---|---|---|
+| 0,5151 | 0,0717 (44) | 0,0441 (24) |
+| 0,53 | 0,1028 (44) | 0,0608 (29) |
+
+P(D) 0,53 dünyasına karşı ayrıca p₀ > 0,60 kuralı ve "kalibrasyon zayıf" niteleyicisi durur. Güç bedeli: p₀ 0,52'de
+K = 23 / 26 / 29 / 33'te güç 0,654 / 0,685 / 0,834 / 0,819'dur (§6.1 güç tablosu). Önsayımda J = 64; J < 30 olasılığı
+düşüktür, ama sahte kapı J'yi düşürür.
 
 S2 negatif kontrolü sürüm 1 tanımıyla ayrı satır olarak kalır (§7). Sahte j = 1'in son penceresi S2'ninkiyle aynıdır,
 ön pencereleri farklıdır. S2 yalnız sahte j = 1'i geçerli olan kümelerde hesaplanır; K_nk bu kümelerin sayısıdır.
@@ -527,7 +619,7 @@ Kapılar bu sırayla, otomatik uygulanır. Bir kapı kapanırsa sonrakiler koşu
 
 **İşlem sırası (K1):** veri kapısı → katalog seçimi (§3.5, ISC ve "0 büyüklük" kuralları) → güç kapısı (§4.2) →
 kümeleme (§3.7) → çıkarmalar (§3.4 bilinen kümeler, §3.7 kısa son pencere) → K_kapı < 23 denetimi → p₀ kalibrasyonu
-(§4.6) → p₀ > 0,60 denetimi → testere dişi atması. Sözlük sırası, kimliğin UTF-8 bayt dizisine göre artan sıradır
+(§4.6, J < 30 kuralı dahil) → p₀ > 0,60 denetimi → testere dişi atması. Sözlük sırası, kimliğin UTF-8 bayt dizisine göre artan sıradır
 (Python `str` karşılaştırması). §7'de "ana K" atmadan sonraki küme setidir; B1 atmadan önceki settir.
 
 1. **Veri kapısı (manifest, yalnız olay öncesi).**
@@ -538,9 +630,9 @@ kümeleme (§3.7) → çıkarmalar (§3.4 bilinen kümeler, §3.7 kısa son penc
    - **Satır sınırı:** dönen satır sayısı sorgunun limit değerinin %99'u ve üstüyse, yanıt zaman aralığı ikiye
      bölünerek yeniden istenir. Bölme, bütün parçalar sınırın altında kalana dek sürer. Bölünen sorgu sayısı
      manifestte ve olay sonrası kayıtta yazılır. Son pencerede de aynı kural uygulanır. Bir parça 1 günlük aralıkta
-     da sınırı aşıyorsa olay "veri yok" olur. Limit parametresini kabul etmeyen servislerde (GeoNet) aynı kural
-     servisin belgelenmiş en büyük yanıtına göre uygulanır; belge yoksa yanıt 1 günlük parçalara bölünene dek her
-     yıllık parça ikiye bölünerek sayı karşılaştırılır ve değişmeyen sayı kabul edilir.
+     da sınırı aşıyorsa olay "veri yok" olur. Limit parametresini kabul etmeyen servislerde (GeoNet) her yıllık
+     parça ikiye bölünür. İki yarının satır sayıları toplamı bütünün satır sayısına eşitse bütün kabul edilir.
+     Değilse her yarıya aynı işlem uygulanır. 1 günlük parçada da eşitlik sağlanmazsa olay "veri yok" olur.
 2. **Güç kapısı (manifest, yalnız olay öncesi).** K_kapı sayılır (§4.2, Aσ 19 kPa).
    - **K_kapı < 23:** hüküm satırı koşulmaz; olay sonrası katalog **indirilmez**. Hüküm **"güç yok"**. Aday elenmez.
      Manifestteki olay öncesi satırlar (negatif kontrol ve sahte oylar dahil) bilgi olarak yayımlanır.
@@ -550,7 +642,7 @@ kümeleme (§3.7) → çıkarmalar (§3.4 bilinen kümeler, §3.7 kısa son penc
      karşılamaz. Ana K < 23 ise duyarlılık satırları da koşulmaz; yalnız kapı K'leri bilgi olarak yazılır.
 3. **Kalibrasyon kapısı (manifest).** p₀ > 0,60 ise hüküm "güç yok (ölçü yanlı)" (§4.6); olay sonrası veri
    indirilmez.
-4. **Kod denetimi (yapay veri, koşudan önce; §9).**
+4. **Kod incelemesi** (§9 adım 4; yapay sınamalar §9 adım 2'de manifestten önce tamamlanmıştır).
 5. **Hüküm satırı ve kontroller (tek koşu).**
 
 **Testere dişinin çözümü (karar 2, p₀'a bağlı).** Tek yanlı tam binom, p₁ = 0,75, α 0,05:
@@ -559,7 +651,9 @@ kümeleme (§3.7) → çıkarmalar (§3.4 bilinen kümeler, §3.7 kısa son penc
 - Böyle bir K yoksa atma yapılmaz: K = K_kapı. Güç olduğu gibi yazılır ve hüküm adına "(tasarım gücünün altında:
   güç …)" eklenir.
 - Çözüm aşağıdaki tablodadır. Sütun, manifestteki p₀'dır (§4.6'daki yuvarlamayla tek anlamlı); satır K_kapı'dır.
-  Hücrede hükmün K'si ve parantezde atılan küme sayısı vardır; * = tasarım gücünün altında, atma yok.
+  Hücrede hükmün K'si ve parantezde atılan küme sayısı vardır; * = tasarım gücünün altında, atma yok. K_kapı = 46–80
+  için çözüm `tr6a_onkayit_sayilar.json` `p0_izgarasi.<p₀>.testere` anahtarından okunur ve bağlayıcıdır. K_kapı > 80
+  için aynı kural aynı fonksiyonla uygulanır.
 
 | K_kapı | p₀ 0,50 | p₀ 0,51 | p₀ 0,52 | p₀ 0,53 | p₀ 0,54 | p₀ 0,55 | p₀ 0,56 | p₀ 0,57 | p₀ 0,58 | p₀ 0,59 | p₀ 0,60 |
 |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -615,7 +709,9 @@ hükmün K'si. Payda her zaman K'dir.
 - **Ayırt edilemez:** h < X < c.
 - **Ters yön notu:** Y ≥ c(K; p₀⁺) (gölgede anlamlı artış). Not, H0 ya da ayırt edilemez hükmünün yanına düşülür. Y,
   X'ten ayrı bir sayımdır.
-- **Güç yok:** K_kapı < 23 (§5) ya da p₀ > 0,60 (§4.6).
+- **Güç yok:** K_kapı < 23 (§5; ad "güç yok") ya da p₀ > 0,60 (§4.6; ad "güç yok (ölçü yanlı)").
+- c(K) ≤ h(K) olan K'lerde (p₀ 0,50'de K ≥ 49) X ≥ c ise hüküm H1'dir; H0 yalnız X ≤ h ve X < c ise verilir. (Bu K'ler
+  p₀ ızgarasında `c_le_h` anahtarındadır: p₀ 0,50'de K = 49 ve 51–80; p₀ 0,57–0,60'ta K ≤ 80'de yoktur.)
 
 p₀ = 0,50 için eşikler:
 
@@ -720,26 +816,38 @@ Bu sınav yalnız büyük etkiyi (p ≈ 0,75) görür. "H0" yalnız "p ≥ 0,75 
 etkisinin yokluğu demek değildir. Poisson H0 altında koşullu oyun p'si N0'a göre 0,446–0,497'dir (§4.3). Tablodaki
 p = 0,45–0,50 satırları o dünyaya yakındır.
 
-### 6.2 Yorum kuralları (hükmü değiştirmez, adını niteler; sırayla uygulanır)
+### 6.2 Yorum kuralları (hükmü değiştirmez, adını niteler; §6.4'e göre bileşir)
 
 1. **Pozitif kontrol (§7 S1):**
-   - S1 tutmazsa (X⁺ < c(K⁺)), H1 hükmü **"ayırt edilemez (pozitif kontrol tutmadı)"** diye yazılır. H0 ya da ayırt
-     edilemez hükmüne "pozitif kontrol de tutmadı: hat ya da model başarısız; ayrılamaz" eklenir.
-   - S1 koşulamadıysa (K⁺ < 10), H1 hükmü **"H1 (pozitif kontrol koşulamadı)"** diye adlandırılır.
+   - S1 tutmazsa (X⁺ < c(K⁺; 0,50)), H1 hükmü **"ayırt edilemez (pozitif kontrol tutmadı)"** diye yazılır (düşürücü;
+     §6.4). H0 ya da ayırt edilemez hükmüne "pozitif kontrol de tutmadı: hat ya da model başarısız; ayrılamaz" eklenir.
+   - S1 koşulamadıysa (K⁺ < 10), H1 hükmü **"H1 (pozitif kontrol koşulamadı)"** diye adlandırılır (niteleyici; §6.4).
 2. **Negatif kontrol (§7 S2):** H1 hükmü verilmiş ve X_nk ≥ c(K_nk; 0,50) ise (son yıl öncesinde de anlamlı düşüş),
-   hüküm **"H1, olay öncesi eğilimle ayırt edilemez"** diye yazılır ve §13'e hiçbir şey taşınmaz. H0 ya da ters yön
-   notu varsa ve Y_nk ≥ c(K_nk; 0,50) ise, "olay öncesi artış eğilimiyle ayırt edilemez" eklenir.
+   "olay öncesi düşüş eğilimi" düşürücüsü uygulanır (§6.4) ve §13'e hiçbir şey taşınmaz. H0 ya da ters yön notu varsa
+   ve Y_nk ≥ c(K_nk; 0,50) ise, "olay öncesi artış eğilimiyle ayırt edilemez" eklenir. K_nk < 10 ise bu kural
+   uygulanmaz (§7 S2).
 
-   2a. **Nötr kontrol (§7 S7):** H1 verilmiş ve X_nt ≥ c(K; p₀) ise hüküm **"ayırt edilemez (nötr bölgede de düşüş:
-   tamlık ya da ağ yapay olgusu)"** olur ve §13'e hiçbir şey taşınmaz. H1 verilmiş, X_nt < c(K; p₀) ve eşleşik
-   McNemar p > 0,10 ise hüküm **"H1 (nötr kontrolden ayrışmadı)"** diye adlandırılır. Kesin hesap
-   (`tr6a_inc1_denetim.json` `mcnemar_gucu`): gölgede p 0,75, nötrde 0,4585 iken McNemar p ≤ 0,10'un gücü K = 23'te
-   0,677, K = 28'de 0,757, K = 33'te 0,819, K = 37'de 0,860.
-3. **Megathrust ağırlığı:** H1 verilmiş ve megathrust hariç satırda (S4) X_S4/K_S4 ≤ 0,5 ise, hüküm "H1 (megathrust
-   kümelerine dayanıyor)" diye adlandırılır.
-4. **Sağlamlık cümlesi:** D1–D8 satırlarından X/K ≤ 0,5 olanlar adıyla listelenir. Liste hükmü değiştirmez.
+   2a. **Nötr kontrol (§7 S7).**
+   - K_nt < 10 ise H1 "nötr kontrol koşulamadı" niteleyicisini alır.
+   - K_nt ≥ 10, H1 verilmiş ve X_nt ≥ c(K_nt; p₀) ise "nötr bölgede de düşüş: tamlık ya da ağ yapay olgusu"
+     düşürücüsü uygulanır (§6.4) ve §13'e hiçbir şey taşınmaz.
+   - K_nt ≥ 10, H1 verilmiş, X_nt < c(K_nt; p₀) ve McNemar p > 0,10 ise "nötr kontrolden ayrışmadı" niteleyicisi
+     eklenir.
+
+   Gerekçe: π = 0,15720'de n ≤ 4 olan pencerede düşüş oyu tanım gereği 0'dır. Kapısız bir nötr bölgede D_nt = 0
+   kendiliğinden olur ve McNemar gölge lehine ayrışma gösterir. Kesin hesap (`tr6a_inc1_denetim.json`
+   `mcnemar_gucu`): gölgede p 0,75, nötrde 0,4585 iken McNemar p ≤ 0,10'un gücü K_nt = 23'te 0,677, 28'de 0,757,
+   33'te 0,819, 37'de 0,860.
+3. **Megathrust ağırlığı:** H1 verilmiş ve megathrust hariç satırda (S4) K_S4 < 5 ya da X_S4/K_S4 ≤ 0,5 ise, hüküm
+   "H1 (megathrust kümelerine dayanıyor)" diye adlandırılır (niteleyici; §6.4).
+4. **Sağlamlık cümlesi:** D1–D8 satırlarından X/K ≤ 0,5 olanlar adıyla listelenir. Liste hükmü değiştirmez. K = 0
+   olan satırlar 'koşulamadı' diye adıyla listelenir.
 5. **Türkiye kümeleri** (1999 İzmit, 2020 Sisam, 2023 Kahramanmaraş; hangisi K'deyse) yalnız anılır; hiçbir Marmara
    cümlesine dayanak olmaz.
+6. **Etkin N0.** Her küme için N0_kul = n_on(Mc_kul) / (1796/365,25) yazılır (ön pencere, kümesizleştirilmiş,
+   Mc_kul ile). Hükmün K kümesinin yarısından fazlasında N0_kul < 31,36 ise H0 ve ayırt edilemez kalıplarına şu cümle
+   eklenir: "Oy Mc'si kapı Mc'sinin belirgin üstünde: K kümenin …'inde etkin N0_kul < 31,36. Olumsuz sonuç (iii) ana
+   şok sonrası tamlık sınırıyla da açıklanabilir; (i), (ii) ve (iii) ayrılamaz." H1'e uygulanmaz.
 
 ### 6.3 Hüküm cümleleri (kalıplar)
 
@@ -759,6 +867,52 @@ p = 0,45–0,50 satırları o dünyaya yakındır.
   sonrası veri indirilmedi. Aday elenmedi; yeniden açma şartı §14."
 - **Güç yok (ölçü yanlı):** "Olay öncesi sahte zamanlarda düşüş oyu payı p̂₀ = … (J = …) > 0,60. Ölçü H0 altında
   yanlı; hüküm satırı koşulmadı, olay sonrası veri indirilmedi."
+- **Koşulmadı (yöntem):** "TR-6a koşulmadı: <sınama> önceden yazılan ölçütü tutmadı (<ölçüt, değer>). Olay sonrası
+  veri indirilmedi. Aday elenmedi; yeniden açma ayrı ön kayıtla."
+- **Kalibrasyon zayıf eki:** "Olay öncesi sahte zamanlardan yalnız J = … geçerli oy elde edildi (< 30). p₀ tabanı
+  0,52 alındı (§4.6)."
+
+### 6.4 Hüküm adlarının kapalı listesi ve bileşimi
+
+Sonuç dosyasındaki hüküm adı yalnız bu kurallarla kurulur; başka ad yazılmaz.
+
+1. **Taban hüküm.** Tam olarak biri seçilir; aşağıdakilerden ilk uyan geçerlidir.
+   - (a) **"koşulmadı (yöntem: Okada sınaması | yapay katalog sınaması | tamlık sınaması)".** §3.3 doğrulaması,
+     §9 adım 2'nin yapay katalog sınaması ya da tamlık yedek merdiveni §9 adım 2'deki sonuç kuralıyla kesin
+     biçimde tutmadı. Olay sonrası veri indirilmez, aday elenmez. Yeniden açma ancak ayrı bir ön kayıtla olur.
+   - (b) **"güç yok"**: K_kapı < 23 (§5).
+   - (c) **"güç yok (ölçü yanlı)"**: p₀ > 0,60 (§4.6).
+   - (d) **"H1", "H0" ya da "ayırt edilemez"** (§6.1). c(K) ≤ h(K) olan bir K'de X ≥ c ise taban H1'dir.
+2. **Düşürücüler.** Yalnız taban H1'e uygulanır. Hepsi özgün taban H1'e göre denetlenir; birinin uygulanması ötekilerin
+   koşulunu değiştirmez. Uyanlar §6.2 sırasıyla, noktalı virgülle aynı parantezde yazılır ve taban "ayırt
+   edilemez" olur. Düşürücüler:
+   - "pozitif kontrol tutmadı" (§6.2 kural 1);
+   - "olay öncesi düşüş eğilimi" (kural 2);
+   - "nötr bölgede de düşüş: tamlık ya da ağ yapay olgusu" (kural 2a).
+
+   Örnek: "ayırt edilemez (pozitif kontrol tutmadı; nötr bölgede de düşüş: tamlık ya da ağ yapay olgusu)". Düşürülen
+   hükme madde 4'teki H0 ve ayırt edilemez ekleri uygulanmaz. X, c ve p yine yazılır.
+3. **Niteleyiciler.** Düşürülmemiş H1'e eklenir; bu sırayla, tek parantezde, noktalı virgülle:
+   - "pozitif kontrol koşulamadı";
+   - "negatif kontrol koşulamadı";
+   - "nötr kontrol koşulamadı" ya da "nötr kontrolden ayrışmadı";
+   - "megathrust kümelerine dayanıyor";
+   - "tasarım gücünün altında: güç …";
+   - "kalibrasyon zayıf: J = …, p₀ = …".
+
+   Örnek: "H1 (nötr kontrolden ayrışmadı; tasarım gücünün altında: güç 0,654)".
+4. **H0 ve ayırt edilemez ekleri.** Bu sırayla, cümle olarak:
+   - ters yön notu (§6.1);
+   - "pozitif kontrol de tutmadı: hat ya da model başarısız; ayrılamaz" (§6.2 kural 1);
+   - "olay öncesi artış eğilimiyle ayırt edilemez" (kural 2);
+   - etkin N0 cümlesi (§6.2 kural 6);
+   - "(tasarım gücünün altında: güç …)";
+   - "(kalibrasyon zayıf: J = …, p₀ = …)".
+5. **§13'e taşıma.** §13'ün H1 cümlesi yalnız hüküm adı tam olarak "H1" ya da "H1 (tasarım gücünün altında: güç …)"
+   ise yazılır. Başka herhangi bir niteleyici varsa §13 cümlesi yazılmaz; yerine "Marmara'ya taşınmadı:
+   <niteleyici>" yazılır.
+6. **Koşu sonrası değişiklik eki.** §9 adım 6'daki "(koşu sonrası değişiklikle: <ad>)" eki, yukarıdaki kurallarla
+   kurulmuş adın sonuna yazılır; <ad> aynı kurallarla kurulur. Ek hüküm adını ve §13'e taşımayı değiştirmez.
 
 ## 7. İkincil satırlar (zorunlu; hükmü değiştirmez)
 
@@ -773,13 +927,13 @@ settir.
 
 | Satır | Tanım | Kapı / küme seti |
 |---|---|---|
-| **S1 pozitif kontrol** | Ana K temsilcilerinden pozitif lobunun olay öncesi N0⁺'ı (Mc_lob⁺ ile, ön pencere, kümesizleştirilmiş) ≥ 3,0 olay/yıl olanlar; K⁺ bu kümelerin sayısıdır (manifestte, olay sonrası indirmeden önce). Kendi Mc_lob'u, artış oyu X⁺. Başarı ölçütü X⁺ ≥ c(K⁺; 0,50). K⁺ < 10 ise S1 "koşulamadı". K⁺ dışındaki kümelerin oyları bilgi olarak yazılır. | ana K'nin alt kümesi |
-| **S2 negatif kontrol (zaman ters çevrimi)** | Aynı temsilciler, aynı gölge lobu; "ön" [t0 − 1826 g, t0 − 365 g), "son" [t0 − 365 g + (t_s − t0), t0 − 30 g); 730 g ön tampon; π_nk = T_son,nk / (1461 + T_son,nk) (tek olayda 0,18653); Mc §3.5. X_nk ve Y_nk; iki kuyruk ayrı, p₀ = 0,50. Yalnız sahte j = 1'i geçerli kümeler (§4.6); K_nk. Tamamen olay öncesi veridir; manifestte, olay sonrası indirmeden önce hesaplanır ve commit edilir. | ana K'nin alt kümesi |
+| **S1 pozitif kontrol** | Ana K temsilcilerinden pozitif lobunun olay öncesi N0⁺'ı (Mc_lob⁺ ile, ön pencere, kümesizleştirilmiş) ≥ 10,0 olay/yıl (n_on⁺ ≥ 50) olanlar; K⁺ bu kümelerin sayısıdır (manifestte, olay sonrası indirmeden önce). Kendi Mc_lob'u, artış oyu X⁺. Başarı ölçütü X⁺ ≥ c(K⁺; 0,50). K⁺ < 10 ise S1 "koşulamadı". K⁺ dışındaki kümelerin oyları bilgi olarak yazılır. | ana K'nin alt kümesi |
+| **S2 negatif kontrol (zaman ters çevrimi)** | Aynı temsilciler, aynı gölge lobu; "ön" [t0 − 1826 g, t0 − 365 g), "son" [t0 − 365 g + (t_s − t0), t0 − 30 g); 730 g ön tampon; π_nk = T_son,nk / (1461 + T_son,nk) (tek olayda 0,18653); Mc §3.5. X_nk ve Y_nk; iki kuyruk ayrı, p₀ = 0,50. Yalnız sahte j = 1'i geçerli kümeler (§4.6); K_nk. Tamamen olay öncesi veridir; manifestte, olay sonrası indirmeden önce hesaplanır ve commit edilir. K_nk < 10 ise S2 'koşulamadı'; §6.2 kural 2 uygulanmaz ve H1 'negatif kontrol koşulamadı' niteleyicisini alır (§6.4). | ana K'nin alt kümesi |
 | **S3 doğrultu atımlı alt küme** | Temsilci grubunun en büyük üyesinin ComCat mekanizması "doğrultu atımlı". Yalnız bilgi. | ana K'nin alt kümesi |
 | **S4 megathrust hariç** | "ters, düşük eğimli (megathrust dahil)" sınıfı çıkarılır. | ana K'nin alt kümesi |
 | **S5a, S5b Aσ 13 / 39 kPa** | Kapı eşiği 17,08 / 111,21; kapı, kümeleme, çıkarmalar ve temsilci yeniden; oylar aynı kuralla; p₀ ana kalibrasyondaki değer. | kendi K'si |
 | **S6 ikinci kayma modeli (SRCMOD)** | SRCMOD'da grubun her üyesi için model varsa en son yayımlanan (eşitlikte SRCMOD listesindeki ilk). ΔCFF, loblar, Mc ve oy aynı kuralla. Ayrıca hücre uyuşma payı (iki modelde aynı sınıfta olan hücre / ComCat modelinde gölge ya da pozitif sınıftaki hücre) ve aynı alt kümede ComCat oyu. SRCMOD erişilemezse "koşulamadı". | ana K'nin SRCMOD'lu alt kümesi, kapı yeniden |
-| **S7 nötr kontrol** | Aynı K temsilci. Bölgede \|ΔCFF\| ≤ 2 kPa olan ve r_k'si gölge lobunun en uzak hücresinin r_k'sini aşmayan hücreler. Kendi Mc_lob'u, aynı Mc_son ve Mc_kul kuralı, aynı oy (X_nt, Y_nt). Kapı yok; n = 0 ise oy 0. Ayrıca gölge ve nötr oyların eşleşik tek yanlı kesin işaret (McNemar) sınaması: a = #(D_gölge = 1, D_nt = 0), b = #(D_gölge = 0, D_nt = 1), p = P(Binom(a + b, 0,5) ≥ a). | ana K |
+| **S7 nötr kontrol** | Ana K temsilcileri. Nötr bölge: bölgede \|ΔCFF\| ≤ 2 kPa olan ve r_k'si gölge lobunun en uzak hücresinin r_k'sini aşmayan hücreler. Kendi Mc_lob_nt'si (§3.5 kuralı), aynı Mc_son, Mc_kul,nt = max(Mc_lob_nt, Mc_son); aynı kümesizleştirme ve oy (X_nt, Y_nt). **Nötr kapı:** olay öncesi N0_nt (Mc_lob_nt ile, ön pencere, kümesizleştirilmiş) ≥ 31,36 olay/yıl (n_on,nt ≥ 155). K_nt bu kümelerin sayısıdır ve manifestte, olay sonrası indirmeden önce yazılır. X_nt, Y_nt ve McNemar yalnız bu K_nt kümede sayılır: a = #(D_gölge = 1, D_nt = 0), b = #(D_gölge = 0, D_nt = 1), p = P(Binom(a + b, 0,5) ≥ a); a + b = 0 ise p = 1. K_nt < 10 ise S7 "koşulamadı". Kapı dışı kümelerin nötr oyları bilgi olarak yazılır. | ana K'nin alt kümesi (K_nt) |
 | D1 Mc + 0,5 | Mc_kul + 0,5 (iki pencere); kapı yeniden. | kendi K'si |
 | D2 geç pencere | Son pencere [t_s + 90 g, son pencere sonu); tek olaylı ve kesilmemiş pencerede π = 275/2071. | ana K |
 | D3a, D3b iç sınır | r_k ≥ 5 km ve r_k ≥ 40 km; loblar ve kapı yeniden. | kendi K'si |
@@ -790,73 +944,96 @@ settir.
 | D8 güçlü gölge | Gölge lobu ΔCFF ≤ −30 kPa hücreleri; kapı yeniden. Yalnız bilgi. | kendi K'si |
 | B1 K tam | Testere dişi atması yapılmadan bütün K_kapı kümeleri; kendi c(K; p₀)'ı. Yalnız ana K atma yaptıysa. | K_kapı |
 | B2 büyüklük | Gölge ve pozitif lobda Δτ_est medyanı (Aσ 13 / 19 / 39); pozitif lobda Spearman(lob ortalama ΔCFF, Δτ_est). | ana K |
-| B3 bağımlılık ve kesme | Temsilcinin son penceresinde 2L içinde havuz olayı olan kümelerde X/K; §3.7 kesmesiyle çıkan kümeler ve kesilen T_son'lar; adıyla yazılan örtüşen çiftler; tek bağlantıda birleşecek küme çifti sayısı. | ana K ve çıkanlar |
+| B3 bağımlılık ve kesme | Temsilcinin son penceresinde 2L içinde havuz olayı olan kümelerde X/K; §3.7 kesmesiyle çıkan kümeler ve kesilen T_son'lar; adıyla yazılan örtüşen çiftler; tek bağlantıda birleşecek küme çifti sayısı. "Öncül komşulu" kümeler: temsilcinin [t0 − 365 g, t0) aralığında, dış merkez uzaklığı < 3 L_A + 3 L_temsilci olan bir havuz olayı A (grup dışı) varsa küme işaretlenir. Önsayımda 5 küme işaretli: usp0006qh3, official20041226005853450_30, usp000hrw0, official20110311054624120_30, official20120411083836720_20. Bu kümeler çıkarılmış hâliyle X, K ve c(K; p₀) de yazılır. | ana K ve çıkanlar |
 | B4 bilinen sonuçlu kümeler | Kumamoto ve Ridgecrest kümelerinin (ana hükümden çıkarılan) ve Tohoku kümesinin D, A, n_on, n_son, Δτ_est değerleri. Ayrıca ilk ikisi eklenmiş, Tohoku çıkarılmış hâliyle X, K ve c(K; p₀). Hükmü değiştirmez. | ana K ± 3 |
 
 ## 8. Çıktı tablosu (kalıp)
 
-`tr6a_sonuc.md` aşağıdaki tabloyu ve §6.3'teki kalıplardan biriyle hüküm cümlesini taşır. `tr6a_sonuc.json` aynı
+`tr6a_sonuc.md` aşağıdaki tabloyu, §6.4'e göre kurulan hüküm adını ve §6.3'teki kalıplardan biriyle hüküm cümlesini
+taşır. `tr6a_sonuc.json` aynı
 sayıları ve girdi dosyalarının sha256'larını taşır.
 
 | Satır | K | X (düşüş) | Y (artış) | X/K | c(K; p₀) | c(K; 0,5) | p (X, p₀) | p (X, 0,5) | p (Y) | koşullu p (bilgi) | Hüküm / etiket |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| Ana (gölge, Aσ 19) | | | | | | | | | | | H1 / H0 / ayırt edilemez / güç yok |
+| Ana (gölge, Aσ 19) | | | | | | | | | | | §6.4'teki kapalı listeden ad (taban + düşürücüler ya da niteleyiciler + ekler) |
 | S1 pozitif kontrol | K⁺ | X⁺ | | | | | | | | | tuttu / tutmadı / koşulamadı |
 | S2 negatif kontrol | K_nk | X_nk | Y_nk | | | | | | | | eğilim yok / düşüş / artış |
-| S7 nötr kontrol | | X_nt | Y_nt | | | | | | | McNemar p | |
+| S7 nötr kontrol | K_nt | X_nt | Y_nt | | | | | | | McNemar p | |
 | S3 … D8, B1, B4 | | | | | | | | | | | — |
 
-Üst bilgi: p̂₀, p̂₀⁺, J, p₀, p₀⁺, testere çözümü. Ek tablolar:
+Üst bilgi: p̂₀, p̂₀⁺, J, J < 30 kuralı uygulandı mı, p₀, p₀⁺, testere çözümü. Ek tablolar:
 - küme başına satır: küme, temsilci, grup üyeleri, katalog, Mc_halka, Mc_lob, Mc_son (alt pencere başına), Mc_kul,
-  T_son, π, gölge, pozitif ve nötr hücre sayısı, n_on, n_son, D, A, Δτ_est, alıcı kaynağı, mekanizma sınıfı, sahte
+  T_son, π, gölge, pozitif ve nötr hücre sayısı, n_on, n_son, N0_kul, D, A, Δτ_est, alıcı kaynağı, mekanizma sınıfı, sahte
   oylar, bayraklar;
 - atılan ve çıkarılan kümeler.
 
 ## 9. Koşu sırası ve körlük
 
-1. Bu taslak ikinci kez incelenir, bulgular işlenir, metin "DONDURULDU" diye commit + push edilir. Dondurulan
-   dosyalar: bu metin, `tr6a_olay_listesi.json` (sha256 §3.1), `tr6a_onkayit_sayilar.py` ve `.json`,
-   `tr6a_onbellek_kor.py`, `tr6a_sifir_buyukluk.py` ve `.json`, `tr6a_inc1_denetim.py` ve `.json`.
+1. Taslak iki kez bağımsız incelendi ve bulgular işlendi (sürüm 3); üçüncü inceleme turu yoktur. Metin
+   "DONDURULDU" diye commit + push edilir. Dondurulan dosyalar: bu metin, `tr6a_olay_listesi.json` (sha256 §3.1),
+   `tr6a_onkayit_sayilar.py` ve `.json`, `tr6a_onbellek_kor.py`, `tr6a_ham_sha256.txt`, `tr6_a_kapi.py` (sürüm 3'te
+   yalnız `getir`'e önbellek engeli eklendi), `tr6a_sifir_buyukluk.py` ve `.json`, `tr6a_inc1_denetim.py` ve `.json`,
+   `tr6a_inc2_b1.py`–`tr6a_inc2_b4.py`, `tr6a_md_denetim.py`. Dondurulan çıktıların sha256'sı:
+   - `tr6a_onkayit_sayilar.json`: e39b3252a9f5db6b1c201936c245edb93b94b0a7c4ad94b5ed41d5c48db78c4f;
+   - `tr6a_inc1_denetim.json`: 4ff6f4d090a7e060fb2fea4e0ebf72adbd3e0900d8008c693be6d6764e11050a;
+   - `tr6a_olay_listesi.json` ve `tr6a_sifir_buyukluk.json`: §3.1.
 2. **Kod yalnız yapay veriyle geliştirilir** (`kayit/turetme/tr6/`, yalnız numpy ve standart kitaplık,
    `python3 -I -B`):
-   - `tr6a_okada.py` ve sınaması (§3.3).
-   - Yapay katalog sınaması: bilinen bir yapay sonlu fay, bilinen Aσ = 19 kPa ve τ̇0 ile Dieterich oran yanıtı, arka
-     planda Poisson + GK tipi ikincil diziler. Bütün hat (lob, Mc, kümesizleştirme, oy, sahte kalibrasyon) çalıştırılır.
-     Ölçütler:
-     - Δτ = 0 dünyasında gölge düşüş oyu oranı, N0 ∈ {31,36; 100; 500} için §4.3'teki kesin değerle 3 standart hata
-       içinde;
-     - kalıcı −10 kPa dünyasında N0 31,36'da 0,987 ile 3 standart hata içinde;
-     - Δτ_est medyanı §4.5 tablosuyla 3 standart hata içinde;
-     - Δτ = 0 dünyasında p̂₀'ın beklenen değeri gerçek düşüş oyu oranıyla 3 standart hata içinde.
+   - `tr6a_okada.py` ve sınaması (§3.3, 1–9 sınamaları, tekil noktalar ve ızgara kuralı).
+   - **Yapay katalog sınaması** iki biçimde koşulur. Tohum 20261114, her ölçüt için en az 20 000 deneme. Bilinen bir
+     yapay sonlu fay, bilinen Aσ = 19 kPa ve τ̇0 ile Dieterich oran yanıtı kullanılır; bütün hat (lob, Mc,
+     kümesizleştirme, oy, sahte kalibrasyon) çalıştırılır.
+     - (i) Lobda arka plan saf Poisson'dur; bölgede ikincil diziler vardır. Ölçütler:
+       - Δτ = 0 dünyasında gölge düşüş oyu oranı N0 ∈ {31,36; 100; 500} için §4.3'teki kesin değerle 3,5 SE içinde;
+       - kalıcı −10 kPa dünyasında N0 31,36'da 0,987 ile 3,5 SE içinde;
+       - Δτ_est medyanı §4.5 tablosuyla 3,5 SE içinde.
+     - (ii) Lobda da GK tipi ikincil diziler vardır. Ölçüt: Δτ = 0 dünyasında p̂₀'ın beklenen değeri, gerçek düşüş oyu
+       oranıyla 3,5 SE içinde. Bu biçimde P(D)'nin kendisi bilgi olarak yazılır.
+
+     Bir ölçüt tutmazsa kod hatası aranır. Bulunan her hata düzeltilir, hata listesi commit edilir ve bütün sınama aynı
+     tohumla yeniden koşulur. Hata bulunamazsa TR-6a "koşulmadı (yöntem: yapay katalog sınaması)" diye kapanır (§6.4).
    - **Ana şok sonrası tamlık kaybı sınaması.** Yapay kataloğa Mc(t) = M_ana − 4,5 − 0,75 log10(t / 1 g) uygulanır
      (Helmstetter vd. 2006 biçimi; sabitler sınama için seçildi, doğrulanmadı).
      - Izgara: M_ana ∈ {7,0; 7,5; 8,0; 9,0}, Mc_lob ∈ {1,0; 1,8; 3,0}, N0 ∈ {31,36; 100; 500; 4500}, bölgede artçı payı
        ∈ {0; 0,9}.
      - Ölçüt: Δτ = 0 dünyasında §3.5 kuralıyla gölge düşüş oyu oranı, her hücrede o N0'ın kesin Poisson H0 değerini
-       (§4.3) 0,02'den fazla aşmamalıdır (en az 4000 deneme).
-     - Aşarsa yedekler sırayla denenir ve tutan ilki bağlayıcı olur:
+       (§4.3) 0,02'den fazla aşmamalıdır (hücre başına en az 20 000 deneme, standart hata ≤ 0,0036; tohum 20261115;
+       lobda arka plan saf Poisson).
+     - Aşarsa yedekler sırayla denenir ve tutan ilki bağlayıcı olur. Her basamak bir kez, aynı tohumla koşulur. Bütün
+       basamakların bütün hücre sonuçları, manifestten önce commit edilir. Yedekler:
        - (a) alt pencere sınırları [30, 40), [40, 50), [50, 60), [60, 90), [90, 180), [180, 365);
        - (b) (a) ile birlikte Mc_son'a +0,2 eklenir;
        - (c) (b) ile birlikte ana son pencere [t_s + 90 g, son pencere sonu) olur (tek olayda π = 275/2071; D2 ana
-         satır olur); alt pencereler [90, 180), [180, 365).
-     - Hiçbiri tutmazsa TR-6a "yöntem yapay sınamada yetersiz" diye kapanır; olay sonrası veri indirilmez. Bu sınama
+         satır olur); alt pencereler [90, 180), [180, 365). (c) seçilirse 90 g başlangıcı her yerde uygulanır:
+         - §3.7'deki T_son < 60 g ölçütü yeni başlangıçla yeniden uygulanır. Önsayımda 2004 Sumatra kümesi T_son
+           1,6 g ile çıkar (`onsayim.19.yedek_c`: K_kaba 29 → 28).
+         - Sahte son pencereler [t'_j + (t_s − t0) + 90 g, t'_j + e) olur.
+         - S2'nin "son" penceresi [t0 − 305 g + (t_s − t0), t0 − 30 g) olur; π_nk aynı formülle hesaplanır.
+         - D2 satırı kalkar.
+         - Mc_son alt pencereleri [90, 180) ve [180, 365) olur.
+     - Hiçbiri tutmazsa TR-6a "koşulmadı (yöntem: tamlık sınaması)" diye kapanır (§6.4); olay sonrası veri indirilmez. Bu sınama
        gerçek veri görmediği için yedek seçimi körlüğü bozmaz. Seçilen yedek manifestte yazılır.
      - Gürültüsüz ön denetim (`tr6a_inc1_denetim.json` `tamlik`): aynı 96 hücrede beklenen histogramla, kısmi algılama
        (Mc(t) > Mc_kul iken algılanan pay 10^−(Mc(t) − Mc_kul)) hesaplandı. Sürüm 1 kuralı 56 hücrede başarısız (en
        büyük fark +0,469). A2 alt pencere kuralı ve yedekler (a)–(c) bütün hücrelerde 0 fark verdi. MAXC gürültüsü bu ön
-       denetimde yoktur; bağlayıcı olan yukarıdaki 4000 denemelik sınamadır.
+       denetimde yoktur; bağlayıcı olan yukarıdaki 20 000 denemelik sınamadır. 4000 denemede (SE ≈ 0,0079) kusursuz bir
+       kural bile 96 hücreden en az birinde ≈ 0,42 olasılıkla gürültüyle düşerdi; 20 000 denemede 0,02 = 5,6 SE'dir ve
+       bu olasılık < 1e−6'dır (İNCELEME-2 B3).
 3. **Manifest (yalnız olay öncesi veri):** `tr6a_manifest.py` → `tr6a_manifest.json` + `tr6a_on_ham_sha256.txt`.
    İçerik:
-   - her aday için sonlu fay ürünü (kimlik, `code`, `updateTime`), dosya ve sha256'sı, M0 sağlaması, alıcı (kaynak,
-     tensör sayısı, çift kuvvet payı);
-   - lob hücre sayıları (gölge, pozitif, nötr, D8) ve iç sınır yüzünden atılan gölge hücresi sayısı ve payı;
+   - her aday için sonlu fay ürünü (kimlik, `code`, `updateTime`), öteki ürünlerin kimlikleri ve `updateTime`'ları,
+     dosya ve sha256'sı, M0 sağlaması, alıcı (kaynak, tensör sayısı, çift kuvvet payı);
+   - lob hücre sayıları (gölge, pozitif, nötr, D8), iç sınır yüzünden atılan gölge hücresi sayısı ve payı, "tekil
+     yakın alan" hücre sayısı (§3.4);
    - katalog seçimi (ISC ve "0 büyüklük" kuralları dahil), atılan satır sayıları, bölünen sorgu sayısı, Mc_halka,
      Mc_lob;
-   - kapı N0'ı (gölge ve pozitif; Aσ 13/19/39 ve D1, D3a, D3b, D4, D5, D8 eşikleri);
+   - kapı N0'ı (gölge ve pozitif; Aσ 13/19/39 ve D1, D3a, D3b, D4, D5, D8 eşikleri), K⁺; nötr kapı N0_nt'leri ve K_nt;
    - olay grupları, kümeler, temsilciler, §3.7 kesmeleri (r_k ile), çıkarmalar, K_kapı, mekanizma sınıfına göre K;
-   - sahte zamanlar, geçerlilikleri, sahte oylar (küme başına), p̂₀, p̂₀⁺, J, p₀, p₀⁺, c(K), c⁺(K), testere dişi
-     atma listesi;
-   - bayraklar ve **S2 negatif kontrolün sonucu**.
+   - sahte zamanlar, geçerlilikleri ve geçersizlik nedenleri ("sahte kapı" dahil), sahte oylar (küme başına), p̂₀,
+     p̂₀⁺, J, J < 30 kuralının uygulanıp uygulanmadığı, p₀, p₀⁺, c(K), c⁺(K), testere dişi atma listesi; §4.6 bilgi
+     satırları (medyana göre ikiye bölünmüş p̂₀, K_0 ve kimlikleri);
+   - her havuz olayı için R_A (aşağıda);
+   - bayraklar ("öncül komşu" dahil) ve **S2 negatif kontrolün sonucu**.
 
    Ham ön indirmeler `/mnt/project-files/turetme/tr6a-ham/` altına arşivlenir. Manifest commit edilir. K_kapı < 23 ya
    da p₀ > 0,60 ise burada durulur (§5).
@@ -875,23 +1052,35 @@ sayıları ve girdi dosyalarının sha256'larını taşır.
      histogram, harita) yazılmaz.
    - Bu kuralların dışındaki her önbellek okuması (tanı, denetim, ad hoc sayım) yalnız `tr6a_onbellek_kor.oku_sorgu`
      üzerinden yapılır. Bu işlev sözü edilen satırları döndürmeden önce atar ve onlar hakkında hiçbir bilgi vermez.
-     Ek 1 önbelleği aynı kuraldadır.
+     Ek 1 önbelleği aynı kuraldadır. Önbellek yalnız arşivden (sha256 f350d2e0…0d60) açılan bir dizinden okunur; yol
+     `oku_sorgu(…, onb=…)` ile verilir. Kod incelemesi (§9 adım 4), önbelleği ya da ön ham dizinleri açan her `open(`
+     çağrısını listeler. `oku_sorgu` ve manifestin aday başına kendi indirmesini okuyan işlevi dışında bir çağrı varsa
+     bu hata sayılır. Manifest, kırık izleri çıkınca her havuz olayı için R_A = 2 L_A + (izin dış merkeze en uzak
+     noktası) değerini yazar. R_A > 4 L_A olan bir olay varsa maske o olay için R_A'ya genişletilir ve sonraki ad hoc
+     okumalar genişletilmiş maskeyle yapılır. (Kodda: `tr6a_onbellek_kor.arsivden_ac` arşivin sha256'sını
+     `tr6a_ham_sha256.txt` ile denetleyip dizini işaretler; okuma yolu `onb=` ya da `TR6A_ONBELLEK` ister, sabit yol
+     yoktur; `tr6_a_kapi.getir` işaretli dizini açmayı reddeder.)
 
    "Manifest hiçbir olay sonrası veri içermez" cümlesi, "manifest hiçbir adayın kendi olay sonrası penceresinden ya da
    başka bir adayın olay sonrası penceresiyle sınırlanmış bir bölgeden türetilmiş sayı içermez" diye okunur.
 4. **Kod incelemesi** (bağımsız), olay sonrası veri indirilmeden önce. Gerçek veride yalnız manifest koşulmuş olur.
-   İnceleme §4.6 kalibrasyonunu, §3.5 alt pencere Mc_son kuralını ve §3.7 kesmesini özellikle denetler. İnceleme
+   İnceleme §4.6 kalibrasyonunu, §3.5 alt pencere Mc_son kuralını ve §3.7 kesmesini özellikle denetler; ayrıca J < 30
+   ve sahte kapı dallarını, nötr kapısını, §6.4 ad kurucusunu, §3.3'ün 6–9 sınamalarını ve §9 adım 3'teki `open(`
+   denetimini (İNCELEME-2 §H madde 6). İnceleme
    manifest kodunda bir hata bulursa yalnız o hata düzeltilir ve manifest yeniden koşulur. İki manifest de commit
    edilir. Farkları (K, atılan kümeler, p̂₀, S2) kayda yazılır. Bağlayıcı olan ikincisidir. Hata listesi yeniden
    koşudan önce commit edilir.
 5. **Olay sonrası katalog bir kez indirilir:** manifestteki bütün kapı kümelerinin (bütün satırların birleşimi) seçilen
-   kataloğundan [t0, son pencere sonu) bölge olayları. Satır sınırı kuralı uygulanır. Hiçbir sorgu 2025-12-31'i aşmaz.
+   kataloğundan [t0, son pencere sonu) bölge olayları. D6 satırının olayları için ayrıca ISC'den; S6 için SRCMOD
+   modelleri (katalog değil) aynı adımda bir kez. Satır sınırı kuralı uygulanır. Hiçbir sorgu 2025-12-31'i aşmaz.
    Ham yanıtlar arşivlenir, `tr6a_son_ham_sha256.txt` commit edilir.
 6. **Tek koşu:** `tr6a_kosu.py` manifesti, ham listeleri ve kendi sha256'sını doğrular. Sonuç dosyalarını bellekte
    üretip birlikte yazar; var olan çıktının üzerine yazmaz. Çıktı ne olursa olsun yazılır. Koşudan sonra tanım, eşik,
    manifest ya da küme kuralı değişmez. Koşu bir istisnayla durursa yalnız istisnanın doğrudan nedeni düzeltilir ve
    fark kayda geçer. Herhangi bir oy ya da X görüldükten sonraki her kod değişikliği "koşu sonrası değişiklik"
-   başlığında yazılır.
+   başlığında yazılır ve sonucu ayrı satırdır. Hüküm adı, değişiklikten önce tamamlanmış koşudan gelir. Değişiklikten
+   sonraki koşu farklı bir taban hüküm verirse hüküm adına "(koşu sonrası değişiklikle: <ad>)" eklenir. İstisnayla
+   duran bir koşunun doğrudan nedeni düzeltilip tamamlanan ilk koşu, bu kuralda "değişiklikten önceki koşu" sayılır.
 
 Bugüne dek hiçbir lobda oran hesaplanmadı. Sürüm 2 önsayımının küme listesi Ek A'da bilgi olarak verildi; bağlayıcı
 küme listesi manifesttir.
@@ -906,7 +1095,15 @@ küme listesi manifesttir.
   - sonuç **K_kaba = 29**.
 
   ISC kuralı kapıdan önce 3 birimi düşürür (§3.5). Sürüm 1'in 46 olay / 37 küme sayımı aynı kodla yeniden üretildi
-  (`surum1_yeniden`). Aσ 13 kPa'da K_kaba 35 (49 birim, 41 küme), Aσ 39 kPa'da 6 (8 birim, 8 küme).
+  (`surum1_yeniden`). Aσ 13 kPa'da K_kaba 35 (49 birim, 41 küme), Aσ 39 kPa'da 6 (8 birim, 8 küme). Sürüm 3
+  kuralları kaba önsayımı değiştirmez: K_kaba yine 29'dur ("0 büyüklük" satırları sürüm 2 önsayımında da seçime
+  girmiyordu; nötr ve pozitif kapı, sahte kapı ve tekil yakın alan kaba kapıyı etkilemez). Yedek (c) seçilirse 2004
+  Sumatra kümesi T_son 1,6 g ile çıkar ve K_kaba 28 olur (`onsayim.19.yedek_c`).
+- **K⁺ ve K_nt (kaba, bilgi).** Ek 1'in lob payı varsayımı pozitif loba ve nötr bölgeye de uygulanırsa her temsilcinin
+  kaba N0'ı bu iki kapının da üstündedir (en küçüğü 34,3): pozitif kapıyla (N0⁺ ≥ 10,0) **K⁺ = 29**, nötr kapıyla
+  (N0_nt ≥ 31,36) **K_nt = 29** (`onsayim.19.pozitif_kapi_K`, `notr_kapi_K`). Bu sayılar varsayımın kopyasıdır; gerçek
+  pozitif lob ve nötr bölge alanları ΔCFF'ye bağlıdır ve ΔCFF henüz hesaplanmadı. Duyarlılık (aynı 29 temsilci, kaba N0
+  çarpanla): K⁺ × 0,5 / × 0,25 / × 0,125 ile 29 / 25 / 14; K_nt × 0,5 / × 0,25 ile 18 / 5.
 - **Duyarlılık (bilgi).** K_kaba şu varsayımlarla değişir:
   - kesme ölçütü dış merkez ≤ 3L ile: 29;
   - kaba N0 × 0,5 ile (lob payı 0,125): **19**;
@@ -914,8 +1111,8 @@ küme listesi manifesttir.
   - Mc + 0,5 ile (Ek 1 `N0_mc05`): 11;
   - ikisi birlikte: 7.
 - **Neden aşağı?** Gerçek lob tanımı (§3.4) megathrust olaylarında gölgenin büyük kısmını (kırığın üstü) dışarıda
-  bırakır. Önsayımın 29 kümesinin 15'i megathrust'tır (doğrultu atımlı 10, normal 3, ters diğer 1). Lob Mc'si (MAXC +
-  0,2, çoğu açık denizde) ve 730 g tamponlu kümesizleştirme sayıyı ayrıca düşürür.
+  bırakır. Önsayımın 29 kümesinin 14'ünün temsilcisi megathrust'tır (doğrultu atımlı 10, normal 4, ters diğer 1;
+  S3/S4 tanımıyla). Lob Mc'si (MAXC + 0,2, çoğu açık denizde) ve 730 g tamponlu kümesizleştirme sayıyı ayrıca düşürür.
 - **Yazarın önseli: P(K < 23) ≈ 0,7** (sürüm 1: 0,5). Dayanağı: kaba sayı eşiğin yalnız 6 üstünde ve kaba N0'ın yarıya
   inmesi K'yi 19'a düşürüyor.
 - **p₀.** Kapıdan geçen kümelerin çoğunun N0'ı yüksektir (önsayımda temsilcilerin kaba N0 medyanı 78,4, Tohoku 4501). Bu yüzden Poisson H0'da
@@ -929,12 +1126,32 @@ küme listesi manifesttir.
   - P(H0) ≈ 0,45–0,80.
 
   Bu, §2'deki önsellerle (0,20 / 0,50 / 0,30) tutarlıdır.
-- **Pozitif kontrol** büyük olasılıkla tutar (yapay dünyada 0,97–1,00). K⁺ < 10 olasılığı megathrust ağırlığı yüzünden
-  küçük değildir (yazarın önseli ≈ 0,2).
+- **Pozitif kontrol.** Yalnız +10 kPa'lık kalıcı adımla bile küme başına artış oyu N0⁺ = 10'da 0,928'dir. S1 bu
+  durumda K⁺ = 10'da 0,84, K⁺ = 15'te 0,98 olasılıkla tutar (`tr6a_onkayit_sayilar.json` `pozitif_kapi`). Gerçek
+  pozitif loblarda ΔCFF çoğunlukla daha büyüktür. K⁺ < 10 olasılığı, kapı 3,0'dan 10,0'a çıktığı için sürüm 2'deki
+  ≈ 0,2'den büyüktür; yazarın önseli ≈ 0,3.
+
+  Yapay hesap (`pozitif_kapi`; Aσ 19 kPa, pozitif lobda yalnız +10 kPa'lık Dieterich adımı; kesin Poisson toplamı):
+
+| N0⁺ (/yıl) | 3 | 5 | 10 | 20 | 31,36 |
+|---|---|---|---|---|---|
+| P(A), kalıcı adım | 0,727 | 0,823 | 0,928 | 0,986 | 0,997 |
+| P(A), t_a 1,9 yıl | 0,627 | 0,716 | 0,832 | 0,930 | 0,971 |
+| P(A \| H0) | 0,376 | 0,406 | 0,429 | 0,451 | 0,461 |
+
+  S1'in tutma olasılığı P(X⁺ ≥ c(K⁺; 0,50)), kalıcı adım:
+
+| K⁺ | N0⁺ 3 | N0⁺ 5 | N0⁺ 10 | N0⁺ 20 | N0⁺ 31,36 |
+|---|---|---|---|---|---|
+| 10 | 0,197 | 0,450 | 0,842 | 0,991 | 1,000 |
+| 15 | 0,383 | 0,733 | 0,981 | 1,000 | 1,000 |
+| 20 | 0,526 | 0,873 | 0,998 | 1,000 | 1,000 |
+
 - **Negatif ve nötr kontrol:** ISC'nin ağ yoğunlaşması yüzünden hafif bir düşüş ya da artış eğilimi beklenebilir; yönü
-  önceden bilinmiyor.
+  önceden bilinmiyor. Nötr kapı yüzünden K_nt < 10 olasılığı küçük değildir. O durumda H1 yalnız 'nötr kontrol
+  koşulamadı' niteleyicisiyle verilebilir ve §13'e taşınmaz (§6.4).
 - **En olası sonuç:** "güç yok" ya da "H0 / ayırt edilemez, iki açıklama ayrılamaz". Bu sonuçların kayda geçmesi
-  sınavın amacıdır.
+  sınavın amacıdır. Büyük olaylarda Mc_kul − Mc_lob ≥ 1 olası; yapay ızgarada 2,6'ya kadar.
 
 ## 11. Bilinen zayıflıklar
 
@@ -948,7 +1165,8 @@ küme listesi manifesttir.
    yukarı itebilir (tutucu). 5 yıllık ön pencerede ağ değişimi (Mc'nin zamanla düşmesi) ön oranı şişirmez, ama
    Mc_lob'u pencerenin en kötü dönemine kilitlemez; MAXC havuzlanmış pencereden alınır. Negatif kontrol ve sahte
    kalibrasyon bu tür eğilimleri ölçer.
-4. **Megathrust ağırlığı.** Önsayımın 29 kümesinin 15'i düşük eğimli ters faylanma. Alıcılar 7,5 km'de, sismisite
+4. **Megathrust ağırlığı.** Önsayımın 29 kümesinin 14'ünün temsilcisi megathrust'tır (doğrultu atımlı 10, normal 4,
+   ters diğer 1; S3/S4 tanımıyla). Alıcılar 7,5 km'de, sismisite
    0–40 km. Megathrust gölgesinin derinlikle işaret değiştirdiği yerler var. S4 ve yorum kuralı 3 bunu adlandırır.
    Derinlik duyarlılığı (ör. 15 km) bu sürümde yok.
 5. **Kayma modeli belirsizliği.** ΔCFF'nin CV'si ≈ 1 (Hainzl vd. 2009). Tek ComCat modeli var. SRCMOD erişimi ve
@@ -975,7 +1193,10 @@ küme listesi manifesttir.
     0,5'i aşabilir (φ = 5, N0 = 31,36'da 0,515). Önlem: §4.6'daki ampirik p₀ = max(0,50; ⌈100 p̂₀⌉/100). p̂₀ en çok üç
     sahte zamandan kestirilir ve aynı kümenin sahte oyları birbiriyle ilişkilidir; etkin örneklem J'den küçüktür.
     Kalibrasyon ortalamayı düzeltir, saçılımı tam düzeltmez. Kümeler arası korelasyon binomun bağımsızlık varsayımını
-    ayrıca zayıflatır.
+    ayrıca zayıflatır. Sahte ve gerçek pencereler veri paylaşır (sahte j = 1'in son penceresi gerçek ön pencerenin
+    içindedir). Yapay hesap (İNCELEME-2; Gamma beyaz gürültü, N0 31,36–500, φ 1–5, K 23 ve 28) şunu verdi: gerçek ve
+    sahte oy arasında korelasyon ≈ −0,02; tam yordamın α'sı, bağımsız sahte oy varsayımındakinden 0,001–0,005 yüksek
+    ve en çok 0,037.
 13. **Aσ yalnız kapıda.** Oy Aσ'dan bağımsızdır. Bu yüzden sınav "hız-durum ölçerinin Aσ = 19 kPa ile kalibre edilmiş
     hâlini" değil, ölçerin işaret düzeyindeki çıktısını sınar. Δτ_est büyüklüğü t_a bilinmediği için sıfıra doğru
     yanlıdır (§4.5).
@@ -986,7 +1207,10 @@ küme listesi manifesttir.
     güç 0,745'tir.
 17. **Sahte geçerlilik kuralı** yoğun bölgelerde (Japonya, Sumatra) kalibrasyonu yüksek N0'lı kümelerden yoksun
     bırakır (önsayımda Tohoku'nun üç sahte zamanı da geçersiz). p̂₀ ağırlıkla orta N0'lı kümelerden gelir. Bu kümeler
-    H0'da daha düşük P(D) taşır; kalibrasyon yüksek N0'lı kümelerin yanlılığını eksik görebilir.
+    H0'da daha düşük P(D) taşır; kalibrasyon yüksek N0'lı kümelerin yanlılığını eksik görebilir. Yapay hesap
+    (İNCELEME-2): yıllık oran CV'si 0,1–0,3 iken (φ = 1 + CV² N0), K = 23'ün 5–8 kümesi N0 500–1000 ve sahte zamansız,
+    kalanı N0 50 olsun. Bu durumda kalibrasyonlu α 0,026–0,041, kalibrasyonsuz (p₀ 0,50) α 0,033–0,070 olur. "Sahte
+    kapı" (§4.6) kalan küçük yanlılığı tutucu yöne çeker.
 18. **Son pencere kesmesi** (§3.7) kesilen kümelerde T_son'u kısaltır (Sumatra 2004: 61,6 g) ve onların oy gücünü
     düşürür.
 
@@ -1003,10 +1227,11 @@ küme listesi manifesttir.
 
 ## 13. Marmara ve İstanbul'a bağ
 
-- H1 (yorum kurallarından geçmiş hâliyle) çıkarsa Marmara'ya taşınan tek cümle: "sismisite oranından gerilme işareti
+- H1 çıkarsa ve §6.4 madde 5'in taşıma ölçütü tutarsa Marmara'ya taşınan tek cümle: "sismisite oranından gerilme işareti
   çıkaran hız-durum ölçeri, küresel kosismik gölgelerde işaret düzeyinde geçerli." Bu, Marmara'da kullanılabilirlik
   değildir: (b) ayağının 1 yıllık çözünürlüğü beklenen sinyalin 2,4–82 katı (TR-6_SAYIM §6).
-- H0, ayırt edilemez ya da güç yok çıkarsa Marmara'ya hiçbir şey taşınmaz.
+- H0, ayırt edilemez, güç yok ya da koşulmadı çıkarsa Marmara'ya hiçbir şey taşınmaz. H1 taşıma ölçütünü tutmazsa
+  yalnız §6.4 madde 5'teki "Marmara'ya taşınmadı: <niteleyici>" satırı yazılır.
 - İstanbul ya da Marmara için mutlak olasılık, olasılık çarpanı ya da tarih bu sınavdan hiçbir durumda yazılmaz.
 
 ## 14. Yeniden açma şartı
@@ -1020,6 +1245,7 @@ küme listesi manifesttir.
 - **H0 ya da ayırt edilemez:** (i) en az iki bağımsız kayma modelinin lob sınıfında ≥ %80 hücre uyuşması olan en az
   28 küme (Coulomb tarafının belirsizliğini daraltan bir sınav), ya da (ii) 2026 ve sonrası olaylar, olay sonrası
   pencereleri kapandıktan sonra, ayrı ön kayıtla.
+- **Koşulmadı (yöntem):** aday elenmez; yeniden açma ancak ayrı bir ön kayıtla (§6.4).
 - **H1:** yeniden açma gerekmez; Marmara'ya taşıma (b) ayağının yeniden açma şartına bağlı kalır (Mc ≈ 1 homojen açık
   katalog ve çok yıllı pencere).
 
@@ -1034,16 +1260,17 @@ küme listesi manifesttir.
 
 Bulut oturumunda yapılır; makine gerekmez.
 
-## 16. İNCELEME-1 düzeltme metinlerinden sapmalar (gerekçeli)
+## 16. İnceleme düzeltme metinlerinden sapmalar (gerekçeli)
 
-İNCELEME-1'in bütün bulguları işlendi (A1–A4, B1–B10, K1–K8). Aşağıdaki yerlerde bu metin düzeltme metninden bilerek
-ayrılır; §0 gereği burada bu metin geçerlidir.
+İNCELEME-1'in (A1–A4, B1–B10, K1–K8) ve İNCELEME-2'nin (A1–A3, B1–B6, K1–K15) bütün bulguları işlendi. Madde 1–15
+İNCELEME-1 düzeltme metinlerinden sapmalardır. İNCELEME-2 bunların 14'ünü kabul etti; J < 30 kuralını reddetti ve
+madde 2 onun düzeltmesiyle yeniden yazıldı. §0 gereği burada bu metin geçerlidir.
 
 1. **A1, p₀'ın yuvarlanması.** Düzeltme metni c(K)'yi p̂₀'ın kendisiyle hesaplıyordu. Bu metin p₀ = max(0,50;
    ⌈100 p̂₀⌉/100) kullanır. Böylece §5 ve §6.1 tabloları bağlayıcı ve tek anlamlıdır. Yuvarlama yukarı olduğu için
    tutucudur.
-2. **A1, p₀ > 0,60 kuralı ve J < 30 kuralı** düzeltme metninde yoktu (görevde istendi). p₀ = 0,60'ta güç 0,80'e ancak
-   K ≥ 62'de ulaşır.
+2. **A1, p₀ > 0,60 kuralı ve J < 30 kuralı** düzeltme metninde yoktu. p₀ = 0,60'ta güç 0,80'e ancak K ≥ 62'de
+   ulaşır. J < 30'da p₀ tabanı 0,52'dir (İNCELEME-2 A1).
 3. **A1, payda ve sahte geçerlilik.** Düzeltme metninde payda 3 K_kapı idi. Bu metinde payda geçerli sahte zaman
    sayısı J'dir. Yeni geçerlilik kuralı, başka bir havuz olayının olay sonrası penceresiyle örtüşen sahte zamanı atar.
    İki gerekçesi var: sahte oyun "olay yok" dünyasını temsil etmesi ve İNCELEME-1 B3'teki körlük. Sahte son pencere
@@ -1076,6 +1303,7 @@ ayrılır; §0 gereği burada bu metin geçerlidir.
 14. **S7 McNemar gücü** nötrde 0,4585 ile kesin hesaplandı (İNCELEME-1: 0,46, Monte Carlo).
 15. **B10, GeoNet:** servis limit parametresini kabul etmiyor. Satır sınırı kuralına bunun için bir yedek eklendi
     (§5 madde 1).
+16. İNCELEME-2 düzeltmeleri işlendi (A1–A3, B1–B6, K1–K15); sapma yok.
 
 ## Ek A (bilgi, bağlayıcı değil): sürüm 2 önsayımının küme listesi
 
@@ -1129,10 +1357,16 @@ ISC kuralıyla kapıdan düşen birimler (D6): us6000kd0n, us6000m0xl, us6000nit
 ## Ek B: yeniden üretim
 
 ```
-python3 -I -B kayit/turetme/tr6/tr6a_sifir_buyukluk.py      # önbellek (maskeli) -> tr6a_sifir_buyukluk.json, ≈ 2 sn
-python3 -I -B kayit/turetme/tr6/tr6a_onkayit_sayilar.py     # -> tr6a_olay_listesi.json, tr6a_onkayit_sayilar.json, ≈ 4 sn
+python3 -I -B kayit/turetme/tr6/tr6a_onbellek_kor.py ac /mnt/project-files/turetme/tr6a-ham/tr6a_onbellek_2026-11-12.tar.gz <geçici_dizin>
+python3 -I -B kayit/turetme/tr6/tr6a_sifir_buyukluk.py <geçici_dizin>/onbellek  # maskeli -> tr6a_sifir_buyukluk.json, ≈ 2 sn
+python3 -I -B kayit/turetme/tr6/tr6a_onkayit_sayilar.py     # -> tr6a_olay_listesi.json, tr6a_onkayit_sayilar.json, ≈ 5 sn
 python3 -I -B kayit/turetme/tr6/tr6a_onkayit_sayilar.py --md  # bu belgedeki tablolar
 python3 -I -B kayit/turetme/tr6/tr6a_inc1_denetim.py        # -> tr6a_inc1_denetim.json, ≈ 45 sn
+python3 -I -B kayit/turetme/tr6/tr6a_inc2_b1.py             # İNCELEME-2 b1: binom, p₀ ızgarası, testere, Poisson P(D), ≈ 3 sn
+python3 -I -B kayit/turetme/tr6/tr6a_inc2_b2.py             # İNCELEME-2 b2: ortak veri ve α (yapay), ≈ 14 sn
+python3 -I -B kayit/turetme/tr6/tr6a_inc2_b3.py             # İNCELEME-2 b3: temsil, sabit CV (yapay), ≈ 10 sn
+python3 -I -B kayit/turetme/tr6/tr6a_inc2_b4.py             # İNCELEME-2 b4: sahte geçerlilik ve öncül komşu (liste)
+python3 -I -B kayit/turetme/tr6/tr6a_md_denetim.py          # --md tablo satırları bu metinde birebir mi
 ```
 
 Ağ erişimi yok; `__pycache__` kalmaz. `tr6_a_kapi.py`'den yalnız `kumele`, `gereken_n0`, `binom_ust`, `uzaklik_km`,
@@ -1145,7 +1379,21 @@ dağılımı ve Monte Carlo denetimi), 20261113 (`tr6a_inc1_denetim.py`: aşır�
 - denetim4 → `mc_farki`, `dogru_lob_payi` ve `mcnemar_gucu`;
 - denetim5 → `b3`.
 
+İNCELEME-2'nin bağımsız betikleri (b1–b4; b1–b3 scipy kullanıyordu) numpy ve standart kitaplıkla
+`tr6a_inc2_b1.py`–`tr6a_inc2_b4.py` olarak yeniden yazıldı (tohumlar 7 ve 8, özgündeki gibi). b1 bütün binom, p₀
+ızgarası, testere, ilk/kalıcı K, `c_le_h` ve `j30_dali` değerlerini bağımsız kesin binomla denetler (uyuşmayan yok) ve
+Poisson P(D) 0,4459 / 0,4585 / 0,4680 / 0,4783 / 0,4869'u üretir. b2 ve b3, İNCELEME-2'nin B2 sayılarını Monte Carlo
+hatası içinde yeniden üretir: korelasyon −0,019 … −0,024; kalibrasyonlu α en çok 0,037; temsil benzetiminde
+kalibrasyonlu α 0,027–0,042, kalibrasyonsuz 0,035–0,069. b4 J = 64 (4 L_A ile 61) ve beş öncül komşulu kümeyi
+üretir. Tohum 20261114 ve 20261115 §9 adım 2'nin yapay sınamaları için ayrılmıştır.
+
+Dondurmadan sonra bu betikler depo kopyasında değil, geçici bir kopyada koşulur. Yeniden üretim, çıktıların sha256'sı
+§3.1'deki ve §9 adım 1'deki değerlerle karşılaştırılarak denetlenir. `tr6a_sifir_buyukluk.py` listenin yalnız
+`olaylar` alanının kimlik, zaman, konum ve L değerlerini okur; bunlar "0 büyüklük" işaretinden bağımsızdır.
+
 ## Sürüm 1 → 2 değişiklik listesi
+
+(Tarihsel kayıt; sürüm 3'te değişen kurallar için sondaki "Sürüm 2 → 3 değişiklik listesi" geçerlidir.)
 
 | Bulgu | Değişiklik | Yer |
 |---|---|---|
@@ -1153,7 +1401,7 @@ dağılımı ve Monte Carlo denetimi), 20261113 (`tr6a_inc1_denetim.py`: aşır�
 | A2 | Mc_son alt pencerelerin en kötüsü; S7 nötr kontrol ve McNemar; yorum kuralı 2a; tamlık sınaması 96 hücre ve yedek merdiveni; gürültüsüz ön denetim | §3.5, §6.2, §7, §9 |
 | A3 | Kumamoto ve Ridgecrest ana hükümden çıkar; Tohoku kalır; B4 satırı; körlük beyanı | başlık, §3.4, §7 |
 | A4 | ISC kuralı katalog seçiminde; D6 yeniden tanımlandı; §11 madde 2 | §3.5, §7, §11 |
-| B1 | S1'e N0⁺ ≥ 3,0 kapısı, K⁺, K⁺ < 10 "koşulamadı"; yorum kuralı 1 | §6.2, §7 |
+| B1 | S1'e N0⁺ kapısı (sürüm 2'de 3,0; sürüm 3'te 10,0, İNCELEME-2 B1), K⁺, K⁺ < 10 "koşulamadı"; yorum kuralı 1 | §6.2, §7 |
 | B2 | Grup son penceresi t_s'den; π grup başına; kırık izi üye başına; grup konumu en büyük üye | §3.2, §3.4, §4.1, §4.3 |
 | B3 | Okuma kuralı ve `tr6a_onbellek_kor.py`; sahte geçerlilik; körlük beyanı | başlık, §4.6, §9 |
 | B4 | Son pencere kesmesi, T_son < 60 g çıkarma; B3 satırı genişledi | §3.7, §7 |
@@ -1172,3 +1420,52 @@ dağılımı ve Monte Carlo denetimi), 20261113 (`tr6a_inc1_denetim.py`: aşır�
 | K7 | "Ters yön: X ≤ t" sütunu kaldırıldı; ters yön p₀⁺ ile | §6.1 |
 | K8 | Manifestte mekanizma sınıfına göre K ve iç sınırla atılan hücre | §3.4, §9 |
 | — | §0 öncelik sırası (sürüm 1'in §0 sorusu §1'e, §1'i §1.1'e taşındı); durum satırı; önsayım özeti başta; yeni liste ve sha256 (sürüm 1: 01d73cad…); §16 sapmalar; Ek A yeniden; Ek B | başlık, §0, §1, §3.1, §16, Ek A, Ek B |
+
+## Sürüm 2 → 3 değişiklik listesi
+
+| Bulgu (İNCELEME-2) | Değişiklik | Yer |
+|---|---|---|
+| A1 | J < 30'da p₀ = max(0,52; ⌈100 S/J⌉/100), p₀⁺ aynı biçimde; p₀ > 0,60 ve p₀⁺ > 0,60 kuralları aynen; "kalibrasyon zayıf" niteleyicisi ve eki; dayanak tablosu (`j30_dali`); hüküm satırı, işlem sırası, §8 üst bilgisi, §16 madde 2 | §1, §4.6, §5, §6.3, §6.4, §8, §16 |
+| A2 | Yeni §6.4: hüküm adlarının kapalı listesi, taban / düşürücü / niteleyici / ek sırası, §13'e taşıma ölçütü; §6.2 başlığı ve kural 2'nin düşürücü adı; §6.3'e "koşulmadı (yöntem)" ve "kalibrasyon zayıf" kalıpları; §8 hüküm hücresi; §13 ilk madde; Okada, yapay katalog ve tamlık sınaması başarısızlıklarının adı; §4.6'daki ad "güç yok (ölçü yanlı)" | §3.3, §4.6, §6.1–§6.4, §8, §9, §13, §14 |
+| A3 | S7 nötr kapısı N0_nt ≥ 31,36 (n_on,nt ≥ 155), K_nt manifestte; K_nt < 10 ise "koşulamadı"; McNemar yalnız K_nt kümede, a + b = 0 ise p = 1; kural 2a yeniden yazıldı; §10 cümlesi | §6.2, §7, §8, §9, §10 |
+| B1 | S1 kapısı N0⁺ ≥ 10,0 (n_on⁺ ≥ 50); §10 pozitif kontrol metni; `pozitif_kapi` anahtarı ve iki tablo | §7, §10, kod |
+| B2 | Sahte kapı n_on' ≥ 155; geçerlilik ve maske geometrisi cümlesi; manifest bilgi satırları (medyana göre p̂₀, K_0); "öncül komşu" bayrağı (önsayımda 5 küme); §11 madde 12 ve 17 | §4.6, §7 B3, §9, §11 |
+| B3 | Yapay katalog sınaması (i) ve (ii), tohum 20261114, ≥ 20 000 deneme, 3,5 SE, sonuç kuralı; tamlık sınaması ≥ 20 000 deneme, tohum 20261115; basamak başına tek koşu ve commit; yedek (c)'nin yayılımı (Sumatra T_son 1,6 g); "koşulmadı (yöntem: tamlık sınaması)" | §9 adım 2, §10 |
+| B4 | Okada 6–9 sınamaları, tekil noktalar, tekil yakın alan ızgara kuralı; King deseninin nicel karşılığı | §3.3, §3.4, §9 |
+| B5 | Kural 6 (etkin N0) ve H0 / ayırt edilemez eki; §8 N0_kul; §10 cümlesi | §6.2, §6.4, §8, §10 |
+| B6 | Koşu sonrası değişikliğin sonucu ayrı satır; hüküm değişiklikten önceki koşudan; ek §6.4 madde 6'ya bağlandı | §6.4, §9 adım 6 |
+| K1 | c(K) ≤ h(K) öncelik kuralı; `c_le_h` anahtarı | §6.1, kod |
+| K2 | K_kapı = 46–80 testere çözümü JSON'dan, bağlayıcı; > 80 aynı fonksiyonla | §5 |
+| K3 | Kesmede r_k'nin tanımı; 3L duyarlılığı ve ilk 30 gün denetimi (`ilk30_gun_3L`) | §3.7, kod |
+| K4 | "0 büyüklük" satırları seçime ve hiçbir satıra girmez, yeniden kestirilmez; sorgu maddesi sadeleşti | §3.5 |
+| K5 | Mekanizma dökümü temsilciye göre: 14 megathrust, 10 doğrultu atımlı, 4 normal, 1 ters diğer (`mekanizma_dokumu_temsilci`) | §10, §11, kod |
+| K6 | Kapı ve sahte oylar Mc_lob ile, oy Mc_kul ile kümesizleştirilir | §3.6 |
+| K7 | K_nk < 10 ise S2 koşulamadı; K_S4 < 5; K = 0 satırları | §6.2, §7 |
+| K8 | Önbellek yalnız arşivden; `oku_sorgu(…, onb=…)`; `open(` denetimi; R_A ve maske genişletme. Kodda: sabit yol kaldırıldı (`onb=` ya da `TR6A_ONBELLEK`), `arsivden_ac` sha256 denetimi ve işaret dosyası, `tr6_a_kapi.getir` işaretli dizini reddeder | §9 adım 3, kod |
+| K9 | Birden çok sonlu fay ürünü, `updateTime`, grup üyesi "veri yok" | §3.3, §9 |
+| K10 | D6 için ISC, S6 için SRCMOD aynı indirme adımında | §9 adım 5 |
+| K11 | n_on ≥ 84 ve ≥ 547 (`esik_n_on`) | §4.2, kod |
+| K12 | §5 kapı 4 "Kod incelemesi" | §5 |
+| K13 | GeoNet: yarıların toplamı bütüne eşitse kabul | §5 |
+| K14 | Dondurmadan sonra betikler geçici kopyada; sha256 karşılaştırması; docstring "≈ 4 sn" | Ek B, kod |
+| K15 | Sahte j ve S2'de Mc_son gün sayısının başlangıcı | §3.5 |
+| §H | `pozitif_kapi` ve metindeki öteki sayıların bilgi anahtarları eklendi; liste değişmedi (sha256 §3.1, sürüm 2 ile aynı); §16 madde 16; kod incelemesinin özel denetim listesi | kod, §9 adım 4, §16 |
+| — | Durum satırı, kök oturum kararı, önsayım özeti (K⁺, K_nt), §0 öncelik sırası, körlük beyanı, kod listesi; §9 adım 1 dondurulan dosyalar ve çıktı sha256'ları; İNCELEME-2 betikleri numpy ile (`tr6a_inc2_b1.py`–`b4.py`); `tr6a_md_denetim.py` | başlık, §0, §9, Ek B |
+
+Uygulanamayan bulgu yoktur. Okuma notları (sapma değil):
+- B4'ün 6–9 sınamaları "Doğrulama listesine" eklendiği için Okada tablo değerleri okunsa da koşulur; bulgunun gerekçesi
+  (yönelim ve izdüşüm hataları 1–5'ten de tablo satırlarından da geçer) bunu gerektirir.
+- §10'daki S1 tutma tablosu yuvarlanmamış P(A)'dan hesaplanır. Üçüncü ondalıkta İNCELEME-2 B1 tablosundan farklıdır
+  (N0⁺ 3: 0,197 / 0,383 / 0,526, İNCELEME-2'de 0,196 / 0,381 / 0,524; N0⁺ 10, K⁺ 10: 0,842, İNCELEME-2'de 0,841).
+  Metindeki iki ondalıklı değerler (0,84; 0,98) aynıdır.
+- §6.4 madde 6 yeni bir kural değildir: B6'nın hüküm adına eklediği "(koşu sonrası değişiklikle: <ad>)" ekini kapalı
+  listeye bağlar.
+- §9 adım 2'de sürüm 2'nin "arka planda Poisson + GK tipi ikincil diziler" ifadesi B3'ün (i) ve (ii) biçimleriyle
+  değiştirildi; yapay sonlu fay ve Dieterich yanıtı cümlesi korundu.
+
+
+---
+
+## Dondurma notu (12 Kasım 2026)
+
+Bu sürüm, iki bağımsız incelemenin (İNCELEME-1, İNCELEME-2) bütün düzeltmeleri işlenerek donduruldu. Dondurma anına kadar olay sonrası hiçbir katalog sorgusu yapılmadı, hiçbir lobda oran ya da ΔCFF hesaplanmadı. Değişiklik listesindeki iki "okuma notu" (Okada 6–9 sınamaları her durumda koşulur; §6.4 madde 6) bağlayıcıdır.

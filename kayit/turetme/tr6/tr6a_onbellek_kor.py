@@ -11,17 +11,62 @@ kırık izinin dış merkezden en uzak noktasının (≤ 2 L_A varsayımı) topl
 olayın kendi penceresi zaten t_B − 30 g'de biter. Başka hiçbir kod önbellek dosyasını doğrudan açmamalıdır; ham dosyalar
 insan gözüyle satır satır incelenmez.
 
-Kullanım (kütüphane): oku_sorgu(hash) -> (sahip_id, katalog, satirlar);  satirlar: dict(t, la, lo, de, m, mtip)
+Önbellek yolu (ön kayıt sürüm 3, §9 adım 3; İNCELEME-2 K8): kodda sabit yol YOKTUR. Önbellek yalnız ham arşivden
+(sha256 tr6a_ham_sha256.txt'de) `arsivden_ac(arsiv, hedef)` ile açılan bir dizinden okunur. Bu işlev arşivin sha256'sını
+denetler, arşivi hedefe açar ve önbellek dizinine `.tr6a_kor` işaret dosyasını yazar. Okuma işlevleri dizini
+`onb=` argümanından ya da TR6A_ONBELLEK ortam değişkeninden alır; işaret dosyası yoksa ya da arşiv sha256'sı tutmazsa
+okumaz. `tr6_a_kapi.getir` işaretli bir dizini açmayı reddeder (maskesiz okuma yolu kapalıdır).
+
+Kullanım (kütüphane): oku_sorgu(kayit, onb=...) -> dict(t, la, lo, de, m, mtip)  (yalnız maskeden geçen satırlar)
+Kullanım (komut):     python3 -I -B tr6a_onbellek_kor.py ac <arsiv.tar.gz> <hedef_dizin>
 Ağ erişimi yok. Yalnız numpy + standart kitaplık.
 """
-import datetime as dt, json, math, os, re, urllib.parse
+import datetime as dt, hashlib, json, math, os, re, sys, tarfile, urllib.parse
 import numpy as np
 
 BURAYA = os.path.dirname(os.path.abspath(__file__))
-ONBELLEK = "/tmp/claude-0/-home-user/635decb6-3930-5a4d-9c31-b6f30d64fb94/scratchpad/tr6a/onbellek"
+ORTAM = "TR6A_ONBELLEK"                    # önbellek dizini (arşivden açılmış); sabit yol yok
+ISARET = ".tr6a_kor"                      # arsivden_ac'ın yazdığı işaret dosyası (içinde arşiv sha256'sı)
+HAM_SHA_DOSYA = "tr6a_ham_sha256.txt"
 MASKE_GUN, MASKE_L = 365, 4.0
 KOR = dt.datetime(2026, 1, 1)
 _SATIR_KOERI = re.compile(r"^\s*\d{6}\t\d{14}\t\d{4}\.\d\d\.\d\d\t")
+
+
+def _arsiv_sha():
+    return open(os.path.join(BURAYA, HAM_SHA_DOSYA), encoding="utf-8").read().split()[0]
+
+
+def arsivden_ac(arsiv, hedef):
+    """Ham arşivi sha256 denetimiyle hedef dizine açar; önbellek dizini <hedef>/onbellek olur ve işaretlenir."""
+    h = hashlib.sha256(open(arsiv, "rb").read()).hexdigest()
+    if h != _arsiv_sha():
+        raise ValueError(f"arşiv sha256 tutmuyor: {h}")
+    os.makedirs(hedef, exist_ok=True)
+    with tarfile.open(arsiv, "r:gz") as t:
+        for u in t.getmembers():
+            if not (u.isfile() or u.isdir()) or os.path.isabs(u.name) or ".." in u.name.split("/") \
+                    or not (u.name == "onbellek" or u.name.startswith("onbellek/")):
+                raise ValueError(f"beklenmeyen arşiv üyesi: {u.name}")
+        try:
+            t.extractall(hedef, filter="data")
+        except TypeError:                     # filter argümanı olmayan eski Python
+            t.extractall(hedef)
+    onb = os.path.join(hedef, "onbellek")
+    with open(os.path.join(onb, ISARET), "w", encoding="utf-8") as f:
+        f.write(h + "\n")
+    return onb
+
+
+def onbellek_dizini(onb=None):
+    """Önbellek dizini: argüman ya da TR6A_ONBELLEK; yalnız arsivden_ac ile açılmış (işaretli) dizin kabul edilir."""
+    onb = onb or os.environ.get(ORTAM)
+    if not onb:
+        raise ValueError(f"önbellek dizini verilmedi (onb= ya da {ORTAM})")
+    isaret = os.path.join(onb, ISARET)
+    if not os.path.exists(isaret) or open(isaret, encoding="utf-8").read().split()[0] != _arsiv_sha():
+        raise ValueError("önbellek dizini arşivden (arsivden_ac) açılmamış ya da arşiv sha256'sı tutmuyor")
+    return onb
 
 
 def _uzaklik(la0, lo0, la, lo):
@@ -95,8 +140,9 @@ def _koeri(metin):
     return dict(t=t, la=np.array(la), lo=np.array(lo), de=np.array(de), m=np.array(m), mtip=mt)
 
 
-def sorgu_listesi(onb=ONBELLEK):
+def sorgu_listesi(onb=None):
     """URL_LISTESI.tsv'den olay satırı sorguları (count servisi ve geojson hariç) ve sahip olayları."""
+    onb = onbellek_dizini(onb)
     hav = havuz()
     konum = {(round(o["enlem"], 4), round(o["boylam"], 4)): o for o in hav}
     out = []
@@ -125,8 +171,9 @@ def sorgu_listesi(onb=ONBELLEK):
     return out
 
 
-def oku_sorgu(kayit, onb=ONBELLEK, _hav=[]):
+def oku_sorgu(kayit, onb=None, _hav=[]):
     """Tek okuma yolu: dosyayı ayrıştırır, B3 maskesini uygular, yalnız tutulan satırları döndürür."""
+    onb = onbellek_dizini(onb)
     if not _hav:
         _hav.extend(havuz())
     if kayit["sahip"] is None:
@@ -136,3 +183,10 @@ def oku_sorgu(kayit, onb=ONBELLEK, _hav=[]):
     tut = _maske(d, _hav, kayit["sahip"])
     return dict(t=[x for x, k in zip(d["t"], tut) if k], la=d["la"][tut], lo=d["lo"][tut], de=d["de"][tut],
                 m=d["m"][tut], mtip=[x for x, k in zip(d["mtip"], tut) if k])
+
+
+if __name__ == "__main__":
+    if len(sys.argv) == 4 and sys.argv[1] == "ac":
+        print(arsivden_ac(sys.argv[2], sys.argv[3]))
+    else:
+        sys.exit("kullanım: python3 -I -B tr6a_onbellek_kor.py ac <arsiv.tar.gz> <hedef_dizin>")

@@ -7,6 +7,9 @@ sahipleri; Ek 1 Mc kuralı (3 örnek pencere, halka, <= 40 km, >= 50 olay: max M
 (a) Ek 1'deki gibi (süzgeçsiz), (b) önerilen dar kural (türü boş VE büyüklüğü <= 0,05 olan satır atılır).
 Kullanım: python3 -I -B tr6a_sifir_buyukluk.py   -> tr6a_sifir_buyukluk.json
 """
+# Sürüm 3 (İNCELEME-2 K8): önbellek dizini argümanla ya da TR6A_ONBELLEK ile verilir ve tr6a_onbellek_kor.arsivden_ac
+# ile ham arşivden açılmış olmalıdır:  python3 -I -B tr6a_sifir_buyukluk.py <onbellek_dizini>
+# (Docstring JSON'a "aciklama" olarak yazıldığı için sürüm 2 metni değiştirilmedi; çıktı bayt bayt aynı kalır.)
 import datetime as dt, json, math, os, sys, urllib.parse
 from collections import Counter, defaultdict
 import numpy as np
@@ -19,8 +22,9 @@ import tr6_a_kapi as KAPI        # noqa: E402  (maxc, uzaklik_km; ağ kodu çağ
 SIFIR = 0.05
 
 
-def main():
-    sorgular = KOR.sorgu_listesi()
+def main(onb=None):
+    onb = KOR.onbellek_dizini(onb)
+    sorgular = KOR.sorgu_listesi(onb)
     hav = {o["id"]: o for o in KOR.havuz()}
     ozet = defaultdict(Counter)
     sifir_sahip = defaultdict(Counter)
@@ -30,7 +34,7 @@ def main():
         if s["sahip"] is None:
             sahipsiz += 1
             continue
-        d = KOR.oku_sorgu(s)
+        d = KOR.oku_sorgu(s, onb)
         m = d["m"]
         bos_tur = np.array([x == "" for x in d["mtip"]], bool)
         bos_m = np.isnan(m)
@@ -92,4 +96,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1] if len(sys.argv) > 1 else None)

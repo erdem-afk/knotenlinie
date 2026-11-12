@@ -1,12 +1,15 @@
-"""TR-6a ön kaydı sürüm 2: bütün sayılar (yalnız olay öncesi üstveri; hiçbir olay sonrası sorgu, ağ erişimi yok).
+"""TR-6a ön kaydı sürüm 2 ve 3: bütün sayılar (yalnız olay öncesi üstveri; hiçbir olay sonrası sorgu, ağ erişimi yok).
 
 Girdi : tr6_a_sayim.json (155 olaylık havuz), tr6_a_kapi.json (Ek 1 kapı sayımı),
         tr6a_sifir_buyukluk.json (K3: Ek 1 önbelleğinde "0 büyüklük" denetimi; tr6a_sifir_buyukluk.py üretir).
 Çıktı : tr6a_olay_listesi.json   -> dondurulan aday listesi: olaylar (155) + olay grupları (birimler); sha256 ön kayıtta
         tr6a_onkayit_sayilar.json -> ön kayıt metnindeki sayılar: kaba kapı önsayımı (sürüm 2 kurallarıyla), binom
                                      tabloları, p0 ızgarasında testere dişi çözümü, güç ve "doğru lob payı" tabloları,
-                                     H0 altında N0'a bağlı oy olasılığı, yapay Dieterich sınaması.
-Kullanım: python3 -I -B tr6a_onkayit_sayilar.py            (≈ 1 dk; numpy + standart kitaplık)
+                                     H0 altında N0'a bağlı oy olasılığı, yapay Dieterich sınaması; sürüm 3
+                                     (İNCELEME-2): pozitif kontrol kapısı (B1), J < 30 dalı (A1), c(K) <= h(K)
+                                     çakışması (K1), temsilciye göre mekanizma (K5), K+ / K_nt / öncül komşu / K_0 /
+                                     yedek (c) önsayımları, n_on eşikleri (K11).
+Kullanım: python3 -I -B tr6a_onkayit_sayilar.py            (≈ 4 sn; numpy + standart kitaplık)
           python3 -I -B tr6a_onkayit_sayilar.py --md       (ön kayıttaki tabloları Markdown olarak basar)
 
 Bu betik hiçbir oran değişimi hesaplamaz; yapay bölümler yalnız uydurma Poisson sayılarıyla çalışır.
@@ -37,6 +40,9 @@ GRUP_G, GRUP_KM = 30, 300.0
 K_ALT = 23
 P0_IZGARA = [round(0.50 + 0.01 * i, 2) for i in range(11)]  # 0,50 .. 0,60
 P0_UST = 0.60                                             # p0 > 0,60: hüküm satırı koşulmaz
+P0_TABAN_J30, J_ALT = 0.52, 30                            # A1 (İNCELEME-2): J < 30 ise p0 tabanı 0,52
+N0_POZ_KAPI = 10.0                                        # B1 (İNCELEME-2): pozitif kontrol kapısı N0+ >= 10,0
+K_POZ_ALT, K_NT_ALT = 10, 10                              # S1 ve S7 "koşulamadı" sınırları
 BILINEN_CIKAN = ("us20005iis", "ci38457511")             # A3: Kumamoto 2016, Ridgecrest 2019
 BILINEN_KALAN = ("official20110311054624120_30",)         # Tohoku 2011
 TOHUM = 20261112
@@ -208,7 +214,7 @@ def onsayim(birimler, esik, kurallar=True, kesme="kesme_2L_dis_merkez", n0_alan=
     return adim, kalan, cikan
 
 
-def onsayim_ozet(birimler):
+def onsayim_ozet(birimler, liste):
     esik = {a: KAPI.gereken_n0(math.exp(-DTAU_ESIK / a)) for a in (13.0, 19.0, 39.0)}
     out = dict(esik={f"{a:g}": round(e, 2) for a, e in esik.items()})
     # sürüm 1 yeniden üretimi (olay başına, kural yok): 37 küme beklenir
@@ -228,7 +234,35 @@ def onsayim_ozet(birimler):
             for c in kl:
                 m = max(c, key=lambda x: x["M"])["mekanizma_sinif"]
                 dok[m] = dok.get(m, 0) + 1
-            sat["mekanizma_dokumu"] = dok
+            sat["mekanizma_dokumu"] = dok          # sürüm 2: kümenin en büyük M'li birimine göre
+            dok_t = {}
+            for c in kl:                          # K5 (İNCELEME-2): temsilci grubunun en büyük üyesine göre (S3/S4)
+                dok_t[c[0]["mekanizma_sinif"]] = dok_t.get(c[0]["mekanizma_sinif"], 0) + 1
+            sat["mekanizma_dokumu_temsilci"] = dok_t
+            # B1 / A3 (İNCELEME-2): pozitif ve nötr kapının kaba önsayımı. Ek 1 kaba N0'ı halka sayımının 0,25'idir
+            # (lob payı varsayımı); pozitif lob ve nötr bölge için aynı pay varsayılırsa her temsilcinin kaba N0'ı
+            # kapı N0'ı yerine geçer. Gerçek alanlar ΔCFF'ye bağlıdır; bu yüzden çarpanlı duyarlılık da yazılır.
+            sat["pozitif_kapi_K"] = {f"x{f:g}": sum(1 for c in kl if c[0]["kaba_N0"] * f >= N0_POZ_KAPI)
+                                     for f in (1.0, 0.5, 0.25, 0.125)}
+            sat["notr_kapi_K"] = {f"x{f:g}": sum(1 for c in kl if c[0]["kaba_N0"] * f >= e)
+                                  for f in (1.0, 0.5, 0.25)}
+            # B2 (İNCELEME-2): hiç geçerli sahte zamanı olmayan kümeler (K_0) ve "öncül komşulu" kümeler
+            sat["K_0"] = [dict(id=c[0]["id"], kaba_N0=c[0]["kaba_N0"]) for c in kl
+                          if not any(s["gecerli"] for s in c[0]["sahte"])]
+            onc = []
+            for c in kl:
+                b = c[0]
+                t0 = T(b["zaman"])
+                kom = [x["id"] for x in liste if x["grup"] != b["id"]
+                       and t0 - dt.timedelta(days=365) <= T(x["zaman"]) < t0
+                       and km(b, x) < 3 * x["L_km"] + 3 * b["L_km"]]
+                if kom:
+                    onc.append(dict(id=b["id"], komsu=kom))
+            sat["oncul_komsu"] = onc
+            # B3 (İNCELEME-2): yedek (c) seçilirse son pencere t_s + 90 g'de başlar; T_son < 60 g ölçütü yeniden
+            yc = [dict(id=c[0]["id"], T_son_g=round(c[0]["kesme_2L_dis_merkez"]["T_son_g"] - 60, 1)) for c in kl]
+            sat["yedek_c"] = dict(cikan=[x for x in yc if x["T_son_g"] < KISA_SON_G],
+                                  K_kaba=sum(1 for x in yc if x["T_son_g"] >= KISA_SON_G))
             sat["sahte_gecerli_toplam"] = sum(sum(s["gecerli"] for s in c[0]["sahte"]) for c in kl)
             sat["sahte_toplam"] = SAHTE_J * len(kl)
             # ISC kuralıyla kapıdan düşen (D6) birimler
@@ -372,6 +406,55 @@ def p0_kestirim_dagilimi(Ks=(23, 28, 33, 39), p_sahte=(0.46, 0.48, 0.50, 0.52)):
                 eg += w * guc(K, yuz / 100)
             out[f"K{K}_p{ps:.2f}"] = dict(J=J, P_p0_ust_050=round(p_ust50, 3), P_p0_ust_060=round(p_ust60, 4),
                                           beklenen_guc=round(eg, 3), guc_p0_050=round(guc(K, 0.5), 3))
+    return out
+
+
+def j30_dali(Ks=range(K_ALT, 46)):
+    """A1 (İNCELEME-2): J < 30'da p0 = max(0,52; ⌈100 S/J⌉/100). §4.3 aşırı saçılım ızgarasının en kötü hücresinde
+    (N0 31,36, φ 5; tr6a_inc1_denetim.json) P(D | H0)'ya karşı gerçek α, K = 23–45'te en çok; ayrıca P(D) 0,53."""
+    d = json.load(open(os.path.join(BURAYA, "tr6a_inc1_denetim.json"), encoding="utf-8"))
+    pd_kotu = d["asiri_sacilim"]["N0=31.36 phi=5"]["P_D"]
+    out = dict(P_D_en_kotu=pd_kotu, taban=P0_TABAN_J30)
+    for pd in (pd_kotu, 0.53):
+        for p0 in (0.50, 0.52):
+            a = {K: KAPI.binom_ust(kritik(K, p0), K, pd) for K in Ks}
+            km_ = max(a, key=a.get)
+            out[f"alfa_max P_D={pd:g} p0={p0:.2f}"] = dict(alfa=round(a[km_], 4), K=km_)
+    out["guc_p0_052"] = {K: round(guc(K, 0.52), 3) for K in (23, 26, 29, 33)}
+    return out
+
+
+def c_le_h(Kmax=80):
+    """K1 (İNCELEME-2): c(K; p0) <= h(K) olan K'ler (aynı X hem H1 hem H0 eşiğinde); p0 ızgarasında K = 23–80."""
+    return {f"{p0:.2f}": [K for K in range(K_ALT, Kmax + 1) if kritik(K, p0) <= esik_H0(K)] for p0 in P0_IZGARA}
+
+
+def ilk30_denetimi(liste, birimler):
+    """K3 (İNCELEME-2): koşu adaylarında [t0, t_s + 30 g) aralığında, dış merkez 3L içinde grup dışı havuz olayı."""
+    out = []
+    for b in birimler:
+        if not b["kosu_adayi"]:
+            continue
+        t0, ts = T(b["zaman"]), T(b["t_s"])
+        for x in liste:
+            if x["grup"] != b["id"] and t0 <= T(x["zaman"]) < ts + dt.timedelta(days=SON_G0) \
+                    and km(b, x) <= 3 * b["L_km"]:
+                out.append((b["id"], x["id"]))
+    return dict(aday=sum(1 for b in birimler if b["kosu_adayi"]), bulunan=out)
+
+
+def pozitif_kapi(oy, N0s=(3.0, 5.0, 10.0, 20.0, 31.36), Kps=(10, 15, 20)):
+    """B1 (İNCELEME-2), yapay: pozitif lobda yalnız +10 kPa'lık Dieterich adımıyla (Aσ 19 kPa) küme başına artış oyu
+    olasılığı P(A) (kalıcı adım ve t_a 1,9 yıl), H0'da P(A) ve S1'in tutma olasılığı P(X+ >= c(K+; 0,50))."""
+    T_on, t1, t2 = T_ON_G / 365.25, SON_G0 / 365.25, SON_G1 / 365.25
+    out = {}
+    for N0 in N0s:
+        sat = dict(P_A_H0=round(oy.olasilik(N0 * T_on, N0 * (t2 - t1), +1), 3))
+        for ad, ta in (("kalici", math.inf), ("t_a_1.9", ASIGMA / 10.0)):
+            pa = oy.olasilik(N0 * T_on, dieterich_N(N0, t1, t2, +DTAU_ESIK, ASIGMA, ta), +1)
+            sat[ad] = dict(P_A=round(pa, 3), S1_tutma={str(K): round(KAPI.binom_ust(kritik(K, 0.5), K, pa), 3)
+                                                       for K in Kps})
+        out[f"{N0:g}"] = sat
     return out
 
 
@@ -525,7 +608,14 @@ def main():
                                             if v["gecersiz_sifir_buyukluk"]],
                    en_erken_sahte_on_indirme=min(b["sahte_on_indirme_baslangic"] for b in ad),
                    en_gec_sorgu_bitisi=max(b["son_bitis_kesilmemis"] for b in ad)),
-        onsayim=onsayim_ozet(birimler),
+        onsayim=onsayim_ozet(birimler, liste),
+        ilk30_gun_3L=ilk30_denetimi(liste, birimler),
+        esik_n_on={**{f"{a:g}": math.ceil(KAPI.gereken_n0(math.exp(-DTAU_ESIK / a)) * T_ON_G / 365.25)
+                      for a in (13.0, 19.0, 39.0)},
+                   "pozitif_10": math.ceil(N0_POZ_KAPI * T_ON_G / 365.25)},
+        pozitif_kapi=pozitif_kapi(oy),
+        j30_dali=j30_dali(),
+        c_le_h=c_le_h(),
         b3=b3_ciftleri(liste, birimler),
         binom=[r for r in tab if 18 <= r["K"] <= 60],
         p0_izgarasi=p0_izgarasi(),
@@ -612,6 +702,35 @@ def md_tablolar():
                      f"{' (' + x['kesme_olayi'] + ')' if x['kesme_olayi'] else ''} | {x['sahte_gecerli']} |")
     print("\n".join(L))
     print("\nçıkan:", d["onsayim"]["19"]["cikan"])
+    # ---- sürüm 3 (İNCELEME-2)
+    pk = d["pozitif_kapi"]
+    n0s = list(pk)
+    print("\n### pozitif kontrol kapısı (B1; yapay, +10 kPa)\n")
+    L = ["| N0⁺ (/yıl) | " + " | ".join(v(float(n), 2).rstrip("0").rstrip(",") for n in n0s) + " |",
+         "|---" * (len(n0s) + 1) + "|",
+         "| P(A), kalıcı adım | " + " | ".join(v(pk[n]["kalici"]["P_A"]) for n in n0s) + " |",
+         "| P(A), t_a 1,9 yıl | " + " | ".join(v(pk[n]["t_a_1.9"]["P_A"]) for n in n0s) + " |",
+         "| P(A \\| H0) | " + " | ".join(v(pk[n]["P_A_H0"]) for n in n0s) + " |"]
+    print("\n".join(L) + "\n")
+    L = ["| K⁺ | " + " | ".join("N0⁺ " + v(float(n), 2).rstrip("0").rstrip(",") for n in n0s) + " |",
+         "|---" * (len(n0s) + 1) + "|"]
+    for K in ("10", "15", "20"):
+        L.append(f"| {K} | " + " | ".join(v(pk[n]["kalici"]["S1_tutma"][K]) for n in n0s) + " |")
+    print("\n".join(L) + "\n")
+    j = d["j30_dali"]
+    print("### J < 30 dalı (A1)\n")
+    L = ["| P(D \\| H0) | en çok α, p₀ 0,50 (K) | en çok α, p₀ 0,52 (K) |", "|---|---|---|"]
+    for pd in (j["P_D_en_kotu"], 0.53):
+        a, b = j[f"alfa_max P_D={pd:g} p0=0.50"], j[f"alfa_max P_D={pd:g} p0=0.52"]
+        L.append(f"| {pd:g} | {v(a['alfa'], 4)} ({a['K']}) | {v(b['alfa'], 4)} ({b['K']}) |".replace(".", ",", 1))
+    print("\n".join(L) + "\n")
+    print("güç p0 0,52:", j["guc_p0_052"])
+    print("\nc(K) <= h(K) olan K (K1):", d["c_le_h"])
+    o = d["onsayim"]["19"]
+    print("\nönsayım ek (sürüm 3):", dict(mekanizma_temsilci=o["mekanizma_dokumu_temsilci"],
+                                         K_arti=o["pozitif_kapi_K"], K_nt=o["notr_kapi_K"], K_0=o["K_0"],
+                                         oncul=o["oncul_komsu"], yedek_c=o["yedek_c"]))
+    print("ilk 30 gün 3L:", d["ilk30_gun_3L"], "\nn_on eşikleri:", d["esik_n_on"])
 
 
 if __name__ == "__main__":
