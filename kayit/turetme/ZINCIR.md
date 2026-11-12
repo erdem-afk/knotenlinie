@@ -191,3 +191,23 @@ istasyon çifti tasarımı; TR-4'ün ölçeceği σ_Δ'nın küçük çıkması)
 algılanabilir en küçük hız değişimini verir hem de TR-5b'nin (c) yeniden açma şartını ölçer. Ön kaydı sıradaki iş.
 Aynı gün TR-6a ve TR-7'nin koşu kodları bağımsız kod incelemesinden geçti (ikisi de DÜZELTMEYLE KABUL, veri öncesi
 Ek 1); yapay verili bağlayıcı yöntem sınamaları koşuyor.
+
+## Halka 8 (12 Kasım 2026): teorik literatür taraması
+
+Erdem'in isteğiyle (12 Kasım 08:12Z: "teorik de çok kıymetli") zincire kuramsal kol eklendi; o ana dek halkalar yalnız
+ampirikti. Beş kol (çekirdeklenme ve ön kayma; döngü dinamiği ve kaos; gerilme etkileşimi ve yükleme; istatistiksel
+fizik ve bilgi sınırı; kilitli pürüz ve sünme), OpenAlex ile, 0 €. Notlar
+`research_notes/İstanbul depremi teorik öngörülebilirlik/`, rapor `reports/İstanbul depremi teorik öngörülebilirlik.md`.
+
+Sonuç: beş kuram ailesinin hiçbiri büyük bir doğrultu atımlı depremin zamanını ilkece yıl ölçeğine daraltmıyor;
+onlarca yıla daraltıyor. Yenilenme kuramı geç çevrimde tehlikeyi Poisson'un 1,5–3 katına çıkarır (tarayıcının hesabı);
+çekirdeklenme evresi algılanabilir olarak saatler–günler sürer; sünme cephesinin iki yıllık yüzey izi TR-11
+tabanının 5–100 kat altındadır (tarayıcının hesabı); mükemmel modelli ikiz deneyler alarmı yinelenmenin %10–17'sine
+indirir. Bu, zincirin ampirik halkalarında görülen biçimle (güç yok, taban altında) tutarlıdır. Birçok tam metin 403
+döndü ve aşılmadı; o sayılar notlarda "doğrulanamadı" işaretli.
+
+Çıkan sorular (deftere aday olarak girdi): TR-13 sismisite yerelleşmesi depremden 2–3 yıl önce artıyor mu, ETAS
+tabanına karşı (yıl ölçeğine dokunan ve projede benzeri olmayan tek açık kuramsal öngörü); TR-14 iki boyutlu
+hız-durum modelinde öngörülebilirlik ufku (koşullu tavan); TR-15 öncü dizilerinde 1/t ivmelenme (gün ölçeği).
+Kuramın yıl ölçeğinde bıraktığı öteki pencere, sismisitenin gerilme hızına tepki süresi, TR-6a ile zaten sınanıyor.
+Sıradaki iş: TR-13 için 0 € sayım ve güç kapısı.
