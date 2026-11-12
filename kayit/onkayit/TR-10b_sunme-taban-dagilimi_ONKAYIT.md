@@ -867,3 +867,21 @@ Bu ek, dondurulmuş metni değiştirmez; koşu öncesi adımlarda ortaya çıkan
 **E1.4 Elle ölçüm (MIC) okuma aralığı.** §8.2'nin 90 günlük braket ve 180 günlük aralık şartı, okuma aralığı [w0 − 15 g, T + 15 g] ile sınırlı kalırsa uygulanamaz (uçlarda fiilen 15 gün olur). Yazılı kuralı işler kılan okuma bağlayıcıdır: **yalnız MIC kaynaklarında okuma aralığı [w0 − 90 g, T + 90 g]'dır**, üst ucu 2023-10-16'yı aşamaz; telemetri ve 10MIN kaynaklarında aralık değişmez. Dar okuma ([w0 − 15, T + 15]) "MIC dar aralık" bilgi satırı olarak yazılır. Bu karar hiçbir MIC dosyası görülmeden verildi.
 
 **E1.5 Öteki kodlayıcı okumaları.** Kodlayıcının bildirdiği 24 okuma (kayıt: bu commit'in iletisi ve `TR-10b_KOD-INCELEME.md`) en dar/tutucu okuma ilkesiyle uygulanmıştır; kod incelemesi her birini denetler. (a) denetiminde x(t)'nin zaman başlangıcı okuma aralığının başıdır (SAYIM'daki 0,00045 doğrulaması bu başlangıçla yapılmıştır).
+
+---
+
+## Ek 2 (12 Kasım 2026, kod incelemesinden sonra, hiçbir sünme verisi açılmadan)
+
+Kod incelemesi (`TR-10b_KOD-INCELEME.md`, hüküm DÜZELTMEYLE HAZIR; 57/57 yapay sınama, 9/9 mutasyon yakalandı) sonrasında, veri öncesinde kayda geçen okumalar. Bu ek yazıldığı anda hiçbir telemetri, MIC, 10MIN ya da HaywardCreep dosyası indirilmemiş ve açılmamıştır.
+
+**E2.1 Kod hatası kapıdan önce gelir.** Kod denetimi kesin başarısızsa hüküm, veri kapısından bağımsız olarak "geçersiz (kod)" olur; kapı sayıları bilgi olarak yazılır (§10.2 "kesin olarak"; kodlayıcı okuması 19'un yerini alır).
+
+**E2.2 E1.4'ün TR-10 örtüşmesine etkisi.** MIC okuma aralığının genişlemesiyle CRR1, XGH1, XMP1 ve XMP2'nin 1978 aralığı, 1983 Coalinga'nın TR-10 olay öncesi penceresiyle 198 yerine 273 gün örtüşür. Yeni bir örtüşme yoktur; 12 aylık olay öncesi döneme dokunmaz. §16 madde 16 bu sayıyla okunur.
+
+**E2.3 MIC'de aygıt olayı tamponu.** E1.4 MIC braketini ±90 güne genişletti; K tamponu metindeki gibi [w0 − 30 g, T + 15 g] kalır (metin değiştirilmez). Bunun sonucu olarak §16 madde 11'deki uç olayı riski MIC kaynaklarında T + 90 güne kadar uzanır; bu bir bilinen zayıflıktır ve "yalnız telemetri" bilgi satırı bu riski taşımayan karşılaştırmadır.
+
+**E2.4 Tek koşu mekanizmasının uygulanışı (§14 madde 6).** Gerçek Δv'ye bağlı olmayan bütün kurulum işaret dosyasından önce yapılır; işaretten önce aynı ölçü, hüküm ve çıktı kodu gerçek maskeler ve YAPAY değerlerle bir kez kuru koşulur; hata çıkarsa işaret yazılmaz. Ham okuma sonucu işaretle aynı anda depo dışına yazılır ve işaret onun sha256'sını taşır. İşaretten sonra hata olursa (çıkış 4) yalnız doğrudan neden düzeltilir ve `--devam` ile ham veri yeniden okunmadan sürdürülür; bu, veriye ikinci bakış sayılmaz, çünkü okuma sonucu değişmez.
+
+**E2.5 Öteki okumalar.** (a) Ek kuyruklar "veri yok" kalıbına da eklenir. (b) §9.3'ün blok şartı (K ≥ 4) bütün satırlara uygulanır; K ≤ 3'te yer bootstrap'ı kullanılır ve etiket okunmaz. (c) Chihshang aralığı "güç yok" ya da K ≤ 3 iken okuma yazılmaz ("güç yok"). (d) Dolgu tanısı kodlayıcı okuması 13'teki gibi uygulanır (δ okuma aralığındaki en fazla ondalık basamaktan; aday koşu uzunluğu max(15, |V|); eğim ölçütü |eğim| < 1e-12). (e) Bilgi kayıtları: E1.3 "başlık katılmış" satırında 7 istasyon-pencereden 6'sı geri gelir (CHP1 2013 gelmez); "Ditto" satırları K sayılmaz; 144 satırlık denetimin yedek yolu kodlayıcı okuması 22'deki gibidir.
+
+Koşu kodu bu ekle aynı commit'tedir.

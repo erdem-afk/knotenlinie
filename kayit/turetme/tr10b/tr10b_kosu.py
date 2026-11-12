@@ -19,12 +19,19 @@ Biçim hatası koşuyu durdurur (KosuDur), "veri yok" üretmez; durma iletisi ya
 
 Kullanım (depo kökünden):
   python3 -I -B kayit/turetme/tr10b/tr10b_kosu.py --veri <veri_dizini> [--manifest ...] [--cikti-dizin ...]
-          [--isaret-depo ...] [--duzeltme-turu 0|1|2] [--bicim-belirsiz URL,...]
+          [--isaret-depo ...] [--duzeltme-turu 0|1|2] [--bicim-belirsiz URL,...] [--devam]
 Çıktılar (bellekte kurulur, "x" kipinde bir kez yazılır): tr10b_sonuc.json, tr10b_sonuc.md; kod denetimi
 başarısızsa ve düzeltme turu < 2 ise yalnız tr10b_denetim_tur<N>.json (gerçek Δv hesaplanmaz).
-Çıkış kodları: 0 sonuç yazıldı; 2 KosuDur (girdi/biçim); 3 kod denetimi başarısız (düzeltme turu açık).
+Çıkış kodları: 0 sonuç yazıldı; 2 KosuDur (girdi/biçim/kuru prova; işaret yazılmadı); 3 kod denetimi başarısız
+(düzeltme turu açık); 4 işaret sonrası istisna (yalnız doğrudan neden düzeltilip --devam).
+
+Kod incelemesi (TR-10b_KOD-INCELEME.md) sonrası yapı: Ek 1 E1.4 (MIC okuma aralığı [w0 − 90 g, T + 90 g] ve "MIC
+dar aralık" bilgi satırı), E1.3 ("başlık katılmış" bilgi satırı) uygulandı. Gerçek Δv'ye bağlı olmayan her adım
+işaretten önce koşar; işaretten önce ölçü/hüküm/çıktı kodu yapay değerlerle kuru koşulur; okuma sonucu işaretle
+birlikte veri dizinine (depo dışı) yazılır, işaret onun sha256'sını taşır (--devam bu görüntüden sürdürür).
 """
 import argparse
+import copy
 import csv
 import datetime as dt
 import gzip
@@ -35,7 +42,9 @@ import math
 import os
 import re
 import sys
+import pickle
 import time
+import zlib
 
 import numpy as np
 
@@ -50,11 +59,19 @@ T2 = KS.T2
 LISTELER_JSON_SHA = "d0c2246007c25f11027cc3325ff3cfa53b3984296d0cf6c82f30e8dacffdcba5"
 HDR_CSV_SHA = "5171bd52941b47bb260cd6444eb4c5933c19b9ce10fb15b50fd667ead110531a"
 HDR_CSV = os.path.join(BURA, "tr10b_hdr_olaylar.csv")
+# Ek 1 E1.3: "başlık katılmış" bilgi satırının HDR olay tablosu (tr10b_hdr_baslik.py; yalnız üstveri)
+HDR_BASLIK_CSV_SHA = "c3f8cabb95ed2415cf540399d6dfb3a9195cb7a52377315b7015840885796dea"
+HDR_BASLIK_CSV = os.path.join(BURA, "tr10b_hdr_olaylar_baslik_katilmis.csv")
+# §6.4 madde 4 "creep/event" sayacı HDR adımının çıktısından okunur
+HDR_ETKI_SHA = "89632d2f57ac11f2081df3bf85b63b42ede495ef059f94098aa7e5635185ea03"
+HDR_ETKI = os.path.join(BURA, "tr10b_hdr_etki.json")
 MANIFEST_VERI = os.path.join(BURA, "tr10b_manifest_veri.json")
 ISARET_AD = "TR10B_GERCEK_DV_HESAPLANDI"
+ANLIK_AD = "TR10B_HAM_OKUMA_ANLIK.pickle"   # işaretle birlikte veri dizinine yazılan okuma sonucu (depo dışı)
 SON_GUN = dt.date(2023, 10, 16)          # §2.3: kullanılabilecek son gün
 KAYNAK_SIRA = ("DAY", "10MIN", "MIC")    # §8.3
 UC = 15                                  # §8.1: u(P) = [P − 15 g, P + 15 g]
+MIC_GENIS = 90                           # Ek 1 E1.4: yalnız MIC okuma aralığı [w0 − 90 g, T + 90 g] (≤ SON_GUN)
 UC_MIN = 10
 DOLULUK = 0.60
 BOSLUK = 60
@@ -103,6 +120,10 @@ class KosuDur(Exception):
     """Girdi ya da biçim sorunu: koşu durur; hiçbir Δv hesaplanmamıştır."""
 
 
+class IsaretSonrasiHata(Exception):
+    """İşaretten sonra bir istisna: tek koşu kullanıldı; doğrudan nedeni düzeltilip --devam ile sürdürülür."""
+
+
 class BicimHata(KosuDur):
     def __init__(self, ileti, kesif):
         super().__init__(ileti)
@@ -128,12 +149,22 @@ def aralik(L, U, n=2):
     return f"[{sayi(L, n)}, {sayi(U, n)}]"
 
 
-def pencere(Y):
+def pencere(Y, genis=UC):
+    """Epok penceresi ve okuma ızgarası [w0 − genis, min(T + genis, SON_GUN)]. genis = 15 (§2.3, §3) bütün telemetri
+    kaynaklarında; MIC'de genis = 90 (Ek 1 E1.4)."""
     P = KS.pencere(Y)
-    n = (P["son"] - P["ilk"]).days + 1
-    i0, iH, iT = ((P[k] - P["ilk"]).days for k in ("w0", "H", "T"))
-    return dict(Y=Y, w0=P["w0"], H=P["H"], T=P["T"], ilk=P["ilk"], son=P["son"], n=n, i0=i0, iH=iH, iT=iT,
+    ilk = P["w0"] - dt.timedelta(days=genis)
+    son = min(P["T"] + dt.timedelta(days=genis), SON_GUN)
+    n = (son - ilk).days + 1
+    i0, iH, iT = ((P[k] - ilk).days for k in ("w0", "H", "T"))
+    return dict(Y=Y, w0=P["w0"], H=P["H"], T=P["T"], ilk=ilk, son=son, n=n, i0=i0, iH=iH, iT=iT, genis=genis,
                 tau2=(iT - iH) / 365.25, tau3=(iH - i0) / 365.25)
+
+
+def kaynak_penceresi(Y, kaynak, mic_dar=False):
+    """Ek 1 E1.4: yalnız MIC kaynaklarında okuma aralığı [w0 − 90 g, T + 90 g]; mic_dar=True "MIC dar aralık"
+    bilgi satırının [w0 − 15 g, T + 15 g] okumasıdır. Telemetri ve 10MIN'de aralık değişmez."""
+    return pencere(Y, MIC_GENIS if (kaynak == "MIC" and not mic_dar) else UC)
 
 
 def seri_tohumu(kod, Y, j):
@@ -165,9 +196,11 @@ def _desen(tok):
         return "metin"
 
 
-def kesif_satiri(no, alanlar):
-    """Biçim keşfi (§5): sütun 3 ve sonrası maskelenir."""
-    return dict(satir=no, alan_sayisi=len(alanlar), desen=[_desen(t) for t in alanlar],
+def kesif_satiri(no, alanlar, deger_deseni=True):
+    """Biçim keşfi (§5): sütun 3 ve sonrası maskelenir. deger_deseni=False ise (okuma aralığı dışındaki ya da
+    2024 ve sonrası satır, §2.3 ve §5) sütun 3 ve sonrasının tür deseni de hesaplanmaz (ayrıştırma yok)."""
+    desen = [_desen(t) if (j < 2 or deger_deseni) else "denetlenmedi" for j, t in enumerate(alanlar)]
+    return dict(satir=no, alan_sayisi=len(alanlar), desen=desen,
                 sutun1=alanlar[0] if alanlar else None, sutun2=alanlar[1] if len(alanlar) > 1 else None,
                 sonrasi=["***"] * max(0, len(alanlar) - 2))
 
@@ -187,8 +220,8 @@ def oku_dosya(yol, araliklar, ad=None):
     ilk_sayisal = None
     ornek = []
 
-    def dur(ileti, no, alanlar):
-        k = dict(dosya=ad, ileti=ileti, **kesif_satiri(no, alanlar))
+    def dur(ileti, no, alanlar, deger_deseni=True):
+        k = dict(dosya=ad, ileti=ileti, **kesif_satiri(no, alanlar, deger_deseni))
         k["ilk_5_sayisal"] = ornek[:5]
         raise BicimHata(f"{ad}: {ileti} (satır {no})", k)
     try:
@@ -213,23 +246,25 @@ def oku_dosya(yol, araliklar, ad=None):
                 dur("ilk sayısal satırdan sonra sayısal olmayan satır", no, alanlar)
             if ilk_sayisal is None:
                 ilk_sayisal = no
-            if len(ornek) < 5:
-                ornek.append(kesif_satiri(no, alanlar))
+            # 2024 ve sonrası (ve yılı geçersiz) satırların sütun 3+ deseni bile hesaplanmaz (§2.3)
+            erken = y < 2024
             gtam = math.floor(gg)
             if gtam == 0:
-                dur("⌊gün⌋ = 0", no, alanlar)
+                dur("⌊gün⌋ = 0", no, alanlar, erken)
             if not y.is_integer() or not (1960 <= y <= 2026):
-                dur("geçersiz yıl", no, alanlar)
+                dur("geçersiz yıl", no, alanlar, erken and y >= 1960)
             yi = int(y)
             yg = 366 if (yi % 4 == 0 and (yi % 100 != 0 or yi % 400 == 0)) else 365
             if not (1 <= gtam <= yg):
-                dur("geçersiz yılın günü", no, alanlar)
+                dur("geçersiz yılın günü", no, alanlar, erken)
             o = _jan1(yi) + gtam - 1
             ic = False
             for a, b in araliklar:
                 if a <= o <= b:
                     ic = True
                     break
+            if len(ornek) < 5:
+                ornek.append(kesif_satiri(no, alanlar, ic and o <= SON_GUN.toordinal()))
             if not ic:
                 say["aralik_disi"] += 1
                 if len(alanlar) < 3:
@@ -252,7 +287,7 @@ def oku_dosya(yol, araliklar, ad=None):
                 ondalik = max(ondalik, len(t3.split(".", 1)[1]) if "." in t3 else 0)
             gun.setdefault(o, []).append(v)
         f.close()
-    except (OSError, EOFError, gzip.BadGzipFile) as e:
+    except (OSError, EOFError, gzip.BadGzipFile, zlib.error) as e:
         raise BicimHata(f"{ad}: gzip okunamadı ({type(e).__name__})", dict(dosya=ad, ileti="gzip"))
     if say["aralik_ici"] and say["bozuk"] > BOZUK_PAY * say["aralik_ici"]:
         raise BicimHata(f"{ad}: okuma aralığında bozuk satır payı %1'i aşıyor ({say['bozuk']}/{say['aralik_ici']})",
@@ -308,8 +343,8 @@ def _man_braket(g, i):
 
 
 def man_sart(maske, W):
-    """§8.2 şartları (ölçüm günleri = maske). Okuma aralığı dışındaki ölçümler okunmadığı için braket ve aralık
-    yalnız [w0 − 15 g, T + 15 g] içindeki ölçümlerle kurulur (kodlayıcı okuması)."""
+    """§8.2 şartları (ölçüm günleri = maske). Maske MIC okuma ızgarasıdır: Ek 1 E1.4'e göre [w0 − 90 g, T + 90 g]
+    (≤ 2023-10-16); "MIC dar aralık" bilgi satırında [w0 − 15 g, T + 15 g]. Izgara dışındaki ölçümler okunmaz."""
     g = np.nonzero(maske)[0]
     if not len(g):
         return False, "kapsam yok"
@@ -484,12 +519,23 @@ def girdi_denetimi(a):
         raise KosuDur("tr10b_listeler.json sha256 uyuşmuyor")
     if sha256_dosya(a.hdr_csv) != HDR_CSV_SHA:
         raise KosuDur("tr10b_hdr_olaylar.csv sha256 uyuşmuyor")
-    for y in (os.path.join(a.veri, ISARET_AD), os.path.join(a.isaret_depo, ISARET_AD)):
+    if sha256_dosya(a.hdr_baslik_csv) != HDR_BASLIK_CSV_SHA:
+        raise KosuDur("tr10b_hdr_olaylar_baslik_katilmis.csv sha256 uyuşmuyor")
+    if sha256_dosya(a.hdr_etki) != HDR_ETKI_SHA:
+        raise KosuDur("tr10b_hdr_etki.json sha256 uyuşmuyor")
+    veri = os.path.abspath(a.veri)
+    if os.path.commonpath([veri, TL.DEPO]) == TL.DEPO:
+        raise KosuDur("veri dizini depo içinde (ham veri depoya konmaz, §14 madde 7)")
+    for y in (os.path.join(a.veri, ISARET_AD), os.path.join(a.isaret_depo, ISARET_AD), os.path.join(a.veri, ANLIK_AD)):
         if os.path.exists(y):
-            raise KosuDur(f"işaret dosyası var ({y}): gerçek Δv daha önce hesaplandı; tek koşu")
+            raise KosuDur(f"işaret ya da anlık görüntü dosyası var ({y}): gerçek Δv daha önce hesaplandı ya da "
+                          f"hesaplanmak üzereydi; tek koşu (işaret sonrası istisnada yalnız --devam)")
     for ad in ("tr10b_sonuc.json", "tr10b_sonuc.md"):
         if os.path.exists(os.path.join(a.cikti_dizin, ad)):
             raise KosuDur(f"çıktı zaten var: {ad}")
+    tur_yol = os.path.join(a.cikti_dizin, f"tr10b_denetim_tur{a.duzeltme_turu}.json")
+    if os.path.exists(tur_yol):
+        raise KosuDur(f"düzeltme turu {a.duzeltme_turu} zaten koşuldu ({tur_yol}); sonraki tur verilmeli")
     man_b = open(a.manifest, "rb").read()
     man = json.loads(man_b.decode("utf-8"))
     izinli = {u for k, v in T["istasyon"].items() for t in KAYNAK_SIRA for u in v["dosya"][t]}
@@ -513,16 +559,19 @@ def girdi_denetimi(a):
 
 # ---------------------------------------------------------------- okuma ve değerlendirme
 def oku_hepsi(T, kayit, veri, belirsiz):
-    """B listesindeki her istasyonun her kaynağını, istasyonun okuma aralıklarının birleşimiyle okur."""
+    """B listesindeki her istasyonun her kaynağını, istasyonun o kaynak türündeki okuma aralıklarının birleşimiyle
+    okur (telemetri ve 10MIN: [w0 − 15 g, T + 15 g]; MIC: [w0 − 90 g, T + 90 g], Ek 1 E1.4; hepsi ≤ 2023-10-16)."""
     ist = T["istasyon"]
     pencereler = {}
     for k, y in T["listeler"]["B"]:
         pencereler.setdefault(k, []).append(y)
     veri_ist, sayac, dosya_durum = {}, {}, {}
     for k in sorted(pencereler):
-        ar = [(pencere(y)["ilk"].toordinal(), pencere(y)["son"].toordinal()) for y in sorted(pencereler[k])]
-        assert max(b for _, b in ar) <= SON_GUN.toordinal()
         for t in KAYNAK_SIRA:
+            ar = [(kaynak_penceresi(y, t)["ilk"].toordinal(), kaynak_penceresi(y, t)["son"].toordinal())
+                  for y in sorted(pencereler[k])]
+            if max(b for _, b in ar) > SON_GUN.toordinal():
+                raise KosuDur("okuma aralığı 2023-10-16'yı aşıyor")
             for u in ist[k]["dosya"][t]:
                 r = kayit[u]
                 if r["durum"] != "tamam":
@@ -538,11 +587,12 @@ def oku_hepsi(T, kayit, veri, belirsiz):
     return veri_ist, sayac, dosya_durum, pencereler
 
 
-def istasyon_penceresi(k, Y, T, veri_ist, dosya_durum, hdr, hdr_uygula=True):
-    """Bir istasyon-pencerenin kaynağı ve geçerliliği. Değer kullanılmaz, yalnız gün varlığı (§8.3)."""
-    W = pencere(Y)
+def istasyon_penceresi(k, Y, T, veri_ist, dosya_durum, hdr, hdr_uygula=True, mic_dar=False):
+    """Bir istasyon-pencerenin kaynağı ve geçerliliği. Değer kullanılmaz, yalnız gün varlığı (§8.3).
+    mic_dar=True: "MIC dar aralık" bilgi satırı (Ek 1 E1.4)."""
+    W0 = pencere(Y)
     ist = T["istasyon"][k]
-    kn = k_nedeni(k, W, hdr if hdr_uygula else [])
+    kn = k_nedeni(k, W0, hdr if hdr_uygula else [])
     if kn == "K" or (kn == "HDR" and hdr_uygula):
         return dict(kod=k, Y=Y, gecerli=False, neden=kn)
     neden = None
@@ -552,6 +602,7 @@ def istasyon_penceresi(k, Y, T, veri_ist, dosya_durum, hdr, hdr_uygula=True):
         o = veri_ist.get(k, {}).get(t)
         if o is None:
             continue
+        W = kaynak_penceresi(Y, t, mic_dar)
         x, m = pencere_dizisi(o["gunluk"], W)
         katman = "man" if t == "MIC" else "tele"
         ok, ne = (man_sart if katman == "man" else tele_sart)(m, W)
@@ -898,6 +949,10 @@ def satir(yps, ad, birim="kesim", rho_N0=None, zorla=False):
     if N < N_GUC and not (zorla and N >= 2):
         o["guc_yok"] = True
         return o
+    if birim == "kesim" and Kk < K_MIN:
+        # §9.3: bloklu aralık yalnız K ≥ 4 blokta; K ≤ 3'te yer bootstrap'ının aralığı bilgi olarak verilir
+        birim = "site"
+        o["blok_yetersiz"] = True
     Kb, ar = bootstrap(yps, birim, rho_N0)
     o["aralik"] = ar
     o["aralik_birim"] = birim
@@ -931,13 +986,42 @@ def ch_okuma(L, U):
 
 
 # ---------------------------------------------------------------- ana koşu
-def kos(a, log=print):
+# Yapı (kod incelemesi, risk 4): gerçek Δv'ye bağlı olmayan HER ŞEY işaretten önce koşar (hazirla). İşaretten önce
+# aynı ölçü/hüküm/çıktı kodu, gerçek gün maskeleri ve yapay değerlerle bir kez kuru koşulur (kuru prova); bir istisna
+# orada çıkarsa işaret yazılmaz. İşaretle aynı anda okuma sonucu (durum D) veri dizinine (depo dışı) "x" kipinde
+# yazılır ve sha256'sı işarete girer; işaretten sonra bir istisna olursa doğrudan nedeni düzeltilir ve
+# `--devam` ile ham veriye ikinci kez bakılmadan bu anlık görüntüden sürdürülür (§14 madde 6).
+def sw_kur(T, veri_ist, dosya_durum, hdr, **kw):
+    return {(k, Y): istasyon_penceresi(k, Y, T, veri_ist, dosya_durum, hdr, **kw) for k, Y in T["listeler"]["B"]}
+
+
+def yp_kur(liste, kaynak, suz=lambda s: True):
+    return temsilci([kaynak[x] for x in liste if kaynak[x]["gecerli"] and suz(kaynak[x])])
+
+
+def sayim(yps):
+    return dict(yer=len({r["site"] for r in yps}), yer_pencere=len(yps), kesim=len({r["kesim"] for r in yps}),
+                kaynak={t: sum(r["kaynak"] == t for r in yps) for t in KAYNAK_SIRA})
+
+
+def hazirla(a, log):
+    """İşaret öncesi: girdi denetimi, okuma, §6/§8 şartları, temsilci, kapı, dolgu tanısı, kod denetimleri (yapay),
+    pozitif kontrol (gerçek veride; yalnız d), README N0 çekilişleri (yalnız maske). Gerçek Δv HESAPLANMAZ."""
     t0 = time.time()
     T, man, man_sha, kayit, basarisiz, pay = girdi_denetimi(a)
     hdr = hdr_olaylari(a.hdr_csv)
+    hdr_b = hdr_olaylari(a.hdr_baslik_csv)
     belirsiz = set(x for x in (a.bicim_belirsiz or "").split(",") if x)
-    girdi = dict(onkayit_sha256=TL.MD_SHA, listeler_json_sha256=T["json_sha256"], hdr_csv_sha256=HDR_CSV_SHA,
+    if not belirsiz <= set(kayit):
+        raise KosuDur(f"--bicim-belirsiz manifestte olmayan URL içeriyor: {sorted(belirsiz - set(kayit))}")
+    etki_B = json.load(open(a.hdr_etki, encoding="utf-8"))["etki"]["B"]
+    md_tam = open(TL.MD_YOL, "rb").read()
+    girdi = dict(onkayit_sha256=TL.MD_SHA, onkayit_donmus_boy=TL.MD_DONMUS_BOY,
+                 onkayit_tam_dosya_sha256=hashlib.sha256(md_tam).hexdigest(), onkayit_tam_boy=len(md_tam),
+                 listeler_json_sha256=T["json_sha256"], hdr_csv_sha256=HDR_CSV_SHA,
+                 hdr_baslik_csv_sha256=HDR_BASLIK_CSV_SHA, hdr_etki_sha256=HDR_ETKI_SHA,
                  manifest_veri_sha256=man_sha, kosu_kodu_sha256=sha256_dosya(os.path.abspath(__file__)),
+                 yardimci_kod_sha256={os.path.basename(m.__file__): sha256_dosya(m.__file__) for m in (TL, KS, T2)},
                  liste_sha256=TL.LISTE_SHA,
                  veri_dosyalari_sha256={r["yerel"]: r.get("sha256") for r in kayit.values()})
     log(f"girdi denetimi tamam; indirme başarısız {len(basarisiz)} (pay {pay:.3f})")
@@ -948,23 +1032,20 @@ def kos(a, log=print):
                ("satir", "baslik", "bos", "aralik_ici", "aralik_disi", "aralik_disi_bozuk", "bozuk")}
     log(f"okuma bitti: {len(sayac)} dosya; {oku_top}")
 
-    # 2) istasyon-pencereler
-    sw = {}
-    sw_hdrsiz = {}
-    for k, Y in T["listeler"]["B"]:
-        sw[(k, Y)] = istasyon_penceresi(k, Y, T, veri_ist, dosya_durum, hdr)
-        sw_hdrsiz[(k, Y)] = (sw[(k, Y)] if sw[(k, Y)].get("neden") != "HDR"
-                             else istasyon_penceresi(k, Y, T, veri_ist, dosya_durum, hdr, hdr_uygula=False))
+    # 2) istasyon-pencereler: bağlayıcı küme ve bilgi satırlarının değişkeleri (yalnız gün varlığı)
+    sw = sw_kur(T, veri_ist, dosya_durum, hdr)
+    sw_hdrsiz = {x: (s if s.get("neden") != "HDR" else
+                     istasyon_penceresi(x[0], x[1], T, veri_ist, dosya_durum, hdr, hdr_uygula=False))
+                 for x, s in sw.items()}
+    sw_baslik = sw_kur(T, veri_ist, dosya_durum, hdr_b)            # Ek 1 E1.3
+    sw_micdar = sw_kur(T, veri_ist, dosya_durum, hdr, mic_dar=True)  # Ek 1 E1.4
     neden_say = {}
     for s in sw.values():
         nd = "geçerli" if s["gecerli"] else s["neden"]
         neden_say[nd] = neden_say.get(nd, 0) + 1
-
-    def yp_kur(liste, kaynak=sw, suz=lambda s: True):
-        return temsilci([kaynak[x] for x in liste if kaynak[x]["gecerli"] and suz(kaynak[x])])
     L = T["listeler"]
-    B_yp = yp_kur(L["B"])
-    A_yp = yp_kur(L["A"])
+    B_yp = yp_kur(L["B"], sw)
+    A_yp = yp_kur(L["A"], sw)
     S_B, N_B = len({r["site"] for r in B_yp}), len(B_yp)
     K_B = len({r["kesim"] for r in B_yp})
     kapi = S_B >= KAPI_YER and N_B >= KAPI_YP
@@ -988,12 +1069,18 @@ def kos(a, log=print):
                     dolgulu_egim_sifir=sum(r["dolgulu"] and r["dolgu_egim0"] for r in B_yp),
                     dolgulu_kaynak_epok=dolgu_tab,
                     kaynak_dokumu={t: sum(r["kaynak"] == t for r in B_yp) for t in KAYNAK_SIRA},
-                    A=dict(yer=S_A, yer_pencere=N_A, gecti=kapi_A))
+                    A=dict(yer=S_A, yer_pencere=N_A, gecti=kapi_A),
+                    bilgi_sayimlari={"başlık katılmış (Ek 1 E1.3)": sayim(yp_kur(L["B"], sw_baslik)),
+                                     "MIC dar aralık (Ek 1 E1.4)": sayim(yp_kur(L["B"], sw_micdar)),
+                                     "HDR olayları uygulanmadan": sayim(yp_kur(L["B"], sw_hdrsiz))})
     log(f"veri kapısı: yer {S_B}, yer-pencere {N_B}, K {K_B}; {'geçti' if kapi else 'GEÇMEDİ'}; nedenler {neden_say}")
 
     sonuc = dict(girdi=girdi, okuma=dict(toplam=oku_top, dosya=sayac, dosya_durum=dosya_durum,
                                          bicim_belirsiz=sorted(belirsiz)),
-                 manifest=dict(basarisiz=basarisiz, pay=pay), kapi=kapi_out, duzeltme_turu=a.duzeltme_turu)
+                 manifest=dict(basarisiz=basarisiz, pay=pay), kapi=kapi_out, duzeltme_turu=a.duzeltme_turu,
+                 hdr_sayac=dict(K_dusen_B=len(etki_B["K_dusen"]), K_dusen_creep_event_B=etki_B["K_dusen_creep_event"],
+                                not_="§6.4 madde 4: HDR adımında (veri öncesi, U kapsamı) K olayıyla düşen B "
+                                     "istasyon-pencerelerinden notunda 'creep'/'event' geçenler; bilgi"))
 
     # 3) kod denetimi (yapay) ve pozitif kontrol (gerçek, yalnız d)
     import tempfile
@@ -1023,10 +1110,210 @@ def kos(a, log=print):
                 kod_hata = ("(c-gerçek)", pk.get("tele_medyan", pk.get("man_en_buyuk_sapma")), "§10.3")
     else:
         sonuc["denetim"] = dict(yapilamadi=f"n = {N_B} < 2")
+    R_yp = [r for r in B_yp if r["kod"] in README_TAB]
+    N0 = n0_cekilisleri(R_yp) if (R_yp and kod_hata is None and N_B >= 2) else {}
+    sonuc["sure_hazirlik_sn"] = time.time() - t0
+    return dict(sonuc=sonuc, T=T, L=L, hdr=hdr, sw=dict(B=sw, hdrsiz=sw_hdrsiz, baslik=sw_baslik, micdar=sw_micdar),
+                kapi=kapi, kapi_A=kapi_A, S_B=S_B, N_B=N_B, K_B=K_B, S_A=S_A, N_A=N_A, kume=kume, kod_hata=kod_hata,
+                N0=N0, R_anahtar=sorted((r["kod"], r["Y"]) for r in R_yp))
 
-    def fmt_e(e):
-        return sayi(e, 6) if isinstance(e, float) else str(e)
 
+def fmt_e(e):
+    return sayi(e, 6) if isinstance(e, float) else str(e)
+
+
+def kuyruklar(dolgu_pay, kume):
+    """§12 ek kuyrukları (şart sağlanırsa, bu sırayla). §8.1 ve §10.1 bunları kapıdan bağımsız koyar."""
+    k = ""
+    if dolgu_pay is not None and dolgu_pay > 20:
+        k += f" (yer-pencerelerin %{sayi(dolgu_pay, 0)}'inde uç değeri doğrusal dolgudan; Δv sıfıra yanlı olabilir)"
+    if kume < 20:
+        k += f" (≤ 3 km'de kümelenince {kume} yer kümesi)"
+    return k
+
+
+def olcu_kur(D, log):
+    """İşaretten SONRA koşan kısım: gerçek Δv, satırlar, hüküm. Yalnız bellekte kurar (D["sonuc"]); dosya yazmaz.
+    Kuru provada aynı işlev yapay değerli bir kopyayla çağrılır."""
+    sonuc, L, hdr, V = D["sonuc"], D["L"], D["hdr"], D["sw"]
+    S_B, N_B, K_B, S_A, N_A = D["S_B"], D["N_B"], D["K_B"], D["S_A"], D["N_A"]
+    kapi, kapi_A, kume, N0 = D["kapi"], D["kapi_A"], D["kume"], D["N0"]
+    sw = V["B"]
+    for S in V.values():
+        for s in S.values():
+            if s["gecerli"] and "dv" not in s:
+                d = olc(s["x"], s["maske"], s["W"], s["katman"])
+                s["dv"], s["v5"] = float(d[0]), float(d[1])
+    B_yp = yp_kur(L["B"], sw)
+    A_yp = yp_kur(L["A"], sw)
+    if (len(B_yp), len({r["site"] for r in B_yp})) != (N_B, S_B):
+        raise KosuDur("iç tutarlılık: işaret sonrası B kümesi işaret öncesindekinden farklı")
+    R_yp = [r for r in B_yp if r["kod"] in README_TAB]
+    if sorted((r["kod"], r["Y"]) for r in R_yp) != D["R_anahtar"] or set(N0) != set(D["R_anahtar"]):
+        raise KosuDur("iç tutarlılık: README alt kümesi R işaret öncesindekinden farklı")
+    R_ok = len(R_yp) >= N_GUC
+    blok_yeter = K_B >= K_MIN
+    ana = satir(B_yp, "Ana (B)", "kesim" if blok_yeter else "site", rho_N0=N0, zorla=True)
+    ana_yer = satir(B_yp, "Ana (B), yer bootstrap'ı", "site", rho_N0=N0, zorla=True)
+    q95_N0_R = q(np.concatenate(list(N0.values())), .95) if N0 else None
+    q95_R = q(np.abs([r["dv"] for r in R_yp]), .95) if R_yp else None
+    rhoR = q95_R / q95_N0_R if R_yp else None
+    R08 = [r for r in R_yp if r["Y"] >= 2008]
+    N0_08 = {k: v for k, v in N0.items() if k[1] >= 2008}
+    rho08 = (q(np.abs([r["dv"] for r in R08]), .95) / q(np.concatenate(list(N0_08.values())), .95)
+             if R08 else None)
+    rho08_satir = satir(R08, "README N0, T ≥ 2008", "kesim", rho_N0=N0_08) if R08 else dict(N=0)
+    A_satir = satir(A_yp, "A satırı", "kesim" if len({r['kesim'] for r in A_yp}) >= K_MIN else "site", zorla=True)
+    kesim_d = {kk: satir([r for r in B_yp if r["kesim"] == kk], f"kesim {kk}", "site")
+               for kk in sorted({r["kesim"] for r in B_yp})}
+    epok_d = {Y: satir([r for r in B_yp if r["Y"] == Y], f"epok {Y}", "kesim") for Y in sorted({r["Y"] for r in B_yp})}
+    katman_d = {k: satir([r for r in B_yp if r["katman"] == k], f"katman {k}", "kesim") for k in ("tele", "man")}
+    kaynak_d = {k: satir([r for r in B_yp if r["kaynak"] == k], f"kaynak {k}", "kesim") for k in KAYNAK_SIRA}
+    Dsiz = [x for x in L["B"] if not d_var(x[0], pencere(x[1]), hdr)]
+    bilgi = {
+        "Parkfield dışı": satir([r for r in B_yp if r["kesim"] != "SAF_Parkfield"], "Parkfield dışı"),
+        "yalnız T ≥ 2008": satir([r for r in B_yp if r["Y"] >= 2008], "T ≥ 2008"),
+        "D olayları dışarıda": satir(yp_kur(Dsiz, sw), "D dışarıda"),
+        "yalnız telemetri": satir(yp_kur(L["B"], sw, suz=lambda s: s["katman"] == "tele"), "yalnız telemetri"),
+        "SAYIM R2 alt kümesi": satir(yp_kur(L["B_R2"], sw), "B_R2"),
+        "HDR olayları uygulanmadan": satir(yp_kur(L["B"], V["hdrsiz"]), "HDR uygulanmadan"),
+        "B1 geçmiş 5 y": satir(yp_kur(L["B1_gecmis5"], sw), "B1 geçmiş 5 y"),
+        "dolgulu yer-pencereler dışarıda": satir([r for r in B_yp if not r["dolgulu"]], "dolgusuz"),
+        "XDL2 dışarıda": satir(yp_kur(L["B"], sw, suz=lambda s: s["kod"] != "XDL2"), "XDL2 dışarıda"),
+        "başlık katılmış (Ek 1 E1.3)": satir(yp_kur(L["B"], V["baslik"]), "başlık katılmış"),
+        "MIC dar aralık (Ek 1 E1.4)": satir(yp_kur(L["B"], V["micdar"]), "MIC dar aralık"),
+    }
+    m_dv = []
+    for r in B_yp:
+        if r["katman"] == "tele":
+            m = mentese(r["x"], r["maske"], r["W"], d_tarihleri(r["kod"], hdr))
+            if m is not None:
+                m_dv.append(abs(m))
+    mentese_out = dict(N=len(m_dv), q50=q(m_dv, .5) if m_dv else None, q95=q(m_dv, .95) if m_dv else None,
+                       rank_dusen=sum(1 for r in B_yp if r["katman"] == "tele") - len(m_dv))
+    p_pkf = sum(r["kesim"] == "SAF_Parkfield" for r in B_yp) / N_B * 100
+    p_0818 = sum(2008 <= r["Y"] <= 2018 for r in B_yp) / N_B * 100
+    dolgu_pay = sonuc["kapi"]["dolgulu"] / N_B * 100
+    rho_ar = ana.get("aralik", {}).get("rho_R")
+    sonuc["olcu"] = dict(ana=ana, ana_yer_bootstrap=ana_yer, A=A_satir,
+                         readme=dict(N_R=len(R_yp), q95_R=q95_R, q95_N0_R=q95_N0_R, rho_R=rhoR, rho_R_aralik=rho_ar,
+                                     guc_yok=not R_ok, T2008=dict(N=len(R08), rho=rho08, satir=rho08_satir)),
+                         kesim=kesim_d, epok=epok_d, katman=katman_d, kaynak=kaynak_d, bilgi=bilgi,
+                         mentese=mentese_out, p_parkfield=p_pkf, p_2008_2018=p_0818, dolgulu_pay=dolgu_pay,
+                         q99_notu="N < 300: bilgi" if N_B < N_Q99 else "")
+    # hüküm
+    nk = ana["nokta"]
+    ar = ana.get("aralik", {})
+    kapi_A_m = "geçer" if kapi_A else "altı"
+    Aar = A_satir.get("aralik", {}).get("q95", {}) if A_satir.get("N") else {}
+    A_q95 = A_satir.get("nokta", {}).get("q95")
+    kuyruk = kuyruklar(dolgu_pay, kume)
+    if not kapi:
+        ar_q95 = ar.get("q95", {})
+        ar_r = ar.get("r95", {})
+        hukum = (f"TR-10b: veri yok (kural seti B: yer {S_B} / yer-pencere {N_B}; kapı ≥ 20 / ≥ 40). Bilgi satırı, "
+                 f"kapı altı: |Δv| q50 {sayi(nk['q50'])}, q95 {sayi(nk['q95'])} {aralik(ar_q95.get('L'), ar_q95.get('U'))} "
+                 f"mm/yıl (sünen katmanda hızın %{sayi(nk['r95'], 0)}'si {aralik(ar_r.get('L'), ar_r.get('U'), 0)}); "
+                 f"bu satır bir hüküm değildir.{kuyruk}")
+    elif not blok_yeter:
+        ay = ana_yer.get("aralik", {}).get("q95", {})
+        hukum = (f"TR-10b: blok yetersiz (K = {K_B}); etiket yok. Kural seti B: |Δv| q50 {sayi(nk['q50'])}, "
+                 f"q95 {sayi(nk['q95'])} mm/yıl (yer bootstrap'ı aralığı {aralik(ay.get('L'), ay.get('U'))}, bilgi; "
+                 f"sünen katmanda hızın %{sayi(nk['r95'], 0)}'si); README modeline göre ρ_R = {sayi(rhoR)} "
+                 f"(nokta değer); yer {S_B}, yer-pencere {N_B}. Kural seti A: q95 {sayi(A_q95)} mm/yıl (yer {S_A}, "
+                 f"yer-pencere {N_A}; kapı {kapi_A_m}).{kuyruk}")
+        # §9.3: Chihshang satırı da blok sayısı şartına uyar: nokta değerler ve yer bootstrap'ı aralığı (bilgi)
+        ay_ar = ana_yer.get("aralik", {})
+        sonuc["olcu"]["chihshang"] = dict(P_r=nk["P_r"], P_v=nk["P_v"], P_r_aralik_yer=ay_ar.get("P_r"),
+                                          P_v_aralik_yer=ay_ar.get("P_v"), not_="blok yetersiz: okuma yok, bilgi")
+    else:
+        qa = ar["q95"]
+        # q95 her yinelemede tanımlıdır (her blokta ≥ 1 yer-pencere); savunma: tanımsızsa etiket konmaz
+        et = b_etiketi(qa["L"], qa["U"]) if not qa["guc_yok"] else "etiket yok (q95 aralığı tanımsız)"
+        if R_ok and rho_ar is not None and not rho_ar["guc_yok"]:
+            rmet = (f"README modeline göre {rho_okuma(rho_ar['L'], rho_ar['U'])} (ρ_R = {sayi(rhoR)} "
+                    f"{aralik(rho_ar['L'], rho_ar['U'])}, yer-pencere {len(R_yp)})")
+        else:
+            # N_R < 20 (§10.4) ya da ρ_R aralığı yinelemelerin > %10'unda tanımsız (§9.3): okuma yok, "güç yok"
+            rmet = f"README modeline göre (ρ_R = {sayi(rhoR)}, yer-pencere {len(R_yp)}; güç yok)"
+        ra95 = ar["r95"]
+        hukum = (f"TR-10b: {et}; {rmet}. Kural seti B: Orta Kaliforniya sünme ölçerlerinde sakin 5 yıllık "
+                 f"pencerelerde 2 yıllık sünme hızı değişimi |Δv|, yer-pencerelerin yarısında {sayi(nk['q50'])} "
+                 f"mm/yıl'ı, %5'inde {sayi(nk['q95'])} {aralik(qa['L'], qa['U'])} mm/yıl'ı aşar (sünen katmanda "
+                 f"hızın %{sayi(nk['r50'], 0)}'sini ve %{sayi(nk['r95'], 0)} {aralik(ra95['L'], ra95['U'], 0)}'sunu); "
+                 f"yer {S_B}, yer-pencere {N_B}, kesim {K_B}; aralık fay kesimi bloklu bootstrap, yüzdelik, "
+                 f"nominal %90 (5–6 blokla gerçek kapsama daha düşük). Kural seti A: q95 {sayi(A_q95)} "
+                 f"{aralik(Aar.get('L'), Aar.get('U'))} mm/yıl (yer {S_A}, yer-pencere {N_A}; kapı {kapi_A_m})."
+                 f"{kuyruk}")
+        yanlis = (f"Orta Kaliforniya sünme ölçerlerinde, önceden tanımlı sakinlik kuralı B'yi geçen 5 yıllık "
+                  f"pencerelerde 2 yıllık sünme hızı değişimi %5 sıklıkla {sayi(nk['q95'])} mm/yıl'ı (sünen "
+                  f"ölçerlerde hızın %{sayi(nk['r95'], 0)}'ini) aşar. Bloklu üst sınır {sayi(qa['U'])} mm/yıl'dır "
+                  f"(nominal %90). Yer-pencerelerin %{sayi(p_pkf, 0)}'i Parkfield'da, %{sayi(p_0818, 0)}'i "
+                  f"2008–2018 epoklarındadır. Sakin pencere seçimi ve küçük örneklem bu değeri aşağı çeker. Bu "
+                  f"yüzden {sayi(nk['q95'])}, koşulsuz yanlış alarm eşiğinin alt kestirimidir. {sayi(qa['U'])} "
+                  f"mm/yıl'dan küçük bir değişim bu tür bir ölçerde tek başına olağandışı sayılmaz. Daha büyük bir "
+                  f"değişimin olağandışı olduğu ise bu ölçümden çıkmaz.")
+        pr = ar["P_r"]
+        # P_r aralığı tanımsızsa (§9.3 "güç yok") okuma yapılmaz; kalıbın üç sözcüğünden biri uydurulmaz
+        ch_ok = ch_okuma(pr["L"], pr["U"]) if not pr["guc_yok"] else "okunamaz (P_r aralığı: güç yok)"
+        ch = (f"Bilgi: Chihshang 2003 iddiası (−8 mm/yıl, r = −0,43; bindirme fayı, farklı alet dönemleri) bu sakin "
+              f"tabanda |r| ölçüsüyle {ch_ok} "
+              f"(P_r = {sayi(nk['P_r'])} {aralik(pr['L'], pr['U'])}). Taban sakin pencerelerden ve küçük örneklemle "
+              f"kestirildiği için 'üstünde' okuması koşulsuz tabana genellenemez. Pencere uzunluğu farkı ters "
+              f"yönde, 'içinde' yönüne iter.")
+        sonuc["olcu"]["yanlis_alarm_cumlesi"] = yanlis
+        sonuc["olcu"]["chihshang_cumlesi"] = ch
+        sonuc["olcu"]["chihshang"] = dict(P_r=nk["P_r"], P_r_aralik=pr, P_v=nk["P_v"], P_v_aralik=ar["P_v"])
+        sonuc["olcu"]["etiket"] = et
+        if R_ok and rho_ar is not None and not rho_ar["guc_yok"]:
+            sonuc["olcu"]["readme"]["okuma"] = rho_okuma(rho_ar["L"], rho_ar["U"])
+        kp = ar["kappa"]
+        sonuc["olcu"]["kappa_okuma"] = ("kuyruk tek ölçekli Gauss'tan ağır (ölçek karışımı ya da basamaklı sünme)"
+                                        if kp["L"] is not None and kp["L"] > KAPPA_GAUSS else "")
+    sonuc["hukum"] = hukum
+    log("ölçü kuruldu")
+    return sonuc
+
+
+def metinler(sonuc):
+    return json.dumps(sonuc, ensure_ascii=False, indent=1, default=json_varsayilan) + "\n", md_yap(sonuc)
+
+
+def yaz(a, sonuc, log):
+    js, mdm = metinler(sonuc)
+    for ad, metin in (("tr10b_sonuc.json", js), ("tr10b_sonuc.md", mdm)):
+        with open(os.path.join(a.cikti_dizin, ad), "x", encoding="utf-8") as f:
+            f.write(metin)
+    log("hüküm: " + sonuc["hukum"])
+    return 0, sonuc
+
+
+def sentetik_kopya(D):
+    """Kuru prova için D'nin kopyası: her geçerli istasyon-pencerenin gerçek değerleri yapay seriyle değiştirilir
+    (gerçek gün maskesi korunur). Yarısı sünen (10 mm/yıl), yarısı sünmeyen (0,5 mm/yıl) olur ki r dalları da koşsun."""
+    P = copy.deepcopy(D)
+    gorulen = set()
+    for S in P["sw"].values():
+        for s in S.values():
+            if not s["gecerli"] or id(s) in gorulen:
+                continue
+            gorulen.add(id(s))
+            W = s["W"]
+            rng = np.random.default_rng(seri_tohumu(s["kod"], s["Y"], "prova"))
+            hiz = 10.0 if int(hashlib.sha256(s["kod"].encode()).hexdigest()[:2], 16) % 2 else 0.5
+            x = yapay_rw(W["n"], rng) + hiz * np.arange(W["n"]) / 365.25
+            x[~s["maske"]] = np.nan
+            s["x"] = x
+            s.pop("dv", None)
+            s.pop("v5", None)
+    return P
+
+
+def kos(a, log=print):
+    if a.devam:
+        return devam(a, log)
+    D = hazirla(a, log)
+    sonuc, kod_hata = D["sonuc"], D["kod_hata"]
     if kod_hata is not None and a.duzeltme_turu < 2:
         sonuc["kod_hata"] = dict(denetim=kod_hata[0], deger=kod_hata[1], esik=str(kod_hata[2]))
         yol = os.path.join(a.cikti_dizin, f"tr10b_denetim_tur{a.duzeltme_turu}.json")
@@ -1034,165 +1321,78 @@ def kos(a, log=print):
             f.write(json.dumps(sonuc, ensure_ascii=False, indent=1, default=json_varsayilan) + "\n")
         log(f"KOD DENETİMİ BAŞARISIZ: {kod_hata}; gerçek Δv hesaplanmadı; düzeltme turu {a.duzeltme_turu}; {yol}")
         return 3, sonuc
-
-    # 4) ölçü
-    hukum, md = None, []
-    olcu_yap = kod_hata is None and N_B >= 2
     if kod_hata is not None:
-        if kapi:
-            hukum = (f"TR-10b: geçersiz (kod) ({kod_hata[0]}, {fmt_e(kod_hata[1])} / {fmt_e(kod_hata[2])}); "
-                     f"gerçek Δv hesaplanmadı.")
-        sonuc["kod_hata"] = dict(denetim=kod_hata[0], deger=kod_hata[1], esik=str(kod_hata[2]), kesin=True)
-    if olcu_yap:
-        isaret_metni = (f"TR-10b gerçek Δv hesaplandı\nmanifest_veri_sha256 {man_sha}\n"
-                        f"zaman {dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')}\n")
-        for y in (os.path.join(a.veri, ISARET_AD), os.path.join(a.isaret_depo, ISARET_AD)):
-            with open(y, "x", encoding="utf-8") as f:
-                f.write(isaret_metni)
-        log("işaret dosyaları yazıldı; gerçek Δv hesaplanıyor")
-        olc_hepsi = {}
+        # §10.2 ("üçüncü başarısızlıkta hüküm kesin olarak 'geçersiz (kod)'") ve §10.3: kapıdan bağımsızdır. Kapı
+        # sayıları da aynı kodun ürünüdür; kod hatası "veri yok" ardına saklanmaz (kod incelemesi, okuma 19).
+        sonuc["hukum"] = (f"TR-10b: geçersiz (kod) ({kod_hata[0]}, {fmt_e(kod_hata[1])} / {fmt_e(kod_hata[2])}); "
+                          f"gerçek Δv hesaplanmadı.")
+        sonuc["kod_hata"] = dict(denetim=kod_hata[0], deger=kod_hata[1], esik=str(kod_hata[2]), kesin=True,
+                                 kapi_bilgi=dict(gecti=D["kapi"], yer=D["S_B"], yer_pencere=D["N_B"]))
+        return yaz(a, sonuc, log)
+    if D["N_B"] < 2:
+        sonuc["hukum"] = (f"TR-10b: veri yok (kural seti B: yer {D['S_B']} / yer-pencere {D['N_B']}; kapı ≥ 20 / "
+                          f"≥ 40).{kuyruklar(None, D['kume'])}")
+        return yaz(a, sonuc, log)
+    # kuru prova: aynı ölçü, hüküm ve çıktı kodu, gerçek maskeler, yapay değerler; dosya yazılmaz
+    try:
+        P = sentetik_kopya(D)
+        metinler(olcu_kur(P, log=lambda *_: None))
+    except Exception as e:                                         # noqa: BLE001
+        raise KosuDur(f"işaret öncesi kuru prova (yapay değerler) başarısız: {type(e).__name__}: {e}; işaret "
+                      f"yazılmadı, gerçek Δv hesaplanmadı") from e
+    del P
+    # okuma anlık görüntüsü ve iki işaret, aynı adımda; işaret anlık görüntünün sha256'sını taşır
+    anlik = pickle.dumps(D, protocol=4)
+    anlik_sha = hashlib.sha256(anlik).hexdigest()
+    with open(os.path.join(a.veri, ANLIK_AD), "xb") as f:
+        f.write(anlik)
+    isaret_metni = (f"TR-10b gerçek Δv hesaplandı\nmanifest_veri_sha256 {D['sonuc']['girdi']['manifest_veri_sha256']}\n"
+                    f"anlik_sha256 {anlik_sha}\nkosu_kodu_sha256 {D['sonuc']['girdi']['kosu_kodu_sha256']}\n"
+                    f"zaman {dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')}\n")
+    for y in (os.path.join(a.veri, ISARET_AD), os.path.join(a.isaret_depo, ISARET_AD)):
+        with open(y, "x", encoding="utf-8") as f:
+            f.write(isaret_metni)
+    log("işaret dosyaları ve okuma anlık görüntüsü yazıldı; gerçek Δv hesaplanıyor")
+    try:
+        sonuc["isaret"] = isaret_metni
+        olcu_kur(D, log)
+        return yaz(a, sonuc, log)
+    except Exception as e:                                         # noqa: BLE001
+        raise IsaretSonrasiHata(f"{type(e).__name__}: {e}") from e
 
-        def olc_yp(r):
-            key = (r["kod"], r["Y"])
-            if key not in olc_hepsi:
-                d = olc(r["x"], r["maske"], r["W"], r["katman"])
-                olc_hepsi[key] = (float(d[0]), float(d[1]))
-            r["dv"], r["v5"] = olc_hepsi[key]
-            return r
-        for s in list(sw.values()) + list(sw_hdrsiz.values()):
-            if s["gecerli"]:
-                olc_yp(s)
-        B_yp = yp_kur(L["B"])
-        A_yp = yp_kur(L["A"])
-        R_yp = [r for r in B_yp if r["kod"] in README_TAB]
-        N0 = n0_cekilisleri(R_yp) if R_yp else {}
-        R_ok = len(R_yp) >= N_GUC
-        blok_yeter = K_B >= K_MIN
-        ana = satir(B_yp, "Ana (B)", "kesim" if blok_yeter else "site", rho_N0=N0, zorla=True)
-        ana_yer = satir(B_yp, "Ana (B), yer bootstrap'ı", "site", rho_N0=N0, zorla=True)
-        q95_N0_R = q(np.concatenate(list(N0.values())), .95) if N0 else None
-        q95_R = q(np.abs([r["dv"] for r in R_yp]), .95) if R_yp else None
-        rhoR = q95_R / q95_N0_R if R_yp else None
-        R08 = [r for r in R_yp if r["Y"] >= 2008]
-        N0_08 = {k: v for k, v in N0.items() if k[1] >= 2008}
-        rho08 = (q(np.abs([r["dv"] for r in R08]), .95) / q(np.concatenate(list(N0_08.values())), .95)
-                 if R08 else None)
-        rho08_satir = satir(R08, "README N0, T ≥ 2008", "kesim", rho_N0=N0_08) if R08 else dict(N=0)
-        A_satir = satir(A_yp, "A satırı", "kesim" if len({r['kesim'] for r in A_yp}) >= K_MIN else "site",
-                        zorla=True)
-        # dökümler
-        kesim_d = {}
-        for kk in sorted({r["kesim"] for r in B_yp}):
-            kesim_d[kk] = satir([r for r in B_yp if r["kesim"] == kk], f"kesim {kk}", "site")
-        epok_d = {Y: satir([r for r in B_yp if r["Y"] == Y], f"epok {Y}", "kesim")
-                  for Y in sorted({r["Y"] for r in B_yp})}
-        katman_d = {k: satir([r for r in B_yp if r["katman"] == k], f"katman {k}", "kesim") for k in ("tele", "man")}
-        kaynak_d = {k: satir([r for r in B_yp if r["kaynak"] == k], f"kaynak {k}", "kesim") for k in KAYNAK_SIRA}
-        Dsiz = {x: sw[x] for x in L["B"] if not d_var(x[0], pencere(x[1]), hdr)}
-        bilgi = {
-            "Parkfield dışı": satir([r for r in B_yp if r["kesim"] != "SAF_Parkfield"], "Parkfield dışı"),
-            "yalnız T ≥ 2008": satir([r for r in B_yp if r["Y"] >= 2008], "T ≥ 2008"),
-            "D olayları dışarıda": satir(yp_kur(list(Dsiz)), "D dışarıda"),
-            "yalnız telemetri": satir(yp_kur(L["B"], suz=lambda s: s["katman"] == "tele"), "yalnız telemetri"),
-            "SAYIM R2 alt kümesi": satir(yp_kur(L["B_R2"]), "B_R2"),
-            "HDR olayları uygulanmadan": satir(yp_kur(L["B"], kaynak=sw_hdrsiz), "HDR uygulanmadan"),
-            "B1 geçmiş 5 y": satir(yp_kur(L["B1_gecmis5"]), "B1 geçmiş 5 y"),
-            "dolgulu yer-pencereler dışarıda": satir([r for r in B_yp if not r["dolgulu"]], "dolgusuz"),
-            "XDL2 dışarıda": satir(yp_kur(L["B"], suz=lambda s: s["kod"] != "XDL2"), "XDL2 dışarıda"),
-        }
-        m_dv = []
-        for r in B_yp:
-            if r["katman"] == "tele":
-                m = mentese(r["x"], r["maske"], r["W"], d_tarihleri(r["kod"], hdr))
-                if m is not None:
-                    m_dv.append(abs(m))
-        mentese_out = dict(N=len(m_dv), q50=q(m_dv, .5) if m_dv else None, q95=q(m_dv, .95) if m_dv else None,
-                           rank_dusen=sum(1 for r in B_yp if r["katman"] == "tele") - len(m_dv))
-        p_pkf = sum(r["kesim"] == "SAF_Parkfield" for r in B_yp) / N_B * 100
-        p_0818 = sum(2008 <= r["Y"] <= 2018 for r in B_yp) / N_B * 100
-        dolgu_pay = kapi_out["dolgulu"] / N_B * 100
-        sonuc["olcu"] = dict(ana=ana, ana_yer_bootstrap=ana_yer, A=A_satir,
-                             readme=dict(N_R=len(R_yp), q95_R=q95_R, q95_N0_R=q95_N0_R, rho_R=rhoR,
-                                         rho_R_aralik=ana.get("aralik", {}).get("rho_R"), guc_yok=not R_ok,
-                                         T2008=dict(N=len(R08), rho=rho08, satir=rho08_satir)),
-                             kesim=kesim_d, epok=epok_d, katman=katman_d, kaynak=kaynak_d, bilgi=bilgi,
-                             mentese=mentese_out, p_parkfield=p_pkf, p_2008_2018=p_0818, dolgulu_pay=dolgu_pay,
-                             q99_notu="N < 300: bilgi" if N_B < N_Q99 else "")
-        # hüküm
-        nk = ana["nokta"]
-        ar = ana.get("aralik", {})
-        kapi_A_m = "geçer" if kapi_A else "altı"
-        Aar = A_satir.get("aralik", {}).get("q95", {}) if A_satir.get("N") else {}
-        A_q95 = A_satir.get("nokta", {}).get("q95")
-        kuyruk = ""
-        if dolgu_pay > 20:
-            kuyruk += f" (yer-pencerelerin %{sayi(dolgu_pay, 0)}'inde uç değeri doğrusal dolgudan; Δv sıfıra yanlı olabilir)"
-        if kume < 20:
-            kuyruk += f" (≤ 3 km'de kümelenince {kume} yer kümesi)"
-        if not kapi:
-            ar_q95 = ar.get("q95", {})
-            ar_r = ar.get("r95", {})
-            hukum = (f"TR-10b: veri yok (kural seti B: yer {S_B} / yer-pencere {N_B}; kapı ≥ 20 / ≥ 40). Bilgi satırı, "
-                     f"kapı altı: |Δv| q50 {sayi(nk['q50'])}, q95 {sayi(nk['q95'])} {aralik(ar_q95.get('L'), ar_q95.get('U'))} "
-                     f"mm/yıl (sünen katmanda hızın %{sayi(nk['r95'], 0)}'si {aralik(ar_r.get('L'), ar_r.get('U'), 0)}); "
-                     f"bu satır bir hüküm değildir.")
-        elif not blok_yeter:
-            ay = ana_yer.get("aralik", {}).get("q95", {})
-            hukum = (f"TR-10b: blok yetersiz (K = {K_B}); etiket yok. Kural seti B: |Δv| q50 {sayi(nk['q50'])}, "
-                     f"q95 {sayi(nk['q95'])} mm/yıl (yer bootstrap'ı aralığı {aralik(ay.get('L'), ay.get('U'))}, bilgi; "
-                     f"sünen katmanda hızın %{sayi(nk['r95'], 0)}'si); README modeline göre ρ_R = {sayi(rhoR)} "
-                     f"(nokta değer); yer {S_B}, yer-pencere {N_B}. Kural seti A: q95 {sayi(A_q95)} mm/yıl (yer {S_A}, "
-                     f"yer-pencere {N_A}; kapı {kapi_A_m}).{kuyruk}")
-        else:
-            qa = ar["q95"]
-            # q95 her yinelemede tanımlıdır (her blokta ≥ 1 yer-pencere); savunma: tanımsızsa etiket konmaz
-            et = b_etiketi(qa["L"], qa["U"]) if not qa["guc_yok"] else "etiket yok (q95 aralığı tanımsız)"
-            if R_ok:
-                ra = ar["rho_R"]
-                rmet = f"README modeline göre {rho_okuma(ra['L'], ra['U'])} (ρ_R = {sayi(rhoR)} {aralik(ra['L'], ra['U'])}, yer-pencere {len(R_yp)})"
-            else:
-                rmet = f"README modeline göre (ρ_R = {sayi(rhoR)}, yer-pencere {len(R_yp)}; güç yok)"
-            ra95 = ar["r95"]
-            hukum = (f"TR-10b: {et}; {rmet}. Kural seti B: Orta Kaliforniya sünme ölçerlerinde sakin 5 yıllık "
-                     f"pencerelerde 2 yıllık sünme hızı değişimi |Δv|, yer-pencerelerin yarısında {sayi(nk['q50'])} "
-                     f"mm/yıl'ı, %5'inde {sayi(nk['q95'])} {aralik(qa['L'], qa['U'])} mm/yıl'ı aşar (sünen katmanda "
-                     f"hızın %{sayi(nk['r50'], 0)}'sini ve %{sayi(nk['r95'], 0)} {aralik(ra95['L'], ra95['U'], 0)}'sunu); "
-                     f"yer {S_B}, yer-pencere {N_B}, kesim {K_B}; aralık fay kesimi bloklu bootstrap, yüzdelik, "
-                     f"nominal %90 (5–6 blokla gerçek kapsama daha düşük). Kural seti A: q95 {sayi(A_q95)} "
-                     f"{aralik(Aar.get('L'), Aar.get('U'))} mm/yıl (yer {S_A}, yer-pencere {N_A}; kapı {kapi_A_m})."
-                     f"{kuyruk}")
-            yanlis = (f"Orta Kaliforniya sünme ölçerlerinde, önceden tanımlı sakinlik kuralı B'yi geçen 5 yıllık "
-                      f"pencerelerde 2 yıllık sünme hızı değişimi %5 sıklıkla {sayi(nk['q95'])} mm/yıl'ı (sünen "
-                      f"ölçerlerde hızın %{sayi(nk['r95'], 0)}'ini) aşar. Bloklu üst sınır {sayi(qa['U'])} mm/yıl'dır "
-                      f"(nominal %90). Yer-pencerelerin %{sayi(p_pkf, 0)}'i Parkfield'da, %{sayi(p_0818, 0)}'i "
-                      f"2008–2018 epoklarındadır. Sakin pencere seçimi ve küçük örneklem bu değeri aşağı çeker. Bu "
-                      f"yüzden {sayi(nk['q95'])}, koşulsuz yanlış alarm eşiğinin alt kestirimidir. {sayi(qa['U'])} "
-                      f"mm/yıl'dan küçük bir değişim bu tür bir ölçerde tek başına olağandışı sayılmaz. Daha büyük bir "
-                      f"değişimin olağandışı olduğu ise bu ölçümden çıkmaz.")
-            pr = ar["P_r"]
-            ch = (f"Bilgi: Chihshang 2003 iddiası (−8 mm/yıl, r = −0,43; bindirme fayı, farklı alet dönemleri) bu sakin "
-                  f"tabanda |r| ölçüsüyle {ch_okuma(pr['L'], pr['U']) if not pr['guc_yok'] else 'sınırda'} "
-                  f"(P_r = {sayi(nk['P_r'])} {aralik(pr['L'], pr['U'])}). Taban sakin pencerelerden ve küçük örneklemle "
-                  f"kestirildiği için 'üstünde' okuması koşulsuz tabana genellenemez. Pencere uzunluğu farkı ters "
-                  f"yönde, 'içinde' yönüne iter.")
-            sonuc["olcu"]["yanlis_alarm_cumlesi"] = yanlis
-            sonuc["olcu"]["chihshang_cumlesi"] = ch
-            sonuc["olcu"]["chihshang"] = dict(P_r=nk["P_r"], P_r_aralik=pr, P_v=nk["P_v"], P_v_aralik=ar["P_v"])
-            sonuc["olcu"]["etiket"] = et
-            kp = ar["kappa"]
-            sonuc["olcu"]["kappa_okuma"] = ("kuyruk tek ölçekli Gauss'tan ağır (ölçek karışımı ya da basamaklı sünme)"
-                                            if kp["L"] is not None and kp["L"] > KAPPA_GAUSS else "")
-    elif hukum is None:
-        hukum = f"TR-10b: veri yok (kural seti B: yer {S_B} / yer-pencere {N_B}; kapı ≥ 20 / ≥ 40)."
-    sonuc["hukum"] = hukum
-    sonuc["sure_sn"] = time.time() - t0
-    js = json.dumps(sonuc, ensure_ascii=False, indent=1, default=json_varsayilan)
-    mdm = md_yap(sonuc)
-    for ad, metin in (("tr10b_sonuc.json", js + "\n"), ("tr10b_sonuc.md", mdm)):
-        with open(os.path.join(a.cikti_dizin, ad), "x", encoding="utf-8") as f:
-            f.write(metin)
-    log("hüküm: " + hukum)
-    return 0, sonuc
+
+def devam(a, log):
+    """§14 madde 6: işaretten sonra bir istisna olduysa, yalnız doğrudan nedeni düzeltilmiş kodla, ham veri ikinci kez
+    okunmadan, işaretle yazılmış anlık görüntüden sürdürür. İki işaret de olmalı, çıktılar olmamalı, anlık görüntü ve
+    manifest işaretteki sha256'larla uyuşmalı."""
+    yv, yd = os.path.join(a.veri, ISARET_AD), os.path.join(a.isaret_depo, ISARET_AD)
+    if not (os.path.exists(yv) and os.path.exists(yd)):
+        raise KosuDur("--devam: iki işaret dosyası da var olmalı (işaret yoksa olağan koşu)")
+    for ad in ("tr10b_sonuc.json", "tr10b_sonuc.md"):
+        if os.path.exists(os.path.join(a.cikti_dizin, ad)):
+            raise KosuDur(f"--devam: çıktı zaten var ({ad}); devam yok")
+    metin = open(yd, encoding="utf-8").read()
+    if open(yv, encoding="utf-8").read() != metin:
+        raise KosuDur("--devam: iki işaret dosyası farklı")
+    alan = dict(s.split(" ", 1) for s in metin.splitlines()[1:] if " " in s)
+    b = open(os.path.join(a.veri, ANLIK_AD), "rb").read()
+    if hashlib.sha256(b).hexdigest() != alan.get("anlik_sha256"):
+        raise KosuDur("--devam: anlık görüntünün sha256'sı işarettekiyle uyuşmuyor")
+    if sha256_dosya(a.manifest) != alan.get("manifest_veri_sha256"):
+        raise KosuDur("--devam: manifest sha256'sı işarettekiyle uyuşmuyor")
+    D = pickle.loads(b)
+    simdi = sha256_dosya(os.path.abspath(__file__))
+    D["sonuc"]["isaret"] = metin
+    D["sonuc"]["devam"] = dict(
+        neden="işaret sonrası istisna; yalnız doğrudan nedeni düzeltildi (§14 madde 6); ham veri yeniden okunmadı",
+        kosu_kodu_sha256_isaret=alan.get("kosu_kodu_sha256"), kosu_kodu_sha256_devam=simdi,
+        zaman=dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"))
+    log(f"devam: anlık görüntüden sürdürülüyor (kod {alan.get('kosu_kodu_sha256', '?')[:12]} → {simdi[:12]})")
+    try:
+        olcu_kur(D, log)
+        return yaz(a, D["sonuc"], log)
+    except Exception as e:                                         # noqa: BLE001
+        raise IsaretSonrasiHata(f"{type(e).__name__}: {e}") from e
 
 
 def json_varsayilan(o):
@@ -1210,7 +1410,10 @@ def md_yap(s):
     o = s.get("olcu")
     if o and o.get("yanlis_alarm_cumlesi"):
         L += [o["yanlis_alarm_cumlesi"], "", o["chihshang_cumlesi"], ""]
+    if s.get("devam"):
+        L += [f"Not (§14 madde 6): {s['devam']}", ""]
     k = s["kapi"]
+    kh = s.get("kod_hata")
     L += ["## Veri kapısı", "",
           f"- Kural seti B: yer {k['yer']}, yer-pencere {k['yer_pencere']}, kesim K = {k['kesim_K']}; kapı "
           f"{'geçti' if k['gecti'] else 'geçmedi'} (≥ 20 / ≥ 40). Yer kümesi (≤ 3 km): {k['yer_kumesi']}.",
@@ -1219,11 +1422,15 @@ def md_yap(s):
           f"- İstasyon düzeyi (bilgi): istasyon {k['istasyon_bilgi']}, istasyon-pencere {k['istasyon_pencere_bilgi']}.",
           f"- Düşme nedenleri (istasyon-pencere): {k['dusme_nedenleri']}.",
           f"- Kaynak dökümü (yer-pencere): {k['kaynak_dokumu']}.",
+          f"- Bilgi değişkelerinin sayımları (hükmü değiştirmez): {k['bilgi_sayimlari']}.",
           f"- Dolgulu yer-pencere: {k['dolgulu']} (eğimi sıfır {k['dolgulu_egim_sifir']}); kaynak|epok: "
           f"{k['dolgulu_kaynak_epok']}.",
           f"- Manifest: başarısız {len(s['manifest']['basarisiz'])} (pay {sayi(s['manifest']['pay'], 3)}); sha256 "
           f"denetimi geçti.", f"- Okuma sayaçları: {s['okuma']['toplam']}; biçim belirsiz: {s['okuma']['bicim_belirsiz']}.",
+          f"- HDR adımı sayacı (§6.4 madde 4): {s['hdr_sayac']}.",
           f"- Düzeltme turu: {s['duzeltme_turu']}.", ""]
+    if kh:
+        L += [f"- Kod denetimi başarısız: {kh}.", ""]
     d = s.get("denetim", {})
     if "a" in d:
         a, b, f, c = d["a"], d["b"], d["f144"], d["c_yapay"]
@@ -1242,7 +1449,7 @@ def md_yap(s):
     if o:
         L += ["## Ölçü satırları (§11)", ""]
 
-        def sat(x, ad=None):
+        def sat(x, ad=None, gecti=s["kapi"]["gecti"]):
             ad = ad or x.get("ad")
             if not x.get("N"):
                 return f"- {ad}: N 0"
@@ -1256,9 +1463,12 @@ def md_yap(s):
                 if ar[k]["guc_yok"]:
                     return f"{sayi(v, dd)} (güç yok)"
                 return f"{sayi(v, dd)} {aralik(ar[k]['L'], ar[k]['U'], dd)}"
-            ek = " (güç yok; aralık yok)" if x.get("guc_yok") else (
-                f" (aralık: {x.get('aralik_birim')} bootstrap'ı, K = {x.get('aralik_K')})")
-            kapi_alti = "" if s["kapi"]["gecti"] else " [kapı altı]"
+            if x.get("guc_yok"):
+                ek = " (güç yok; aralık yok)"
+            else:
+                ek = f" (aralık: {x.get('aralik_birim')} bootstrap'ı, K = {x.get('aralik_K')}"
+                ek += "; blok yetersiz, bilgi)" if x.get("blok_yetersiz") else ")"
+            kapi_alti = "" if gecti else " [kapı altı]"
             return (f"- {ad}{kapi_alti}: N {x['N']}, yer {x['S']}, kesim {x['K']}{ek}; |Δv| q50 {f('q50')}, q95 "
                     f"{f('q95')}, q99 {f('q99')} mm/yıl; |r| % q50 {f('r50', 0)}, q95 {f('r95', 0)}, q99 {f('r99', 0)} "
                     f"(sünen N {n.get('sunen_N')}); işaretli medyan {f('isaretli_medyan')}, hızlanan pay "
@@ -1266,19 +1476,27 @@ def md_yap(s):
                     f"{f('q99_q95')}; b* {f('b_yildiz')}")
         L.append(sat(o["ana"], "1. Ana (B)"))
         r = o["readme"]
+        ra = r["rho_R_aralik"]
         L.append(f"   - README modeli: N_R {r['N_R']}, q95_N0,R {sayi(r['q95_N0_R'])}, ρ_R {sayi(r['rho_R'])} "
-                 f"{aralik((r['rho_R_aralik'] or {}).get('L'), (r['rho_R_aralik'] or {}).get('U')) if r['rho_R_aralik'] else ''}"
-                 f"{' (güç yok)' if r['guc_yok'] else ''}; T ≥ 2008: N {r['T2008']['N']}, ρ {sayi(r['T2008']['rho'])}."
+                 f"{aralik(ra.get('L'), ra.get('U')) if ra else ''}"
+                 f"{' (güç yok)' if (r['guc_yok'] or (ra and ra['guc_yok'])) else ''}"
+                 f"{'; okuma: README modeline göre ' + r['okuma'] if r.get('okuma') else ''}; T ≥ 2008: N "
+                 f"{r['T2008']['N']}, ρ {sayi(r['T2008']['rho'])}."
                  f" Güç yasası serisi okuma aralığının başında sıfırdan başlar; n > 2'de sonuç bu seçime bağlıdır.")
         if o.get("etiket"):
-            L.append(f"   - b* etiketi: {o['etiket']}. κ okuması: {o.get('kappa_okuma') or '(yok)'}. {o['q99_notu']}")
-        L.append(sat(o["A"], "5. A satırı"))
+            L.append(f"   - b* etiketi: {o['etiket']}. κ okuması: {o.get('kappa_okuma') or '(yok)'}.")
+        if o.get("q99_notu"):
+            L.append(f"   - q99: {o['q99_notu']}.")
+        if o.get("chihshang"):
+            L.append(f"   - Chihshang (§10.5): {o['chihshang']}.")
+        L.append(sat(o["A"], "5. A satırı", gecti=s["kapi"]["A"]["gecti"]))
         L += ["", "### Kesim dökümü (yer bootstrap'ı)"] + [sat(v) for v in o["kesim"].values()]
         L += ["", "### Epok dökümü (bloklu)"] + [sat(v) for v in o["epok"].values()]
         L += ["", "### Katman ve kaynak dökümü"] + [sat(v) for v in o["katman"].values()] + \
              [sat(v) for v in o["kaynak"].values()]
-        L += ["", "### Bilgi satırları"] + [sat(v, k) for k, v in o["bilgi"].items()]
+        L += ["", "### Bilgi satırları"] + [sat(v, kk) for kk, v in o["bilgi"].items()]
         L.append(sat(o["ana_yer_bootstrap"], "yer bootstrap'ı aralıkları"))
+        L.append(sat(o["readme"]["T2008"]["satir"], "README N0, T ≥ 2008"))
         m = o["mentese"]
         L.append(f"- Menteşe modeli Δv_m: N {m['N']}, |Δv_m| q50 {sayi(m['q50'])}, q95 {sayi(m['q95'])} "
                  f"(rank düşen {m['rank_dusen']}).")
@@ -1294,10 +1512,14 @@ def argumanlar(argv=None):
     p.add_argument("--manifest", default=MANIFEST_VERI)
     p.add_argument("--listeler", default=TL.JSON_YOL)
     p.add_argument("--hdr-csv", default=HDR_CSV)
+    p.add_argument("--hdr-baslik-csv", default=HDR_BASLIK_CSV)
+    p.add_argument("--hdr-etki", default=HDR_ETKI)
     p.add_argument("--cikti-dizin", default=BURA)
     p.add_argument("--isaret-depo", default=BURA)
     p.add_argument("--duzeltme-turu", type=int, default=0, choices=(0, 1, 2))
     p.add_argument("--bicim-belirsiz", default="")
+    p.add_argument("--devam", action="store_true",
+                   help="yalnız işaret sonrası istisnada: anlık görüntüden sürdür (ham veri okunmaz)")
     return p.parse_args(argv)
 
 
@@ -1312,6 +1534,11 @@ def main(argv=None):
     except KosuDur as e:
         print("KOŞU DURDU (girdi; hiçbir Δv hesaplanmadı):", e)
         return 2
+    except IsaretSonrasiHata as e:
+        # gerçek değer içermez: yalnız istisna türü ve iletisi (ölçü kodu Δv'yi istisna iletisine koymaz)
+        print("İŞARET SONRASI İSTİSNA (tek koşu kullanıldı; hiçbir çıktı yazılmadı). Yalnız doğrudan nedeni düzelt, "
+              "farkı kayda geçir ve aynı komutu --devam ile koş (ham veri yeniden okunmaz):", e)
+        return 4
     return kodu
 
 

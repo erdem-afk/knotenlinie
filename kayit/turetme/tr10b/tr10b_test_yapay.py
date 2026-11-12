@@ -43,7 +43,9 @@ import tr10b_indir as I  # noqa: E402
 import tr10b_kosu as K  # noqa: E402
 import tr10b_listeler as TL  # noqa: E402
 
-KOK_SABIT = {n: getattr(K, n) for n in ("B_BOOT", "B_M", "N0_M", "B_N_PAY", "B_TAM_N", "KAPI_YER", "KAPI_YP")}
+KOK_SABIT = {n: getattr(K, n) for n in ("B_BOOT", "B_M", "N0_M", "B_N_PAY", "B_TAM_N", "KAPI_YER", "KAPI_YP",
+                                         "README_TAB", "N_GUC", "UC", "BOSLUK", "olc", "_jan1", "bootstrap", "md_yap",
+                                         "oku_dosya", "b_etiketi", "rho_seri")}
 
 
 def sabitleri_geri_al():
@@ -517,8 +519,8 @@ def yapay_dunya(kok, kapsam=lambda k, Y: True, bozuk=None, tohum=7, mic_adim=10)
         pen.setdefault(k, []).append(Y)
     dos = []
     for k in sorted(T["istasyon"]):
-        bas = min(K.pencere(Y)["ilk"] for Y in pen[k]) - dt.timedelta(days=40)
-        son = max(K.pencere(Y)["son"] for Y in pen[k]) + dt.timedelta(days=40)
+        bas = min(K.pencere(Y, 100)["ilk"] for Y in pen[k]) - dt.timedelta(days=40)
+        son = max(K.pencere(Y, 100)["son"] for Y in pen[k]) + dt.timedelta(days=40)
         n = (son - bas).days + 1
         x = K.yapay_rw(n, rng) + 0.02 * np.arange(n)
         maske = np.ones(n, bool)
@@ -530,7 +532,7 @@ def yapay_dunya(kok, kapsam=lambda k, Y: True, bozuk=None, tohum=7, mic_adim=10)
         acik = np.zeros(n, bool)
         for Y in pen[k]:
             if kapsam(k, Y):
-                W = K.pencere(Y)
+                W = K.pencere(Y, 100)          # MIC okuma aralığından (Ek 1 E1.4: ±90 g) geniş
                 acik[(W["ilk"] - bas).days:(W["son"] - bas).days + 1] = True
         for t in K.KAYNAK_SIRA:
             for u in T["istasyon"][k]["dosya"][t]:
@@ -612,8 +614,21 @@ class UctanUca(unittest.TestCase):
         self.assertEqual(len(js["girdi"]["veri_dosyalari_sha256"]), 66)
         for y in (os.path.join(veri, K.ISARET_AD), os.path.join(isd, K.ISARET_AD)):
             self.assertTrue(os.path.exists(y))
+        # okuma anlık görüntüsü işaretle birlikte yazıldı ve işaret onun sha256'sını taşıyor (kod incelemesi, risk 4)
+        anlik = os.path.join(veri, K.ANLIK_AD)
+        self.assertIn("anlik_sha256 " + K.sha256_dosya(anlik), open(os.path.join(isd, K.ISARET_AD)).read())
+        # "kapı altı" etiketi satırın kendi kural setinin kapısına göre (B7)
+        if not s["kapi"]["A"]["gecti"]:
+            self.assertIn("- 5. A satırı [kapı altı]", md)
+        self.assertNotIn("[kapı altı]", md.split("- 5. A satırı")[0])
+        self.assertIn("q99: N < 300: bilgi", md)
+        self.assertIn("başlık katılmış (Ek 1 E1.3)", s["olcu"]["bilgi"])
+        self.assertIn("MIC dar aralık (Ek 1 E1.4)", s["olcu"]["bilgi"])
+        self.assertEqual(js["girdi"]["hdr_baslik_csv_sha256"], K.HDR_BASLIK_CSV_SHA)
+        self.assertIn("onkayit_tam_dosya_sha256", js["girdi"])
+        self.assertIn("K_dusen_creep_event_B", js["hdr_sayac"])
         # işaretlerden önceki log satırlarında Δv yok; yasak cümleler yok
-        i = next(j for j, x in enumerate(log) if "işaret dosyaları yazıldı" in x)
+        i = next(j for j, x in enumerate(log) if "işaret dosyaları ve okuma anlık görüntüsü yazıldı" in x)
         self.assertFalse(any("dv" in x.lower() and "Δv" in x and re.search(r"\d", x) for x in log[:i]
                              if "hesaplanmadı" not in x))
         for yasak in ("İstanbul", "Marmara", "öncül bulundu", "öncül yok", "olasılık"):
@@ -636,7 +651,14 @@ class UctanUca(unittest.TestCase):
         self.assertFalse(s["kapi"]["gecti"])
         self.assertRegex(s["hukum"], r"^TR-10b: veri yok \(kural seti B: yer \d+ / yer-pencere \d+; kapı ≥ 20 / ≥ 40\)"
                                      r"\. Bilgi satırı, kapı altı: \|Δv\| q50 \S+, q95 \S+ \[\S+, \S+\] mm/yıl \(sünen "
-                                     r"katmanda hızın %\S+'si \[\S+, \S+\]\); bu satır bir hüküm değildir\.$")
+                                     r"katmanda hızın %\S+'si \[\S+, \S+\]\); bu satır bir hüküm değildir\."
+                                     r"( \(yer-pencerelerin %\d+'inde uç değeri doğrusal dolgudan; Δv sıfıra yanlı "
+                                     r"olabilir\))?( \(≤ 3 km'de kümelenince \d+ yer kümesi\))?$")
+        # §10.1/§8.1: ek kuyruklar kapıdan bağımsızdır (kod incelemesi B7)
+        if s["kapi"]["yer_kumesi"] < 20:
+            self.assertIn(f"(≤ 3 km'de kümelenince {s['kapi']['yer_kumesi']} yer kümesi)", s["hukum"])
+        self.assertIn("başlık katılmış (Ek 1 E1.3)", s["olcu"]["bilgi"])
+        self.assertIn("MIC dar aralık (Ek 1 E1.4)", s["olcu"]["bilgi"])
         self.assertNotIn("etiket", s["olcu"])
         self.assertNotIn("chihshang_cumlesi", s["olcu"])
         self.assertIn("kapsam yok", s["kapi"]["dusme_nedenleri"])
@@ -771,6 +793,331 @@ class Indirme(unittest.TestCase):
                 self.assertFalse(os.path.exists(os.path.join(BURA, "veri_yok")))
             finally:
                 sv.shutdown()
+
+
+# ======================================================================== kod incelemesi düzeltmeleri
+def b_yp_kur(veri, man, cik, isd):
+    """Yapay dünyada bağlayıcı B temsilcileri (kod denetimi kümesi), koşu kodunun okuma ve şart yolundan."""
+    a = kosu_arg(veri, man, cik, isd)
+    T, _, _, kayit, _, _ = K.girdi_denetimi(a)
+    hdr = K.hdr_olaylari(K.HDR_CSV)
+    veri_ist, _, dd, _ = K.oku_hepsi(T, kayit, veri, set())
+    return K.yp_kur(T["listeler"]["B"], K.sw_kur(T, veri_ist, dd, hdr))
+
+
+class IncelemeDuzeltmeleri(unittest.TestCase):
+    def setUp(self):
+        self.d = tempfile.mkdtemp()
+
+    def tearDown(self):
+        shutil.rmtree(self.d)
+        sabitleri_geri_al()
+
+    def kucult(self):
+        K.B_BOOT, K.B_M, K.N0_M, K.B_TAM_N = 300, 300, 300, 2000
+
+    # ---- Ek 1 E1.4
+    def test_E14_mic_okuma_araligi(self):
+        W = K.pencere(2013, 90)
+        self.assertEqual((W["ilk"], W["son"]), (dt.date(2008, 7, 3), dt.date(2013, 12, 30)))
+        self.assertEqual(K.pencere(2023, 90)["son"], K.SON_GUN)               # üst uç 2023-10-16'yı aşamaz
+        self.assertEqual(K.kaynak_penceresi(2013, "MIC")["genis"], 90)
+        self.assertEqual(K.kaynak_penceresi(2013, "DAY")["genis"], 15)
+        self.assertEqual(K.kaynak_penceresi(2013, "10MIN")["genis"], 15)
+        self.assertEqual(K.kaynak_penceresi(2013, "MIC", mic_dar=True)["genis"], 15)
+        for Y in (1973, 1978, 1998, 2003, 2008, 2013, 2018):
+            a, b = K.pencere(Y), K.pencere(Y, 90)
+            self.assertEqual((a["tau2"], a["tau3"]), (b["tau2"], b["tau3"]))
+            self.assertEqual(b["i0"], 90)
+        # oku_hepsi: MIC dosyaları geniş, telemetri/10MIN dar aralıkla okunur
+        T = TL.listeleri_yukle()
+        kayit = {u: dict(durum="tamam", yerel=f"{t}/{u.rsplit('/', 1)[1]}") for v in T["istasyon"].values()
+                 for t in K.KAYNAK_SIRA for u in v["dosya"][t]}
+        gor = {}
+        K.oku_dosya = lambda yol, ar, ad=None: (gor.__setitem__(ad, ar), dict(gunluk={}, sayac={}, delta=None))[1]
+        K.oku_hepsi(T, kayit, self.d, set())
+        self.assertEqual(gor["MIC/hlc1.m.gz"], [(K.pencere(Y, 90)["ilk"].toordinal(), K.pencere(Y, 90)["son"].toordinal())
+                                                for Y in (2013, 2018)])
+        self.assertEqual(gor["DAY/xmm1.day.gz"], [(K.pencere(Y)["ilk"].toordinal(), K.pencere(Y)["son"].toordinal())
+                                                  for Y in (2013, 2018)])
+        self.assertTrue(all(b <= K.SON_GUN.toordinal() for v in gor.values() for _, b in v))
+
+    def test_E14_mic_braket_genis_ve_dar(self):
+        T = TL.listeleri_yukle()
+        W0 = K.pencere(2013)
+        gunler = [W0["w0"] + dt.timedelta(days=d) for d in range(-70, 1900, 25)]
+        gunluk = {g.toordinal(): 0.01 * i for i, g in enumerate(gunler)}
+        vi = {"HLC1": {"MIC": dict(gunluk=gunluk, delta=0.01)}}
+        dd = {T["istasyon"]["HLC1"]["dosya"]["MIC"][0]: "okundu"}
+        s = K.istasyon_penceresi("HLC1", 2013, T, vi, dd, [])
+        self.assertTrue(s["gecerli"], s)
+        self.assertEqual(s["W"]["genis"], 90)
+        s2 = K.istasyon_penceresi("HLC1", 2013, T, vi, dd, [], mic_dar=True)
+        self.assertEqual((s2["gecerli"], s2["neden"]), (False, "uç değeri"))   # dar ızgarada w0 braketi yok
+
+    # ---- Ek 1 E1.3
+    def test_E13_baslik_katilmis_olaylari(self):
+        self.assertEqual(K.sha256_dosya(K.HDR_BASLIK_CSV), K.HDR_BASLIK_CSV_SHA)
+        T = TL.listeleri_yukle()
+        h1, h2 = K.hdr_olaylari(K.HDR_CSV), K.hdr_olaylari(K.HDR_BASLIK_CSV)
+        d1 = {x for x in T["listeler"]["B"] if K.k_nedeni(x[0], K.pencere(x[1]), h1) == "HDR"}
+        d2 = {x for x in T["listeler"]["B"] if K.k_nedeni(x[0], K.pencere(x[1]), h2) == "HDR"}
+        self.assertTrue(d2 <= d1)
+        # E1.3'ün başlık notlarıyla düşen yedi istasyon-penceresinden altısı katılmış okumada geri gelir; CHP1 2013,
+        # katılmış notun tarihi (2009-08-30, ilk tablo satırı) 2013 penceresine düştüğü için yine düşer.
+        self.assertEqual(d1 - d2, {("CRR1", 2013), ("XSC1", 2013), ("XSH1", 2013), ("XTA1", 2013),
+                                   ("XVA1", 2013), ("XSH1", 2018)})
+        self.assertIn(("CHP1", 2013), d1 & d2)
+
+    @unittest.skipUnless(os.environ.get("TR10B_HDR") and os.environ.get("TR10B_TR10HAM"), "TR10B_HDR/TR10HAM yok")
+    def test_E13_csv_yeniden_uretilir(self):
+        import tr10b_hdr_baslik as HB
+        ol, e = HB.uygula(os.environ["TR10B_HDR"], os.environ["TR10B_TR10HAM"])
+        self.assertEqual(hashlib.sha256(H.csv_metni(ol).encode()).hexdigest(), K.HDR_BASLIK_CSV_SHA)
+        self.assertEqual((e["B"]["K_sonrasi"]["yer_pencere"], e["B"]["K_sonrasi"]["yer"]), (47, 25))   # E1.3
+        H.uyarlamayi_kur()
+
+    # ---- okuma 19: kapı geçmez + kod denetimi başarısız → "geçersiz (kod)"
+    def test_okuma19_kod_hatasi_kapi_altinda_saklanmaz(self):
+        self.kucult()
+        veri, man, cik, isd = yapay_dunya(self.d, kapsam=lambda k, Y: Y == 2018)
+        eski = K.rho_seri
+        K.rho_seri = lambda W: 0.8 * eski(W)
+        kod, s = K.kos(kosu_arg(veri, man, cik, isd, tur=2), log=lambda *_: None)
+        self.assertEqual(kod, 0)
+        self.assertFalse(s["kapi"]["gecti"])
+        self.assertRegex(s["hukum"], r"^TR-10b: geçersiz \(kod\) \(\(c-yapay\), \S+ / §10\.3\); gerçek Δv "
+                                     r"hesaplanmadı\.$")
+        self.assertFalse(s["kod_hata"]["kapi_bilgi"]["gecti"])
+        self.assertNotIn("olcu", s)
+        self.assertFalse(os.path.exists(os.path.join(isd, K.ISARET_AD)))
+        self.assertFalse(os.path.exists(os.path.join(veri, K.ANLIK_AD)))
+
+    # ---- ρ_R aralığı "güç yok" iken işaret sonrası çökme (B2) ve kuru prova
+    def test_rho_R_aralik_guc_yok(self):
+        self.kucult()
+        K.KAPI_YER, K.KAPI_YP = 5, 5
+        T = TL.listeleri_yukle()
+        K.README_TAB = {k: v for k, v in KOK_SABIT["README_TAB"].items()
+                        if k in T["istasyon"] and T["istasyon"][k]["kesim"] == "SAF_Parkfield"}
+        K.N_GUC = 3
+        veri, man, cik, isd = yapay_dunya(self.d)
+        kod, s = K.kos(kosu_arg(veri, man, cik, isd), log=lambda *_: None)
+        self.assertEqual(kod, 0)
+        self.assertGreaterEqual(s["kapi"]["kesim_K"], 4)
+        self.assertTrue(s["olcu"]["ana"]["aralik"]["rho_R"]["guc_yok"])
+        self.assertRegex(s["hukum"], r"README modeline göre \(ρ_R = \S+, yer-pencere \d+; güç yok\)\. Kural seti B")
+
+    def test_kuru_prova_isaretten_once_yakalar(self):
+        self.kucult()
+        K.KAPI_YER, K.KAPI_YP = 5, 5
+        veri, man, cik, isd = yapay_dunya(self.d)
+
+        def bozuk(*_):
+            raise TypeError("yapay hüküm hatası")
+        K.b_etiketi = bozuk
+        with self.assertRaisesRegex(K.KosuDur, "kuru prova"):
+            K.kos(kosu_arg(veri, man, cik, isd), log=lambda *_: None)
+        for y in (os.path.join(veri, K.ISARET_AD), os.path.join(isd, K.ISARET_AD), os.path.join(veri, K.ANLIK_AD)):
+            self.assertFalse(os.path.exists(y))
+        self.assertEqual(os.listdir(cik), [])
+
+    # ---- işaret sonrası istisna ve --devam
+    def test_isaret_sonrasi_istisna_ve_devam(self):
+        self.kucult()
+        K.KAPI_YER, K.KAPI_YP = 5, 5
+        veri, man, cik, isd = yapay_dunya(self.d)
+        say = [0]
+        eski_md = K.md_yap
+
+        def md_ikinci_cagrida_coker(s):
+            say[0] += 1
+            if say[0] == 2:                       # 1: kuru prova; 2: gerçek ölçüden sonra
+                raise RuntimeError("yapay işaret sonrası hata")
+            return eski_md(s)
+        K.md_yap = md_ikinci_cagrida_coker
+        out = io.StringIO()
+        arg = ["--veri", veri, "--manifest", man, "--cikti-dizin", cik, "--isaret-depo", isd]
+        with contextlib.redirect_stdout(out):
+            self.assertEqual(K.main(arg), 4)
+        self.assertIn("--devam", out.getvalue())
+        for y in (os.path.join(veri, K.ISARET_AD), os.path.join(isd, K.ISARET_AD), os.path.join(veri, K.ANLIK_AD)):
+            self.assertTrue(os.path.exists(y))
+        self.assertEqual(os.listdir(cik), [])
+        K.md_yap = eski_md
+        with self.assertRaises(K.KosuDur):                         # olağan koşu artık durur
+            K.kos(K.argumanlar(arg), log=lambda *_: None)
+
+        def okuma_yasak(*a, **k):
+            raise AssertionError("devam ham veriyi okudu")
+        K.oku_dosya = okuma_yasak
+        kod, s = K.kos(K.argumanlar(arg + ["--devam"]), log=lambda *_: None)
+        self.assertEqual(kod, 0)
+        self.assertIn("devam", s)
+        self.assertTrue(s["hukum"].startswith("TR-10b: "))
+        self.assertTrue(os.path.exists(os.path.join(cik, "tr10b_sonuc.json")))
+        with self.assertRaises(K.KosuDur):                         # çıktı yazıldıktan sonra devam da yok
+            K.kos(K.argumanlar(arg + ["--devam"]), log=lambda *_: None)
+        # anlık görüntü bozulmuşsa devam durur
+        os.remove(os.path.join(cik, "tr10b_sonuc.json")); os.remove(os.path.join(cik, "tr10b_sonuc.md"))
+        open(os.path.join(veri, K.ANLIK_AD), "ab").write(b"x")
+        with self.assertRaisesRegex(K.KosuDur, "anlık"):
+            K.kos(K.argumanlar(arg + ["--devam"]), log=lambda *_: None)
+
+    # ---- biçim keşfi: aralık dışı ve 2024+ satırların sütun 3 deseni bile hesaplanmaz (B10)
+    def test_bicim_kesfi_desen_maskesi(self):
+        y = os.path.join(self.d, "f.gz")
+        ar = [(ord_(2013, 9, 16), ord_(2018, 10, 16))]
+        gz_yaz(y, ["2010 5 3.5", "2014 1 1.0", "2025 0 7.25"])
+        with self.assertRaises(K.BicimHata) as c:
+            K.oku_dosya(y, ar)
+        k = c.exception.kesif
+        self.assertEqual(k["desen"], ["tam sayı", "tam sayı", "denetlenmedi"])
+        self.assertEqual(k["ilk_5_sayisal"][0]["desen"][2], "denetlenmedi")       # 2010: aralık dışı
+        self.assertEqual(k["ilk_5_sayisal"][1]["desen"][2], "ondalık")            # 2014: aralık içi
+        self.assertNotIn("7.25", json.dumps(k))
+
+    def test_bozuk_gzip_govdesi(self):
+        b = bytearray(gzip.compress(("".join(f"2014 {g} {g * 0.01:.2f}\n" for g in range(1, 300))).encode()))
+        b[40:60] = b"\x00" * 20
+        y = os.path.join(self.d, "f.gz")
+        open(y, "wb").write(bytes(b))
+        with self.assertRaises(K.BicimHata):
+            K.oku_dosya(y, [(ord_(2013, 9, 16), ord_(2018, 10, 16))])
+
+    def test_bicim_belirsiz_ve_veri_dizini_denetimi(self):
+        veri, man, cik, isd = yapay_dunya(self.d)
+        a = K.argumanlar(["--veri", veri, "--manifest", man, "--cikti-dizin", cik, "--isaret-depo", isd,
+                          "--bicim-belirsiz", "https://ornek.invalid/yok.gz"])
+        with self.assertRaisesRegex(K.KosuDur, "manifestte olmayan"):
+            K.kos(a, log=lambda *_: None)
+        with self.assertRaisesRegex(K.KosuDur, "depo içinde"):
+            K.girdi_denetimi(K.argumanlar(["--veri", BURA, "--manifest", man, "--cikti-dizin", cik,
+                                           "--isaret-depo", isd]))
+
+    def test_satir_blok_yetersizde_yer_bootstrapi(self):
+        K.B_BOOT = 200
+        yps = [dict(kod=f"S{i:02d}", Y=2013, dv=float(i % 7) - 3, v5=10.0, kesim=f"k{i % 3}", site=f"s{i}")
+               for i in range(25)]
+        o = K.satir(yps, "epok 2013", "kesim")
+        self.assertTrue(o["blok_yetersiz"])
+        self.assertEqual((o["aralik_birim"], o["aralik_K"]), ("site", 25))
+        o = K.satir(yps + [dict(yps[0], kod="Z", kesim="k3", site="z")], "epok", "kesim")
+        self.assertNotIn("blok_yetersiz", o)
+        self.assertEqual(o["aralik_birim"], "kesim")
+
+
+# ======================================================================== mutasyon provası (§14 madde 3, kod incelemesi)
+def olc_mutant(X, maske, W, katman, agg=np.median, isaret=1.0, gy=365.25, takas=False, kayma=0, yakin=False):
+    X = np.asarray(X, float)
+    u = []
+    for i in (W["i0"], W["iH"] + kayma, W["iT"]):
+        if katman == "tele":
+            idx = K._uc_idx(maske, i)
+            if len(idx) < K.UC_MIN:
+                return None
+            u.append(agg(X[..., idx], axis=-1))
+        else:
+            br = K._man_braket(np.nonzero(maske)[0], i)
+            if br is None:
+                return None
+            a, b = br
+            if a == b:
+                u.append(X[..., a])
+            elif yakin:
+                u.append(X[..., a] if i - a <= b - i else X[..., b])
+            else:
+                w = (i - a) / (b - a)
+                u.append((1 - w) * X[..., a] + w * X[..., b])
+    u0, uH, uT = u
+    t2, t3 = (W["iT"] - W["iH"]) / gy, (W["iH"] - W["i0"]) / gy
+    if takas:
+        t2, t3 = t3, t2
+    return isaret * ((uT - uH) / t2 - (uH - u0) / t3), (uT - u0) / (t2 + t3)
+
+
+MUTASYONLAR = [
+    ("kontrol (doğru kod)", {}),
+    ("uç değeri ortalamayla (medyan yerine)", dict(olc=dict(agg=np.mean))),
+    ("uç penceresi ±20 g (±15 yerine)", dict(UC=20)),
+    ("yıl 365 gün (τ birimi)", dict(olc=dict(gy=365.0))),
+    ("τ₂ ile τ₃ yer değiştirmiş (3 y/2 y karışıklığı)", dict(olc=dict(takas=True))),
+    ("işaret hatası (Δv → −Δv)", dict(olc=dict(isaret=-1.0))),
+    ("menteşe 30 g kaymış (u(H) yerine u(H + 30 g))", dict(olc=dict(kayma=30))),
+    ("gün kayması (0 tabanlı gün sütunu okuması)", dict(_jan1=lambda y: dt.date(y, 1, 1).toordinal() + 1)),
+    ("MIC ara değer yerine en yakın ölçüm", dict(olc=dict(yakin=True))),
+]
+
+
+class Mutasyon(unittest.TestCase):
+    """Kasıtlı hatalı kod değişkeleri: §10.2/§10.3 kod denetimleri (yapay) her birini yakalamalı; doğru kod geçmeli.
+    TR10B_MUTASYON_TAM=1 ise payda M = 2000 (bağlayıcı); değilse M = 300 (pay bağlayıcı: R = ⌈820/n⌉)."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.d = tempfile.mkdtemp()
+        veri, man, cik, isd = yapay_dunya(cls.d)
+        cls.yps = b_yp_kur(veri, man, cik, isd)
+
+    @classmethod
+    def tearDownClass(cls):
+        shutil.rmtree(cls.d)
+
+    def tearDown(self):
+        sabitleri_geri_al()
+
+    def denetle(self, mut):
+        if not os.environ.get("TR10B_MUTASYON_TAM"):
+            K.B_M, K.B_TAM_N = 300, 2000
+        for ad, v in mut.items():
+            if ad == "olc":
+                setattr(K, "olc", lambda X, m, W, kat, _v=v: olc_mutant(X, m, W, kat, **_v))
+            else:
+                setattr(K, ad, v)
+        with tempfile.TemporaryDirectory() as g:
+            da = K.denetim_a(self.yps, g)
+            try:
+                db, df, dc = K.denetim_b_c(self.yps, g)
+            except (K.KosuDur, TypeError) as e:
+                db = df = dc = None
+                hata = str(e)
+        dus = [k for k, ok in da["gecti"].items() if not ok]
+        if db is None:
+            dus.append(f"(b) yolu durdu: {hata[:60]}")
+        else:
+            dus += [n for n, ok in (("(b)", db["gecti"]), ("144", df["gecti"]), ("(c-yapay)", dc["gecti"])) if not ok]
+        oz = dict(tam=da["tam_en_buyuk"], maske=da["maske_en_buyuk"], elle=da["elle_en_buyuk"], a3=da["a3_en_buyuk"],
+                  a4=da["a4_en_buyuk"], b=None if db is None else db["oran"],
+                  c_tele=None if dc is None else (dc.get("tele_en_kucuk"), dc.get("tele_en_buyuk")),
+                  c_man=None if dc is None else dc.get("man_en_buyuk_sapma"))
+        return dus, oz
+
+    def test_mutasyonlar_yakalanir(self):
+        satirlar = []
+        for ad, mut in MUTASYONLAR:
+            dus, oz = self.denetle(mut)
+            sabitleri_geri_al()
+            satirlar.append((ad, dus, oz))
+            if not mut:
+                self.assertEqual(dus, [], oz)
+            else:
+                self.assertTrue(dus, f"{ad}: hiçbir kod denetimi yakalamadı {oz}")
+        # kod denetimlerinin kapsamadığı iki değişke: birim sınamaları yakalar
+        for ad, yama, sinama in (("bloklu yerine yer bootstrap'ı",
+                                  dict(bootstrap=lambda yps, birim, rho_N0=None, _b=K.bootstrap: _b(yps, "site", rho_N0)),
+                                  "Olcu.test_bootstrap_tohum_ve_cekilis"),
+                                 ("boşluk eşiği 90 g (60 yerine)", dict(BOSLUK=90),
+                                  "Sartlar.test_tele_bosluk_doluluk_uc")):
+            for n, v in yama.items():
+                setattr(K, n, v)
+            r = unittest.TextTestRunner(stream=io.StringIO(), verbosity=0).run(
+                unittest.defaultTestLoader.loadTestsFromName(sinama, sys.modules[__name__]))
+            sabitleri_geri_al()
+            self.assertFalse(r.wasSuccessful(), ad)
+            satirlar.append((ad, [f"kod denetimi kapsamıyor; birim sınaması {sinama} yakaladı"], {}))
+        print("\n[mutasyon provası] n = %d yer-pencere" % len(self.yps), file=sys.stderr)
+        for ad, dus, oz in satirlar:
+            print(f"  {ad}: {', '.join(dus) or 'hepsi geçti'} | {json.dumps(oz, default=str)}", file=sys.stderr)
 
 
 if __name__ == "__main__":
