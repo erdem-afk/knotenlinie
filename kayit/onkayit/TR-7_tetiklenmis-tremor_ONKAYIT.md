@@ -928,3 +928,142 @@ değiştirmedi). Sürüm 3'te eklenen ya da değişen dosyalar (sha256):
 Bu sürüm, iki bağımsız incelemenin (İNCELEME-1, İNCELEME-2) bütün düzeltmeleri işlenerek donduruldu. Dondurma anına kadar yalnız 10 saniyelik veri varlığı yoklamaları (HTTP kodu ve bayt sayısı) yapıldı; hiçbir dalga formu çözülmedi.
 
 **Tek açıklama (İ2-Ö2'nin boş bıraktığı yer):** iki penceresi olan Wharton 2012 birimi, n_açık sayımında iki pencerenin İKİSİNDE de maskeli pay ≤ 0,50 ise "açık" sayılır. Önsayımda iki pencerenin maskeli payı 0,000 olduğundan sayılar değişmez.
+
+---
+
+## Ek 1 (12 Kasım 2026, veri öncesi)
+
+Bu ek dondurulmuş gövdeyi değiştirmez. **Gövde, bu dosyanın ilk 97 178 baytıdır** (sha256
+df426ffc59793dcb75e5167aca643145d3bd55be3bb4bdcce11f58e1ea544c20). Koşu kodu (`tr7_kosu.py`, `ONKAYIT_N = 97178`)
+sha'yı yalnız bu baytlar üzerinden denetler. Ek yazıldığı anda hiçbir Marmara ya da Parkfield dalga formu ve hiçbir
+gerçek StationXML indirilmemiş ya da açılmamıştır. Kaynaklar: `TR-7_KODLAYICI-OKUMALARI.md` ve bağımsız kod incelemesi
+`TR-7_KOD-INCELEME.md` (hüküm DÜZELTMEYLE KABUL).
+
+**E1.1 Kodlayıcı okumalarının bağlayıcılığı.** Kod incelemesinin KABUL dediği okumalar koddaki biçimiyle bağlayıcıdır.
+Aşağıdaki okumalar metnin sustuğu yerleri doldurur ve böyle bağlayıcıdır:
+- O-8: σ = 0 olan istasyonun 12 sınırındaki yeri bir sonraki adaya verilmez; K0-tam'ı değiştirmez; istasyon aşım
+  üretmez.
+- O-9, O-65: Küme aralığının kesiştiği "W" ve MDA başlangıcının göreli olduğu "W", (pencere, segment)'in kullanılan
+  istasyonlarının W'lerinin zarfıdır (en erken W başı – en geç W sonu).
+- O-19: Örnekleme hızı pencere içinde değişen kanal istasyonu o pencereden düşürür ("kanal" nedeniyle yazılır).
+- O-20: Uzun periyot yolu kesintisiz parça başına uygulanır, parça kenarı ayrıca atılmaz.
+- O-25: D12'nin "maskesiz algılanır" şartı ≥ 0,95 oranıdır.
+- O-31: KD referans betiklerinin sha256'ları: `tr7_onkayit_yapay.py` c77ffc0b…abb0, `tr7_onkayit_denetim2.py`
+  dcf4acc5…8998.
+- O-37: Wharton'ın negatif penceresi tek deneme alır; deneme o segmentte taranmış en erken alt pencereye eklenir.
+- O-38: Modülasyon üreteci `default_rng(20261112 + 3)` K1'de ve Marmara'da ayrı ayrı kurulur. Marmara'da sıra: birim
+  (ana şok T0) → segment S1…S7 → pencere zamanı → küme I′ başı; S4–S7 ve Kahramanmaraş dahil.
+- O-49: Birimin τ_ölç'ü pencerelerinin τ_ölç'lerinin en büyüğüdür (kaba τ kuralının eşi). Ölçülemeyen birim n_ölç'te
+  "≥ 2 kPa değil" sayılır.
+- O-52: Sıra 5'in "uzun periyot başvuru istasyonu var" şartı, algılama veren pencerelerden en az birinde başvuru
+  istasyonu bulunmasıdır.
+
+**E1.2 O-44'ün yerine (kod incelemesi D1).** §7.4 "algılama vermemiş her negatif pencereye" der. Bu yüzden Kahramanmaraş
+bilgi birimlerinin algılama vermemiş negatif pencereleri de MDA çekilişi alır. Sıra: ana şok T0'ına göre öteki
+birimlerin arasında. Denemeleri `tr7_mda.csv`'ye yazılır. P(A), A50 ve A90 yalnız ana birimlerden hesaplanır. MDA
+üreteci tektir: K1-negatif'te başlar, Marmara-negatif'e son durumundan taşınır.
+
+**E1.3 Hüküm kalıpları (O-54, O-55).** Kalıplar §8'deki gibi doldurulur. Sayıdan sonraki ekler metindeki biçimde kalır
+("3'unda", "7'ının"); dil düzeltmesi yapılmaz. Sayı biçimi: τ 2 ondalık, olasılık 3 ondalık, A 3 anlamlı basamak,
+ondalık virgül. Aday kalıbının "[liste]"si koddaki sabit ifadelerden oluşur:
+- "X_min yok"
+- "X_mod ≥ X_min(n, f) (X_mod = a, X_min = b)"
+- "Parkfield modülasyonu geçmedi (modülasyon ölçüsü pozitif kontrolde doğrulanmadı)"
+- "K1 ayırt edici değil"
+- "K1 yalnız belirsiz geçti"
+- "uzun periyot başvuru istasyonu yok"
+
+Kod incelemesi kalıp üreticisini metinden bağımsız yeniden yazdı. D11'in 13 cümlesinde ve 3000 rastgele senaryoda
+çıktı birebir aynıydı.
+
+**E1.4 Kodlayıcının bulduğu ve düzelttiği KD hatası.** Kodlayıcı, KD'nin yapay sinyal üreticisinde genliğin yerine A = 1
+kullanıldığını kendisi buldu ve gerçek veri görülmeden düzeltti. Bu bir koşu öncesi düzeltmedir. Sinyal birim genlikle
+üretilir, genlik yalnız zarf birleştirmede uygulanır (`kd_istasyonlar(…, 1.0)` ve `kd_pencere(st, A)`). Tam KD bu
+düzeltilmiş kodla koşulur.
+
+**E1.5 D6 ×100 ve bandı.**
+
+*Durum.* Kodlayıcının 12 pencerelik ara denemesinde D6 ×100 değeri 0,917 çıktı (bant ≥ 0,95). Algılanan 5 kümeden
+birinde, 3 istasyonun 2'sinde tepe başlangıçtan bir saniye sonra düştü. O tepenin önceki saniyesinde süzgeç öncülü
+c_p/8'i aştı.
+
+*Neden.* Metnin adıyla istediği süzgeç (obspy `bandpass, corners=4, zerophase=True`, §6.2.3) sıfır fazlıdır, yani
+nedensel değildir. Ani bir başlangıçtan önce enerji sızdırır (öncül). Başlangıçtan önceki saniyede tepe oranının
+medyanı bu süzgeçle 0,12'dir. §7.1'in referans betiği FFT |H|² yaklaşımıyla 0,09 verir. D6'nın ≥ 0,95 bandı referans
+betiğin süzgeciyle konmuştu. Fark kodda değil, referansla metnin süzgeci arasındadır.
+
+*Karar (kök oturum).*
+1. Tam KD bir kez koşulur.
+2. D6 ×100 bantta kalırsa konu kapanır.
+3. Kalmazsa §7.1'in "koşu öncesi ek" yolu uygulanır. Süzgeç değişmez: nedensel ya da tek geçişli bir süzgece
+   geçilmez, metnin adıyla istediği sıfır fazlı süzgeç korunur. Değişen yalnız D6 bandıdır; bant bu öncül için
+   gerekçeli olarak yeniden tanımlanır. Yeni bant aşağıdaki ölçüme dayanır ve bağımsız incelemeden geçer.
+
+*Ölçüm (kod incelemesi; KD tohumlarından bağımsız tohumlar 777100 ve 777101, 50'şer pencere).* Sonuçlar
+`TR-7_KOD-INCELEME.md`'de ve aşağıda (E1.5a).
+
+**E1.6 Koşu planı.** Aşamalar birden çok oturuma yayılabilir. Her aşama şu sırayla yürür:
+1. `baslat <aşama>`
+2. Durum dosyası commit + push edilir.
+3. `kos <aşama>`
+4. Çıktılar ve durum dosyası commit + push edilir.
+
+Hiçbir aşama iki kez koşulmaz. Tek istisna §7.2'nin uygulama hatası yoludur: yalnız K1-algılama'da ve bir kez. Duran
+aşama `durdu --neden` ile kayda geçer, sonra `baslat <aşama> --surdur` → commit + push → `kos <aşama>` ile kaldığı
+pencereden sürer.
+
+Aşama sırası:
+
+| # | Aşama | Not |
+|---|---|---|
+| 0 | KD | Aşama değildir. Tam ölçek, bu kodla; `tr7_kd.json` commit edilir |
+| 1 | manifest | |
+| 2 | K1-indirme | |
+| 3 | K1-negatif | |
+| 4 | K1-algılama | |
+| 5 | Marmara-indirme | Yalnız K1 (b) ya da (b′) ise |
+| 6 | Marmara-negatif | Yalnız K1 (b) ya da (b′) ise. Öncesinde yerel diskte ≥ 12 GB boş alan; `TR7_HAM_DIZIN` depo dışı bir yerel dizine |
+| 7 | Marmara-algılama | Yalnız K1 (b) ya da (b′) ise |
+| 8 | hüküm | |
+
+Kod KD'nin bu kodla (sha256 eşleşmesiyle) ve tam ölçekte koşulduğunu denetler. Kod KD'den sonra değişirse KD yeniden
+koşulur.
+
+**E1.7 Süre (ölçülen; kod incelemesi).** Süzgeç uygulaması obspy ile bit düzeyinde aynı ama 2–8 Hz'te 5–20 kat hızlı
+(kod incelemesi D4). KD işleri 1,7–2,3 kat hızlandı. Kestirimler E1.5a'nın altında.
+
+**E1.5a D6 ×100 ölçümü ve önerilen bant (kod incelemesi; yalnız yapay veri).** Koşu kodunun kendi D6 işi
+(`kd_is('D6', (0, 100.0, 0.0), tohum, 50)`) iki bağımsız tohumla koşuldu.
+
+| Tohum | Pencere | Algılama | Algılananda darbeyle atılma | D6 ×100 değeri | Bilinen yanlış kod (yumuşatılmış C) | Katalogda maskeyle atılma |
+|---|---|---|---|---|---|---|
+| 777100 | 50 | 0,50 | 0,96 | 0,98 | 0,50 | 1,00 |
+| 777101 | 50 | 0,50 | 1,00 | 1,00 | 0,50 | 1,00 |
+
+D6 ×100 değeri "algılanmama ya da darbeyle atılma" oranıdır. Toplam: 100 pencerede 99/100 = 0,99. Kodlayıcının 12
+penceresiyle birlikte 110/112 = 0,982.
+
+Değerlendirme:
+- Gerçek oran p ≈ 0,98 ise, 100 pencerelik bir tohumun < 0,95 çıkma olasılığı ≈ %2'dir. İki tohumdan birinin bandın
+  dışına düşme olasılığı ≈ %4'tür.
+- Kodlayıcının 0,917'si 12 pencerelik bir örnektir. 100 pencereli ölçümle uyumludur (11/12).
+
+Öneri:
+- Tam KD'de D6 ×100 ≥ 0,95 olursa konu kapanır (E1.5 karar 2).
+- Olmazsa "koşu öncesi ek" ile bant **≥ 0,85** olarak yeniden tanımlanır, iki tohumda da. Gerekçe:
+  - Doğru kod p ≈ 0,98 iken bu bandın altına düşme olasılığı yok denecek kadar azdır. Kötümser p = 0,92 ile bile ≈ %0,2'dir.
+  - Bilinen yanlış kod (yumuşatılmış C) 0,45–0,52 verir ve 0,33'ten fazla farkla bandın dışında kalır. Bant ayırt
+    ediciliğini korur.
+  - Bu değer D6b'nin bandıyla (≥ 0,90) aynı mantıktadır. Sıfır fazlı süzgecin öncülü D6b'de zaten bu payla
+    karşılanmıştı.
+- Katalogda maskeyle atılma şartı (1,00) değişmez.
+
+**E1.7a Süre kestirimleri (ölçülen, ölçeklenmiş; yeni kod; makine paylaşımlıyken 2 süreç).**
+- **Tam KD: ≈ 15 saat CPU.** 4 boş çekirdekte ≈ 4–5 saat, 2 süreçte ≈ 7–8 saat. Ölçüm: D2 ≈ 11 sn/pencere, D3 ≈ 31,
+  D6 ≈ 6,3, D6b ≈ 6,8, D7 ailesi ≈ 8,8, D10 ≈ 8,6, D13 ≈ 6,7, D4/D5 ≈ 1,7; pencere sayılarıyla çarpıldı. Eski kodla
+  aynı işler 1,7–2,3 kat uzundu.
+- **MDA: ≈ 9 saat tek süreç.** Ölçüm: 12 istasyonlu tek deneme 34 sn + ham verinin yeniden okunması ≈ 11 sn. Gerçek
+  W ×1,3 ile ≈ 55 sn/deneme. Sayı: Marmara ≈ 590 deneme (Kahramanmaraş dahil), Parkfield ≤ 30. Eski kodla ≈ 20 saatti.
+  Koşutlama yazılmadı.
+- **İndirme:** ölçülmedi, ölçülemez (gerçek servis yok). Hacim kestirimi kodlayıcınındır: ham ≈ 8–10 GB. Hız
+  servise bağlıdır. Nezaket kuralı: servis başına 2 akış, istekler arası ≥ 0,5 sn.

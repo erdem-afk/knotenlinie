@@ -825,5 +825,409 @@ class KDKucuk(unittest.TestCase):
         self.assertIn('p_le_001_orani', r['sonuc'])
 
 
+
+# ====================================================================== kod incelemesi (bağımsız): mutasyonlar
+@contextlib.contextmanager
+def mutant(mod, ad, eski, yeni):
+    """Fonksiyonun kaynağında tek bir yeri değiştirip modülde geçici olarak yeniden tanımlar (mutasyon sınaması)."""
+    import inspect
+    import textwrap
+    kay = textwrap.dedent(inspect.getsource(getattr(mod, ad)))
+    assert kay.count(eski) == 1, (ad, eski)
+    eski_f = mod.__dict__[ad]
+    exec(compile(kay.replace(eski, yeni), f'<mutant {ad}>', 'exec'), mod.__dict__)
+    try:
+        yield
+    finally:
+        mod.__dict__[ad] = eski_f
+
+
+def _o_esik():
+    rng = np.random.default_rng(5)
+    L = np.zeros(400)
+    L[:200] = rng.normal(0, 0.1, 200)
+    mk = np.zeros(400, bool)
+    m, s = K.m_sigma(L, (0, 200), mk)
+    r = L[5:195]
+    mm = float(np.median(r))
+    ok = abs(m - mm) < 1e-15 and abs(s - 1.4826 * float(np.median(np.abs(r - mm)))) < 1e-15
+    L[200:] = m
+    L[250:290] = m + 4.5 * s
+    L[320:360] = m + 3.6 * s
+    return ok and K.asimlar(L, m, s, (200, 400), mk) == [(250, 290)]
+
+
+def _o_kopru():
+    def ax(parcalar, maskeli=()):
+        L = np.zeros(300)
+        for a, b in parcalar:
+            L[a:b] = 5.0
+        mk = np.zeros(300, bool)
+        mk[list(maskeli)] = True
+        return K.asimlar(L, 0.0, 1.0, (0, 300), mk)
+    return (ax([(100, 115), (135, 150)]) == [(100, 150)] and ax([(100, 115), (136, 151)]) == []
+            and ax([(100, 115), (135, 150)], [125]) == [] and ax([(100, 130)]) == [(100, 130)]
+            and ax([(100, 110), (115, 125)]) == []
+            and ax([(100, 104), (120, 125), (131, 136)]) == [] and ax([(100, 105), (120, 125), (131, 136)]) == [(100, 136)])
+
+
+def _o_kume():
+    def ist(axs, Ls=None):
+        return [dict(ax=a, L=(Ls[i] if Ls else np.zeros(600))) for i, a in enumerate(axs)]
+    mk = np.zeros(600, bool)
+    k = K.kumeler(ist([[(100, 140)], [(180, 220)], [(260, 300)]]), mk, (0, 600), tutarlilik=False)
+    ok = len(k) == 1 and k[0]['uyeler'] == [0, 1, 2] and k[0]['I'] == (40, 360) and k[0]['Ip'] == (100, 300)
+    ok &= K.kumeler(ist([[(100, 140)], [(181, 220)], [(260, 300)]]), mk, (0, 600), tutarlilik=False) == []
+    ok &= K.kumeler(ist([[(100, 140), (150, 190)], [(120, 160)]]), mk, (0, 600), tutarlilik=False) == []
+    rng = np.random.default_rng(6)
+    a, b = rng.standard_normal(600), rng.standard_normal(600)
+    axs = [[(200, 260)], [(200, 260)], [(200, 260)]]
+    ok &= len(K.kumeler(ist(axs, [a, a, a]), mk, (0, 600))) == 1
+    ok &= K.kumeler(ist(axs, [a, a, b]), mk, (0, 600)) == []          # 1 çift ≥ 0,5: tutarsız
+    return bool(ok)
+
+
+def _o_e1():
+    ol = [dict(id='A', t0=0.0, M=7.0, P=1000.0, S=2000.0), dict(id='B', t0=0.0, M=6.99, P=3000.0, S=3500.0),
+          dict(id='C', t0=0.0, M=6.0, P=4000.0, S=4500.0), dict(id='D', t0=0.0, M=5.99, P=5000.0, S=5500.0),
+          dict(id='IKIZ', t0=105.0, M=7.2, P=6000.0, S=6500.0), dict(id='IKIZ2', t0=106.0, M=7.2, P=7000.0, S=7500.0),
+          dict(id='IKIZ3', t0=100.0, M=6.9, P=8000.0, S=8500.0), dict(id='TET', t0=100.0, M=9.0, P=9000.0, S=9500.0)]
+    bek = [(990.0, 1240.0), (1990.0, 2240.0), (2990.0, 3060.0), (3990.0, 4060.0), (6990.0, 7240.0), (7490.0, 7740.0),
+           (7990.0, 8060.0)]
+    return K.e1_araliklar(ol, 'TET', 100.0) == bek
+
+
+def _o_taban():
+    x = dict(W=(0, 100), L=np.zeros(100))
+    mk = np.zeros(100, bool)
+    mk[80:] = True
+    return (K.w_son_acik(x, mk) == 79 and K.taban_ist(x, [(10, 20)], mk) and not K.taban_ist(x, [(10, 19)], mk)
+            and K.taban_ist(dict(W=(0, 100), L=np.zeros(100)), [(10, 40)], np.zeros(100, bool))
+            and not K.taban_ist(dict(W=(0, 100), L=np.zeros(100)), [(10, 39)], np.zeros(100, bool)))
+
+
+def _o_mod():
+    W = 600
+    t = np.arange(W)
+    cf = K.faz_cos(np.cos(2 * np.pi * t / 37.0 + 0.3))
+    Lk = np.maximum(0, -np.roll(cf, 10))
+    g = np.ones(W, bool)
+    M = K.mod_istatistik(Lk, [cf], 100, 500, g)
+    rng = np.random.default_rng(7)
+    rng2 = np.random.default_rng(7)
+    Lr = np.random.default_rng(8).standard_normal(W)
+    o, p = K.mod_p(Lr, [cf], 100, 500, g, rng, n=20)
+    say = sum(K.mod_istatistik(Lr, [np.roll(cf, int(rng2.integers(120, W - 120)))], 100, 500, g) >= o
+              for _ in range(20))
+    return M > 0.9999 and abs(p - (1 + say) / 21) < 1e-15
+
+
+def _o_binom():
+    def cdf(f, N, p):
+        return sum(math.comb(N, k) * p ** k * (1 - p) ** (N - k) for k in range(f + 1))
+    ok = True
+    for n, p, x in ((8, 0.0766, 1), (8, 0.2, 3), (10, 0.05, 2), (5, 0.5, 5)):
+        ok &= abs(K.binom_ust(n, p, x) - (1 - cdf(x - 1, n, p))) < 1e-12
+    for f, N in ((0, 80), (2, 80), (4, 80), (3, 60)):
+        pu = K.cp_ust(f, N)
+        ok &= abs(cdf(f, N, pu) - 0.05) < 1e-9
+    ok &= K.x_min(8, 2, 80) == 3 and K.x_min(8, 5, 80) == 'K2' and K.x_min(8, 4, 80) == 3
+    return bool(ok)
+
+
+def _o_pmin():
+    return (all(abs(K.p_min(n) - (1 - 0.05 ** (1 / n)) / 0.9) < 1e-15 for n in range(5, 12))
+            and K.p_min(4) is None and round(K.p_min(7), 2) == 0.39)
+
+
+def _o_basamak():
+    A = [1.0, 2.0, 3.0, 4.0, 5.0]
+    return K.basamak(A, [0.0, 0.6, 0.4, 0.95, 1.0], 0.5) == 4.0 and K.basamak(A, [0.0] * 5, 0.5) is None
+
+
+def _o_k1():
+    f = T.k1_dal
+    return (f(False, [], False, 10.0, 10, 0) == ('a', False) and f(True, [True, True], True, None, 10, 0) == ("b'", False)
+            and f(True, [True, False], True, None, 10, 0) == ('b', False)
+            and f(True, [], False, 1e5, 10, 0) == ('c', False) and f(True, [], False, 1e5 * 1.0001, 10, 0)[0] == 'd'
+            and f(True, [], False, 'belirsiz', 10, 0)[0] == 'd' and f(True, [], True, 50.0, 10, 0)[0] == 'd'
+            and f(True, [False], True, None, 10, 3) == ('b', False) and f(True, [False], True, None, 10, 4) == ('b', True)
+            and f(True, [False], True, None, 4, 0) == ('b', True))
+
+
+def _o_2026():
+    ok = True
+    try:
+        K.pencere_hesapla('2025-12-31T23:23:20', 2800.0)            # W sonu + 600 = 2026-01-01T00:00:00
+        ok = False
+    except K.CekirdekHata:
+        pass
+    K.pencere_hesapla('2025-12-31T23:23:19', 2800.0)
+    try:
+        I.dataselect_url('koeri', 'KO', 'X', '', ['HHZ'], '2025-12-31T23:00:00', '2026-01-01T00:00:00')
+        ok = False
+    except I.SinirIhlali:
+        pass
+    I.dataselect_url('koeri', 'KO', 'X', '', ['HHZ'], '2025-12-31T23:00:00', '2025-12-31T23:59:59.999')
+    return ok
+
+
+def _nacik_dunya():
+    D = dict(pen={}, olay={})
+    pay = {'B1': [0.4], 'WH': [0.3, 0.7], 'B3': [0.5], 'B4': [0.51]}
+    alg = dict(pencere_segment={})
+    for b, ps in pay.items():
+        for i, w in enumerate(ps):
+            pid = f'tet|{b}{i}'
+            D['pen'][pid] = dict(id=pid, tur='tet', bolge='Marmara', birim=b, seg={'S2': []})
+            alg['pencere_segment'][f'{pid}|S2'] = dict(algilama=False, W_payi=w, tau_olc=None, mod=[], lp_referans=None)
+    x1 = dict(birimler=list(pay), n=4, bant='veri yok', tau={b: 3.0 for b in pay}, tau_n=3.0)
+    k0 = {'x1': {'S2': x1}, 'x1/3': {'S2': dict(n=0, bant='veri yok')}, 'x3': {'S2': dict(n=4, bant='veri yok')}}
+    neg = dict(segment={'S2': dict(N=40, f=0, mda=dict(A50=1.0, A90=2.0, n_deneme=40))})
+    return D, k0, neg, alg
+
+
+def _o_nacik():
+    D, k0, neg, alg = _nacik_dunya()
+    g, _ = T.seg_veri(D, k0, neg, alg, 'S2', dict(tau_olc_bolu_kaba=None))
+    return g['n_acik'] == 2
+
+
+MUTASYONLAR = [
+    ('eşik 4σ → 3,5σ', _o_esik, lambda: mock.patch.object(K, 'KSIG', 3.5)),
+    ('σ: R kenarı atılmıyor', _o_esik, lambda: mock.patch.object(K, 'R_KENAR', 0)),
+    ('köprü: maskeli boşluk köprülenir', _o_kopru,
+     lambda: mutant(K, 'asimlar', ' and not kapali[b + 1:x].any()', '')),
+    ('köprü: boşluk < 20', _o_kopru, lambda: mutant(K, 'asimlar', 'x - b - 1 <= BOSLUK', 'x - b - 1 < BOSLUK')),
+    ('aşım: ≥15 saniye şartı yok', _o_kopru, lambda: mock.patch.object(K, 'NUST', 1)),
+    ('küme: ±20 yerine ±19', _o_kume, lambda: mock.patch.object(K, 'KUME_PAY', 19)),
+    ('küme: istasyon yerine parça sayısı', _o_kume,
+     lambda: mutant(K, 'kumeler', 'if len(uy) < N_IST_MIN', 'if len(ps) < N_IST_MIN')),
+    ('küme: ≥3 yerine ≥1 tutarlı çift', _o_kume, lambda: mock.patch.object(K, 'KORR_CIFT', 1)),
+    ('E1: M ≥ 7,0 yerine > 7,0', _o_e1, lambda: mutant(K, 'e1_kurallar', 'M >= E1_M7', 'M > E1_M7')),
+    ('E1: M 6,x için S de', _o_e1, lambda: mutant(K, 'e1_kurallar', "else [('P', k)]", "else [('P', k), ('S', k)]")),
+    ('E1: ikiz kuralı < 5 sn', _o_e1, lambda: mutant(K, 'e1_dislanir', '<= E1_IKIZ_S', '< E1_IKIZ_S')),
+    ('E1: ikiz kuralı büyüklüksüz', _o_e1, lambda: mutant(K, 'e1_dislanir', " and o['M'] >= E1_M7", '')),
+    ('3a: W′_son maskeyi yok sayar', _o_taban,
+     lambda: mutant(K, 'w_son_acik', 'acik = ~maske[W0:W1] & ', 'acik = ')),
+    ('3a: W sonu − 59', _o_taban, lambda: mock.patch.object(K, 'TABAN_S', 59)),
+    ('modülasyon: yalnız s = +1', _o_mod, lambda: mutant(K, 'mod_istatistik', 'for s in (1, -1)', 'for s in (1,)')),
+    ('modülasyon: gecikme 0…9', _o_mod,
+     lambda: mutant(K, 'mod_istatistik', 'range(0, MOD_LAG + 1)', 'range(0, MOD_LAG)')),
+    ('modülasyon: p = say/n', _o_mod, lambda: mutant(K, 'mod_p', 'return o, (1 + say) / (n + 1)', 'return o, say / n')),
+    ('binom: ≥ X yerine > X', _o_binom, lambda: mutant(K, 'binom_ust', 'range(x, n + 1)', 'range(x + 1, n + 1)')),
+    ('Clopper–Pearson iki yanlı', _o_binom, lambda: mutant(K, 'cp_ust', 'cdf > a', 'cdf > a / 2')),
+    ('p_min: /0,9 yok', _o_pmin, lambda: mutant(K, 'p_min', '/ 0.9 ', ' ')),
+    ('p_min: n_açık ≥ 5 yerine > 5', _o_pmin, lambda: mutant(K, 'p_min', 'n_acik >= 5', 'n_acik > 5')),
+    ('n_açık: Wharton bir pencereyle açık', _o_nacik,
+     lambda: mutant(T, 'seg_veri', "all(e['W_payi'] is not None and e['W_payi'] <= 0.5 for e in es)",
+                    "any(e['W_payi'] is not None and e['W_payi'] <= 0.5 for e in es)")),
+    ('n_açık: ≤ 0,50 yerine < 0,50', _o_nacik,
+     lambda: mutant(T, 'seg_veri', "e['W_payi'] <= 0.5 for", "e['W_payi'] < 0.5 for")),
+    ('MDA: üstündeki basamak şartı yok', _o_basamak,
+     lambda: mutant(K, 'basamak', 'all(p >= q for p in P[j:])', 'P[j] >= q')),
+    ('K1: b′ için "her küme" yerine "bir küme"', _o_k1, lambda: mutant(T, 'k1_dal', 'all(belirsiz)', 'any(belirsiz)')),
+    ('K1: A90_PK < 100 µm/s', _o_k1, lambda: mutant(T, 'k1_dal', 'A90_PK <= A90_PK_TAVAN', 'A90_PK < A90_PK_TAVAN')),
+    ('K1: FAR_PK ≥ 0,30', _o_k1, lambda: mutant(T, 'k1_dal', 'f_PK / N_PK > FAR_PK_ESIK', 'f_PK / N_PK >= FAR_PK_ESIK')),
+    ('K1: algılama K1 aralığı dışında → c', _o_k1,
+     lambda: mutant(T, 'k1_dal', 'elif not algilama and', 'elif')),
+    ('2026: pencere > yerine ≥', _o_2026, lambda: mutant(K, 'pencere_hesapla', '>= SON_AN', '> SON_AN')),
+    ('2026: istek sınırı', _o_2026, lambda: mutant(I, 'sinir', 't1 >= SON_AN', 't1 > SON_AN')),
+]
+
+
+class KodIncelemeMutasyon(unittest.TestCase):
+    """Bağımsız kod incelemesi: her kahin doğru kodda geçer, her mutasyonda kalır."""
+
+    def test_kahinler_dogru_kodda_gecer(self):
+        for ad, f in (('eşik', _o_esik), ('köprü', _o_kopru), ('küme', _o_kume), ('E1', _o_e1), ('3a', _o_taban),
+                      ('modülasyon', _o_mod), ('binom', _o_binom), ('p_min', _o_pmin), ('basamak', _o_basamak),
+                      ('K1', _o_k1), ('2026', _o_2026), ('n_açık', _o_nacik)):
+            self.assertTrue(f(), ad)
+
+    def test_mutasyonlar_yakalanir(self):
+        kacan = []
+        for ad, kahin, yama in MUTASYONLAR:
+            with yama():
+                try:
+                    sonuc = kahin()
+                except (K.CekirdekHata, I.SinirIhlali, AssertionError, TypeError, ValueError):
+                    sonuc = False
+            if sonuc:
+                kacan.append(ad)
+        self.assertEqual(kacan, [], kacan)
+        self.assertGreaterEqual(len(MUTASYONLAR), 10)
+
+
+# ====================================================================== hüküm kalıpları: metinden bağımsız yeniden türetme
+def _sayi(x, n=2):
+    return ('%.' + str(n) + 'f') % x
+
+
+def _tr(x, n=2):
+    return _sayi(x, n).replace('.', ',')
+
+
+def _cp(f, N):
+    lo, hi = 0.0, 1.0
+    for _ in range(200):
+        m = (lo + hi) / 2
+        c = sum(math.comb(N, k) * m ** k * (1 - m) ** (N - k) for k in range(f + 1))
+        if c > 0.05:
+            lo = m
+        else:
+            hi = m
+    return (lo + hi) / 2
+
+
+def _bin(n, p, x):
+    return 1 - sum(math.comb(n, k) * p ** k * (1 - p) ** (n - k) for k in range(x))
+
+
+def _xmin(n, f, N, a):
+    if f > math.floor(0.05 * N):
+        return 'K2'
+    pu = _cp(f, N)
+    for X in range(2, n + 1):
+        if _bin(n, pu, X) <= a:
+            return X
+    return None
+
+
+def _A(x):
+    if not isinstance(x, float):
+        return str(x)
+    b = 2 - int(math.floor(math.log10(abs(x))))
+    return f'{round(x, b):.{max(0, b)}f}'.replace('.', ',')
+
+
+def bagimsiz_cumle(g, k1):
+    """§7.2 ve §8 metninden (kodun kendisine bakmadan) yazılmış kalıp üretici; biçim: τ 2, olasılık 3 ondalık, A 3
+    anlamlı basamak, ondalık virgül; 'n' yerine sayı (metindeki ekler korunur)."""
+    s, n, N, f = g['seg'], g['n'], g['N'], g['f']
+    dal = k1['dal']
+    if dal in ('a', 'c', 'd'):
+        neden = {'a': 'ölçü sınanamadı (Parkfield verisi yok)', 'd': 'ölçü sınanamadı (yöntem)',
+                 'c': 'ölçü sınanamadı (Tohoku tremoru Parkfield yüzey ağının gürültüsünde görülmedi; A90_PK = '
+                      + _A(k1.get('A90_PK')) + ' nm/s)'}[dal]
+        return f'{s}: {neden}.'
+    if n < 5:
+        return f'{s}: veri yok.'
+    if N < 5 * n:
+        return f'{s}: ölçü güvenilmez (negatif kontrol yetersiz).'
+    if f > math.floor(0.05 * N):
+        return f'{s}: ölçü güvenilmez.'
+    xm = _xmin(n, f, N, 0.05)
+    xm7 = _xmin(n, f, N, 0.05 / 7)
+    var = (xm is not None and g['X_mod'] >= xm and k1['mod_gecti'] and not k1['ayirt_degil'] and dal != "b'"
+           and g['lp_ref'])
+    if var:
+        olc = (f"ölçülen τ ≥ {_tr(g['tau_olc_alg_min'])} kPa" if g['tau_olc_alg_min'] is not None
+               else 'ölçülen τ ölçülemedi')
+        return (f"{s}: tetiklenmiş tremor VAR. {n} bağımsız tetikleyicinin {g['X_mod']}'unda, yerel deprem ve "
+                'teleseismik cisim dalgası maskesi ile darbe/sızıntı/taban ayıklamasından sonra ≥3 istasyonda tutarlı '
+                've yüzey dalgasıyla eş periyotlu modülasyonlu (p ≤ 0,01; ölçü faz kilidini 20 sn periyodik, kilitsiz '
+                'modülasyondan ayıramaz, yapayda yanlış pozitif 0,33–0,56) 2–8 Hz tremor (tetiklenmiş yerel '
+                'mikrodeprem kümesi darbe kuralının ayırabildiği kadar dışlandı); negatif kontrolde FAR = '
+                f"{f}/{N}; kaba τ ≥ {_tr(g['tau_alg_min'])} kPa ({olc}) (segment düzeyi α = 0,05; yedi segment için "
+                f"düzeltilmedi; X_min^(0,05/7) = {'yok' if xm7 is None else xm7}, "
+                f"{'sağlandı' if isinstance(xm7, int) and g['X_mod'] >= xm7 else 'sağlanmadı'}).")
+    if g['X_alg'] >= 1:
+        sag = []
+        if xm is None:
+            sag.append('X_min yok')
+        elif g['X_mod'] < xm:
+            sag.append(f"X_mod ≥ X_min(n, f) (X_mod = {g['X_mod']}, X_min = {xm})")
+        if not k1['mod_gecti']:
+            sag.append('Parkfield modülasyonu geçmedi (modülasyon ölçüsü pozitif kontrolde doğrulanmadı)')
+        if k1['ayirt_degil']:
+            sag.append('K1 ayırt edici değil')
+        if dal == "b'":
+            sag.append('K1 yalnız belirsiz geçti')
+        if not g['lp_ref']:
+            sag.append('uzun periyot başvuru istasyonu yok')
+        return (f"{s}: aday, doğrulanmadı. {g['X_alg']} tetikleyicide algılama; negatif kontrole göre {n} tetikleyicide "
+                f"beklenen yanlış algılama n·f/N = {_tr(n * f / N)}, P(Bin(n, p_üst) ≥ X_alg) = "
+                f"{_tr(_bin(n, _cp(f, N), g['X_alg']), 3)}; VAR şartlarından sağlanmayan: {'; '.join(sag)}.")
+    bas = s + (' (yalnız kaba τ ölçeğinde):' if g['bant13'] == 'veri yok' or g['bant_olc'] == 'veri yok' else ':')
+    if g['n_acik'] >= 5:
+        dis = (f"; tetikleyici başına ≥ {_tr((1 - 0.05 ** (1 / g['n_acik'])) / 0.9)} olasılıkla bu genliği aşan "
+               'tremor üreten bir kaynak %95 düzeyinde dışlanır.')
+    else:
+        dis = "; dışlama hesaplanmadı (W'si yarıdan az maskeli birim < 5)."
+    a90 = _A(g['A90']) + (' nm/s' if isinstance(g['A90'], float) else '')
+    c = (f"{bas} kaba τ ≥ {_tr(g['X'])} kPa üstündeki {n} bağımsız tetikleyicide ({g['n_acik']}'ının W'si en az yarı "
+         f"yarıya maskesiz) tetiklenmiş tremor görülmedi; algılanabilir en küçük genlik A90 = {a90} (25 km'de, 300 sn "
+         f"boyunca 2–8 Hz RMS; A50 = {_A(g['A50'])}){dis}{' Zayıf bant.' if 5 <= n < 8 else ''} Ölçek uyarısı: kaba "
+         f"τ ×1/3 alınırsa {g['n13']} birim ≥ 2 kPa ({g['bant13']}); ölçülen τ ile {g['n_olc']} birim ≥ 2 kPa "
+         f"({g['bant_olc']}); Parkfield–Tohoku'da τ_ölç / kaba τ = "
+         f"{_tr(g['oran_pk']) if g['oran_pk'] is not None else 'ölçülemedi'}.")
+    if dal == "b'":
+        c = c[:-1] + ' (K1 yalnız belirsiz geçti).'
+    return c
+
+
+class HukumKalibiBagimsiz(unittest.TestCase):
+    def test_D11_beklenen_cumleler_bagimsiz_turetimle_ayni(self):
+        for ad, g, k1, bek in T.D11_SENARYO:
+            k = dict(dict(ayirt_degil=False, mod_gecti=False), **k1)
+            self.assertEqual(bagimsiz_cumle(g, k), bek, ad)
+
+    def test_rastgele_senaryolar(self):
+        rng = np.random.default_rng(20261112 + 7070)
+        bantlar = ('tam', 'zayıf', 'veri yok')
+        say = {}
+        for _ in range(3000):
+            n = int(rng.integers(3, 11))
+            N = int(rng.choice([10 * n, 5 * n, 5 * n - 1, 9 * n]))
+            Xa = int(rng.integers(0, n + 1)) if rng.random() < 0.6 else 0
+            g = T._g(seg=str(rng.choice(['S1', 'S2', 'S3', 'S5'])), n=n, bant=K.bant(n), N=N,
+                     f=int(rng.integers(0, 7)), X_alg=Xa, X_mod=int(rng.integers(0, Xa + 1)), lp_ref=bool(rng.random() < 0.8),
+                     n_acik=int(rng.integers(0, n + 1)), A50=float(rng.choice([355.0, 1259.0, 0.5])),
+                     A90=rng.choice([446.0, 12589.25, 'belirsiz', '> 100 µm/s']),
+                     X=float(rng.uniform(2, 10)), tau_alg_min=float(rng.uniform(2, 20)),
+                     tau_olc_alg_min=(None if rng.random() < 0.3 else float(rng.uniform(0.1, 9))),
+                     n13=int(rng.integers(0, n + 1)), bant13=str(rng.choice(bantlar)), n_olc=int(rng.integers(0, n + 1)),
+                     bant_olc=str(rng.choice(bantlar)), oran_pk=(None if rng.random() < 0.3 else float(rng.uniform(0, 1))))
+            if isinstance(g['A90'], np.str_):
+                g['A90'] = str(g['A90'])
+            k1 = dict(dal=str(rng.choice(['b', 'b', "b'", 'a', 'c', 'd'])), ayirt_degil=bool(rng.random() < 0.2),
+                      mod_gecti=bool(rng.random() < 0.7), A90_PK=float(rng.uniform(10, 9e4)))
+            h = T.segment_hukmu(g, k1)
+            self.assertEqual(h['cumle'], bagimsiz_cumle(g, k1), (g, k1))
+            say[h['tur']] = say.get(h['tur'], 0) + 1
+        for t in ('VAR', 'aday', 'görülmedi', 'veri yok', 'ölçü güvenilmez', 'ölçü sınanamadı'):
+            self.assertGreater(say.get(t, 0), 20, say)
+
+
+# ====================================================================== hızlandırma: süzgeç bit düzeyinde aynı
+class Hiz(unittest.TestCase):
+    def test_bant_gecir_obspy_ile_bit_ayni(self):
+        rng = np.random.default_rng(20261112 + 8080)
+        for n, fs in ((200001, 100.0), (60000, 20.0), (150000, 40.0)):
+            x = rng.standard_normal(n)
+            y = np.zeros(n)
+            i = n // 3
+            y[i:i + 3000] = rng.standard_normal(3000) * np.hanning(3000)
+            zz = np.zeros(n)
+            zz[50:4000] = rng.standard_normal(3950)
+            for v in (x, y, zz, np.zeros(n)):
+                for lo, hi in ((2.0, 8.0), (0.5, 1.0), (0.5, 8.0)):
+                    a = K.bant_gecir_obspy(v, fs, lo, hi)
+                    b = K.bant_gecir(v, fs, lo, hi)
+                    self.assertTrue(np.array_equal(a.view(np.int64), b.view(np.int64)), (n, fs, lo, hi))
+
+    def test_kd_isi_eski_yeni_ayni(self):
+        yeni = K.bant_gecir
+        try:
+            K.bant_gecir = K.bant_gecir_obspy
+            T._KD.clear()
+            a = T.kd_is('D6', (0, 100.0, 0.0), 4242, 1)
+        finally:
+            K.bant_gecir = yeni
+        T._KD.clear()
+        b = T.kd_is('D6', (0, 100.0, 0.0), 4242, 1)
+        self.assertEqual(json.dumps(a, sort_keys=True), json.dumps(b, sort_keys=True))
+
 if __name__ == '__main__':
     unittest.main(verbosity=2)

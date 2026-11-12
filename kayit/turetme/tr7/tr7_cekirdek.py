@@ -144,10 +144,110 @@ def sinir_denetle(t1):
 
 
 # ------------------------------------------------------------------ §6.2 zarf zinciri
-def bant_gecir(x, fs, lo, hi):
-    """§6.2.3: 4 kutuplu Butterworth bant geçiren, ileri-geri (obspy bandpass, corners=4, zerophase=True)."""
+def bant_gecir_obspy(x, fs, lo, hi):
+    """§6.2.3'ün adını verdiği süzgecin kendisi: obspy `bandpass(corners=4, zerophase=True)`. `bant_gecir` bunun
+    hızlı ve sonuçta birebir aynı uygulamasıdır (kod incelemesi; sınama `test_bant_gecir_obspy_ile_ayni`)."""
     from obspy.signal.filter import bandpass
     return bandpass(np.asarray(x, dtype=np.float64), lo, hi, fs, corners=4, zerophase=True)
+
+
+_SOS = {}
+_ALTNORMAL = np.finfo(np.float64).tiny          # 2,2250738585072014e-308: bunun altı alt-normal (subnormal)
+_PARCA = 8192
+
+
+def _sos(fs, lo, hi):
+    """obspy `_filter`ın tasarımıyla birebir: iirfilter(4, [lo/fe, hi/fe], btype='band', ftype='butter', 'sos')."""
+    k = (float(fs), float(lo), float(hi))
+    if k not in _SOS:
+        from scipy.signal import iirfilter
+        fe = 0.5 * fs
+        _SOS[k] = iirfilter(4, [lo / fe, hi / fe], rp=None, rs=None, btype='band', ftype='butter', output='sos')
+    return _SOS[k]
+
+
+def _bit(z):
+    return np.ascontiguousarray(z).view(np.int64)
+
+
+def _periyot_sonu(u, a, p):
+    """u[a:b] p periyotlu (u[k] == u[k+p], bit düzeyinde) olan en büyük b (artan pencerelerle)."""
+    n = len(u)
+    k = a
+    w = 1 << 14
+    while k + p < n:
+        e = min(n - p, k + w)
+        fark = np.flatnonzero(_bit(u[k + p:e + p]) != _bit(u[k:e]))
+        if len(fark):
+            return k + p + int(fark[0])
+        k = e
+        w *= 2
+    return n
+
+
+def _aday_periyot(yc, pmax=4096):
+    """yc'nin sonunun bit düzeyinde en küçük periyodu (≤ pmax; sondaki 2p örnek yinelenir) ya da None."""
+    v = _bit(yc)
+    m = len(v)
+    if m < 4:
+        return None
+    ust = min(pmax, m // 2)
+    aday = np.flatnonzero(v[m - 1 - np.arange(1, ust + 1)] == v[-1]) + 1
+    for p in aday[:64]:
+        p = int(p)
+        if np.array_equal(v[m - 2 * p:m - p], v[m - p:]):
+            return p
+    return None
+
+
+def _sosfilt_tam(sos, u):
+    """scipy `sosfilt(sos, u)` ile BİT DÜZEYİNDE aynı çıktı, daha hızlı. Neden yavaş: sıfır (ya da periyodik,
+    alt-normal) girdili uzun bölümlerde IIR durumu alt-normal sayılarda bir sınır döngüsüne girer ve her işlem
+    mikrokodla 10–30 kat yavaşlar (yapay tremor, yapay deprem ve MDA enjeksiyonu: sinyal pencerenin ~%5'i). Yol:
+    8192'lik parçalarda zi aktarımı (aynı özyineleme, aynı aritmetik). Durum küçükken (|z| < 1e-290) son parçanın
+    çıktısından bir aday periyot P bulunur; kalan girdi P periyotluysa P örnek daha süzülür ve durum BİT DÜZEYİNDE
+    başa dönmüşse (z(a + P) == z(a)) çıktının kalanı bu P örneğin kopyasıdır (sosfilt'in kendisinin üreteceği
+    değerlerin aynısı: aynı durum, aynı girdi). Dönmemişse hiçbir şey atlanmaz. Sonuç yaklaşık değil, birebirdir
+    (sınama: `test_bant_gecir_obspy_ile_bit_ayni`)."""
+    from scipy.signal import sosfilt
+    n = len(u)
+    y = np.empty(n)
+    z = np.zeros((sos.shape[0], 2))
+    a = 0
+    while a < n:
+        e = min(n, a + _PARCA)
+        y[a:e], z = sosfilt(sos, u[a:e], zi=z)
+        a0, a = a, e
+        if a < n and np.max(np.abs(z)) < 1e-290:
+            P = _aday_periyot(y[a0:a])
+            if P is None:
+                continue
+            b = _periyot_sonu(u, a, P)
+            if b - a < 2 * P:
+                continue
+            ys, z2 = sosfilt(sos, u[a:a + P], zi=z)
+            y[a:a + P] = ys
+            a += P
+            if np.array_equal(_bit(z2), _bit(z)):
+                m = (b - a) // P * P
+                if m:
+                    y[a:a + m] = np.tile(ys, m // P)
+                    a += m
+            z = z2
+    return y
+
+
+def bant_gecir(x, fs, lo, hi):
+    """§6.2.3: 4 kutuplu Butterworth bant geçiren, ileri-geri (obspy bandpass, corners=4, zerophase=True).
+    obspy'nin kendi tasarımı ve iki geçişi, bit düzeyinde aynı çıktıyla hızlı (`_sosfilt_tam`). obspy'nin
+    Nyquist yolları (yüksek köşe ≥ Nyquist → yüksek geçiren; alçak köşe > Nyquist → hata) obspy'ye bırakılır."""
+    x = np.asarray(x, dtype=np.float64)
+    fe = 0.5 * fs
+    if hi / fe - 1.0 > -1e-6 or lo / fe > 1 or x.ndim != 1:
+        return bant_gecir_obspy(x, fs, lo, hi)
+    sos = _sos(fs, lo, hi)
+    ilk = _sosfilt_tam(sos, x)
+    return _sosfilt_tam(sos, ilk[::-1].copy())[::-1].copy()
 
 
 def analitik(x):

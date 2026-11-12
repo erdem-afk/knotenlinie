@@ -54,6 +54,7 @@ import tr7_indir as I  # noqa: E402
 DEPO = os.path.abspath(os.path.join(BURA, '..', '..', '..'))
 ONKAYIT = os.path.join(DEPO, 'kayit', 'onkayit', 'TR-7_tetiklenmis-tremor_ONKAYIT.md')
 ONKAYIT_SHA = 'df426ffc59793dcb75e5167aca643145d3bd55be3bb4bdcce11f58e1ea544c20'
+ONKAYIT_N = 97178            # dondurulmuş gövdenin bayt sayısı; Ek 1 ve sonraki ekler bu baytlardan SONRA gelir
 ZARF_VARSAYILAN = '/mnt/project-files/turetme/tr7-zarf'
 BEKCI_AD = 'TR7_GERCEK_KOSU_BASLADI'
 DURUM_AD = 'TR7_KOSU_DURUM.json'
@@ -210,6 +211,11 @@ class Ortam:
     def zyol(self, *p):
         return os.path.join(self.zarf, *p)
 
+    def hyol(self, *p):
+        """Ham miniSEED'in geçici dizini: TR7_HAM_DIZIN (depo dışı, tercihen yerel disk; rclone bağlamasının yerel
+        önbelleğini şişirmemek için) ya da zarf deposunun altındaki 'ham' (kod incelemesi, O-45)."""
+        return os.path.join(os.environ.get('TR7_HAM_DIZIN') or os.path.join(self.zarf, 'ham'), *p)
+
     def istemci(self):
         return I.Istemci(aralik=self.aralik, bekle_429=self.bekle_429, uyku=self.uyku)
 
@@ -227,11 +233,21 @@ def girdi_denetimi(o):
             raise KosuDur(f'sha256 uyuşmuyor: {ad} ({s} ≠ {beklenen}); §10 madde 6: koşu durur')
         out[ad] = s
     if o.tr7 == BURA:
-        s = sha256_dosya(ONKAYIT)
+        s = onkayit_govde_sha()
         if s != ONKAYIT_SHA:
-            raise KosuDur(f'ön kayıt metninin sha256\'sı uyuşmuyor ({s})')
+            raise KosuDur(f'ön kayıt metninin (ilk {ONKAYIT_N} bayt) sha256\'sı uyuşmuyor ({s})')
         out['TR-7_tetiklenmis-tremor_ONKAYIT.md'] = s
+        out['TR-7_tetiklenmis-tremor_ONKAYIT.md (tüm dosya, ekler dahil)'] = sha256_dosya(ONKAYIT)
     return out
+
+
+def onkayit_govde_sha(yol=ONKAYIT):
+    """Dondurulmuş gövde: dosyanın ilk ONKAYIT_N baytı (Ek 1 ve sonraki ekler sona eklenir; kod incelemesi)."""
+    with open(yol, 'rb') as f:
+        b = f.read()
+    if len(b) < ONKAYIT_N:
+        raise KosuDur(f'ön kayıt dosyası {ONKAYIT_N} bayttan kısa')
+    return hashlib.sha256(b[:ONKAYIT_N]).hexdigest()
 
 
 def kod_sha():
@@ -517,7 +533,9 @@ def kd_sinyal(rng, env, sekil='bant28', norm=None, H=None):
     k = 1 / _rms(y0.real, m)
     if H is not None:
         S = np.fft.irfft(np.fft.rfft(S) * kd_yanit(H, D['F']), KD_N)
-    return ((K.parca_analitik(S, KD_FS, K.BANT_YUKSEK) * k).astype(np.complex64),
+        y0 = K.parca_analitik(S, KD_FS, K.BANT_YUKSEK)
+    # H yoksa y0 aynı S'nin aynı analitik sinyalidir (kod incelemesi: yeniden hesap kaldırıldı, sonuç birebir)
+    return ((y0 * k).astype(np.complex64),
             (K.parca_analitik(S, KD_FS, K.BANT_ALCAK) * k).astype(np.complex64))
 
 
@@ -1464,7 +1482,7 @@ def manifest_oku(o):
 
 # ====================================================================== indir–zarfla–sil motoru (§6.1)
 def ham_yolu(o, asama, p, k):
-    return o.zyol('ham', asama, p['id'].replace('|', '_'), f'{k[0]}.{k[1]}.mseed')
+    return o.hyol(asama, p['id'].replace('|', '_'), f'{k[0]}.{k[1]}.mseed')
 
 
 def zarf_yolu(o, p, k):
@@ -2057,7 +2075,7 @@ def mda_turu(o, D, man, asama, isler, rng_bas):
 
 def ham_sil(o, asama, p=None):
     import shutil
-    y = o.zyol('ham', asama) if p is None else o.zyol('ham', asama, p['id'].replace('|', '_'))
+    y = o.hyol(asama) if p is None else o.hyol(asama, p['id'].replace('|', '_'))
     if os.path.isdir(y):
         shutil.rmtree(y)
 
@@ -2090,6 +2108,22 @@ def e1_bireysel_sonlar(olaylar):
             if e.get(faz) is not None:
                 out.append(e[faz] + k)
     return sorted(out)
+
+
+def k1_dal(tarandi, belirsiz, algilama, A90_PK, N_PK, f_PK):
+    """§7.2 dal seçimi (sıra bağlayıcı; kod incelemesinde saf fonksiyona ayrıldı, davranış aynı).
+    tarandi: Tohoku penceresinde ≥ 3 istasyon; belirsiz: K1 aralığıyla kesişen her sağ kalan küme için (b′) bayrağı
+    (boş liste = kesişen küme yok); algilama: pencerede herhangi bir sağ kalan küme. Dönüş (dal, ayırt edici değil)."""
+    if not tarandi:
+        return 'a', False
+    if belirsiz:
+        dal = "b'" if all(belirsiz) else 'b'
+    elif not algilama and isinstance(A90_PK, float) and A90_PK <= A90_PK_TAVAN:
+        dal = 'c'
+    else:
+        dal = 'd'
+    ayirt = dal in ('b', "b'") and (N_PK < N_PK_MIN or (N_PK > 0 and f_PK / N_PK > FAR_PK_ESIK))
+    return dal, ayirt
 
 
 def asama_K1_algilama(o, D, d, kip):
@@ -2137,14 +2171,8 @@ def asama_K1_algilama(o, D, d, kip):
                                                     if 0 <= int(math.floor(e['S'])) - k0 < ws['n']]))
         out.update(kume_ayiklama_oncesi=len(r['kumeler']), k1_kumeleri=tani,
                    cekirdek_fazlari={f: [round(t, 1) for t in v] for f, v in cf.items()})
-        if k1k:
-            out['dal'] = "b'" if all(belirsiz) else 'b'
-        elif not r['algilama'] and isinstance(neg['mda']['A90'], float) and neg['mda']['A90'] <= A90_PK_TAVAN:
-            out['dal'] = 'c'
-        else:
-            out['dal'] = 'd'
-        out['ayirt_degil'] = out['dal'] in ('b', "b'") and (neg['N_PK'] < N_PK_MIN or (
-            neg['N_PK'] > 0 and neg['f_PK'] / neg['N_PK'] > FAR_PK_ESIK))
+        out['dal'], out['ayirt_degil'] = k1_dal(True, belirsiz, r['algilama'], neg['mda']['A90'], neg['N_PK'],
+                                                neg['f_PK'])
         # bilgi: modülasyon (K7), A_PK, τ_ölç / kaba τ, BK.PKD aşımları
         rng = np.random.default_rng(K.MOD_TOHUM)
         ref = lp_referans(man, p, 'PK', kay)
@@ -2209,6 +2237,13 @@ def asama_Marmara_negatif(o, D, d, kip):
     man = manifest_oku(o)
     k0 = k0_oku(o)
     ps = negatif_isleri(D, k0)
+    import shutil
+    hd = o.hyol()
+    if not I.depo_disi(hd, o.depo):
+        raise KosuDur(f'ham dizini depo içinde: {hd} (§6.1)')
+    os.makedirs(hd, exist_ok=True)
+    o.log(f'Marmara-negatif: ham dizini {hd}, boş alan {shutil.disk_usage(hd).free / 1e9:.1f} GB '
+          f'(ham ≈ 8–10 GB aşamanın sonuna dek tutulur; O-45)')
     oz = indir_kume(o, D, man, 'Marmara-negatif', ps, lp=False, ham_tut=True)
     sat = algilama_turu(o, D, man, 'Marmara-negatif', [(p, s) for s in MARMARA_SEG for p in ps
                                                          if s in p['_segler']])
@@ -2217,8 +2252,9 @@ def asama_Marmara_negatif(o, D, d, kip):
     isler = []
     gerek = set()
     for s in MARMARA_SEG:
-        ana = sorted([b for b in k0['taranan'][s] if b not in km and D['olay'][k0['taranan'][s][b][0]]['kahramanmaras']
-                      is False], key=lambda b: birim_t0(D, b))
+        # §7.4: "algılama vermemiş HER negatif pencereye" enjeksiyon; Kahramanmaraş bilgi birimlerinin negatifleri de
+        # çekiliş alır (T0 sırasında), P(A) yalnız ana birimlerden (k2_segment). Kod incelemesi: O-44'ün yerine.
+        ana = sorted(k0['taranan'][s], key=lambda b: (birim_t0(D, b), b))
         for b in ana:
             for sira in range(1, 11):
                 alt = sorted([p for p in ps if p['birim'] == b and p['sira'] == sira and s in p['_segler']],
