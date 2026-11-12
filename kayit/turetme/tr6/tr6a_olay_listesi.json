@@ -1,0 +1,5719 @@
+{
+ "aciklama": "TR-6a dondurulan aday listesi: ComCat finite-fault havuzu (155), Ek 1 katalog ve Mc değerleri, tarih kuralı (t + 365 g <= 2025-12-31) ve koşu adaylığı. Olay sonrası bilgi içermez.",
+ "uretici": "tr6a_onkayit_sayilar.py",
+ "girdi_sha256": {
+  "tr6_a_sayim.json": "8da8ba3c30fab3034841043bc894a7d3a973dc959ab816663f39b9425e1a7684",
+  "tr6_a_kapi.json": "5a90b0ebf39cb95556b5d91830c9622d11a12878fc4b6b02465e3c2c3aedee22"
+ },
+ "olaylar": [
+  {
+   "id": "usp00047gj",
+   "zaman": "1990-04-05T21:12:35.550000",
+   "M": 7.6,
+   "enlem": 15.125,
+   "boylam": 147.596,
+   "L_km": 118.6,
+   "halka_km": [
+    69.3,
+    237.2
+   ],
+   "son_pencere_bitis": "1991-04-05T21:12:35",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "normal",
+   "mekanizma_rake": 282.0,
+   "mekanizma_dip": [
+    26.0,
+    64.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp00047gj",
+   "grup_uyeleri": [
+    "usp00047gj"
+   ]
+  },
+  {
+   "id": "usp000482z",
+   "zaman": "1990-04-18T13:39:19.010000",
+   "M": 7.8,
+   "enlem": 1.186,
+   "boylam": 122.857,
+   "L_km": 166.7,
+   "halka_km": [
+    93.4,
+    333.4
+   ],
+   "son_pencere_bitis": "1991-04-18T13:39:19",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 68.0,
+   "mekanizma_dip": [
+    18.0,
+    72.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp000482z",
+   "grup_uyeleri": [
+    "usp000482z"
+   ]
+  },
+  {
+   "id": "usp0004qpg",
+   "zaman": "1991-04-22T21:56:51.820000",
+   "M": 7.6,
+   "enlem": 9.685,
+   "boylam": -83.073,
+   "L_km": 118.6,
+   "halka_km": [
+    69.3,
+    237.2
+   ],
+   "son_pencere_bitis": "1992-04-21T21:56:51",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 99.0,
+   "mekanizma_dip": [
+    64.0,
+    26.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp0004qpg",
+   "grup_uyeleri": [
+    "usp0004qpg"
+   ]
+  },
+  {
+   "id": "usp00050sq",
+   "zaman": "1991-12-22T08:43:13.410000",
+   "M": 7.6,
+   "enlem": 45.533,
+   "boylam": 151.021,
+   "L_km": 118.6,
+   "halka_km": [
+    69.3,
+    237.2
+   ],
+   "son_pencere_bitis": "1992-12-21T08:43:13",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 101.0,
+   "mekanizma_dip": [
+    20.0,
+    70.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp00050sq",
+   "grup_uyeleri": [
+    "usp00050sq"
+   ]
+  },
+  {
+   "id": "usp0005j5a",
+   "zaman": "1992-12-12T05:29:26.350000",
+   "M": 7.8,
+   "enlem": -8.48,
+   "boylam": 121.896,
+   "L_km": 166.7,
+   "halka_km": [
+    93.4,
+    333.4
+   ],
+   "son_pencere_bitis": "1993-12-12T05:29:26",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 90.0,
+   "mekanizma_dip": [
+    67.0,
+    22.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp0005j5a",
+   "grup_uyeleri": [
+    "usp0005j5a"
+   ]
+  },
+  {
+   "id": "usp0005w12",
+   "zaman": "1993-07-12T13:17:11.960000",
+   "M": 7.7,
+   "enlem": 42.851,
+   "boylam": 139.197,
+   "L_km": 140.6,
+   "halka_km": [
+    80.3,
+    281.2
+   ],
+   "son_pencere_bitis": "1994-07-12T13:17:11",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 3.2,
+     "N0_halka": 5.54,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 3.2,
+    "N0": 5.54,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters (diğer)",
+   "mekanizma_rake": 87.0,
+   "mekanizma_dip": [
+    48.0,
+    41.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp0005w12",
+   "grup_uyeleri": [
+    "usp0005w12"
+   ]
+  },
+  {
+   "id": "usp0006djk",
+   "zaman": "1994-06-02T18:17:34.020000",
+   "M": 7.8,
+   "enlem": -10.477,
+   "boylam": 112.835,
+   "L_km": 166.7,
+   "halka_km": [
+    93.4,
+    333.4
+   ],
+   "son_pencere_bitis": "1995-06-02T18:17:34",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 79.0,
+   "mekanizma_dip": [
+    6.0,
+    83.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp0006djk",
+   "grup_uyeleri": [
+    "usp0006djk"
+   ]
+  },
+  {
+   "id": "usp0006kdp",
+   "zaman": "1994-10-04T13:22:55.840000",
+   "M": 8.3,
+   "enlem": 43.773,
+   "boylam": 147.321,
+   "L_km": 390.8,
+   "halka_km": [
+    205.4,
+    781.7
+   ],
+   "son_pencere_bitis": "1995-10-04T13:22:55",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 4.6,
+     "N0_halka": 31.42,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 3.0,
+     "N0_halka": 345.52,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 3.0,
+    "N0": 345.52,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 0,
+   "mekanizma_sinif": "ters (diğer)",
+   "mekanizma_rake": 121.0,
+   "mekanizma_dip": [
+    78.0,
+    33.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp0006kdp",
+   "grup_uyeleri": [
+    "usp0006kdp"
+   ]
+  },
+  {
+   "id": "usp0006qh3",
+   "zaman": "1994-12-28T12:19:23.030000",
+   "M": 7.8,
+   "enlem": 40.525,
+   "boylam": 143.419,
+   "L_km": 166.7,
+   "halka_km": [
+    93.4,
+    333.4
+   ],
+   "son_pencere_bitis": "1995-12-28T12:19:23",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 5.2,
+     "N0_halka": 2.03,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 3.1,
+     "N0_halka": 96.85,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 3.1,
+    "N0": 96.85,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 1,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 63.0,
+   "mekanizma_dip": [
+    16.0,
+    74.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp0006qh3",
+   "grup_uyeleri": [
+    "usp0006qh3"
+   ]
+  },
+  {
+   "id": "usp0006sef",
+   "zaman": "1995-02-05T22:51:05.140000",
+   "M": 7.1,
+   "enlem": -37.759,
+   "boylam": 178.752,
+   "L_km": 50.6,
+   "halka_km": [
+    35.3,
+    101.2
+   ],
+   "son_pencere_bitis": "1996-02-05T22:51:05",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "GeoNet": {
+     "mc": 2.6,
+     "N0_halka": 55.16,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "GeoNet",
+    "mc": 2.6,
+    "N0": 55.16,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 2,
+   "mekanizma_sinif": "normal",
+   "mekanizma_rake": 253.0,
+   "mekanizma_dip": [
+    68.0,
+    26.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp0006sef",
+   "grup_uyeleri": [
+    "usp0006sef"
+   ]
+  },
+  {
+   "id": "usp0006xg1",
+   "zaman": "1995-05-16T20:12:44.220000",
+   "M": 7.7,
+   "enlem": -23.008,
+   "boylam": 169.9,
+   "L_km": 140.6,
+   "halka_km": [
+    80.3,
+    281.2
+   ],
+   "son_pencere_bitis": "1996-05-15T20:12:44",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "normal",
+   "mekanizma_rake": 230.0,
+   "mekanizma_dip": [
+    52.0,
+    52.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp0006xg1",
+   "grup_uyeleri": [
+    "usp0006xg1"
+   ]
+  },
+  {
+   "id": "usp00079zv",
+   "zaman": "1996-01-01T08:05:10.830000",
+   "M": 7.9,
+   "enlem": 0.729,
+   "boylam": 119.931,
+   "L_km": 197.7,
+   "halka_km": [
+    108.8,
+    395.4
+   ],
+   "son_pencere_bitis": "1996-12-31T08:05:10",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 5.1,
+     "N0_halka": 1.37,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 4.9,
+     "N0_halka": 1.78,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 4.9,
+    "N0": 1.78,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 69.0,
+   "mekanizma_dip": [
+    9.0,
+    81.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp00079zv",
+   "grup_uyeleri": [
+    "usp00079zv"
+   ]
+  },
+  {
+   "id": "usp0007dmb",
+   "zaman": "1996-02-21T12:51:01.300000",
+   "M": 7.5,
+   "enlem": -9.593,
+   "boylam": -79.587,
+   "L_km": 100.0,
+   "halka_km": [
+    60.0,
+    200.0
+   ],
+   "son_pencere_bitis": "1997-02-20T12:51:01",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 77.0,
+   "mekanizma_dip": [
+    12.0,
+    77.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp0007dmb",
+   "grup_uyeleri": [
+    "usp0007dmb"
+   ]
+  },
+  {
+   "id": "usp0008hzd",
+   "zaman": "1998-03-25T03:12:25.070000",
+   "M": 8.1,
+   "enlem": -62.877,
+   "boylam": 149.527,
+   "L_km": 278.0,
+   "halka_km": [
+    149.0,
+    555.9
+   ],
+   "son_pencere_bitis": "1999-03-25T03:12:25",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 195.0,
+   "mekanizma_dip": [
+    59.0,
+    76.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp0008hzd",
+   "grup_uyeleri": [
+    "usp0008hzd"
+   ]
+  },
+  {
+   "id": "usp0009d4z",
+   "zaman": "1999-08-17T00:01:39.130000",
+   "M": 7.6,
+   "enlem": 40.748,
+   "boylam": 29.864,
+   "L_km": 118.6,
+   "halka_km": [
+    69.3,
+    237.2
+   ],
+   "son_pencere_bitis": "2000-08-16T00:01:39",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 3.0,
+     "N0_halka": 16.17,
+     "tur": "tam sayım"
+    },
+    "EMSC": {
+     "mc": 2.9,
+     "N0_halka": 10.47,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 2.8,
+     "N0_halka": 82.87,
+     "tur": "tam sayım"
+    },
+    "KOERI": {
+     "mc": 2.9,
+     "N0_halka": 48.2,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 2.8,
+    "N0": 82.87,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 3,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 9.0,
+   "mekanizma_dip": [
+    74.0,
+    81.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp0009d4z",
+   "grup_uyeleri": [
+    "usp0009d4z"
+   ]
+  },
+  {
+   "id": "usp0009sbh",
+   "zaman": "2000-05-04T04:21:16.210000",
+   "M": 7.6,
+   "enlem": -1.105,
+   "boylam": 123.573,
+   "L_km": 118.6,
+   "halka_km": [
+    69.3,
+    237.2
+   ],
+   "son_pencere_bitis": "2001-05-04T04:21:16",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 4.3,
+     "N0_halka": 3.38,
+     "tur": "örnekten tahmin"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 4.3,
+    "N0": 3.38,
+    "tur": "örnekten tahmin"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 190.0,
+   "mekanizma_dip": [
+    87.0,
+    79.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp0009sbh",
+   "grup_uyeleri": [
+    "usp0009sbh"
+   ]
+  },
+  {
+   "id": "usp0009ut0",
+   "zaman": "2000-06-18T14:44:13.310000",
+   "M": 7.9,
+   "enlem": -13.802,
+   "boylam": 97.453,
+   "L_km": 197.7,
+   "halka_km": [
+    108.8,
+    395.4
+   ],
+   "son_pencere_bitis": "2001-06-18T14:44:13",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 12.0,
+   "mekanizma_dip": [
+    87.0,
+    77.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp0009ut0",
+   "grup_uyeleri": [
+    "usp0009ut0"
+   ]
+  },
+  {
+   "id": "usp000a3sp",
+   "zaman": "2000-11-16T07:42:16.930000",
+   "M": 7.8,
+   "enlem": -5.233,
+   "boylam": 153.102,
+   "L_km": 166.7,
+   "halka_km": [
+    93.4,
+    333.4
+   ],
+   "son_pencere_bitis": "2001-11-16T07:42:16",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 4.4,
+     "N0_halka": 12.86,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 4.0,
+     "N0_halka": 17.03,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 4.0,
+    "N0": 17.03,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 93.0,
+   "mekanizma_dip": [
+    15.0,
+    75.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp000a3sp",
+   "grup_uyeleri": [
+    "usp000a3sp"
+   ]
+  },
+  {
+   "id": "usp000a8ds",
+   "zaman": "2001-01-26T03:16:40.500000",
+   "M": 7.7,
+   "enlem": 23.419,
+   "boylam": 70.232,
+   "L_km": 140.6,
+   "halka_km": [
+    80.3,
+    281.2
+   ],
+   "son_pencere_bitis": "2002-01-26T03:16:40",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters (diğer)",
+   "mekanizma_rake": 64.0,
+   "mekanizma_dip": [
+    50.0,
+    45.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp000a8ds",
+   "grup_uyeleri": [
+    "usp000a8ds"
+   ]
+  },
+  {
+   "id": "usp000asvm",
+   "zaman": "2001-11-14T09:26:10.010000",
+   "M": 7.8,
+   "enlem": 35.946,
+   "boylam": 90.541,
+   "L_km": 166.7,
+   "halka_km": [
+    93.4,
+    333.4
+   ],
+   "son_pencere_bitis": "2002-11-14T09:26:10",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 180.0,
+   "mekanizma_dip": [
+    45.0,
+    89.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp000asvm",
+   "grup_uyeleri": [
+    "usp000asvm"
+   ]
+  },
+  {
+   "id": "usp000bbpf",
+   "zaman": "2002-09-08T18:44:23.710000",
+   "M": 7.6,
+   "enlem": -3.302,
+   "boylam": 142.945,
+   "L_km": 118.6,
+   "halka_km": [
+    69.3,
+    237.2
+   ],
+   "son_pencere_bitis": "2003-09-08T18:44:23",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 3.8,
+     "N0_halka": 8.95,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 4.1,
+     "N0_halka": 6.56,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ComCat",
+    "mc": 3.8,
+    "N0": 8.95,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 80.0,
+   "mekanizma_dip": [
+    26.0,
+    64.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp000bbpf",
+   "grup_uyeleri": [
+    "usp000bbpf"
+   ]
+  },
+  {
+   "id": "usp000be54",
+   "zaman": "2002-10-10T10:50:20.570000",
+   "M": 7.6,
+   "enlem": -1.757,
+   "boylam": 134.297,
+   "L_km": 118.6,
+   "halka_km": [
+    69.3,
+    237.2
+   ],
+   "son_pencere_bitis": "2003-10-10T10:50:20",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 4.1,
+     "N0_halka": 8.29,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 4.1,
+    "N0": 8.29,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "normal",
+   "mekanizma_rake": 328.0,
+   "mekanizma_dip": [
+    75.0,
+    59.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp000be54",
+   "grup_uyeleri": [
+    "usp000be54"
+   ]
+  },
+  {
+   "id": "usp000bfuz",
+   "zaman": "2002-11-02T01:26:10.700000",
+   "M": 7.4,
+   "enlem": 2.824,
+   "boylam": 96.085,
+   "L_km": 84.3,
+   "halka_km": [
+    52.2,
+    168.7
+   ],
+   "son_pencere_bitis": "2003-11-02T01:26:10",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 78.0,
+   "mekanizma_dip": [
+    11.0,
+    78.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp000bfuz",
+   "grup_uyeleri": [
+    "usp000bfuz"
+   ]
+  },
+  {
+   "id": "ak002e435qpj",
+   "zaman": "2002-11-03T22:12:41.518000",
+   "M": 7.9,
+   "enlem": 63.5141,
+   "boylam": -147.4529,
+   "L_km": 197.7,
+   "halka_km": [
+    108.8,
+    395.4
+   ],
+   "son_pencere_bitis": "2003-11-03T22:12:41",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 1.6,
+     "N0_halka": 316.34,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 2.8,
+     "N0_halka": 35.64,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ComCat",
+    "mc": 1.6,
+    "N0": 316.34,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 4,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 24.0,
+   "mekanizma_dip": [
+    73.0,
+    66.0
+   ],
+   "kosu_adayi": true,
+   "grup": "ak002e435qpj",
+   "grup_uyeleri": [
+    "ak002e435qpj"
+   ]
+  },
+  {
+   "id": "usp000bnyr",
+   "zaman": "2003-01-22T02:06:34.610000",
+   "M": 7.6,
+   "enlem": 18.77,
+   "boylam": -104.104,
+   "L_km": 118.6,
+   "halka_km": [
+    69.3,
+    237.2
+   ],
+   "son_pencere_bitis": "2004-01-22T02:06:34",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 4.1,
+     "N0_halka": 3.46,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 4.1,
+    "N0": 3.46,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 78.0,
+   "mekanizma_dip": [
+    20.0,
+    69.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp000bnyr",
+   "grup_uyeleri": [
+    "usp000bnyr"
+   ]
+  },
+  {
+   "id": "usp000c2ka",
+   "zaman": "2003-07-15T20:27:50.530000",
+   "M": 7.6,
+   "enlem": -2.598,
+   "boylam": 68.382,
+   "L_km": 118.6,
+   "halka_km": [
+    69.3,
+    237.2
+   ],
+   "son_pencere_bitis": "2004-07-14T20:27:50",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 342.0,
+   "mekanizma_dip": [
+    67.0,
+    74.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp000c2ka",
+   "grup_uyeleri": [
+    "usp000c2ka"
+   ]
+  },
+  {
+   "id": "usp000c41f",
+   "zaman": "2003-08-04T04:37:20.130000",
+   "M": 7.6,
+   "enlem": -60.532,
+   "boylam": -43.411,
+   "L_km": 118.6,
+   "halka_km": [
+    69.3,
+    237.2
+   ],
+   "son_pencere_bitis": "2004-08-03T04:37:20",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "normal",
+   "mekanizma_rake": 326.0,
+   "mekanizma_dip": [
+    52.0,
+    63.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp000c41f",
+   "grup_uyeleri": [
+    "usp000c41f"
+   ]
+  },
+  {
+   "id": "usp000c5h6",
+   "zaman": "2003-08-21T12:12:49.790000",
+   "M": 7.2,
+   "enlem": -45.104,
+   "boylam": 167.144,
+   "L_km": 60.0,
+   "halka_km": [
+    40.0,
+    120.0
+   ],
+   "son_pencere_bitis": "2004-08-20T12:12:49",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "GeoNet": {
+     "mc": 2.8,
+     "N0_halka": 17.08,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "GeoNet",
+    "mc": 2.8,
+    "N0": 17.08,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 90.0,
+   "mekanizma_dip": [
+    72.0,
+    17.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp000c5h6",
+   "grup_uyeleri": [
+    "usp000c5h6"
+   ]
+  },
+  {
+   "id": "official20030925195006360_27",
+   "zaman": "2003-09-25T19:50:06.360000",
+   "M": 8.16,
+   "enlem": 41.815,
+   "boylam": 143.91,
+   "L_km": 307.9,
+   "halka_km": [
+    163.9,
+    615.8
+   ],
+   "son_pencere_bitis": "2004-09-24T19:50:06",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 0.3,
+     "N0_halka": 23.95,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 2.5,
+     "N0_halka": 583.72,
+     "tur": "örnekten tahmin"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 2.5,
+    "N0": 583.72,
+    "tur": "örnekten tahmin"
+   },
+   "ek1_kume_19": 5,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 125.0,
+   "mekanizma_dip": [
+    15.0,
+    77.0
+   ],
+   "kosu_adayi": true,
+   "grup": "official20030925195006360_27",
+   "grup_uyeleri": [
+    "official20030925195006360_27"
+   ]
+  },
+  {
+   "id": "usp000d85g",
+   "zaman": "2004-11-11T21:26:41.150000",
+   "M": 7.5,
+   "enlem": -8.152,
+   "boylam": 124.868,
+   "L_km": 100.0,
+   "halka_km": [
+    60.0,
+    200.0
+   ],
+   "son_pencere_bitis": "2005-11-11T21:26:41",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 86.0,
+   "mekanizma_dip": [
+    71.0,
+    18.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp000d85g",
+   "grup_uyeleri": [
+    "usp000d85g"
+   ]
+  },
+  {
+   "id": "usp000db93",
+   "zaman": "2004-12-23T14:59:04.410000",
+   "M": 8.1,
+   "enlem": -49.312,
+   "boylam": 161.345,
+   "L_km": 278.0,
+   "halka_km": [
+    149.0,
+    555.9
+   ],
+   "son_pencere_bitis": "2005-12-23T14:59:04",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 358.0,
+   "mekanizma_dip": [
+    68.0,
+    88.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp000db93",
+   "grup_uyeleri": [
+    "usp000db93"
+   ]
+  },
+  {
+   "id": "official20041226005853450_30",
+   "zaman": "2004-12-26T00:58:53.450000",
+   "M": 9.1,
+   "enlem": 3.295,
+   "boylam": 95.982,
+   "L_km": 1527.6,
+   "halka_km": [
+    773.8,
+    3055.1
+   ],
+   "son_pencere_bitis": "2005-12-26T00:58:53",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 4.8,
+     "N0_halka": 30.3,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 4.8,
+     "N0_halka": 52.82,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 4.8,
+    "N0": 52.82,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 6,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 113.0,
+   "mekanizma_dip": [
+    7.0,
+    83.0
+   ],
+   "kosu_adayi": true,
+   "grup": "official20041226005853450_30",
+   "grup_uyeleri": [
+    "official20041226005853450_30"
+   ]
+  },
+  {
+   "id": "official20050328160936530_30",
+   "zaman": "2005-03-28T16:09:36.530000",
+   "M": 8.6,
+   "enlem": 2.085,
+   "boylam": 97.108,
+   "L_km": 651.6,
+   "halka_km": [
+    335.8,
+    1303.3
+   ],
+   "son_pencere_bitis": "2006-03-28T16:09:36",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 4.5,
+     "N0_halka": 95.94,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 4.4,
+     "N0_halka": 87.35,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ComCat",
+    "mc": 4.5,
+    "N0": 95.94,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 6,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 107.0,
+   "mekanizma_dip": [
+    10.0,
+    80.0
+   ],
+   "kosu_adayi": true,
+   "grup": "official20050328160936530_30",
+   "grup_uyeleri": [
+    "official20050328160936530_30"
+   ]
+  },
+  {
+   "id": "usp000dt25",
+   "zaman": "2005-06-15T02:50:54.190000",
+   "M": 7.2,
+   "enlem": 41.292,
+   "boylam": -125.953,
+   "L_km": 60.0,
+   "halka_km": [
+    40.0,
+    120.0
+   ],
+   "son_pencere_bitis": "2006-06-15T02:50:54",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 171.0,
+   "mekanizma_dip": [
+    83.0,
+    81.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp000dt25",
+   "grup_uyeleri": [
+    "usp000dt25"
+   ]
+  },
+  {
+   "id": "usp000e12e",
+   "zaman": "2005-10-08T03:50:40.800000",
+   "M": 7.6,
+   "enlem": 34.539,
+   "boylam": 73.588,
+   "L_km": 118.6,
+   "halka_km": [
+    69.3,
+    237.2
+   ],
+   "son_pencere_bitis": "2006-10-08T03:50:40",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 110.0,
+   "mekanizma_dip": [
+    30.0,
+    61.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp000e12e",
+   "grup_uyeleri": [
+    "usp000e12e"
+   ]
+  },
+  {
+   "id": "usp000ef1h",
+   "zaman": "2006-04-20T23:25:02.150000",
+   "M": 7.6,
+   "enlem": 60.949,
+   "boylam": 167.089,
+   "L_km": 118.6,
+   "halka_km": [
+    69.3,
+    237.2
+   ],
+   "son_pencere_bitis": "2007-04-20T23:25:02",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters (diğer)",
+   "mekanizma_rake": 79.0,
+   "mekanizma_dip": [
+    44.0,
+    46.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp000ef1h",
+   "grup_uyeleri": [
+    "usp000ef1h"
+   ]
+  },
+  {
+   "id": "usp000ensm",
+   "zaman": "2006-07-17T08:19:26.680000",
+   "M": 7.7,
+   "enlem": -9.284,
+   "boylam": 107.419,
+   "L_km": 140.6,
+   "halka_km": [
+    80.3,
+    281.2
+   ],
+   "son_pencere_bitis": "2007-07-17T08:19:26",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 86.0,
+   "mekanizma_dip": [
+    9.0,
+    81.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp000ensm",
+   "grup_uyeleri": [
+    "usp000ensm"
+   ]
+  },
+  {
+   "id": "usp000exfn",
+   "zaman": "2006-11-15T11:14:13.570000",
+   "M": 8.3,
+   "enlem": 46.592,
+   "boylam": 153.266,
+   "L_km": 390.8,
+   "halka_km": [
+    205.4,
+    781.7
+   ],
+   "son_pencere_bitis": "2007-11-15T11:14:13",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 4.8,
+     "N0_halka": 0.68,
+     "tur": "örnekten tahmin"
+    },
+    "ISC": {
+     "mc": 3.9,
+     "N0_halka": 37.72,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 3.9,
+    "N0": 37.72,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 7,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 83.0,
+   "mekanizma_dip": [
+    15.0,
+    74.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp000exfn",
+   "grup_uyeleri": [
+    "usp000exfn"
+   ]
+  },
+  {
+   "id": "usp000f2ab",
+   "zaman": "2007-01-13T04:23:21.160000",
+   "M": 8.1,
+   "enlem": 46.243,
+   "boylam": 154.524,
+   "L_km": 278.0,
+   "halka_km": [
+    149.0,
+    555.9
+   ],
+   "son_pencere_bitis": "2008-01-13T04:23:21",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 3.7,
+     "N0_halka": 49.32,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 3.7,
+    "N0": 49.32,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 7,
+   "mekanizma_sinif": "normal",
+   "mekanizma_rake": 301.0,
+   "mekanizma_dip": [
+    45.0,
+    52.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp000f2ab",
+   "grup_uyeleri": [
+    "usp000f2ab"
+   ]
+  },
+  {
+   "id": "usp000f34b",
+   "zaman": "2007-01-21T11:27:45.060000",
+   "M": 7.5,
+   "enlem": 1.065,
+   "boylam": 126.282,
+   "L_km": 100.0,
+   "halka_km": [
+    60.0,
+    200.0
+   ],
+   "son_pencere_bitis": "2008-01-21T11:27:45",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 4.0,
+     "N0_halka": 21.1,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 4.0,
+    "N0": 21.1,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 78.0,
+   "mekanizma_dip": [
+    69.0,
+    23.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp000f34b",
+   "grup_uyeleri": [
+    "usp000f34b"
+   ]
+  },
+  {
+   "id": "usp000f83m",
+   "zaman": "2007-04-01T20:39:58.710000",
+   "M": 8.1,
+   "enlem": -8.466,
+   "boylam": 157.043,
+   "L_km": 278.0,
+   "halka_km": [
+    149.0,
+    555.9
+   ],
+   "son_pencere_bitis": "2008-03-31T20:39:58",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 4.7,
+     "N0_halka": 6.61,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 4.2,
+     "N0_halka": 10.63,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 4.2,
+    "N0": 10.63,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 101.0,
+   "mekanizma_dip": [
+    29.0,
+    60.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp000f83m",
+   "grup_uyeleri": [
+    "usp000f83m"
+   ]
+  },
+  {
+   "id": "usp000fzau",
+   "zaman": "2008-02-20T08:08:30.520000",
+   "M": 7.4,
+   "enlem": 2.768,
+   "boylam": 95.964,
+   "L_km": 84.3,
+   "halka_km": [
+    52.2,
+    168.7
+   ],
+   "son_pencere_bitis": "2009-02-19T08:08:30",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 4.7,
+     "N0_halka": 11.39,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 4.0,
+     "N0_halka": 35.69,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 4.0,
+    "N0": 35.69,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 6,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 69.0,
+   "mekanizma_dip": [
+    9.0,
+    81.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp000fzau",
+   "grup_uyeleri": [
+    "usp000fzau"
+   ]
+  },
+  {
+   "id": "usp000g650",
+   "zaman": "2008-05-12T06:28:01.570000",
+   "M": 7.9,
+   "enlem": 31.002,
+   "boylam": 103.322,
+   "L_km": 197.7,
+   "halka_km": [
+    108.8,
+    395.4
+   ],
+   "son_pencere_bitis": "2009-05-12T06:28:01",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 2.8,
+     "N0_halka": 20.08,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 2.8,
+    "N0": 20.08,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 63.0,
+   "mekanizma_dip": [
+    76.0,
+    29.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp000g650",
+   "grup_uyeleri": [
+    "usp000g650"
+   ]
+  },
+  {
+   "id": "usp000gs2d",
+   "zaman": "2009-01-03T19:43:50.650000",
+   "M": 7.7,
+   "enlem": -0.414,
+   "boylam": 132.885,
+   "L_km": 140.6,
+   "halka_km": [
+    80.3,
+    281.2
+   ],
+   "son_pencere_bitis": "2010-01-03T19:43:50",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 103.0,
+   "mekanizma_dip": [
+    66.0,
+    26.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp000gs2d",
+   "grup_uyeleri": [
+    "usp000gs2d"
+   ]
+  },
+  {
+   "id": "usp000gz8j",
+   "zaman": "2009-07-15T09:22:29.030000",
+   "M": 7.8,
+   "enlem": -45.762,
+   "boylam": 166.562,
+   "L_km": 166.7,
+   "halka_km": [
+    93.4,
+    333.4
+   ],
+   "son_pencere_bitis": "2010-07-15T09:22:29",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "GeoNet": {
+     "mc": 2.7,
+     "N0_halka": 89.13,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 2.7,
+     "N0_halka": 84.6,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "GeoNet",
+    "mc": 2.7,
+    "N0": 89.13,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 8,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 73.0,
+   "mekanizma_dip": [
+    71.0,
+    24.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp000gz8j",
+   "grup_uyeleri": [
+    "usp000gz8j"
+   ]
+  },
+  {
+   "id": "usp000h05x",
+   "zaman": "2009-08-10T19:55:38.730000",
+   "M": 7.5,
+   "enlem": 14.099,
+   "boylam": 92.902,
+   "L_km": 100.0,
+   "halka_km": [
+    60.0,
+    200.0
+   ],
+   "son_pencere_bitis": "2010-08-10T19:55:38",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 4.5,
+     "N0_halka": 6.05,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 4.2,
+     "N0_halka": 6.81,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 4.2,
+    "N0": 6.81,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "normal",
+   "mekanizma_rake": 259.0,
+   "mekanizma_dip": [
+    55.0,
+    36.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp000h05x",
+   "grup_uyeleri": [
+    "usp000h05x"
+   ]
+  },
+  {
+   "id": "usp000h1ys",
+   "zaman": "2009-09-29T17:48:10.990000",
+   "M": 8.1,
+   "enlem": -15.489,
+   "boylam": -172.095,
+   "L_km": 278.0,
+   "halka_km": [
+    149.0,
+    555.9
+   ],
+   "son_pencere_bitis": "2010-09-29T17:48:10",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 4.9,
+     "N0_halka": 8.54,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 4.5,
+     "N0_halka": 16.47,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 4.5,
+    "N0": 16.47,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "normal",
+   "mekanizma_rake": 244.0,
+   "mekanizma_dip": [
+    22.0,
+    70.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp000h1ys",
+   "grup_uyeleri": [
+    "usp000h1ys"
+   ]
+  },
+  {
+   "id": "official20100227063411530_30",
+   "zaman": "2010-02-27T06:34:11.530000",
+   "M": 8.8,
+   "enlem": -36.122,
+   "boylam": -72.898,
+   "L_km": 916.2,
+   "halka_km": [
+    468.1,
+    1832.4
+   ],
+   "son_pencere_bitis": "2011-02-27T06:34:11",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 3.1,
+     "N0_halka": 74.43,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 3.6,
+     "N0_halka": 78.35,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 3.6,
+    "N0": 78.35,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 9,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 108.0,
+   "mekanizma_dip": [
+    13.0,
+    76.0
+   ],
+   "kosu_adayi": true,
+   "grup": "official20100227063411530_30",
+   "grup_uyeleri": [
+    "official20100227063411530_30"
+   ]
+  },
+  {
+   "id": "usp000hhuc",
+   "zaman": "2010-08-10T05:23:44.980000",
+   "M": 7.3,
+   "enlem": -17.541,
+   "boylam": 168.069,
+   "L_km": 71.1,
+   "halka_km": [
+    45.6,
+    142.2
+   ],
+   "son_pencere_bitis": "2011-08-10T05:23:44",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 4.3,
+     "N0_halka": 1.35,
+     "tur": "örnekten tahmin"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 4.3,
+    "N0": 1.35,
+    "tur": "örnekten tahmin"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters (diğer)",
+   "mekanizma_rake": 72.0,
+   "mekanizma_dip": [
+    61.0,
+    33.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp000hhuc",
+   "grup_uyeleri": [
+    "usp000hhuc"
+   ]
+  },
+  {
+   "id": "usp000hnj4",
+   "zaman": "2010-10-25T14:42:22.460000",
+   "M": 7.8,
+   "enlem": -3.487,
+   "boylam": 100.082,
+   "L_km": 166.7,
+   "halka_km": [
+    93.4,
+    333.4
+   ],
+   "son_pencere_bitis": "2011-10-25T14:42:22",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 4.5,
+     "N0_halka": 23.13,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 4.0,
+     "N0_halka": 36.76,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 4.0,
+    "N0": 36.76,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 10,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 95.0,
+   "mekanizma_dip": [
+    8.0,
+    81.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp000hnj4",
+   "grup_uyeleri": [
+    "usp000hnj4"
+   ]
+  },
+  {
+   "id": "usp000hr97",
+   "zaman": "2010-12-21T17:19:40.660000",
+   "M": 7.4,
+   "enlem": 26.901,
+   "boylam": 143.698,
+   "L_km": 84.3,
+   "halka_km": [
+    52.2,
+    168.7
+   ],
+   "son_pencere_bitis": "2011-12-21T17:19:40",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 4.1,
+     "N0_halka": 3.25,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 4.1,
+    "N0": 3.25,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "normal",
+   "mekanizma_rake": 304.0,
+   "mekanizma_dip": [
+    57.0,
+    45.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp000hr97",
+   "grup_uyeleri": [
+    "usp000hr97"
+   ]
+  },
+  {
+   "id": "usp000hrw0",
+   "zaman": "2010-12-25T13:16:37",
+   "M": 7.3,
+   "enlem": -19.702,
+   "boylam": 167.947,
+   "L_km": 71.1,
+   "halka_km": [
+    45.6,
+    142.2
+   ],
+   "son_pencere_bitis": "2011-12-25T13:16:37",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 2.6,
+     "N0_halka": 39.86,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 2.6,
+    "N0": 39.86,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 11,
+   "mekanizma_sinif": "normal",
+   "mekanizma_rake": 279.0,
+   "mekanizma_dip": [
+    45.0,
+    45.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp000hrw0",
+   "grup_uyeleri": [
+    "usp000hrw0"
+   ]
+  },
+  {
+   "id": "official20110311054624120_30",
+   "zaman": "2011-03-11T05:46:24.120000",
+   "M": 9.1,
+   "enlem": 38.297,
+   "boylam": 142.373,
+   "L_km": 1527.6,
+   "halka_km": [
+    773.8,
+    3055.1
+   ],
+   "son_pencere_bitis": "2012-03-10T05:46:24",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 4.6,
+     "N0_halka": 127.51,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 1.8,
+     "N0_halka": 4501.37,
+     "tur": "örnekten tahmin"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 1.8,
+    "N0": 4501.37,
+    "tur": "örnekten tahmin"
+   },
+   "ek1_kume_19": 12,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 78.0,
+   "mekanizma_dip": [
+    8.0,
+    81.0
+   ],
+   "kosu_adayi": true,
+   "grup": "official20110311054624120_30",
+   "grup_uyeleri": [
+    "official20110311054624120_30"
+   ]
+  },
+  {
+   "id": "usp000j48h",
+   "zaman": "2011-07-06T19:03:18.260000",
+   "M": 7.6,
+   "enlem": -29.539,
+   "boylam": -176.34,
+   "L_km": 118.6,
+   "halka_km": [
+    69.3,
+    237.2
+   ],
+   "son_pencere_bitis": "2012-07-05T19:03:18",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 4.7,
+     "N0_halka": 9.25,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 4.1,
+     "N0_halka": 25.52,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 4.1,
+    "N0": 25.52,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "normal",
+   "mekanizma_rake": 305.0,
+   "mekanizma_dip": [
+    54.0,
+    48.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp000j48h",
+   "grup_uyeleri": [
+    "usp000j48h"
+   ]
+  },
+  {
+   "id": "usp000j9rr",
+   "zaman": "2011-10-23T10:41:23.250000",
+   "M": 7.1,
+   "enlem": 38.721,
+   "boylam": 43.508,
+   "L_km": 50.6,
+   "halka_km": [
+    35.3,
+    101.2
+   ],
+   "son_pencere_bitis": "2012-10-22T10:41:23",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "EMSC": {
+     "mc": 3.0,
+     "N0_halka": 12.86,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 3.0,
+     "N0_halka": 11.69,
+     "tur": "tam sayım"
+    },
+    "KOERI": {
+     "mc": 3.0,
+     "N0_halka": 10.98,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "EMSC",
+    "mc": 3.0,
+    "N0": 12.86,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters (diğer)",
+   "mekanizma_rake": 52.0,
+   "mekanizma_dip": [
+    41.0,
+    58.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp000j9rr",
+   "grup_uyeleri": [
+    "usp000j9rr"
+   ]
+  },
+  {
+   "id": "usp000jdar",
+   "zaman": "2012-01-10T18:36:59.080000",
+   "M": 7.2,
+   "enlem": 2.433,
+   "boylam": 93.21,
+   "L_km": 60.0,
+   "halka_km": [
+    40.0,
+    120.0
+   ],
+   "son_pencere_bitis": "2013-01-09T18:36:59",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 175.0,
+   "mekanizma_dip": [
+    65.0,
+    85.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp000jdar",
+   "grup_uyeleri": [
+    "usp000jdar"
+   ]
+  },
+  {
+   "id": "usp000jghj",
+   "zaman": "2012-03-20T18:02:47.440000",
+   "M": 7.4,
+   "enlem": 16.493,
+   "boylam": -98.231,
+   "L_km": 84.3,
+   "halka_km": [
+    52.2,
+    168.7
+   ],
+   "son_pencere_bitis": "2013-03-20T18:02:47",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 4.3,
+     "N0_halka": 1.35,
+     "tur": "örnekten tahmin"
+    },
+    "ISC": {
+     "mc": 4.0,
+     "N0_halka": 13.52,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 4.0,
+    "N0": 13.52,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 69.0,
+   "mekanizma_dip": [
+    16.0,
+    74.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp000jghj",
+   "grup_uyeleri": [
+    "usp000jghj"
+   ]
+  },
+  {
+   "id": "official20120411083836720_20",
+   "zaman": "2012-04-11T08:38:36.720000",
+   "M": 8.6,
+   "enlem": 2.327,
+   "boylam": 93.063,
+   "L_km": 651.6,
+   "halka_km": [
+    335.8,
+    1303.3
+   ],
+   "son_pencere_bitis": "2013-04-11T08:38:36",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 0.2,
+     "N0_halka": 115.72,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 4.0,
+     "N0_halka": 111.19,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ComCat",
+    "mc": 0.2,
+    "N0": 115.72,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 13,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 4.0,
+   "mekanizma_dip": [
+    80.0,
+    85.0
+   ],
+   "kosu_adayi": true,
+   "grup": "official20120411083836720_20",
+   "grup_uyeleri": [
+    "official20120411083836720_20"
+   ]
+  },
+  {
+   "id": "usp000jqvm",
+   "zaman": "2012-08-27T04:37:19.430000",
+   "M": 7.3,
+   "enlem": 12.139,
+   "boylam": -88.59,
+   "L_km": 71.1,
+   "halka_km": [
+    45.6,
+    142.2
+   ],
+   "son_pencere_bitis": "2013-08-27T04:37:19",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 69.0,
+   "mekanizma_dip": [
+    13.0,
+    78.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usp000jqvm",
+   "grup_uyeleri": [
+    "usp000jqvm"
+   ]
+  },
+  {
+   "id": "usp000jr83",
+   "zaman": "2012-08-31T12:47:33.380000",
+   "M": 7.6,
+   "enlem": 10.811,
+   "boylam": 126.638,
+   "L_km": 118.6,
+   "halka_km": [
+    69.3,
+    237.2
+   ],
+   "son_pencere_bitis": "2013-08-31T12:47:33",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 4.7,
+     "N0_halka": 8.03,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 4.7,
+    "N0": 8.03,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters (diğer)",
+   "mekanizma_rake": 64.0,
+   "mekanizma_dip": [
+    46.0,
+    50.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp000jr83",
+   "grup_uyeleri": [
+    "usp000jr83"
+   ]
+  },
+  {
+   "id": "usp000juhz",
+   "zaman": "2012-10-28T03:04:08.820000",
+   "M": 7.8,
+   "enlem": 52.788,
+   "boylam": -132.101,
+   "L_km": 166.7,
+   "halka_km": [
+    93.4,
+    333.4
+   ],
+   "son_pencere_bitis": "2013-10-28T03:04:08",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 3.2,
+     "N0_halka": 34.22,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 3.2,
+    "N0": 34.22,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 14,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 115.0,
+   "mekanizma_dip": [
+    24.0,
+    68.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usp000juhz",
+   "grup_uyeleri": [
+    "usp000juhz"
+   ]
+  },
+  {
+   "id": "ak0138esnzr",
+   "zaman": "2013-01-05T08:58:14.957000",
+   "M": 7.5,
+   "enlem": 55.228,
+   "boylam": -134.8591,
+   "L_km": 100.0,
+   "halka_km": [
+    60.0,
+    200.0
+   ],
+   "son_pencere_bitis": "2014-01-05T08:58:14",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 180.0,
+   "mekanizma_dip": [
+    63.0,
+    90.0
+   ],
+   "kosu_adayi": false,
+   "grup": "ak0138esnzr",
+   "grup_uyeleri": [
+    "ak0138esnzr"
+   ]
+  },
+  {
+   "id": "usc000f1s0",
+   "zaman": "2013-02-06T01:12:25.830000",
+   "M": 8,
+   "enlem": -10.799,
+   "boylam": 165.114,
+   "L_km": 234.4,
+   "halka_km": [
+    127.2,
+    468.8
+   ],
+   "son_pencere_bitis": "2014-02-06T01:12:25",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 4.5,
+     "N0_halka": 17.29,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 2.3,
+     "N0_halka": 99.19,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 2.3,
+    "N0": 99.19,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 15,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 61.0,
+   "mekanizma_dip": [
+    17.0,
+    75.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usc000f1s0",
+   "grup_uyeleri": [
+    "usc000f1s0",
+    "usc000f40j"
+   ]
+  },
+  {
+   "id": "usc000f40j",
+   "zaman": "2013-02-08T15:26:38.470000",
+   "M": 7.1,
+   "enlem": -10.928,
+   "boylam": 166.018,
+   "L_km": 50.6,
+   "halka_km": [
+    35.3,
+    101.2
+   ],
+   "son_pencere_bitis": "2014-02-08T15:26:38",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 175.0,
+   "mekanizma_dip": [
+    72.0,
+    86.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usc000f1s0",
+   "grup_uyeleri": [
+    "usc000f1s0",
+    "usc000f40j"
+   ]
+  },
+  {
+   "id": "usb000ief9",
+   "zaman": "2013-07-15T14:03:39.880000",
+   "M": 7.3,
+   "enlem": -60.857,
+   "boylam": -25.07,
+   "L_km": 71.1,
+   "halka_km": [
+    45.6,
+    142.2
+   ],
+   "son_pencere_bitis": "2014-07-15T14:03:39",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": -7.0,
+   "mekanizma_dip": [
+    74.0,
+    83.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usb000ief9",
+   "grup_uyeleri": [
+    "usb000ief9"
+   ]
+  },
+  {
+   "id": "usb000jyiv",
+   "zaman": "2013-09-24T11:29:47.970000",
+   "M": 7.7,
+   "enlem": 26.951,
+   "boylam": 65.5009,
+   "L_km": 140.6,
+   "halka_km": [
+    80.3,
+    281.2
+   ],
+   "son_pencere_bitis": "2014-09-24T11:29:47",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 6.0,
+   "mekanizma_dip": [
+    46.0,
+    86.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usb000jyiv",
+   "grup_uyeleri": [
+    "usb000jyiv"
+   ]
+  },
+  {
+   "id": "usb000kdb4",
+   "zaman": "2013-10-15T00:12:32.050000",
+   "M": 7.1,
+   "enlem": 9.8796,
+   "boylam": 124.1167,
+   "L_km": 50.6,
+   "halka_km": [
+    35.3,
+    101.2
+   ],
+   "son_pencere_bitis": "2014-10-15T00:12:32",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters (diğer)",
+   "mekanizma_rake": 77.0,
+   "mekanizma_dip": [
+    46.0,
+    46.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usb000kdb4",
+   "grup_uyeleri": [
+    "usb000kdb4"
+   ]
+  },
+  {
+   "id": "usb000l0gq",
+   "zaman": "2013-11-17T09:04:55.530000",
+   "M": 7.7,
+   "enlem": -60.2738,
+   "boylam": -46.4011,
+   "L_km": 140.6,
+   "halka_km": [
+    80.3,
+    281.2
+   ],
+   "son_pencere_bitis": "2014-11-17T09:04:55",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 0.0,
+   "mekanizma_dip": [
+    50.0,
+    89.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usb000l0gq",
+   "grup_uyeleri": [
+    "usb000l0gq"
+   ]
+  },
+  {
+   "id": "usc000nzvd",
+   "zaman": "2014-04-01T23:46:47.260000",
+   "M": 8.2,
+   "enlem": -19.6097,
+   "boylam": -70.7691,
+   "L_km": 329.6,
+   "halka_km": [
+    174.8,
+    659.2
+   ],
+   "son_pencere_bitis": "2015-04-01T23:46:47",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 2.3,
+     "N0_halka": 50.33,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 2.3,
+    "N0": 50.33,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 16,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 87.0,
+   "mekanizma_dip": [
+    79.0,
+    11.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usc000nzvd",
+   "grup_uyeleri": [
+    "usc000nzvd",
+    "usc000p27i"
+   ]
+  },
+  {
+   "id": "usc000p27i",
+   "zaman": "2014-04-03T02:43:13.110000",
+   "M": 7.7,
+   "enlem": -20.5709,
+   "boylam": -70.4931,
+   "L_km": 140.6,
+   "halka_km": [
+    80.3,
+    281.2
+   ],
+   "son_pencere_bitis": "2015-04-03T02:43:13",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 2.5,
+     "N0_halka": 34.22,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 2.5,
+    "N0": 34.22,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 16,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 87.0,
+   "mekanizma_dip": [
+    75.0,
+    15.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usc000nzvd",
+   "grup_uyeleri": [
+    "usc000nzvd",
+    "usc000p27i"
+   ]
+  },
+  {
+   "id": "usc000phx5",
+   "zaman": "2014-04-12T20:14:39.300000",
+   "M": 7.6,
+   "enlem": -11.2701,
+   "boylam": 162.1481,
+   "L_km": 118.6,
+   "halka_km": [
+    69.3,
+    237.2
+   ],
+   "son_pencere_bitis": "2015-04-12T20:14:39",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 24.0,
+   "mekanizma_dip": [
+    74.0,
+    67.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usc000phx5",
+   "grup_uyeleri": [
+    "usc000phx5"
+   ]
+  },
+  {
+   "id": "usb000pq41",
+   "zaman": "2014-04-18T14:27:24.920000",
+   "M": 7.2,
+   "enlem": 17.397,
+   "boylam": -100.9723,
+   "L_km": 60.0,
+   "halka_km": [
+    40.0,
+    120.0
+   ],
+   "son_pencere_bitis": "2015-04-18T14:27:24",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 3.9,
+     "N0_halka": 14.54,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 3.9,
+    "N0": 14.54,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 87.0,
+   "mekanizma_dip": [
+    70.0,
+    20.0
+   ],
+   "kosu_adayi": true,
+   "grup": "usb000pq41",
+   "grup_uyeleri": [
+    "usb000pq41"
+   ]
+  },
+  {
+   "id": "nc72282711",
+   "zaman": "2014-08-24T10:20:44.070000",
+   "M": 6.02,
+   "enlem": 38.2151667,
+   "boylam": -122.3123333,
+   "L_km": 8.0,
+   "halka_km": [
+    14.0,
+    16.1
+   ],
+   "son_pencere_bitis": "2015-08-24T10:20:44",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": -13.0,
+   "mekanizma_dip": [
+    80.0,
+    77.0
+   ],
+   "kosu_adayi": false,
+   "grup": "nc72282711",
+   "grup_uyeleri": [
+    "nc72282711"
+   ]
+  },
+  {
+   "id": "usb000sk6k",
+   "zaman": "2014-10-09T02:14:31.440000",
+   "M": 7,
+   "enlem": -32.1082,
+   "boylam": -110.8112,
+   "L_km": 42.7,
+   "halka_km": [
+    31.3,
+    85.3
+   ],
+   "son_pencere_bitis": "2015-10-09T02:14:31",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters (diğer)",
+   "mekanizma_rake": 118.0,
+   "mekanizma_dip": [
+    58.0,
+    41.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usb000sk6k",
+   "grup_uyeleri": [
+    "usb000sk6k"
+   ]
+  },
+  {
+   "id": "usb000tp5q",
+   "zaman": "2015-02-13T18:59:12.230000",
+   "M": 7.1,
+   "enlem": 52.6487,
+   "boylam": -31.9016,
+   "L_km": 50.6,
+   "halka_km": [
+    35.3,
+    101.2
+   ],
+   "son_pencere_bitis": "2016-02-13T18:59:12",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": -11.0,
+   "mekanizma_dip": [
+    87.0,
+    79.0
+   ],
+   "kosu_adayi": false,
+   "grup": "usb000tp5q",
+   "grup_uyeleri": [
+    "usb000tp5q"
+   ]
+  },
+  {
+   "id": "us20002926",
+   "zaman": "2015-04-25T06:11:25.950000",
+   "M": 7.8,
+   "enlem": 28.2305,
+   "boylam": 84.7314,
+   "L_km": 166.7,
+   "halka_km": [
+    93.4,
+    333.4
+   ],
+   "son_pencere_bitis": "2016-04-24T06:11:25",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 89.0,
+   "mekanizma_dip": [
+    83.0,
+    7.0
+   ],
+   "kosu_adayi": false,
+   "grup": "us20002926",
+   "grup_uyeleri": [
+    "us20002926",
+    "us20002ejl"
+   ]
+  },
+  {
+   "id": "us20002das",
+   "zaman": "2015-05-07T07:10:19.590000",
+   "M": 7.1,
+   "enlem": -7.2175,
+   "boylam": 154.5567,
+   "L_km": 50.6,
+   "halka_km": [
+    35.3,
+    101.2
+   ],
+   "son_pencere_bitis": "2016-05-06T07:10:19",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "normal",
+   "mekanizma_rake": -87.0,
+   "mekanizma_dip": [
+    67.0,
+    23.0
+   ],
+   "kosu_adayi": false,
+   "grup": "us20002das",
+   "grup_uyeleri": [
+    "us20002das"
+   ]
+  },
+  {
+   "id": "us20002ejl",
+   "zaman": "2015-05-12T07:05:19.730000",
+   "M": 7.3,
+   "enlem": 27.8087,
+   "boylam": 86.0655,
+   "L_km": 71.1,
+   "halka_km": [
+    45.6,
+    142.2
+   ],
+   "son_pencere_bitis": "2016-05-11T07:05:19",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 87.0,
+   "mekanizma_dip": [
+    82.0,
+    9.0
+   ],
+   "kosu_adayi": false,
+   "grup": "us20002926",
+   "grup_uyeleri": [
+    "us20002926",
+    "us20002ejl"
+   ]
+  },
+  {
+   "id": "us200030aq",
+   "zaman": "2015-07-27T04:49:46.400000",
+   "M": 6.9,
+   "enlem": 52.376,
+   "boylam": -169.4458,
+   "L_km": 36.0,
+   "halka_km": [
+    28.0,
+    71.9
+   ],
+   "son_pencere_bitis": "2016-07-26T04:49:46",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 2.5,
+     "N0_halka": 69.09,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 2.8,
+     "N0_halka": 35.89,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ComCat",
+    "mc": 2.5,
+    "N0": 69.09,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 17,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 86.0,
+   "mekanizma_dip": [
+    69.0,
+    22.0
+   ],
+   "kosu_adayi": true,
+   "grup": "us200030aq",
+   "grup_uyeleri": [
+    "us200030aq"
+   ]
+  },
+  {
+   "id": "us20003k7a",
+   "zaman": "2015-09-16T22:54:32.860000",
+   "M": 8.3,
+   "enlem": -31.5729,
+   "boylam": -71.6744,
+   "L_km": 390.8,
+   "halka_km": [
+    205.4,
+    781.7
+   ],
+   "son_pencere_bitis": "2016-09-15T22:54:32",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 4.6,
+     "N0_halka": 18.2,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 3.6,
+     "N0_halka": 82.21,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 3.6,
+    "N0": 82.21,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 18,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 92.0,
+   "mekanizma_dip": [
+    71.0,
+    19.0
+   ],
+   "kosu_adayi": true,
+   "grup": "us20003k7a",
+   "grup_uyeleri": [
+    "us20003k7a"
+   ]
+  },
+  {
+   "id": "us100044k6",
+   "zaman": "2015-12-07T07:50:05.950000",
+   "M": 7.2,
+   "enlem": 38.2107,
+   "boylam": 72.7797,
+   "L_km": 60.0,
+   "halka_km": [
+    40.0,
+    120.0
+   ],
+   "son_pencere_bitis": "2016-12-06T07:50:05",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 3.3,
+     "N0_halka": 21.66,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 3.3,
+    "N0": 21.66,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 8.0,
+   "mekanizma_dip": [
+    83.0,
+    82.0
+   ],
+   "kosu_adayi": true,
+   "grup": "us100044k6",
+   "grup_uyeleri": [
+    "us100044k6"
+   ]
+  },
+  {
+   "id": "us10004u1y",
+   "zaman": "2016-03-02T12:49:48.110000",
+   "M": 7.8,
+   "enlem": -4.9521,
+   "boylam": 94.3299,
+   "L_km": 166.7,
+   "halka_km": [
+    93.4,
+    333.4
+   ],
+   "son_pencere_bitis": "2017-03-02T12:49:48",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 169.0,
+   "mekanizma_dip": [
+    84.0,
+    79.0
+   ],
+   "kosu_adayi": false,
+   "grup": "us10004u1y",
+   "grup_uyeleri": [
+    "us10004u1y"
+   ]
+  },
+  {
+   "id": "us20005iis",
+   "zaman": "2016-04-15T16:25:06.220000",
+   "M": 7,
+   "enlem": 32.7906,
+   "boylam": 130.7543,
+   "L_km": 42.7,
+   "halka_km": [
+    31.3,
+    85.3
+   ],
+   "son_pencere_bitis": "2017-04-15T16:25:06",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 0.5,
+     "N0_halka": 534.55,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 0.5,
+    "N0": 534.55,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 19,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": -151.0,
+   "mekanizma_dip": [
+    66.0,
+    64.0
+   ],
+   "kosu_adayi": true,
+   "grup": "us20005iis",
+   "grup_uyeleri": [
+    "us20005iis"
+   ]
+  },
+  {
+   "id": "us20005j32",
+   "zaman": "2016-04-16T23:58:36.980000",
+   "M": 7.8,
+   "enlem": 0.3819,
+   "boylam": -79.9218,
+   "L_km": 166.7,
+   "halka_km": [
+    93.4,
+    333.4
+   ],
+   "son_pencere_bitis": "2017-04-16T23:58:36",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 1.1,
+     "N0_halka": 81.5,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 1.1,
+    "N0": 81.5,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 20,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 83.0,
+   "mekanizma_dip": [
+    75.0,
+    16.0
+   ],
+   "kosu_adayi": true,
+   "grup": "us20005j32",
+   "grup_uyeleri": [
+    "us20005j32"
+   ]
+  },
+  {
+   "id": "us10005c88",
+   "zaman": "2016-04-28T19:33:24.070000",
+   "M": 7,
+   "enlem": -16.0429,
+   "boylam": 167.3786,
+   "L_km": 42.7,
+   "halka_km": [
+    31.3,
+    85.3
+   ],
+   "son_pencere_bitis": "2017-04-28T19:33:24",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters (diğer)",
+   "mekanizma_rake": 89.0,
+   "mekanizma_dip": [
+    53.0,
+    37.0
+   ],
+   "kosu_adayi": false,
+   "grup": "us10005c88",
+   "grup_uyeleri": [
+    "us10005c88"
+   ]
+  },
+  {
+   "id": "us10006d5h",
+   "zaman": "2016-08-12T01:26:36.280000",
+   "M": 7.2,
+   "enlem": -22.4765,
+   "boylam": 173.1167,
+   "L_km": 60.0,
+   "halka_km": [
+    40.0,
+    120.0
+   ],
+   "son_pencere_bitis": "2017-08-12T01:26:36",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "normal",
+   "mekanizma_rake": -33.0,
+   "mekanizma_dip": [
+    89.0,
+    57.0
+   ],
+   "kosu_adayi": false,
+   "grup": "us10006d5h",
+   "grup_uyeleri": [
+    "us10006d5h"
+   ]
+  },
+  {
+   "id": "us10006exl",
+   "zaman": "2016-08-19T07:32:22.710000",
+   "M": 7.4,
+   "enlem": -55.2852,
+   "boylam": -31.8766,
+   "L_km": 84.3,
+   "halka_km": [
+    52.2,
+    168.7
+   ],
+   "son_pencere_bitis": "2017-08-19T07:32:22",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 84.0,
+   "mekanizma_dip": [
+    62.0,
+    29.0
+   ],
+   "kosu_adayi": false,
+   "grup": "us10006exl",
+   "grup_uyeleri": [
+    "us10006exl"
+   ]
+  },
+  {
+   "id": "us20006uy6",
+   "zaman": "2016-08-29T04:29:57.860000",
+   "M": 7.1,
+   "enlem": -0.0456,
+   "boylam": -17.8255,
+   "L_km": 50.6,
+   "halka_km": [
+    35.3,
+    101.2
+   ],
+   "son_pencere_bitis": "2017-08-29T04:29:57",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 169.0,
+   "mekanizma_dip": [
+    85.0,
+    79.0
+   ],
+   "kosu_adayi": false,
+   "grup": "us20006uy6",
+   "grup_uyeleri": [
+    "us20006uy6"
+   ]
+  },
+  {
+   "id": "us10006jbi",
+   "zaman": "2016-09-01T16:37:57.300000",
+   "M": 7,
+   "enlem": -37.3586,
+   "boylam": 179.1461,
+   "L_km": 42.7,
+   "halka_km": [
+    31.3,
+    85.3
+   ],
+   "son_pencere_bitis": "2017-09-01T16:37:57",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "GeoNet": {
+     "mc": 3.2,
+     "N0_halka": 2.03,
+     "tur": "örnekten tahmin"
+    },
+    "ISC": {
+     "mc": 3.3,
+     "N0_halka": 2.03,
+     "tur": "örnekten tahmin"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "GeoNet",
+    "mc": 3.2,
+    "N0": 2.03,
+    "tur": "örnekten tahmin"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "normal",
+   "mekanizma_rake": -68.0,
+   "mekanizma_dip": [
+    75.0,
+    26.0
+   ],
+   "kosu_adayi": true,
+   "grup": "us10006jbi",
+   "grup_uyeleri": [
+    "us10006jbi"
+   ]
+  },
+  {
+   "id": "us1000778i",
+   "zaman": "2016-11-13T11:02:56.340000",
+   "M": 7.8,
+   "enlem": -42.7373,
+   "boylam": 173.054,
+   "L_km": 166.7,
+   "halka_km": [
+    93.4,
+    333.4
+   ],
+   "son_pencere_bitis": "2017-11-13T11:02:56",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "GeoNet": {
+     "mc": 3.0,
+     "N0_halka": 81.7,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 2.6,
+     "N0_halka": 206.83,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 2.6,
+    "N0": 206.83,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 21,
+   "mekanizma_sinif": "ters (diğer)",
+   "mekanizma_rake": 64.0,
+   "mekanizma_dip": [
+    61.0,
+    38.0
+   ],
+   "kosu_adayi": true,
+   "grup": "us1000778i",
+   "grup_uyeleri": [
+    "us1000778i"
+   ]
+  },
+  {
+   "id": "us10008kce",
+   "zaman": "2017-04-24T21:38:30.820000",
+   "M": 6.9,
+   "enlem": -33.0375,
+   "boylam": -72.0617,
+   "L_km": 36.0,
+   "halka_km": [
+    28.0,
+    71.9
+   ],
+   "son_pencere_bitis": "2018-04-24T21:38:30",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 3.3,
+     "N0_halka": 10.32,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 3.3,
+    "N0": 10.32,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 88.0,
+   "mekanizma_dip": [
+    76.0,
+    14.0
+   ],
+   "kosu_adayi": true,
+   "grup": "us10008kce",
+   "grup_uyeleri": [
+    "us10008kce"
+   ]
+  },
+  {
+   "id": "us20009x42",
+   "zaman": "2017-07-17T23:34:13.740000",
+   "M": 7.7,
+   "enlem": 54.4434,
+   "boylam": 168.857,
+   "L_km": 140.6,
+   "halka_km": [
+    80.3,
+    281.2
+   ],
+   "son_pencere_bitis": "2018-07-17T23:34:13",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 4.04,
+   "mekanizma_dip": [
+    72.57,
+    86.14
+   ],
+   "kosu_adayi": false,
+   "grup": "us20009x42",
+   "grup_uyeleri": [
+    "us20009x42"
+   ]
+  },
+  {
+   "id": "us2000bmcg",
+   "zaman": "2017-11-12T18:18:17.180000",
+   "M": 7.3,
+   "enlem": 34.9109,
+   "boylam": 45.9592,
+   "L_km": 71.1,
+   "halka_km": [
+    45.6,
+    142.2
+   ],
+   "son_pencere_bitis": "2018-11-12T18:18:17",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 2.5,
+     "N0_halka": 13.88,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 2.5,
+    "N0": 13.88,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 137.44,
+   "mekanizma_dip": [
+    16.38,
+    79.0
+   ],
+   "kosu_adayi": true,
+   "grup": "us2000bmcg",
+   "grup_uyeleri": [
+    "us2000bmcg"
+   ]
+  },
+  {
+   "id": "us1000c2zy",
+   "zaman": "2018-01-10T02:51:33.290000",
+   "M": 7.5,
+   "enlem": 17.4825,
+   "boylam": -83.52,
+   "L_km": 100.0,
+   "halka_km": [
+    60.0,
+    200.0
+   ],
+   "son_pencere_bitis": "2019-01-10T02:51:33",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": -171.89,
+   "mekanizma_dip": [
+    75.19,
+    82.16
+   ],
+   "kosu_adayi": false,
+   "grup": "us1000c2zy",
+   "grup_uyeleri": [
+    "us1000c2zy"
+   ]
+  },
+  {
+   "id": "us2000cmy3",
+   "zaman": "2018-01-23T09:31:40.890000",
+   "M": 7.9,
+   "enlem": 56.0039,
+   "boylam": -149.1658,
+   "L_km": 197.7,
+   "halka_km": [
+    108.8,
+    395.4
+   ],
+   "son_pencere_bitis": "2019-01-23T09:31:40",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 1.6,
+     "N0_halka": 53.03,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 3.0,
+     "N0_halka": 9.41,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ComCat",
+    "mc": 1.6,
+    "N0": 53.03,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 22,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 10.43,
+   "mekanizma_dip": [
+    73.9,
+    79.98
+   ],
+   "kosu_adayi": true,
+   "grup": "us2000cmy3",
+   "grup_uyeleri": [
+    "us2000cmy3"
+   ]
+  },
+  {
+   "id": "us2000d3km",
+   "zaman": "2018-02-16T23:39:39.280000",
+   "M": 7.2,
+   "enlem": 16.3855,
+   "boylam": -97.9787,
+   "L_km": 60.0,
+   "halka_km": [
+    40.0,
+    120.0
+   ],
+   "son_pencere_bitis": "2019-02-16T23:39:39",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 4.0,
+     "N0_halka": 10.93,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 4.0,
+    "N0": 10.93,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 91.02,
+   "mekanizma_dip": [
+    12.25,
+    77.75
+   ],
+   "kosu_adayi": true,
+   "grup": "us2000d3km",
+   "grup_uyeleri": [
+    "us2000d3km"
+   ]
+  },
+  {
+   "id": "us2000d7q6",
+   "zaman": "2018-02-25T17:44:44.140000",
+   "M": 7.5,
+   "enlem": -6.0699,
+   "boylam": 142.7536,
+   "L_km": 100.0,
+   "halka_km": [
+    60.0,
+    200.0
+   ],
+   "son_pencere_bitis": "2019-02-25T17:44:44",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters (diğer)",
+   "mekanizma_rake": 77.36,
+   "mekanizma_dip": [
+    30.02,
+    60.78
+   ],
+   "kosu_adayi": false,
+   "grup": "us2000d7q6",
+   "grup_uyeleri": [
+    "us2000d7q6"
+   ]
+  },
+  {
+   "id": "hv70116556",
+   "zaman": "2018-05-04T22:32:54.650000",
+   "M": 6.9,
+   "enlem": 19.3181667,
+   "boylam": -154.9996667,
+   "L_km": 36.0,
+   "halka_km": [
+    28.0,
+    71.9
+   ],
+   "son_pencere_bitis": "2019-05-04T22:32:54",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 2.0,
+     "N0_halka": 102.6,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 2.7,
+     "N0_halka": 4.22,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ComCat",
+    "mc": 2.0,
+    "N0": 102.6,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 23,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 114.32,
+   "mekanizma_dip": [
+    20.38,
+    71.5
+   ],
+   "kosu_adayi": true,
+   "grup": "hv70116556",
+   "grup_uyeleri": [
+    "hv70116556"
+   ]
+  },
+  {
+   "id": "us1000h3p4",
+   "zaman": "2018-09-28T10:02:45.250000",
+   "M": 7.5,
+   "enlem": -0.2559,
+   "boylam": 119.8462,
+   "L_km": 100.0,
+   "halka_km": [
+    60.0,
+    200.0
+   ],
+   "son_pencere_bitis": "2019-09-28T10:02:45",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 3.2,
+     "N0_halka": 34.32,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 3.2,
+    "N0": 34.32,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 24,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": -17.29,
+   "mekanizma_dip": [
+    67.43,
+    74.07
+   ],
+   "kosu_adayi": true,
+   "grup": "us1000h3p4",
+   "grup_uyeleri": [
+    "us1000h3p4"
+   ]
+  },
+  {
+   "id": "us1000hhb1",
+   "zaman": "2018-10-25T22:54:52.630000",
+   "M": 6.8,
+   "enlem": 37.5203,
+   "boylam": 20.5565,
+   "L_km": 30.3,
+   "halka_km": [
+    25.2,
+    60.7
+   ],
+   "son_pencere_bitis": "2019-10-25T22:54:52",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "EMSC": {
+     "mc": 2.3,
+     "N0_halka": 29.39,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 2.1,
+     "N0_halka": 47.28,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 2.1,
+    "N0": 47.28,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 25,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 166.96,
+   "mekanizma_dip": [
+    38.82,
+    81.87
+   ],
+   "kosu_adayi": true,
+   "grup": "us1000hhb1",
+   "grup_uyeleri": [
+    "us1000hhb1"
+   ]
+  },
+  {
+   "id": "us1000i2gt",
+   "zaman": "2018-12-05T04:18:08.420000",
+   "M": 7.5,
+   "enlem": -21.9496,
+   "boylam": 169.4266,
+   "L_km": 100.0,
+   "halka_km": [
+    60.0,
+    200.0
+   ],
+   "son_pencere_bitis": "2019-12-05T04:18:08",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 5.0,
+     "N0_halka": 4.52,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 3.5,
+     "N0_halka": 68.54,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 3.5,
+    "N0": 68.54,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 26,
+   "mekanizma_sinif": "normal",
+   "mekanizma_rake": -111.37,
+   "mekanizma_dip": [
+    43.15,
+    50.44
+   ],
+   "kosu_adayi": true,
+   "grup": "us1000i2gt",
+   "grup_uyeleri": [
+    "us1000i2gt"
+   ]
+  },
+  {
+   "id": "us2000ivfw",
+   "zaman": "2018-12-20T17:01:55.150000",
+   "M": 7.3,
+   "enlem": 55.0999,
+   "boylam": 164.6993,
+   "L_km": 71.1,
+   "halka_km": [
+    45.6,
+    142.2
+   ],
+   "son_pencere_bitis": "2019-12-20T17:01:55",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 3.8,
+     "N0_halka": 9.61,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 3.8,
+    "N0": 9.61,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": -154.49,
+   "mekanizma_dip": [
+    53.3,
+    69.8
+   ],
+   "kosu_adayi": true,
+   "grup": "us2000ivfw",
+   "grup_uyeleri": [
+    "us2000ivfw"
+   ]
+  },
+  {
+   "id": "us70003kyy",
+   "zaman": "2019-05-14T12:58:25.939000",
+   "M": 7.6,
+   "enlem": -4.051,
+   "boylam": 152.5967,
+   "L_km": 118.6,
+   "halka_km": [
+    69.3,
+    237.2
+   ],
+   "son_pencere_bitis": "2020-05-13T12:58:25",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 3.7,
+     "N0_halka": 60.35,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 3.7,
+    "N0": 60.35,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 27,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 6.33,
+   "mekanizma_dip": [
+    72.42,
+    83.96
+   ],
+   "kosu_adayi": true,
+   "grup": "us70003kyy",
+   "grup_uyeleri": [
+    "us70003kyy"
+   ]
+  },
+  {
+   "id": "ci38457511",
+   "zaman": "2019-07-06T03:19:53.040000",
+   "M": 7.1,
+   "enlem": 35.7695,
+   "boylam": -117.5993333,
+   "L_km": 50.6,
+   "halka_km": [
+    35.3,
+    101.2
+   ],
+   "son_pencere_bitis": "2020-07-05T03:19:53",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 1.5,
+     "N0_halka": 75.2,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ComCat",
+    "mc": 1.5,
+    "N0": 75.2,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 28,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": -6.17,
+   "mekanizma_dip": [
+    81.33,
+    83.91
+   ],
+   "kosu_adayi": true,
+   "grup": "ci38457511",
+   "grup_uyeleri": [
+    "ci38457511"
+   ]
+  },
+  {
+   "id": "us70004jyv",
+   "zaman": "2019-07-14T09:10:51.523000",
+   "M": 7.2,
+   "enlem": -0.5858,
+   "boylam": 128.034,
+   "L_km": 60.0,
+   "halka_km": [
+    40.0,
+    120.0
+   ],
+   "son_pencere_bitis": "2020-07-13T09:10:51",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 3.5,
+     "N0_halka": 5.54,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 3.5,
+    "N0": 5.54,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": -169.68,
+   "mekanizma_dip": [
+    78.98,
+    79.87
+   ],
+   "kosu_adayi": true,
+   "grup": "us70004jyv",
+   "grup_uyeleri": [
+    "us70004jyv"
+   ]
+  },
+  {
+   "id": "us60007ewc",
+   "zaman": "2020-01-24T17:55:14.147000",
+   "M": 6.7,
+   "enlem": 38.4312,
+   "boylam": 39.0609,
+   "L_km": 25.6,
+   "halka_km": [
+    22.8,
+    51.2
+   ],
+   "son_pencere_bitis": "2021-01-23T17:55:14",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 1.8,
+     "N0_halka": 14.03,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 1.8,
+    "N0": 14.03,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": -169.54,
+   "mekanizma_dip": [
+    77.93,
+    79.77
+   ],
+   "kosu_adayi": true,
+   "grup": "us60007ewc",
+   "grup_uyeleri": [
+    "us60007ewc"
+   ]
+  },
+  {
+   "id": "us60007idc",
+   "zaman": "2020-01-28T19:10:24.918000",
+   "M": 7.7,
+   "enlem": 19.4193,
+   "boylam": -78.756,
+   "L_km": 140.6,
+   "halka_km": [
+    80.3,
+    281.2
+   ],
+   "son_pencere_bitis": "2021-01-27T19:10:24",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 2.5,
+     "N0_halka": 19.83,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 2.5,
+    "N0": 19.83,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": -176.24,
+   "mekanizma_dip": [
+    85.62,
+    86.25
+   ],
+   "kosu_adayi": true,
+   "grup": "us60007idc",
+   "grup_uyeleri": [
+    "us60007idc"
+   ]
+  },
+  {
+   "id": "us70008jr5",
+   "zaman": "2020-03-31T23:52:30.781000",
+   "M": 6.5,
+   "enlem": 44.4646,
+   "boylam": -115.1175,
+   "L_km": 18.2,
+   "halka_km": [
+    19.1,
+    36.4
+   ],
+   "son_pencere_bitis": "2021-03-31T23:52:30",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": -162.65,
+   "mekanizma_dip": [
+    67.2,
+    74.04
+   ],
+   "kosu_adayi": false,
+   "grup": "us70008jr5",
+   "grup_uyeleri": [
+    "us70008jr5"
+   ]
+  },
+  {
+   "id": "us6000ah9t",
+   "zaman": "2020-06-23T15:29:04.350000",
+   "M": 7.4,
+   "enlem": 15.8861,
+   "boylam": -96.0077,
+   "L_km": 84.3,
+   "halka_km": [
+    52.2,
+    168.7
+   ],
+   "son_pencere_bitis": "2021-06-23T15:29:04",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 3.7,
+     "N0_halka": 16.02,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 3.7,
+    "N0": 16.02,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 69.96,
+   "mekanizma_dip": [
+    16.96,
+    74.09
+   ],
+   "kosu_adayi": true,
+   "grup": "us6000ah9t",
+   "grup_uyeleri": [
+    "us6000ah9t"
+   ]
+  },
+  {
+   "id": "us7000asvb",
+   "zaman": "2020-07-22T06:12:44.810000",
+   "M": 7.8,
+   "enlem": 55.0715,
+   "boylam": -158.596,
+   "L_km": 166.7,
+   "halka_km": [
+    93.4,
+    333.4
+   ],
+   "son_pencere_bitis": "2021-07-22T06:12:44",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 2.4,
+     "N0_halka": 94.77,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 3.1,
+     "N0_halka": 26.69,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ComCat",
+    "mc": 2.4,
+    "N0": 94.77,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 29,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 73.23,
+   "mekanizma_dip": [
+    20.03,
+    70.85
+   ],
+   "kosu_adayi": true,
+   "grup": "us7000asvb",
+   "grup_uyeleri": [
+    "us7000asvb"
+   ]
+  },
+  {
+   "id": "us7000bfjr",
+   "zaman": "2020-09-01T04:09:28.470000",
+   "M": 6.8,
+   "enlem": -27.9686,
+   "boylam": -71.3062,
+   "L_km": 30.3,
+   "halka_km": [
+    25.2,
+    60.7
+   ],
+   "son_pencere_bitis": "2021-09-01T04:09:28",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 109.23,
+   "mekanizma_dip": [
+    19.71,
+    71.43
+   ],
+   "kosu_adayi": false,
+   "grup": "us7000bfjr",
+   "grup_uyeleri": [
+    "us7000bfjr"
+   ]
+  },
+  {
+   "id": "us6000c9hg",
+   "zaman": "2020-10-19T20:54:38.950000",
+   "M": 7.6,
+   "enlem": 54.602,
+   "boylam": -159.6258,
+   "L_km": 118.6,
+   "halka_km": [
+    69.3,
+    237.2
+   ],
+   "son_pencere_bitis": "2021-10-19T20:54:38",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 2.2,
+     "N0_halka": 99.04,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 2.7,
+     "N0_halka": 41.08,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ComCat",
+    "mc": 2.2,
+    "N0": 99.04,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 29,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 173.04,
+   "mekanizma_dip": [
+    48.77,
+    84.77
+   ],
+   "kosu_adayi": true,
+   "grup": "us6000c9hg",
+   "grup_uyeleri": [
+    "us6000c9hg"
+   ]
+  },
+  {
+   "id": "us7000c7y0",
+   "zaman": "2020-10-30T11:51:27.348000",
+   "M": 7,
+   "enlem": 37.8973,
+   "boylam": 26.7838,
+   "L_km": 42.7,
+   "halka_km": [
+    31.3,
+    85.3
+   ],
+   "son_pencere_bitis": "2021-10-30T11:51:27",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "EMSC": {
+     "mc": 2.3,
+     "N0_halka": 33.66,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 2.3,
+     "N0_halka": 26.69,
+     "tur": "tam sayım"
+    },
+    "KOERI": {
+     "mc": 2.3,
+     "N0_halka": 37.62,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "KOERI",
+    "mc": 2.3,
+    "N0": 37.62,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 30,
+   "mekanizma_sinif": "normal",
+   "mekanizma_rake": -87.78,
+   "mekanizma_dip": [
+    29.48,
+    60.55
+   ],
+   "kosu_adayi": true,
+   "grup": "us7000c7y0",
+   "grup_uyeleri": [
+    "us7000c7y0"
+   ]
+  },
+  {
+   "id": "us6000d7ix",
+   "zaman": "2021-01-11T21:32:59.015000",
+   "M": 6.7,
+   "enlem": 51.2811,
+   "boylam": 100.4383,
+   "L_km": 25.6,
+   "halka_km": [
+    22.8,
+    51.2
+   ],
+   "son_pencere_bitis": "2022-01-11T21:32:59",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "normal",
+   "mekanizma_rake": -109.95,
+   "mekanizma_dip": [
+    32.01,
+    60.12
+   ],
+   "kosu_adayi": false,
+   "grup": "us6000d7ix",
+   "grup_uyeleri": [
+    "us6000d7ix"
+   ]
+  },
+  {
+   "id": "us7000d18q",
+   "zaman": "2021-01-19T02:46:22.380000",
+   "M": 6.4,
+   "enlem": -31.8334,
+   "boylam": -68.7992,
+   "L_km": 15.3,
+   "halka_km": [
+    17.7,
+    30.7
+   ],
+   "son_pencere_bitis": "2022-01-19T02:46:22",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 174.66,
+   "mekanizma_dip": [
+    57.09,
+    85.52
+   ],
+   "kosu_adayi": false,
+   "grup": "us7000d18q",
+   "grup_uyeleri": [
+    "us7000d18q"
+   ]
+  },
+  {
+   "id": "us6000dg77",
+   "zaman": "2021-02-10T13:19:55.530000",
+   "M": 7.7,
+   "enlem": -23.0511,
+   "boylam": 171.6566,
+   "L_km": 140.6,
+   "halka_km": [
+    80.3,
+    281.2
+   ],
+   "son_pencere_bitis": "2022-02-10T13:19:55",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 4.8,
+     "N0_halka": 10.78,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 4.0,
+     "N0_halka": 34.88,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 4.0,
+    "N0": 34.88,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 26,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 65.25,
+   "mekanizma_dip": [
+    16.87,
+    74.72
+   ],
+   "kosu_adayi": true,
+   "grup": "us6000dg77",
+   "grup_uyeleri": [
+    "us6000dg77"
+   ]
+  },
+  {
+   "id": "us7000dflf",
+   "zaman": "2021-03-04T19:28:33.178000",
+   "M": 8.1,
+   "enlem": -29.7228,
+   "boylam": -177.2794,
+   "L_km": 278.0,
+   "halka_km": [
+    149.0,
+    555.9
+   ],
+   "son_pencere_bitis": "2022-03-04T19:28:33",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 4.6,
+     "N0_halka": 26.64,
+     "tur": "tam sayım"
+    },
+    "GeoNet": {
+     "mc": 5.1,
+     "N0_halka": 5.44,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 3.9,
+     "N0_halka": 84.14,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 3.9,
+    "N0": 84.14,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 31,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 97.7,
+   "mekanizma_dip": [
+    15.57,
+    74.57
+   ],
+   "kosu_adayi": true,
+   "grup": "us7000dflf",
+   "grup_uyeleri": [
+    "us7000dflf"
+   ]
+  },
+  {
+   "id": "us7000e54r",
+   "zaman": "2021-05-21T18:04:13.565000",
+   "M": 7.3,
+   "enlem": 34.5983,
+   "boylam": 98.2513,
+   "L_km": 71.1,
+   "halka_km": [
+    45.6,
+    142.2
+   ],
+   "son_pencere_bitis": "2022-05-21T18:04:13",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": -151.4,
+   "mekanizma_dip": [
+    53.21,
+    67.46
+   ],
+   "kosu_adayi": false,
+   "grup": "us7000e54r",
+   "grup_uyeleri": [
+    "us7000e54r"
+   ]
+  },
+  {
+   "id": "nc73584926",
+   "zaman": "2021-07-08T22:49:48.110000",
+   "M": 6,
+   "enlem": 38.5075,
+   "boylam": -119.4998333,
+   "L_km": 7.8,
+   "halka_km": [
+    13.9,
+    15.5
+   ],
+   "son_pencere_bitis": "2022-07-08T22:49:48",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "normal",
+   "mekanizma_rake": -51.18,
+   "mekanizma_dip": [
+    35.25,
+    63.28
+   ],
+   "kosu_adayi": false,
+   "grup": "nc73584926",
+   "grup_uyeleri": [
+    "nc73584926"
+   ]
+  },
+  {
+   "id": "us6000exs5",
+   "zaman": "2021-07-21T21:15:12.269000",
+   "M": 6.7,
+   "enlem": 7.3926,
+   "boylam": -82.779,
+   "L_km": 25.6,
+   "halka_km": [
+    22.8,
+    51.2
+   ],
+   "son_pencere_bitis": "2022-07-21T21:15:12",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": -173.53,
+   "mekanizma_dip": [
+    79.61,
+    83.64
+   ],
+   "kosu_adayi": false,
+   "grup": "us6000exs5",
+   "grup_uyeleri": [
+    "us6000exs5"
+   ]
+  },
+  {
+   "id": "us6000f65h",
+   "zaman": "2021-08-14T12:29:08.454000",
+   "M": 7.2,
+   "enlem": 18.4335,
+   "boylam": -73.4822,
+   "L_km": 60.0,
+   "halka_km": [
+    40.0,
+    120.0
+   ],
+   "son_pencere_bitis": "2022-08-14T12:29:08",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 2.6,
+     "N0_halka": 3.76,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 2.6,
+    "N0": 3.76,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters (diğer)",
+   "mekanizma_rake": 33.8,
+   "mekanizma_dip": [
+    50.61,
+    64.53
+   ],
+   "kosu_adayi": true,
+   "grup": "us6000f65h",
+   "grup_uyeleri": [
+    "us6000f65h"
+   ]
+  },
+  {
+   "id": "us6000f9sq",
+   "zaman": "2021-08-22T21:33:18.983000",
+   "M": 7.1,
+   "enlem": -60.2845,
+   "boylam": -24.8743,
+   "L_km": 50.6,
+   "halka_km": [
+    35.3,
+    101.2
+   ],
+   "son_pencere_bitis": "2022-08-22T21:33:18",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "normal",
+   "mekanizma_rake": -84.45,
+   "mekanizma_dip": [
+    15.82,
+    74.25
+   ],
+   "kosu_adayi": false,
+   "grup": "us6000f9sq",
+   "grup_uyeleri": [
+    "us6000f9sq"
+   ]
+  },
+  {
+   "id": "us7000f93v",
+   "zaman": "2021-09-08T01:47:47.437000",
+   "M": 7,
+   "enlem": 16.9465,
+   "boylam": -99.753,
+   "L_km": 42.7,
+   "halka_km": [
+    31.3,
+    85.3
+   ],
+   "son_pencere_bitis": "2022-09-08T01:47:47",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 75.77,
+   "mekanizma_dip": [
+    21.02,
+    69.66
+   ],
+   "kosu_adayi": false,
+   "grup": "us7000f93v",
+   "grup_uyeleri": [
+    "us7000f93v"
+   ]
+  },
+  {
+   "id": "us6000gc2a",
+   "zaman": "2021-12-14T03:20:23.809000",
+   "M": 7.3,
+   "enlem": -7.6033,
+   "boylam": 122.2274,
+   "L_km": 71.1,
+   "halka_km": [
+    45.6,
+    142.2
+   ],
+   "son_pencere_bitis": "2022-12-14T03:20:23",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 0.6,
+   "mekanizma_dip": [
+    86.89,
+    89.4
+   ],
+   "kosu_adayi": false,
+   "grup": "us6000gc2a",
+   "grup_uyeleri": [
+    "us6000gc2a"
+   ]
+  },
+  {
+   "id": "us7000g9zq",
+   "zaman": "2022-01-07T17:45:30.809000",
+   "M": 6.6,
+   "enlem": 37.8283,
+   "boylam": 101.29,
+   "L_km": 21.6,
+   "halka_km": [
+    20.8,
+    43.2
+   ],
+   "son_pencere_bitis": "2023-01-07T17:45:30",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 177.86,
+   "mekanizma_dip": [
+    75.41,
+    87.93
+   ],
+   "kosu_adayi": false,
+   "grup": "us7000g9zq",
+   "grup_uyeleri": [
+    "us7000g9zq"
+   ]
+  },
+  {
+   "id": "us7000gymk",
+   "zaman": "2022-03-31T05:44:01.146000",
+   "M": 7,
+   "enlem": -22.586,
+   "boylam": 170.3744,
+   "L_km": 42.7,
+   "halka_km": [
+    31.3,
+    85.3
+   ],
+   "son_pencere_bitis": "2023-03-31T05:44:01",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 77.81,
+   "mekanizma_dip": [
+    25.37,
+    65.24
+   ],
+   "kosu_adayi": false,
+   "grup": "us7000gymk",
+   "grup_uyeleri": [
+    "us7000gymk"
+   ]
+  },
+  {
+   "id": "us7000hj3u",
+   "zaman": "2022-06-21T20:54:34.410000",
+   "M": 6,
+   "enlem": 33.0203,
+   "boylam": 69.4639,
+   "L_km": 7.8,
+   "halka_km": [
+    13.9,
+    15.5
+   ],
+   "son_pencere_bitis": "2023-06-21T20:54:34",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": -176.71,
+   "mekanizma_dip": [
+    79.11,
+    86.76
+   ],
+   "kosu_adayi": false,
+   "grup": "us7000hj3u",
+   "grup_uyeleri": [
+    "us7000hj3u"
+   ]
+  },
+  {
+   "id": "us7000i53f",
+   "zaman": "2022-09-04T09:42:18.219000",
+   "M": 6.9,
+   "enlem": -0.9339,
+   "boylam": -21.7155,
+   "L_km": 36.0,
+   "halka_km": [
+    28.0,
+    71.9
+   ],
+   "son_pencere_bitis": "2023-09-04T09:42:18",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 6.27,
+   "mekanizma_dip": [
+    79.46,
+    83.83
+   ],
+   "kosu_adayi": false,
+   "grup": "us7000i53f",
+   "grup_uyeleri": [
+    "us7000i53f"
+   ]
+  },
+  {
+   "id": "us7000i90q",
+   "zaman": "2022-09-18T06:44:13.846000",
+   "M": 6.9,
+   "enlem": 23.138,
+   "boylam": 121.3439,
+   "L_km": 36.0,
+   "halka_km": [
+    28.0,
+    71.9
+   ],
+   "son_pencere_bitis": "2023-09-18T06:44:13",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 4.8,
+     "N0_halka": 1.58,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 2.8,
+     "N0_halka": 71.79,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 2.8,
+    "N0": 71.79,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 32,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 156.72,
+   "mekanizma_dip": [
+    66.52,
+    68.75
+   ],
+   "kosu_adayi": true,
+   "grup": "us7000i90q",
+   "grup_uyeleri": [
+    "us7000i90q"
+   ]
+  },
+  {
+   "id": "us7000i9bw",
+   "zaman": "2022-09-19T18:05:08.217000",
+   "M": 7.6,
+   "enlem": 18.4552,
+   "boylam": -102.9561,
+   "L_km": 118.6,
+   "halka_km": [
+    69.3,
+    237.2
+   ],
+   "son_pencere_bitis": "2023-09-19T18:05:08",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 85.5,
+   "mekanizma_dip": [
+    17.67,
+    72.38
+   ],
+   "kosu_adayi": false,
+   "grup": "us7000i9bw",
+   "grup_uyeleri": [
+    "us7000i9bw"
+   ]
+  },
+  {
+   "id": "us7000irfb",
+   "zaman": "2022-11-22T02:03:06.891000",
+   "M": 7,
+   "enlem": -9.8198,
+   "boylam": 159.6033,
+   "L_km": 42.7,
+   "halka_km": [
+    31.3,
+    85.3
+   ],
+   "son_pencere_bitis": "2023-11-22T02:03:06",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": -159.29,
+   "mekanizma_dip": [
+    14.4,
+    84.96
+   ],
+   "kosu_adayi": false,
+   "grup": "us7000irfb",
+   "grup_uyeleri": [
+    "us7000irfb"
+   ]
+  },
+  {
+   "id": "nc73821036",
+   "zaman": "2022-12-20T10:34:24.770000",
+   "M": 6.4,
+   "enlem": 40.525,
+   "boylam": -124.423,
+   "L_km": 15.3,
+   "halka_km": [
+    17.7,
+    30.7
+   ],
+   "son_pencere_bitis": "2023-12-20T10:34:24",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": true,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 2.5,
+     "N0_halka": 17.85,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ComCat",
+    "mc": 2.5,
+    "N0": 17.85,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 173.15,
+   "mekanizma_dip": [
+    80.56,
+    83.24
+   ],
+   "kosu_adayi": true,
+   "grup": "nc73821036",
+   "grup_uyeleri": [
+    "nc73821036"
+   ]
+  },
+  {
+   "id": "us7000j2yw",
+   "zaman": "2023-01-08T12:32:42.372000",
+   "M": 7,
+   "enlem": -14.9467,
+   "boylam": 166.8791,
+   "L_km": 42.7,
+   "halka_km": [
+    31.3,
+    85.3
+   ],
+   "son_pencere_bitis": "2024-01-08T12:32:42",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": false,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters (diğer)",
+   "mekanizma_rake": 104.18,
+   "mekanizma_dip": [
+    32.2,
+    58.89
+   ],
+   "kosu_adayi": false,
+   "grup": "us7000j2yw",
+   "grup_uyeleri": [
+    "us7000j2yw"
+   ]
+  },
+  {
+   "id": "us7000j553",
+   "zaman": "2023-01-18T06:06:11.454000",
+   "M": 7,
+   "enlem": 2.7306,
+   "boylam": 127.0221,
+   "L_km": 42.7,
+   "halka_km": [
+    31.3,
+    85.3
+   ],
+   "son_pencere_bitis": "2024-01-18T06:06:11",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": false,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 3.9,
+     "N0_halka": 3.38,
+     "tur": "örnekten tahmin"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 3.9,
+    "N0": 3.38,
+    "tur": "örnekten tahmin"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": -169.15,
+   "mekanizma_dip": [
+    77.7,
+    79.4
+   ],
+   "kosu_adayi": true,
+   "grup": "us7000j553",
+   "grup_uyeleri": [
+    "us7000j553"
+   ]
+  },
+  {
+   "id": "us6000jllz",
+   "zaman": "2023-02-06T01:17:34.342000",
+   "M": 7.8,
+   "enlem": 37.2256,
+   "boylam": 37.0143,
+   "L_km": 166.7,
+   "halka_km": [
+    93.4,
+    333.4
+   ],
+   "son_pencere_bitis": "2024-02-06T01:17:34",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": false,
+   "ek1_kataloglar": {
+    "EMSC": {
+     "mc": 2.2,
+     "N0_halka": 147.34,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 1.5,
+     "N0_halka": 623.63,
+     "tur": "tam sayım"
+    },
+    "KOERI": {
+     "mc": 2.3,
+     "N0_halka": 147.75,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 1.5,
+    "N0": 623.63,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 33,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": -179.18,
+   "mekanizma_dip": [
+    88.71,
+    89.18
+   ],
+   "kosu_adayi": true,
+   "grup": "us6000jllz",
+   "grup_uyeleri": [
+    "us6000jllz",
+    "us6000jlqa"
+   ]
+  },
+  {
+   "id": "us6000jlqa",
+   "zaman": "2023-02-06T10:24:48.811000",
+   "M": 7.5,
+   "enlem": 38.0106,
+   "boylam": 37.1962,
+   "L_km": 100.0,
+   "halka_km": [
+    60.0,
+    200.0
+   ],
+   "son_pencere_bitis": "2024-02-06T10:24:48",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": false,
+   "ek1_kataloglar": {
+    "EMSC": {
+     "mc": 2.3,
+     "N0_halka": 114.24,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 1.9,
+     "N0_halka": 264.58,
+     "tur": "tam sayım"
+    },
+    "KOERI": {
+     "mc": 2.1,
+     "N0_halka": 197.52,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 1.9,
+    "N0": 264.58,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 33,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 3.5,
+   "mekanizma_dip": [
+    77.87,
+    86.57
+   ],
+   "kosu_adayi": true,
+   "grup": "us6000jllz",
+   "grup_uyeleri": [
+    "us6000jllz",
+    "us6000jlqa"
+   ]
+  },
+  {
+   "id": "us6000kd0n",
+   "zaman": "2023-05-19T02:57:03.172000",
+   "M": 7.7,
+   "enlem": -23.2063,
+   "boylam": 170.7423,
+   "L_km": 140.6,
+   "halka_km": [
+    80.3,
+    281.2
+   ],
+   "son_pencere_bitis": "2024-05-18T02:57:03",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": false,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 4.8,
+     "N0_halka": 20.59,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 4.0,
+     "N0_halka": 53.33,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 4.0,
+    "N0": 53.33,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 26,
+   "mekanizma_sinif": "normal",
+   "mekanizma_rake": -89.85,
+   "mekanizma_dip": [
+    39.19,
+    50.81
+   ],
+   "kosu_adayi": true,
+   "grup": "us6000kd0n",
+   "grup_uyeleri": [
+    "us6000kd0n"
+   ]
+  },
+  {
+   "id": "us7000k3n3",
+   "zaman": "2023-05-25T03:05:32.956000",
+   "M": 6.5,
+   "enlem": 8.9223,
+   "boylam": -77.0904,
+   "L_km": 18.2,
+   "halka_km": [
+    19.1,
+    36.4
+   ],
+   "son_pencere_bitis": "2024-05-24T03:05:32",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": false,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 124.26,
+   "mekanizma_dip": [
+    12.29,
+    79.86
+   ],
+   "kosu_adayi": false,
+   "grup": "us7000k3n3",
+   "grup_uyeleri": [
+    "us7000k3n3"
+   ]
+  },
+  {
+   "id": "us7000kg30",
+   "zaman": "2023-07-16T06:48:21.158000",
+   "M": 7.2,
+   "enlem": 54.3926,
+   "boylam": -160.762,
+   "L_km": 60.0,
+   "halka_km": [
+    40.0,
+    120.0
+   ],
+   "son_pencere_bitis": "2024-07-15T06:48:21",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": false,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 2.7,
+     "N0_halka": 131.88,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 2.9,
+     "N0_halka": 83.28,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ComCat",
+    "mc": 2.7,
+    "N0": 131.88,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 29,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 105.0,
+   "mekanizma_dip": [
+    21.71,
+    69.06
+   ],
+   "kosu_adayi": true,
+   "grup": "us7000kg30",
+   "grup_uyeleri": [
+    "us7000kg30"
+   ]
+  },
+  {
+   "id": "us7000kufc",
+   "zaman": "2023-09-08T22:11:01.405000",
+   "M": 6.8,
+   "enlem": 31.058,
+   "boylam": -8.3847,
+   "L_km": 30.3,
+   "halka_km": [
+    25.2,
+    60.7
+   ],
+   "son_pencere_bitis": "2024-09-07T22:11:01",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": false,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 1.7,
+     "N0_halka": 1.35,
+     "tur": "örnekten tahmin"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 1.7,
+    "N0": 1.35,
+    "tur": "örnekten tahmin"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 132.38,
+   "mekanizma_dip": [
+    29.08,
+    68.96
+   ],
+   "kosu_adayi": true,
+   "grup": "us7000kufc",
+   "grup_uyeleri": [
+    "us7000kufc"
+   ]
+  },
+  {
+   "id": "us7000l9h4",
+   "zaman": "2023-11-08T04:53:49.631000",
+   "M": 7.1,
+   "enlem": -6.416,
+   "boylam": 129.5466,
+   "L_km": 50.6,
+   "halka_km": [
+    35.3,
+    101.2
+   ],
+   "son_pencere_bitis": "2024-11-07T04:53:49",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": false,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 4.1,
+     "N0_halka": 1.35,
+     "tur": "örnekten tahmin"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 4.1,
+    "N0": 1.35,
+    "tur": "örnekten tahmin"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": -178.46,
+   "mekanizma_dip": [
+    70.6,
+    88.54
+   ],
+   "kosu_adayi": true,
+   "grup": "us7000l9h4",
+   "grup_uyeleri": [
+    "us7000l9h4"
+   ]
+  },
+  {
+   "id": "us6000m0xl",
+   "zaman": "2024-01-01T07:10:09.476000",
+   "M": 7.5,
+   "enlem": 37.4874,
+   "boylam": 137.271,
+   "L_km": 100.0,
+   "halka_km": [
+    60.0,
+    200.0
+   ],
+   "son_pencere_bitis": "2024-12-31T07:10:09",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": false,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 0.4,
+     "N0_halka": 1912.83,
+     "tur": "örnekten tahmin"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 0.4,
+    "N0": 1912.83,
+    "tur": "örnekten tahmin"
+   },
+   "ek1_kume_19": 34,
+   "mekanizma_sinif": "ters (diğer)",
+   "mekanizma_rake": 102.5,
+   "mekanizma_dip": [
+    41.32,
+    49.86
+   ],
+   "kosu_adayi": true,
+   "grup": "us6000m0xl",
+   "grup_uyeleri": [
+    "us6000m0xl"
+   ]
+  },
+  {
+   "id": "us7000lsze",
+   "zaman": "2024-01-22T18:09:04.340000",
+   "M": 7,
+   "enlem": 41.2555,
+   "boylam": 78.6538,
+   "L_km": 42.7,
+   "halka_km": [
+    31.3,
+    85.3
+   ],
+   "son_pencere_bitis": "2025-01-21T18:09:04",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": false,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 2.6,
+     "N0_halka": 18.46,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 2.6,
+    "N0": 18.46,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters (diğer)",
+   "mekanizma_rake": 41.97,
+   "mekanizma_dip": [
+    44.78,
+    61.9
+   ],
+   "kosu_adayi": true,
+   "grup": "us7000lsze",
+   "grup_uyeleri": [
+    "us7000lsze"
+   ]
+  },
+  {
+   "id": "us6000n8tq",
+   "zaman": "2024-06-28T05:36:36.902000",
+   "M": 7.2,
+   "enlem": -15.8277,
+   "boylam": -74.454,
+   "L_km": 60.0,
+   "halka_km": [
+    40.0,
+    120.0
+   ],
+   "son_pencere_bitis": "2025-06-28T05:36:36",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": false,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 99.02,
+   "mekanizma_dip": [
+    76.6,
+    16.1
+   ],
+   "kosu_adayi": false,
+   "grup": "us6000n8tq",
+   "grup_uyeleri": [
+    "us6000n8tq"
+   ]
+  },
+  {
+   "id": "us6000nith",
+   "zaman": "2024-08-08T07:42:55.206000",
+   "M": 7.1,
+   "enlem": 31.7599,
+   "boylam": 131.5021,
+   "L_km": 50.6,
+   "halka_km": [
+    35.3,
+    101.2
+   ],
+   "son_pencere_bitis": "2025-08-08T07:42:55",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": false,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 1.0,
+     "N0_halka": 426.31,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 1.0,
+    "N0": 426.31,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 35,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 75.81,
+   "mekanizma_dip": [
+    18.41,
+    72.17
+   ],
+   "kosu_adayi": true,
+   "grup": "us6000nith",
+   "grup_uyeleri": [
+    "us6000nith"
+   ]
+  },
+  {
+   "id": "us7000n7n8",
+   "zaman": "2024-08-17T19:10:26.820000",
+   "M": 7,
+   "enlem": 52.9308,
+   "boylam": 160.1331,
+   "L_km": 42.7,
+   "halka_km": [
+    31.3,
+    85.3
+   ],
+   "son_pencere_bitis": "2025-08-17T19:10:26",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": false,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 93.8,
+   "mekanizma_dip": [
+    65.13,
+    25.14
+   ],
+   "kosu_adayi": false,
+   "grup": "us7000n7n8",
+   "grup_uyeleri": [
+    "us7000n7n8"
+   ]
+  },
+  {
+   "id": "us7000nr0v",
+   "zaman": "2024-11-10T16:49:50.426000",
+   "M": 6.8,
+   "enlem": 19.7974,
+   "boylam": -77.0506,
+   "L_km": 30.3,
+   "halka_km": [
+    25.2,
+    60.7
+   ],
+   "son_pencere_bitis": "2025-11-10T16:49:50",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": false,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 0.6,
+     "N0_halka": 19.93,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 0.6,
+    "N0": 19.93,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 7.59,
+   "mekanizma_dip": [
+    53.72,
+    83.89
+   ],
+   "kosu_adayi": true,
+   "grup": "us7000nr0v",
+   "grup_uyeleri": [
+    "us7000nr0v"
+   ]
+  },
+  {
+   "id": "nc75095651",
+   "zaman": "2024-12-05T18:44:21.110000",
+   "M": 7,
+   "enlem": 40.374,
+   "boylam": -125.021666666667,
+   "L_km": 42.7,
+   "halka_km": [
+    31.3,
+    85.3
+   ],
+   "son_pencere_bitis": "2025-12-05T18:44:21",
+   "tarih_kurali_gecer": true,
+   "isc_gozden_gecmis_son_pencere": false,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 2.1,
+     "N0_halka": 52.47,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 2.8,
+     "N0_halka": 7.27,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ComCat",
+    "mc": 2.1,
+    "N0": 52.47,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 36,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": -6.25,
+   "mekanizma_dip": [
+    88.88,
+    83.75
+   ],
+   "kosu_adayi": true,
+   "grup": "nc75095651",
+   "grup_uyeleri": [
+    "nc75095651"
+   ]
+  },
+  {
+   "id": "us6000pi9w",
+   "zaman": "2025-01-07T01:05:16.734000",
+   "M": 7.1,
+   "enlem": 28.6036,
+   "boylam": 87.3781,
+   "L_km": 50.6,
+   "halka_km": [
+    35.3,
+    101.2
+   ],
+   "son_pencere_bitis": "2026-01-07T01:05:16",
+   "tarih_kurali_gecer": false,
+   "isc_gozden_gecmis_son_pencere": false,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "normal",
+   "mekanizma_rake": -78.18,
+   "mekanizma_dip": [
+    49.0,
+    42.37
+   ],
+   "kosu_adayi": false,
+   "grup": "us6000pi9w",
+   "grup_uyeleri": [
+    "us6000pi9w"
+   ]
+  },
+  {
+   "id": "us7000pcdl",
+   "zaman": "2025-02-08T23:23:14.697000",
+   "M": 7.6,
+   "enlem": 17.6506,
+   "boylam": -82.395,
+   "L_km": 118.6,
+   "halka_km": [
+    69.3,
+    237.2
+   ],
+   "son_pencere_bitis": "2026-02-08T23:23:14",
+   "tarih_kurali_gecer": false,
+   "isc_gozden_gecmis_son_pencere": false,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": 2.28,
+   "mekanizma_dip": [
+    85.36,
+    87.73
+   ],
+   "kosu_adayi": false,
+   "grup": "us7000pcdl",
+   "grup_uyeleri": [
+    "us7000pcdl"
+   ]
+  },
+  {
+   "id": "us7000pn9s",
+   "zaman": "2025-03-28T06:20:52.715000",
+   "M": 7.7,
+   "enlem": 22.011,
+   "boylam": 95.9363,
+   "L_km": 140.6,
+   "halka_km": [
+    80.3,
+    281.2
+   ],
+   "son_pencere_bitis": "2026-03-28T06:20:52",
+   "tarih_kurali_gecer": false,
+   "isc_gozden_gecmis_son_pencere": false,
+   "ek1_kataloglar": {
+    "ISC": {
+     "mc": 3.7,
+     "N0_halka": 4.58,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 3.7,
+    "N0": 4.58,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "doğrultu atımlı",
+   "mekanizma_rake": -7.88,
+   "mekanizma_dip": [
+    83.92,
+    82.17
+   ],
+   "kosu_adayi": false,
+   "grup": "us7000pn9s",
+   "grup_uyeleri": [
+    "us7000pn9s"
+   ]
+  },
+  {
+   "id": "us7000pntq",
+   "zaman": "2025-03-30T12:18:50.362000",
+   "M": 7,
+   "enlem": -20.3036,
+   "boylam": -174.0718,
+   "L_km": 42.7,
+   "halka_km": [
+    31.3,
+    85.3
+   ],
+   "son_pencere_bitis": "2026-03-30T12:18:50",
+   "tarih_kurali_gecer": false,
+   "isc_gozden_gecmis_son_pencere": false,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters (diğer)",
+   "mekanizma_rake": 56.22,
+   "mekanizma_dip": [
+    33.22,
+    62.91
+   ],
+   "kosu_adayi": false,
+   "grup": "us7000pntq",
+   "grup_uyeleri": [
+    "us7000pntq"
+   ]
+  },
+  {
+   "id": "us7000pwkn",
+   "zaman": "2025-05-02T12:58:26.014000",
+   "M": 7.4,
+   "enlem": -56.8094,
+   "boylam": -68.1019,
+   "L_km": 84.3,
+   "halka_km": [
+    52.2,
+    168.7
+   ],
+   "son_pencere_bitis": "2026-05-02T12:58:26",
+   "tarih_kurali_gecer": false,
+   "isc_gozden_gecmis_son_pencere": false,
+   "ek1_kataloglar": {},
+   "ek1_en_iyi": null,
+   "ek1_kume_19": null,
+   "mekanizma_sinif": "ters (diğer)",
+   "mekanizma_rake": 88.35,
+   "mekanizma_dip": [
+    57.3,
+    32.73
+   ],
+   "kosu_adayi": false,
+   "grup": "us7000pwkn",
+   "grup_uyeleri": [
+    "us7000pwkn"
+   ]
+  },
+  {
+   "id": "us7000qx2g",
+   "zaman": "2025-09-18T18:58:14.939000",
+   "M": 7.8,
+   "enlem": 53.1426,
+   "boylam": 160.7206,
+   "L_km": 166.7,
+   "halka_km": [
+    93.4,
+    333.4
+   ],
+   "son_pencere_bitis": "2026-09-18T18:58:14",
+   "tarih_kurali_gecer": false,
+   "isc_gozden_gecmis_son_pencere": false,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 4.3,
+     "N0_halka": 49.32,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 3.8,
+     "N0_halka": 86.79,
+     "tur": "tam sayım"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ISC",
+    "mc": 3.8,
+    "N0": 86.79,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 37,
+   "mekanizma_sinif": "ters, düşük eğimli (megathrust dahil)",
+   "mekanizma_rake": 86.22,
+   "mekanizma_dip": [
+    18.25,
+    71.79
+   ],
+   "kosu_adayi": false,
+   "grup": "us7000qx2g",
+   "grup_uyeleri": [
+    "us7000qx2g"
+   ]
+  },
+  {
+   "id": "us6000rsy1",
+   "zaman": "2025-12-06T20:41:49.288000",
+   "M": 7,
+   "enlem": 60.3127,
+   "boylam": -139.5412,
+   "L_km": 42.7,
+   "halka_km": [
+    31.3,
+    85.3
+   ],
+   "son_pencere_bitis": "2026-12-06T20:41:49",
+   "tarih_kurali_gecer": false,
+   "isc_gozden_gecmis_son_pencere": false,
+   "ek1_kataloglar": {
+    "ComCat": {
+     "mc": 1.5,
+     "N0_halka": 61.62,
+     "tur": "tam sayım"
+    },
+    "ISC": {
+     "mc": 2.8,
+     "N0_halka": 3.38,
+     "tur": "örnekten tahmin"
+    }
+   },
+   "ek1_en_iyi": {
+    "katalog": "ComCat",
+    "mc": 1.5,
+    "N0": 61.62,
+    "tur": "tam sayım"
+   },
+   "ek1_kume_19": 38,
+   "mekanizma_sinif": "ters (diğer)",
+   "mekanizma_rake": 30.89,
+   "mekanizma_dip": [
+    59.74,
+    63.68
+   ],
+   "kosu_adayi": false,
+   "grup": "us6000rsy1",
+   "grup_uyeleri": [
+    "us6000rsy1"
+   ]
+  }
+ ]
+}
