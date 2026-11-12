@@ -1,0 +1,50 @@
+{
+ "liste_sha256": "a3a6a45a97d9e6a625f3aa6157093cda75b2190a026740573369d64bd46e8763",
+ "istasyon_penceresi": 1246,
+ "pencere_rol": {
+  "olay": 60,
+  "kontrol": 815,
+  "plasebo": 26,
+  "plasebo_kontrol": 438
+ },
+ "ustveri_istasyon": 292,
+ "istek_toplam": 27410,
+ "istek_Z_ay": 20424,
+ "istek_yatay": 6694,
+ "istek_ustveri": 292,
+ "merkez_istek": {
+  "IRISDMC": 14887,
+  "INGV": 2780,
+  "GEOFON": 2613,
+  "NOA": 2377,
+  "SCEDC": 1360,
+  "GEONET": 1147,
+  "NCEDC": 1070,
+  "ORFEUS": 878,
+  "EPOSFR": 128,
+  "KOERI": 85,
+  "IGN": 85
+ },
+ "merkez_saat_tutucu": {
+  "IRISDMC": 2.88,
+  "INGV": 1.27,
+  "NOA": 0.74,
+  "GEOFON": 0.61,
+  "GEONET": 0.61,
+  "SCEDC": 0.45,
+  "NCEDC": 0.38,
+  "ORFEUS": 0.26,
+  "KOERI": 0.07,
+  "EPOSFR": 0.03,
+  "IGN": 0.03
+ },
+ "duvar_saati_tutucu": 2.88,
+ "duvar_saati_iyimser": 1.64,
+ "is_2saat": 2,
+ "gecikme_kaynagi": "doluluk_ozet.json medyan_sn (TR-5 Ek 1); bilinmeyen 1,0 sn",
+ "K0_ust_sinir_hepsi_dolu_Z_aygit": {
+  "K0": 28,
+  "K_p0": 15
+ },
+ "ag_istegi": 0
+}

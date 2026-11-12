@@ -1,0 +1,508 @@
+{
+ "dosya": "tr5b_yapay_ccf.npz",
+ "sha256": "44189a31d1642e273186bfebc5c6625c62be26bf9cf090a79334da6e46a1cb29",
+ "bayt": 631137078,
+ "tohum": 20261114,
+ "bicim": "ccf, ccf_eklenmis: (60, 1095, 2401) float16; gecerli: (60, 1095) bool; ay: (60, 1095) int8; gunler: T'ye göre gün (−1095 … −1); tau: gecikme (s); sıra: SNR (0,5 / 0,7 / 0,9) × 20 tekrar",
+ "tolerans": {
+  "delta_yuzde": 0.0005,
+  "oran": 0.005
+ },
+ "seriler": [
+  {
+   "snr": "CC10~0,5",
+   "tekrar": 0,
+   "T_ord": 737342,
+   "delta_yuzde": 0.01611,
+   "delta_eklenmis_yuzde": -0.08202,
+   "oran": 0.9813
+  },
+  {
+   "snr": "CC10~0,5",
+   "tekrar": 1,
+   "T_ord": 737171,
+   "delta_yuzde": -0.010194,
+   "delta_eklenmis_yuzde": -0.100227,
+   "oran": 0.90033
+  },
+  {
+   "snr": "CC10~0,5",
+   "tekrar": 2,
+   "T_ord": 737067,
+   "delta_yuzde": 0.003333,
+   "delta_eklenmis_yuzde": -0.092076,
+   "oran": 0.95409
+  },
+  {
+   "snr": "CC10~0,5",
+   "tekrar": 3,
+   "T_ord": 737050,
+   "delta_yuzde": -0.012555,
+   "delta_eklenmis_yuzde": -0.104651,
+   "oran": 0.92095
+  },
+  {
+   "snr": "CC10~0,5",
+   "tekrar": 4,
+   "T_ord": 737056,
+   "delta_yuzde": -0.001075,
+   "delta_eklenmis_yuzde": -0.093911,
+   "oran": 0.92836
+  },
+  {
+   "snr": "CC10~0,5",
+   "tekrar": 5,
+   "T_ord": 737044,
+   "delta_yuzde": 0.028425,
+   "delta_eklenmis_yuzde": -0.066156,
+   "oran": 0.94581
+  },
+  {
+   "snr": "CC10~0,5",
+   "tekrar": 6,
+   "T_ord": 737332,
+   "delta_yuzde": 0.002921,
+   "delta_eklenmis_yuzde": -0.088984,
+   "oran": 0.91905
+  },
+  {
+   "snr": "CC10~0,5",
+   "tekrar": 7,
+   "T_ord": 737098,
+   "delta_yuzde": -0.023169,
+   "delta_eklenmis_yuzde": -0.115724,
+   "oran": 0.92555
+  },
+  {
+   "snr": "CC10~0,5",
+   "tekrar": 8,
+   "T_ord": 737151,
+   "delta_yuzde": 0.01893,
+   "delta_eklenmis_yuzde": -0.074424,
+   "oran": 0.93353
+  },
+  {
+   "snr": "CC10~0,5",
+   "tekrar": 9,
+   "T_ord": 737314,
+   "delta_yuzde": 0.001598,
+   "delta_eklenmis_yuzde": -0.09378,
+   "oran": 0.95379
+  },
+  {
+   "snr": "CC10~0,5",
+   "tekrar": 10,
+   "T_ord": 737075,
+   "delta_yuzde": 0.003756,
+   "delta_eklenmis_yuzde": -0.086232,
+   "oran": 0.89988
+  },
+  {
+   "snr": "CC10~0,5",
+   "tekrar": 11,
+   "T_ord": 737182,
+   "delta_yuzde": 0.010233,
+   "delta_eklenmis_yuzde": -0.084452,
+   "oran": 0.94684
+  },
+  {
+   "snr": "CC10~0,5",
+   "tekrar": 12,
+   "T_ord": 737353,
+   "delta_yuzde": -0.020537,
+   "delta_eklenmis_yuzde": -0.112601,
+   "oran": 0.92064
+  },
+  {
+   "snr": "CC10~0,5",
+   "tekrar": 13,
+   "T_ord": 737120,
+   "delta_yuzde": -0.017217,
+   "delta_eklenmis_yuzde": -0.112133,
+   "oran": 0.94916
+  },
+  {
+   "snr": "CC10~0,5",
+   "tekrar": 14,
+   "T_ord": 737005,
+   "delta_yuzde": 0.011136,
+   "delta_eklenmis_yuzde": -0.080826,
+   "oran": 0.91962
+  },
+  {
+   "snr": "CC10~0,5",
+   "tekrar": 15,
+   "T_ord": 737172,
+   "delta_yuzde": -0.009351,
+   "delta_eklenmis_yuzde": -0.103083,
+   "oran": 0.93731
+  },
+  {
+   "snr": "CC10~0,5",
+   "tekrar": 16,
+   "T_ord": 737330,
+   "delta_yuzde": 0.008062,
+   "delta_eklenmis_yuzde": -0.086276,
+   "oran": 0.94339
+  },
+  {
+   "snr": "CC10~0,5",
+   "tekrar": 17,
+   "T_ord": 737310,
+   "delta_yuzde": 0.012136,
+   "delta_eklenmis_yuzde": -0.084168,
+   "oran": 0.96304
+  },
+  {
+   "snr": "CC10~0,5",
+   "tekrar": 18,
+   "T_ord": 737258,
+   "delta_yuzde": -0.011114,
+   "delta_eklenmis_yuzde": -0.105655,
+   "oran": 0.94541
+  },
+  {
+   "snr": "CC10~0,5",
+   "tekrar": 19,
+   "T_ord": 737174,
+   "delta_yuzde": -0.029742,
+   "delta_eklenmis_yuzde": -0.123304,
+   "oran": 0.93562
+  },
+  {
+   "snr": "CC10~0,7",
+   "tekrar": 0,
+   "T_ord": 737197,
+   "delta_yuzde": 0.009806,
+   "delta_eklenmis_yuzde": -0.087305,
+   "oran": 0.97111
+  },
+  {
+   "snr": "CC10~0,7",
+   "tekrar": 1,
+   "T_ord": 737152,
+   "delta_yuzde": 0.005228,
+   "delta_eklenmis_yuzde": -0.092838,
+   "oran": 0.98067
+  },
+  {
+   "snr": "CC10~0,7",
+   "tekrar": 2,
+   "T_ord": 737313,
+   "delta_yuzde": 0.004842,
+   "delta_eklenmis_yuzde": -0.092874,
+   "oran": 0.97716
+  },
+  {
+   "snr": "CC10~0,7",
+   "tekrar": 3,
+   "T_ord": 737023,
+   "delta_yuzde": 0.003743,
+   "delta_eklenmis_yuzde": -0.093356,
+   "oran": 0.971
+  },
+  {
+   "snr": "CC10~0,7",
+   "tekrar": 4,
+   "T_ord": 737156,
+   "delta_yuzde": -0.001768,
+   "delta_eklenmis_yuzde": -0.09784,
+   "oran": 0.96072
+  },
+  {
+   "snr": "CC10~0,7",
+   "tekrar": 5,
+   "T_ord": 737110,
+   "delta_yuzde": -0.000814,
+   "delta_eklenmis_yuzde": -0.098202,
+   "oran": 0.97388
+  },
+  {
+   "snr": "CC10~0,7",
+   "tekrar": 6,
+   "T_ord": 737228,
+   "delta_yuzde": -0.008262,
+   "delta_eklenmis_yuzde": -0.103214,
+   "oran": 0.94952
+  },
+  {
+   "snr": "CC10~0,7",
+   "tekrar": 7,
+   "T_ord": 737051,
+   "delta_yuzde": -0.002855,
+   "delta_eklenmis_yuzde": -0.097368,
+   "oran": 0.94512
+  },
+  {
+   "snr": "CC10~0,7",
+   "tekrar": 8,
+   "T_ord": 737131,
+   "delta_yuzde": 0.007094,
+   "delta_eklenmis_yuzde": -0.089815,
+   "oran": 0.96909
+  },
+  {
+   "snr": "CC10~0,7",
+   "tekrar": 9,
+   "T_ord": 737347,
+   "delta_yuzde": -0.005693,
+   "delta_eklenmis_yuzde": -0.103783,
+   "oran": 0.9809
+  },
+  {
+   "snr": "CC10~0,7",
+   "tekrar": 10,
+   "T_ord": 737164,
+   "delta_yuzde": 0.003682,
+   "delta_eklenmis_yuzde": -0.092634,
+   "oran": 0.96316
+  },
+  {
+   "snr": "CC10~0,7",
+   "tekrar": 11,
+   "T_ord": 737360,
+   "delta_yuzde": 0.000937,
+   "delta_eklenmis_yuzde": -0.095762,
+   "oran": 0.96699
+  },
+  {
+   "snr": "CC10~0,7",
+   "tekrar": 12,
+   "T_ord": 737147,
+   "delta_yuzde": -0.01408,
+   "delta_eklenmis_yuzde": -0.110991,
+   "oran": 0.96911
+  },
+  {
+   "snr": "CC10~0,7",
+   "tekrar": 13,
+   "T_ord": 737234,
+   "delta_yuzde": 0.007607,
+   "delta_eklenmis_yuzde": -0.089565,
+   "oran": 0.97172
+  },
+  {
+   "snr": "CC10~0,7",
+   "tekrar": 14,
+   "T_ord": 737168,
+   "delta_yuzde": 0.0198,
+   "delta_eklenmis_yuzde": -0.07598,
+   "oran": 0.9578
+  },
+  {
+   "snr": "CC10~0,7",
+   "tekrar": 15,
+   "T_ord": 737213,
+   "delta_yuzde": -0.015607,
+   "delta_eklenmis_yuzde": -0.110885,
+   "oran": 0.95278
+  },
+  {
+   "snr": "CC10~0,7",
+   "tekrar": 16,
+   "T_ord": 737111,
+   "delta_yuzde": -0.008917,
+   "delta_eklenmis_yuzde": -0.105487,
+   "oran": 0.9657
+  },
+  {
+   "snr": "CC10~0,7",
+   "tekrar": 17,
+   "T_ord": 737331,
+   "delta_yuzde": 0.02338,
+   "delta_eklenmis_yuzde": -0.073025,
+   "oran": 0.96405
+  },
+  {
+   "snr": "CC10~0,7",
+   "tekrar": 18,
+   "T_ord": 737028,
+   "delta_yuzde": -0.000172,
+   "delta_eklenmis_yuzde": -0.097865,
+   "oran": 0.97693
+  },
+  {
+   "snr": "CC10~0,7",
+   "tekrar": 19,
+   "T_ord": 737038,
+   "delta_yuzde": -0.016913,
+   "delta_eklenmis_yuzde": -0.113161,
+   "oran": 0.96249
+  },
+  {
+   "snr": "CC10~0,9",
+   "tekrar": 0,
+   "T_ord": 737353,
+   "delta_yuzde": -0.000182,
+   "delta_eklenmis_yuzde": -0.097334,
+   "oran": 0.97152
+  },
+  {
+   "snr": "CC10~0,9",
+   "tekrar": 1,
+   "T_ord": 737084,
+   "delta_yuzde": -0.003256,
+   "delta_eklenmis_yuzde": -0.101877,
+   "oran": 0.98621
+  },
+  {
+   "snr": "CC10~0,9",
+   "tekrar": 2,
+   "T_ord": 737095,
+   "delta_yuzde": 0.002936,
+   "delta_eklenmis_yuzde": -0.095509,
+   "oran": 0.98445
+  },
+  {
+   "snr": "CC10~0,9",
+   "tekrar": 3,
+   "T_ord": 737280,
+   "delta_yuzde": -0.002002,
+   "delta_eklenmis_yuzde": -0.099847,
+   "oran": 0.97845
+  },
+  {
+   "snr": "CC10~0,9",
+   "tekrar": 4,
+   "T_ord": 737126,
+   "delta_yuzde": 0.004158,
+   "delta_eklenmis_yuzde": -0.094133,
+   "oran": 0.98291
+  },
+  {
+   "snr": "CC10~0,9",
+   "tekrar": 5,
+   "T_ord": 737304,
+   "delta_yuzde": -0.008358,
+   "delta_eklenmis_yuzde": -0.105892,
+   "oran": 0.97535
+  },
+  {
+   "snr": "CC10~0,9",
+   "tekrar": 6,
+   "T_ord": 737048,
+   "delta_yuzde": 0.009006,
+   "delta_eklenmis_yuzde": -0.089915,
+   "oran": 0.98922
+  },
+  {
+   "snr": "CC10~0,9",
+   "tekrar": 7,
+   "T_ord": 737119,
+   "delta_yuzde": -0.00619,
+   "delta_eklenmis_yuzde": -0.105689,
+   "oran": 0.99499
+  },
+  {
+   "snr": "CC10~0,9",
+   "tekrar": 8,
+   "T_ord": 737209,
+   "delta_yuzde": 0.00448,
+   "delta_eklenmis_yuzde": -0.094213,
+   "oran": 0.98693
+  },
+  {
+   "snr": "CC10~0,9",
+   "tekrar": 9,
+   "T_ord": 737190,
+   "delta_yuzde": -0.000417,
+   "delta_eklenmis_yuzde": -0.098498,
+   "oran": 0.98081
+  },
+  {
+   "snr": "CC10~0,9",
+   "tekrar": 10,
+   "T_ord": 737225,
+   "delta_yuzde": 0.006231,
+   "delta_eklenmis_yuzde": -0.091329,
+   "oran": 0.9756
+  },
+  {
+   "snr": "CC10~0,9",
+   "tekrar": 11,
+   "T_ord": 737078,
+   "delta_yuzde": -0.000473,
+   "delta_eklenmis_yuzde": -0.098198,
+   "oran": 0.97725
+  },
+  {
+   "snr": "CC10~0,9",
+   "tekrar": 12,
+   "T_ord": 737116,
+   "delta_yuzde": 0.00397,
+   "delta_eklenmis_yuzde": -0.093835,
+   "oran": 0.97805
+  },
+  {
+   "snr": "CC10~0,9",
+   "tekrar": 13,
+   "T_ord": 737051,
+   "delta_yuzde": -0.008449,
+   "delta_eklenmis_yuzde": -0.106777,
+   "oran": 0.98328
+  },
+  {
+   "snr": "CC10~0,9",
+   "tekrar": 14,
+   "T_ord": 737262,
+   "delta_yuzde": -0.005629,
+   "delta_eklenmis_yuzde": -0.10344,
+   "oran": 0.97811
+  },
+  {
+   "snr": "CC10~0,9",
+   "tekrar": 15,
+   "T_ord": 737099,
+   "delta_yuzde": 0.003977,
+   "delta_eklenmis_yuzde": -0.094781,
+   "oran": 0.98757
+  },
+  {
+   "snr": "CC10~0,9",
+   "tekrar": 16,
+   "T_ord": 737284,
+   "delta_yuzde": 0.004414,
+   "delta_eklenmis_yuzde": -0.09332,
+   "oran": 0.97734
+  },
+  {
+   "snr": "CC10~0,9",
+   "tekrar": 17,
+   "T_ord": 737334,
+   "delta_yuzde": -0.001824,
+   "delta_eklenmis_yuzde": -0.099826,
+   "oran": 0.98001
+  },
+  {
+   "snr": "CC10~0,9",
+   "tekrar": 18,
+   "T_ord": 737296,
+   "delta_yuzde": -0.005387,
+   "delta_eklenmis_yuzde": -0.103864,
+   "oran": 0.98478
+  },
+  {
+   "snr": "CC10~0,9",
+   "tekrar": 19,
+   "T_ord": 737108,
+   "delta_yuzde": -0.001501,
+   "delta_eklenmis_yuzde": -0.10091,
+   "oran": 0.99409
+  }
+ ],
+ "ozet_CC10~0,5": {
+  "oran_medyan": 0.9365,
+  "oran_min": 0.8999,
+  "oran_max": 0.9813
+ },
+ "ozet_CC10~0,7": {
+  "oran_medyan": 0.968,
+  "oran_min": 0.9451,
+  "oran_max": 0.9809
+ },
+ "ozet_CC10~0,9": {
+  "oran_medyan": 0.9819,
+  "oran_min": 0.9715,
+  "oran_max": 0.995
+ }
+}
