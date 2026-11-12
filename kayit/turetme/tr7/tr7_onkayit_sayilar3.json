@@ -1,0 +1,617 @@
+{
+ "girdi_sha256": {
+  "tr7_onkayit_sayilar.json": "be439bf6dec47e309671c382325f5266b69ee60949cb4cdac2d920c630452728",
+  "tr7_e1_maske_ozet.json": "128720470ea39479108329960f605bc49f3795e19f50c410bfefd1d9b1a13e7c",
+  "tr7_onkayit_sayilar.py": "56ba675479fca63e2f6ff7935a5fd8a8225583cc48d22877567caefc86a6a16b"
+ },
+ "tanim": "n_açık: W maskeli payı ≤ 0,50 olan ana birim sayısı (önsayımda yalnız 1a/E1-C payı); p_min = (1 − 0,05^(1/n_açık)) / 0,9",
+ "p_min_tablo": {
+  "5": 0.501,
+  "6": 0.437,
+  "7": 0.387,
+  "8": 0.347,
+  "9": 0.315,
+  "10": 0.288
+ },
+ "segment": {
+  "S1": {
+   "n": 9,
+   "n_acik": 8,
+   "p_min_n": 0.315,
+   "p_min_n_acik": 0.347,
+   "dislama": "hesaplanır",
+   "birimler": [
+    {
+     "birim": "official20110311054624120_30",
+     "W_maskeli_pay": [
+      0.664
+     ],
+     "acik": false
+    },
+    {
+     "birim": "us6000qw60",
+     "W_maskeli_pay": [
+      0.035
+     ],
+     "acik": true
+    },
+    {
+     "birim": "WHARTON2012",
+     "W_maskeli_pay": [
+      0.0,
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "official20100227063411530_30",
+     "W_maskeli_pay": [
+      0.051
+     ],
+     "acik": true
+    },
+    {
+     "birim": "usb000g7x7",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "usb000jyiv",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "ak0219neiszm",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "us20002926",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "us20003k7a",
+     "W_maskeli_pay": [
+      0.099
+     ],
+     "acik": true
+    }
+   ]
+  },
+  "S2": {
+   "n": 8,
+   "n_acik": 7,
+   "p_min_n": 0.347,
+   "p_min_n_acik": 0.387,
+   "dislama": "hesaplanır",
+   "birimler": [
+    {
+     "birim": "official20110311054624120_30",
+     "W_maskeli_pay": [
+      0.654
+     ],
+     "acik": false
+    },
+    {
+     "birim": "us6000qw60",
+     "W_maskeli_pay": [
+      0.035
+     ],
+     "acik": true
+    },
+    {
+     "birim": "WHARTON2012",
+     "W_maskeli_pay": [
+      0.0,
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "official20100227063411530_30",
+     "W_maskeli_pay": [
+      0.051
+     ],
+     "acik": true
+    },
+    {
+     "birim": "usb000g7x7",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "usb000jyiv",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "us20002926",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "ak0219neiszm",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    }
+   ]
+  },
+  "S3": {
+   "n": 8,
+   "n_acik": 7,
+   "p_min_n": 0.347,
+   "p_min_n_acik": 0.387,
+   "dislama": "hesaplanır",
+   "birimler": [
+    {
+     "birim": "official20110311054624120_30",
+     "W_maskeli_pay": [
+      0.645
+     ],
+     "acik": false
+    },
+    {
+     "birim": "us6000qw60",
+     "W_maskeli_pay": [
+      0.035
+     ],
+     "acik": true
+    },
+    {
+     "birim": "WHARTON2012",
+     "W_maskeli_pay": [
+      0.0,
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "official20100227063411530_30",
+     "W_maskeli_pay": [
+      0.051
+     ],
+     "acik": true
+    },
+    {
+     "birim": "usb000g7x7",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "usb000jyiv",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "us20002926",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "ak0219neiszm",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    }
+   ]
+  },
+  "S4": {
+   "n": 8,
+   "n_acik": 7,
+   "p_min_n": 0.347,
+   "p_min_n_acik": 0.387,
+   "dislama": "hesaplanır",
+   "birimler": [
+    {
+     "birim": "official20110311054624120_30",
+     "W_maskeli_pay": [
+      0.637
+     ],
+     "acik": false
+    },
+    {
+     "birim": "us6000qw60",
+     "W_maskeli_pay": [
+      0.035
+     ],
+     "acik": true
+    },
+    {
+     "birim": "WHARTON2012",
+     "W_maskeli_pay": [
+      0.0,
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "official20100227063411530_30",
+     "W_maskeli_pay": [
+      0.051
+     ],
+     "acik": true
+    },
+    {
+     "birim": "usb000g7x7",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "usb000jyiv",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "us20002926",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "ak0219neiszm",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    }
+   ]
+  },
+  "S5": {
+   "n": 6,
+   "n_acik": 6,
+   "p_min_n": 0.437,
+   "p_min_n_acik": 0.437,
+   "dislama": "hesaplanır",
+   "birimler": [
+    {
+     "birim": "us6000qw60",
+     "W_maskeli_pay": [
+      0.036
+     ],
+     "acik": true
+    },
+    {
+     "birim": "official20070912111026830_34",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "usp000exfn",
+     "W_maskeli_pay": [
+      0.071
+     ],
+     "acik": true
+    },
+    {
+     "birim": "usp000e12e",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "ak0219neiszm",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "usp000f2ab",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    }
+   ]
+  },
+  "S6": {
+   "n": 5,
+   "n_acik": 5,
+   "p_min_n": 0.501,
+   "p_min_n_acik": 0.501,
+   "dislama": "hesaplanır",
+   "birimler": [
+    {
+     "birim": "us6000qw60",
+     "W_maskeli_pay": [
+      0.036
+     ],
+     "acik": true
+    },
+    {
+     "birim": "official20070912111026830_34",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "usp000exfn",
+     "W_maskeli_pay": [
+      0.071
+     ],
+     "acik": true
+    },
+    {
+     "birim": "usp000e12e",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "usp000f2ab",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    }
+   ]
+  },
+  "S7": {
+   "n": 10,
+   "n_acik": 9,
+   "p_min_n": 0.288,
+   "p_min_n_acik": 0.315,
+   "dislama": "hesaplanır",
+   "birimler": [
+    {
+     "birim": "official20110311054624120_30",
+     "W_maskeli_pay": [
+      0.652
+     ],
+     "acik": false
+    },
+    {
+     "birim": "us6000qw60",
+     "W_maskeli_pay": [
+      0.034
+     ],
+     "acik": true
+    },
+    {
+     "birim": "WHARTON2012",
+     "W_maskeli_pay": [
+      0.0,
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "official20100227063411530_30",
+     "W_maskeli_pay": [
+      0.05
+     ],
+     "acik": true
+    },
+    {
+     "birim": "usb000g7x7",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "official20070912111026830_34",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "usb000jyiv",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "us20002926",
+     "W_maskeli_pay": [
+      0.001
+     ],
+     "acik": true
+    },
+    {
+     "birim": "ak0219neiszm",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    },
+    {
+     "birim": "usp000g650",
+     "W_maskeli_pay": [
+      0.0
+     ],
+     "acik": true
+    }
+   ]
+  }
+ },
+ "X_min_tablo_005_7": {
+  "5": [
+   3,
+   3,
+   4,
+   "K2",
+   "K2",
+   "K2"
+  ],
+  "6": [
+   3,
+   4,
+   4,
+   4,
+   "K2",
+   "K2"
+  ],
+  "7": [
+   3,
+   4,
+   4,
+   4,
+   "K2",
+   "K2"
+  ],
+  "8": [
+   3,
+   4,
+   4,
+   4,
+   5,
+   "K2"
+  ],
+  "9": [
+   3,
+   4,
+   4,
+   4,
+   5,
+   "K2"
+  ],
+  "10": [
+   3,
+   4,
+   4,
+   4,
+   5,
+   5
+  ]
+ },
+ "X_min_tablo_005_7_kuyruk_esigi": 0.00714,
+ "X_min_tablo_005_yeniden": {
+  "5": [
+   2,
+   3,
+   3,
+   "K2",
+   "K2",
+   "K2"
+  ],
+  "6": [
+   2,
+   3,
+   3,
+   3,
+   "K2",
+   "K2"
+  ],
+  "7": [
+   2,
+   3,
+   3,
+   3,
+   "K2",
+   "K2"
+  ],
+  "8": [
+   2,
+   3,
+   3,
+   3,
+   3,
+   "K2"
+  ],
+  "9": [
+   2,
+   3,
+   3,
+   3,
+   4,
+   "K2"
+  ],
+  "10": [
+   2,
+   3,
+   3,
+   3,
+   4,
+   4
+  ]
+ },
+ "X_min_tablo_005_3_yeniden": {
+  "5": [
+   3,
+   3,
+   3,
+   "K2",
+   "K2",
+   "K2"
+  ],
+  "6": [
+   3,
+   3,
+   3,
+   4,
+   "K2",
+   "K2"
+  ],
+  "7": [
+   3,
+   3,
+   4,
+   4,
+   "K2",
+   "K2"
+  ],
+  "8": [
+   3,
+   3,
+   4,
+   4,
+   4,
+   "K2"
+  ],
+  "9": [
+   3,
+   3,
+   4,
+   4,
+   4,
+   "K2"
+  ],
+  "10": [
+   3,
+   3,
+   4,
+   4,
+   4,
+   4
+  ]
+ },
+ "X_min_tablo_005_yeniden_surum2_ile_ayni": true,
+ "X_min_tablo_005_3_yeniden_surum2_ile_ayni": true
+}

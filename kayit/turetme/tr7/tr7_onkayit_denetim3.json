@@ -1,0 +1,278 @@
+{
+ "n_pencere": 100,
+ "sonuclar": [
+  {
+   "denetim": "D6",
+   "ek": "100",
+   "tohum": 20261612,
+   "n": 100,
+   "sonuc": {
+    "algilama": 0.49,
+    "darbe_atilma_algilananda": 1.0,
+    "algilanmama_ya_da_darbe": 1.0,
+    "yanlis_yumusak_algilanmama_ya_da_darbe": 0.51,
+    "katalog_maskesi_atilma": 1.0
+   },
+   "bant_icinde": {
+    "dogru": true,
+    "yanlis": false
+   }
+  },
+  {
+   "denetim": "D6",
+   "ek": "100",
+   "tohum": 6262,
+   "n": 100,
+   "sonuc": {
+    "algilama": 0.55,
+    "darbe_atilma_algilananda": 1.0,
+    "algilanmama_ya_da_darbe": 1.0,
+    "yanlis_yumusak_algilanmama_ya_da_darbe": 0.45,
+    "katalog_maskesi_atilma": 1.0
+   },
+   "bant_icinde": {
+    "dogru": true,
+    "yanlis": false
+   }
+  },
+  {
+   "denetim": "D6b",
+   "ek": "8:100",
+   "tohum": 20261613,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "darbe_atilma_algilananda": 0.95,
+    "algilanmama_ya_da_darbe": 0.95,
+    "yanlis_yumusak_algilanmama_ya_da_darbe": 0.0,
+    "katalog_maskesi_atilma": 1.0
+   },
+   "bant_icinde": {
+    "dogru": true,
+    "yanlis": false
+   }
+  },
+  {
+   "denetim": "D6b",
+   "ek": "8:100",
+   "tohum": 6263,
+   "n": 100,
+   "sonuc": {
+    "algilama": 1.0,
+    "darbe_atilma_algilananda": 0.97,
+    "algilanmama_ya_da_darbe": 0.97,
+    "yanlis_yumusak_algilanmama_ya_da_darbe": 0.0,
+    "katalog_maskesi_atilma": 1.0
+   },
+   "bant_icinde": {
+    "dogru": true,
+    "yanlis": false
+   }
+  },
+  {
+   "denetim": "D15",
+   "ek": "0",
+   "tohum": 20261614,
+   "n": 100,
+   "sonuc": {
+    "maskeli_son_s": 0,
+    "algilama_ayiklamasiz": 1.0,
+    "taban_3a_Wson_atilma": 1.0,
+    "tam_kural_atilma": 1.0,
+    "yanlis_3a_yok_atilma": 0.0,
+    "yanlis_surum2_W_sonu_atilma": 1.0
+   },
+   "bant_icinde": {
+    "dogru": true,
+    "yanlis_3a_yok": false
+   }
+  },
+  {
+   "denetim": "D15",
+   "ek": "0",
+   "tohum": 6264,
+   "n": 100,
+   "sonuc": {
+    "maskeli_son_s": 0,
+    "algilama_ayiklamasiz": 1.0,
+    "taban_3a_Wson_atilma": 1.0,
+    "tam_kural_atilma": 1.0,
+    "yanlis_3a_yok_atilma": 0.0,
+    "yanlis_surum2_W_sonu_atilma": 1.0
+   },
+   "bant_icinde": {
+    "dogru": true,
+    "yanlis_3a_yok": false
+   }
+  },
+  {
+   "denetim": "D15",
+   "ek": "120",
+   "tohum": 20261615,
+   "n": 100,
+   "sonuc": {
+    "maskeli_son_s": 120,
+    "algilama_ayiklamasiz": 1.0,
+    "taban_3a_Wson_atilma": 1.0,
+    "tam_kural_atilma": 1.0,
+    "yanlis_3a_yok_atilma": 0.0,
+    "yanlis_surum2_W_sonu_atilma": 0.0
+   },
+   "bant_icinde": {
+    "dogru": true,
+    "yanlis_3a_yok": false,
+    "yanlis_surum2_W_sonu": false
+   }
+  },
+  {
+   "denetim": "D15",
+   "ek": "120",
+   "tohum": 6265,
+   "n": 100,
+   "sonuc": {
+    "maskeli_son_s": 120,
+    "algilama_ayiklamasiz": 1.0,
+    "taban_3a_Wson_atilma": 1.0,
+    "tam_kural_atilma": 1.0,
+    "yanlis_3a_yok_atilma": 0.0,
+    "yanlis_surum2_W_sonu_atilma": 0.0
+   },
+   "bant_icinde": {
+    "dogru": true,
+    "yanlis_3a_yok": false,
+    "yanlis_surum2_W_sonu": false
+   }
+  }
+ ],
+ "D12c": {
+  "denetim": "D12c",
+  "tohumlar": [
+   20261616,
+   6266
+  ],
+  "elle_katalog": {
+   "dogru": {
+    "birebir": true,
+    "fark_saniye": 0
+   },
+   "kuyruk30": {
+    "birebir": false,
+    "fark_saniye": 90
+   },
+   "S6x": {
+    "birebir": false,
+    "fark_saniye": 140
+   },
+   "buyuktur7": {
+    "birebir": false,
+    "fark_saniye": 430
+   },
+   "ikiz_yok": {
+    "birebir": false,
+    "fark_saniye": 180
+   },
+   "wharton_dislar": {
+    "birebir": false,
+    "fark_saniye": 160
+   },
+   "kaba_kuvvet_birebir": true
+  },
+  "rastgele_katalog": [
+   {
+    "tohum": 20261616,
+    "n_katalog": 20,
+    "birebir_katalog_sayisi": {
+     "dogru": 20,
+     "kuyruk30": 2,
+     "S6x": 3,
+     "buyuktur7": 13,
+     "ikiz_yok": 10,
+     "wharton_dislar": 6
+    }
+   },
+   {
+    "tohum": 6266,
+    "n_katalog": 20,
+    "birebir_katalog_sayisi": {
+     "dogru": 20,
+     "kuyruk30": 1,
+     "S6x": 1,
+     "buyuktur7": 10,
+     "ikiz_yok": 7,
+     "wharton_dislar": 10
+    }
+   }
+  ],
+  "gercek_varis": {
+   "dogru": {
+    "official20110311054624120_30|S1": 0.665,
+    "official20110311054624120_30|S2": 0.654,
+    "official20110311054624120_30|S3": 0.645,
+    "PARKFIELD|PK": 0.578,
+    "K1": 0.647,
+    "K1_maskeli_s": 613,
+    "K1_uzunluk_s": 947,
+    "hepsi_tolerans_icinde": true
+   },
+   "kuyruk30": {
+    "official20110311054624120_30|S1": 0.544,
+    "official20110311054624120_30|S2": 0.534,
+    "official20110311054624120_30|S3": 0.523,
+    "PARKFIELD|PK": 0.457,
+    "K1": 0.522,
+    "K1_maskeli_s": 494,
+    "K1_uzunluk_s": 947,
+    "hepsi_tolerans_icinde": false
+   },
+   "S6x": {
+    "official20110311054624120_30|S1": 0.835,
+    "official20110311054624120_30|S2": 0.833,
+    "official20110311054624120_30|S3": 0.83,
+    "PARKFIELD|PK": 0.791,
+    "K1": 0.814,
+    "K1_maskeli_s": 771,
+    "K1_uzunluk_s": 947,
+    "hepsi_tolerans_icinde": false
+   },
+   "buyuktur7": {
+    "official20110311054624120_30|S1": 0.665,
+    "official20110311054624120_30|S2": 0.654,
+    "official20110311054624120_30|S3": 0.645,
+    "PARKFIELD|PK": 0.578,
+    "K1": 0.647,
+    "K1_maskeli_s": 613,
+    "K1_uzunluk_s": 947,
+    "hepsi_tolerans_icinde": true
+   },
+   "ikiz_yok": {
+    "official20110311054624120_30|S1": 0.665,
+    "official20110311054624120_30|S2": 0.654,
+    "official20110311054624120_30|S3": 0.645,
+    "PARKFIELD|PK": 0.578,
+    "K1": 0.647,
+    "K1_maskeli_s": 613,
+    "K1_uzunluk_s": 947,
+    "hepsi_tolerans_icinde": true
+   },
+   "wharton_dislar": {
+    "official20110311054624120_30|S1": 0.665,
+    "official20110311054624120_30|S2": 0.654,
+    "official20110311054624120_30|S3": 0.645,
+    "PARKFIELD|PK": 0.578,
+    "K1": 0.647,
+    "K1_maskeli_s": 613,
+    "K1_uzunluk_s": 947,
+    "hepsi_tolerans_icinde": true
+   }
+  },
+  "dogru_kod_bantta": true,
+  "yanlis_kod_bant_disinda": {
+   "kuyruk30": true,
+   "S6x": true,
+   "buyuktur7": true,
+   "ikiz_yok": true,
+   "wharton_dislar": true
+  }
+ },
+ "dogru_iceride_yanlis_disarida": true
+}

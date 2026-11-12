@@ -112,6 +112,74 @@ R['O4'] = (f"ayıklamasız algılama {v(o['algilama_ayiklamasiz'])}; taban kural
            f"(algılama yok)" if not o['algilama_ayiklamasiz'] else
            f"ayıklamasız algılama {v(o['algilama_ayiklamasiz'])}, 3a ile atılma {v(o['taban_3a_atilma_algilananda'])}")
 R['SHA_DENETIM2'] = hashlib.sha256(open(J, 'rb').read()).hexdigest()
+
+# ------------------------------------------------------------------ sürüm 3 (İNCELEME-2)
+# Yer tutucular: ⟨S3_D6⟩ ⟨S3_D6B⟩ ⟨S3_D15⟩ ⟨S3_D12C⟩ ⟨S3_SHA⟩ (tr7_onkayit_denetim3.json, tr7_onkayit_sayilar3.json).
+# `--denetle`: belge doldurulduktan sonra, sürüm 3'ün koddan gelen bütün değerlerinin (yer tutucular ve §8'deki
+# n_açık, p_min, X_min^(0,05/7) metinleri) belgede birebir bulunduğunu denetler (boşluk ve satır sonu normalize).
+import os, re  # noqa: E402
+BURADA = os.path.dirname(os.path.abspath(__file__))
+J3 = os.path.join(BURADA, 'tr7_onkayit_denetim3.json')
+S3 = os.path.join(BURADA, 'tr7_onkayit_sayilar3.json')
+d3 = json.load(open(J3, encoding='utf-8'))
+s3 = json.load(open(S3, encoding='utf-8'))
+
+
+def g3(ad, ek):
+    return [r['sonuc'] for r in d3['sonuclar'] if r['denetim'] == ad and r['ek'] == ek]
+
+
+def iki3(xs, k):
+    return ' / '.join(v(x[k]) for x in xs)
+
+
+a = g3('D6', '100')
+R3 = {}
+R3['S3_D6'] = (f"D6 ×100: algılanmama ya da darbeyle atılma {iki3(a, 'algilanmama_ya_da_darbe')} (algılama "
+               f"{iki3(a, 'algilama')}); katalogda maske ile {iki3(a, 'katalog_maskesi_atilma')}; yanlış (yumuşatılmış C) "
+               f"{iki3(a, 'yanlis_yumusak_algilanmama_ya_da_darbe')}.")
+a = g3('D6b', '8:100')
+R3['S3_D6B'] = (f"D6b ×100, S–P 8: {iki3(a, 'algilanmama_ya_da_darbe')} (bant ≥ 0,90; ilk tohumun değeri eski ≥ 0,95 "
+                f"bandının tam sınırında, İ2-E2'nin öngördüğü durum); yanlış {iki3(a, 'yanlis_yumusak_algilanmama_ya_da_darbe')}.")
+a, b = g3('D15', '0'), g3('D15', '120')
+R3['S3_D15'] = (f"D15 (a) maskesiz: algılama {iki3(a, 'algilama_ayiklamasiz')}, 3a (W′_son) ile atılma "
+                f"{iki3(a, 'taban_3a_Wson_atilma')}; yanlış: 3a yok {iki3(a, 'yanlis_3a_yok_atilma')}. "
+                f"D15 (b) son 120 sn maskeli: algılama {iki3(b, 'algilama_ayiklamasiz')}, 3a (W′_son) ile atılma "
+                f"{iki3(b, 'taban_3a_Wson_atilma')}; yanlış: 3a yok {iki3(b, 'yanlis_3a_yok_atilma')}, sürüm 2'nin "
+                f"\"W sonu − 60\" tanımı {iki3(b, 'yanlis_surum2_W_sonu_atilma')}.")
+c12 = d3['D12c']
+gv, rk = c12['gercek_varis'], c12['rastgele_katalog']
+R3['S3_D12C'] = (
+    f"D12c (`tr7_onkayit_d12c.py`, rastgele katalog tohumları {rk[0]['tohum']} / {rk[1]['tohum']}): elle kurulmuş "
+    f"katalogda maskelenen küme elle hesaplanan kümeyle "
+    f"{'birebir aynı' if c12['elle_katalog']['dogru']['birebir'] else 'FARKLI'} (bağımsız kaba kuvvet uygulaması da "
+    f"{'birebir' if c12['elle_katalog']['kaba_kuvvet_birebir'] else 'FARKLI'}); tohumlu rastgele kataloglarda "
+    f"{rk[0]['birebir_katalog_sayisi']['dogru']}/{rk[0]['n_katalog']} ve {rk[1]['birebir_katalog_sayisi']['dogru']}/"
+    f"{rk[1]['n_katalog']} birebir; gerçek varışlarda Tohoku S1 / S2 / S3 "
+    + ' / '.join(v3(gv['dogru'][f'official20110311054624120_30|{x}']) for x in ('S1', 'S2', 'S3'))
+    + f", Parkfield W {v3(gv['dogru']['PARKFIELD|PK'])}, K1 aralığı {v3(gv['dogru']['K1'])} "
+    f"({gv['dogru']['K1_maskeli_s']} / {gv['dogru']['K1_uzunluk_s']} sn), hepsi ±0,001 içinde. Yanlış kodlar: +30 sn "
+    f"kuyruk (Parkfield W {v3(gv['kuyruk30']['PARKFIELD|PK'])}), M 6,x S'si (Parkfield W {v3(gv['S6x']['PARKFIELD|PK'])}), "
+    f"\"> 7,0\" (elle katalogda {c12['elle_katalog']['buyuktur7']['fark_saniye']} sn fark; Tohoku ve Parkfield "
+    f"pencerelerinde M = 7,0 olay yok), ikiz kaydın dışlanmaması ve Wharton'ın öteki olayının dışlanması: hepsi birebir "
+    f"karşılaştırmada kalır.")
+DOSYALAR3 = ['tr7_onkayit_sayilar3.py', 'tr7_onkayit_sayilar3.json', 'tr7_onkayit_d12c.py', 'tr7_onkayit_denetim3.py',
+             'tr7_onkayit_denetim3_kos.py', 'tr7_onkayit_denetim3.json', 'tr7_inc2_taban.py', 'tr7_inc2_taban_ek.py',
+             'tr7_onkayit_doldur.py']
+R3['S3_SHA'] = '\n'.join(f"- `{f}` {hashlib.sha256(open(os.path.join(BURADA, f), 'rb').read()).hexdigest()}"
+                         + (' (değişti: sürüm 3 yer tutucuları ve `--denetle`)' if f == 'tr7_onkayit_doldur.py' else '')
+                         for f in DOSYALAR3)
+# §8 metinleri (yer tutucu değil; sayilar3.json'dan beklenen birebir metin)
+seg = s3['segment']
+BEKLENEN = [
+    'n_açık S1 / S2 / S3 için ' + ' / '.join(str(seg[x]['n_acik']) for x in ('S1', 'S2', 'S3'))
+    + ', p_min ' + ' / '.join(v(seg[x]['p_min_n_acik']) for x in ('S1', 'S2', 'S3')),
+    'Değerler: n_açık ' + '; '.join(f"{n} → {v(p)}" for n, p in s3['p_min_tablo'].items()),
+    'f = 0…5 için: ' + '; '.join(f"n = {n}: " + ', '.join(str(x) for x in xs)
+                                 for n, xs in s3['X_min_tablo_005_7'].items()),
+    'kuyruk eşiği ' + f"{s3['X_min_tablo_005_7_kuyruk_esigi']:.5f}".replace('.', ',').rstrip('0'),
+]
+R.update(R3)
 s = open(DOC).read()
 for k, x in R.items():
     s = s.replace(f'⟨{k}⟩', x)
@@ -119,5 +187,10 @@ kalan = sorted(set(__import__('re').findall('⟨[A-Z0-9_]+⟩', s)))
 print('kalan', kalan)
 if '--yaz' in sys.argv:
     open(DOC, 'w').write(s)
+if '--denetle' in sys.argv:
+    duz = re.sub(r'\s+', ' ', s)
+    eksik = [x for x in list(R3.values()) + BEKLENEN if re.sub(r'\s+', ' ', x) not in duz]
+    print('denetim:', 'TAMAM (sürüm 3 değerlerinin hepsi belgede)' if not eksik and not kalan else f'EKSİK {eksik} {kalan}')
+    sys.exit(1 if eksik or kalan else 0)
 for k, x in R.items():
     print(k, '=', x)

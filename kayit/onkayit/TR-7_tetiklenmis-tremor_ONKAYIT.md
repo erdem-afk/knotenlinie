@@ -1,26 +1,31 @@
 # TR-7 ön kaydı: Marmara ve batı KAF'ta uzak depremlerin yüzey dalgalarıyla tetiklenmiş tremor taraması
 
-Tarih: 12 Kasım 2026. Durum: **TASLAK sürüm 2 (İNCELEME-1 düzeltmeleri işlendi), ikinci incelemeye hazır.**
-Dondurulmadı; ikinci inceleme bulguları işlendikten sonra "DONDURULDU" başlığıyla commit edilir, ondan sonra metin
-değişmez, ekler ayrı başlıkla yazılır. İkinci incelemenin önce bakması gereken yer: §17 (İNCELEME-1 metninden
-sapmalar; en önemlisi S1, E1 maskesinin büyüklük ve süre kuralı).
-Türediği yerler: `kayit/onkayit/TR-7_SAYIM.md` (tasarım §2, sayım §3–§5, Ek 1; K0 GEÇTİ) ve
-`kayit/onkayit/TR-7_INCELEME-1.md` (DÜZELTMEYLE KABUL; E1–E3, Ö1–Ö8, K1–K7).
+Tarih: 12 Kasım 2026. Durum: **DONDURULDU sürüm 3 (12 Kasım 2026; bu commit dondurma kaydıdır) (İNCELEME-1 ve İNCELEME-2 düzeltmeleri işlendi).**
+Henüz dondurulmadı; bu metin "DONDURULDU" başlığıyla commit + push edilir, ondan sonra metin değişmez, ekler ayrı
+başlıkla yazılır. Üçüncü inceleme turu yoktur (İNCELEME-2 son turdur). Sürüm 2 → 3 değişiklikleri §19'da.
+Türediği yerler: `kayit/onkayit/TR-7_SAYIM.md` (tasarım §2, sayım §3–§5, Ek 1; K0 GEÇTİ),
+`kayit/onkayit/TR-7_INCELEME-1.md` (DÜZELTMEYLE KABUL; E1–E3, Ö1–Ö8, K1–K7) ve
+`kayit/onkayit/TR-7_INCELEME-2.md` (DÜZELTMEYLE KABUL, son tur; İ2-E1–E3, İ2-Ö1–Ö8, K-a–K-g).
 Kod (`kayit/turetme/tr7/`): sayım `tr7_sayim.py`, `tr7_varlik.py`; ön kayıt `tr7_onkayit_sayilar.py`,
 `tr7_onkayit_yapay.py`, `tr7_onkayit_modulasyon.py`; sürüm 2'de eklenen `tr7_parkfield_varlik.py` (E2),
 `tr7_e1_maske.py` (E1), `tr7_negatif_pencere.py` (Ö4), `tr7_onkayit_denetim2.py` ve `tr7_onkayit_denetim2_kos.py`
 (yeni yapay denetimler); İNCELEME-1'in betikleri `tr7_inc1_d10.py`, `tr7_inc1_d10b.py`, `tr7_inc1_modv.py`,
-`tr7_inc1_modreal.py`, `tr7_inc1_darbe.py` olarak kopyalandı. Bu belgedeki her sayı bu betiklerin çıktısından alındı.
+`tr7_inc1_modreal.py`, `tr7_inc1_darbe.py` olarak kopyalandı; sürüm 3'te eklenen `tr7_onkayit_sayilar3.py` (n_açık,
+p_min, X_min^(0,05/7)), `tr7_onkayit_d12c.py` (D12c), `tr7_onkayit_denetim3.py` ve `tr7_onkayit_denetim3_kos.py` (D15,
+D6/D6b ×100 yeniden koşusu); İNCELEME-2'nin betikleri `tr7_inc2_taban.py`, `tr7_inc2_taban_ek.py`; yer tutucu
+doldurucu ve denetleyici `tr7_onkayit_doldur.py`. Bu belgedeki her sayı bu betiklerin çıktısından alındı.
 Maliyet 0 €. Bu belge yazılırken tek dalga formu erişimi §3.2'deki Parkfield varlık yoklamasıdır (112 satır, 10'ar sn;
-yalnız HTTP kodu ve bayt; içerik çözülmedi, diske yazılmadı). Marmara'nın hiçbir dalga formu istenmedi.
+yalnız HTTP kodu ve bayt; içerik çözülmedi, diske yazılmadı). Marmara'nın hiçbir dalga formu istenmedi. Sürüm 3 için
+hiçbir dalga formu ve hiçbir ağ erişimi yapılmadı (yalnız depodaki dosyalar ve yapay veri).
 
 ## 0. Bağlayıcı metinlerin sırası
 
-Çelişkide sıra: (1) **bu metin (sürüm 2)**; §3'te sha256'sı verilen dosyalar (listeler, negatif pencereler, E1 maske
-önhesabı) bu metnin parçasıdır; (2) **İNCELEME-1'in düzeltme metinleri**, yalnız bu metnin sustuğu yerde; bu metnin
-onlardan bilerek saptığı yerler §17'de gerekçeleriyle yazılıdır ve orada bu metin geçerlidir; (3) **`TR-7_SAYIM.md`**
-§2 ve Ek 1. Bu belge SAYIM §2.5–§2.10'un yerine geçer; farklar §15'te. Metin ile kod çelişirse metindeki sayısal tanım
-geçerlidir; koşu kodu listeleri yeniden kurmaz, okur ve sha256'larını denetler.
+Çelişkide sıra: (1) **bu metin (sürüm 3)**; §3'te ve §19'da sha256'sı verilen dosyalar (listeler, negatif pencereler,
+E1 maske önhesabı, sürüm 3 önhesapları) bu metnin parçasıdır; (2) **İNCELEME-2'nin düzeltme metinleri**, yalnız bu
+metnin sustuğu yerde; (3) **İNCELEME-1'in düzeltme metinleri**, yalnız bu metnin ve İNCELEME-2'nin sustuğu yerde;
+(4) **`TR-7_SAYIM.md`** §2 ve Ek 1. Bu metnin inceleme metinlerinden bilerek saptığı yerler §17'de gerekçeleriyle
+yazılıdır (İNCELEME-1: S1–S10; İNCELEME-2: S11–S13) ve orada bu metin geçerlidir. Bu belge SAYIM §2.5–§2.10'un yerine geçer; farklar §15'te. Metin ile kod
+çelişirse metindeki sayısal tanım geçerlidir; koşu kodu listeleri yeniden kurmaz, okur ve sha256'larını denetler.
 
 ## 1. Soru ve neyi ölçmediği
 
@@ -48,6 +53,8 @@ Rakip açıklamalar ve sınav öncesi güven (yazarın beyanı): (R1) Marmara'n�
 türü düşük etkin gerilmeli, tetiklenebilir bir kaynak var ve bugünkü yüzey ağının gürültü tabanının üstünde (0,10);
 (R2) kaynak yok ya da var ama gürültü tabanının altında (0,80); (R3) kaynak yalnız Tayvan türü yüksek eşikli,
 tetikleyici gerilmeleri yetmiyor (0,10). Bu ölçüm R2 ile R3'ü ayıramaz.
+(R4) Yüzey dalgalarının tetiklediği kataloglanmamış yerel mikrodepremler (tremor değil). Bu ölçüm R4'ü tremorden
+yalnız darbe kuralı kadar ayırır: S–P ≤ 5 sn ve gürültünün ~100 katı olaylar ayrılmaz (D6b).
 
 ## 3. Veri, dondurulan dosyalar, manifest
 
@@ -176,7 +183,8 @@ S5/S6 bantları yöntem karşılaştırma satırınındır (§8 sonu).
 
 **E1'in önsayıma etkisi (bilgi; n değişmez).** Tohoku'nun S1/S2/S3 pencerelerinin W'si E1 maskesiyle %66/%65/%65
 maskelidir (§6.5.1a); birim kural gereği sayılır, ama o birimde algılama şansı öteki birimlerden küçüktür. Bu, "görülmedi"
-cümlesinin bilgi satırında maskeli payla birlikte yazılır (§9.1).
+cümlesinin bilgi satırında maskeli payla birlikte yazılır (§9.1). Bu yüzden "görülmedi" cümlesinin dışlama
+olasılığı n_açık ile hesaplanır (§8).
 
 ## 5. Pencereler
 
@@ -207,7 +215,7 @@ seçilen Z kanalıyla aynı konum ve bant kodlu yatay kanallar (N/E ya da 1/2) d
 (pencere, segment) için `iz_sira` sırasıyla ilerler; bir çiftte örtüden geçen 12 istasyon bulununca o çiftin kalan
 istasyonları, başka bir çift için gerekmiyorsa, indirilmez. İşlem bittiğinde ham veri silinir; kalan yalnız aşağıdaki
 1 Hz seriler (float32, npz) ve manifesttir. Seriler depo dışında `/mnt/project-files/turetme/tr7-zarf/` altında tutulur
-(tahmini ≤ 0,9 GB: 475 × 11 pencere × 7 seri × 6314 sn × 4 B; 12 sınırıyla 391 istasyon-tetikleyici); depoya yalnız
+(tahmini ≈ 0,92 GB, Parkfield ile ≈ 1,0 GB: 475 × 11 pencere × 7 seri × 6314 sn × 4 B; 12 sınırıyla 391 istasyon-tetikleyici); depoya yalnız
 dosya başına sha256 manifesti girer. **MDA kaydı (K6):** her (segment, negatif pencere, A basamağı) için algılama E/H ve
 enjeksiyon başlangıcı depoda `tr7_mda.csv`'ye yazılır. MDA'nın yeniden üretimi yeniden indirme gerektirir; yeniden
 indirilen miniSEED'in sha256'sı manifesttekinden farklıysa sonuç "veri değişti" notuyla yazılır.
@@ -269,7 +277,9 @@ gecikme 0–5 sn) kilitsiz A = 1'de 0,31; daraltma sorunu çözmez, metin bu yü
 
 1a. **Teleseismik cisim dalgası maskesi (E1; büyüklük ve süre kuralı İNCELEME-1'den saptı, §17 S1).** Her pencere için
    (tetikleyici, negatif ve Parkfield) ComCat'ten [R başı − 3 sa, W sonu] aralığındaki bütün M ≥ 6,0 olaylar alınır;
-   tetikleyici olayın kendisi dışarıda kalır (Wharton biriminde öteki olay dahildir). Her olay için segment orta
+   tetikleyici olayın kendisi dışarıda kalır (aynı olayın ComCat'teki başka kimlikli kaydı, yani T0'a ±5 sn içinde ve
+   M ≥ 7,0 olan kayıt, de tetikleyici sayılır; §3.4 önhesabında bu kural hiçbir kaydı düşürmedi) (Wharton biriminde
+   öteki olay dahildir). Her olay için segment orta
    noktasına (Parkfield'da iz köşe ortalamasına) Δ ile `obspy.taup.TauPyModel("iasp91")` üzerinden, olay derinliğinde
    t_P (adı P ile başlayan fazların en erkeni: P, Pdiff, PKP…) ve t_S (adı S ile başlayan fazların en erkeni)
    hesaplanır. Maskelenen aralıklar:
@@ -281,10 +291,18 @@ gecikme 0–5 sn) kilitsiz A = 1'de 0,31; daraltma sorunu çözmez, metin bu yü
    çıktı tablosuna (§9.1) yazılır. Bu madde birim sayımını (§4.2) değiştirmez.
 
    Önhesap (§3.4; W'nin maskeli payı, segment orta noktasıyla): **Tohoku S1/S2/S3 %66/%65/%65**, Parkfield W %58 ve K1
-   aralığı (§7.2 b) %65 (en uzun açık parça 173 sn); Maule %5; Illapel S1 %10; Kahramanmaraş %9; Kamçatka %4; öteki
+   aralığı (§7.2 b) %65 (en uzun açık parça 173–174 sn; K-a, §18); Maule %5; Illapel S1 %10; Kahramanmaraş %9; Kamçatka %4; öteki
    S1–S3 pencereleri %0. Tohoku penceresinde 3 M ≥ 7,0 (Parkfield; Marmara'da 4) ve 25 (Marmara'da 24–25) M 6,0–6,9
    cisim dalgası varışı var. İNCELEME-1'in metni olduğu gibi uygulansaydı (M ≥ 6,0, P ve S, +240 sn) Tohoku'nun bütün
    Marmara pencereleri ve Parkfield K1 penceresi **%100** maskelenirdi (§17 S1).
+
+   K1 aralığında açık parçalar: 06:16:01–06:17:29 (88 sn), 06:18:39–06:18:48, 06:20:57–06:23:51 (174 sn),
+   06:25:35–06:26:37 (62 sn) ve 06:31:29–06:31:30. Toplam ~334 sn. Grup hızıyla kaba kestirimde (iz köşe ortalaması,
+   Δ = 8171 km) Love başı 4,6–4,4 km/s ile 06:16:00–06:17:21'e düşer ve açıktır. Love'ın 4,2–4,0 km/s bölümü
+   (06:18:50–06:20:27) maskelidir. Rayleigh 3,9–3,7 km/s (06:21:19–06:23:12) açıktır. Hill 2013'ün özeti tremor
+   patlamalarını fazlarla ilişkilendirir, saat vermez; patlamaların açık parçalara düştüğü **özetten doğrulanamadı**.
+   Marmara'da (S2 orta noktası, Δ ≈ 8971 km) Love başı (06:18:54–06:20:23) maskelidir. Açık süre Tohoku S1 / S2 / S3'te
+   690 / 712 / 718 sn'dir (%34–35); ≥ 30 sn'lik açık parçalar S2'de 127, 180, 76 ve 263 sn'dir.
 2. **Darbe kuralı (kataloglanmamış yerel deprem).** Kümedeki her istasyon için, o istasyonun kümedeki aşım
    parçalarından C'nin (yumuşatılmamış) en büyük değeri c_p en büyük olan parça değerlendirilir; c_p'nin zamanı t_p.
    [t_p − 2, t_p) içinde C ≤ c_p/8 olan bir saniye varsa **ve** (t_p, t_p + 20] içinde C ≤ c_p/2 olan bir saniye varsa o
@@ -294,8 +312,12 @@ gecikme 0–5 sn) kilitsiz A = 1'de 0,31; daraltma sorunu çözmez, metin bu yü
    Δ_y = medyan(L − m) (2–8 Hz) ve Δ_d = medyan(L_d − m_d) (0,5–1 Hz birleşik zarf) hesaplanır (log10 genlik artışı;
    σ ile bölünmez). Δ_d ≥ Δ_y ise istasyon "sızıntı"dır. İstasyonların ≥ yarısı sızıntı ise küme atılır.
 
-3a. **Taban kayması (Ö4).** Kümedeki istasyonların ≥ yarısında aşım parçası W'nin son 60 sn'sine kadar sürüyorsa küme
-   atılır (parça sonu ≥ W sonu − 60 sn).
+3a. **Taban kayması (Ö4).** Kümedeki istasyonların ≥ yarısında, istasyonun kümedeki aşım parçalarından biri
+   W′_son − 60 sn'ye ya da daha sonrasına kadar sürüyorsa küme atılır. W′_son, o istasyonun kendi W'si içinde
+   maskelenmemiş (§6.5.1, 1a) ve kayıtlı olan son saniyedir. W sonu maskeli ya da kayıtsızsa W′_son, ondan önceki son
+   açık saniyedir. Kural tetikleyici, negatif ve Parkfield pencerelerine aynen uygulanır. (İNCELEME-2: sürüm 2'nin
+   "W sonu − 60" tanımı, Tohoku'nun S1–S4 ve S7 pencerelerinde, W'nin son 144–222 sn'si E1 ile maskeli olduğu için hiç
+   çalışamazdı.)
 4. Ayıklanan küme sayısı ve nedeni (maske, darbe, sızıntı, taban) her pencere için yazılır.
 
 **6.6 Ölçülen dinamik gerilme (karar: ana değer değil, zorunlu ikinci değer).** PGV'ye uygun istasyon: bant kodu B ya
@@ -319,7 +341,10 @@ yüzünden kalırsa (bağımsız referans betik de aynı sonucu verirse), kural 
 dayanarak ve bağımsız bir incelemeden geçerek "koşu öncesi ek" başlığıyla değiştirilebilir. Referans değerler bu ön kayıt
 için bağımsız yazılmış `tr7_onkayit_yapay.py` (D1–D3) ve `tr7_onkayit_denetim2.py` (sürüm 2'de eklenenler; toplayıcı
 `tr7_onkayit_denetim2_kos.py`, çıktı `tr7_onkayit_denetim2.json` ve D12b'nin ikinci tohumu için `--ek` ile
-`tr7_onkayit_denetim2_ek.json`) ile önceden hesaplandı: FFT ile |H|² süzgeç, 20 Hz;
+`tr7_onkayit_denetim2_ek.json`) ve D12c, D15 için İNCELEME-2'nin `tr7_inc2_taban.py`, `tr7_inc2_taban_ek.py`
+betikleri (kök oturum `kayit/turetme/tr7/` altına kopyalar) ile önceden hesaplandı (sürüm 3'te D12c'nin referansı
+`tr7_onkayit_d12c.py`, D15'inki `tr7_onkayit_denetim3.py`; toplayıcı `tr7_onkayit_denetim3_kos.py`, çıktı
+`tr7_onkayit_denetim3.json`): FFT ile |H|² süzgeç, 20 Hz;
 durağan Gauss gürültüsü (D7c/D7d'de ayrıca "kentsel": 2–8 Hz gürültüye ≈300 sn'lik rastgele ×exp(0,35 z) genlik
 oynaması); 3 istasyon; 100 pencere; iki bağımsız tohum (20261112 + 300 + i ve 4242 + i). Genlik tanımları: **A_etkin**
 = tremorun etkin (zarf > 0) örneklerindeki bileşen başına 2–8 Hz RMS / gürültünün bileşen başına 2–8 Hz RMS'i (D2, D3,
@@ -336,24 +361,34 @@ kodun aynı pencerelerdeki değeridir; bant, doğrunun içinde, yanlışın dı�
 | D4 | Modülasyon (dispersiyonlu paket; kilitli tremor A = 0,7, 100 pencere, 1000 kaydırma) | p ≤ 0,01 oranı ≥ 0,90 | 1,00 (200 kaydırmayla) | — |
 | D5 | Modülasyon, sabit ve rastgele patlamalı tremor (A = 1 ve 3) | p ≤ 0,01 oranı ≤ 0,05 | 0,00 | hız kullanan ilk sürüm: 0,20 |
 | D5b | Modülasyon, 20 sn periyotlu kilitsiz yarım sinüs tremor, A = 1 ve 3, 100 pencere, 200 kaydırma | p ≤ 0,01 oranı ∈ [0,25, 0,65] (şart değil, oran yazılır; dışına düşerse kod incelenir) | A = 1: 0,39 / 0,38; A = 3: 0,47 / 0,36 | boş dağılım dairesel kaydırma yerine faz serisinin karıştırılması: A = 1: 0,88; A = 3: 0,74 |
-| D6 | Yapay yerel deprem (ani başlangıç, C ×20 ve ×100 sıçrama, 5 sn e-katlı sönüm), katalogsuz, 100 pencere | algılanmama ya da darbeyle atılma ≥ 0,95; aynı olay katalogdaysa maske ile atılma 1,00 | ×20: 1,00 / 1,00 (algılama 0,00 / 0,00); ×100: 1,00 / 1,00 (algılama 0,48 / 0,48, algılananların hepsi darbeyle); katalogda maske ile 1,00 / 1,00 | darbe kuralı 5 sn yumuşatılmış C'de: ×100: 0,52 / 0,52 (×20'de 1,00 / 1,00: ayırt etmez) |
-| D6b | Yapay yerel deprem; P tepenin 1/4'ü, S–P = 3, 5 ve 8 sn; ×20 (şart) ve ×100; katalogsuz; 100 pencere | algılanmama ya da darbeyle atılma ≥ 0,95 (×20'de üç S–P; ×100'de S–P = 8) | ×20, S–P 3 / 5 / 8: 1,00 / 1,00; 1,00 / 1,00; 1,00 / 1,00; ×100, S–P 8: 0,96 / 0,97; ×100, S–P 3 / 5 (bilgi, şart dışı, §17 S9): 0,00 / 0,00; 0,29 / 0,27 | yumuşatılmış C: ×100, S–P 8: 0,00 / 0,00 (×20, S–P 8: 0,97 / 0,98: ayırt etmez) |
+| D6 | Yapay yerel deprem (ani başlangıç, C ×20 ve ×100 sıçrama, 5 sn e-katlı sönüm), katalogsuz, 100 pencere | **×100'de** algılanmama ya da darbeyle atılma ≥ 0,95; aynı olay katalogdaysa maske ile atılma 1,00. ×20 yalnız bilgidir (olay algılanmadığı için darbe kuralını sınamaz) | ×100: 1,00 / 1,00 (algılama 0,48 / 0,48, algılananların hepsi darbeyle; İNCELEME-2 tohum 777007: 1,00, algılama 0,51); katalogda maske ile 1,00 / 1,00; bilgi ×20: 1,00 / 1,00 (algılama 0,00 / 0,00) | darbe kuralı 5 sn yumuşatılmış C'de: ×100: 0,52 / 0,52 (777007: 0,49) |
+| D6b | Yapay yerel deprem; P tepenin 1/4'ü, S–P = 3, 5 ve 8 sn; ×20 ve ×100; katalogsuz; 100 pencere | **×100, S–P = 8: algılanmama ya da darbeyle atılma ≥ 0,90.** ×20 (bütün S–P'ler) ve ×100 S–P 3 / 5 yalnız bilgidir (§17 S9) | ×100, S–P 8: 0,96 / 0,97 (İNCELEME-2 tohum 777001 / 777002: 0,96 / 0,98); bilgi: ×20, S–P 3 / 5 / 8: 1,00 / 1,00 her biri (algılama 0,00–0,03); ×100, S–P 3 / 5: 0,00 / 0,00; 0,29 / 0,27 | yumuşatılmış C: ×100, S–P 8: 0,00 / 0,00 |
 | D7 | Yapay tremor A_etkin = 10 (yarım sinüs), 100 pencere; tremor W sonundan ≥ 60 sn önce biter; §6.5'in 2, 3 ve 3a kurallarıyla | darbe, sızıntı ya da taban kaymasıyla atılma ≤ 0,03 | 0,00 / 0,00 (algılama 1,00 / 1,00) | darbe ön şartı c_p/2: 0,08 / 0,11 |
 | D7b | Patlamalı tremor (5–15 sn patlamalar, aralıklar üstel ortalama 15 sn, 2 sn kenar yükselmesi), A_etkin = 3, 10 ve 30 | darbe ya da sızıntıyla atılma ≤ 0,03 | A = 3: 0,00 / 0,00; A = 10: 0,00 / 0,00; A = 30: 0,01 / 0,00 | darbe ön şartı c_p/8 yerine c_p/2: A = 3: 0,05 / 0,05; A = 10: 0,05 / 0,09; A = 30: 0,09 / 0,08 |
-| D7c | Spektrumu 0,5–8 Hz'te düz tremor, A_etkin = 3 ve 10; Gauss ve kentsel gürültü | sızıntıyla atılma ≤ 0,05 | A = 3 Gauss: 0,00 / 0,00; A = 10 Gauss: 0,00 / 0,00; A = 3 kentsel: 0,00 / 0,00; A = 10 kentsel: 0,00 / 0,00 | İNCELEME-1 metni (Δ küme aralığı I'nın medyanıyla): A = 3 Gauss: 0,44 / 0,42; A = 10 Gauss: 0,22 / 0,24; A = 3 kentsel: 0,09 / 0,14; A = 10 kentsel: 0,14 / 0,17; sürüm 1'in z kuralı: A = 3 Gauss: 0,00 / 0,00; A = 10 Gauss: 0,00 / 0,00; A = 3 kentsel: 0,13 / 0,18; A = 10 kentsel: 0,33 / 0,35 |
+| D7c | Spektrumu 0,5–8 Hz'te düz tremor, A_etkin = 3 ve 10; Gauss ve kentsel gürültü | sızıntıyla atılma ≤ 0,05 | A = 3 Gauss: 0,00 / 0,00; A = 10 Gauss: 0,00 / 0,00; A = 3 kentsel: 0,00 / 0,00; A = 10 kentsel: 0,00 / 0,00 | İNCELEME-1 metni (Δ küme aralığı I'nın medyanıyla): A = 3 Gauss: 0,44 / 0,42; A = 10 Gauss: 0,22 / 0,24; A = 3 kentsel: 0,09 / 0,14; A = 10 kentsel: 0,14 / 0,17; sürüm 1'in z kuralı: A = 3 Gauss: 0,00 / 0,00; A = 10 Gauss: 0,00 / 0,00; A = 3 kentsel: 0,13 / 0,18; A = 10 kentsel: 0,33 / 0,35. İNCELEME-1 değişkesini ayıran satırlar Gauss satırlarıdır. Kentsel A = 3'te bu değişke bağımsız bir tohumla 0,04 verdi (İNCELEME-2 tohum 777005). |
 | D7d | Yapay bölgesel deprem kodası (0,5–8 Hz, genlik ∝ f⁻¹, 1 sn yükselme, 40 sn e-katlı sönüm, ×20); Gauss ve kentsel | sızıntıyla atılma ≥ 0,95 | Gauss: 1,00 / 1,00; kentsel: 1,00 / 1,00 | eşitsizlik ters (Δ_y ≥ Δ_d): Gauss: 0,00 / 0,00; kentsel: 0,00 / 0,00 |
 | D8 | Birim: sıfır gürültüye 100 nm/s RMS 2–8 Hz bileşen; bilinen duyarlılık | ölçülen RMS ±%5; §6.6 PGV'si bilinen PAZ yanıtlı 20 sn sinüste ±%5 | — | — |
 | D9 | Pencere: bilinen Δ ve T0 | W ve R listedeki değere ±1 sn; 2026 sınırı ihlali kodu durdurur | — | — |
 | D10 | Kestirici (§7.5, I′), A_etkin = 3, 100 pencere; sabit ve yarım sinüs tremor | kestirilen / A_300 ∈ [0,90, 1,15] (ikisinde de) | sabit 1,03 / 1,03; yarım sinüs 1,04 / 1,04 | I (±60 sn): sabit 0,87 / 0,87; yarım sinüs 0,88 / 0,88; payda A_etkin: yarım sinüs 0,735 / 0,735 |
 | D11 | Bant ve hüküm cümlesi üretici: elle kurulmuş senaryolar (§8'in her dalı, K1'in (a)–(d) dalları ve ölçek uyarısı ön eki dahil) | metin birebir | — | — |
 | D12 | 3 istasyon, 100 pencere; W içine eş zamanlı (istasyonlar arası ±2 sn) yapay teleseismik P zarfı: ani başlangıç, C ×5 sıçrama, 60 sn e-katlı sönüm | maskesiz algılanır; olay katalogda (M ≥ 7,0 kuralı, +240 sn) iken maske ile atılma 1,00 | maskesiz algılama 1,00 / 1,00; maske ile atılma 1,00 / 1,00 | maske kuyruğu +60 sn: 0,00 / 0,00 |
-| D12b | Aynı, 6,0 ≤ M < 7,0 vekili: C ×2, ×3, ×5 sıçrama, 30 sn e-katlı sönüm; ×5 ve 60 sn sönüm (bilgi) | 30 sn sönümlülerde +60 sn maske ile atılma ≥ 0,95 | ×2: 1,00 / 1,00; ×3: 1,00 / 1,00; ×5: 1,00 / 1,00; bilgi ×5, 60 sn sönüm: 0,00 | maske kuyruğu +30 sn: ×2: 1,00 / 1,00; ×3: 1,00 / 1,00; ×5: 0,38 / 0,32 |
+| D12b | Aynı, 6,0 ≤ M < 7,0 vekili: C ×2, ×3, ×5 sıçrama, 30 sn e-katlı sönüm; ×5 ve 60 sn sönüm (bilgi) | 30 sn sönümlülerde +60 sn maske ile atılma ≥ 0,95. Bilinen yanlış kodu ayıran satır ×5'tir; ×2 ve ×3 ayırmaz. Kuyruk uzunluğunun asıl denetimi D12c'dir | ×2: 1,00 / 1,00; ×3: 1,00 / 1,00; ×5: 1,00 / 1,00 (İNCELEME-2 tohum 777003: 1,00); bilgi ×5, 60 sn sönüm: 0,00 | maske kuyruğu +30 sn: ×5: 0,38 / 0,32 (777003: 0,32); ×2 ve ×3: 1,00 (ayırmaz) |
+| D12c | E1 maskesi birim sınaması (deterministik). Elle kurulmuş katalog: M 6,95, 6,99, 7,00 ve 7,9 olaylar; P ve S varışları; tetikleyicinin kendisi; tetikleyiciye ±5 sn içinde M ≥ 7,0 ikinci kimlikli kayıt; Wharton biriminin öteki olayı; W dışında kalan bir varış. Ayrıca koşu kodu, tetikleyici ve Parkfield pencerelerinin maskesini `tr7_e1_maske.csv`'den segment orta noktasıyla kurar | Elle kurulmuş katalogda maskelenen saniye kümesi, §6.5.1a'dan elle hesaplanan kümeyle birebir aynı. Gerçek varışlarda W maskeli payı ve K1 aralığının maskeli payı ±0,001 içinde: Tohoku S1 / S2 / S3 0,664 / 0,654 / 0,645; Parkfield W 0,578; K1 aralığı [06:16:01, 06:31:48] 0,647 (613 / 947 sn) | — | +30 sn kuyruk, M 6,x S'nin maskelenmesi (Parkfield W 0,791) ya da 7,0 sınırının "> 7,0" yazılması birebir karşılaştırmada kalır |
 | D13 | MDA basamak kuralı (§7.4): A_300 basamakları 10^(j/20), yarım sinüs, 3 istasyon, tam ayıklama | A50_basamak ∈ [0,42, 0,48], A90_basamak ∈ [0,44, 0,53] | A50 0,447 / 0,447, A90 0,501 / 0,501 (ara değerlemeyle A50 0,427 / 0,425, A90 0,474 / 0,459) | sürüm 1 basamağı 10^(j/8): A50 = A90 = 0,562 / 0,562 |
 | D14 | Yanıtla çarpılmış enjeksiyon (§7.4): kanal yanıtı 4,5 Hz jeofon (g = 0,20 / 0,63 / 0,88 / 0,96, f = 2 / 4 / 6 / 8 Hz); A50 yer biriminde (A_300), iki bağımsız tohumun oranı | A50(tohum 2) / A50(tohum 1) ∈ [0,93, 1,07] ve A50 ∈ [0,55, 0,67] | A50 0,610 / 0,606 (oran 0,994); A90 0,652 / 0,630 | yanıtsız düz enjeksiyon: A50 0,428 / 0,430 (yanıtlının 0,70 katı: A90 bu kadar iyimser çıkar) |
+| D15 | Taban kayması (§6.5.3a): tremor yok; 3 istasyon, 100 pencere; 2–8 Hz gürültü W başından 300 sn sonra 900 sn içinde doğrusal ×2'ye yükselir, W sonuna kadar ×2 kalır; (a) maskesiz, (b) W'nin son 120 sn'si maskeli | ayıklamasız algılama ≥ 0,90 ve 3a ile atılma ≥ 0,95, (a)'da ve (b)'de | algılama 1,00; (a): 1,00 / 1,00; (b): 1,00 / 1,00 (İNCELEME-2 `tr7_inc2_taban.py`, tohum 9201 / 9202 ve 9203 / 9204) | 3a yok: atılma 0,00 (darbe ve sızıntıdan sağ 1,00; `tr7_inc2_taban_ek.py`, tohum 9301 / 9302, 50 pencere); sürüm 2'nin "W sonu − 60" tanımı (b)'de: 0,00 / 0,00 |
 
-Bilgi satırları (şart değil): R'den W sonuna doğrusal ×2 yükselen 2–8 Hz gürültü (Ö4), 100 pencere: ayıklamasız algılama 0,00; taban kuralı bu gürültüde sınanamadı (algılama yok). 20 sps BH
+Bilgi satırları (şart değil): R'den W sonuna doğrusal ×2 yükselen 2–8 Hz gürültü (Ö4), 100 pencere: ayıklamasız
+algılama 0,00. Bu eğim W içinde tutarlı küme kuramayacak kadar küçüktür, 3a'yı sınamaz. 3a'nın ayırt edici
+denetimi D15'tir. 20 sps BH
 benzeri yanıtta (7 Hz'te dik alçak geçiren; g = 1,00 / 1,00 / 0,98 / 0,25) düz enjeksiyonun A50'si yanıtlıdan
 0,429 / 0,443 = 0,97 katıdır.
+
+**Sürüm 3 doğrulaması (İNCELEME-2 ile yeni ya da yeniden tanımlanan satırlar; `tr7_onkayit_denetim3_kos.py`, çıktı
+`tr7_onkayit_denetim3.json`; iki bağımsız tohum 20261112 + 500 + i ve 6262 + i, 100 pencere; bilinen yanlış kod aynı
+pencerelerde).** D6 ×100: algılanmama ya da darbeyle atılma 1,00 / 1,00 (algılama 0,49 / 0,55); katalogda maske ile 1,00 / 1,00; yanlış (yumuşatılmış C) 0,51 / 0,45. D6b ×100, S–P 8: 0,95 / 0,97 (bant ≥ 0,90; ilk tohumun değeri eski ≥ 0,95 bandının tam sınırında, İ2-E2'nin öngördüğü durum); yanlış 0,00 / 0,00. D15 (a) maskesiz: algılama 1,00 / 1,00, 3a (W′_son) ile atılma 1,00 / 1,00; yanlış: 3a yok 0,00 / 0,00. D15 (b) son 120 sn maskeli: algılama 1,00 / 1,00, 3a (W′_son) ile atılma 1,00 / 1,00; yanlış: 3a yok 0,00 / 0,00, sürüm 2'nin "W sonu − 60" tanımı 0,00 / 0,00. D12c (`tr7_onkayit_d12c.py`, rastgele katalog tohumları 20261616 / 6266): elle kurulmuş katalogda maskelenen küme elle hesaplanan kümeyle birebir aynı (bağımsız kaba kuvvet uygulaması da birebir); tohumlu rastgele kataloglarda 20/20 ve 20/20 birebir; gerçek varışlarda Tohoku S1 / S2 / S3 0,665 / 0,654 / 0,645, Parkfield W 0,578, K1 aralığı 0,647 (613 / 947 sn), hepsi ±0,001 içinde. Yanlış kodlar: +30 sn kuyruk (Parkfield W 0,457), M 6,x S'si (Parkfield W 0,791), "> 7,0" (elle katalogda 430 sn fark; Tohoku ve Parkfield pencerelerinde M = 7,0 olay yok), ikiz kaydın dışlanmaması ve Wharton'ın öteki olayının dışlanması: hepsi birebir karşılaştırmada kalır. Doğru kod her satırda bandın içinde, bilinen yanlış kod
+bandın dışındadır; hiçbir denetim "bilgi"ye indirilmedi. D15'in (a) satırında sürüm 2 tanımı maskesiz pencerede doğru
+kodla aynı sonucu verir (W′_son = W sonu); ayıran (b) satırıdır.
 
 D2'nin bandı (≈ ±%9) eşik çarpanı 4σ yerine 3σ ya da 5σ kullanan bir kodu ayırır (yapayda A50 0,52 / 0,70) ve yanlış
 birim ya da yumuşatmasız zarf gibi kaba hataları yakalar. Bağımsız tohumlarla yinelendi (İNCELEME-1 §E: P(0,596) =
@@ -371,15 +406,26 @@ formundan önce. Aynı kod, aynı sabitler; istasyonlar `tr7_parkfield_liste.csv
 - (b) Tohoku penceresinde, aşım aralığı I′ (§6.3) **[2011-03-11T06:16:01, 06:31:48] UTC** aralığıyla kesişen en az
   bir algılama varsa (§6.3 ve §6.5, E1 maskesi dahil; aralık, iz ortasında T0 + Δ/4,6 km/s ile T0 + Δ/3,0 km/s
   arasıdır, Δ = 8171,4 km, en yakın saniyeye yuvarlanmış; `tr7_onkayit_sayilar.json` `parkfield.K1_araligi`;
-  İNCELEME-1'deki 06:16:00 kesilmiş değerdir): **K1 GEÇTİ**. Ayrıca Parkfield'ın negatif pencerelerinde
+  İNCELEME-1'deki 06:16:00 kesilmiş değerdir): **K1 GEÇTİ**. N_PK, ≥ 3 istasyonu kalan Parkfield negatif
+  pencerelerinin sayısıdır. f_PK bunlardan W'nin herhangi bir yerinde algılama (§6.3, §6.5) verenlerin sayısıdır.
+  N_PK < 5 ise K1 "geçti, ayırt edici değil" yazılır. Ayrıca Parkfield'ın negatif pencerelerinde
   FAR_PK = f_PK / N_PK > 0,30 ise (N_PK = 10'da f_PK ≥ 4) K1 **"geçti, ayırt edici değil"** olarak yazılır ve
   Marmara'da "VAR" hükmü verilemez (en çok "aday").
+- (b′) **Belirsiz geçme.** (b)'yi sağlayan kümelerin hepsinde I′ başı şu iki durumdan birindeyse K1 **"geçti,
+  belirsiz (cisim dalgası açıklaması dışlanamadı)"** olarak yazılır:
+  (i) bir E1 maske aralığının bitişinden sonraki ilk 5 sn içinde (0 ≤ I′ başı − maske sonu ≤ 5 sn);
+  (ii) tetikleyicinin kendi PKKP, SKKP, PKKS, PKIKPPKIKP ya da PKPPKP varışının [−10, +120] sn içinde. Varışlar
+  iasp91 ile, olay derinliğinde, iz köşe ortalamasına hesaplanır; Parkfield'da PKKP 06:17:29, PKIKPPKIKP 06:25:30
+  UTC (öteki üç faz taup'ta bu uzaklıkta yok).
+
+  Bu durumda Marmara verisi indirilir, ama Marmara'da "VAR" verilemez (en çok "aday") ve her "görülmedi" cümlesinin
+  sonuna "(K1 yalnız belirsiz geçti)" eklenir. (b′), "geçti, ayırt edici değil" etiketiyle birlikte de yazılabilir.
 - (c) Algılama yoksa ve Parkfield MDA'sı (§7.4 yöntemi, Parkfield negatif pencerelerinde) tanımlıysa ve
   A90_PK ≤ 100 µm/s ise: **"ölçü sınanamadı (Tohoku tremoru Parkfield yüzey ağının gürültüsünde görülmedi;
   A90_PK = [..] nm/s)"**.
 - (d) Öteki durumlar: **"ölçü sınanamadı (yöntem)"**.
 
-(b) dışındaki her durumda Marmara verisi indirilmez.
+(b) dışındaki her durumda Marmara verisi indirilmez ((b′), (b)'nin bir alt durumudur; Marmara verisi indirilir).
 
 **Uygulama hatası yolu (bir kez).** K1 (c) ya da (d) ile kalırsa ve kodun bu metne aykırı olduğu, K1 verisine
 bakılmadan yazılmış bir yapay denetimle gösterilirse, kod bir kez düzeltilir. Düzeltme bağımsız kod incelemesinden
@@ -388,12 +434,19 @@ kullanılır ve "K1 sonrası düzeltme" başlığıyla kayda geçer.
 
 **Tanı satırları (K1'i değiştirmez).** Tohoku penceresinde ayıklamadan önceki küme sayısı ve her kümenin atılma nedeni
 (maske, darbe, sızıntı, taban); K1'i geçiren her kümenin I′'su içine düşen M 6,0–6,9 P varışları (§3.4) ve
-maskelenmeyen M 6,0–6,9 S varışları. HRSN (BP) kuyu koşusu bu sürümde yapılmaz (§17 S2).
+maskelenmeyen M 6,0–6,9 S varışları;
+- K1 kümelerinin her biri için I′ başı ile ondan önceki en yakın E1 maske sonu arasındaki süre;
+- tetikleyicinin kendi çekirdek fazlarına (b′ ii) en yakın uzaklık;
+- BK.PKD'nin (`iz_sira` 14, 12 sınırının dışında; Hill 2013'ün kaydı bildirdiği istasyon) Tohoku penceresindeki
+  istasyon aşımları.
+
+HRSN (BP) kuyu koşusu bu sürümde yapılmaz (§17 S2).
 
 **Bilgi satırları (K1'i değiştirmez).** Parkfield modülasyon p'si ("Parkfield modülasyonu geçti" = K1 aralığıyla kesişen
 Tohoku kümelerinden en az birinde p ≤ 0,01; K7); Parkfield FAR_PK; tremor genliği A_PK (§7.5); A90_PK; τ_ölç / kaba τ
 (Parkfield–Tohoku, §6.6 ile; uygun istasyon yoksa "ölçülemedi"). **Parkfield modülasyonu geçmezse Marmara'da "VAR"
-hükmü verilemez, en çok "aday (modülasyon ölçüsü pozitif kontrolde doğrulanmadı)" yazılır.**
+hükmü verilemez, en çok "aday (modülasyon ölçüsü pozitif kontrolde doğrulanmadı)" yazılır.** Parkfield modülasyonu
+"ölçülemedi" ise "geçmedi" sayılır.
 
 **7.3 K2, negatif kontrol.** Her birim (Kahramanmaraş bilgi birimleri dahil) için 10 pencere; liste sürüm 2 ile
 donduruldu (§3.3). Seçim kuralı: aday kaydırmalar d ∈ {−30, …, −1, +1, …, +30} gün (tam gün: aynı UTC saati, R ve W
@@ -421,7 +474,10 @@ dosyaya yazılır.
 eklenir. Model: kaynak segment orta noktasının 25 km altında; istasyon i'de genlik A·25/r_i (r_i hiposantr uzaklığı),
 varış gecikmesi r_i / 3,5 km/s; üç bileşende eşit RMS, her istasyon ve bileşende bağımsız Gauss gerçekleşmesi, 2–8 Hz
 süzülmüş; zarf 300 sn, 20 sn periyotlu yarım sinüs, 10 sn kenar yumuşatma (yapay sınamayla aynı); başlangıç W'nin
-göreli konumunda U[60, |W| − 360] sn. Üreteç `default_rng(20261112 + 2)`. Parkfield'da her algılama vermemiş negatif
+göreli konumunda U[60, |W| − 360] sn. Üreteç `default_rng(20261112 + 2)`. Çekiliş sırası: önce Parkfield (negatif
+pencereler `tr7_negatif_pencere.csv` sırasıyla, pencere başına üç başlangıç), sonra Marmara (segment S1…S7, birimler ana
+şok T0 sırasıyla, pencereler `sira` ile). Her denemede önce başlangıç, sonra istasyon ve bileşen sırasıyla (`iz_sira`;
+Z, N, E) Gauss gerçekleşmeleri çekilir. Algılama veren ya da düşen pencere için çekiliş yapılmaz. Parkfield'da her algılama vermemiş negatif
 pencereye aynı üreteçle üç ayrı başlangıç çekilir (deneme = pencere × başlangıç); Marmara'da pencere başına bir başlangıç.
 **A basamakları 10^(j/20) nm/s, j = 0…100** (1 nm/s – 100 µm/s). Yapay tremor eklenmeden önce, frekans ortamında
 kanalın StationXML yanıtının normalize edilmiş karmaşık değeri H(f)/InstrumentSensitivity ile çarpılır; böylece veri ile
@@ -474,29 +530,38 @@ Sıra:
 2. bant = veri yok (n < 5) → **"veri yok"** (bulgular bilgi satırı).
 3. N < 5n → **"ölçü güvenilmez (negatif kontrol yetersiz)"** (bulgular bilgi satırı).
 4. K2 kaldı → **"ölçü güvenilmez"** (bulgular bilgi satırı).
-5. X_min var ve X_mod ≥ X_min(n, f) ve Parkfield modülasyonu geçti ve K1 "ayırt edici değil" değil ve uzun periyot
-   başvuru istasyonu var → **"tetiklenmiş tremor VAR"**.
+5. X_min var ve X_mod ≥ X_min(n, f) ve Parkfield modülasyonu geçti ve K1 "ayırt edici değil" değil ve K1 "belirsiz"
+   (§7.2 b′) değil ve uzun periyot başvuru istasyonu var → **"tetiklenmiş tremor VAR"**.
 6. X_alg ≥ 1 ve 5 sağlanmıyor → **"aday, doğrulanmadı"** (X_alg = 1 ise her durumda bu).
 7. X_alg = 0 → **"görülmedi"**.
 
-Dışlama oranı: n birimde algılama yoksa, tetikleyici başına ≥ p_min olasılıkla A90'ı aşan tremor üreten bir kaynak %95
-düzeyinde dışlanır; p_min = (1 − 0,05^(1/n)) / 0,9. Değerler: n 5 → 0,50; 6 → 0,44; 7 → 0,39; 8 → 0,35; 9 → 0,32;
-10 → 0,29.
+Dışlama oranı: n birimde algılama yoksa, tetikleyici başına ≥ p_min olasılıkla A90'ı aşan tremor üreten bir
+kaynak %95 düzeyinde dışlanır; p_min = (1 − 0,05^(1/n_açık)) / 0,9. n_açık, taranan ana birimlerden W'sinin
+maskeli payı (§6.5.1 ve 1a birlikte, segment orta noktasıyla, §9.1) ≤ 0,50 olanların sayısıdır. MDA'nın ölçüldüğü
+negatif pencerelerde E1 yalnız M 6,0–6,4 P'lerini kapattığı için, W'sinin yarısından çoğu maskeli bir birim
+A90 duyarlılığıyla taranmış sayılmaz. Bu kural n'yi ve bandı değiştirmez. Değerler: n_açık 5 → 0,50; 6 → 0,44;
+7 → 0,39; 8 → 0,35; 9 → 0,32; 10 → 0,29. n_açık < 5 ise dışlama cümlesi yerine "dışlama hesaplanmadı (W'si
+yarıdan az maskeli birim < 5)" yazılır. Önsayımda Tohoku'nun S1–S3 W'si %65–66 maskeli olduğundan n_açık
+S1 / S2 / S3 için 8 / 7 / 7, p_min 0,35 / 0,39 / 0,39'dur. (Koddan: `tr7_onkayit_sayilar3.py`,
+`tr7_onkayit_sayilar3.json`; önsayımda §6.5.1'in yerel katalog maskesi henüz yoktur, pay yalnız 1a'dan.)
 
 **Hüküm kalıpları (yalnız bu biçimlerde; köşeli yerler koddan doldurulur):**
 - VAR: "S_k: tetiklenmiş tremor VAR. n bağımsız tetikleyicinin X_mod'unda, yerel deprem ve teleseismik cisim dalgası
   maskesi ile darbe/sızıntı/taban ayıklamasından sonra ≥3 istasyonda tutarlı ve yüzey dalgasıyla eş periyotlu
   modülasyonlu (p ≤ 0,01; ölçü faz kilidini 20 sn periyodik, kilitsiz modülasyondan ayıramaz, yapayda yanlış pozitif
-  0,33–0,56) 2–8 Hz tremor; negatif kontrolde FAR = f/N; kaba τ ≥ [en küçük algılayan birimin kaba τ'su] kPa
+  0,33–0,56) 2–8 Hz tremor (tetiklenmiş yerel mikrodeprem kümesi darbe kuralının ayırabildiği kadar dışlandı); negatif kontrolde FAR = f/N; kaba τ ≥ [en küçük algılayan birimin kaba τ'su] kPa
   (ölçülen τ ≥ [..] kPa)."
 - Aday: "S_k: aday, doğrulanmadı. [X_alg] tetikleyicide algılama; negatif kontrole göre n tetikleyicide beklenen yanlış
   algılama n·f/N = [..], P(Bin(n, p_üst) ≥ X_alg) = [..]; VAR şartlarından sağlanmayan: [liste]."
-- Görülmedi: "S_k: kaba τ ≥ X kPa üstündeki n bağımsız tetikleyicide tetiklenmiş tremor görülmedi; algılanabilir en
-  küçük genlik A90 = [..] nm/s (25 km'de, 300 sn boyunca 2–8 Hz RMS; A50 = [..]); tetikleyici başına ≥ p_min
-  olasılıkla bu genliği aşan tremor üreten bir kaynak %95 düzeyinde dışlanır. [bant zayıfsa: 'zayıf bant'.] Ölçek
+- Görülmedi: "S_k: kaba τ ≥ X kPa üstündeki n bağımsız tetikleyicide (n_açık'ının W'si en az yarı yarıya maskesiz)
+  tetiklenmiş tremor görülmedi; algılanabilir en küçük genlik A90 = [..] nm/s (25 km'de, 300 sn boyunca 2–8 Hz RMS;
+  A50 = [..]); tetikleyici başına ≥ p_min(n_açık) olasılıkla bu genliği aşan tremor üreten bir kaynak %95 düzeyinde
+  dışlanır. [bant zayıfsa: 'zayıf bant'.] Ölçek
   uyarısı: kaba τ ×1/3 alınırsa [n₁/₃] birim ≥ 2 kPa ([bant₁/₃]); ölçülen τ ile [n_ölç] birim ≥ 2 kPa ([bant_ölç]);
   Parkfield–Tohoku'da τ_ölç / kaba τ = [..]." Burada X = kaba τ₍ₙ₎ (taranan ana birimlerin en küçük kaba τ'su).
-  bant₁/₃ ya da bant_ölç "veri yok" ise cümle "S_k (yalnız kaba τ ölçeğinde):" ile başlar.
+  bant₁/₃ ya da bant_ölç "veri yok" ise cümle "S_k (yalnız kaba τ ölçeğinde):" ile başlar. n_açık < 5 ise dışlama
+  yan cümlesinin yerine "dışlama hesaplanmadı (W'si yarıdan az maskeli birim < 5)" yazılır. K1 (b′) ile geçtiyse
+  cümlenin sonuna "(K1 yalnız belirsiz geçti)" eklenir (§7.2).
 - Veri yok / ölçü güvenilmez / ölçü sınanamadı: o sözcüklerle (parantez içi nedeniyle), ardından bilgi satırları.
 - **Zorunlu ×1/3 satırı** (her segment, her hükümde): "Kaba τ ×1/3 alınırsa [n₁/₃] birim ≥ 2 kPa (bant: ..)." ×3
   satırı da yazılır (alt sınır notuyla).
@@ -505,50 +570,84 @@ Marmara özeti (S1–S3 birlikte): en az bir segment VAR ve o segmentte X_mod �
 gerilmeye duyarlı derin kayma bölgesi gözlendi"; üçü de "görülmedi" ise "bu duyarlılıkla (A90 ve kaba τ değerleriyle)
 gözlenmedi"; özete giren bir segmentte "(yalnız kaba τ ölçeğinde)" ön eki varsa özet cümlesi "bu duyarlılıkla (A90 ve
 kaba τ değerleriyle; kaba τ ölçeği ×1/3'te ya da ölçülen τ ile veri yok bandında) gözlenmedi" olur; öteki durumlarda
-segment satırları özetsiz yazılır. S4–S7 ikinci satırlardır, özete girmez. S5/S6'da 2005–2008 birimleri (Kashmir 2005,
+segment satırları özetsiz yazılır. S4–S7 ikinci satırlardır, özete girmez. Her segmentin "VAR" cümlesinin sonuna
+"(segment düzeyi α = 0,05; yedi segment için düzeltilmedi; X_min^(0,05/7) = [..], [sağlandı | sağlanmadı])" eklenir.
+X_min^(0,05/7) aynı tanımla, kuyruk eşiği 0,00714 ile hesaplanır. N = 10n'de f = 0…5 için: n = 5: 3, 3, 4, K2, K2,
+K2; n = 6: 3, 4, 4, 4, K2, K2; n = 7: 3, 4, 4, 4, K2, K2; n = 8: 3, 4, 4, 4, 5, K2; n = 9: 3, 4, 4, 4, 5, K2;
+n = 10: 3, 4, 4, 4, 5, 5. (Koddan: `tr7_onkayit_sayilar3.json` `X_min_tablo_005_7`.) S5/S6'da 2005–2008 birimleri (Kashmir 2005,
 Kuril 2006, Kuril 2007, Bengkulu 2007; YL verisi, Pfohl 2015'in incelediği veri) ayrı satırda "yöntem karşılaştırması,
 bağımsız değil" diye yazılır; S5/S6'nın bağımsız satırı yalnız 2009 sonrası birimlerle (S5: Kamçatka, Chignik, n = 2;
 S6: Kamçatka, n = 1) kurulur ve bant kuralına tabidir: önsayımda ikisi de "veri yok". Kahramanmaraş satırları ayrı ve
 yalnız bilgi.
 
+**Hüküm ve K1 etiketleri: özet tablo.** Bu tablo §7.2 ve §8'in kurallarını bir arada gösterir, yeni kural içermez;
+çelişkide §7.2 ve §8'in metni geçerlidir.
+
+| Durum (kural) | Yazılan kalıp | Marmara koşusuna ve hükmüne etkisi |
+|---|---|---|
+| K1 (b), (b′) değil, ayırt edici | "K1 GEÇTİ" | Marmara verisi indirilir; §8 sırasının bütün hükümleri verilebilir |
+| K1 (b′) | "geçti, belirsiz (cisim dalgası açıklaması dışlanamadı)" | Marmara verisi indirilir; "VAR" verilemez (en çok "aday"); her "görülmedi" cümlesinin sonuna "(K1 yalnız belirsiz geçti)" |
+| K1 (b) ve FAR_PK > 0,30 ya da N_PK < 5 | "geçti, ayırt edici değil" ((b′) şartı da sağlanıyorsa iki etiket birlikte yazılır) | Marmara verisi indirilir; "VAR" verilemez (en çok "aday"); (b′) de varsa iki etki birlikte |
+| Parkfield modülasyonu geçmedi ya da "ölçülemedi" (bilgi satırı; K1 dalını değiştirmez) | "Parkfield modülasyonu geçmedi" | "VAR" verilemez; en çok "aday (modülasyon ölçüsü pozitif kontrolde doğrulanmadı)" |
+| K1 kaldı: (a), (c) ya da (d) | "ölçü sınanamadı (Parkfield verisi yok)" / "ölçü sınanamadı (Tohoku tremoru … görülmedi; A90_PK = [..] nm/s)" / "ölçü sınanamadı (yöntem)" | Marmara verisi indirilmez; bütün segmentler "ölçü sınanamadı ([K1 nedeni])"; (c) ve (d)'de uygulama hatası yolu bir kez |
+| Segment: n < 5 | "veri yok" | bulgular bilgi satırı |
+| Segment: N < 5n | "ölçü güvenilmez (negatif kontrol yetersiz)" | bulgular bilgi satırı |
+| Segment: K2 kaldı | "ölçü güvenilmez" | bulgular bilgi satırı |
+| Segment: §8 sıra 5 sağlandı | "tetiklenmiş tremor VAR" (+ "(segment düzeyi α = 0,05; …; X_min^(0,05/7) = [..], [sağlandı \| sağlanmadı])") | özete ancak X_mod ≥ X_min^(0,05/3) ise "gözlendi" olarak girer |
+| Segment: X_alg ≥ 1, sıra 5 sağlanmadı | "aday, doğrulanmadı" | özete girmez; segment satırı özetsiz yazılır |
+| Segment: X_alg = 0 | "görülmedi" (dışlama p_min(n_açık) ile; n_açık < 5 ise "dışlama hesaplanmadı (W'si yarıdan az maskeli birim < 5)") | S1–S3'ün üçü de "görülmedi" ise özet "bu duyarlılıkla (A90 ve kaba τ değerleriyle) gözlenmedi"; özete giren bir segmentte "(yalnız kaba τ ölçeğinde)" ön eki varsa §8'deki uzun özet cümlesi |
+
 ## 9. Çıktı tabloları
 
 `tr7_sonuc.json` ve `tr7_sonuc.md` (tek koşu, "x" kipinde):
 1. Birim × segment: birim, olay(lar), T0, M, kaba τ, kaba τ ×1/3, τ_ölç (ve uygun istasyon sayısı), örtüden geçen
-   istasyon sayısı ve 12 sınırıyla kullanılan, W'nin ve R'nin maskeli saniye payı (§6.5.1 ve 1a ayrı), küme sayısı,
+   istasyon sayısı ve 12 sınırıyla kullanılan, W'nin ve R'nin maskeli saniye payı (§6.5.1 ve 1a ayrı; payda: segment
+   orta noktasıyla, istasyon W'lerinin (R'lerinin) birleşimi), küme sayısı,
    ayıklanan küme (maske / darbe / sızıntı / taban), algılama E/H, modülasyon p, en uzun küme süresi, a (§7.5), o birimin
-   negatif pencerelerinde f/10.
-2. Segment: n, bant, n_ölç ve bant_ölç, N, f, FAR, p_üst, X_alg, X_mod, X_min ve X_min^(0,05/3), A50, A90 (deneme
+   negatif pencerelerinde f/10; her algılama kümesi için darbe sayılan istasyon payı ve istasyon başına
+   c_p / medyan_I′(C)'nin medyanı (bilgi).
+2. Segment: n, n_açık ve p_min(n_açık), bant, n_ölç ve bant_ölç, N, f, FAR, p_üst, X_alg, X_mod, X_min,
+   X_min^(0,05/3) ve X_min^(0,05/7), A50, A90 (deneme
    sayısıyla), A90/A_PK, kaba τ₍ₙ₎, ×1/3 ve ×3 satırları, g ∉ [0,5, 2] olan kanal sayısı, hüküm cümlesi.
 3. K1 satırı ((a)–(d) dalı) ve Parkfield tanı ve bilgi satırları; KD sonuçları; manifest özeti (istek, HTTP dağılımı,
    bayt, düşen istasyon ve nedeni); negatif pencerelerin gün türü ve yerel saat farkı dağılımı (bilgi).
 
 ## 10. Koşu sırası, körlük, tek koşu
 
-1. Bu ön kayıt ikinci incelemeden geçer, düzeltilir, dondurulur, commit + push edilir.
+1. Bu ön kayıt iki bağımsız incelemeden geçti (İNCELEME-1, İNCELEME-2) ve düzeltildi (sürüm 3); "DONDURULDU"
+   başlığıyla commit + push edilir.
 2. Kod yazılır; **yalnız yapay veriyle** geliştirilir ve KD (§7.1) geçer. Gerçek hiçbir dalga formu (Parkfield dahil)
    indirilmez. Kod incelemesi yapılır ("koşulabilir" hükmü gerekir).
 3. Manifest (§3.5) üretilir ve commit edilir (üstveri ve katalog; dalga formu yok).
-4. K1: Parkfield indirilir ve işlenir. (b) dışındaki her dalda dur (§7.2).
-5. Marmara: indir–zarfla–sil; önce örtü ve K0-tam bandı yazılır, sonra negatif pencereler, K2 ve MDA yazılır, sonra
-   tetikleyici pencereleri işlenir, en son hüküm.
-6. **Tek koşu (Ö8).** Koşu kodu, her aşamanın başında depodaki `kayit/turetme/tr7/TR7_KOSU_DURUM.json` dosyasına aşama
-   adını yazar ve commit eder. Aşamalar: manifest, K1-indirme, K1-algılama, Marmara-indirme, Marmara-algılama, hüküm.
-   Aynı bilgi depo dışında bir bekçi dosyasına (`TR7_GERCEK_KOSU_BASLADI`) da yazılır. K1-algılama ya da
-   Marmara-algılama aşamasına bir kez girilmişse, koşu §7.2'deki uygulama hatası yolu dışında yeniden başlatılmaz. Bu
-   aşamalardan önce duran bir koşu, durma nedeni kayda geçtikten sonra kaldığı aşamadan sürdürülür. Bunun için kod
-   değişikliği gerekiyorsa yalnız indirme ve ayrıştırma katmanında yapılabilir ve "koşu öncesi düzeltme" başlığıyla
-   yazılır. Çıktı ne olursa olsun yazılır.
+4. K1: önce Tohoku penceresi indirilir ve zarflanır (algılama yok). Sonra Parkfield negatif pencereleri indirilir
+   ve işlenir (algılama, FAR_PK, MDA). En son Tohoku penceresinde algılama yapılır ve K1 dalı yazılır. (b) ve (b′)
+   dışındaki her dalda dur (§7.2).
+5. Marmara: önce bütün tetikleyici pencereleri indirilir ve zarflanır (algılama yok); örtü ve K0-tam bandı
+   yazılır. Sonra negatif pencereler indirilir ve işlenir; K2 ve MDA yazılır. Sonra tetikleyici pencereleri zarf
+   deposundan işlenir. En son hüküm.
+6. **Tek koşu (Ö8).** Koşu kodu her aşamanın başında, depodaki `kayit/turetme/tr7/TR7_KOSU_DURUM.json`
+   dosyasına aşama adını yazar, commit ve push eder. Push başarısızsa aşama başlamaz. Aşamalar sırayla şunlardır:
+   manifest, K1-indirme, K1-negatif, K1-algılama, Marmara-indirme, Marmara-negatif, Marmara-algılama, hüküm.
+   Aynı bilgi depo dışında bir bekçi dosyasına (`TR7_GERCEK_KOSU_BASLADI`) da yazılır. **Algılama aşamaları**
+   K1-negatif, K1-algılama, Marmara-negatif ve Marmara-algılama'dır. Bunlardan birine bir kez girilmişse koşu, §7.2'deki
+   uygulama hatası yolu dışında yeniden başlatılmaz. Bir algılama aşamasında duran koşu, durma nedeni kayda
+   geçtikten sonra kaldığı pencereden sürdürülür; o ana dek yazılmış algılama ve MDA satırları yeniden hesaplanmaz.
+   Algılama aşamalarından önce duran koşu kaldığı aşamadan sürdürülür. Her iki durumda da kod değişikliği yalnız
+   indirme ve ayrıştırma katmanında yapılabilir ve "koşu öncesi düzeltme" başlığıyla yazılır. Çıktı ne olursa olsun
+   yazılır.
    - **Servis hatası** (5xx, zaman aşımı; 204/404 değil): payın paydası manifest (d)'deki planlı istek sayısıdır. Pay
      %10'u aşarsa koşu, hiçbir algılama hesaplanmadan durur ve tek bir yeniden deneme turu yapılır. Yeniden deneme
      turundan sonra pay hâlâ %10'dan büyükse eksik istasyon-pencereler örtü kuralıyla (§4.2) düşer ve koşu sürer.
    - **Biçim hatası:** miniSEED ya da StationXML ayrıştırılamazsa ve payı (payda: HTTP 200 dönen istasyon-pencere
      sayısı) %1'i aşarsa, ya da §3'teki herhangi bir dosyanın sha256'sı uyuşmazsa, koşu hiçbir algılama hesaplanmadan
      durur; "veri yok" yazılmaz; yukarıdaki sürdürme kuralı geçerlidir.
+   - **Servis ve biçim hatası için ortak (İNCELEME-2):** Paylar her indirme yapan aşama (K1-indirme, K1-negatif,
+     Marmara-indirme, Marmara-negatif) için ayrı hesaplanır. Bir algılama aşamasında "hiçbir algılama hesaplanmadan
+     durur", "o aşamanın kalan pencereleri işlenmeden durur" demektir.
    - Herhangi bir algılama değeri görüldükten sonraki her kod değişikliği "koşu sonrası değişiklik" başlığıyla yazılır;
      tanım, eşik, liste ya da birim kuralı değişmez.
 
-Körlük beyanı: Ek 1 yoklamasında 935 adet 10 sn'lik Marmara isteği, sürüm 2 için 112 satırlık (120 HTTP isteği)
+Körlük beyanı (sürüm 3'te değişmedi; sürüm 3 için hiçbir dalga formu erişimi yapılmadı): Ek 1 yoklamasında 935 adet 10 sn'lik Marmara isteği, sürüm 2 için 112 satırlık (120 HTTP isteği)
 Parkfield yoklaması yapıldı; ikisinde de yalnız HTTP kodu ve bayt sayıldı, içerik çözülmedi ve diske yazılmadı. SAYIM
 §4'teki iki erişim denemesinin içeriği de açılmadı. Bugüne dek hiçbir Marmara ya da Parkfield dalga formu işlenmedi. E1
 ve negatif pencere önhesapları yalnız katalogdan. Yazar Kahramanmaraş'ın başka bölgelerde tremor tetiklediğini (Inbal
@@ -559,7 +658,9 @@ ve negatif pencere önhesapları yalnız katalogdan. Yazar Kahramanmaraş'ın ba
 En olası sonuç **"görülmedi"**dir ve bu önceden kabul edilir; ölçümün asıl ürünü A90 ve hangi kaba τ'nun üstünde kaç
 bağımsız tetikleyici tarandığıdır. Yazarın sınav öncesi güveni (Marmara özeti): görülmedi (tam ya da zayıf bant) 0,50;
 aday 0,10; VAR 0,03; ölçü sınanamadı (K1 kalır) 0,25; veri yok ya da ölçü güvenilmez 0,12. Sürüm 1'e göre "ölçü
-sınanamadı" yükseltildi: E1 maskesi K1 aralığının %65'ini kapatıyor (en uzun açık parça 173 sn) ve K1 artık zamanlı. S2
+sınanamadı" yükseltildi: E1 maskesi K1 aralığının %65'ini kapatıyor (en uzun açık parça 173–174 sn) ve K1 artık
+zamanlı. Açık ~334 sn'lik K1 parçalarından Love başına (88 sn) ve Rayleigh başına (174 sn) düşenler sınamayı taşır. K1'in
+"belirsiz" geçmesi (b′) ayrı bir olasılık olarak beklenir. S2
 ve S3 tam bandın tam sınırında olduğundan (n = 8) zayıf banda inme olasılığı yüksektir. Yapay sınamaya göre durağan
 gürültüde A50 bileşen başına gürültü RMS'inin ~0,6 katıdır (A_etkin; A_300 ölçeğinde ~0,43); gerçek kentsel gürültü
 durağan olmadığı için σ ve dolayısıyla A90 daha büyük çıkacaktır. Mutlak A90 değeri önceden kestirilmedi.
@@ -569,11 +670,20 @@ durağan olmadığı için σ ve dolayısıyla A90 daha büyük çıkacaktır. M
 - **Kültürel gürültü.** S2/S3 istasyonlarının çoğu KO yüzey istasyonudur; 2–8 Hz gürültü yüksek ve gündüz/gece,
   hafta içi/sonu değişkendir. Negatif kontrol aynı UTC saatini, gün türünü ve yaz saati durumunu eşler (§7.3); resmî
   tatiller eşlenmez. S2'nin 4 biriminde (Tohoku, Maule, Nepal, Chignik) R yerel sabah artışının içinde, W sonrasında;
-  taban kayması kuralı (§6.5.3a) yalnız W sonuna kadar süren aşımları atar, W içinde sönen bir yükselişi atmaz.
+  taban kayması kuralı (§6.5.3a) yalnız W′_son − 60 sn'ye kadar süren aşımları atar, W içinde sönen bir yükselişi
+  atmaz. Yapayda W içinde ×2 yükselen gürültü, 3a olmadan %100 tutarlı küme verir. 3a bunları atar (D15). W içinde yükselip
+  yine W içinde sönen bir artış atılmaz; negatif kontrol bunu yalnız aynı saat, gün türü ve yaz saati eşlemesi kadar
+  ölçer.
 - **Teleseismik cisim dalgaları (E1).** Maske M ≥ 7,0 için P ve S'yi 240 sn, 6,0 ≤ M < 7,0 için yalnız P'yi 60 sn
   kapatır. Daha uzun P kodası ya da görünür S veren bir M 6,x olay maske dışında kalan bir kümeyi açıklayabilir:
   yapayda C ×5, 60 sn sönümlü bir P +60 sn maskeyle 0,00 oranında atılır (D12b). Tohoku penceresinde Parkfield'da
-  25 M 6,0–6,9 varışı var. Bu risk K1 tanı satırıyla görünür kılınır, giderilmez.
+  25 M 6,0–6,9 varışı var. Bu risk K1 tanı satırıyla görünür kılınır, giderilmez. +60 sn kuyruk M 6,x için pP, sP ve
+  PcP'yi örter (73–81°'de P'den 7–16 sn sonra). PP'yi (P'den 164–183 sn sonra) örtmez. Tetikleyicinin kendi geç çekirdek
+  fazları (PKKP, P′P′) maskelenmez. M ≥ 8,5 tetikleyicilerde bunlar W içindedir: Tohoku–Parkfield PKKP 06:17:29,
+  PKIKPPKIKP 06:25:30; Tohoku–S2 PKKP 06:17:13, SKKP/PKKS 06:20:48–52, PKIKPPKIKP 06:25:17. K1'de (b′) ile görünür
+  kılınır; Marmara'da bilgi satırına yazılır.
+- **Tetiklenmiş mikrodepremlilik (R4).** Darbe kuralı S–P ≤ 5 sn'lik güçlü yerel depremleri atmaz. Tetiklenmiş
+  olanlar negatif pencerelerde bulunmaz, FAR'a girmez. "VAR" bu kaynağı tümüyle dışlamaz.
 - **Kuyu sensörü yok.** GONAF kuyu sismometreleri açık FDSN'de yok (yalnız gerinimölçer). Parkfield pozitif kontrolü
   bu yüzden kuyu istasyonlarını dışarıda bırakır; Hill 2013 tremoru PKD'de, Peng 2009 Cholame'de büyük ölçüde HRSN
   kuyularında gördü. Parkfield kırsal, Marmara kentseldir: K1'in geçmesi duyarlılığın eşit olduğu anlamına gelmez;
@@ -621,7 +731,9 @@ yeniden açar: (a) Marmara'da açık erişimli kuyu sismometresi verisi (GONAF y
 (b) 6G, TL ya da 1O verisi açılır ve S2/S3'te ≥8 birimi ≥3 istasyonla örter; (c) 2026 sonrası bir tetikleyici
 Marmara'da kaba τ ×1/3 ≥ 2 kPa verir (2026 bugün kördür, bu ön kayıtta kullanılmaz); (d) K1 kaldıysa, kuyu
 istasyonlarına (HRSN/BP, PB) izin veren, başka bir Parkfield tetikleyicisini kullanan ya da algılayıcıyı değiştiren yeni
-bir tasarım, yalnız yeni bir ön kayıtla.
+bir tasarım, yalnız yeni bir ön kayıtla. Böyle bir tasarımın ilk adayı Parkfield–Denali 2002'dir (Peng vd. 2008,
+10.1029/2008gl036080: 2–8 Hz, birçok istasyonda tutarlı zarf, yüzey dalgasıyla eş periyot, Love ile uyarılmış). 2002'nin
+sürekli veri varlığı bu ön kayıtta yoklanmadı.
 
 ## 15. SAYIM'dan sapmalar (veri görülmeden, gerekçeli)
 
@@ -646,14 +758,19 @@ Peng 2009 eşiğinin hangi PGV tanımından geldiği ve eşik üstü olaylarda t
 olay listesi, gürültü düzeyi ve eşiği; Parkfield'ı Tohoku'da tetikleyen tremorun 2–8 Hz genliği (A_PK koşuda ölçülür);
 Prag Ms bağıntısının katsayıları (ders kitabı); Tohoku'da Parkfield yüzey istasyonlarının %90 örtüsü (yalnız iki 10
 sn'lik örnek yoklandı: 52/56 "var"); teleseismik M 6,x P'nin 2–8 Hz'te Parkfield ve Marmara'da görünür olup olmadığı;
-KOERI'nin 2'den fazla eşzamanlı akışa izni (kullanılmayacak). 2012 tarihli DOI'siz "Searching for Tectonic Tremor on
+KOERI'nin 2'den fazla eşzamanlı akışa izni (kullanılmayacak); tetikleyicinin kendi PKKP ve P′P′ fazlarının 2–8 Hz'te
+Parkfield ve Marmara'da görünür olup olmadığı. 2012 tarihli DOI'siz "Searching for Tectonic Tremor on
 the North Anatolian Fault" kaydı okunamadı (SAYIM §8).
 
-## 17. İNCELEME-1 metninden sapmalar ve uygulanmayanlar (ikinci inceleme için)
+## 17. İnceleme metinlerinden sapmalar ve uygulanmayanlar
 
-Bütün bulgular işlendi (§18). Düzeltme metninden bilerek sapılan ya da uygulanmayan yerler:
+S1–S10 sürüm 2'nin İNCELEME-1'den sapmalarıdır; İNCELEME-2 hepsini kabul etti (S1 ve S9 eklerle; ekler sürüm 3'te
+işlendi). S11–S13 sürüm 3'ün İNCELEME-2 metninden yalnız yerleşim ve tekrar bakımından ayrıldığı yerlerdir; hiçbir
+eşik, tanım ya da kural değişmedi.
 
-- **S1 (E1, büyüklük ve süre kuralı) — ikinci incelemenin kararı gerekir.** İNCELEME-1'in metni (M ≥ 6,0 bütün olaylar,
+İNCELEME-1'in bütün bulguları işlendi (§18). Düzeltme metninden bilerek sapılan ya da uygulanmayan yerler:
+
+- **S1 (E1, büyüklük ve süre kuralı) — İNCELEME-2: KABUL, İ2-Ö1 ekleriyle.** İNCELEME-1'in metni (M ≥ 6,0 bütün olaylar,
   P ve S, [−10, +240] sn) olduğu gibi uygulandığında ComCat'teki Tohoku artçıları (penceresinde 17 M 6,1–6,7 ve 2 M ≥ 7,7)
   yüzünden **Tohoku'nun Marmara pencereleri (S1–S4, S7) ve Parkfield K1 penceresi %100 maskelenir** (`tr7_e1_maske_ozet.json`,
   `E1-lit`). O zaman K1 (b) veri görülmeden olanaksızdır ve K1 her durumda "ölçü sınanamadı" verir; ayrıca Tohoku birimi
@@ -661,7 +778,8 @@ Bütün bulgular işlendi (§18). Düzeltme metninden bilerek sapılan ya da uyg
   artçıyı hesaba katmıştı. Sürüm 2'nin işleyen kuralı (E1-C): M ≥ 7,0 için metin aynen (P ve S, +240); 6,0 ≤ M < 7,0 için
   yalnız P, +60 sn. Gerekçe: teleseismik S'nin soğurulması P'ninkinden çok büyüktür (t*_S ≈ 4 t*_P), 2–8 Hz'te M < 7
   olaylarının S'si beklenmez; M 6,x P vekili (C ×2–×5, 30 sn sönüm) yapayda +60 sn ile atılır (D12b). Bedeli: Tohoku W'sinin
-  %65'i, K1 aralığının %65'i maskeli kalır. Seçenekler ve önhesapları (W maskeli payı Parkfield / Tohoku S2; K1 aralığı;
+  %65'i, K1 aralığının %65'i maskeli kalır (İNCELEME-2: KABUL, İ2-Ö1 ekleriyle; sürüm 3'te K1 (b′), açık parçalar,
+  D12c, §14 (d) Denali 2002 ve n_açık). Seçenekler ve önhesapları (W maskeli payı Parkfield / Tohoku S2; K1 aralığı;
   en uzun açık K1 parçası):
 
   | Değişke | Kural | Parkfield W | Tohoku S2 W | K1 aralığı | En uzun açık (K1) |
@@ -696,13 +814,30 @@ Bütün bulgular işlendi (§18). Düzeltme metninden bilerek sapılan ya da uyg
   tremorsuz saniyelere düşer, Δ_y ile Δ_d'nin karşılaştırması yazı turaya döner. Sürüm 2 aynı karşılaştırmayı
   istasyonun aşım saniyelerinde yapar (§6.5.3): D7c 0,00, D7d 1,00. Sürüm 1'in z kuralı Gauss
   gürültüde D7c'yi geçer ama kentsel gürültüde geçemez (kentsel gürültüde 0,13–0,35).
-- **S9 (Ö6, D6b genliği).** İNCELEME-1 D6b'nin genliğini belirtmedi; sürüm 2 şartı D6'nın ×20'siyle koyar. ×100'de
+- **S9 (Ö6, D6b genliği).** İNCELEME-1 D6b'nin genliğini belirtmedi; sürüm 2 şartı D6'nın ×20'siyle koymuştu
+  (İNCELEME-2 İ2-E2: ×20'de olay algılanmadığı için şart darbe kuralını sınamıyordu; sürüm 3'te şart ×100, S–P 8'de,
+  bant ≥ 0,90). ×100'de
   (bilgi) darbe kuralı S–P = 3 ve 5 sn'lik yerel depremleri atmaz (S–P 3: 0,00 / 0,00, S–P 5: 0,29 / 0,27): P'nin kodası S tepesinden önceki 2 sn'de
   C'yi c_p/8'in üstünde tutar. Böyle bir olay 2–8 Hz'te gürültünün ~100 katıdır; Marmara ve Parkfield katalog
   tamlığında (M ≈ 1,5–2) katalog maskesine (§6.5.1) girmesi beklenir, ama kural kataloglanmamış böyle bir olayı
   atmaz. Kural değiştirilmedi: kenarı tepeye değil başlangıca bakan bir darbe kuralı yarım sinüs tremoru atar.
 - **S10 (bant sıkılaştırma).** D7 ve D7b'nin bandı ≤ 0,05 yerine ≤ 0,03: bilinen yanlış kod (darbe ön şartı c_p/2) ≤ 0,05
   bandının içine düşebiliyordu (0,05–0,09).
+
+İNCELEME-2'nin bütün bulguları (İ2-E1–E3, İ2-Ö1–Ö8, K-a–K-g) işlendi (§19). Yerleşim ve tekrar farkları:
+
+- **S11 (İ2-E3, §10 madde 6).** Düzeltme metni maddenin "ilk dört cümlesinin" yerine geçer. Sürüm 2'nin ardından gelen
+  iki cümlesi ("Bu aşamalardan önce duran bir koşu … sürdürülür." ve "Bunun için kod değişikliği gerekiyorsa …
+  yazılır.") düzeltme metninin son iki cümlesiyle aynı şeyi söylediği ve "bu aşamalar" göndermesi değiştiği için
+  silindi; "Çıktı ne olursa olsun yazılır." kaldı.
+- **S12 (İ2-E3, servis ve biçim hatası).** Her iki alt maddeye eklenecek metin, iki kez yazılmasın diye iki alt maddenin
+  hemen altında tek bir "Servis ve biçim hatası için ortak" alt maddesi olarak yazıldı; metin harfiyen aynıdır.
+- **S13 (İ2-Ö1 b, İ2-Ö2).** (b′)'nin "VAR verilemez" ve "(K1 yalnız belirsiz geçti)" sonuçları, §7.2'deki metne ek
+  olarak §8 sıra 5'e ve "görülmedi" kalıbının sonuna da yazıldı; n_açık < 5 durumunun cümlesi "görülmedi" kalıbına da
+  yazıldı. "(b) dışındaki her durumda Marmara verisi indirilmez" cümlesine (b′)'nin (b)'nin alt durumu olduğu eklendi.
+  §8 sonuna kuralları bir arada gösteren bir özet tablo kondu (yeni kural yok); tabloda §7.2'deki "(b′), 'geçti,
+  ayırt edici değil' etiketiyle birlikte de yazılabilir" cümlesi, takdir bırakmamak için "iki şart da sağlanıyorsa iki
+  etiket birlikte yazılır" diye okunur.
 
 ## 18. Sürüm 1 → 2 değişiklik listesi
 
@@ -745,3 +880,51 @@ Dosyalar (sürüm 1 → sürüm 2 sha256):
   `tr7_e1_maske_ozet.json` 128720470ea39479108329960f605bc49f3795e19f50c410bfefd1d9b1a13e7c,
   `tr7_onkayit_denetim2.json` 8d9dd1644344f5c68e01b1a5a6dd664285542a52fabc2fc48b03ee8864410b0e,
   `tr7_onkayit_denetim2_ek.json` (D12b ikinci tohum) d304e4363021c911bf126d85d857867e1e90eeeffc54906cf0c91cc5ba4ff8be
+
+Not (İNCELEME-2 K-a): E1 önhesabında K1 aralığı 06:16:00 ile hesaplandı; 06:16:01 ile maskeli pay 0,647, en uzun açık
+parça 173–174 sn (değişmez).
+
+## 19. Sürüm 2 → 3 değişiklik listesi
+
+| Bulgu (İNCELEME-2) | Ne değişti | Bölüm |
+|---|---|---|
+| İ2-E1 | 3a W′_son tanımıyla (maskeli ya da kayıtsız W sonu); §12 kültürel gürültü maddesine D15 cümlesi | §6.5.3a, §12 |
+| İ2-E2 | D6 ve D6b şartı ×100'e (D6b S–P 8, bant ≥ 0,90); D12b ayırt edici satır notu; yeni D12c (deterministik E1 maske sınaması) ve D15 (3a); "bilgi satırları" ilk cümlesi; referans betik cümlesi; sürüm 3 doğrulaması (iki yeni tohum) | §7.1 |
+| İ2-E3 | §10 madde 4 ve 5 (önce yalnız indirme ve zarflama, sonra negatif pencereler, en son algılama); madde 6 (aşama başında commit + push, push olmazsa aşama başlamaz; K1-negatif ve Marmara-negatif ayrı algılama aşamaları; pencereden sürdürme); servis ve biçim hatası payları aşama başına | §10, §17 S11–S12 |
+| İ2-Ö1 | (a) K1 açık parçaları ve faz kestirimleri; (b) K1 (b′) "geçti, belirsiz"; (c) üç tanı satırı (BK.PKD dahil, K-d); (d) pP/sP/PcP/PP ve tetikleyicinin çekirdek fazları; (e) §14 (d) Denali 2002; (f) §11 beklenti | §6.5.1a, §7.2, §8, §11, §12, §14 |
+| İ2-Ö2 | n_açık ve p_min(n_açık); "görülmedi" kalıbı; §4.3 cümlesi; §9.2 sütunu; koddan S1 / S2 / S3: n_açık 8 / 7 / 7, p_min 0,35 / 0,39 / 0,39 | §4.3, §8, §9.2 |
+| İ2-Ö3 | Tetikleyicinin kendi PKKP ve P′P′ fazları: (b′ ii), §12, §16 | §7.2, §12, §16 |
+| İ2-Ö4 | E1'in "ikiz kayıt" kuralı metne girdi | §6.5.1a |
+| İ2-Ö5 | Rakip açıklama R4; VAR kalıbı; §9.1 darbe sütunu; §12 maddesi | §2, §8, §9.1, §12 |
+| İ2-Ö6 | Segment "VAR" cümlesine 0,05/7 eki; X_min^(0,05/7) tablosu koddan (İNCELEME-2 tablosuyla aynı); §9.2 sütunu | §8, §9.2 |
+| İ2-Ö7 | N_PK ve f_PK tanımı; N_PK < 5 → "ayırt edici değil" | §7.2 |
+| İ2-Ö8 | Parkfield modülasyonu "ölçülemedi" → "geçmedi" | §7.2 |
+| K-a | §18 notu; açık parça 173–174 sn | §6.5.1a, §11, §18 |
+| K-b | Zarf deposu ≈ 0,92 GB, Parkfield ile ≈ 1,0 GB | §6.1 |
+| K-c | MDA üretecinin çekiliş sırası | §7.4 |
+| K-d | BK.PKD tanı satırı (İ2-Ö1 c) | §7.2 |
+| K-e | Maskeli pay paydası | §9.1 |
+| K-f | D7c satırına not | §7.1 |
+| K-g | Değişiklik gerekmez (İNCELEME-2) | — |
+| — | Durum satırı, §0 öncelik sırası (sürüm 3 > İNCELEME-2 > İNCELEME-1 > SAYIM), §17 S11–S13, §8 hüküm özet tablosu | başlık, §0, §8, §17 |
+
+Dondurulan veri dosyaları sürüm 2 ile aynıdır (sha256'lar §3 ve §18'deki gibi; sürüm 3 bunları yeniden üretmedi ve
+değiştirmedi). Sürüm 3'te eklenen ya da değişen dosyalar (sha256):
+- `tr7_onkayit_sayilar3.py` 5b2c07a9a11b0d21581592b9b9b990cdf3860e4a7f248c335b72e7f96353809c
+- `tr7_onkayit_sayilar3.json` 0ca41dcc21d47f92775613dc10889ee34d2398713b866d23689072d38784e4bd
+- `tr7_onkayit_d12c.py` 1ca3678d4e6ea879778d9335437231cd6895aea7f25900ac06aced31a9d75ad2
+- `tr7_onkayit_denetim3.py` 0b4d6f90e5f429da3d585eab83b6bdeafcd9b6b57b707c6448e46831f4192fae
+- `tr7_onkayit_denetim3_kos.py` 6d8902dcc30f3a177088e44ef80a88248b547db70a2b4e3097721bf2fad938ef
+- `tr7_onkayit_denetim3.json` b574bde6c763cb3a45770693fac6296a8b6d27511b8fb823f85caf59fa4515b2
+- `tr7_inc2_taban.py` 43cab6187e3fabd3a6ea28776ae21de309fe3924d9fc2dbfeab8c53c4a3d085b
+- `tr7_inc2_taban_ek.py` 7e73fc5fed62eb1706b33ca321a739413e4f70bb7a787ee20f9e9ebdf254cdff
+- `tr7_onkayit_doldur.py` 2e8142a5ae12c3ceb95c030128c051c72ad2a1ca541662ff20f175efbdcc5b87 (değişti: sürüm 3 yer tutucuları ve `--denetle`)
+
+
+---
+
+## Dondurma notu (12 Kasım 2026, hiçbir Marmara ya da Parkfield dalga formu işlenmeden)
+
+Bu sürüm, iki bağımsız incelemenin (İNCELEME-1, İNCELEME-2) bütün düzeltmeleri işlenerek donduruldu. Dondurma anına kadar yalnız 10 saniyelik veri varlığı yoklamaları (HTTP kodu ve bayt sayısı) yapıldı; hiçbir dalga formu çözülmedi.
+
+**Tek açıklama (İ2-Ö2'nin boş bıraktığı yer):** iki penceresi olan Wharton 2012 birimi, n_açık sayımında iki pencerenin İKİSİNDE de maskeli pay ≤ 0,50 ise "açık" sayılır. Önsayımda iki pencerenin maskeli payı 0,000 olduğundan sayılar değişmez.
