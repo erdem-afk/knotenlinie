@@ -508,12 +508,14 @@ def indir(ob, depo, yerel, sure=None, taban=DS, G=None):
     Y = durum_yollari(depo); B = butce_oku(depo)
     if B['durum'] in ('bitti', 'kesildi'):
         print(f"indirme {B['durum']}; yeni istek yok"); return B
-    B['durum'] = 'suruyor'; B['isler'].append(dict(bas=is_bas, son=None))
+    for j in B['isler']:                                             # zorla kesilmiş önceki işler: son kayıtlı ana kadar
+        if not j.get('kapandi'): B['etkin_sn'] += max(0.0, j['son'] - j['bas']); j['kapandi'] = True
+    B['durum'] = 'suruyor'; B['isler'].append(dict(bas=is_bas, son=is_bas)); yaz_json(Y['butce'], B)
     akis = Akis(); atilan = 0; gecen = []
     g = ekle_ac(Y['gunluk'])
 
     def kapat(neden):
-        B['etkin_sn'] += simdi() - is_bas; B['isler'][-1]['son'] = simdi(); B['isler'][-1]['neden'] = neden
+        B['etkin_sn'] += simdi() - is_bas; B['isler'][-1].update(son=simdi(), neden=neden, kapandi=True)
         yaz_json(Y['butce'], B)
 
     try:
@@ -578,6 +580,7 @@ def indir(ob, depo, yerel, sure=None, taban=DS, G=None):
                     if os.path.exists(ham): os.remove(ham)       # ham veri silinir (§5.5)
             elif os.path.exists(ham): os.remove(ham)
             g.write(json.dumps(satir, sort_keys=True, ensure_ascii=False) + '\n'); g.flush(); os.fsync(g.fileno())
+            B['isler'][-1]['son'] = simdi(); yaz_json(Y['butce'], B)      # iş zorla kesilirse süresi kaybolmasın
             if kesti:
                 kapat('süre (istek kesildi)'); print('süre doldu (istek kesildi; sonraki işte yeniden atılır)'); return B
     finally:

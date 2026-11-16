@@ -213,6 +213,7 @@ def denetim_i(npz, kademe, durum_yaz=None):
     r5 = json.load(open(YOL['tr5b_yapay_ccf_ref.json'], encoding='utf-8'))
     r4 = json.load(open(YOL['tr4_yapay_ref.json'], encoding='utf-8'))['tasarim']['C_20g_4s']['seriler']
     z = np.load(npz); gun = z['gunler'].astype(int)
+    z = dict(ccf=z['ccf'], ccf_eklenmis=z['ccf_eklenmis'], gecerli=z['gecerli'], ay=z['ay'])   # bir kez oku
     sap = []; enb = dict(delta=0.0, oran=0.0)
 
     def kars(ad, i, D0, D2, ref):

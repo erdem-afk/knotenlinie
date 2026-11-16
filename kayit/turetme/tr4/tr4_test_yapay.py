@@ -22,7 +22,7 @@ Sınamalar:
   S14 uçtan uca ölçü (yavaş): yapay depo, 10 yer × T 2017/2020, gerçek kod denetimi (i) → "taban ölçüldü"
   MUT mutasyonlar (≥ 8): kodun kopyası değiştirilir, hızlı sınamalar yeniden koşulur; her mutant yakalanmalı
 
-Kullanım: python3 -I -B tr4_test_yapay.py <karalama_dizini> <npz> [--hizli] [--mutasyon] [--kod <dizin>]
+Kullanım: python3 -I -B tr4_test_yapay.py <karalama_dizini> <npz> [--hizli] [--mutasyon [--yalniz=M01,M14]] [--kod <dizin>]
 """
 import contextlib, datetime as dt, hashlib, http.server, importlib.util, io, json, math, os, shutil, socket, subprocess
 import sys, threading, time, urllib.parse, urllib.request
@@ -298,7 +298,7 @@ def s03(KAR):
         assert all(r['ua'] == IN.UA and 'knotenlinie' not in r['ua'].lower() for r in srv.istekler)
         assert all(r['yontem'] == 'POST' for r in srv.istekler)
         t = [r['t'] for r in srv.istekler]
-        assert all(b - a >= IN.ARA_SN - 1e-9 for a, b in zip(t, t[1:])), 'istekler arası < 2 sn'
+        assert all(b - a >= 2.0 - 1e-9 for a, b in zip(t, t[1:])), 'istekler arası < 2 sn'
         assert 7 in S.uykular or any(abs(u - 7) < 1e-6 for u in S.uykular), 'Retry-After beklenmedi'
         assert len(srv.istekler) == len(P) + 4, len(srv.istekler)
         g = srv.istekler[0]['govde'].splitlines()[0].split()
@@ -373,6 +373,15 @@ def s05(KAR):
             assert B['durum'] == 'kesildi' and len(srv.istekler) == n1, '"kesildi" kalıcı değil'
         finally:
             srv.kapat()
+    # zorla kesilmiş bir işin süresi (son kayıtlı ana kadar) sonraki işte etkin süreye eklenir
+    depo = temiz(os.path.join(KAR, 's05_zorla')); S = saat_tak(); srv = Sunucu('kisa', {}, S)
+    try:
+        IN.yaz_json(IN.durum_yollari(depo)['butce'], dict(durum='suruyor', ilk_istek=S.t - 86400, etkin_sn=21 * 86400 - 500,
+                                                          isler=[dict(bas=S.t - 2000, son=S.t - 1400)], tur=False))
+        B = IN.indir(None, depo, os.path.join(KAR, 's05_yerel'), 6000, taban=srv.url, G=yapay_G(['KO.A01'], [2017]))
+        assert B['durum'] == 'kesildi' and len(srv.istekler) == 0, (B['durum'], len(srv.istekler))
+    finally:
+        srv.kapat()
     # sınırın hemen altında kesilmez
     S = saat_tak(); B0 = dict(durum='suruyor', ilk_istek=S.t - 42 * 86400 + 5000, etkin_sn=21 * 86400 - 5000, isler=[], tur=False)
     assert IN.butce_asildi(B0, S.t) is None
@@ -509,14 +518,15 @@ def s09(KAR, npz):
     r5 = json.load(open(K.YOL['tr5b_yapay_ccf_ref.json'], encoding='utf-8'))
     r4 = json.load(open(K.YOL['tr4_yapay_ref.json'], encoding='utf-8'))['tasarim']['C_20g_4s']['seriler']
     z = np.load(npz); gun = z['gunler'].astype(int); rng = np.random.default_rng(9)
+    ZC, ZE, ZG = z['ccf'], z['ccf_eklenmis'], z['gecerli']
     for i in (0, 23, 47):
         s = r5['seriler'][i]; T = dt.date.fromordinal(s['T_ord'])
         for kademe, ref in (('A', s), ('C', r4[i])):
             V = {}; Ve = {}
             for j, g in enumerate(gun):
                 d = T + TD(days=int(g))
-                if not z['gecerli'][i][j] or (kademe == 'C' and d.day > 20): continue
-                for VV, kaynak in ((V, z['ccf']), (Ve, z['ccf_eklenmis'])):
+                if not ZG[i][j] or (kademe == 'C' and d.day > 20): continue
+                for VV, kaynak in ((V, ZC), (Ve, ZE)):
                     a = kaynak[i][j].astype(np.float64)
                     e = rng.standard_normal((4, 2401)) * 1e-3; e -= e.mean(0)          # saatlerin ortalaması = günlük ÇİF
                     h = (a[None] + e)
@@ -529,9 +539,10 @@ def s09(KAR, npz):
             assert abs(D0 * 100 - ref['delta_yuzde']) <= K.TOL_DELTA, (i, kademe, D0 * 100, ref['delta_yuzde'])
             assert abs((D2 - D0) / -1e-3 - ref['oran']) <= K.TOL_ORAN, (i, kademe)
     # (ii-a) ekleme yolu: koşu kodunun germe eklemesi tr5b_yapay.ger ile aynı
-    a = z['ccf'][0].astype(np.float64); gg = gun
+    a = ZC[0].astype(np.float64); gg = gun
     E = K.ekle(a, gg)
-    assert np.allclose(E[gg >= -365], np.stack([K.YP.ger(x, -1e-3) for x in a[gg >= -365]])) and np.array_equal(E[gg < -365], a[gg < -365])
+    m = (gg >= -365) & (gg <= -8)
+    assert np.allclose(E[m], np.stack([K.YP.ger(x, -1e-3) for x in a[m]])) and np.array_equal(E[~m], a[~m])
 
 
 @sina('S10 önyükleme, kestiriciler ve (c) eşikleri')
@@ -732,7 +743,7 @@ HIZLI = [s01, s02, s03, s04, s05, s06, s07, s08, s10, s11, s12, s13]
 
 # ---------------------------------------------------------------- mutasyonlar
 MUT = [
-    ('M01 KESIN kümesine 500', 'tr4_indir.py', 'KESIN = (200, 204, 404, 401, 403)', 'KESIN = (200, 204, 404, 401, 403, 500)'),
+    ('M01 KESIN kümesine 500', 'tr4_indir.py', 'KESIN = (200, 204, 404, 401, 403)    ', 'KESIN = (200, 204, 404, 401, 403, 500)    '),
     ('M02 körlük denetimi çağrılmaz', 'tr4_indir.py', "kor_denet(son_utc, son_gun, x['rol'])  ", "(son_utc, son_gun, x['rol'])  "),
     ('M03 kademe C 1–21. günler', 'tr4_indir.py', 'C_GUN = 20 ', 'C_GUN = 21 '),
     ('M04 karşılanmadı eşiği 0,20', 'tr4_kosu.py', 'ESIK_KARSILANDI, ESIK_KARSILANMADI = 0.20, 0.245', 'ESIK_KARSILANDI, ESIK_KARSILANMADI = 0.20, 0.20'),
@@ -755,7 +766,9 @@ MUT = [
 
 def mutasyon(KAR, npz):
     sonuc = []
+    sec = [x.split('=', 1)[1] for x in sys.argv if x.startswith('--yalniz=')]
     for ad, dosya, eski, yeni in MUT:
+        if sec and ad.split()[0] not in sec[0].split(','): continue
         md = temiz(os.path.join(KAR, 'mut', ad.split()[0]))
         tr4 = os.path.join(md, 'tr4'); tr5 = os.path.join(md, 'tr5'); os.makedirs(tr4); os.makedirs(tr5)
         for f in ('tr4_indir.py', 'tr4_kosu.py', 'tr4_test_yapay.py', 'tr4_yapay_ref.json', 'tr4_pencereler.csv',
