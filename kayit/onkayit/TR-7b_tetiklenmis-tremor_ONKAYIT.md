@@ -5,7 +5,8 @@ inceleme yapılmadı.
 
 **Taslağın bugünkü hükmü: dondurulamaz.** Veri varlığı kapısı (`TR-7b_SAYIM.md`) geçti. Ama sızıntı kuralının dört
 adayından hiçbiri, koşudan önce yazılmış seçim ölçütünün bütün şartlarını iki tohumda birden sağlamadı (§4.4). Ölçüte
-göre kural seçilmedi. TR-7b "kapı altında" kalır: aday elenmez, ama yeni bir kural turu ve bağımsız inceleme gelmeden
+göre kural seçilmedi. Tur 2 (§11; K4, K5) de tek hücrede kaldı (Y1 A3 kalibre: 0,05 / 0,06, şart ≤ 0,05).
+TR-7b **"kapı altında (kural bulunamadı)"** kalır: aday elenmez, ama yeni bir kural turu ve bağımsız inceleme gelmeden
 dondurulmaz (§4.6).
 
 Türediği yerler:
@@ -439,6 +440,69 @@ asimetriktir. Seçimde K5'in önünde gelmez.
 4. **Hiçbir aday geçmezse** TR-7b **"kapı altında (kural bulunamadı)"** kalır. Üçüncü tur yalnız yeni bir fikirle açılır:
    K4/K5'in eşiklerini değiştirmek yeni fikir sayılmaz.
 
-### 11.4 Sonuç
+### 11.4 Sonuç (koşudan sonra)
 
-(Koşudan sonra doldurulacak.)
+Koşu 100 pencereyle ve iki tohumla (20261117 / 9393) yapıldı. Kod commit 1e03d20'dekiyle aynıdır.
+- Çıktılar: `tr7b_yapay2_t1.json` (sha256 8fc735c9…5476), `tr7b_yapay2_t2.json` (sha256 d4ec8631…860d).
+- Ölçüt uygulayıcı: `tr7b_tur2_secim.py` (sha256 be830a18…ed08).
+- Değerler "tohum 1 / tohum 2" biçimindedir. Şart sütunu hangi ölçünün gösterildiğini söyler: tam atılma, sızıntıyla
+  atılma ya da sağ.
+- K0–K3 yalnız karşılaştırma içindir.
+
+| Satır | Şart | Algılama | K0 | K1 | K2 | K3 | K4 | K5 |
+|---|---|---|---|---|---|---|---|---|
+| D7 yarım A10 | tam ≤ 0,03 | 1,00 / 1,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| D7b patlama A3 | tam ≤ 0,03 | 0,99 / 0,99 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| D7b patlama A10 | tam ≤ 0,03 | 1,00 / 1,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| D7b patlama A30 | tam ≤ 0,03 | 1,00 / 1,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| D7c düz A3 | sızıntı ≤ 0,05 | 1,00 / 1,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| D7c düz A10 | sızıntı ≤ 0,05 | 1,00 / 1,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| D7d koda x20 | sızıntı ≥ 0,95 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 |
+| Y1 A3 a_y2 κ12.5 egim | tam ≤ 0,05 | 1,00 / 1,00 | 1,00 / 1,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y1 A3 a_y5 κ12.5 egim | tam ≤ 0,05 | 1,00 / 1,00 | 1,00 / 1,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y1 A3 a_y10 κ12.5 egim | tam ≤ 0,05 | 1,00 / 1,00 | 1,00 / 1,00 | 0,05 / 0,06 | 0,00 / 0,00 | 0,05 / 0,06 | 0,05 / 0,06 | 0,05 / 0,06 |
+| Y1 A10 a_y2 κ12.5 egim | tam ≤ 0,05 | 1,00 / 1,00 | 0,22 / 0,17 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y1 A10 a_y5 κ12.5 egim | tam ≤ 0,05 | 1,00 / 1,00 | 0,97 / 1,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y1 A10 a_y10 κ12.5 egim | tam ≤ 0,05 | 1,00 / 1,00 | 1,00 / 1,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y1 A3 a_y10 κ12.5 sabit | bilgi | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 |
+| Y1 A10 a_y10 κ12.5 sabit | bilgi | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 |
+| Y2 a_y2 κ6 egim | sağ ≤ 0,05 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y2 a_y2 κ6 sabit | sağ ≤ 0,05 | 0,79 / 0,78 | 0,00 / 0,00 | 0,00 / 0,00 | 0,63 / 0,66 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y2 a_y2 κ12.5 egim | sağ ≤ 0,05 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y2 a_y2 κ12.5 sabit | sağ ≤ 0,05 | 0,73 / 0,86 | 0,00 / 0,00 | 0,00 / 0,00 | 0,58 / 0,67 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y2 a_y2 κ25 egim | sağ ≤ 0,05 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y2 a_y2 κ25 sabit | sağ ≤ 0,05 | 0,82 / 0,69 | 0,00 / 0,00 | 0,00 / 0,00 | 0,64 / 0,54 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y2 a_y5 κ6 egim | sağ ≤ 0,05 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y2 a_y5 κ6 sabit | sağ ≤ 0,05 | 1,00 / 1,00 | 0,00 / 0,00 | 0,02 / 0,01 | 0,11 / 0,09 | 0,01 / 0,01 | 0,02 / 0,00 | 0,02 / 0,00 |
+| Y2 a_y5 κ12.5 egim | sağ ≤ 0,05 | 0,01 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,01 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y2 a_y5 κ12.5 sabit | sağ ≤ 0,05 | 1,00 / 1,00 | 0,00 / 0,00 | 0,00 / 0,01 | 0,14 / 0,13 | 0,00 / 0,01 | 0,00 / 0,01 | 0,00 / 0,01 |
+| Y2 a_y5 κ25 egim | sağ ≤ 0,05 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y2 a_y5 κ25 sabit | sağ ≤ 0,05 | 1,00 / 1,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,07 / 0,11 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y2 a_y10 κ6 egim | sağ ≤ 0,05 | 0,21 / 0,21 | 0,00 / 0,00 | 0,00 / 0,00 | 0,19 / 0,15 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y2 a_y10 κ6 sabit | sağ ≤ 0,05 | 1,00 / 1,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y2 a_y10 κ12.5 egim | sağ ≤ 0,05 | 0,24 / 0,26 | 0,00 / 0,00 | 0,00 / 0,00 | 0,17 / 0,19 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y2 a_y10 κ12.5 sabit | sağ ≤ 0,05 | 1,00 / 1,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y2 a_y10 κ25 egim | sağ ≤ 0,05 | 0,18 / 0,29 | 0,00 / 0,00 | 0,00 / 0,00 | 0,10 / 0,26 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y2 a_y10 κ25 sabit | sağ ≤ 0,05 | 1,00 / 1,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y3 koda x20 + tele a_y2 | sızıntı ≥ 0,95 | 1,00 / 1,00 | 1,00 / 1,00 | 0,00 / 0,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 |
+| Y3 koda x20 + tele a_y5 | sızıntı ≥ 0,95 | 1,00 / 1,00 | 1,00 / 1,00 | 0,00 / 0,00 | 0,79 / 0,78 | 0,80 / 0,78 | 1,00 / 1,00 | 1,00 / 1,00 |
+| Y3 koda x20 + tele a_y10 | sızıntı ≥ 0,95 | 1,00 / 1,00 | 1,00 / 1,00 | 0,01 / 0,01 | 0,49 / 0,41 | 0,57 / 0,50 | 1,00 / 0,99 | 1,00 / 0,99 |
+| F1 tetikleyicisiz kentsel | sağ ≤ 0,05 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| F2 tetikleyicili kentsel | sağ ≤ 0,05 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+
+F2 − F1 (asimetrinin yanlış alarm oranına etkisi): bütün adaylarda 0,00 / 0,00. Kentsel gürültüde, tremorsuz pencerelerde,
+tetikleyici olsun olmasın, hiçbir kural sağ küme bırakmadı.
+
+**Karar: kabul edilebilir aday yok. TR-7b "kapı altında (kural bulunamadı)" kalır.**
+- K4 ve K5, 36 şart satırının 35'ini ve F2 − F1 şartını iki tohumda geçti. Bunların arasında 18 Y2 hücresinin hepsi (sağ 0,00–0,02),
+  Y3'ün üç düzeyi (0,99–1,00) ve F1/F2 var.
+- Tek bir hücrede kaldılar: **Y1, tremor A_etkin 3 + kalibre telesismik sinyal (a_y 10, κ 12,5, 'egim'), tam atılma
+  0,05 / 0,06** (şart ≤ 0,05). Tohum 2'de 100 pencerenin 6'sında tremor kümesi atıldı. En kötü pay −0,01'dir.
+- Nedeni K1'in kalıntı bileşenidir: K1 aynı hücrede 0,05 / 0,06 veriyor; K2'nin r şartı burada 0,00.
+- Ölçüt önceden yazıldığı için bu fark bir yuvarlama sayılmaz. Eşik gevşetilmez.
+- Asimetri riski bu sınamada ölçülebilir bir etki göstermedi (F2 − F1 = 0). Ama K4 seçilmiş olsaydı bile simetrik K5'in
+  önüne geçemezdi.
+
+Bu sonuç §11.3 madde 4'ü işletir. Üçüncü tur yalnız yeni bir fikirle açılır; K1 kalıntı eşiğini (2σ) ya da ρ eşiğini
+değiştirmek yeni fikir sayılmaz. Ön kayıt taslağı bu hâliyle bağımsız incelemeye gönderilmez, çünkü seçilmiş bir kural
+yoktur. Öteki bölümler (§3, §6, §7) taslak olarak kalır.
