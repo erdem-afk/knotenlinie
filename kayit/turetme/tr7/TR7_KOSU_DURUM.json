@@ -26,6 +26,21 @@
     "katalog": 565,
     "planli": 4459
    }
+  },
+  "K1-indirme": {
+   "durum": "başladı",
+   "kip": "yeni",
+   "baslatma": "2026-11-16T16:15:56+00:00",
+   "kod_sha256": {
+    "tr7_cekirdek.py": "4a1b9131603d0f3d519cacb183fdbcccc106157b66392bf2d09350c9f49206f6",
+    "tr7_indir.py": "0763f46da14b2a12f5268937dc6e479dbfd1bc54c3c3ba93d700914dc4b91f2f",
+    "tr7_kosu.py": "ce439a4797fd1992ddd68de734ee842b146bd6f13155ba6151769bceb26a9005"
+   },
+   "kuru_prova": {
+    "sure_s": 0.59,
+    "gurultu_algilama": false,
+    "tremor_algilama": true
+   }
   }
  },
  "durmalar": [],
