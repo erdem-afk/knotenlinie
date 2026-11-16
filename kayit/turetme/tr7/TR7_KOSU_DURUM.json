@@ -28,7 +28,7 @@
    }
   },
   "K1-indirme": {
-   "durum": "başladı",
+   "durum": "tamamlandı",
    "kip": "yeni",
    "baslatma": "2026-11-16T16:15:56+00:00",
    "kod_sha256": {
@@ -40,6 +40,20 @@
     "sure_s": 0.59,
     "gurultu_algilama": false,
     "tremor_algilama": true
+   },
+   "git": {
+    "head": "d770b9d05b7d6c8fc1266c2c50b0a41b5608f318",
+    "uzak": "d770b9d05b7d6c8fc1266c2c50b0a41b5608f318",
+    "dosya": "kayit/turetme/tr7/TR7_KOSU_DURUM.json"
+   },
+   "bitis": "2026-11-16T16:16:55+00:00",
+   "sonuc": {
+    "servis_payi": 0.0,
+    "bicim_payi": 0.0,
+    "planli": 16,
+    "istek": 16,
+    "yeniden_tur": false,
+    "gecen": 16
    }
   }
  },
