@@ -23,6 +23,8 @@ Hesaplar (yalnız yapay veri ve commit edilmiş TR-11 nicelikleri):
 - MDE (Z4 yapay modeli, ısınmalı kırpışma, paylaşılan pencere parçası dahil): K_p = 8'de uyumlu sinyalde **g ≈ 2,0**,
   dağınıkta **≈ 3,9 mm/yıl**; K_p = 12'de 1,6 / 2,9 (§5). Z4 yapay yanlış alarmı 0,041–0,058: kapı (≤ 0,07) geçildi.
 - Olumsuz sonuç kuramın öngördüğü (≈ 0,02–0,5 mm/yıl) etki hakkında yine **hiçbir şey** söylemez.
+- **Aşama 0 sonucu (Ek 2; dal kuralı commit edildikten sonra koşuldu): K = 2, K_p = 1 → "veri yok (eşli küme)".**
+  Koşu yapılmaz. Darboğaz, TR-11 sakinlik kuralı Ş1'in olay penceresine çevirisi (adayların %82'sini eliyor).
 
 ## 1. Soru (sınırlı)
 

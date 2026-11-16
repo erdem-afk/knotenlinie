@@ -1,0 +1,313 @@
+{
+ "tohum": 20261121,
+ "hizli": false,
+ "n0": 400,
+ "nv": 300,
+ "nf": 150,
+ "nb": 20000,
+ "A": {
+  "liste": [
+   {
+    "id": "ci628016",
+    "yer": "The 1987 Superstition Hills, California ",
+    "kume": 397,
+    "R": 66.5,
+    "N3bg": 215,
+    "mc_once": 2.0,
+    "mc_ref": 1.7,
+    "N_ortak": 215.0,
+    "mc_artis": 0.4,
+    "N_son": 85.6
+   },
+   {
+    "id": "nc216859",
+    "yer": "The 1989 Loma Prieta, California Earthqu",
+    "kume": 160,
+    "R": 102.1,
+    "N3bg": 608,
+    "mc_once": 1.3,
+    "mc_ref": 1.4,
+    "N_ortak": 483.0,
+    "mc_artis": 0.8,
+    "N_son": 96.4
+   },
+   {
+    "id": "usp0006rew",
+    "yer": "8 km S of Akashi, Japan",
+    "kume": 303,
+    "R": 102.1,
+    "N3bg": 194,
+    "mc_once": 2.6,
+    "mc_ref": 2.6,
+    "N_ortak": 194.0,
+    "mc_artis": 0.3,
+    "N_son": 97.2
+   },
+   {
+    "id": "usp0009d4z",
+    "yer": "4 km ESE of Derince, Turkey",
+    "kume": 395,
+    "R": 277.4,
+    "N3bg": 227,
+    "mc_once": 2.9,
+    "mc_ref": 2.9,
+    "N_ortak": 227.0,
+    "mc_artis": 0.4,
+    "N_son": 90.4
+   },
+   {
+    "id": "ci9108652",
+    "yer": "The 1999 Hector Mine, California Earthqu",
+    "kume": 397,
+    "R": 135.8,
+    "N3bg": 991,
+    "mc_once": 1.6,
+    "mc_ref": 1.8,
+    "N_ortak": 625.3,
+    "mc_artis": 1.0,
+    "N_son": 99.1
+   },
+   {
+    "id": "usp000dt25",
+    "yer": "153 km W of Big Lagoon, California",
+    "kume": 1141,
+    "R": 156.7,
+    "N3bg": 112,
+    "mc_once": 2.4,
+    "mc_ref": 2.5,
+    "N_ortak": 89.0,
+    "mc_artis": 0.1,
+    "N_son": 89.0
+   },
+   {
+    "id": "usp000hk46",
+    "yer": "19 km NE of Methven, New Zealand",
+    "kume": 727,
+    "R": 117.8,
+    "N3bg": 100,
+    "mc_once": 2.7,
+    "mc_ref": 2.7,
+    "N_ortak": 100.0,
+    "mc_artis": 0.0,
+    "N_son": 100.0
+   },
+   {
+    "id": "usb000iivv",
+    "yer": "38 km ESE of Blenheim, New Zealand",
+    "kume": 802,
+    "R": 57.7,
+    "N3bg": 74,
+    "mc_once": 2.6,
+    "mc_ref": 2.6,
+    "N_ortak": 74.0,
+    "mc_artis": 0.0,
+    "N_son": 74.0
+   },
+   {
+    "id": "us20005iis",
+    "yer": "6 km ESE of Kumamoto, Japan",
+    "kume": 901,
+    "R": 117.8,
+    "N3bg": 4225,
+    "mc_once": 0.5,
+    "mc_ref": 0.6,
+    "N_ortak": 3356.0,
+    "mc_artis": 1.7,
+    "N_son": 84.3
+   },
+   {
+    "id": "us2000cmy3",
+    "yer": "261 km SE of Chiniak, Alaska",
+    "kume": 942,
+    "R": 425.6,
+    "N3bg": 575,
+    "mc_once": 1.8,
+    "mc_ref": 2.1,
+    "N_ortak": 288.2,
+    "mc_artis": 0.8,
+    "N_son": 91.1
+   },
+   {
+    "id": "ci38457511",
+    "yer": "Ridgecrest Earthquake Sequence",
+    "kume": 979,
+    "R": 135.8,
+    "N3bg": 576,
+    "mc_once": 1.4,
+    "mc_ref": 1.4,
+    "N_ortak": 576.0,
+    "mc_artis": 0.8,
+    "N_son": 91.3
+   },
+   {
+    "id": "us60007idc",
+    "yer": "123 km NNW of Lucea, Jamaica",
+    "kume": 1139,
+    "R": 319.9,
+    "N3bg": 310,
+    "mc_once": 2.2,
+    "mc_ref": 2.4,
+    "N_ortak": 195.6,
+    "mc_artis": 0.5,
+    "N_son": 98.0
+   },
+   {
+    "id": "us7000dffl",
+    "yer": "182 km NE of Gisborne, New Zealand",
+    "kume": 1035,
+    "R": 180.7,
+    "N3bg": 431,
+    "mc_once": 2.6,
+    "mc_ref": 2.8,
+    "N_ortak": 271.9,
+    "mc_artis": 0.7,
+    "N_son": 86.0
+   },
+   {
+    "id": "us7000nr0v",
+    "yer": "42 km SSW of Bartolomé Masó, Cuba",
+    "kume": 1139,
+    "R": 88.5,
+    "N3bg": 156,
+    "mc_once": 1.0,
+    "mc_ref": 1.0,
+    "N_ortak": 156.0,
+    "mc_artis": 0.2,
+    "N_son": 98.4
+   },
+   {
+    "id": "us6000pxvx",
+    "yer": "34 km NE of Olonkinbyen, Svalbard and Ja",
+    "kume": 1144,
+    "R": 57.7,
+    "N3bg": 223,
+    "mc_once": 1.7,
+    "mc_ref": 1.8,
+    "N_ortak": 177.1,
+    "mc_artis": 0.4,
+    "N_son": 88.8
+   }
+  ],
+  "dusen": [
+   {
+    "id": "usp000h0gm",
+    "yer": "114 km SW of Ishigaki, Japan",
+    "kume": 689,
+    "R": 76.7,
+    "N3bg": 58,
+    "mc_once": 2.1,
+    "mc_ref": 2.3,
+    "N_ortak": 36.6,
+    "mc_artis": 0.2,
+    "N_son": 36.6
+   }
+  ],
+  "K_ana": 13,
+  "K_kesifsiz": 10,
+  "esik": {
+   "ana_0.4": -0.7831045440799468,
+   "kesifsiz_0.4": -0.9063164396916447,
+   "ana_0.6": -0.8833100813566346,
+   "kesifsiz_0.6": -1.0140846995440003,
+   "ana_0.8": -0.940007234160438,
+   "kesifsiz_0.8": -1.0704605202983986
+  },
+  "esik_plasebo_q20": -0.6825107522784687,
+  "yanlis_alarm_veri_sifiri": {
+   "T1_06_ana": 0.04255,
+   "T1_uc_ana": 0.03185,
+   "T1_uc_kesifsiz": 0.0345,
+   "uc_ana_ve_kesifsiz": 0.0186,
+   "tam_kural": 0.01235
+  },
+  "guc": {
+   "0.15": {
+    "T1_06_ana": 0.29785,
+    "T1_uc_ana": 0.2583,
+    "T1_uc_kesifsiz": 0.1898,
+    "uc_ana_ve_kesifsiz": 0.1574,
+    "tam_kural": 0.1198
+   },
+   "0.2": {
+    "T1_06_ana": 0.39365,
+    "T1_uc_ana": 0.3468,
+    "T1_uc_kesifsiz": 0.2895,
+    "uc_ana_ve_kesifsiz": 0.24015,
+    "tam_kural": 0.1664
+   },
+   "0.25": {
+    "T1_06_ana": 0.6308,
+    "T1_uc_ana": 0.58645,
+    "T1_uc_kesifsiz": 0.4927,
+    "uc_ana_ve_kesifsiz": 0.4468,
+    "tam_kural": 0.30055
+   },
+   "0.3": {
+    "T1_06_ana": 0.73445,
+    "T1_uc_ana": 0.6985,
+    "T1_uc_kesifsiz": 0.6207,
+    "uc_ana_ve_kesifsiz": 0.5832,
+    "tam_kural": 0.44305
+   },
+   "0.4": {
+    "T1_06_ana": 0.92865,
+    "T1_uc_ana": 0.9155,
+    "T1_uc_kesifsiz": 0.8324,
+    "uc_ana_ve_kesifsiz": 0.8215,
+    "tam_kural": 0.6451
+   },
+   "0.5": {
+    "T1_06_ana": 0.9705,
+    "T1_uc_ana": 0.9649,
+    "T1_uc_kesifsiz": 0.9196,
+    "uc_ana_ve_kesifsiz": 0.9111,
+    "tam_kural": 0.7025
+   }
+  },
+  "MDE": {
+   "T1_06_ana": 0.334,
+   "T1_uc_ana": 0.347,
+   "T1_uc_kesifsiz": 0.385,
+   "uc_ana_ve_kesifsiz": 0.391,
+   "tam_kural": null
+  }
+ },
+ "B": {
+  "K": 14,
+  "N3bg": 100,
+  "R": 80,
+  "esik_T1": -0.809574337931095,
+  "esik_plasebo_q20": -0.4922206478353744,
+  "D0": {
+   "T1": 0.035325,
+   "T1_ve_plasebo": 0.024825,
+   "plasebo_red": 0.28185,
+   "n": 554
+  },
+  "D1_suru": {
+   "T1": 0.09105,
+   "T1_ve_plasebo": 0.064125,
+   "plasebo_red": 0.27585,
+   "n": 532
+  },
+  "D4_kenar": {
+   "T1": 0.078175,
+   "T1_ve_plasebo": 0.0572,
+   "plasebo_red": 0.2191,
+   "n": 532
+  },
+  "D0_f0.2": {
+   "T1": 0.599375,
+   "T1_ve_plasebo": 0.473875,
+   "plasebo_red": 0.1966,
+   "n": 538
+  },
+  "D0_f0.3": {
+   "T1": 0.82345,
+   "T1_ve_plasebo": 0.54905,
+   "plasebo_red": 0.32545,
+   "n": 539
+  }
+ },
+ "sure_s": 560
+}
