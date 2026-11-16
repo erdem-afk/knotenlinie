@@ -14,6 +14,8 @@ Bölüm A (bileşim MDE'si):
 Bölüm B (Z5 denetimi, R = 80, N3bg 100, K = 14 türdeş): veri D0 / D1 (durağan sürüler) / D4 (kenar ağ kaybı);
   T1 tek başına ve plasebo denetimiyle yanlış "VAR" oranı; D0'da f = 0,3'te denetimin güç bedeli.
   Sürü ve ağ senaryoları INCELEME-1 (tr13b_inc1.py) ile aynı tanımlıdır.
+Sürüm 3 notu (D-2): `_is_A` artık kendi R'de kalibre eder (kalibre_R, 40 deneme). tr13b_v2_mde.json bu düzeltmeden
+ÖNCE üretildi (R = 80 kalibrasyonu) ve tarihçe olarak kalır; güncel sayılar INCELEME-2 (inc2/) ve koşu öncesi D-3'tür.
 Kullanım: python3 -I -B tr13b_v2_mde.py <cikti.json> [hizli]
 """
 import json
@@ -98,11 +100,17 @@ def bolge_B(rng, Nh, sen, f=0.0, R=80.0):
 
 
 # ---------------------------------------------------------------- işçiler
+def kalibre_R(rng, N, R, deneme):
+    """INCELEME-2 K1 / D-2 düzeltmesi: μ üyenin KENDİ R'sinde kalibre edilir (M.kalibre R'yi geçirmiyordu, R = 80)."""
+    ns = [M.bolge(rng, N, 0.0, R=R, B_ref=2)[2] for _ in range(deneme)]
+    return N * N / max(float(np.mean(ns)), 1.0)
+
+
 def _is_A(arg):
     tohum, R, N, dal, f, n = arg
     rng = np.random.default_rng(tohum)
     M.dallanma(dal)
-    Nh = M.kalibre(rng, N, deneme=15 if HIZLI else 30)
+    Nh = kalibre_R(rng, N, R, deneme=15 if HIZLI else 40)
     a = [M.bolge(rng, Nh, f, R=R) for _ in range(n)]
     a = np.array([r[:3] for r in a], float)
     return a[np.isfinite(a[:, 0]) & np.isfinite(a[:, 1])]
