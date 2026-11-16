@@ -14,8 +14,10 @@ Kurallar (özet):
   - Tek akış; istekler arası ≥ 2 sn (aşama H ile aynı); genel User-Agent; TLS doğrulaması açık; 429/503'te Retry-After
     (en çok 120 sn; yoksa 30 sn) beklenir. 401/403 "kısıtlı" sayılır: kesindir, yeniden denenmez, aşılmaz.
   - Kesin kodlar KESIN = (200, 204, 404, 401, 403) (tr4_asama0.py ile aynı küme). Öteki kodlar ve bağlantı hataları
-    sonraki çağrıda bir kez yeniden denenir (istek başına en çok iki deneme). İndirme sonunda kesin olmayan son
-    durum oranı > %5 ise tek bir yeniden deneme turu yapılır (§5.5 son cümle; TR-5b §5).
+    sonraki çağrıda (işte) bir kez yeniden denenir (istek başına en çok iki deneme); aynı işte yeniden atılmaz. Bir işte
+    ardışık ARDISIK_HATA_MAX kesin olmayan yanıt gelirse iş temiz biter (sunucu kesintisinde kuyruk yakılmaz; kod
+    incelemesi Ö1). İndirme sonunda kesin olmayan son durum oranı > %5 ise tek bir yeniden deneme turu yapılır (§5.5
+    son cümle; TR-5b §5).
   - Soket zaman aşımı 900 sn (aşama H'nin `H_TAVAN_SN`'i; Ek 1 Ö1 ve K7). Üretim isteğinin toplam süresine tavan
     konmaz; yalnız işin süre sınırı (sure_sn) isteği keser; kesilen istek deneme sayılmaz ve sonraki çağrıda yeniden
     atılır.
@@ -61,6 +63,8 @@ RETRY_AFTER_MAX, RETRY_AFTER_YOK = 120.0, 30.0
 SURE_MAX = 6000.0
 DENEME_MAX = 2                                                       # İ1-E4 madde 6
 TUR_ESIK = 0.05                                                      # §5.5: başarısız istek oranı > %5 → tek tur
+ARDISIK_HATA_MAX = 5                                                 # inceleme Ö1: ardışık kesin olmayan yanıtta iş biter
+TAHMIN_SON = 20                                                      # inceleme Ö2: iş sonu tahmini, son 20 istek
 SON_ISTEK = dt.date(2025, 12, 31)
 SON_HUKUM = dt.date(2023, 12, 24)
 SON_B13 = dt.date(2025, 5, 31)
@@ -244,8 +248,16 @@ def pencere_aylari(w, kademe):
 
 # ---------------------------------------------------------------- HTTP (tek akış)
 class Akis:
-    def __init__(self):
+    """Tek akış. Durum (son isteğin başlangıcı, Retry-After bitişi) işler arasında indirme_durum.json'da taşınır:
+    yeni bir iş de önceki işin son isteğinden ≥ 2 sn sonra ve bekleyen Retry-After bitince istek atar (inceleme Ö1)."""
+    def __init__(self, onceki=None):
         self.son = -1e18; self.bekle = 0.0
+        if onceki:
+            self.son = float(onceki.get('son', -1e18))
+            if onceki.get('bekle_bitis') is not None: self.bekle = max(0.0, float(onceki['bekle_bitis']) - simdi())
+
+    def durum(self):
+        return dict(son=self.son, bekle_bitis=(simdi() + self.bekle) if self.bekle > 0 else None)
 
     def once(self, bitis):
         w = max(ARA_SN - (simdi() - self.son), self.bekle)
@@ -511,32 +523,42 @@ def indir(ob, depo, yerel, sure=None, taban=DS, G=None):
     for j in B['isler']:                                             # zorla kesilmiş önceki işler: son kayıtlı ana kadar
         if not j.get('kapandi'): B['etkin_sn'] += max(0.0, j['son'] - j['bas']); j['kapandi'] = True
     B['durum'] = 'suruyor'; B['isler'].append(dict(bas=is_bas, son=is_bas)); yaz_json(Y['butce'], B)
-    akis = Akis(); atilan = 0; gecen = []
+    akis = Akis(B.get('akis')); atilan = 0
+    bu_is_hata = set(); ardisik = 0       # inceleme Ö1: kesin olmayan yanıt alan istek AYNI işte yeniden atılmaz
     g = ekle_ac(Y['gunluk'])
 
     def kapat(neden):
         B['etkin_sn'] += simdi() - is_bas; B['isler'][-1].update(son=simdi(), neden=neden, kapandi=True)
-        yaz_json(Y['butce'], B)
+        B['akis'] = akis.durum(); yaz_json(Y['butce'], B)
 
     try:
         while True:
-            d, n = son_durum(satirlar(Y['gunluk']))
-            Q = kuyruk(isler, d, n, B['tur'])
-            if not Q:
+            L = satirlar(Y['gunluk'])
+            d, n = son_durum(L)
+            Qt = kuyruk(isler, d, n, B['tur'])
+            if not Qt:
                 bas = [x for x in isler if d[x['k']]['kod'] not in KESIN]
                 if bas and not B['tur'] and len(bas) / len(isler) > TUR_ESIK:
                     B['tur'] = True; yaz_json(Y['butce'], B); print(f'kesin olmayan oran {len(bas)}/{len(isler)} > %5: tek yeniden deneme turu')
                     continue
                 B['durum'] = 'bitti'; B['bitis'] = simdi(); kapat('bitti')
                 print('indirme bitti', ozet(isler, depo)); return B
+            Q = [x for x in Qt if x['k'] not in bu_is_hata]
+            if not Q or ardisik >= ARDISIK_HATA_MAX:   # yeniden denemeler sonraki işte (tr4_asama0 ile aynı: "ikinci çağrıda")
+                kapat('yeniden deneme sonraki işte'); print(f'kesin olmayan yanıt ({len(bu_is_hata)} istek, ardışık {ardisik}); '
+                                                           'yeniden deneme sonraki işte', ozet(isler, depo)); return B
             x = Q[0]
             neden = butce_asildi(B, is_bas)
             if neden:
                 B['durum'] = 'kesildi'; B['kesme_nedeni'] = neden; B['bitis'] = simdi(); kapat('bütçe')
                 print('BÜTÇE DOLDU:', neden, '— indirme kalıcı olarak durdu (§5.3 kesik koşu)'); return B
-            hiz = (sum(r['bayt'] for r in gecen) / max(1e-9, sum(r['sn'] for r in gecen))) if gecen else None
+            # iş sonu tahmini (inceleme Ö2): gözlenen bayt/gün ve hız (son TAHMIN_SON başarılı istek); yoksa 1,3 formülü
+            ok = [r for r in L if r.get('kod') == 200 and not r.get('sure_kesti') and r.get('bayt', 0) > 0
+                  and r.get('sn', 0) > 0 and r.get('gun', 0) > 0][-TAHMIN_SON:]
+            hiz = sum(r['bayt'] for r in ok) / sum(r['sn'] for r in ok) if ok else None
             if hiz is None and G['hiz'].get('v_medyan_KiBs'): hiz = G['hiz']['v_medyan_KiBs'] * 1024
-            tahmin = len(x['gunler']) * H_SAAT * 3600 * 100 * 3 * BAYT_ORNEK / (hiz or 40 * 1024) + 60
+            bayt_gun = sum(r['bayt'] for r in ok) / sum(r['gun'] for r in ok) if ok else H_SAAT * 3600 * 100 * 3 * BAYT_ORNEK
+            tahmin = len(x['gunler']) * bayt_gun / (hiz or 40 * 1024) + 60
             if bitis - simdi() < 1.25 * tahmin:
                 kapat('süre'); print('süre doldu; temiz çıkış (sürdürülebilir)', ozet(isler, depo)); return B
             son_utc, son_gun = istek_bitisi(x, G['konum'])
@@ -566,8 +588,10 @@ def indir(ob, depo, yerel, sure=None, taban=DS, G=None):
             atilan += 1
             satir = dict(k=x['k'], kod=kod, bayt=nb, ham_sha256=sh, sn=sn, sure_kesti=kesti, deneme=n[x['k']] + 1,
                          t=round(simdi(), 1), rol=x['rol'], gun=len(x['gunler']))
+            if not kesti:
+                if kod in KESIN: ardisik = 0
+                else: ardisik += 1; bu_is_hata.add(x['k'])
             if kod == 200 and not kesti and nb > 0:
-                gecen.append(dict(bayt=nb, sn=sn))
                 t1 = time.monotonic()
                 try:
                     r = isle_istasyon_ay(ham, x, G['konum'])
@@ -580,7 +604,7 @@ def indir(ob, depo, yerel, sure=None, taban=DS, G=None):
                     if os.path.exists(ham): os.remove(ham)       # ham veri silinir (§5.5)
             elif os.path.exists(ham): os.remove(ham)
             g.write(json.dumps(satir, sort_keys=True, ensure_ascii=False) + '\n'); g.flush(); os.fsync(g.fileno())
-            B['isler'][-1]['son'] = simdi(); yaz_json(Y['butce'], B)      # iş zorla kesilirse süresi kaybolmasın
+            B['isler'][-1]['son'] = simdi(); B['akis'] = akis.durum(); yaz_json(Y['butce'], B)   # iş zorla kesilirse süresi kaybolmasın
             if kesti:
                 kapat('süre (istek kesildi)'); print('süre doldu (istek kesildi; sonraki işte yeniden atılır)'); return B
     finally:
