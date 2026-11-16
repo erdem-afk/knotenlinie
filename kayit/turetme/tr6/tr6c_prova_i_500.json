@@ -1,0 +1,103 @@
+{
+ "hucre": "i:500",
+ "deneme": 20000,
+ "parca": 20,
+ "tohum": 7311,
+ "N0": 500.0,
+ "N0_kul": 315.479,
+ "veri_yok_payi": 0.0,
+ "kapi_payi": 1.0,
+ "olcutler": [
+  {
+   "ad": "p̂₀ − P(D | kapı)",
+   "deger": 0.00185,
+   "beklenen": 0.0,
+   "se": 0.00408,
+   "z": 0.45,
+   "gecti": true,
+   "bilgi": {
+    "p0_sapka": 0.47485,
+    "P_D_kapi": 0.473,
+    "J_ort": 3.0
+   }
+  }
+ ],
+ "bilgi": {
+  "P_D": 0.473,
+  "P_A": 0.4976,
+  "P_D_kesin": 0.48615,
+  "P_A_kesin": 0.48606,
+  "P_D_kapi": 0.473,
+  "P_A_kapi": 0.4976,
+  "P_Dh_kapi": 0.4901,
+  "P_Ah_kapi": 0.48185,
+  "p0_sapka_A_eksi_P_kapi": {
+   "p0": 0.49697,
+   "P": 0.4976,
+   "fark": -0.00063,
+   "se": 0.00408,
+   "z": -0.16
+  },
+  "p0_sapka_Dh_eksi_P_kapi": {
+   "p0": 0.48942,
+   "P": 0.4901,
+   "fark": -0.00068,
+   "se": 0.00407,
+   "z": -0.17
+  },
+  "p0_sapka_Ah_eksi_P_kapi": {
+   "p0": 0.48345,
+   "P": 0.48185,
+   "fark": 0.0016,
+   "se": 0.00407,
+   "z": 0.39
+  },
+  "kenar_D_hat_eksi_ham": {
+   "fark": -0.0171,
+   "se": 0.0021
+  },
+  "kenar_A_hat_eksi_ham": {
+   "fark": 0.01575,
+   "se": 0.00209
+  },
+  "artik_n_son_eksi_pi_n": 0.441,
+  "n_on_ort": 1495.16,
+  "n_son_ort": 229.45,
+  "sahte_gecerli_ort": 3.0
+ },
+ "gecti": true,
+ "parca_sha256": [
+  "466737242451902e36c3003a62286b66329d01b13c3204ee249eac97c4a60c90",
+  "af39a718508e6218cdfffea974aee26cd8c87c13bad204a67d23bcb989a3c6d0",
+  "de519347bb7fc7bf28d3ba84cb9d26d82aee858355f808cdb07a8b6ba701d0ea",
+  "f374362dafd415a10fc52b330c626ee66a195df9fe9a8064d04c6cb802b2a313",
+  "d2d20683fc5f08512e0bf7d3ac99368aa711370897b33e3e5baaf86334ad2b4d",
+  "451ceec5e3a9ce21a85967854bfe02bbb0b37a2dd3a677607fc775262a951a21",
+  "efa3a08cae6f3921823924ef18696bdf24d5fd1550f9518c04527f961dbcab17",
+  "3839625ce3a30f38fdf3b5620660637e12320a9512dd1a927e7dbcc28560b7d7",
+  "5257fd9a574424df35357fc43167303e3ccbd4d00f4a329f0d7963ccffd0c55e",
+  "34e53daaafa9b42b6273e635bb7a45aab8a27ede184c0c0ce4b3f32891302e61",
+  "2e9da68f7b27edf7ff14316b0b36765a8071a363449dca01b24fbd41c01298ef",
+  "18b4f664d5a55ebfedefd10ca4f38191f980d8506f526574c85eb7cad0b891c4",
+  "bd293cfc0473e3789aef1565b6532c6b5e6c1926b3b51e48aaf9c5fd76284ddb",
+  "9d67bba36ca7c8742767578ec4c21f1544b2d06035082f183846eeec775ff5b3",
+  "c392d566d40856ca89ea180e3084a1ea7dd92553fa4dd249a8ff72bf7b0c92f8",
+  "501661ff36da6a606698f4f8f88fc51f3fb09bbbb29d51ca1e709784226ef5b5",
+  "81a385aa5faecfa88da6a30f44f547e9a926c17c2c03c0f4c603dfd696d2fa3a",
+  "c89a802f4f4af75b450e899c18334cf52a4ee03e121e580bced7531494646058",
+  "869cfbdd83356bc4e65622763e08a9dede8766ba2fbd3256262687493cbeec62",
+  "165b567104a2a0f024da1a05b991e477547ff22ff804366c9ac79674dd2112e0"
+ ],
+ "baglayici": false,
+ "kod_sha256": {
+  "tr6a_kosu.py": "325da9a8a903c4ccdc87b4191e4eb6838146fac5ab560d8558df633acc3239f8",
+  "tr6a_okada.py": "ef0d583169fb859d323aff094c45b8d996fba29664b1d20d61b6b918e7efc4dd",
+  "tr6a_ffm.py": "60871db70e4942d93d80ef39f17dfd3b87b9b07673311f9dc8fa953a6dc6dbf6",
+  "tr6a_katalog.py": "75d430edb20cd556b02f1c5057fa585c7cf6ac0d98315352b7d8b94a5f560fdd",
+  "tr6a_yapay.py": "9a8a8f62ace6049fff3a1c3dea67c7129fa90d7c5fb0aa9acd22455a3625113f",
+  "tr6a_onkayit_sayilar.py": "e1d643a402e33218df33b94f81849e200429712c28d8530ff3cf85770962b2ae",
+  "tr6_a_kapi.py": "375d9e76bfdfd6e16e1436d504c7fd677172f7834984b9250fe083a82577835d",
+  "tr6a_onbellek_kor.py": "eb59b6d38911b5239ba1f1cd1ddf6b6cc444c30623eb1f1d9fba05a9cddaf04d",
+  "tr6_sayim.py": "5ad5edfcd0c8cd2422bb2e65f37b20c348cef8218ddc1fb3d239b54854454d5f"
+ }
+}

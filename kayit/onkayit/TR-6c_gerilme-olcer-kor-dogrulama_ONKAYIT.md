@@ -1,6 +1,6 @@
 # TR-6c ön kaydı: hız-durum gerilme ölçeri bilinen kosismik Coulomb gölgelerini kör olarak doğru işaretle buluyor mu? (TR-6a'nın ardılı)
 
-Tarih: 12 Kasım 2026. Durum: **TASLAK sürüm 1, bağımsız incelemeye hazır.** Dondurulmadı; kodda
+Tarih: 16 Kasım 2026. Durum: **TASLAK sürüm 1, bağımsız incelemeye hazır.** Dondurulmadı; kodda
 `TR6C_ONKAYIT_SHA = None` olduğu sürece bağlayıcı aşamalar (`--tasarim c sinama --baglayici`, `manifest`, `kos`)
 koşmaz.
 
@@ -133,7 +133,7 @@ biçimi (i)'ye de uygular. Kesin Poisson değeri bilgi satırı olarak kalır.
 kalibrasyon değil, kenar etkisinin yönüdür: H0'da düşüş oyu olasılığı kesin değerin üstüne çıkmamalıdır. C1′ bunu
 sınar. Bu hücrelerde de p̂₀ − P(D | kapı) bilgi olarak yazılır.
 
-**Süre.** Prova ölçümüyle (§C6) bağlayıcı yapay katalog sınaması ≈ ⟨SURE⟩ saat CPU'dur; çoğu N0 4500 hücrelerindedir.
+**Süre.** Prova ölçümüyle (§C6) bağlayıcı yapay katalog sınaması ≈ 18 saat CPU'dur; çoğu N0 4500 hücrelerindedir.
 Tamlık sınaması ≈ 10 dakikadır. Parçalı koşu iki süreçle ve kesintiye dayanıklı yürür.
 
 ## C4. Kenar etkisi kuralı (yeni)
@@ -157,7 +157,7 @@ Kural hüküm adını değiştirmez. Sonuç dosyası kenar kümelerini, özgün 
 **Neden gerekli.** Kümesizleştirme kısa son pencerede (275 g) uzun ön pencerede (1796 g) olduğundan göreli olarak daha
 az olay siler. Bunun iki nedeni vardır: pencere sonundaki olaylar sonraki büyük olaylarla silinemez ("gelecek
 kesmesi") ve son pencerenin önündeki tampon kısadır. n_son göreli olarak şişer: H0'da düşüş oyu azalır, artış oyu artar.
-Etki N0 ile hızla büyür (§C6 tablosu: (i) dünyasında hat − kümesizleştirmesiz D farkı ⟨KENAR_TABLO⟩).
+Etki N0 ile hızla büyür (§C6 tablosu: (i) dünyasında hat − kümesizleştirmesiz D farkı N0 31,36 / 100 / 500 / 1500 / 4500'de −0,001 / −0,002 / −0,017 / −0,066 / −0,171; hat koşulsuz P(D) − kesin Poisson: +0,004 / −0,006 / −0,013 / −0,064 / −0,174).
 
 Tek birimli yapay dünyada sahte pencereler aynı yapıdadır ve p̂₀ etkiyi soğurur (C1; §C6). Gerçek koşuda ise p̂₀ bütün
 kümelerin sahte oylarından havuzlanır ve p₀ = max(0,50; …) alt sınırını taşır. Bu yüzden yüksek N0'lı birkaç kümenin
@@ -173,7 +173,7 @@ kayması havuzda soğurulmaz. Önsayımda kaba N0'ı 500'ü aşan iki temsilci v
 **Seçimin yapay veriyle gerekçesi.** Üç seçenek prova verisiyle (§C6; tohum 7311, hücre başına 20 000 deneme)
 karşılaştırıldı:
 - **(R2) Kenar birimi kümesizleştirmesiz (D4) oyla oy verir.** (i) dünyasında D4 oyu yansızdır, ama (ii) dünyasında
-  (lobda ikincil diziler) H1 yönüne kayar: ⟨R2_SAYI⟩. Lobdaki kümelenme ayıklanmayınca aşırı saçılım düşüş oyunu
+  (lobda ikincil diziler) H1 yönüne kayar: kapıyı geçen denemelerde D4 P(D | kapı) N0 100 / 500 / 1500 / 4500'de 0,504 / 0,515 / 0,534 / 0,536, kesin değer 0,468 / 0,486 / 0,492 / 0,495 (fark +0,036 / +0,029 / +0,042 / +0,041; SE ≈ 0,0035). (i) dünyasında aynı satır 0,464 / 0,490 / 0,494 / 0,492'dir. Lobdaki kümelenme ayıklanmayınca aşırı saçılım düşüş oyunu
   artırır (TR-6a §4.3). Gerçek lobların kümelenmesi bu yapay dünyanınkinden güçlüdür ve kenar birimlerinin çoğunda
   kalibrasyon yoktur. **Reddedildi:** α riski.
 - **(R3) Kenar birimi "veri yok (kenar etkisi)" olur, K ondan sonra sayılır.** α ve ters yön güvenlidir, ama K'yi
@@ -186,7 +186,8 @@ karşılaştırıldı:
   yanlış loblu (H0 düzeyindeki) kenar kümelerinden gelir (§C7).
 
 **Neden 500.** Tolerans 0,02'dir; TR-6a'nın tamlık ölçütündeki yanlılık payıyla aynıdır. (i) dünyasında |hat − ham| D
-farkı N0 500'de ⟨K500⟩, 1500'de ⟨K1500⟩'dir. Izgarada toleransı aşmayan en büyük N0 500'dür. Sınır kapı N0'ına
+farkı N0 500'de 0,017 (SE 0,002), 1500'de 0,066'dır. Izgarada toleransı aşmayan en büyük N0 500'dür. (ii) dünyasında hat P(D) − kesin
+N0 500'de −0,020'dir; sınır toleransın kıyısındadır (§C9 madde 3). Sınır kapı N0'ına
 (Mc_lob) uygulanır. Oy Mc_kul ≥ Mc_lob ile sayıldığından oyun gördüğü oran kapı N0'ından küçük ya da ona eşittir. Bu
 yüzden sınır tutucu yöndedir: kural gerekenden fazla birime uygulanabilir, azına uygulanmaz.
 
@@ -210,7 +211,23 @@ Ek 1 E1.3'teki gibidir:
 TR-6a §4.3 ve §4.5'in Poisson tabloları 335 g penceresi içindi. (d) penceresiyle (275 g, ΔMc = 0) kesin değerler
 (`tr6c_prova_bilgi.json`):
 
-⟨TABLO_43⟩
+H0 (kümesizleştirmesiz Poisson, 275 g son pencere, 1796 g ön pencere, ΔMc = 0):
+
+| N0 (olay/yıl) | 17,08 | 31,36 | 50 | 111,2 | 300 | 1000 | 4500 |
+|---|---|---|---|---|---|---|---|
+| P(D \| H0) | 0,4372 | 0,4574 | 0,4658 | 0,4766 | 0,4857 | 0,4922 | 0,4963 |
+| P(A \| H0) | 0,4436 | 0,4546 | 0,4645 | 0,4766 | 0,4858 | 0,4922 | 0,4963 |
+
+Kalıcı −10 kPa (Aσ 19 kPa, Dieterich adımı), P(D):
+
+| N0 | ΔMc 0 | ΔMc 0,2 | ΔMc 0,5 |
+|---|---|---|---|
+| 31,36 | 0,9795 | 0,9402 | 0,8422 |
+| 50 | 0,9958 | 0,9798 | 0,9119 |
+| 111,2 | 1,0000 | 0,9992 | 0,9853 |
+
+Bunlar kümesizleştirmesiz değerlerdir. Hattın gerçek H0 değeri yüksek N0'da kenar etkisiyle daha düşüktür (§C4, §C6);
+ana hükmün karşılaştırması p₀ iledir, bu tablolar bilgi ve güç hesabı içindir.
 
 ## C6. Dondurma öncesi tam ölçekli prova
 
@@ -220,11 +237,80 @@ sınaması, bağlayıcı olmayan tohumlarla ve bağlayıcı koşuyla aynı kodla
 p)) ve tamlık için `tr6a_yapay.tamlik_prova_c(7312, 20000)`. Çıktılar `kayit/turetme/tr6/tr6c_prova_<hücre>.json` ve
 `tr6c_prova_tamlik.json`'dur.
 
-⟨PROVA⟩
+**Sonuç: 11 hücrenin hepsi ve tamlık sınaması geçti.** Prova, çalışma dizinindeki iki sürücü ve iki işçi betiğiyle
+koşuldu. Betikler aynı işlevleri (`hucre_parcasi_c`, `prova_c`, `tamlik_prova_c`) çağırır; parça tohumu ve dosya
+biçimi komuttakiyle aynıdır. Koşu ortada makine yeniden başlayınca kesildi. Yarım parçalar silindi, yalnız eksik
+parçalar yeniden koşuldu. Kesintiden önce yazılmış üç parça (i:31,36, ii:100 ve adım hücrelerinin 0. parçası) son kodla
+yeniden üretildi ve bayt bayt aynı çıktı. Özetler bütün parçalar bittikten sonra son kodla bir kez yazıldı;
+`kod_sha256` alanı bugünkü `tr6a_yapay.py` / `tr6a_kosu.py` ile aynıdır.
+
+Yapay katalog (tohum 7311, hücre başına 20 000 deneme, veri yok payı her hücrede 0):
+
+| Hücre | Ölçüt | Değer | Beklenen | SE | z | Kapı payı | P(D) koşulsuz / kesin | hat − ham D | hat − ham A | p̂₀⁺ − P(A \| kapı) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| i:31,36 | C1 | +0,0059 | 0 | 0,0059 | +0,99 | 0,466 | 0,4464 / 0,4426 | −0,0009 | −0,0018 | −0,0081 |
+| i:100 | C1 | +0,0087 | 0 | 0,0041 | +2,14 | 1 | 0,4622 / 0,4682 | −0,0019 | +0,0017 | −0,0090 |
+| i:500 | C1 | +0,0019 | 0 | 0,0041 | +0,45 | 1 | 0,4730 / 0,4862 | −0,0171 | +0,0158 | −0,0006 |
+| i:1500 | C1′ | 0,4283 | ≤ 0,4920 | 0,0035 | −18,0 | 1 | 0,4283 / 0,4920 | −0,0658 | +0,0654 | +0,0016 |
+| i:4500 | C1′ | 0,3214 | ≤ 0,4954 | 0,0035 | −49,2 | 1 | 0,3214 / 0,4954 | −0,1707 | +0,1763 | −0,0042 |
+| ii:31,36 | C1 | +0,0067 | 0 | 0,0057 | +1,18 | 0,514 | 0,4428 / 0,4426 | −0,0229 | +0,0069 | −0,0089 |
+| ii:100 | C1 | −0,0014 | 0 | 0,0041 | −0,34 | 1 | 0,4671 / 0,4682 | −0,0371 | +0,0220 | −0,0006 |
+| ii:500 | C1 | −0,0035 | 0 | 0,0041 | −0,87 | 1 | 0,4658 / 0,4862 | −0,0495 | +0,0412 | +0,0029 |
+| ii:1500 | C1′ | 0,4253 | ≤ 0,4920 | 0,0035 | −18,9 | 1 | 0,4253 / 0,4920 | −0,1083 | +0,1026 | +0,0038 |
+| ii:4500 | C1′ | 0,3267 | ≤ 0,4954 | 0,0035 | −47,7 | 1 | 0,3267 / 0,4954 | −0,2097 | +0,2095 | +0,0058 |
+| adım:31,36 | C2: P(D) | 0,93735 | 0,94019 | 0,0017 | −1,69 | | | | | |
+| adım:31,36 | C3: P(Δτ_est < m*) | 0,49415 | 0,49688 | 0,0035 | −0,77 | | | | | |
+
+Okuma:
+- C1 en büyük |z| 2,14'tür (i:100). Bu, 3,5 sınırının altında ama 10 C1/C1′ satırı içinde beklenenden biraz büyüktür.
+  Aynı hücrede p̂₀⁺ − P(A | kapı) −2,2 SE'dir. İkisi aynı yönde, sahte pencerelerin gerçek pencereye göre çok az
+  daha "düşüşçü" olduğunu gösterir. Bunu kod hatası olarak okumak için bir dayanak bulmadım; bağlayıcı koşuda aynı
+  hücreye bakılmalıdır.
+- Kenar hücrelerinde (C1′) de kalibrasyon kenar etkisini soğurur: hücre içi p̂₀ − P(D | kapı) i:1500 −0,0014
+  (z −0,35), i:4500 +0,0031 (z +0,79), ii:1500 −0,0027 (z −0,67), ii:4500 −0,0063 (z −1,62). Kenar kuralı bu soğurmaya
+  dayanmaz, çünkü gerçek koşuda kenar birimleri kendi sahteleriyle değil havuzla karşılaştırılır (§C4).
+- (ii)'de hat − ham farkı küçük N0'da da 0,02'yi aşar (−0,023 / −0,037). Bu kenar etkisi değil, ham (D4) oyun lob içi
+  kümelenmeyle yukarı kaymasıdır (§C4 R2). (ii)'nin kenar etkisinin ölçüsü hat P(D) − kesindir: −0,001 / −0,020 /
+  −0,067 / −0,169 (N0 100 / 500 / 1500 / 4500).
+
+Tamlık ((d), tohum 7312, 96 hücre × 20 000): geçti. En büyük fark +0,0038 (M7, Mc 1, N0 4500, aσ 0; eşik 0,02).
+12 hücrenin bütün denemeleri veri yoktur (geçer sayılır); ortalama veri yok payı 0,232.
+
+H1 bilgisi (tohum 7400, (i) dünyası, kalıcı −10 kPa): N0 500 / 1500 / 4500'de 400 / 300 / 150 denemede hat ve
+kümesizleştirmesiz düşüş oyu payı 1,000, artış oyu payı 0,000.
 
 ## C7. Güç kaybı
 
-⟨GUC⟩
+p₀ = max(0,50; …) alt sınırı yüzünden kenar etkisi α'yı bozmaz: H0'da düşüş oyu olasılığı 0,50'nin altına iner,
+eşik yerinde kalır. Bedeli güçtür. Hesap (`guc_kaybi_c`, `tr6c_prova_bilgi.json` `guc`):
+- TR-6a §4.5 tasarım dünyası: K = 23, c(23; 0,50) = 16, küme başına oy olasılığı p₁ = 0,75 = f · P_D1 + (1 − f) · w,
+  f = 0,549 (doğru loblu küme payı).
+- m kümede yanlış loblu (H0 düzeyindeki) oy olasılığı w, (i) dünyasının hat − ham D farkı kadar düşer: küme başına
+  Δp = (1 − f) · fark. H1 tarafı değişmez (§C6 H1 bilgisi).
+- Kenarsız güç 0,8037'dir.
+
+| N0 (yapay kapı oranı) | küme başına Δp | m = 1 | m = 2 | m = 5 | m = 23 |
+|---|---|---|---|---|---|
+| 31,36 | −0,0004 | 0,8036 | 0,8036 | 0,8034 | 0,8025 |
+| 100 | −0,0008 | 0,8036 | 0,8035 | 0,8031 | 0,8010 |
+| 500 | −0,0077 | 0,8026 | 0,8015 | 0,7983 | 0,7783 |
+| 1500 | −0,0297 | 0,7996 | 0,7954 | 0,7826 | 0,6988 |
+| 4500 | −0,0770 | 0,7930 | 0,7820 | 0,7473 | 0,5068 |
+
+Okuma:
+- Önsayımda kapı N0'ı 500'ü aşan iki temsilci vardır (Tokachi-oki ≈ 584, Tohoku ≈ 4501). Bu ikisi için kayıp
+  0,804 → ≈ 0,79'dur (m = 2, 1500 ile 4500 satırları arası).
+- 500'ün altındaki bütün kümeler kural dışıdır. En kötü durumda (23 kümenin hepsi N0 ≈ 500) güç 0,778'dir.
+- Karşılaştırma (R3, "veri yok"): K = 23'te tek bir kümenin düşmesi K'yi 22'ye indirir ve hüküm "güç yok" olur (güç
+  0). K_kapı 24'te iki küme kaybı aynı sonucu verir. R1′'nün kaybı bunun yanında küçüktür.
+- Kalibrasyon kaybı (TR-6a §4.6: p̂₀ gürültüsü yüzünden p₀ > 0,50) bu tabloya eklenmez; TR-6a'daki gibidir. Kenar
+  kümelerinin sahte oyları havuzdan çıkınca (§C4 kural 2) p̂₀ kenar kaymasıyla aşağı çekilmez, ama J azalır (§C9
+  madde 8).
+
+Ters yön notu ("gölgede anlamlı artış"; `ters_yon_alfa_c`, H0 artış oyu olasılığı 0,47): kenarsız gerçek α 0,0245.
+Kural olmasaydı artış kayması m kümede bunu büyütürdü: N0 4500'de m = 1 / 2 / 5 / 23 için 0,029 / 0,034 / 0,053 /
+0,399; N0 1500'de 0,026 / 0,028 / 0,033 / 0,090. Kural 4 kenar kümelerinde A'yı 0 saydığı için bu kayma ortadan kalkar.
+500'ün altında kalan kayma en kötü durumda (m = 23, N0 500) α'yı 0,035'e çıkarır; 0,05'in altındadır.
 
 ## C8. Kapı, hüküm adları, yeniden açma ve koşu sırası
 
@@ -263,14 +349,14 @@ TR-6a §11'in 18 maddesi aynen geçerlidir. Özellikle ve yeni olarak:
    kaldırmaz, yönünü tutucu tarafta tutar ve kalibrasyondan ayırır. Bedeli güçtür (§C7).
 3. **Kenar sınırı yapay dünyaya dayanır.** Etkinin büyüklüğü gerçek kümelenmeye, Mc_kul'a ve lob geometrisine
    bağlıdır. Yapay dünyanın lob içi kümelenmesi zayıftır. Kural tek bir sayıya (kapı N0 500) bağlanır; 500'ün hemen
-   altındaki bir kümede kalan kayma ≈ 0,01'dir.
+   altındaki bir kümede kalan kayma −0,013 ((i)) ile −0,020 ((ii)) arasıdır (hat P(D) − kesin, §C6); bu toleransın sınırındadır.
 4. **Risk 6 (TR-6a kod incelemesi) sınanmadı.** Lobdaki ana şok artçıları ve büyük artçıların GK pencereleri gerçek
    son pencereyi boşaltabilir (H1 lehine). Sahte zamanlarda büyük ana şok olmadığından p̂₀ bunu soğurmaz. Korumalar
    S7, S1 ve D4'tür. Bu yanlılık kenar etkisinin tersi yöndedir; ikisinin toplamı bilinmez.
 5. **(d)'nin oy oranı bedeli.** Yapay dünyada Mc_kul = Mc_lob + 0,2'dir; oyun gördüğü oran kapı oranının %63'üdür.
    Kapıyı sınırda geçen bir lobda kalıcı −10 kPa'da düşüş oyu olasılığı 0,987'den (TR-6a §4.5, 335 g, ΔMc 0) 0,940'a
    iner (§C3, C2). Gerçek veride ΔMc daha büyük olabilir (TR-6a §6.2 kural 6, etkin N0 cümlesi).
-6. **Bağlayıcı sınama uzun sürer** (≈ ⟨SURE⟩ saat CPU). Parçalı ve belirlenimci yapıldı; kesinti sonucu değiştirmez.
+6. **Bağlayıcı sınama uzun sürer** (≈ 18 saat CPU). Parçalı ve belirlenimci yapıldı; kesinti sonucu değiştirmez.
 7. **Kenar kümelerinin artış oyu sıfırlanır.** Bu, ters yön notunu ve S2'nin artış yönünü tutucu yapar; o kümelerde
    gerçek bir artış görülemez.
 8. **Kalibrasyondan çıkarılan sahte oylar J'yi düşürür.** Önsayımda Tokachi-oki'nin 3 geçerli sahte zamanı vardır;
@@ -294,7 +380,7 @@ tohumlarla koşuldu: çok birimli yapay dünyada manifest + oylar + hüküm, yap
 birim deneme dizisi ve bir tamlık hücresi bayt bayt aynı çıktıyı verdi. Bu dört özet `tr6a_test_yapay.py`
 `TTasarimC.test_tr6a_bit_duzeyi` içinde sabittir.
 
-**Sınamalar:** `python3 -I -B kayit/turetme/tr6/tr6a_test_yapay.py` ⟨TEST⟩. Yeni `TTasarimC` sınıfı (8 sınama):
+**Sınamalar:** `python3 -I -B kayit/turetme/tr6/tr6a_test_yapay.py` → 62 sınama, hepsi geçti (≈ 2 dakika). Yeni `TTasarimC` sınıfı (8 sınama):
 TR-6a bit düzeyi; `--tasarim c` yolları ve TASLAK durdurması; tohum yasakları; parça belirlenimciliği ve (d) penceresi;
 ölçüt aritmetiği (C1 ve C1′); kesin değerler (`kesin_c`, `dtau_kesin_c` ile 200 000 denemelik Monte Carlo); güç ve
 ters yön hesabı; kenar kuralı (kenar kümesi K'de kalır, sahte oyları J'ye girmez, ana ve gölge türevi satırlarda A = 0,
@@ -305,6 +391,7 @@ Yeniden üretim (deponun kökünde):
 ```
 python3 -I -B kayit/turetme/tr6/tr6a_test_yapay.py
 python3 -I -B kayit/turetme/tr6/tr6a_kosu.py --tasarim c sinama --prova --tohum 7311 --deneme 20000 \
-    --parca-dizini <geçici_dizin> --yaz            # ≈ ⟨SURE⟩ saat CPU; --hucreler ile hücre hücre
-⟨URETIM⟩
+    --parca-dizini <geçici_dizin> --yaz            # ≈ 18 saat CPU; --hucreler ile hücre hücre
+# tamlık provası: python3 -I -B -c "import sys; sys.path.insert(0,'kayit/turetme/tr6'); import tr6a_yapay as Y; Y.tamlik_prova_c(7312, 20000)"
+# §C5 / §C7 tabloları: tr6a_yapay.prova_bilgi_c('kayit/turetme/tr6', h1_bilgi) → tr6c_prova_bilgi.json
 ```
