@@ -57,7 +57,7 @@
    }
   },
   "K1-negatif": {
-   "durum": "başladı",
+   "durum": "tamamlandı",
    "kip": "yeni",
    "baslatma": "2026-11-16T16:17:02+00:00",
    "kod_sha256": {
@@ -69,6 +69,26 @@
     "sure_s": 0.72,
     "gurultu_algilama": false,
     "tremor_algilama": true
+   },
+   "git": {
+    "head": "525fcdb273425aaebd26bbb5fd033b3c2168e7e6",
+    "uzak": "525fcdb273425aaebd26bbb5fd033b3c2168e7e6",
+    "dosya": "kayit/turetme/tr7/TR7_KOSU_DURUM.json"
+   },
+   "bitis": "2026-11-16T16:47:15+00:00",
+   "sonuc": {
+    "N_PK": 10,
+    "f_PK": 2,
+    "A90_PK": 11.220184543019636,
+    "mda_rng_son": {
+     "bit_generator": "PCG64",
+     "state": {
+      "state": 170634152000979185616583890909913295596,
+      "inc": 73030421956038382396665486183601481221
+     },
+     "has_uint32": 0,
+     "uinteger": 3281956852
+    }
    }
   }
  },
