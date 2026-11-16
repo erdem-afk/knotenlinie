@@ -1042,7 +1042,7 @@ class TYapaySinama(unittest.TestCase):
 # ================================================================== TR-6c (tasarım c)
 TASARIM_ADLARI = ("TASARIM", "ONKAYIT", "ONKAYIT_SHA", "ONKAYIT_GOVDE_BAYT", "SINAMA_CIKTI", "MANIFEST", "ON_HAM_SHA",
                   "SON_HAM_SHA", "SON_KAYIT", "SONUC_JSON", "SONUC_MD", "ISARET_AD", "ANLIK_AD", "KOD_INCELEME",
-                  "TAMLIK_KURALLARI")
+                  "TAMLIK_KURALLARI", "AD")
 
 
 @contextlib.contextmanager
@@ -1102,6 +1102,26 @@ def kenar_kurali_sinamasi(tc):
         tc.assertTrue(all(not r.get("kenar_etkisi") for r in R["ana"] if r["temsilci"] != "y05"))
         tc.assertTrue(all(r["A"] == 0 for k in ("D4", "D1", "S3", "S4") for r in R[k] if r["temsilci"] == "y05"))
         tc.assertTrue(all(not r.get("kenar_etkisi") for r in R["S1"] + R["S7"]))
+        # TR-6c İNCELEME-1: §C4 kural 4'ün bütün satır listesi (gölge ve gölge türevi loblar, S2 dahil); D ve özgün A
+        # sayımlardan yeniden türetilir (kural D'ye dokunmaz)
+        satirlar = ("ana", "B1", "S3", "S4", "S5a", "S5b", "D1", "D3a", "D3b", "D4", "D5", "D6", "D7", "D8", "B4_cikan")
+        gorulen = set()
+        for k in satirlar:
+            for r in (R.get(k) or []):
+                if r["temsilci"] != "y05":
+                    continue
+                gorulen.add(k)
+                D, A = KAT.oy(r["n_on"], r["n_son"], r["pi"])
+                tc.assertTrue(r.get("kenar_etkisi"), k)
+                tc.assertEqual((r["D"], r["A"], r["A_kenar_oncesi"]), (D, 0, A), k)
+        tc.assertTrue({"ana", "S3", "S4", "S5a", "D1", "D3a", "D3b", "D4", "D5", "D6", "D7", "D8"} <= gorulen, gorulen)
+        s2 = R["m_etkin"]["S2"]["kumeler"]["y05"]
+        tc.assertTrue(s2.get("kenar_etkisi"))
+        tc.assertEqual(s2["A"], 0)
+        tc.assertEqual(KO.cekirdek(m)["kenar_birimleri"], ["y05"])
+        md = KO.sonuc_md(m, KO.hukum_kur(m, R, an), R, {})
+        tc.assertTrue(md.startswith("# TR-6c sonuç"))
+        tc.assertIn("Kenar kümeleri", md)
     return m
 
 
@@ -1223,6 +1243,78 @@ class TTasarimC(unittest.TestCase):
         m = an.manifest()
         self.assertNotIn("kenar_kumeleri", m)
         self.assertEqual(an.kenar_birimleri(m["kapi_N0"]), set())
+
+    # ---- TR-6c İNCELEME-1 eklemeleri (mutasyon sınamasında yakalanmayan noktalar; inc_c/inc_c_mutasyon.py)
+    def test_kenar_sabitleri_ve_kural_birimi(self):
+        self.assertEqual(KO.N0_UST_C, 500.0)
+        self.assertEqual(KO.GOLGE_LOBLARI, ("golge", "D3a", "D3b", "D5", "D8"))
+        n = lambda k: round(k / KO.N0_YIL, 4)           # noqa: E731  (kapı N0'ı kapi_degerleri'ndeki gibi)
+        with tasarim_c():
+            an = KO.Analiz.__new__(KO.Analiz)
+            self.assertEqual(an.kenar_birimleri({"a": 500.0, "b": n(2459), "c": n(2458), "d": 4501.37}), {"b", "d"})
+            an._kenar = {"u"}
+            for lob in ("golge", "D3a", "D3b", "D5", "D8", "pozitif", "notr"):
+                r = an._kenar_A(dict(temsilci="u", D=1, A=1), lob)
+                bek = (1, 0) if lob in KO.GOLGE_LOBLARI else (1, 1)
+                self.assertEqual((r["D"], r["A"]), bek, lob)
+            self.assertEqual(an._kenar_A(dict(temsilci="v", D=1, A=1))["A"], 1)
+        an = KO.Analiz.__new__(KO.Analiz)
+        an._kenar = {"u"}
+        self.assertEqual(an._kenar_A(dict(temsilci="u", D=1, A=1))["A"], 1)          # TR-6a kipinde kural yok
+
+    def test_olcut_esikleri_c(self):
+        # C1: iki yanlı 3,5 SE (z 2,87 geçer, 4,07 geçmez); C1′: tek yanlı (çok negatif z geçer, +6 geçmez)
+        def c1(d):
+            rng = np.random.default_rng(42)
+            D, S_ = (rng.random(2000) < 0.5).astype(int), rng.binomial(3, 0.5 + d, 2000)
+            sat = [[1, 0, int(x), 1 - int(x), int(x), 1 - int(x), 3, int(y), 3 - int(y), int(y), 3 - int(y), 100, 15,
+                    110, 16] for x, y in zip(D, S_)]
+            return Y.hucre_ozeti_c("i:100", [dict(tohum=1, satir=sat, dtau=[0.0] * 2000)])["olcutler"][0]
+        a, b = c1(0.035), c1(0.05)
+        self.assertTrue(2.5 < a["z"] < 3.5 and a["gecti"])
+        self.assertTrue(b["z"] > 3.5 and not b["gecti"])
+
+        def c1p(pd_):
+            k = int(round(pd_ * 1000))
+            sat = [[1, 0, int(i < k), int(i >= k), int(i < k), int(i >= k), 3, i % 4, 3 - i % 4, i % 4, 3 - i % 4,
+                    9000, 1000, 9100, 1100] for i in range(1000)]
+            return Y.hucre_ozeti_c("i:4500", [dict(tohum=1, satir=sat, dtau=[0.0] * 1000)])["olcutler"][0]
+        a, b = c1p(0.30), c1p(0.60)
+        self.assertIn("tek yanlı", a["ad"])
+        self.assertTrue(a["z"] < -3.5 and a["gecti"])
+        self.assertTrue(b["z"] > 3.5 and not b["gecti"])
+        # SE biçimi (TR-6a (ii)): SE₀ = sd(S − p̂₀ J) / (ort(J) √n), SE_D = sd(D) / √n_kapı
+        S_, J_, x = np.array([2.0, 1, 1, 0, 3]), np.array([3.0, 3, 2, 3, 3]), np.array([1.0, 0, 1])
+        p0b = S_.sum() / J_.sum()
+        se = math.sqrt((np.std(S_ - p0b * J_, ddof=1) / (J_.mean() * math.sqrt(5))) ** 2 +
+                       (np.std(x, ddof=1) / math.sqrt(3)) ** 2)
+        f = Y._fark_se(S_, J_, x)
+        self.assertAlmostEqual(f[2], p0b - 2 / 3, places=12)
+        self.assertAlmostEqual(f[3], se, places=12)
+
+    def test_parca_semasi_ve_sabitler_c(self):
+        self.assertEqual((Y.TOHUM_KATALOG_C, Y.TOHUM_TAMLIK_C), (20261116, 20261117))
+        self.assertEqual((Y.PARCA_C, Y.N_BAGLAYICI, Y.KURAL_C, Y.MC_FARKI_C), (1000, 20000, "yedek_d", 0.2))
+        self.assertEqual(Y.HUCRELER_C, ("i:31.36", "i:100", "i:500", "i:1500", "i:4500", "ii:31.36", "ii:100",
+                                        "ii:500", "ii:1500", "ii:4500", "adim:31.36"))
+        self.assertEqual([Y.HUCRE_KODU_C[h] for h in Y.HUCRELER_C], list(range(1, 12)))
+        # parça tohumu (tohum, hücre kodu, parça): küçük bir parçanın baytları sabittir (TR-6c §C3)
+        h = lambda o: __import__("hashlib").sha256(json.dumps(o).encode()).hexdigest()   # noqa: E731
+        self.assertEqual(h(Y.hucre_parcasi_c("i:100", 11, 0, n=2)),
+                         "ae5f8421fc5158b2b203fe7097905c9fb681d8a7806992c3f84d862110b076b8")
+        # §C3 C2 / C3 beklenen değerleri metindeki sayılarla (N0_kul 19,79; 0,94019; m* −10,333; 0,49688)
+        sat = [[1, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 100, 5, 100, 5]] * 10
+        o = Y.hucre_ozeti_c("adim:31.36", [dict(tohum=1, satir=sat, dtau=[-10.0] * 10)])
+        self.assertEqual(o["N0_kul"], 19.787)
+        self.assertEqual([x["beklenen"] for x in o["olcutler"]], [0.94019, 0.49688])
+        self.assertEqual(o["olcutler"][1]["bilgi"]["kesin_medyan"], -10.333)
+
+    def test_cikti_adi_c(self):
+        H = dict(taban="koşulmadı")
+        self.assertTrue(KO.hukum_cumlesi(H, {}).startswith("TR-6a koşulmadı"))
+        with tasarim_c():
+            self.assertTrue(KO.hukum_cumlesi(H, {}).startswith("TR-6c koşulmadı"))
+        self.assertEqual(KO.AD, "TR-6a")
 
 
 # ================================================================== mutasyonlar

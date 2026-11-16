@@ -83,6 +83,7 @@ TAMLIK_KURALLARI = ("A2", "yedek_a", "yedek_b", "yedek_c", "yedek_d")    # (d): 
 # `--tasarim c` bu modülün dosya yollarını ve kurallarını TR-6c'ye çevirir (tasarim_sec). Varsayılan "a" TR-6a'dır ve
 # hiçbir davranışı değişmez. TR-6c ön kaydı TASLAK iken TR6C_ONKAYIT_SHA None'dur: bağlayıcı aşamalar koşmaz.
 TASARIM = "a"
+AD = "TR-6a"                        # çıktılardaki sınav adı (TR-6c İNCELEME-1: TR-6c çıktıları "TR-6a" yazıyordu)
 TR6A_ONKAYIT, TR6A_ONKAYIT_SHA, TR6A_GOVDE_BAYT = ONKAYIT, ONKAYIT_SHA, ONKAYIT_GOVDE_BAYT
 TR6C_ONKAYIT = os.path.join(DEPO, "kayit", "onkayit", "TR-6c_gerilme-olcer-kor-dogrulama_ONKAYIT.md")
 TR6C_ONKAYIT_SHA = None             # dondurulunca: TR-6c gövdesinin sha256'sı
@@ -98,7 +99,7 @@ def tasarim_sec(t):
         return
     if t != "c":
         raise ValueError(t)
-    g.update(TASARIM="c", ONKAYIT=TR6C_ONKAYIT, ONKAYIT_SHA=TR6C_ONKAYIT_SHA, ONKAYIT_GOVDE_BAYT=TR6C_GOVDE_BAYT,
+    g.update(TASARIM="c", AD="TR-6c", ONKAYIT=TR6C_ONKAYIT, ONKAYIT_SHA=TR6C_ONKAYIT_SHA, ONKAYIT_GOVDE_BAYT=TR6C_GOVDE_BAYT,
              SINAMA_CIKTI=os.path.join(BURAYA, "tr6c_sinama_sonuc.json"),
              MANIFEST=os.path.join(BURAYA, "tr6c_manifest.json"),
              ON_HAM_SHA=os.path.join(BURAYA, "tr6c_on_ham_sha256.txt"),
@@ -378,7 +379,7 @@ def hukum_cumlesi(H, d):
     """§6.3 kalıpları. d: K, X, c, h, p0, p, J, p0_sapka, K_kapi, yontem_olcut."""
     t = H["taban"]
     if t == "koşulmadı":
-        return (f"TR-6a koşulmadı: {d.get('yontem', '?')} önceden yazılan ölçütü tutmadı ({d.get('yontem_olcut', '?')})."
+        return (f"{AD} koşulmadı: {d.get('yontem', '?')} önceden yazılan ölçütü tutmadı ({d.get('yontem_olcut', '?')})."
                 " Olay sonrası veri indirilmedi. Aday elenmedi; yeniden açma ayrı ön kayıtla.")
     if t == "güç yok" and H.get("neden") == "tamlık":
         return (f"Olay sonrası bölge kataloğunda tamlık kestirilemediği için {d.get('dus')} küme 'veri yok (tamlık "
@@ -1262,7 +1263,7 @@ SATIR_SIRASI = ("ana", "S1", "S2", "S7", "S3", "S4", "S5a", "S5b", "S6", "D1", "
 
 
 def sonuc_md(m, Hk, R, girdi):
-    L = ["# TR-6a sonuç", "", f"**Hüküm:** {Hk['hukum']['ad']}", "", Hk["cumle"], "", Hk["marmara"], ""]
+    L = [f"# {AD} sonuç", "", f"**Hüküm:** {Hk['hukum']['ad']}", "", Hk["cumle"], "", Hk["marmara"], ""]
     if R is None:
         L += ["Olay sonrası veri indirilmedi; satır tablosu yok.", ""]
     else:
@@ -1270,6 +1271,13 @@ def sonuc_md(m, Hk, R, girdi):
         L += [f"Üst bilgi: p̂₀ = {v(s['p0_sapka'])}, p̂₀⁺ = {v(s['p0_arti_sapka'])}, J = {s['J']}, J < 30 kuralı "
               f"{'uygulandı' if s['J30_kurali'] else 'uygulanmadı'}, p₀ = {v(s['p0'], 2)}, p₀⁺ = {v(s['p0_arti'], 2)}, "
               f"testere: K_kapı {m['K_kapi']} → K {m['testere']['K_hukum']} (atılan {m['testere']['atilan']})", "",
+              ]
+        if "kenar_kumeleri" in m:                       # TR-6c §C4: kenar kümeleri ve özgün artış oyları
+            ka = {r["temsilci"]: r.get("A_kenar_oncesi") for r in R["ana"] if r.get("kenar_etkisi")}
+            L += [f"Kenar kümeleri (§C4, kapı N0 > {v(m.get('N0_ust'), 0)}): " +
+                  (", ".join(f"{u} (özgün A = {ka.get(u, '—')})" for u in m["kenar_kumeleri"]) or "yok") +
+                  "; gölge artış oyları 0 sayıldı, sahte oyları p̂₀'a girmedi.", ""]
+        L += [
               "| Satır | K | X (düşüş) | Y (artış) | X/K | c(K; p₀) | c(K; 0,5) | p (X, p₀) | p (X, 0,5) | p (Y) | "
               "koşullu p (bilgi) | Hüküm / etiket |", "|---|---|---|---|---|---|---|---|---|---|---|---|"]
         T = Hk["satirlar"]
@@ -1682,7 +1690,7 @@ def asama_kos(a, log=print):
     a_sha = hashlib.sha256(anlik).hexdigest()
     with open(os.path.join(a.veri, ANLIK_AD), "xb") as f:
         f.write(anlik)
-    isaret = (f"TR-6a olay sonrası oylar sayıldı\nmanifest_sha256 {girdi['manifest']}\nanlik_sha256 {a_sha}\n"
+    isaret = (f"{AD} olay sonrası oylar sayıldı\nmanifest_sha256 {girdi['manifest']}\nanlik_sha256 {a_sha}\n"
               f"kosu_kodu_sha256 {girdi['kosu_kodu']}\nzaman {dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')}\n")
     for y in (os.path.join(a.veri, ISARET_AD), os.path.join(BURAYA, ISARET_AD)):
         x_yaz(y, isaret)

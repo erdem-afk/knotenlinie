@@ -1,0 +1,150 @@
+{
+ "siniflar": [
+  "TTasarimC"
+ ],
+ "mutantlar": [
+  {
+   "ad": "M0 mutasyonsuz",
+   "yakalandi": false,
+   "son_satir": "OK",
+   "hatalar": [],
+   "sure_s": 33.3
+  },
+  {
+   "ad": "M1 kenar sınırı 500 → 5000",
+   "yakalandi": true,
+   "son_satir": "FAILED (failures=1)",
+   "hatalar": [
+    "FAIL: test_ozet_olcut_aritmetigi (__main__.TTasarimC.test_ozet_olcut_aritmetigi)"
+   ],
+   "sure_s": 33.7
+  },
+  {
+   "ad": "M2 kenar sınırı > yerine ≥ ve 2 kat",
+   "yakalandi": true,
+   "son_satir": "FAILED (failures=1)",
+   "hatalar": [
+    "FAIL: test_kenar_kurali (__main__.TTasarimC.test_kenar_kurali)"
+   ],
+   "sure_s": 25.9
+  },
+  {
+   "ad": "M3 A = 0 satır listesi yalnız ana gölge",
+   "yakalandi": false,
+   "son_satir": "OK",
+   "hatalar": [],
+   "sure_s": 33.9
+  },
+  {
+   "ad": "M4 S2'de kenar A sıfırlanmaz",
+   "yakalandi": false,
+   "son_satir": "OK",
+   "hatalar": [],
+   "sure_s": 32.3
+  },
+  {
+   "ad": "M5 kenar kuralı D'yi de sıfırlar",
+   "yakalandi": false,
+   "son_satir": "OK",
+   "hatalar": [],
+   "sure_s": 34.2
+  },
+  {
+   "ad": "M6 kenar sahteleri p̂₀ havuzuna girer",
+   "yakalandi": true,
+   "son_satir": "FAILED (failures=1)",
+   "hatalar": [
+    "FAIL: test_kenar_kurali (__main__.TTasarimC.test_kenar_kurali)"
+   ],
+   "sure_s": 24.9
+  },
+  {
+   "ad": "M7 manifest çekirdeğinde kenar listesi yok",
+   "yakalandi": false,
+   "son_satir": "OK",
+   "hatalar": [],
+   "sure_s": 34.0
+  },
+  {
+   "ad": "M8 C1 eşiği 3,5 → 2,0 SE",
+   "yakalandi": false,
+   "son_satir": "OK",
+   "hatalar": [],
+   "sure_s": 33.9
+  },
+  {
+   "ad": "M9 C1′ tek yanlı → iki yanlı",
+   "yakalandi": false,
+   "son_satir": "OK",
+   "hatalar": [],
+   "sure_s": 34.8
+  },
+  {
+   "ad": "M10 C1′ eşiği 3,5 → 1e9 (hiç tutmamaz)",
+   "yakalandi": false,
+   "son_satir": "OK",
+   "hatalar": [],
+   "sure_s": 33.4
+  },
+  {
+   "ad": "M11 kenar hücresi sınırı 500 → 1500 (i:1500 C1 alır)",
+   "yakalandi": true,
+   "son_satir": "FAILED (failures=1)",
+   "hatalar": [
+    "FAIL: test_ozet_olcut_aritmetigi (__main__.TTasarimC.test_ozet_olcut_aritmetigi)"
+   ],
+   "sure_s": 35.5
+  },
+  {
+   "ad": "M12 bağlayıcı katalog tohumu TR-6a'nınki",
+   "yakalandi": true,
+   "son_satir": "FAILED (errors=1)",
+   "hatalar": [
+    "ERROR: test_tohumlar_c (__main__.TTasarimC.test_tohumlar_c)"
+   ],
+   "sure_s": 33.4
+  },
+  {
+   "ad": "M13 parça tohumu hücre kodu içermez",
+   "yakalandi": false,
+   "son_satir": "OK",
+   "hatalar": [],
+   "sure_s": 35.7
+  },
+  {
+   "ad": "M14 hücre kodu sırası değişir (ii önce)",
+   "yakalandi": false,
+   "son_satir": "OK",
+   "hatalar": [],
+   "sure_s": 33.2
+  },
+  {
+   "ad": "M15 parça boyu 1000 → 500",
+   "yakalandi": false,
+   "son_satir": "OK",
+   "hatalar": [],
+   "sure_s": 34.4
+  },
+  {
+   "ad": "M16 yapay Mc farkı 0,2 → 0 (kesin değerler N0 ile)",
+   "yakalandi": false,
+   "son_satir": "OK",
+   "hatalar": [],
+   "sure_s": 34.1
+  },
+  {
+   "ad": "M17 SE₀ paydasında ort(J) yok",
+   "yakalandi": false,
+   "son_satir": "OK",
+   "hatalar": [],
+   "sure_s": 33.4
+  },
+  {
+   "ad": "M18 bağlayıcı deneme sayısı 20 000 → 2000",
+   "yakalandi": false,
+   "son_satir": "OK",
+   "hatalar": [],
+   "sure_s": 33.1
+  }
+ ]
+}

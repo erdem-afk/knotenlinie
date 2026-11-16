@@ -1,0 +1,95 @@
+{
+ "hucre": "ii:100",
+ "tohum": 8801,
+ "deneme": 20000,
+ "ozet": {
+  "hucre": "ii:100",
+  "deneme": 20000,
+  "parca": 20,
+  "tohum": 8801,
+  "N0": 100.0,
+  "N0_kul": 63.096,
+  "veri_yok_payi": 0.0,
+  "kapi_payi": 1.0,
+  "olcutler": [
+   {
+    "ad": "p̂₀ − P(D | kapı)",
+    "deger": -0.00812,
+    "beklenen": 0.0,
+    "se": 0.00407,
+    "z": -1.99,
+    "gecti": true,
+    "bilgi": {
+     "p0_sapka": 0.46513,
+     "P_D_kapi": 0.47325,
+     "J_ort": 3.0
+    }
+   }
+  ],
+  "bilgi": {
+   "P_D": 0.47325,
+   "P_A": 0.46555,
+   "P_D_kesin": 0.46819,
+   "P_A_kesin": 0.4697,
+   "P_D_kapi": 0.47325,
+   "P_A_kapi": 0.46555,
+   "P_Dh_kapi": 0.5036,
+   "P_Ah_kapi": 0.44765,
+   "p0_sapka_A_eksi_P_kapi": {
+    "p0": 0.47342,
+    "P": 0.46555,
+    "fark": 0.00787,
+    "se": 0.00407,
+    "z": 1.93
+   },
+   "p0_sapka_Dh_eksi_P_kapi": {
+    "p0": 0.50173,
+    "P": 0.5036,
+    "fark": -0.00187,
+    "se": 0.0041,
+    "z": -0.46
+   },
+   "p0_sapka_Ah_eksi_P_kapi": {
+    "p0": 0.45065,
+    "P": 0.44765,
+    "fark": 0.003,
+    "se": 0.00408,
+    "z": 0.74
+   },
+   "kenar_D_hat_eksi_ham": {
+    "fark": -0.03035,
+    "se": 0.00287
+   },
+   "kenar_A_hat_eksi_ham": {
+    "fark": 0.0179,
+    "se": 0.00287
+   },
+   "artik_n_son_eksi_pi_n": -0.015,
+   "n_on_ort": 310.81,
+   "n_son_ort": 47.57,
+   "sahte_gecerli_ort": 3.0
+  },
+  "gecti": true
+ },
+ "ek": {
+  "C1_kapi_kosullu_havuz": {
+   "p0": 0.46513,
+   "P_D_kapi": 0.47325,
+   "fark": -0.00812,
+   "se": 0.00407,
+   "z": -1.99
+  },
+  "ham_D4_P_D_kapi_eksi_kesin": {
+   "deger": 0.5036,
+   "kesin": 0.46819,
+   "se": 0.00353,
+   "z": 10.04
+  },
+  "hat_P_D_kapi_eksi_kesin": {
+   "deger": 0.47325,
+   "kesin": 0.46819,
+   "se": 0.00353,
+   "z": 1.43
+  }
+ }
+}
