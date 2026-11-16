@@ -1,0 +1,191 @@
+{
+ "tarih": "2026-11-16",
+ "girdi_sha256": {
+  "DataHoldings.txt": "4a98b65ad74c425b7b173e91b25ce5fd03be48e4b56a01c902c878247df4ad30",
+  "steps.txt": "887501a438c41c3464788e5f6b5b50ec915f4ed7d2a759fe1e2bd8970d8ec668",
+  "ev30.csv": "2d8e16b83a85b58f2d5352486ae2508054b202bda7d3a08966ea290ed78806ae",
+  "ev70.csv": "370b728af37ee3300fd32fed0019b8afcb34a9cf0fa908085f488b87119a058b",
+  "ev70_pre.csv": "60e448a8655ceb465e0f9ac31f4cb163502d343576a96711b91e7835df7e9c89",
+  "m6_havuz.csv": "969c5c54851ee353f01194c27bdd3f78203e3fe166eaefa9aa0e10ef0f5e211c",
+  "mekanizma.jsonl": "eb30828a7a1fff1706dff3d350d28fdfa8d51d7df7d8ae8025c8b0407f716d63"
+ },
+ "kural": "TR-1b sürüm 2 §2, §7; doluluk \"yok\" = üst sınır (dal kuralı bunu kullanır), \"oran\" = NumSol / gün aralığı >= 0,60 (yaklaşık, bilgi)",
+ "sonuc": {
+  "yok": {
+   "olay_aday": 665,
+   "olay_gecen": 2,
+   "K": 2,
+   "olay_esli": 1,
+   "K_p": 1,
+   "olay_w0_2008": 2,
+   "K_w0_2008": 2,
+   "eleme": {
+    "Ş1": 545,
+    "istasyon<3": 79,
+    "Ş2": 37,
+    "Ş3": 2,
+    "geçti": 2
+   },
+   "esli_eleme": {
+    "plasebo Ş1": 1,
+    "geçti": 1
+   },
+   "bilesim_K": {
+    "bolge": {
+     "öteki": 1,
+     "ABD batı": 1
+    },
+    "mekanizma_olay": {
+     "bindirme": 1,
+     "doğrultu atımlı": 1
+    },
+    "katman_olay": {
+     "8": 1,
+     "3-4": 1
+    }
+   },
+   "bilesim_Kp": {
+    "bolge": {
+     "ABD batı": 1
+    },
+    "mekanizma_olay": {
+     "doğrultu atımlı": 1
+    },
+    "katman_olay": {
+     "3-4": 1
+    }
+   },
+   "kumeler_K": [
+    [
+     "hv70116556"
+    ],
+    [
+     "us70008jr5"
+    ]
+   ],
+   "kumeler_Kp": [
+    [
+     "us70008jr5"
+    ]
+   ],
+   "literatur_olaylari_katalogda": {
+    "Tohoku 2011": [
+     "official20110311054624120_30",
+     "usp000hvpg"
+    ],
+    "Maule 2010": [
+     "usp000h7qu",
+     "official20100227063411530_30"
+    ],
+    "Illapel 2015": [
+     "us20003k7a",
+     "us20003k7w"
+    ],
+    "Iquique 2014": [
+     "usc000nzvd"
+    ],
+    "Nicoya 2012": [],
+    "Papanoa 2014": [
+     "usb000pq41"
+    ]
+   },
+   "literatur_olaylari_eslide": {
+    "Tohoku 2011": [],
+    "Maule 2010": [],
+    "Illapel 2015": [],
+    "Iquique 2014": [],
+    "Nicoya 2012": [],
+    "Papanoa 2014": []
+   }
+  },
+  "oran": {
+   "olay_aday": 665,
+   "olay_gecen": 2,
+   "K": 2,
+   "olay_esli": 1,
+   "K_p": 1,
+   "olay_w0_2008": 2,
+   "K_w0_2008": 2,
+   "eleme": {
+    "Ş1": 545,
+    "istasyon<3": 79,
+    "Ş2": 37,
+    "Ş3": 2,
+    "geçti": 2
+   },
+   "esli_eleme": {
+    "plasebo Ş1": 1,
+    "geçti": 1
+   },
+   "bilesim_K": {
+    "bolge": {
+     "öteki": 1,
+     "ABD batı": 1
+    },
+    "mekanizma_olay": {
+     "bindirme": 1,
+     "doğrultu atımlı": 1
+    },
+    "katman_olay": {
+     "8": 1,
+     "3-4": 1
+    }
+   },
+   "bilesim_Kp": {
+    "bolge": {
+     "ABD batı": 1
+    },
+    "mekanizma_olay": {
+     "doğrultu atımlı": 1
+    },
+    "katman_olay": {
+     "3-4": 1
+    }
+   },
+   "kumeler_K": [
+    [
+     "hv70116556"
+    ],
+    [
+     "us70008jr5"
+    ]
+   ],
+   "kumeler_Kp": [
+    [
+     "us70008jr5"
+    ]
+   ],
+   "literatur_olaylari_katalogda": {
+    "Tohoku 2011": [
+     "official20110311054624120_30",
+     "usp000hvpg"
+    ],
+    "Maule 2010": [
+     "usp000h7qu",
+     "official20100227063411530_30"
+    ],
+    "Illapel 2015": [
+     "us20003k7a",
+     "us20003k7w"
+    ],
+    "Iquique 2014": [
+     "usc000nzvd"
+    ],
+    "Nicoya 2012": [],
+    "Papanoa 2014": [
+     "usb000pq41"
+    ]
+   },
+   "literatur_olaylari_eslide": {
+    "Tohoku 2011": [],
+    "Maule 2010": [],
+    "Illapel 2015": [],
+    "Iquique 2014": [],
+    "Nicoya 2012": [],
+    "Papanoa 2014": []
+   }
+  }
+ },
+ "liste_sha256": "0f915e1271d5cd76ca613cd3530916129e10540775e294cf574ca730664d9adc",
+ "dal": "K_p < 6: veri yok (eşli küme); koşu yapılmaz"
+}

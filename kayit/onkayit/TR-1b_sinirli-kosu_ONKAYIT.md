@@ -217,3 +217,33 @@ yatay bileşen; beyaz 1,5 mm + kırpışma (TR-11 `h_katsayi` süzgeci); TR-11 `
 - LOO şartı yapayda hiçbir yanlış alarmı kesmedi (p ≤ 0,05 olan her durumda LOO da geçti).
 
 **Güç (uyumlu / dağınık; hüküm kuralı):** MDE tablosu §5'te. Güç eğrileri `tr1b_v2_z4.json` içinde.
+
+## Ek 2: aşama 0 sonucu (16 Kasım 2026; yalnız üstveri; bu metin ve dal kuralı a0538de ile commit edildikten sonra)
+
+Betik `kayit/turetme/tr1b/tr1b_asama0.py`; girdi önbellekleri (sha256 denetimli): NGL `DataHoldings.txt`
+(4a98b65a…), `steps.txt` (887501a4…), ComCat `ev30.csv`, `ev70.csv`, `ev70_pre.csv`, TR-2 `m6_havuz.csv`
+(969c5c54…), `mekanizma.jsonl`. Hiçbir tenv3 ya da konum serisi okunmadı. Çıktı `kayit/turetme/tr1b/asama0/`
+(`tr1b_asama0_ozet.json`, `tr1b_asama0_liste.json`, liste sha256 `0f915e1271d5cd76ca613cd3530916129e10540775e294cf574ca730664d9adc`).
+İlk çağrı, sayım başlamadan DataHoldings'teki tek günlük bir istasyon satırında sıfıra bölme hatasıyla durdu
+(paydaya max(·, 1) kondu); sonuç görülmeden düzeltildi, sayım bir kez koştu.
+
+| Satır (doluluk atlanarak = üst sınır; "oran" ile aynı) | Değer |
+|---|---|
+| Aday olay (M ≥ 6,5, z ≤ 30, 2000–2025, Marmara dışı) | 665 |
+| Eleme: Ş1 (200 km'de son ≈ 10 yılda M ≥ 6) | 545 |
+| Eleme: Ş2 / Ş3 | 37 / 2 |
+| Eleme: < 3 yakın ya da referans istasyon | 79 |
+| Olay penceresiyle geçen olay, **K** | 2 olay, **K = 2** (Kilauea 2018 M 6,9; Stanley, Idaho 2020 M 6,5) |
+| Eşli plasebosu kurulan, **K_p** | 1 olay, **K_p = 1** (Stanley 2020; n_y 3–4). Kilauea'yı plasebo Ş1'i eledi |
+| w0 ≥ 2008 alt kümesinde K | 2 |
+| Literatür olayları (Tohoku, Maule, Illapel, Iquique, Papanoa) | katalogda var, hiçbiri geçmedi; Nicoya 2012 z > 30 |
+
+**Dal kuralı (§7): K_p = 1 < 6 → "veri yok (eşli küme)". Koşu yapılmaz, hiçbir seri indirilmez.** c0 bilgi satırı da
+koşulmaz (w0 ≥ 2008'de K = 2 < 6).
+
+Okuma: darboğaz eşli tasarım değil, TR-11'in sakinlik kuralının olay penceresine çevirisidir. M ≥ 6,5 depremlerin
+%82'sinin dış merkezinin 200 km içinde, olaydan önceki ≈ 10 yılda başka bir M ≥ 6 vardır (Ş1). Yani "TR-11 tabanıyla
+aynı kirlenme kuralı" ve "aktif bölgede büyük deprem" birlikte neredeyse hiç sağlanmıyor. Bu, TR-1'in Halka 2'deki
+başarısızlık biçiminin (kirlenmemiş karşılaştırma penceresi yok) daha katı kuralla tekrarıdır. Kural bu sonuçtan sonra
+gevşetilmez; Ş1'i gevşeten her tasarım yeni ön kayıttır ve postsismik kirlenmeyi (TR-1 sürüm 1'in RED nedeni) geri
+getirir. Yeniden açma yalnız §11'deki yollarla.

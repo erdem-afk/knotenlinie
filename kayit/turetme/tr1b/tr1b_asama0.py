@@ -76,7 +76,7 @@ NS = len(st_ad)
 AD = np.array(st_ad)
 LA, LO = np.radians(st_la), np.radians(st_lo)
 MAR = np.array([marmara(a, o) for a, o in zip(st_la, st_lo)])
-DOL = np.array([n / ((e - b).days + 1) for n, b, e in zip(st_n, st_b, st_e)])
+DOL = np.array([n / max((e - b).days + 1, 1) for n, b, e in zip(st_n, st_b, st_e)])
 
 
 def tarih(s):

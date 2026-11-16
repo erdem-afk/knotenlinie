@@ -1,0 +1,48 @@
+{
+ "esli_kumeler": [
+  {
+   "kume": 1,
+   "olaylar": [
+    {
+     "M": 6.5,
+     "T": "2020-03-31",
+     "id": "us70008jr5",
+     "katman_ust": "3-4",
+     "la": 44.4646,
+     "lo": -115.1175,
+     "n_y_ust": 3,
+     "ref": [
+      "ENTR",
+      "GTRG",
+      "P677",
+      "NPRG",
+      "CRBG",
+      "P706",
+      "P394",
+      "P678"
+     ],
+     "yakin": [
+      "P351",
+      "P023",
+      "P354"
+     ]
+    }
+   ]
+  }
+ ],
+ "kural": "TR-1b sürüm 2, aşama 0, doluluk yok (üst sınır)",
+ "olay_kumeler": [
+  {
+   "kume": 1,
+   "olaylar": [
+    "hv70116556"
+   ]
+  },
+  {
+   "kume": 2,
+   "olaylar": [
+    "us70008jr5"
+   ]
+  }
+ ]
+}
