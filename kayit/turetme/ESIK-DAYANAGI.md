@@ -40,3 +40,15 @@ görülebilirdi. Yani kapı altında kalan aday "yanlış" değil, "bu veriyle a
 4. Düzeltme: kapıyı "geç / kal" yerine "bu sayıyla görülebilir en küçük etki şudur" diye yazıp, yalnız büyük etkiye
    bakan sınırlı koşular yapmak. Bu, TR-1 ve TR-13 için 0 € ile mümkün; ikisinin de varsayımdan bağımsız kusurları
    (plasebo eksikliği, yanlış alarm oranı) ön kayıtta ayrıca çözülmeli. TR-5b sunucu ister.
+
+## Ek (16 Kasım gece): sınırlı koşuların ilk sonucu
+
+- **TR-1b (GNSS öncülü, yalnız büyük etki):** ön kayıt bağımsız incelemeden sonra eşli sınamaya çevrildi; yalnız
+  üstveriyle sayımda 665 aday olaydan öncesi temiz olan 2, eşli sınanabilen 1 kaldı (kural: en az 6) → "veri yok".
+  Yani TR-1'in elenmesi sonuçta **varsayıma bağlı değildi**: etki ne kadar büyük varsayılırsa varsayılsın, öncesi
+  basamaksız ve postsismik etkiden temiz olay penceresi yok. Yukarıdaki tabloda TR-1 satırı buna göre okunmalı.
+- **TR-13b (yerelleşme, yalnız büyük etki):** 14 kümenin 3'ü iddianın kendi keşif olayları; onlar dışarıda K = 10.
+  Görülebilir en küçük etki f ≈ 0,33–0,39, bütün koruma kuralları bağlayıcı olursa > 0,5 (arka planın yarısından
+  fazlasının kırık bandına toplanması). Koşulabilir, ama olumsuz sonuç yalnız abartılı bir etkiyi dışlar.
+- Ders: "kapıyı etki büyüklüğüne göre gevşetmek" tek başına aday kurtarmıyor; darboğaz çoğu yerde olay sayısı değil,
+  temiz olay penceresi ve yanlış alarm denetimi.
