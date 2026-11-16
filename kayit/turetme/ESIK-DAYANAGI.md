@@ -18,7 +18,7 @@ görülebilirdi. Yani kapı altında kalan aday "yanlış" değil, "bu veriyle a
 | TR-5 / TR-5b sismik hız öncülü | K ≥ 20 ve plasebo ≥ 10 | AUC 0,68 (δ 0,65 σ); tam kuralla δ 1,16 σ. **Tahmin**; kıyas: bir M6'nın deprem anındaki düşüşünün ≈ 1,5 katı | 0,05 / 0,8 | 18 ve 7 | geçerdi | geçmez | **Varsayıma bağlı, 2 olayla kaldı.** 18 kümeyle görülebilir en küçük etki 0,68 σ, 20 ile 0,65 σ: fark anlamsız. Asıl engel maliyet (≈ 2 TB, 6 hafta sunucu) ve plasebo sayısı |
 | TR-6a gerilme ölçer kör doğrulama | K ≥ 23 | Gölge lobunda "düşüş oyu" 0,5'e karşı 0,75. **Tahmin** (0,70 → 37; 0,80 → 18) | 0,05 / 0,8 | 29 → kapı geçti | geçer | geçmez (37–90) | Kapıdan değil, yapay yöntem sınamasından kaldı |
 | TR-6 (b) Marmara çözünürlüğü | algılanabilir ≤ beklenen sinyal | Beklenen ≤ 6,5 kPa/yıl: **kuram/model** (yavaş kayma gerilmesi); algılanabilir 15–134: katalogdan ölçüm | 0,05 / 0,8 | 2,4–20 kat eksik | yalnız en iyi hücrede sınırda | geçmez | Büyük ölçüde sağlam |
-| TR-7 tetiklenmiş tremor | segment başına ≥ 8 tetikleyici, ≥ 2 kPa | Eşik 2 kPa: **literatür** (Parkfield tetiklenme eşiği, Peng 2009; Hill 2013). 8: yanlış alarm oranından binom | 0,05 | 9–12 → geçti | – | ×1/3'te 5–6 (zayıf bant) | Kapıdan değil, pozitif kontrolden kaldı |
+| TR-7 tetiklenmiş tremor | segment başına ≥ 8 tetikleyici, ≥ 2 kPa | Eşik 2 kPa: **literatür** (bildirilen en hassas doğrultu atımlı eşiğin, Parkfield'ın alt ucu). 8: yanlış alarm oranından binom | 0,05 | 9–12 → geçti | – | ×1/3'te 5–6 (zayıf bant) | Kapıdan değil, pozitif kontrolden kaldı |
 | TR-7b ayıklama kuralı | yapay atılma ≤ 0,05, 100 pencere | **Bizim seçimimiz** | – | 0,06 (dört tohumdan birinde) | – | – | **Varsayıma bağlı.** 100 pencere 0,03 ile 0,06'yı ayıramaz |
 | TR-8 uydu gravitesi | çözünürlük | Fiziksel: GRACE'in çözdüğü en küçük moment Mw 7'nin 125 katı (**literatür**) | – | 125 kat eksik | geçmez | geçmez | Sağlam |
 | TR-9 artçı ucu ile kilitlenme sınırı | K ≥ 20 | İsabet 0,2'ye karşı 0,5; **tahmin** | 0,05 / 0,87 | 4–6 | 0,2'ye karşı 0,8 olsa K ≈ 7 → yine sınırda/geçmez | geçmez | Sağlam (veri yok) |
@@ -27,7 +27,7 @@ görülebilirdi. Yani kapı altında kalan aday "yanlış" değil, "bu veriyle a
 | TR-11 GNSS tabanı | ölçüm, olay kapısı yok | – | – | 665 pencere | – | – | Koşuldu |
 | TR-12 yayımlanmış GNSS iddiaları | literatür tablosu | – | – | tabanın üstünde doğrulanan 0 | – | – | Koşuldu |
 | TR-13 sismisite yerelleşmesi | K ≥ 20 | Arka plan olaylarının %20'si kırık bandına toplanır: **benzetimden hesap**, makullüğü doğrulanamadı (kaynak okunamadı) | 0,05 / 0,8 | 11–20; kontrol eşleşince 3–7 | kapı ≈ 6–8 → kontrolsüz geçerdi | geçmez | **Varsayıma bağlı.** Ayrıca yanlış alarm oranı %13–37 (anma %5): varsayımdan bağımsız kusur |
-| TR-4 Marmara hız tabanı | dönem başına ≥ 10 yer | Etki yok; taban genişliğinin güven aralığı için. **Benzetimden** | – | 9–16 → geçti | – | – | Sürüyor |
+| TR-4 Marmara hız tabanı | dönem başına ≥ 10 yer | Etki yok; sonucun tek bir yere bağlı kalmaması için. **Uzlaşım** | – | 9–16 → geçti | – | – | Sürüyor |
 
 ## Dürüst özet
 
