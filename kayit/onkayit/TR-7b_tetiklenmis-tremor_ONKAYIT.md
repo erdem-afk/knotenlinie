@@ -506,3 +506,79 @@ tetikleyici olsun olmasın, hiçbir kural sağ küme bırakmadı.
 Bu sonuç §11.3 madde 4'ü işletir. Üçüncü tur yalnız yeni bir fikirle açılır; K1 kalıntı eşiğini (2σ) ya da ρ eşiğini
 değiştirmek yeni fikir sayılmaz. Ön kayıt taslağı bu hâliyle bağımsız incelemeye gönderilmez, çünkü seçilmiş bir kural
 yoktur. Öteki bölümler (§3, §6, §7) taslak olarak kalır.
+
+## 12. Tur 3 (16 Kasım 2026; koşudan ÖNCE yazıldı ve commit edildi)
+
+Tur 1 (§4.4) ve Tur 2 (§11.4) sonuçsuz kaldı. Bu tur yalnız **yeni bir bilgi kaynağını** sınar: frekans bandı oranı
+değil, **kaynağın yeri**. Telesismik enerji diziyi yüksek görünür hızla (≥ ~8 km/s) geçer. Tremor ve bölgesel koda yerel
+kaynaklıdır; istasyonlar arası zarf gecikmeleri S hızıyla (~3,5 km/s) bir yerel kaynağa uyar. Tek aday K6'dır.
+K1'in 2σ'sı, ρ eşiği (−0,7) ve bütün şart eşikleri Tur 2 ile aynıdır.
+
+Kod: `kayit/turetme/tr7b/tr7b_yapay3.py`. `tr7b_yapay.py`, `tr7b_yapay2.py` ve `tr7_cekirdek.py` değiştirilmeden içe
+aktarılır.
+
+### 12.1 Üreteç değişikliği: gerçekçi gecikmeler
+
+Tur 1–2 üreteci istasyonlar arası gecikme içermiyordu (bütün istasyonlarda aynı zarf). Bu turda:
+- **İstasyonlar:** TR-7 Parkfield listesinin `ilk12` istasyonları ize göre (birinci temel bileşen) güneyden kuzeye
+  sıralanır; 0, 2, 4, 6, 8, 10. sıradakiler alınır: NC.PTR, NC.PSN, NC.PGH, NC.PHF, NC.PL11B, NC.PPT (iz doğrultusunda
+  ≈ 68 km açıklık). Tur 1–2'de 3 istasyon vardı.
+- **Tremor:** kaynak, iz (4 noktalı çizgi, ≈ 82 km) üzerinde düzgün dağılımlı bir noktanın U[20, 25] km altındadır;
+  gecikme r_i / 3,5 km/s.
+- **Bölgesel koda (D7d, Y3):** dış merkez dizi ortasından U[20, 150] km, azimut U[0, 360), derinlik 10 km; r_i / 3,5 km/s.
+- **Telesismik sinyal (Y1, Y2, Y3, F2):** dizi doğrultusunda düzlem dalga, görünür hız U[8, 25] km/s, yönü rastgele.
+  Taşıyıcılar istasyonlar arasında bağımsızdır (Tur 1 gibi); yalnız zarf gecikir.
+- Gecikmeler 20 Hz zarfa doğrusal ara değerlemeyle uygulanır. Genlikler istasyonlar arasında eşittir.
+- **Gecikme ölçüm gürültüsü** ayrıca eklenmez, çünkü gecikmeler gürültülü yapay zarflardan (1 Hz) ölçülür; ölçüm
+  hatası böylece kendiliğinden içeridedir.
+
+**Üreteç denetimi.** D7, D7b ×3, D7c ×2 ve D7d satırları aynı 6 istasyonla bir kez gecikmeli, bir kez gecikmesiz koşulur.
+Üreteç K0–K5 için **kararlı** sayılır ⇔ her iki tohumda bu 7 satırın her birinde K0–K5'in şartı geçme/kalma durumu aynıdır
+**ve** gecikmeli ile gecikmesiz paylar arasındaki fark ≤ 0,03'tür. Kararlı değilse K6 seçilemez (gecikmeler, eski
+kuralların sonucunu değiştirmiş olur; bu durumda önce o açıklanmalıdır).
+
+### 12.2 K6'nın tanımı
+
+Küme düzeyinde, simetrik: her pencerede (tetikleyici olsun olmasın) aynı hesap.
+1. Kümenin her istasyon çifti (i, j) için I üzerinde (maskesiz, tanımlı saniyeler) Pearson(L_i(t), L_j(t + k)),
+   k = −10…+10 sn. En büyük değer ≥ 0,5 ise çift kullanılır; gecikme τ_ij = k* + parabolik ara değerleme (k* ± 1
+   komşularıyla).
+2. Kullanılan çift < 3 ya da kapsanan istasyon < 3 ise konum "belirsiz"dir; küme telesismik sayılmaz.
+3. (a) **Düzlem dalga**, dizi doğrultusunda: τ_ij = s (u_j − u_i), en küçük kareler; RMS_a; v_a = 1/|s|.
+   (b) **Yerel kaynak**: iz üzerinde her iki uçtan 10 km uzatılmış, 1 km adımlı noktalar × derinlik {15, 20, 25} km,
+   v = 3,5 km/s; τ_ij = (r_j − r_i)/v; RMS_b = ızgaradaki en küçük RMS.
+4. Konum **telesismik** ⇔ RMS_a ≤ 1,0 sn **ve** RMS_a < RMS_b **ve** v_a ≥ 6 km/s.
+5. Küme sızıntı nedeniyle atılır ⇔ konum telesismik **veya** istasyonların ≥ yarısında sönüm şartı (Δ_d ≥ Δ_y ve
+   ρ ≤ −0,7; §11.1 ile aynı). Bölgesel koda için sönüm şartı korunur (koda yerel bir kaynaktır, konum onu ayırmaz).
+6. Darbe ve taban kuralları TR-7 ile aynıdır.
+
+K6'da K1 kalıntısı (2σ) ve Q referansı **kullanılmaz**; Tur 2'deki tek başarısızlığın nedeni oydu.
+
+**Koşudan önceki çalıştırmalar (açıklama).** Kodu sınamak için atılan tohumlarla (1, 2, 3) toplam ≈ 150 pencere
+koşuldu: D7 yarım A10, D7b patlama A3, D7d, Y1 A3 a_y10 'egim' (10 pencere) ve Y2 a_y 5/10 'egim'/'sabit' (20'şer).
+Bu sınamada madde 4'ün ilk tanımı yalnız "RMS_a < RMS_b ve v_a ≥ 6" idi. Y1 A3 a_y10 'egim'de tremor ile tele
+enerjisinin karıştığı kümelerde iki model de kötü uyuyordu (RMS_a ve RMS_b ≈ 3–7 sn) ve 10 pencerenin 4'ünde tremor
+kümesi "telesismik" çıktı. Bunun üzerine "uyum" sözcüğü sayıya bağlandı: **RMS_a ≤ 1,0 sn** (1 Hz zarfın çözünürlüğü;
+saf telesismik 'sabit' kümelerde RMS_a çoğunlukla 0,2–0,5 sn, saf tremor kümelerinde RMS_b 0,1–0,5 sn). Bu eşik
+ayarlanmadı, yalnız bir kez konuldu; sonra başka bir değişiklik yapılmadı. Bu sınamanın sayıları tablolara girmez.
+
+### 12.3 Satırlar ve şartlar
+
+Satırlar ve şartlar §11.2 ile **aynıdır** (D7 tam ≤ 0,03; D7b tam ≤ 0,03; D7c sızıntı ≤ 0,05; D7d sızıntı ≥ 0,95; Y1
+'egim' 6 hücre tam ≤ 0,05; Y1 'sabit' bilgi; Y2 18 hücre sağ ≤ 0,05; Y3 3 hücre sızıntı ≥ 0,95; F1, F2 sağ ≤ 0,05 ve
+sağ(F2) − sağ(F1) ≤ 0,02). Ek olarak §12.1'deki üreteç denetimi satırları (bilgi + kararlılık şartı).
+
+- **Pencere sayısı: 200** (her satır, her tohum). Koşudan önce sabittir.
+- **İki yeni tohum: 20261118 ve 5151.** Her tohum iki süreçte koşulur: bölüm 1 (D7 satırları, gecikmesiz denetim, Y1)
+  tohumla, bölüm 2 (Y2, Y3, F1, F2) tohum + 1000003 ile.
+- Çıktılar: `kayit/turetme/tr7b/tr7b_yapay3_t{1,2}_b{1,2}.json`.
+- K0–K5 yalnız karşılaştırma ve üreteç denetimi içindir.
+
+### 12.4 Seçim ölçütü
+
+1. Seçilebilir tek aday K6'dır.
+2. K6 kabul edilir ⇔ iki tohumda da §12.3'ün bütün şart satırlarını sağlar **ve** §12.1'in üreteç denetimi kararlıdır.
+3. Kabul edilirse K6 §4'ün yerine geçer. Ön kayıt taslağı bağımsız incelemeye hazırlanır (kör kontrol K1b §6 ve
+   Marmara aşamaları §7 aynen); **dondurulmaz**.
+4. **Kabul edilmezse** TR-7b **"kapı altında (kural bulunamadı), iki tasarım turu sonuçsuz"** olarak bekler.
+   **Dördüncü tur açılmaz.**
