@@ -1,0 +1,538 @@
+{
+ "aciklama": "TR-7 tek koşu sonucu (ön kayıt sürüm 3, §8–§9).",
+ "zaman": "2026-11-16T16:50:24+00:00",
+ "kod_sha256": {
+  "tr7_cekirdek.py": "4a1b9131603d0f3d519cacb183fdbcccc106157b66392bf2d09350c9f49206f6",
+  "tr7_indir.py": "0763f46da14b2a12f5268937dc6e479dbfd1bc54c3c3ba93d700914dc4b91f2f",
+  "tr7_kosu.py": "ce439a4797fd1992ddd68de734ee842b146bd6f13155ba6151769bceb26a9005"
+ },
+ "kd": {
+  "gecti": true,
+  "satirlar": [
+   {
+    "denetim": "D10 \"sabit\"",
+    "sart": "kestirilen / A_300 ∈ [0,90, 1,15]",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D10 \"yarim\"",
+    "sart": "kestirilen / A_300 ∈ [0,90, 1,15]",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D12",
+    "sart": "maskesiz algılanır (≥ 0,95); +240 sn maske ile atılma 1,00",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D12b ×2 30 sn",
+    "sart": "+60 sn maske ile atılma ≥ 0,95",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D12b ×3 30 sn",
+    "sart": "+60 sn maske ile atılma ≥ 0,95",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D12b ×5 30 sn",
+    "sart": "+60 sn maske ile atılma ≥ 0,95",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D12b ×5 60 sn",
+    "sart": "bilgi",
+    "gecti": true,
+    "bilgi": true
+   },
+   {
+    "denetim": "D13",
+    "sart": "A50_basamak ∈ [0,42, 0,48], A90_basamak ∈ [0,44, 0,53]",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D14 bh20",
+    "sart": "bilgi",
+    "gecti": true,
+    "bilgi": true
+   },
+   {
+    "denetim": "D14",
+    "sart": "A50(tohum 2)/A50(tohum 1) ∈ [0,93, 1,07] ve A50 ∈ [0,55, 0,67]",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D15 (a)",
+    "sart": "ayıklamasız algılama ≥ 0,90 ve 3a ile atılma ≥ 0,95",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D15 (b)",
+    "sart": "ayıklamasız algılama ≥ 0,90 ve 3a ile atılma ≥ 0,95",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D1",
+    "sart": "yanlış algılama ≤ 0,01",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D2",
+    "sart": "A50 ∈ [0,56, 0,67], A90 ∈ [0,59, 0,72]",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D3",
+    "sart": "A50 ∈ [0,52, 0,62]",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D4",
+    "sart": "p ≤ 0,01 oranı ≥ 0,90",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D5 [\"rastgele\", 1.0, 1000]",
+    "sart": "p ≤ 0,01 oranı ≤ 0,05",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D5 [\"rastgele\", 3.0, 1000]",
+    "sart": "p ≤ 0,01 oranı ≤ 0,05",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D5 [\"sabit\", 1.0, 1000]",
+    "sart": "p ≤ 0,01 oranı ≤ 0,05",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D5 [\"sabit\", 3.0, 1000]",
+    "sart": "p ≤ 0,01 oranı ≤ 0,05",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D5b [\"bagimsiz\", 1.0, 200]",
+    "sart": "bilgi bandı [0,25, 0,65] (şart değil; dışında: kod incelenir)",
+    "gecti": true,
+    "bilgi": true
+   },
+   {
+    "denetim": "D5b [\"bagimsiz\", 3.0, 200]",
+    "sart": "bilgi bandı [0,25, 0,65] (şart değil; dışında: kod incelenir)",
+    "gecti": true,
+    "bilgi": true
+   },
+   {
+    "denetim": "D6 ×100",
+    "sart": "algılanmama ya da darbeyle atılma ≥ 0,95; katalogda maskeyle atılma 1,00",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D6 [0, 20.0, 0.0]",
+    "sart": "bilgi",
+    "gecti": true,
+    "bilgi": true
+   },
+   {
+    "denetim": "D6b [3, 100.0, 0.25]",
+    "sart": "bilgi",
+    "gecti": true,
+    "bilgi": true
+   },
+   {
+    "denetim": "D6b [3, 20.0, 0.25]",
+    "sart": "bilgi",
+    "gecti": true,
+    "bilgi": true
+   },
+   {
+    "denetim": "D6b [5, 100.0, 0.25]",
+    "sart": "bilgi",
+    "gecti": true,
+    "bilgi": true
+   },
+   {
+    "denetim": "D6b [5, 20.0, 0.25]",
+    "sart": "bilgi",
+    "gecti": true,
+    "bilgi": true
+   },
+   {
+    "denetim": "D6b ×100 S–P 8",
+    "sart": "algılanmama ya da darbeyle atılma ≥ 0,90",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D6b [8, 20.0, 0.25]",
+    "sart": "bilgi",
+    "gecti": true,
+    "bilgi": true
+   },
+   {
+    "denetim": "D7",
+    "sart": "darbe, sızıntı ya da taban kaymasıyla atılma ≤ 0,03",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D7b [\"patlama\", 10.0, \"gauss\", \"bant28\"]",
+    "sart": "darbe ya da sızıntıyla atılma ≤ 0,03",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D7b [\"patlama\", 3.0, \"gauss\", \"bant28\"]",
+    "sart": "darbe ya da sızıntıyla atılma ≤ 0,03",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D7b [\"patlama\", 30.0, \"gauss\", \"bant28\"]",
+    "sart": "darbe ya da sızıntıyla atılma ≤ 0,03",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D7c [\"yarim\", 10.0, \"gauss\", \"duz\"]",
+    "sart": "sızıntıyla atılma ≤ 0,05",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D7c [\"yarim\", 10.0, \"kentsel\", \"duz\"]",
+    "sart": "sızıntıyla atılma ≤ 0,05",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D7c [\"yarim\", 3.0, \"gauss\", \"duz\"]",
+    "sart": "sızıntıyla atılma ≤ 0,05",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D7c [\"yarim\", 3.0, \"kentsel\", \"duz\"]",
+    "sart": "sızıntıyla atılma ≤ 0,05",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D7d \"gauss\"",
+    "sart": "sızıntıyla atılma ≥ 0,95",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D7d \"kentsel\"",
+    "sart": "sızıntıyla atılma ≥ 0,95",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D8",
+    "sart": "ölçülen RMS ±%5; PGV ±%5",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D9",
+    "sart": "W ve R listedekine ±1 sn; 2026 ihlali durdurur",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D11",
+    "sart": "metin birebir",
+    "gecti": true,
+    "bilgi": false
+   },
+   {
+    "denetim": "D12c",
+    "sart": "elle katalog birebir; rastgele 20/20; gerçek varışlar ±0,001",
+    "gecti": true,
+    "bilgi": false
+   }
+  ]
+ },
+ "k1": {
+  "etiket": "ölçü sınanamadı (Tohoku tremoru Parkfield yüzey ağının gürültüsünde görülmedi; A90_PK = 11,2 nm/s)",
+  "dal": "c",
+  "ayirt_degil": false,
+  "N_PK": 10,
+  "f_PK": 2,
+  "FAR_PK": 0.2,
+  "A50_PK": 8.912509381337454,
+  "A90_PK": 11.220184543019636,
+  "mda_deneme": 24,
+  "A_PK": null,
+  "mod_gecti": false,
+  "modulasyon": [],
+  "lp_referans": "BK.PKD",
+  "tau_olc": {
+   "tau": 7.867,
+   "tau_z": 7.635,
+   "n": 6
+  },
+  "tau_olc_bolu_kaba": 0.2901,
+  "k1_kumeleri": [],
+  "kume_ayiklama_oncesi": 4,
+  "PKD_asimlari": [
+   [
+    1299824016,
+    1299824249
+   ],
+   [
+    1299824457,
+    1299824631
+   ],
+   [
+    1299824735,
+    1299824797
+   ],
+   [
+    1299825334,
+    1299825387
+   ],
+   [
+    1299825698,
+    1299825899
+   ]
+  ],
+  "cekirdek_fazlari": {
+   "PKKP": [
+    1865.5
+   ],
+   "SKKP": [],
+   "PKKS": [],
+   "PKIKPPKIKP": [
+    2346.3
+   ],
+   "PKPPKP": []
+  },
+  "modulasyon_satiri": "Parkfield modülasyonu geçmedi"
+ },
+ "segment": {
+  "S1": {
+   "hukum": {
+    "seg": "S1",
+    "X_min": null,
+    "X_min_3": null,
+    "X_min_7": null,
+    "p_ust": null,
+    "olcek": [
+     "Kaba τ ×1/3 alınırsa 4 birim ≥ 2 kPa (bant: veri yok) (önsayım; Marmara verisi indirilmedi).",
+     "Kaba τ ×3 alınırsa 9 birim ≥ 2 kPa (bant: tam; alt sınır: yalnız ×1 adayları yoklandı) (önsayım; Marmara verisi indirilmedi)."
+    ],
+    "tur": "ölçü sınanamadı",
+    "cumle": "S1: ölçü sınanamadı (Tohoku tremoru Parkfield yüzey ağının gürültüsünde görülmedi; A90_PK = 11,2 nm/s)."
+   },
+   "veri": {
+    "seg": "S1",
+    "n13": 4,
+    "bant13": "veri yok",
+    "n3": 9,
+    "bant3": "tam"
+   }
+  },
+  "S2": {
+   "hukum": {
+    "seg": "S2",
+    "X_min": null,
+    "X_min_3": null,
+    "X_min_7": null,
+    "p_ust": null,
+    "olcek": [
+     "Kaba τ ×1/3 alınırsa 4 birim ≥ 2 kPa (bant: veri yok) (önsayım; Marmara verisi indirilmedi).",
+     "Kaba τ ×3 alınırsa 8 birim ≥ 2 kPa (bant: tam; alt sınır: yalnız ×1 adayları yoklandı) (önsayım; Marmara verisi indirilmedi)."
+    ],
+    "tur": "ölçü sınanamadı",
+    "cumle": "S2: ölçü sınanamadı (Tohoku tremoru Parkfield yüzey ağının gürültüsünde görülmedi; A90_PK = 11,2 nm/s)."
+   },
+   "veri": {
+    "seg": "S2",
+    "n13": 4,
+    "bant13": "veri yok",
+    "n3": 8,
+    "bant3": "tam"
+   }
+  },
+  "S3": {
+   "hukum": {
+    "seg": "S3",
+    "X_min": null,
+    "X_min_3": null,
+    "X_min_7": null,
+    "p_ust": null,
+    "olcek": [
+     "Kaba τ ×1/3 alınırsa 3 birim ≥ 2 kPa (bant: veri yok) (önsayım; Marmara verisi indirilmedi).",
+     "Kaba τ ×3 alınırsa 8 birim ≥ 2 kPa (bant: tam; alt sınır: yalnız ×1 adayları yoklandı) (önsayım; Marmara verisi indirilmedi)."
+    ],
+    "tur": "ölçü sınanamadı",
+    "cumle": "S3: ölçü sınanamadı (Tohoku tremoru Parkfield yüzey ağının gürültüsünde görülmedi; A90_PK = 11,2 nm/s)."
+   },
+   "veri": {
+    "seg": "S3",
+    "n13": 3,
+    "bant13": "veri yok",
+    "n3": 8,
+    "bant3": "tam"
+   }
+  },
+  "S4": {
+   "hukum": {
+    "seg": "S4",
+    "X_min": null,
+    "X_min_3": null,
+    "X_min_7": null,
+    "p_ust": null,
+    "olcek": [
+     "Kaba τ ×1/3 alınırsa 3 birim ≥ 2 kPa (bant: veri yok) (önsayım; Marmara verisi indirilmedi).",
+     "Kaba τ ×3 alınırsa 8 birim ≥ 2 kPa (bant: tam; alt sınır: yalnız ×1 adayları yoklandı) (önsayım; Marmara verisi indirilmedi)."
+    ],
+    "tur": "ölçü sınanamadı",
+    "cumle": "S4: ölçü sınanamadı (Tohoku tremoru Parkfield yüzey ağının gürültüsünde görülmedi; A90_PK = 11,2 nm/s)."
+   },
+   "veri": {
+    "seg": "S4",
+    "n13": 3,
+    "bant13": "veri yok",
+    "n3": 8,
+    "bant3": "tam"
+   }
+  },
+  "S5": {
+   "hukum": {
+    "seg": "S5",
+    "X_min": null,
+    "X_min_3": null,
+    "X_min_7": null,
+    "p_ust": null,
+    "olcek": [
+     "Kaba τ ×1/3 alınırsa 1 birim ≥ 2 kPa (bant: veri yok) (önsayım; Marmara verisi indirilmedi).",
+     "Kaba τ ×3 alınırsa 6 birim ≥ 2 kPa (bant: zayıf; alt sınır: yalnız ×1 adayları yoklandı) (önsayım; Marmara verisi indirilmedi)."
+    ],
+    "tur": "ölçü sınanamadı",
+    "cumle": "S5: ölçü sınanamadı (Tohoku tremoru Parkfield yüzey ağının gürültüsünde görülmedi; A90_PK = 11,2 nm/s)."
+   },
+   "veri": {
+    "seg": "S5",
+    "n13": 1,
+    "bant13": "veri yok",
+    "n3": 6,
+    "bant3": "zayıf"
+   }
+  },
+  "S6": {
+   "hukum": {
+    "seg": "S6",
+    "X_min": null,
+    "X_min_3": null,
+    "X_min_7": null,
+    "p_ust": null,
+    "olcek": [
+     "Kaba τ ×1/3 alınırsa 1 birim ≥ 2 kPa (bant: veri yok) (önsayım; Marmara verisi indirilmedi).",
+     "Kaba τ ×3 alınırsa 5 birim ≥ 2 kPa (bant: zayıf; alt sınır: yalnız ×1 adayları yoklandı) (önsayım; Marmara verisi indirilmedi)."
+    ],
+    "tur": "ölçü sınanamadı",
+    "cumle": "S6: ölçü sınanamadı (Tohoku tremoru Parkfield yüzey ağının gürültüsünde görülmedi; A90_PK = 11,2 nm/s)."
+   },
+   "veri": {
+    "seg": "S6",
+    "n13": 1,
+    "bant13": "veri yok",
+    "n3": 5,
+    "bant3": "zayıf"
+   }
+  },
+  "S7": {
+   "hukum": {
+    "seg": "S7",
+    "X_min": null,
+    "X_min_3": null,
+    "X_min_7": null,
+    "p_ust": null,
+    "olcek": [
+     "Kaba τ ×1/3 alınırsa 4 birim ≥ 2 kPa (bant: veri yok) (önsayım; Marmara verisi indirilmedi).",
+     "Kaba τ ×3 alınırsa 10 birim ≥ 2 kPa (bant: tam; alt sınır: yalnız ×1 adayları yoklandı) (önsayım; Marmara verisi indirilmedi)."
+    ],
+    "tur": "ölçü sınanamadı",
+    "cumle": "S7: ölçü sınanamadı (Tohoku tremoru Parkfield yüzey ağının gürültüsünde görülmedi; A90_PK = 11,2 nm/s)."
+   },
+   "veri": {
+    "seg": "S7",
+    "n13": 4,
+    "bant13": "veri yok",
+    "n3": 10,
+    "bant3": "tam"
+   }
+  }
+ },
+ "ozet": null,
+ "bilgi": [],
+ "birim_segment": [],
+ "manifest_ozeti": {
+  "K1-indirme": {
+   "istek": 16,
+   "http": {
+    "200": 16
+   },
+   "bayt": 32542720,
+   "durum": {
+    "tamam": 16
+   }
+  },
+  "K1-negatif": {
+   "istek": 126,
+   "http": {
+    "200": 126
+   },
+   "bayt": 113262592,
+   "durum": {
+    "tamam": 126
+   }
+  },
+  "Marmara-indirme": {
+   "istek": 0,
+   "http": {},
+   "bayt": 0,
+   "durum": {}
+  },
+  "Marmara-negatif": {
+   "istek": 0,
+   "http": {},
+   "bayt": 0,
+   "durum": {}
+  },
+  "dusen": {
+   "ortu": 6
+  }
+ },
+ "negatif_gun_turu": {
+  "Marmara | hafta_sonu | 3.0": 20,
+  "Marmara | hafta_ici | 2.0": 20,
+  "Marmara | hafta_sonu | 2.0": 20,
+  "Marmara | hafta_ici | 3.0": 100,
+  "Parkfield | hafta_ici | -8.0": 10
+ }
+}

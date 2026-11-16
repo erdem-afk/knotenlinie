@@ -121,7 +121,7 @@
    "mod_gecti": false
   },
   "hüküm": {
-   "durum": "başladı",
+   "durum": "tamamlandı",
    "kip": "yeni",
    "baslatma": "2026-11-16T16:50:20+00:00",
    "kod_sha256": {
@@ -133,6 +133,24 @@
     "sure_s": 0.85,
     "gurultu_algilama": false,
     "tremor_algilama": true
+   },
+   "git": {
+    "head": "7218e974f63ca04ab74825591893069326576880",
+    "uzak": "7218e974f63ca04ab74825591893069326576880",
+    "dosya": "kayit/turetme/tr7/TR7_KOSU_DURUM.json"
+   },
+   "bitis": "2026-11-16T16:50:24+00:00",
+   "sonuc": {
+    "hukum": {
+     "S1": "ölçü sınanamadı",
+     "S2": "ölçü sınanamadı",
+     "S3": "ölçü sınanamadı",
+     "S4": "ölçü sınanamadı",
+     "S5": "ölçü sınanamadı",
+     "S6": "ölçü sınanamadı",
+     "S7": "ölçü sınanamadı"
+    },
+    "ozet": null
    }
   }
  },
