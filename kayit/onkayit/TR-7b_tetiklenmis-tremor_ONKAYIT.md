@@ -377,3 +377,68 @@ Seçilecek kural §4.6'daki ek turla bulunursa, K1b için beklentiler:
 - (a)/(d) 0,10.
 
 Kural bulunamazsa TR-7b dondurulmaz ve ZINCIR'e "kapı altında" olarak yazılır.
+
+## 11. Tur 2 (16 Kasım 2026; koşudan ÖNCE yazıldı ve commit edildi)
+
+Tur 1'de (§4.4) hiçbir aday geçmedi. Bu tur §4.6'da önerilen K4'ü ve onun simetrik biçimi K5'i sınar. Başka aday yoktur.
+Kod: `kayit/turetme/tr7b/tr7b_yapay2.py`. `tr7b_yapay.py` (Tur 1) ve `tr7_cekirdek.py` değiştirilmeden içe aktarılır.
+K0–K3 karşılaştırma için aynı pencerelerde yeniden hesaplanır, ama Tur 2'de seçilemez (Tur 1'de kaldılar).
+
+Koşudan önceki tek çalıştırma, kodun çalıştığını gösteren bir duman sınamasıdır: tohum 1, iki pencere, F1 ve Y3 a_y 5
+satırları. Sonucu tablolara girmez.
+
+### 11.1 Aday tanımları
+
+Tanımlar istasyonun kümedeki aşım saniyeleri üzerindedir. Δ_y, Δ_d, Q referansı ve K1 kalıntısı §4.2 ile aynıdır. Toplama
+TR-7 ile aynıdır: istasyonların ≥ yarısı bayraklıysa küme atılır.
+
+- **ρ** = Spearman(L, zaman), aşım saniyelerinde. 10 saniyeden az varsa tanımsızdır.
+- **Sönüm şartı** = Δ_d ≥ Δ_y **ve** ρ ≤ −0,7. Amaç tekdüze sönen bölgesel kodayı yakalamaktır. −0,7 önceden sabittir;
+  veriyle seçilmedi.
+- **K4 (asimetrik)** = K1 **veya** sönüm şartı. K1, Q referansı varsa kalıntı < 2σ şartıdır, yoksa K0'dır. Tetikleyicisiz
+  pencerede K4 = K0 olur.
+- **K5 (simetrik)** = Δ_d ≥ Δ_y **ve** (kalıntı < 2σ **veya** ρ ≤ −0,7).
+  - Kalıntı Q doğrusundan hesaplanır.
+  - Q'da L_d − m_d > 4σ_d olan saniye 30'dan azsa doğru a = b = 0 alınır. O zaman kalıntı = L − m ≥ 4σ olur ve kalıntı
+    şartı hiç sağlanmaz.
+  - Tetikleyici ve negatif pencerelerde formül aynıdır. Fark yalnız verinin kendisinden gelir.
+
+### 11.2 Satırlar ve şartlar
+
+Pencere sayısı 100'dür; iki **yeni** tohum kullanılır: **20261117** ve **9393**. Telesismik model ve kalibrasyon §5 ile
+aynıdır.
+
+"Sağ" = en az bir sağ küme veren pencere / bütün pencereler. Bu tanım, algılamanın az olduğu hücrelerde "algılananlarda
+atılma" payının kararsız kalmasını önler. Algılama 1'e yakınsa "atılma ≥ 0,95" ile eşdeğerdir.
+
+| Satır | Hücreler | Şart |
+|---|---|---|
+| D7 | yarım sinüs, A 10 | tam atılma ≤ 0,03 |
+| D7b | patlama, A 3 / 10 / 30 | tam atılma ≤ 0,03 |
+| D7c | düz, A 3 / 10 | sızıntıyla atılma ≤ 0,05 |
+| D7d | koda ×20 | sızıntıyla atılma ≥ 0,95 |
+| Y1 | tremor A 3 / 10 + tele 'egim', a_y 2 / 5 / 10, κ 12,5 (6 hücre) | tam atılma ≤ 0,05 (I′'su tremorla kesişen kümeler) |
+| Y1 'sabit' | a_y 10 | bilgi |
+| Y2 | yalnız tele; a_y 2 / 5 / 10 × κ 6 / 12,5 / 25 × 'egim' / 'sabit' (18 hücre) | sağ ≤ 0,05 |
+| Y3 | koda ×20 + tele 'egim', κ 12,5, a_y 2 / 5 / 10 | sızıntıyla atılma ≥ 0,95 |
+| F1 | tetikleyicisiz pencere, kentsel gürültü, tremor yok | sağ ≤ 0,05 |
+| F2 | tetikleyicili pencere (tele 'egim', a_y 10, κ 12,5), kentsel gürültü, tremor yok | sağ ≤ 0,05 ve sağ(F2) − sağ(F1) ≤ 0,02 |
+
+Kentsel gürültü TR-7 §7.1 ile aynıdır: 2–8 Hz'te ≈ 300 sn'lik rastgele ×exp(0,35 z).
+
+**Asimetri.** F1/F2 çifti, asimetrinin yanlış alarm oranına etkisini doğrudan ölçer. Tetikleyicili ama tremorsuz bir
+pencerenin sağ kalma oranı, negatif pencerelerden ölçülen orandan en çok 0,02 fazla olabilir. K4 bu şartı geçse bile
+asimetriktir. Seçimde K5'in önünde gelmez.
+
+### 11.3 Seçim ölçütü
+
+1. Bir aday, iki tohumda da §11.2'nin bütün şart satırlarını sağlıyorsa kabul edilebilirdir.
+2. Kabul edilebilirlerden önce simetrik olan (K5) seçilir. İkisi de simetrik ya da ikisi de asimetrikse, şartlara göre en
+   kötü pay farkı en büyük olan seçilir.
+3. Seçilen kural §4'ün yerine geçer. Ön kayıt taslağı bağımsız incelemeye hazırlanır; dondurulmaz.
+4. **Hiçbir aday geçmezse** TR-7b **"kapı altında (kural bulunamadı)"** kalır. Üçüncü tur yalnız yeni bir fikirle açılır:
+   K4/K5'in eşiklerini değiştirmek yeni fikir sayılmaz.
+
+### 11.4 Sonuç
+
+(Koşudan sonra doldurulacak.)
