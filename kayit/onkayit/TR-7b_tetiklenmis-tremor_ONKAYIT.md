@@ -3,11 +3,10 @@
 Tarih: 16 Kasım 2026. Durum: **TASLAK 1, DONDURULMADI.** Bu metin hiçbir koşu için bağlayıcı değildir. Bağımsız
 inceleme yapılmadı.
 
-**Taslağın bugünkü hükmü: dondurulamaz.** Veri varlığı kapısı (`TR-7b_SAYIM.md`) geçti. Ama sızıntı kuralının dört
-adayından hiçbiri, koşudan önce yazılmış seçim ölçütünün bütün şartlarını iki tohumda birden sağlamadı (§4.4). Ölçüte
-göre kural seçilmedi. Tur 2 (§11; K4, K5) de tek hücrede kaldı (Y1 A3 kalibre: 0,05 / 0,06, şart ≤ 0,05).
-TR-7b **"kapı altında (kural bulunamadı)"** kalır: aday elenmez, ama yeni bir kural turu ve bağımsız inceleme gelmeden
-dondurulmaz (§4.6).
+**Taslağın bugünkü hükmü: dondurulamaz.** Veri varlığı kapısı (`TR-7b_SAYIM.md`) geçti. Sızıntı kuralı için üç tur
+koşuldu, hiçbiri önceden yazılmış ölçütü geçmedi: Tur 1 (K0–K3, §4.4), Tur 2 (K4, K5; tek hücrede 0,05 / 0,06, §11.4),
+Tur 3 (K6, kaynak yeri; telesismik pencereleri ayıramadı, §12.5). TR-7b **"kapı altında (kural bulunamadı), iki tasarım
+turu sonuçsuz"** olarak bekler; dördüncü tur açılmaz (§12.4).
 
 Türediği yerler:
 - `TR-7_tetiklenmis-tremor_ONKAYIT.md` (sürüm 3, DONDURULDU, Ek 1 ile). Bu metin yalnız farkları yazar. "TR-7 §x aynen"
@@ -587,3 +586,83 @@ sağ(F2) − sağ(F1) ≤ 0,02). Ek olarak §12.1'deki üreteç denetimi satırl
    Marmara aşamaları §7 aynen); **dondurulmaz**.
 4. **Kabul edilmezse** TR-7b **"kapı altında (kural bulunamadı), iki tasarım turu sonuçsuz"** olarak bekler.
    **Dördüncü tur açılmaz.**
+
+### 12.5 Sonuç (koşudan sonra)
+
+Koşu 100 pencereyle, iki tohumla (20261118 / 5151), her tohum iki bölümde yapıldı. Kod commit 0437573'tekiyle aynıdır
+(`tr7b_yapay3.py` sha256 a3d9e084…a6d4).
+- Çıktılar: `tr7b_yapay3_t1_b1.json` (4a02880c…0fe4), `tr7b_yapay3_t1_b2.json` (86ec9b87…2632),
+  `tr7b_yapay3_t2_b1.json` (2a2a023c…388c), `tr7b_yapay3_t2_b2.json` (34d8bd13…6dbb).
+- Ölçüt uygulayıcı: `tr7b_tur3_secim.py` (8d2e0961…576c), koşudan sonra yazıldı ama yalnız §12.1 ve §12.3–§12.4'ü uygular.
+- Değerler "tohum 1 / tohum 2". "Konum tele / küme": konumu telesismik çıkan küme sayısı / bütün kümeler.
+- K0–K5 yalnız karşılaştırma içindir; Tur 3'te seçilemez.
+
+| Satır | Şart | Algılama | Konum tele / küme | K0 | K1 | K2 | K3 | K4 | K5 | K6 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| D7 yarım A10 | tam ≤ 0,03 | 1,00 / 1,00 | 0/100 ; 0/100 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| D7b patlama A3 | tam ≤ 0,03 | 1,00 / 0,99 | 0/133 ; 0/125 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| D7b patlama A10 | tam ≤ 0,03 | 1,00 / 1,00 | 0/124 ; 0/125 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| D7b patlama A30 | tam ≤ 0,03 | 1,00 / 1,00 | 0/122 ; 0/124 | 0,01 / 0,00 | 0,01 / 0,00 | 0,01 / 0,00 | 0,01 / 0,00 | 0,01 / 0,00 | 0,01 / 0,00 | 0,01 / 0,00 |
+| D7c düz A3 | sızıntı ≤ 0,05 | 1,00 / 1,00 | 0/100 ; 0/100 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| D7c düz A10 | sızıntı ≤ 0,05 | 1,00 / 1,00 | 0/100 ; 0/100 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| D7d koda x20 | sızıntı ≥ 0,95 | 1,00 / 1,00 | 15/100 ; 8/100 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 |
+| Y1 A3 a_y2 κ12.5 egim | tam ≤ 0,05 | 1,00 / 1,00 | 0/100 ; 0/100 | 1,00 / 1,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y1 A3 a_y5 κ12.5 egim | tam ≤ 0,05 | 1,00 / 1,00 | 0/100 ; 0/100 | 1,00 / 1,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y1 A3 a_y10 κ12.5 egim | tam ≤ 0,05 | 1,00 / 1,00 | 0/100 ; 0/100 | 1,00 / 1,00 | 0,03 / 0,04 | 0,00 / 0,00 | 0,03 / 0,04 | 0,03 / 0,04 | 0,03 / 0,04 | 0,00 / 0,00 |
+| Y1 A10 a_y2 κ12.5 egim | tam ≤ 0,05 | 1,00 / 1,00 | 0/100 ; 0/100 | 0,17 / 0,13 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y1 A10 a_y5 κ12.5 egim | tam ≤ 0,05 | 1,00 / 1,00 | 0/100 ; 0/100 | 0,98 / 0,97 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y1 A10 a_y10 κ12.5 egim | tam ≤ 0,05 | 1,00 / 1,00 | 0/100 ; 0/100 | 1,00 / 1,00 | 0,01 / 0,01 | 0,00 / 0,00 | 0,01 / 0,01 | 0,01 / 0,01 | 0,01 / 0,01 | 0,00 / 0,00 |
+| Y1 A3 a_y10 κ12.5 sabit | bilgi | 1,00 / 1,00 | 0/100 ; 1/100 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 |
+| Y1 A10 a_y10 κ12.5 sabit | bilgi | 1,00 / 1,00 | 0/100 ; 0/100 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 |
+| Y2 a_y2 κ6 egim | sağ ≤ 0,05 | 0,00 / 0,00 | 0/0 ; 0/0 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y2 a_y2 κ6 sabit | sağ ≤ 0,05 | 0,88 / 0,87 | 16/179 ; 12/188 | 0,00 / 0,00 | 0,00 / 0,00 | 0,69 / 0,80 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,83 / 0,85 |
+| Y2 a_y2 κ12.5 egim | sağ ≤ 0,05 | 0,00 / 0,00 | 0/0 ; 0/0 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y2 a_y2 κ12.5 sabit | sağ ≤ 0,05 | 0,90 / 0,89 | 12/188 ; 21/167 | 0,00 / 0,00 | 0,00 / 0,00 | 0,81 / 0,72 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,86 / 0,81 |
+| Y2 a_y2 κ25 egim | sağ ≤ 0,05 | 0,00 / 0,00 | 0/0 ; 0/0 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y2 a_y2 κ25 sabit | sağ ≤ 0,05 | 0,85 / 0,87 | 16/174 ; 12/184 | 0,00 / 0,00 | 0,00 / 0,00 | 0,76 / 0,78 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,81 / 0,83 |
+| Y2 a_y5 κ6 egim | sağ ≤ 0,05 | 0,01 / 0,01 | 0/1 ; 0/1 | 0,00 / 0,00 | 0,00 / 0,00 | 0,01 / 0,01 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,01 / 0,01 |
+| Y2 a_y5 κ6 sabit | sağ ≤ 0,05 | 1,00 / 1,00 | 105/163 ; 113/163 | 0,00 / 0,00 | 0,02 / 0,00 | 0,12 / 0,07 | 0,02 / 0,00 | 0,01 / 0,00 | 0,01 / 0,00 | 0,26 / 0,22 |
+| Y2 a_y5 κ12.5 egim | sağ ≤ 0,05 | 0,00 / 0,00 | 0/0 ; 0/0 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y2 a_y5 κ12.5 sabit | sağ ≤ 0,05 | 1,00 / 1,00 | 120/170 ; 116/167 | 0,00 / 0,00 | 0,00 / 0,01 | 0,13 / 0,09 | 0,00 / 0,01 | 0,00 / 0,00 | 0,00 / 0,00 | 0,25 / 0,30 |
+| Y2 a_y5 κ25 egim | sağ ≤ 0,05 | 0,01 / 0,00 | 0/1 ; 0/0 | 0,00 / 0,00 | 0,00 / 0,00 | 0,01 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,01 / 0,00 |
+| Y2 a_y5 κ25 sabit | sağ ≤ 0,05 | 1,00 / 1,00 | 120/150 ; 121/168 | 0,00 / 0,00 | 0,00 / 0,00 | 0,07 / 0,08 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,17 / 0,27 |
+| Y2 a_y10 κ6 egim | sağ ≤ 0,05 | 0,32 / 0,32 | 0/35 ; 2/35 | 0,00 / 0,00 | 0,00 / 0,00 | 0,25 / 0,25 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,27 / 0,30 |
+| Y2 a_y10 κ6 sabit | sağ ≤ 0,05 | 1,00 / 1,00 | 100/100 ; 100/100 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y2 a_y10 κ12.5 egim | sağ ≤ 0,05 | 0,39 / 0,34 | 4/40 ; 0/37 | 0,00 / 0,00 | 0,00 / 0,00 | 0,33 / 0,28 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,31 / 0,31 |
+| Y2 a_y10 κ12.5 sabit | sağ ≤ 0,05 | 1,00 / 1,00 | 100/100 ; 100/100 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y2 a_y10 κ25 egim | sağ ≤ 0,05 | 0,30 / 0,26 | 1/30 ; 0/26 | 0,00 / 0,00 | 0,00 / 0,00 | 0,23 / 0,20 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,25 / 0,19 |
+| Y2 a_y10 κ25 sabit | sağ ≤ 0,05 | 1,00 / 1,00 | 100/100 ; 100/100 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| Y3 koda x20 + tele a_y2 | sızıntı ≥ 0,95 | 1,00 / 1,00 | 12/100 ; 12/100 | 1,00 / 1,00 | 0,00 / 0,00 | 0,99 / 0,99 | 0,99 / 0,99 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 1,00 |
+| Y3 koda x20 + tele a_y5 | sızıntı ≥ 0,95 | 1,00 / 1,00 | 14/100 ; 20/101 | 1,00 / 1,00 | 0,00 / 0,00 | 0,77 / 0,87 | 0,77 / 0,88 | 1,00 / 1,00 | 1,00 / 1,00 | 1,00 / 0,99 |
+| Y3 koda x20 + tele a_y10 | sızıntı ≥ 0,95 | 1,00 / 1,00 | 19/131 ; 14/136 | 1,00 / 1,00 | 0,03 / 0,03 | 0,45 / 0,34 | 0,60 / 0,54 | 0,98 / 0,97 | 0,98 / 0,97 | 0,74 / 0,65 |
+| F1 tetikleyicisiz kentsel | sağ ≤ 0,05 | 0,00 / 0,00 | 0/0 ; 0/0 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+| F2 tetikleyicili kentsel | sağ ≤ 0,05 | 0,00 / 0,00 | 0/0 ; 0/0 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 | 0,00 / 0,00 |
+
+F2 − F1: bütün adaylarda 0,00 / 0,00.
+
+**Üreteç denetimi (§12.1): kararlı.** Yedi D7 satırında gecikmeli ve gecikmesiz koşular arasında K0–K5'in geçme/kalma
+durumu aynı, en büyük fark 0,01 (D7b A10 ve A30, tek pencere). Gecikmeler eski kuralların sonucunu değiştirmedi.
+
+**Karar: K6 kabul edilmedi. TR-7b "kapı altında (kural bulunamadı), iki tasarım turu sonuçsuz" olarak bekler; dördüncü
+tur açılmaz (§12.4 madde 4).**
+- K6, tremor tarafında kusursuz: D7, D7b, D7c'de hiçbir küme konumla telesismik çıkmadı (0/~700) ve Y1'in altı 'egim'
+  hücresinde tam atılma 0,00 / 0,00 (Tur 2'nin tek başarısızlığı olan Y1 A3 a_y10'da da).
+- Ama telesismik tarafı yakalayamadı. **Y2'nin 9 hücresinde sağ 0,17–0,86** (şart ≤ 0,05): bütün 'egim' a_y 10
+  hücreleri (0,19–0,31) ve a_y 2 ile 5'in bütün 'sabit' hücreleri (0,17–0,86). **Y3 a_y 10: 0,74 / 0,65** (şart ≥ 0,95).
+  En kötü pay −0,81.
+- Neden (tablodan okunan, sınanmış değil): sönen ya da zayıf telesismik zarfta istasyonlar arası gecikme 1 Hz zarftan
+  düzlem dalgaya 1 sn içinde uyacak kadar iyi ölçülemiyor; "Konum tele / küme" sütunu, düzlem dalganın yalnız güçlü,
+  sürekli ('sabit', a_y 10: 100/100) sinyalde tutunduğunu gösteriyor. Görünür hız sınırı (≥ 6 km/s) ya da RMS üst sınırı
+  bunu değiştirecek bir "eşik oynatma" olurdu; yapılmadı.
+
+**Bilgi (seçimi etkilemez): K4 ve K5 bu koşuda bütün şartları geçti.** Yeni üreteç (6 istasyon, gecikmeli) ve yeni
+tohumlarla Y1 A3 a_y10 'egim' 0,03 / 0,04 çıktı (Tur 2'de 3 istasyonla 0,05 / 0,06); en kötü pay +0,01. §12.4 madde 1
+Tur 3'te yalnız K6'yı seçilebilir saydığı için bu sonuç bir seçim değildir ve Tur 2'nin kararı (§11.4) değişmez. Fark,
+istasyon sayısı ve tohum değişince Tur 2'deki başarısızlığın sınırda olduğunu gösterir; bunun bir sonuca bağlanıp
+bağlanmayacağı yazarın değil, koordinatörün ve bağımsız incelemenin kararıdır.
+
+**Geliştirme verisi (Tohoku–Parkfield, `tr7b_gelistirme3.py`, json 95802830…a93f; bilgi).** K6'nın konum adımı, TR-7 K1'in
+4 W kümesinde ve saf P aralığı kümesinde (05:57:43–06:05:57) **hiçbirini** telesismik bulmadı: RMS_a 4,2–6,4 sn,
+RMS_b 4,6–7,5 sn; iki model de 1 sn'lik uyumdan çok uzak. Gerçek veride saf P bile 1 Hz zarf gecikmeleriyle bir düzlem
+dalgaya oturmuyor. Bu, yapay sonuçtan bağımsız ikinci bir işarettir: konum bilgisi bu çözünürlükte sızıntıyı ayırmıyor.
+Bu çıktı K6'nın tanımı commit edildikten (0437573) sonra hesaplandı; tanım değiştirilmedi.
