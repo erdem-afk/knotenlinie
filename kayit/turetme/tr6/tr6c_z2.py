@@ -77,7 +77,7 @@ def kayit(dunya, tohum, n, cikti):
         sat = []
         for _ in range(n):
             yakala.clear()
-            r = T.deneme(rng, sp, sahte=True, ham=False)
+            r = T.deneme(rng, sp, sahte=True, ham=True)
             sh = [(int(x["D"]), round(x["n_on_kapi"] / KO.N0_YIL, 3)) for x in yakala["so"] if x["gecerli"]]
             vy = r.get("veri_yok", False) or r.get("D") is None
             sat.append([round(r["N0_kapi"], 3), int(vy), -1 if vy else int(r["D"]), sh])
@@ -109,6 +109,21 @@ class Kayitlar:
 
     def li(self, lam):
         return int(np.argmin(np.abs(np.log(self.lam) - math.log(lam))))
+
+
+_TZ, _KR = {}, {}
+
+
+def _testere(K, p0):
+    if (K, p0) not in _TZ:
+        _TZ[(K, p0)] = KO.testere(K, p0)["atilan"]
+    return _TZ[(K, p0)]
+
+
+def _kritik(K, p0):
+    if (K, p0) not in _KR:
+        _KR[(K, p0)] = S.kritik(K, p0)
+    return _KR[(K, p0)]
 
 
 def benzetim(kay, lamlar, tasarim, n, rng, h1=False, kaydir_gercek=0.0, kaydir_sahte=0.0):
@@ -174,12 +189,12 @@ def benzetim(kay, lamlar, tasarim, n, rng, h1=False, kaydir_gercek=0.0, kaydir_s
         if p0 > S.P0_UST:
             sonuc["olcu"] += 1
             continue
-        tz = KO.testere(K, p0)
+        at = _testere(K, p0)
         # en zayıf = en küçük kapı N0 (kenar kümeleri en güçlü)
         sira = g[np.argsort(N0k[t, g], kind="stable")]
-        ana = sira[tz["atilan"]:]
+        ana = sira[at:]
         X = D[t, ana].sum() + (Dk[t].sum() if nkenar else 0)
-        if X >= S.kritik(K - tz["atilan"], p0):
+        if X >= _kritik(K - at, p0):
             sonuc["H1"] += 1
     return dict(oran=round(sonuc["H1"] / n, 4), se=round(math.sqrt(max(sonuc["H1"], 1)) / n, 4),
                 olcu_yanli=round(sonuc["olcu"] / n, 4), guc_yok=round(sonuc["gucyok"] / n, 4),
@@ -222,6 +237,16 @@ def senaryolar():
     s.append(("hepsi λ 31,36 + aşırı saçılım +0,03", list(np.r_[np.full(26, 31.36), kum[ke]]) + bant + alt,
               dict(kaydir_gercek=0.03, kaydir_sahte=0.03)))
     s.append(("önsayım, uyuşmazlık: gerçek +0,02 (sahte değil)", list(kum) + bant + alt, dict(kaydir_gercek=0.02)))
+    ke2 = list(kum[ke])
+    bant36 = list(np.exp(np.linspace(math.log(28.5), math.log(36.0), 50)))
+    yak20 = list(np.exp(np.linspace(math.log(28.5), math.log(34.5), 20)))
+    s.append(("kapı çevresinde 60 aday λ 31,36 + 2 kenar (K ≈ 30)", [31.36] * 60 + ke2 + alt, {}))
+    s.append(("kapı çevresinde 50 aday λ 28,5–36 + 2 kenar", bant36 + ke2 + alt, {}))
+    s.append(("önsayım + 20 kapı yakını aday (λ 28,5–34,5)", list(kum) + yak20 + bant + alt, {}))
+    s.append(("kapı çevresinde 60 aday λ 40 + 2 kenar ((a1) kapısının eşi)", [40.0] * 60 + ke2 + alt, {}))
+    s.append(("60 aday λ 31,36 + aşırı saçılım +0,03", [31.36] * 60 + ke2 + alt,
+              dict(kaydir_gercek=0.03, kaydir_sahte=0.03)))
+    s.append(("60 aday λ 31,36 + uyuşmazlık gerçek +0,02", [31.36] * 60 + ke2 + alt, dict(kaydir_gercek=0.02)))
     s.append(("kapı altı aday yok (yalnız 28 küme)", list(kum), {}))
     s.append(("kapı altı adaylar 3 kat (18 bant, 75 alt)", list(kum) + bant * 3 + alt * 3, {}))
     return s
@@ -241,9 +266,10 @@ def secim(yol_i, yol_ii, n, tohum, cikti):
             for t in out["tasarimlar"]:
                 sat[t] = benzetim(kays[dunya], lam, t, n, rng, **kw)
             out["alfa"].append(sat)
-            print(ad, dunya, {t: (sat[t]["oran"], sat[t]["K_ort"]) for t in out["tasarimlar"]}, flush=True)
+            print(ad, dunya, {t: (sat[t]["oran"], sat[t]["K_ort"], sat[t]["guc_yok"]) for t in out["tasarimlar"]}, flush=True)
     ss = senaryolar()
-    for ad, lam, kw in [ss[0], ss[1], ss[6], ss[7]]:
+    for ad, lam, kw in [x for x in ss if x[0].startswith(("önsayım (28", "önsayım, en büyük", "kapı çevresinde",
+                                                          "önsayım + 20"))]:
         for dunya in ("i", "ii"):
             sat = dict(senaryo=ad, dunya=dunya)
             for t in out["tasarimlar"]:

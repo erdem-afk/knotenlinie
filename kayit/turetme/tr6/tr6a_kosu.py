@@ -827,7 +827,19 @@ class Analiz:
             m["kenar_birimleri"] = sorted(kenar)
             m["kenar_kumeleri"] = [c["temsilci"] for c in kal if c["temsilci"] in kenar]
             m["N0_ust"] = N0_UST_C
-        gec = [r for t, x in sahte.items() if t not in kenar for r in x if r["gecerli"]]
+            # TR-6c §C3a (sürüm 2, İNCELEME-1 Z2 yolu (a2)): kalibrasyon havuzu kapıdan ÖNCE kurulur. Katalog seçimi
+            # olan bütün hazır birimlerin küme seti (§3.4 ve §3.7 çıkarmalarından sonra, gerçek kapı uygulanmadan);
+            # kenar kümeleri hariç. Her sahte kendi sahte kapısıyla (§4.6) geçerli olur.
+            kal_k, _, _ = self.kume_seti([u for u in hazir if self.B[u]["secim"]])
+            kal_k = [c for c in kal_k if c["temsilci"] not in kenar]
+            for c in kal_k:
+                if c["temsilci"] not in sahte:
+                    B = self.B[c["temsilci"]]
+                    sahte[c["temsilci"]] = self.sahte_oylari(B, B["secim"])
+            m["kalibrasyon_kumeleri"] = [c["temsilci"] for c in kal_k]
+            gec = [r for c in kal_k for r in sahte[c["temsilci"]] if r["gecerli"]]
+        else:
+            gec = [r for t, x in sahte.items() if t not in kenar for r in x if r["gecerli"]]
         J, Ss, Sp = len(gec), sum(r["D"] for r in gec), sum(r["A"] for r in gec)
         p0, zayif = p0_kestir(Ss, J)
         p0p, _ = p0_kestir(Sp, J)
@@ -859,9 +871,11 @@ class Analiz:
         m["ana_kumeler"] = [c["temsilci"] for c in ana]
         # S1 K⁺, S7 K_nt, S2 negatif kontrol (olay öncesi)
         m["K_arti"] = [c["temsilci"] for c in ana
-                       if self.B[c["temsilci"]]["kapi"][self.B[c["temsilci"]]["secim"]]["pozitif"]["N0"] >= S.N0_POZ_KAPI]
+                       if self.B[c["temsilci"]]["kapi"][self.B[c["temsilci"]]["secim"]]["pozitif"]["N0"] >= S.N0_POZ_KAPI
+                       and self._kontrol_kenar_disi(c["temsilci"], "pozitif")]
         m["K_nt"] = [c["temsilci"] for c in ana
-                     if self.B[c["temsilci"]]["kapi"][self.B[c["temsilci"]]["secim"]]["notr"]["N0"] >= ESIK[19.0]]
+                     if self.B[c["temsilci"]]["kapi"][self.B[c["temsilci"]]["secim"]]["notr"]["N0"] >= ESIK[19.0]
+                     and self._kontrol_kenar_disi(c["temsilci"], "notr")]
         m["S2"] = self.S2_satiri(self._nk_kumeleri(ana, sahte))
         # satır kapıları (kendi K'leri) — yalnız ana durum "devam" iken koşulur; değilse K'ler bilgi
         m["satir_kapilari"] = self.satir_kapilari(hazir, N0)
@@ -879,11 +893,20 @@ class Analiz:
         return {u for u, x in N0.items() if x > N0_UST_C}
 
     def _kenar_A(self, r, lob="golge"):
-        """TR-6c §C4: kenar birimlerinin gölge (ve gölge türevi) lob artış oyu 0 sayılır; özgün değer A_kenar_oncesi."""
+        """TR-6c §C4 kural 4 (sürüm 2): kenar birimlerinin gölge (ve gölge türevi) lob artış oyu sayılmaz (A = None):
+        Y'nin hem payından hem paydasından çıkar; özgün değer A_kenar_oncesi (bilgi). D değişmez."""
         if r is not None and TASARIM == "c" and lob in GOLGE_LOBLARI and \
                 r.get("temsilci") in getattr(self, "_kenar", set()):
-            r["A_kenar_oncesi"], r["A"], r["kenar_etkisi"] = r["A"], 0, True
+            r["A_kenar_oncesi"], r["A"], r["kenar_etkisi"] = r["A"], None, True
         return r
+
+    def _kontrol_kenar_disi(self, u, lob):
+        """TR-6c §C4 kural 7 (sürüm 2): S1'de pozitif lobunun, S7'de nötr bölgesinin kapı N0'ı N0_UST_C'yi aşan küme o
+        satırdan çıkar. TR-6a'da her küme kalır."""
+        if TASARIM != "c":
+            return True
+        B = self.B[u]
+        return B["kapi"][B["secim"]][lob]["N0"] <= N0_UST_C
 
     def _nk_kumeleri(self, ana, sahte):
         nk = {}
@@ -894,7 +917,7 @@ class Analiz:
                 o = self.nk_oyu(B, B["secim"])
                 if o is not None:
                     if TASARIM == "c" and c["temsilci"] in getattr(self, "_kenar", set()):
-                        o = self._kenar_A(dict(o, temsilci=c["temsilci"]))
+                        continue                     # TR-6c §C4 kural 7: kenar kümesi S2'den çıkar
                     nk[c["temsilci"]] = o
         return nk
 
@@ -1069,8 +1092,10 @@ class Analiz:
                              c_arti_K=(S.kritik(tz["K_hukum"], p0p) if p0p <= S.P0_UST else None))
         m2["ana_kumeler"] = [c["temsilci"] for c in ana]
         kp = lambda u: self.B[u]["kapi"][self.B[u]["secim"]]                      # noqa: E731
-        m2["K_arti"] = [c["temsilci"] for c in ana if kp(c["temsilci"])["pozitif"]["N0"] >= S.N0_POZ_KAPI]
-        m2["K_nt"] = [c["temsilci"] for c in ana if kp(c["temsilci"])["notr"]["N0"] >= ESIK[19.0]]
+        m2["K_arti"] = [c["temsilci"] for c in ana if kp(c["temsilci"])["pozitif"]["N0"] >= S.N0_POZ_KAPI
+                        and self._kontrol_kenar_disi(c["temsilci"], "pozitif")]
+        m2["K_nt"] = [c["temsilci"] for c in ana if kp(c["temsilci"])["notr"]["N0"] >= ESIK[19.0]
+                      and self._kontrol_kenar_disi(c["temsilci"], "notr")]
         m2["S2"] = json.loads(json_metni(self.S2_satiri(self._nk_kumeleri(ana, m["sahte"]["oylar"]))))
         return m2
 
@@ -1098,10 +1123,13 @@ def satir_istatistigi(oylar, p0, p0p, A_oyu=False):
         return dict(K=0, kosulamadi=True, neden="satır yok")
     K = len(oylar)
     X = sum(r["A"] if A_oyu else r["D"] for r in oylar)
-    Y = sum(r["A"] for r in oylar)
+    sayilan = [r["A"] for r in oylar if r["A"] is not None]          # TR-6c §C4 kural 4: kenar A'sı sayılmaz
+    Y, KY = sum(sayilan), len(sayilan)
     r = dict(K=K, X=X, Y=Y, X_K=(X / K if K else None), c_p0=kritik(K, p0), c_05=kritik(K, 0.5),
              p_X_p0=ust_kuyruk(X, K, p0), p_X_05=ust_kuyruk(X, K, 0.5),
-             p_Y_p0arti=(ust_kuyruk(Y, K, p0p) if p0p <= S.P0_UST else None), p_Y_05=ust_kuyruk(Y, K, 0.5))
+             p_Y_p0arti=(ust_kuyruk(Y, KY, p0p) if p0p <= S.P0_UST else None), p_Y_05=ust_kuyruk(Y, KY, 0.5))
+    if KY != K:
+        r["K_Y"] = KY
     if K:
         ps = [KAT.p_dusus_kosullu(o["n_on"] + o["n_son"], o["pi"]) for o in oylar]
         r["kosullu_p"] = KAT.poisson_binom_ust(X, ps) if not A_oyu else None
@@ -1182,7 +1210,7 @@ def hukum_kur(m, R, analiz=None):
     if p0p > S.P0_UST:
         ty = ("sınanamadı", m["sahte"]["p0_arti_sapka"])
     else:
-        cp = S.kritik(K, p0p)
+        cp = S.kritik(T["ana"].get("K_Y", K), p0p)          # TR-6c §C4 kural 4: c⁺(K − m; p₀⁺)
         ty = ("not", Y, cp) if Y >= cp else None
     # etkin N0 (§6.2 kural 6)
     az = sum(1 for r in R["ana"] if r["N0_kul"] < ESIK[19.0])
@@ -1599,6 +1627,8 @@ def cekirdek(m):
     c["satir_K"] = {k: x["K"] for k, x in m["satir_kapilari"].items()}
     if "kenar_birimleri" in m:                           # TR-6c §C4
         c["kenar_birimleri"] = m["kenar_birimleri"]
+    if "kalibrasyon_kumeleri" in m:                      # TR-6c §C3a (sürüm 2)
+        c["kalibrasyon_kumeleri"] = m["kalibrasyon_kumeleri"]
     return json.loads(json_metni(c))
 
 

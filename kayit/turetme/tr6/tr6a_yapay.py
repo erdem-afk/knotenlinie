@@ -593,7 +593,10 @@ TANI_TOHUMLARI = tuple(range(601, 609))
 KURAL_C = "yedek_d"
 N0_IZGARA_C = (31.36, 100.0, 500.0, 1500.0, 4500.0)
 PARCA_C = 1000
-HUCRELER_C = tuple([f"i:{x:g}" for x in N0_IZGARA_C] + [f"ii:{x:g}" for x in N0_IZGARA_C] + ["adim:31.36"])
+# sürüm 2: kapı çevresi (28,5 ve 36) ve karma λ hücreleri sona eklenir (eski hücrelerin kodu değişmez)
+KARMA_C = (20.0, 60.0)          # karma hücre: her denemede λ, log-düzgün [20, 60]
+HUCRELER_C = tuple([f"i:{x:g}" for x in N0_IZGARA_C] + [f"ii:{x:g}" for x in N0_IZGARA_C] + ["adim:31.36"] +
+                   ["i:28.5", "ii:28.5", "i:36", "ii:36", "i:karma", "ii:karma"])
 HUCRE_KODU_C = {h: i + 1 for i, h in enumerate(HUCRELER_C)}
 ALAN_C = ("kapi", "veri_yok", "D", "A", "Dh", "Ah", "J", "SD", "SA", "SDh", "SAh", "n_on", "n_son", "n_on_h", "n_son_h")
 
@@ -611,6 +614,11 @@ def tohum_denetle_c(tohum, baglayici):
 
 def hucre_spec_c(ad):
     dunya, n0 = ad.split(":")
+    if n0 == "karma":
+        sp = dict(N0=None, karma=KARMA_C, dtau="sifir", ikincil_bolge=True)
+        if dunya == "ii":
+            sp["ikincil_lob"] = True
+        return None, sp
     N0 = float(n0)
     if dunya == "i":
         return N0, dict(N0=N0, dtau="sifir", ikincil_bolge=True)
@@ -632,15 +640,26 @@ def tek_birim_c():
     return _T_C["T"]
 
 
-def hucre_parcasi_c(ad, tohum, parca, n=PARCA_C):
-    """Bir parçanın deneme kayıtları (ALAN_C sütunları) ve Δτ_est değerleri."""
+def hucre_parcasi_c(ad, tohum, parca, n=PARCA_C, baglayici=False):
+    """Bir parçanın deneme kayıtları (ALAN_C sütunları) ve Δτ_est değerleri. Bağlayıcı tohumlar (TR-6a, TR-6c) ve tanı
+    tohumları yalnız baglayici=True ile ve ön kayıt dondurulduktan sonra (TR6C_ONKAYIT_SHA dolu) kullanılabilir
+    (İNCELEME-1 kod önerisi: dondurmadan önce bağlayıcı parça üretilip bakılamaz)."""
+    tohum_denetle_c(tohum, baglayici)
+    if baglayici and KO.TR6C_ONKAYIT_SHA is None:
+        raise ValueError("TR-6c bağlayıcı parçası ön kayıt dondurulmadan üretilemez (TR6C_ONKAYIT_SHA = None)")
     T = tek_birim_c()
     _, sp = hucre_spec_c(ad)
     rng = np.random.default_rng([tohum, HUCRE_KODU_C[ad], parca])
     sahte = not ad.startswith("adim")
     sat, dl = [], []
     for _ in range(n):
-        r = T.deneme(rng, sp, sahte=sahte, ham=True)
+        if sp.get("karma"):
+            a_, b_ = sp["karma"]
+            spt = {k: v for k, v in sp.items() if k != "karma"}
+            spt["N0"] = float(math.exp(rng.uniform(math.log(a_), math.log(b_))))
+            r = T.deneme(rng, spt, sahte=sahte, ham=True)
+        else:
+            r = T.deneme(rng, sp, sahte=sahte, ham=True)
         s, sh = r.get("sahte", []), r.get("sahte_ham", [])
         if r["veri_yok"]:
             sat.append([int(r["kapi"]), 1, -1, -1, -1, -1, len(s), sum(x[0] for x in s), sum(x[1] for x in s),
@@ -701,12 +720,13 @@ def hucre_ozeti_c(ad, parcalar):
     c = {k: X[:, i] for i, k in enumerate(ALAN_C)}
     n = len(X)
     N0, _ = hucre_spec_c(ad)
-    N0k = N0 * 10 ** (-MC_FARKI_C)
+    N0k = None if N0 is None else N0 * 10 ** (-MC_FARKI_C)
     var = c["veri_yok"] == 0
     kv = var & (c["kapi"] == 1)
     T = tek_birim_c()
     pi = T.B["pi"]
-    o = dict(hucre=ad, deneme=n, parca=len(parcalar), tohum=parcalar[0]["tohum"], N0=N0, N0_kul=round(N0k, 3),
+    o = dict(hucre=ad, deneme=n, parca=len(parcalar), tohum=parcalar[0]["tohum"], N0=N0,
+             N0_kul=(None if N0 is None else round(N0k, 3)),
              veri_yok_payi=round(float(1 - var.mean()), 5), kapi_payi=round(float((c["kapi"][var] == 1).mean()), 5),
              olcutler=[])
 
@@ -727,40 +747,56 @@ def hucre_ozeti_c(ad, parcalar):
                                                             kesin_medyan=round(med, 3), n=len(dl)))
         o["gecti"] = all(x["gecti"] for x in o["olcutler"])
         return o
-    f = _fark_se(c["SD"][var], c["J"][var], c["D"][kv])
-    kenar = N0 > KO.N0_UST_C
+    # sürüm 2 §C3a: p̂₀ havuzu gerçek koşununkidir, yani kapıdan önceki bütün denemelerin sahteleri (gerçek kapıyı
+    # geçmeyen ve gerçek Mc_son'u kestirilemeyen denemeler dahil; her sahte kendi sahte kapısıyla geçerli).
+    f = _fark_se(c["SD"], c["J"], c["D"][kv])
+    fk = _fark_se(c["SD"][kv], c["J"][kv], c["D"][kv])                    # sürüm 1 / İNCELEME-1 havuzu (bilgi)
+    kenar = N0 is not None and N0 > KO.N0_UST_C
+
+    def c1(ad_):
+        if f is None:
+            olcut(ad_, float("nan"), 0.0, 1.0)
+            return
+        p0b, pd_, d_, se = f
+        olcut(ad_, d_, 0.0, se, bilgi=dict(p0_sapka=round(p0b, 5), P_D_kapi=round(pd_, 5),
+                                           J_ort=round(float(c["J"].mean()), 4),
+                                           kapi_kosullu_havuz=(None if fk is None else dict(
+                                               p0=round(fk[0], 5), fark=round(fk[2], 5), se=round(fk[3], 5),
+                                               z=round(fk[2] / fk[3], 2)))))
     if kenar:
-        # §C4: kenar birimleri kalibrasyona girmez; dayanılan özellik oyun H0'da kesin değerin üstüne çıkmamasıdır
+        # C1′a: C1'in kendisi (iki yanlı); C1′: yön ölçütü (tek yanlı); C1′b (yalnız (i)): D4 biçimi P(D | kapı) kesin
+        # Poisson değeriyle iki yanlı (kümesizleştirmesiz oy kenar etkisi taşımaz; (ii)'de kümelenmeyle kayar)
+        c1("C1′a: p̂₀ − P(D | kapı) (kenar birimi)")
         pd_ = float(c["D"][kv].mean())
         bek = kesin_c(N0k)
         se = math.sqrt(bek * (1 - bek) / int(kv.sum()))
         z = (pd_ - bek) / se
-        o["olcutler"].append(dict(ad="P(D | kapı) ≤ kesin Poisson (tek yanlı, kenar birimi)", deger=round(pd_, 5),
+        o["olcutler"].append(dict(ad="C1′: P(D | kapı) ≤ kesin Poisson (tek yanlı, kenar birimi)", deger=round(pd_, 5),
                                   beklenen=round(bek, 5), se=round(se, 5), z=round(z, 2), gecti=bool(z <= 3.5),
-                                  bilgi=(None if f is None else dict(p0_sapka_eksi_P_D_kapi=round(f[2], 5),
-                                                                     se=round(f[3], 5), z=round(f[2] / f[3], 2)))))
-    elif f is None:
-        olcut("p̂₀ − P(D | kapı)", float("nan"), 0.0, 1.0)
+                                  bilgi=None))
+        dh = c["Dh"][kv]
+        if ad.startswith("i:"):
+            olcut("C1′b: D4 P(D | kapı) − kesin Poisson", float(dh.mean()), bek,
+                  float(dh.std(ddof=1) / math.sqrt(len(dh))))
     else:
-        p0b, pd_, d_, se = f
-        olcut("p̂₀ − P(D | kapı)", d_, 0.0, se, bilgi=dict(p0_sapka=round(p0b, 5), P_D_kapi=round(pd_, 5),
-                                                         J_ort=round(float(c["J"][var].mean()), 4)))
+        c1("p̂₀ − P(D | kapı)")
     # bilgi satırları
+    kes = (lambda yon=-1: None) if N0 is None else (lambda yon=-1: round(kesin_c(N0k, yon=yon), 5))
     bilgi = dict(P_D=round(float(c["D"][var].mean()), 5), P_A=round(float(c["A"][var].mean()), 5),
-                 P_D_kesin=round(kesin_c(N0k), 5), P_A_kesin=round(kesin_c(N0k, yon=+1), 5),
+                 P_D_kesin=kes(), P_A_kesin=kes(+1),
                  P_D_kapi=round(float(c["D"][kv].mean()), 5), P_A_kapi=round(float(c["A"][kv].mean()), 5),
                  P_Dh_kapi=round(float(c["Dh"][kv].mean()), 5), P_Ah_kapi=round(float(c["Ah"][kv].mean()), 5))
     for ad_, S_, x in (("A", "SA", "A"), ("Dh", "SDh", "Dh"), ("Ah", "SAh", "Ah")):
-        f = _fark_se(c[S_][var], c["J"][var], c[x][kv])
-        bilgi[f"p0_sapka_{ad_}_eksi_P_kapi"] = None if f is None else dict(
-            p0=round(f[0], 5), P=round(f[1], 5), fark=round(f[2], 5), se=round(f[3], 5), z=round(f[2] / f[3], 2))
+        f2 = _fark_se(c[S_], c["J"], c[x][kv])
+        bilgi[f"p0_sapka_{ad_}_eksi_P_kapi"] = None if f2 is None else dict(
+            p0=round(f2[0], 5), P=round(f2[1], 5), fark=round(f2[2], 5), se=round(f2[3], 5), z=round(f2[2] / f2[3], 2))
     for ad_, x, y in (("D", "D", "Dh"), ("A", "A", "Ah")):
         dd = c[x][kv] - c[y][kv]
         bilgi[f"kenar_{ad_}_hat_eksi_ham"] = dict(fark=round(float(dd.mean()), 5),
                                                  se=round(float(dd.std(ddof=1) / math.sqrt(len(dd))), 5))
     bilgi["artik_n_son_eksi_pi_n"] = round(float((c["n_son"][kv] - pi * (c["n_on"][kv] + c["n_son"][kv])).mean()), 3)
     bilgi["n_on_ort"], bilgi["n_son_ort"] = round(float(c["n_on"][kv].mean()), 2), round(float(c["n_son"][kv].mean()), 2)
-    bilgi["sahte_gecerli_ort"] = round(float(c["J"][var].mean()), 4)
+    bilgi["sahte_gecerli_ort"] = round(float(c["J"].mean()), 4)
     o["bilgi"] = bilgi
     o["gecti"] = all(x["gecti"] for x in o["olcutler"])
     return o
@@ -779,7 +815,7 @@ def hucre_kos_c(ad, tohum, n, parca_dizini, log=print, baglayici=False):
             with open(yol, encoding="utf-8") as f:
                 x = json.load(f)
         else:
-            x = hucre_parcasi_c(ad, tohum, p)
+            x = hucre_parcasi_c(ad, tohum, p, baglayici=baglayici)
             with open(yol + ".tmp", "w", encoding="utf-8") as f:
                 json.dump(x, f)
             os.replace(yol + ".tmp", yol)

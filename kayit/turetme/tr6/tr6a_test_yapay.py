@@ -1089,7 +1089,10 @@ def kenar_kurali_sinamasi(tc):
             KO.N0_UST_C = eski
         tc.assertEqual(m["kenar_kumeleri"], ["y05"])
         tc.assertIn("y05", [c["temsilci"] for c in m["kumeler"]])
-        gec = [r for t, x in m["sahte"]["oylar"].items() if t != "y05" for r in x if r["gecerli"]]
+        # sürüm 2 §C3a: havuz kapıdan önceki bütün kümeler (kenar hariç)
+        tc.assertNotIn("y05", m["kalibrasyon_kumeleri"])
+        tc.assertTrue({c["temsilci"] for c in m["kumeler"]} - {"y05"} <= set(m["kalibrasyon_kumeleri"]))
+        gec = [r for t in m["kalibrasyon_kumeleri"] for r in m["sahte"]["oylar"][t] if r["gecerli"]]
         tc.assertEqual(m["sahte"]["J"], len(gec))
         tc.assertEqual(m["sahte"]["S"], sum(r["D"] for r in gec))
         tc.assertTrue(any(r["gecerli"] for r in m["sahte"]["oylar"]["y05"]))
@@ -1097,10 +1100,10 @@ def kenar_kurali_sinamasi(tc):
         R = an.oylar(m)
         r5 = [r for r in R["ana"] if r["temsilci"] == "y05"]
         tc.assertEqual(len(r5), 1)
-        tc.assertEqual(r5[0]["A"], 0)
+        tc.assertIsNone(r5[0]["A"])                    # sürüm 2: kenar A sayılmaz (paydan ve paydadan çıkar)
         tc.assertTrue(r5[0]["kenar_etkisi"])
         tc.assertTrue(all(not r.get("kenar_etkisi") for r in R["ana"] if r["temsilci"] != "y05"))
-        tc.assertTrue(all(r["A"] == 0 for k in ("D4", "D1", "S3", "S4") for r in R[k] if r["temsilci"] == "y05"))
+        tc.assertTrue(all(r["A"] is None for k in ("D4", "D1", "S3", "S4") for r in R[k] if r["temsilci"] == "y05"))
         tc.assertTrue(all(not r.get("kenar_etkisi") for r in R["S1"] + R["S7"]))
         # TR-6c İNCELEME-1: §C4 kural 4'ün bütün satır listesi (gölge ve gölge türevi loblar, S2 dahil); D ve özgün A
         # sayımlardan yeniden türetilir (kural D'ye dokunmaz)
@@ -1113,11 +1116,12 @@ def kenar_kurali_sinamasi(tc):
                 gorulen.add(k)
                 D, A = KAT.oy(r["n_on"], r["n_son"], r["pi"])
                 tc.assertTrue(r.get("kenar_etkisi"), k)
-                tc.assertEqual((r["D"], r["A"], r["A_kenar_oncesi"]), (D, 0, A), k)
+                tc.assertEqual((r["D"], r["A"], r["A_kenar_oncesi"]), (D, None, A), k)
         tc.assertTrue({"ana", "S3", "S4", "S5a", "D1", "D3a", "D3b", "D4", "D5", "D6", "D7", "D8"} <= gorulen, gorulen)
-        s2 = R["m_etkin"]["S2"]["kumeler"]["y05"]
-        tc.assertTrue(s2.get("kenar_etkisi"))
-        tc.assertEqual(s2["A"], 0)
+        tc.assertNotIn("y05", R["m_etkin"]["S2"]["kumeler"])        # sürüm 2 kural 7: kenar kümesi S2'den çıkar
+        T = KO.satir_istatistigi(R["ana"], 0.5, 0.5)
+        tc.assertEqual(T["K_Y"], T["K"] - 1)
+        tc.assertEqual(T["Y"], sum(r["A"] for r in R["ana"] if r["temsilci"] != "y05"))
         tc.assertEqual(KO.cekirdek(m)["kenar_birimleri"], ["y05"])
         md = KO.sonuc_md(m, KO.hukum_kur(m, R, an), R, {})
         tc.assertTrue(md.startswith("# TR-6c sonuç"))
@@ -1197,8 +1201,19 @@ class TTasarimC(unittest.TestCase):
         self.assertAlmostEqual(x["bilgi"]["p0_sapka"], round(4 / 12, 5))
         self.assertAlmostEqual(x["bilgi"]["P_D_kapi"], round(2 / 3, 5))
         self.assertAlmostEqual(x["deger"], round(4 / 12 - 2 / 3, 5))
-        o = Y.hucre_ozeti_c("i:1500", [dict(tohum=1, satir=sat, dtau=[0.0] * 4)])
-        self.assertIn("tek yanlı", o["olcutler"][0]["ad"])
+        self.assertAlmostEqual(x["bilgi"]["kapi_kosullu_havuz"]["p0"], round(4 / 9, 5))
+        # sürüm 2 §C3a: havuz kapıdan önceki bütün denemeler; gerçek Mc_son'u kestirilemeyen (veri yok) deneme dahil
+        sat.append([1, 1, -1, -1, -1, -1, 3, 3, 0, 3, 0, -1, -1, -1, -1])
+        o = Y.hucre_ozeti_c("i:100", [dict(tohum=1, satir=sat, dtau=[0.0] * 5)])
+        self.assertAlmostEqual(o["olcutler"][0]["bilgi"]["p0_sapka"], round(7 / 15, 5))
+        self.assertAlmostEqual(o["olcutler"][0]["bilgi"]["P_D_kapi"], round(2 / 3, 5))
+        o = Y.hucre_ozeti_c("i:1500", [dict(tohum=1, satir=sat, dtau=[0.0] * 5)])
+        self.assertEqual([x["ad"][:4] for x in o["olcutler"]], ["C1′a", "C1′:", "C1′b"])
+        self.assertIn("tek yanlı", o["olcutler"][1]["ad"])
+        o = Y.hucre_ozeti_c("ii:1500", [dict(tohum=1, satir=sat, dtau=[0.0] * 5)])
+        self.assertEqual([x["ad"][:4] for x in o["olcutler"]], ["C1′a", "C1′:"])          # C1′b yalnız (i)
+        o = Y.hucre_ozeti_c("i:karma", [dict(tohum=1, satir=sat, dtau=[0.0] * 5)])
+        self.assertEqual((o["N0"], o["bilgi"]["P_D_kesin"], o["olcutler"][0]["ad"]), (None, None, "p̂₀ − P(D | kapı)"))
 
     def test_kesin_c_ve_dtau(self):
         o = S.Oy(2000, S.T_ON_G, 275)
@@ -1245,6 +1260,34 @@ class TTasarimC(unittest.TestCase):
         self.assertEqual(an.kenar_birimleri(m["kapi_N0"]), set())
 
     # ---- TR-6c İNCELEME-1 eklemeleri (mutasyon sınamasında yakalanmayan noktalar; inc_c/inc_c_mutasyon.py)
+    def test_baglayici_parca_korumasi(self):
+        """Sürüm 2 (İNCELEME-1 önerisi): bağlayıcı ve tanı tohumlarıyla parça, dondurmadan önce üretilemez."""
+        for t_ in (20261116, 20261117, 20261114, 601):
+            with self.assertRaises(ValueError):
+                Y.hucre_parcasi_c("i:31.36", t_, 0, n=1)
+        with self.assertRaises(ValueError):
+            Y.hucre_parcasi_c("i:31.36", 20261116, 0, n=1, baglayici=True)     # TR6C_ONKAYIT_SHA = None
+        with self.assertRaises(ValueError):
+            Y.hucre_parcasi_c("i:31.36", 7311, 0, n=1, baglayici=True)         # bağlayıcı kipte yalnız 20261116/7
+
+    def test_kenar_A_paydasi_ve_kontrol_suzgeci(self):
+        """Sürüm 2 (İNCELEME-1 Z5): kenar A'sı Y'nin payından ve paydasından çıkar; ters yön eşiği c⁺(K − m; p₀⁺);
+        S1'de pozitif, S7'de nötr lob kapı N0'ı > 500 olan küme satırdan çıkar (TR-6a kipinde süzgeç yok)."""
+        oy = [dict(D=1, A=1, n_on=200, n_son=20, pi=0.13)] * 22 + [dict(D=0, A=None, n_on=9000, n_son=2000, pi=0.13)]
+        T = KO.satir_istatistigi(oy, 0.5, 0.5)
+        self.assertEqual((T["K"], T["K_Y"], T["Y"], T["X"]), (23, 22, 22, 22))
+        self.assertAlmostEqual(T["p_Y_05"], KO.KAPI.binom_ust(22, 22, 0.5))
+        self.assertNotIn("K_Y", KO.satir_istatistigi(oy[:22], 0.5, 0.5))
+        B = {"u": dict(secim="k", kapi={"k": dict(pozitif=dict(N0=600.0), notr=dict(N0=499.0))})}
+        with tasarim_c():
+            an = KO.Analiz.__new__(KO.Analiz)
+            an.B = B
+            self.assertFalse(an._kontrol_kenar_disi("u", "pozitif"))
+            self.assertTrue(an._kontrol_kenar_disi("u", "notr"))
+        an = KO.Analiz.__new__(KO.Analiz)
+        an.B = B
+        self.assertTrue(an._kontrol_kenar_disi("u", "pozitif"))
+
     def test_kenar_sabitleri_ve_kural_birimi(self):
         self.assertEqual(KO.N0_UST_C, 500.0)
         self.assertEqual(KO.GOLGE_LOBLARI, ("golge", "D3a", "D3b", "D5", "D8"))
@@ -1255,7 +1298,7 @@ class TTasarimC(unittest.TestCase):
             an._kenar = {"u"}
             for lob in ("golge", "D3a", "D3b", "D5", "D8", "pozitif", "notr"):
                 r = an._kenar_A(dict(temsilci="u", D=1, A=1), lob)
-                bek = (1, 0) if lob in KO.GOLGE_LOBLARI else (1, 1)
+                bek = (1, None) if lob in KO.GOLGE_LOBLARI else (1, 1)
                 self.assertEqual((r["D"], r["A"]), bek, lob)
             self.assertEqual(an._kenar_A(dict(temsilci="v", D=1, A=1))["A"], 1)
         an = KO.Analiz.__new__(KO.Analiz)
@@ -1278,7 +1321,9 @@ class TTasarimC(unittest.TestCase):
             k = int(round(pd_ * 1000))
             sat = [[1, 0, int(i < k), int(i >= k), int(i < k), int(i >= k), 3, i % 4, 3 - i % 4, i % 4, 3 - i % 4,
                     9000, 1000, 9100, 1100] for i in range(1000)]
-            return Y.hucre_ozeti_c("i:4500", [dict(tohum=1, satir=sat, dtau=[0.0] * 1000)])["olcutler"][0]
+            ol = Y.hucre_ozeti_c("i:4500", [dict(tohum=1, satir=sat, dtau=[0.0] * 1000)])["olcutler"]
+            self.assertEqual([x["ad"][:4] for x in ol], ["C1′a", "C1′:", "C1′b"])     # sürüm 2 (Z3)
+            return ol[1]
         a, b = c1p(0.30), c1p(0.60)
         self.assertIn("tek yanlı", a["ad"])
         self.assertTrue(a["z"] < -3.5 and a["gecti"])
@@ -1296,8 +1341,10 @@ class TTasarimC(unittest.TestCase):
         self.assertEqual((Y.TOHUM_KATALOG_C, Y.TOHUM_TAMLIK_C), (20261116, 20261117))
         self.assertEqual((Y.PARCA_C, Y.N_BAGLAYICI, Y.KURAL_C, Y.MC_FARKI_C), (1000, 20000, "yedek_d", 0.2))
         self.assertEqual(Y.HUCRELER_C, ("i:31.36", "i:100", "i:500", "i:1500", "i:4500", "ii:31.36", "ii:100",
-                                        "ii:500", "ii:1500", "ii:4500", "adim:31.36"))
-        self.assertEqual([Y.HUCRE_KODU_C[h] for h in Y.HUCRELER_C], list(range(1, 12)))
+                                        "ii:500", "ii:1500", "ii:4500", "adim:31.36",
+                                        "i:28.5", "ii:28.5", "i:36", "ii:36", "i:karma", "ii:karma"))
+        self.assertEqual([Y.HUCRE_KODU_C[h] for h in Y.HUCRELER_C], list(range(1, 18)))
+        self.assertEqual(Y.KARMA_C, (20.0, 60.0))
         # parça tohumu (tohum, hücre kodu, parça): küçük bir parçanın baytları sabittir (TR-6c §C3)
         h = lambda o: __import__("hashlib").sha256(json.dumps(o).encode()).hexdigest()   # noqa: E731
         self.assertEqual(h(Y.hucre_parcasi_c("i:100", 11, 0, n=2)),
