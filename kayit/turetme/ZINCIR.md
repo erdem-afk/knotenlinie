@@ -265,3 +265,23 @@ tasarlanır, yapay sete "tremor + eş zamanlı telesismik düşük frekans" ekle
 pozitif kontrol başka bir Parkfield tetikleyicisinden seçilir (ilk aday Denali 2002). İlk adım 0 € veri varlığı kapısı.
 Ders (TR-6a ile birlikte ikinci kez): yapay denetim seti, pozitif kontrolün gerçek koşullarını (burada tetikleyicinin
 kendi düşük frekans enerjisi) içermeli; pozitif kontrol ise hedef veriden önce koşulduğu için hedef körlüğünü korudu.
+
+## Halka 12 (16 Kasım 2026): TR-7b veri kapısı geçti, ayıklama kuralı üç turda bulunamadı; TR-4 koşu kodu donduruldu
+
+TR-7b (TR-7'nin ardılı): kör pozitif kontrol için veri var (Chao 2012 Ek Tablo S1: 2001–2010'da 42 Mw ≥ 7,5 olaydan
+Parkfield çevresinde 12'si tetiklemiş, 30'u tetiklememiş; hepsi ≥3 istasyonla taranabilir; `TR-7b_SAYIM.md`). Darboğaz
+bu kez veri değil, kural: tetikleyicinin kendi düşük frekans enerjisi varken tremoru koruyan ama saf telesismik
+sinyali ve bölgesel kodayı atan bir ayıklama kuralı, önceden yazılmış yapay ölçütle üç turda seçilemedi. Tur 1: dört
+aday kaldı. Tur 2: K4/K5 36 şartın 35'ini geçti, bir hücrede 0,06 (şart ≤ 0,05). Tur 3: kaynak yeri fikri (K6) tremoru
+korudu, telesismik sinyali atamadı. Eşik hiçbir turda gevşetilmedi; yazılı kural gereği dördüncü tur yok. Kör kontrol
+olaylarının ve Marmara'nın dalga formlarına bakılmadı.
+
+Başarısızlığın biçimi: ölçütün çözünürlüğü. K4/K5 dört bağımsız tohumun üçünde bütün şartları geçti; 100 pencerede
+0,05 eşiği 0,03–0,06 arasını ayıramıyor. Çıkan soru (TR-7c adayı): kural seçimini yapay ölçüt yerine kör gerçek
+kontrolle (10 pozitif + 2 negatif Parkfield olayı) yapmak, K5 şimdiden sabit; bu Tur 2 kararından beyanlı bir sapma
+olduğu için önce bağımsız inceleme ister.
+
+TR-4: koşu kodu yazıldı, bağımsız kod incelemesi "DÜZELTMEYLE KABUL" verdi (iki önemli kusur indirme istemcisinde
+düzeltildi; 23 yeni mutantın 23'ü yakalandı), okumalar veri öncesi Ek 2 ile sabitlendi (fd1c1e8). Ölçülen bayt/örnek
+1,60 (ön kayıt 1,3 varsaymıştı): orta kademe fiilen ≈256 GB, medyan hızda ≈24 gün; bütçe 21 gün. Kural değişmedi:
+aşılırsa kesik koşu, T 2017–2021 tamamlanmazsa "veri yok (indirme bütçesi)". Kademe kararı 17 Kasım.
