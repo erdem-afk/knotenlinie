@@ -1,0 +1,398 @@
+{
+ "n_KP": 665,
+ "katman_n": [
+  213,
+  253,
+  199
+ ],
+ "AUC_c0_gercek": {
+  "1.0": 0.5,
+  "1.3": 0.633,
+  "1.64": 0.737,
+  "2.0": 0.809,
+  "2.5": 0.872
+ },
+ "alt_kume": {
+  "epok_2003": {
+   "n": 5,
+   "u_ort": 0.577,
+   "u_se": 0.115,
+   "medyan_S": 1.038,
+   "esd_c": 1.16
+  },
+  "epok_2008": {
+   "n": 35,
+   "u_ort": 0.685,
+   "u_se": 0.05,
+   "medyan_S": 1.367,
+   "esd_c": 1.45
+  },
+  "epok_2013": {
+   "n": 142,
+   "u_ort": 0.498,
+   "u_se": 0.025,
+   "medyan_S": 0.818,
+   "esd_c": 1.0
+  },
+  "epok_2018": {
+   "n": 226,
+   "u_ort": 0.474,
+   "u_se": 0.018,
+   "medyan_S": 0.773,
+   "esd_c": 0.95
+  },
+  "epok_2023": {
+   "n": 257,
+   "u_ort": 0.497,
+   "u_se": 0.018,
+   "medyan_S": 0.787,
+   "esd_c": 1.0
+  },
+  "sinif_B": {
+   "n": 10,
+   "u_ort": 0.56,
+   "u_se": 0.101,
+   "medyan_S": 1.005,
+   "esd_c": 1.12
+  },
+  "bati_ABD(lo -125..-110, la 30..50)": {
+   "n": 36,
+   "u_ort": 0.322,
+   "u_se": 0.04,
+   "medyan_S": 0.618,
+   "esd_c": 0.7
+  },
+  "epok_2008_disi": {
+   "n": 630,
+   "u_ort": 0.49,
+   "u_se": 0.011,
+   "medyan_S": 0.785,
+   "esd_c": 0.99
+  }
+ },
+ "katman_model": [
+  {
+   "mu": -0.21,
+   "tau": 0.54
+  },
+  {
+   "mu": -0.34,
+   "tau": 0.5
+  },
+  {
+   "mu": -0.45,
+   "tau": 0.5
+  }
+ ],
+ "model_g0_u": 0.506,
+ "model_q95_vs_gercek": [
+  2.65,
+  2.13,
+  1.83,
+  2.76,
+  2.24,
+  1.94
+ ],
+ "model_g3_medyan_artis": 2.315,
+ "MDE": {
+  "uyumlu_c01.0_K6": {
+   "esik": 0.6941,
+   "MDE": 0.94,
+   "AUC": 0.748
+  },
+  "uyumlu_c01.0_K12": {
+   "esik": 0.6365,
+   "MDE": 0.76,
+   "AUC": 0.687
+  },
+  "uyumlu_c01.0_K20": {
+   "esik": 0.6069,
+   "MDE": 0.66,
+   "AUC": 0.651
+  },
+  "uyumlu_c01.3_K6": {
+   "esik": 0.8054,
+   "MDE": 1.32,
+   "AUC": 0.842
+  },
+  "uyumlu_c01.3_K12": {
+   "esik": 0.7566,
+   "MDE": 1.09,
+   "AUC": 0.791
+  },
+  "uyumlu_c01.3_K20": {
+   "esik": 0.7292,
+   "MDE": 0.98,
+   "AUC": 0.758
+  },
+  "uyumlu_c01.64_K6": {
+   "esik": 0.8784,
+   "MDE": 1.71,
+   "AUC": 0.899
+  },
+  "uyumlu_c01.64_K12": {
+   "esik": 0.8398,
+   "MDE": 1.44,
+   "AUC": 0.863
+  },
+  "uyumlu_c01.64_K20": {
+   "esik": 0.8184,
+   "MDE": 1.31,
+   "AUC": 0.839
+  },
+  "daginik_c01.0_K6": {
+   "esik": 0.6942,
+   "MDE": 1.94,
+   "AUC": 0.755
+  },
+  "daginik_c01.0_K12": {
+   "esik": 0.6369,
+   "MDE": 1.46,
+   "AUC": 0.686
+  },
+  "daginik_c01.0_K20": {
+   "esik": 0.6061,
+   "MDE": 1.23,
+   "AUC": 0.647
+  },
+  "daginik_c01.3_K6": {
+   "esik": 0.8051,
+   "MDE": 2.94,
+   "AUC": 0.85
+  },
+  "daginik_c01.3_K12": {
+   "esik": 0.7559,
+   "MDE": 2.28,
+   "AUC": 0.795
+  },
+  "daginik_c01.3_K20": {
+   "esik": 0.73,
+   "MDE": 2.0,
+   "AUC": 0.763
+  },
+  "daginik_c01.64_K6": {
+   "esik": 0.8786,
+   "MDE": 4.12,
+   "AUC": 0.91
+  },
+  "daginik_c01.64_K12": {
+   "esik": 0.8402,
+   "MDE": 3.25,
+   "AUC": 0.871
+  },
+  "daginik_c01.64_K20": {
+   "esik": 0.8177,
+   "MDE": 2.83,
+   "AUC": 0.844
+  }
+ },
+ "MDE_sisme_gercek_1.64_uyumlu_K12": 1.2,
+ "MDE_sisme_gercek_1.64_daginik_K12": 2.5,
+ "yanlis_alarm_c0_1.64": {
+  "K6_c1.0": {
+   "ana": 0.0,
+   "ana_ve_LOO": 0.0
+  },
+  "K6_c1.3": {
+   "ana": 0.006,
+   "ana_ve_LOO": 0.004
+  },
+  "K6_c1.64": {
+   "ana": 0.052,
+   "ana_ve_LOO": 0.039
+  },
+  "K6_c1.8": {
+   "ana": 0.109,
+   "ana_ve_LOO": 0.09
+  },
+  "K6_c2.0": {
+   "ana": 0.205,
+   "ana_ve_LOO": 0.179
+  },
+  "K6_c2.2": {
+   "ana": 0.342,
+   "ana_ve_LOO": 0.309
+  },
+  "K6_c2.5": {
+   "ana": 0.55,
+   "ana_ve_LOO": 0.508
+  },
+  "K6_karisim_pi0.1_c3": {
+   "ana": 0.001,
+   "ana_ve_LOO": 0.002
+  },
+  "K6_karisim_pi0.2_c3": {
+   "ana": 0.005,
+   "ana_ve_LOO": 0.004
+  },
+  "K6_karisim_pi0.3_c3": {
+   "ana": 0.017,
+   "ana_ve_LOO": 0.015
+  },
+  "K6_karisim_pi0.4_c3": {
+   "ana": 0.037,
+   "ana_ve_LOO": 0.033
+  },
+  "K6_epok2008_c1.0": {
+   "ana": 0.043
+  },
+  "K6_epok2008_c1.3": {
+   "ana": 0.155
+  },
+  "K12_c1.0": {
+   "ana": 0.0,
+   "ana_ve_LOO": 0.0
+  },
+  "K12_c1.3": {
+   "ana": 0.002,
+   "ana_ve_LOO": 0.002
+  },
+  "K12_c1.64": {
+   "ana": 0.048,
+   "ana_ve_LOO": 0.049
+  },
+  "K12_c1.8": {
+   "ana": 0.141,
+   "ana_ve_LOO": 0.143
+  },
+  "K12_c2.0": {
+   "ana": 0.317,
+   "ana_ve_LOO": 0.316
+  },
+  "K12_c2.2": {
+   "ana": 0.529,
+   "ana_ve_LOO": 0.528
+  },
+  "K12_c2.5": {
+   "ana": 0.769,
+   "ana_ve_LOO": 0.772
+  },
+  "K12_karisim_pi0.1_c3": {
+   "ana": 0.0,
+   "ana_ve_LOO": 0.0
+  },
+  "K12_karisim_pi0.2_c3": {
+   "ana": 0.002,
+   "ana_ve_LOO": 0.001
+  },
+  "K12_karisim_pi0.3_c3": {
+   "ana": 0.006,
+   "ana_ve_LOO": 0.006
+  },
+  "K12_karisim_pi0.4_c3": {
+   "ana": 0.019,
+   "ana_ve_LOO": 0.02
+  },
+  "K12_epok2008_c1.0": {
+   "ana": 0.027
+  },
+  "K12_epok2008_c1.3": {
+   "ana": 0.192
+  },
+  "K20_c1.0": {
+   "ana": 0.0,
+   "ana_ve_LOO": 0.0
+  },
+  "K20_c1.3": {
+   "ana": 0.0,
+   "ana_ve_LOO": 0.0
+  },
+  "K20_c1.64": {
+   "ana": 0.046,
+   "ana_ve_LOO": 0.048
+  },
+  "K20_c1.8": {
+   "ana": 0.172,
+   "ana_ve_LOO": 0.169
+  },
+  "K20_c2.0": {
+   "ana": 0.457,
+   "ana_ve_LOO": 0.456
+  },
+  "K20_c2.2": {
+   "ana": 0.708,
+   "ana_ve_LOO": 0.712
+  },
+  "K20_c2.5": {
+   "ana": 0.926,
+   "ana_ve_LOO": 0.917
+  },
+  "K20_karisim_pi0.1_c3": {
+   "ana": 0.0,
+   "ana_ve_LOO": 0.0
+  },
+  "K20_karisim_pi0.2_c3": {
+   "ana": 0.0,
+   "ana_ve_LOO": 0.0
+  },
+  "K20_karisim_pi0.3_c3": {
+   "ana": 0.002,
+   "ana_ve_LOO": 0.001
+  },
+  "K20_karisim_pi0.4_c3": {
+   "ana": 0.01,
+   "ana_ve_LOO": 0.009
+  },
+  "K20_epok2008_c1.0": {
+   "ana": 0.017
+  },
+  "K20_epok2008_c1.3": {
+   "ana": 0.232
+  }
+ },
+ "kaydirilmis_plasebo_kurali": {
+  "K12_Kp6_c1.0": {
+   "yanlis_alarm": 0.0,
+   "c0_medyan": 1.64
+  },
+  "K12_Kp6_c1.64": {
+   "yanlis_alarm": 0.003,
+   "c0_medyan": 2.74
+  },
+  "K12_Kp6_c2.0": {
+   "yanlis_alarm": 0.006,
+   "c0_medyan": 3.54
+  },
+  "K12_Kp6_c2.5": {
+   "yanlis_alarm": 0.003,
+   "c0_medyan": 4.0
+  },
+  "K12_Kp10_c1.0": {
+   "yanlis_alarm": 0.0,
+   "c0_medyan": 1.64
+  },
+  "K12_Kp10_c1.64": {
+   "yanlis_alarm": 0.004,
+   "c0_medyan": 2.39
+  },
+  "K12_Kp10_c2.0": {
+   "yanlis_alarm": 0.004,
+   "c0_medyan": 3.01
+  },
+  "K12_Kp10_c2.5": {
+   "yanlis_alarm": 0.003,
+   "c0_medyan": 4.0
+  },
+  "K20_Kp10_c1.0": {
+   "yanlis_alarm": 0.0,
+   "c0_medyan": 1.64
+  },
+  "K20_Kp10_c1.64": {
+   "yanlis_alarm": 0.003,
+   "c0_medyan": 2.36
+  },
+  "K20_Kp10_c2.0": {
+   "yanlis_alarm": 0.005,
+   "c0_medyan": 3.03
+  },
+  "K20_Kp10_c2.5": {
+   "yanlis_alarm": 0.003,
+   "c0_medyan": 4.0
+  }
+ },
+ "ayar": {
+  "tohum": 1116,
+  "alfa": 0.05,
+  "guc": 0.8
+ }
+}
