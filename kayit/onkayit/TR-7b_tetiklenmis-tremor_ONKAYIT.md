@@ -568,7 +568,12 @@ Satırlar ve şartlar §11.2 ile **aynıdır** (D7 tam ≤ 0,03; D7b tam ≤ 0,0
 'egim' 6 hücre tam ≤ 0,05; Y1 'sabit' bilgi; Y2 18 hücre sağ ≤ 0,05; Y3 3 hücre sızıntı ≥ 0,95; F1, F2 sağ ≤ 0,05 ve
 sağ(F2) − sağ(F1) ≤ 0,02). Ek olarak §12.1'deki üreteç denetimi satırları (bilgi + kararlılık şartı).
 
-- **Pencere sayısı: 200** (her satır, her tohum). Koşudan önce sabittir.
+- **Pencere sayısı: 100** (her satır, her tohum). Koşudan önce sabittir.
+  - *Düzeltme (commit 0437573'ten sonra, sonuç görülmeden önce):* ilk yazılan değer 200'dü. 200 pencereyle başlatılan
+    koşu ilk satırda (D7 yarım A10, tohum 1) satır başına ≈ 6,5 dk sürdü; toplam ≈ 2,6 saat, 2 saatlik iş sınırını aşıyor.
+    Koşu durduruldu, çıktı dosyası yazılmadı. O ana kadar görülen tek sonuç D7 yarım A10 / tohum 1'dir (algılama 1,00;
+    bütün kurallarda tam atılma 0,00; konumu telesismik çıkan küme 0/200). K6'yı ayıran hiçbir satır görülmedi.
+    Pencere sayısı 100'e (Tur 2 ile aynı) indirildi; tohumlar değişmedi.
 - **İki yeni tohum: 20261118 ve 5151.** Her tohum iki süreçte koşulur: bölüm 1 (D7 satırları, gecikmesiz denetim, Y1)
   tohumla, bölüm 2 (Y2, Y3, F1, F2) tohum + 1000003 ile.
 - Çıktılar: `kayit/turetme/tr7b/tr7b_yapay3_t{1,2}_b{1,2}.json`.
