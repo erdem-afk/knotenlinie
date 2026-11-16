@@ -8,6 +8,8 @@
 - tamlik_sinamasi: §9 adım 2 tamlık kaybı sınaması ve yedek merdiveni; tohum 20261115, hücre başına ≥ 20 000 deneme.
 - baglayici_sinamalar / gelistirme_sinamalari: bağlayıcı tohumlar yalnız baglayici_sinamalar'da; geliştirme
   bağlayıcı tohumları reddeder (her basamak bir kez koşulur, §9 adım 2).
+- TR-6c (tasarım c): hucre_parcasi_c / hucre_ozeti_c / prova_c / baglayici_sinamalar_c (TR-6c §C3), guc_kaybi_c ve
+  ters_yon_alfa_c (§C4, §C7). TR-6a yolları değişmez.
 Kodlayıcı okumaları 14-19 (TR-6a_KODLAYICI-OKUMALARI.md) bu dosyanın sınama kurgusunu tanımlar.
 """
 import copy
@@ -726,7 +728,18 @@ def hucre_ozeti_c(ad, parcalar):
         o["gecti"] = all(x["gecti"] for x in o["olcutler"])
         return o
     f = _fark_se(c["SD"][var], c["J"][var], c["D"][kv])
-    if f is None:
+    kenar = N0 > KO.N0_UST_C
+    if kenar:
+        # §C4: kenar birimleri kalibrasyona girmez; dayanılan özellik oyun H0'da kesin değerin üstüne çıkmamasıdır
+        pd_ = float(c["D"][kv].mean())
+        bek = kesin_c(N0k)
+        se = math.sqrt(bek * (1 - bek) / int(kv.sum()))
+        z = (pd_ - bek) / se
+        o["olcutler"].append(dict(ad="P(D | kapı) ≤ kesin Poisson (tek yanlı, kenar birimi)", deger=round(pd_, 5),
+                                  beklenen=round(bek, 5), se=round(se, 5), z=round(z, 2), gecti=bool(z <= 3.5),
+                                  bilgi=(None if f is None else dict(p0_sapka_eksi_P_D_kapi=round(f[2], 5),
+                                                                     se=round(f[3], 5), z=round(f[2] / f[3], 2)))))
+    elif f is None:
         olcut("p̂₀ − P(D | kapı)", float("nan"), 0.0, 1.0)
     else:
         p0b, pd_, d_, se = f
@@ -772,7 +785,10 @@ def hucre_kos_c(ad, tohum, n, parca_dizini, log=print, baglayici=False):
             os.replace(yol + ".tmp", yol)
             log(f"  {ad} parça {p + 1}/{k} yazıldı")
         parcalar.append(x)
-    return hucre_ozeti_c(ad, parcalar)
+    o = hucre_ozeti_c(ad, parcalar)
+    o["parca_sha256"] = [KO.sha256_dosya(os.path.join(parca_dizini, f"{ad.replace(':', '_')}_t{tohum}_p{p:03d}.json"))
+                         for p in range(k)]
+    return o
 
 
 def _parca_yolu(parca_dizini, ad, tohum, p):
@@ -854,6 +870,51 @@ def ters_yon_alfa_c(kenar_A, K=23, pA=None, m_liste=(1, 2, 5, 23)):
     for m in m_liste:
         if m <= K:
             out[f"m{m}"] = round(_pbinom_ust(c, [pA] * (K - m) + [min(1.0, pA + kenar_A)] * m), 4)
+    return out
+
+
+def baglayici_sinamalar_c(parca_dizini, log=print, n=N_BAGLAYICI):
+    """TR-6c §C3 bağlayıcı: Okada (Ek 1 E1.1), yapay katalog (HUCRELER_C, tohum 20261116, hücre başına 20 000, parçalı)
+    ve tamlık (yalnız (d), tohum 20261117, 20 000). Çıktı yapısı sinama_degerlendir ile uyumludur."""
+    ok = OK.dogrulama(log=log)
+    hz = {}
+    for ad in HUCRELER_C:
+        hz[ad] = hucre_kos_c(ad, TOHUM_KATALOG_C, n, parca_dizini, log=log, baglayici=True)
+        for x in hz[ad]["olcutler"]:
+            log(f"  {ad} {x['ad']}: {x['deger']:.4f} beklenen {x['beklenen']:.4f} (z {x['z']:+.2f}) "
+                f"{'GEÇTİ' if x['gecti'] else 'TUTMADI'}")
+    gec = all(h["gecti"] for h in hz.values())
+    yk = dict(hucreler=hz, gecti=gec, tohum=TOHUM_KATALOG_C, deneme=n,
+              ozet="; ".join(f"{a} {x['ad']} z {x['z']}" for a, h in hz.items() for x in h["olcutler"]
+                             if not x["gecti"]) or "hepsi tuttu")
+    tm = tamlik_sinamasi(TOHUM_TAMLIK_C, n, log=log, kurallar=(KURAL_C,))
+    return dict(okada=ok, yapay_katalog=yk, tamlik=tm, baglayici=True, tasarim="c")
+
+
+def prova_bilgi_c(dizin, h1_bilgi=None):
+    """§C5 tabloları ((d) penceresi, kesin), §C4 kenar tablosu, §C7 güç ve ters yön hesabı (prova özetlerinden)."""
+    import json
+    t1, t2 = KAT.SON_BASLANGIC_G[KURAL_C] / 365.25, S.SON_G1 / 365.25
+    out = dict(H0_275={}, adim_275={}, kenar={}, guc={}, ters_yon={}, h1_yuksek_N0=h1_bilgi)
+    for N0 in (17.08, 31.36, 50.0, 111.2, 300.0, 1000.0, 4500.0):
+        out["H0_275"][f"{N0:g}"] = dict(P_D=round(kesin_c(N0), 4), P_A=round(kesin_c(N0, yon=+1), 4))
+    for N0 in (31.36, 50.0, 111.2):
+        r = {}
+        for dm in (0.0, 0.2, 0.5):
+            Nk = N0 * 10 ** (-dm)
+            r[f"dMc{dm:g}"] = round(kesin_c(Nk, lam_son=S.dieterich_N(Nk, t1, t2, -S.DTAU_ESIK, S.ASIGMA, math.inf)),
+                                    4)
+        out["adim_275"][f"{N0:g}"] = r
+    for N0 in N0_IZGARA_C:
+        for w in ("i", "ii"):
+            y = os.path.join(dizin, f"tr6c_prova_{w}_{N0:g}.json")
+            if not os.path.exists(y):
+                continue
+            b = json.load(open(y, encoding="utf-8"))["bilgi"]
+            out["kenar"][f"{w}:{N0:g}"] = dict(D=b["kenar_D_hat_eksi_ham"], A=b["kenar_A_hat_eksi_ham"])
+            if w == "i":
+                out["guc"][f"{N0:g}"] = guc_kaybi_c(b["kenar_D_hat_eksi_ham"]["fark"])
+                out["ters_yon"][f"{N0:g}"] = ters_yon_alfa_c(b["kenar_A_hat_eksi_ham"]["fark"])
     return out
 
 

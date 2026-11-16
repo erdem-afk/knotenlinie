@@ -1039,6 +1039,192 @@ class TYapaySinama(unittest.TestCase):
         self.assertLess(p - p0, 0.1)
 
 
+# ================================================================== TR-6c (tasarım c)
+TASARIM_ADLARI = ("TASARIM", "ONKAYIT", "ONKAYIT_SHA", "ONKAYIT_GOVDE_BAYT", "SINAMA_CIKTI", "MANIFEST", "ON_HAM_SHA",
+                  "SON_HAM_SHA", "SON_KAYIT", "SONUC_JSON", "SONUC_MD", "ISARET_AD", "ANLIK_AD", "KOD_INCELEME",
+                  "TAMLIK_KURALLARI")
+
+
+@contextlib.contextmanager
+def tasarim_c():
+    eski = {k: getattr(KO, k) for k in TASARIM_ADLARI}
+    KO.tasarim_sec("c")
+    try:
+        yield
+    finally:
+        for k, x in eski.items():
+            setattr(KO, k, x)
+
+
+# TR-6a bit düzeyi (TR-6c değişikliklerinden önceki HEAD kodunun çıktıları; bkz. TR-6c §C9)
+BIT_TR6A = dict(uctan_uca="eb55bfde1faef42d699460ccdf9de687d5319480439bb8f769770f1f8199c47c",
+                katalog="963badf08974da2b961d2be852ed018627b4567bb12992afc9af65153a087f6f",
+                deneme="3ba1895d40a74a8d1822a798ef2acadbbc08ab1e8d2c4d46c4f5e06e9fc321e4",
+                tamlik="{'P_D': 0.46, 'n_ok': 300, 'veri_yok_payi': 0.0}")
+
+
+def kenar_dunyasi(N0_yuksek=150.0):
+    liste, spec, d = Y.coklu_dunya(tohum=5)
+    d.spec["y05"]["N0"] = N0_yuksek
+    return liste, d
+
+
+def kenar_kurali_sinamasi(tc):
+    """§C4: kapı N0'ı > N0_UST_C olan küme K'de kalır, D oyu değişmez, gölge artış oyu 0, sahte oyları p̂₀'a girmez."""
+    liste, d = kenar_dunyasi()
+    with tasarim_c():
+        an = KO.Analiz(liste, Y.YapayKaynak(d, "on"), kural="yedek_d", log=lambda *a: None)
+        an.hazirla()
+        an.on_katalog()
+        an.katalog_secimi()
+        # yapay çok birimli dünyada lob küçüktür; kural düzeneği, sınır y05 ile ötekiler arasına konarak sınanır
+        N0 = {u: B["kapi"][B["secim"]]["golge"]["N0"] for u, B in an.B.items() if B.get("secim")}
+        ust = max(x for u, x in N0.items() if u != "y05")
+        tc.assertGreater(N0["y05"], ust)
+        eski = KO.N0_UST_C
+        KO.N0_UST_C = (N0["y05"] + ust) / 2 if eski != math.inf else eski
+        try:
+            m = json.loads(KO.json_metni(an.manifest()))
+        finally:
+            KO.N0_UST_C = eski
+        tc.assertEqual(m["kenar_kumeleri"], ["y05"])
+        tc.assertIn("y05", [c["temsilci"] for c in m["kumeler"]])
+        gec = [r for t, x in m["sahte"]["oylar"].items() if t != "y05" for r in x if r["gecerli"]]
+        tc.assertEqual(m["sahte"]["J"], len(gec))
+        tc.assertEqual(m["sahte"]["S"], sum(r["D"] for r in gec))
+        tc.assertTrue(any(r["gecerli"] for r in m["sahte"]["oylar"]["y05"]))
+        an.son_ekle(m["son_indirme_plani"], Y.YapayKaynak(d, "son"))
+        R = an.oylar(m)
+        r5 = [r for r in R["ana"] if r["temsilci"] == "y05"]
+        tc.assertEqual(len(r5), 1)
+        tc.assertEqual(r5[0]["A"], 0)
+        tc.assertTrue(r5[0]["kenar_etkisi"])
+        tc.assertTrue(all(not r.get("kenar_etkisi") for r in R["ana"] if r["temsilci"] != "y05"))
+        tc.assertTrue(all(r["A"] == 0 for k in ("D4", "D1", "S3", "S4") for r in R[k] if r["temsilci"] == "y05"))
+        tc.assertTrue(all(not r.get("kenar_etkisi") for r in R["S1"] + R["S7"]))
+    return m
+
+
+class TTasarimC(unittest.TestCase):
+    def test_tr6a_bit_duzeyi(self):
+        liste, spec, d = Y.coklu_dunya()
+        an = KO.Analiz(liste, Y.YapayKaynak(d, "on"), log=lambda *a: None)
+        an.hazirla()
+        an.on_katalog()
+        an.katalog_secimi()
+        m = json.loads(KO.json_metni(an.manifest()))
+        self.assertNotIn("kenar_birimleri", m)
+        an.son_ekle(m["son_indirme_plani"], Y.YapayKaynak(d, "son"))
+        R = an.oylar(m)
+        H = KO.hukum_kur(m, R, an)
+        h = lambda o: __import__("hashlib").sha256(KO.json_metni(o).encode()).hexdigest()   # noqa: E731
+        self.assertEqual(h(dict(m=m, R=R, H=H)), BIT_TR6A["uctan_uca"])
+        self.assertEqual(h(Y.yapay_katalog_sinamasi(77, 40, log=lambda *a: None)), BIT_TR6A["katalog"])
+        T = Y.TekBirimSinama(M=7.8)
+        rng = np.random.default_rng(5)
+        seq = [T.deneme(rng, dict(N0=200.0, dtau="sifir", ikincil_bolge=True, ikincil_lob=True), sahte=True, nk=True)
+               for _ in range(5)]
+        self.assertEqual(h(seq), BIT_TR6A["deneme"])
+        o = S.Oy(60000, 1796, 335)
+        self.assertEqual(repr(Y.tamlik_hucresi(np.random.default_rng(3), 300, 8.0, 1.8, 500.0, 0.9, "A2", o,
+                                               ayrinti=True)), BIT_TR6A["tamlik"])
+
+    def test_tasarim_c_yollar_ve_taslak(self):
+        self.assertEqual(KO.TASARIM, "a")
+        with tasarim_c():
+            self.assertEqual(KO.TASARIM, "c")
+            self.assertTrue(KO.SINAMA_CIKTI.endswith("tr6c_sinama_sonuc.json"))
+            self.assertTrue(KO.MANIFEST.endswith("tr6c_manifest.json"))
+            self.assertTrue(KO.ONKAYIT.endswith("TR-6c_gerilme-olcer-kor-dogrulama_ONKAYIT.md"))
+            self.assertEqual(KO.TAMLIK_KURALLARI, ("yedek_d",))
+            if KO.TR6C_ONKAYIT_SHA is None:
+                with self.assertRaises(KO.KosuDur):
+                    KO.onkayit_uyusmuyor()
+        self.assertEqual(KO.TASARIM, "a")
+        self.assertTrue(KO.MANIFEST.endswith("tr6a_manifest.json"))
+        self.assertFalse(KO.onkayit_uyusmuyor())
+        with self.assertRaises(ValueError):
+            KO.tasarim_sec("b")
+
+    def test_tohumlar_c(self):
+        for t in Y.BAGLAYICI_TOHUMLAR + Y.BAGLAYICI_TOHUMLAR_C + Y.TANI_TOHUMLARI:
+            with self.assertRaises(ValueError):
+                Y.tohum_denetle_c(t, False)
+        with self.assertRaises(ValueError):
+            Y.tohum_denetle_c(7311, True)
+        Y.tohum_denetle_c(20261116, True)
+        Y.tohum_denetle_c(7311, False)
+        with self.assertRaises(ValueError):
+            Y.prova_c(20261116, 1, ["i:31.36"], tempfile.gettempdir())
+
+    def test_parca_belirlenimci_ve_kural_d(self):
+        a = Y.hucre_parcasi_c("i:31.36", 11, 0, n=3)
+        b = Y.hucre_parcasi_c("i:31.36", 11, 0, n=3)
+        c = Y.hucre_parcasi_c("i:31.36", 11, 1, n=3)
+        self.assertEqual(a["satir"], b["satir"])
+        self.assertNotEqual(a["satir"], c["satir"])
+        T = Y.tek_birim_c()
+        self.assertEqual(T.an.kural, "yedek_d")
+        self.assertAlmostEqual(T.B["pi"], 275 / 2071, places=12)
+
+    def test_ozet_olcut_aritmetigi(self):
+        # 4 deneme: kapı 1,1,1,0; D 1,0,1,0; sahte J 3,3,3,3, S 2,1,1,0 → p̂₀ 4/12, P(D|kapı) 2/3
+        sat = []
+        for kp, D, J, S_ in ((1, 1, 3, 2), (1, 0, 3, 1), (1, 1, 3, 1), (0, 0, 3, 0)):
+            sat.append([kp, 0, D, 1 - D, D, 1 - D, J, S_, J - S_, S_, J - S_, 100, 15, 110, 16])
+        o = Y.hucre_ozeti_c("i:100", [dict(tohum=1, satir=sat, dtau=[0.0] * 4)])
+        x = o["olcutler"][0]
+        self.assertAlmostEqual(x["bilgi"]["p0_sapka"], round(4 / 12, 5))
+        self.assertAlmostEqual(x["bilgi"]["P_D_kapi"], round(2 / 3, 5))
+        self.assertAlmostEqual(x["deger"], round(4 / 12 - 2 / 3, 5))
+        o = Y.hucre_ozeti_c("i:1500", [dict(tohum=1, satir=sat, dtau=[0.0] * 4)])
+        self.assertIn("tek yanlı", o["olcutler"][0]["ad"])
+
+    def test_kesin_c_ve_dtau(self):
+        o = S.Oy(2000, S.T_ON_G, 275)
+        N0 = 40.0
+        self.assertAlmostEqual(Y.kesin_c(N0), o.olasilik(N0 * S.T_ON_G / 365.25, N0 * 275 / 365.25, -1), places=12)
+        lam = S.dieterich_N(N0, 90 / 365.25, 365 / 365.25, -10.0, 19.0, math.inf)
+        med, q = Y.dtau_kesin_c(N0, lam)
+        rng = np.random.default_rng(3)
+        a = rng.poisson(N0 * S.T_ON_G / 365.25, 200000)
+        b = rng.poisson(lam, 200000)
+        a, b = a[a > 0], b[a > 0]
+        with np.errstate(divide="ignore"):
+            v = 19.0 * (np.log(b / 275.0) - np.log(a / S.T_ON_G))
+        self.assertAlmostEqual(float(np.mean(v < med)), q, delta=0.005)
+        self.assertLess(abs(med - (-10.0 * 1.0)), 2.0)
+
+    def test_guc_ve_ters_yon_hesabi(self):
+        g = Y.guc_kaybi_c(0.0)
+        self.assertAlmostEqual(g["guc_kenarsiz"], 0.8037, places=3)
+        self.assertEqual(g["m1"]["guc_hat"], g["guc_kenarsiz"])
+        self.assertEqual(g["m1"]["guc_veri_yok"], 0.0)
+        self.assertLess(Y.guc_kaybi_c(-0.2)["m2"]["guc_hat"], g["guc_kenarsiz"])
+        t = Y.ters_yon_alfa_c(0.2)
+        self.assertGreater(t["m1"], t["alfa_kenarsiz"])
+
+    def test_kenar_kurali(self):
+        kenar_kurali_sinamasi(self)
+        # mutasyon: sınır sonsuz → kural uygulanmaz ve sınama yakalar
+        eski = KO.N0_UST_C
+        KO.N0_UST_C = math.inf
+        try:
+            with self.assertRaises(AssertionError):
+                kenar_kurali_sinamasi(self)
+        finally:
+            KO.N0_UST_C = eski
+        # TR-6a kipinde aynı dünyada kural yok
+        liste, d = kenar_dunyasi()
+        an = KO.Analiz(liste, Y.YapayKaynak(d, "on"), log=lambda *a: None)
+        an.hazirla()
+        an.on_katalog()
+        an.katalog_secimi()
+        m = an.manifest()
+        self.assertNotIn("kenar_kumeleri", m)
+        self.assertEqual(an.kenar_birimleri(m["kapi_N0"]), set())
+
+
 # ================================================================== mutasyonlar
 @contextlib.contextmanager
 def yama(nesne, ad, deger):

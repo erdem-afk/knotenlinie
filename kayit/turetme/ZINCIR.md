@@ -245,3 +245,23 @@ Başarısızlığın biçimi: bu kez örneklem değil, tasarım. Çıkan soru ay
 sınaması ölçütünün beklenen değeri işlem zincirinin kendi H0 değerinden; N0 ızgarası gerçek lob değerlerine kadar).
 Olay sonrası veri hiç açılmadığı için yeni ön kayıt kördür; yeni ön kayıt + bağımsız inceleme gerekir. Ders: yapay
 verili yöntem sınaması ön kayıt dondurulmadan ÖNCE tam ölçekte koşulmalı.
+
+## Halka 11 (16 Kasım 2026): TR-7 tek koşu, pozitif kontrol kaldı → "ölçü sınanamadı"; TR-7b açıldı
+
+TR-7'nin tek koşusu yapıldı (0 €; aşamalar manifest, K1-indirme, K1-negatif, K1-algılama, hüküm; son commit 5719d64).
+Yapay denetimler (KD) tam ölçekte geçti. Pozitif kontrol K1 (Parkfield yüzey ağı, Tohoku 2011) (c) dalında kaldı:
+"ölçü sınanamadı (Tohoku tremoru Parkfield yüzey ağının gürültüsünde görülmedi; A90_PK = 11,2 nm/s)". Ön kayıt gereği
+Marmara dalga formu indirilmedi; yedi segmentin hükmü "ölçü sınanamadı". Marmara tarafı kör kaldı.
+
+Tanı satırı etiketten daha fazlasını söylüyor: Tohoku penceresinde ayıklamadan önce 4 küme vardı (ilk ikisi 10
+istasyonda, 44 ve 40 tutarlı çift). Dördü de sızıntı kuralıyla atıldı (0,5–1 Hz zarf artışı ≥ 2–8 Hz artışı). Parkfield
+negatif pencerelerinde yanlış alarm 2/10, A90 11,2 nm/s; yani duyarlılık yeterli, algılayıcı ateşledi, ayıklama sildi.
+M9 yüzey dalgası sırasında düşük frekans enerjisi tremorla eş zamanlı yükseldiği için kural ikisini ayıramıyor. Yapay
+denetim setinde bu senaryo yoktu (D7c yalnız tremor, D7d yalnız koda). Kod metne uygun olduğu için "uygulama hatası
+yolu" kullanılmadı, kural sonuçtan sonra değiştirilmedi.
+
+Başarısızlığın biçimi: tasarım (TR-6a ile aynı tür). Çıkan soru §14 (d) gereği TR-7b: ayıklama kuralı yeniden
+tasarlanır, yapay sete "tremor + eş zamanlı telesismik düşük frekans" eklenir, Tohoku geliştirme verisi olur, kör
+pozitif kontrol başka bir Parkfield tetikleyicisinden seçilir (ilk aday Denali 2002). İlk adım 0 € veri varlığı kapısı.
+Ders (TR-6a ile birlikte ikinci kez): yapay denetim seti, pozitif kontrolün gerçek koşullarını (burada tetikleyicinin
+kendi düşük frekans enerjisi) içermeli; pozitif kontrol ise hedef veriden önce koşulduğu için hedef körlüğünü korudu.

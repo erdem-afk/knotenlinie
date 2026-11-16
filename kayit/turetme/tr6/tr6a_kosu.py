@@ -21,7 +21,12 @@ Kod commit ya da push yapmaz; aşama geçişlerinde `git` ile gereken dosyaları
 edildiğini denetler, değilse KosuDur ile durur.
 
 Çıkış kodları: 0 tamam; 2 KosuDur (önkoşul, biçim, körlük, kuru prova; işaret yazılmadı); 4 işaret sonrası istisna.
-Kullanım: python3 -I -B kayit/turetme/tr6/tr6a_kosu.py <aşama> [seçenekler]   (--help)
+Kullanım: python3 -I -B kayit/turetme/tr6/tr6a_kosu.py [--tasarim a|c] <aşama> [seçenekler]   (--help)
+
+TR-6c (`--tasarim c`, kayit/onkayit/TR-6c_gerilme-olcer-kor-dogrulama_ONKAYIT.md, fark belgesi): aynı aşamalar,
+dosyalar tr6c_*; tamlık kuralı yalnız (d); §C4 kenar etkisi kuralı (gölge kapı N0'ı > N0_UST_C: sahte oyları p̂₀'a
+girmez, gölge artış oyu 0); sinama --baglayici --parca-dizini D (tohum 20261116/20261117, parçalı) ya da --prova
+(bağlayıcı olmayan tohum). Varsayılan "a" TR-6a'dır; davranışı bit düzeyinde değişmez (tr6a_test_yapay TTasarimC).
 """
 import argparse
 import datetime as dt
@@ -82,7 +87,8 @@ TR6A_ONKAYIT, TR6A_ONKAYIT_SHA, TR6A_GOVDE_BAYT = ONKAYIT, ONKAYIT_SHA, ONKAYIT_
 TR6C_ONKAYIT = os.path.join(DEPO, "kayit", "onkayit", "TR-6c_gerilme-olcer-kor-dogrulama_ONKAYIT.md")
 TR6C_ONKAYIT_SHA = None             # dondurulunca: TR-6c gövdesinin sha256'sı
 TR6C_GOVDE_BAYT = None              # dondurulunca: TR-6c gövdesinin bayt uzunluğu
-TR6C_N0_UST = None                  # §C4 kenar etkisi kuralının kapı N0 sınırı (olay/yıl; aşağıda N0_UST_C)
+N0_UST_C = 500.0                    # TR-6c §C4 kenar etkisi kuralı: gölge kapı N0'ı > 500 olay/yıl (n_on ≥ 2459)
+GOLGE_LOBLARI = ("golge", "D3a", "D3b", "D5", "D8")
 
 
 def tasarim_sec(t):
@@ -814,7 +820,13 @@ class Analiz:
         for c in kal:
             B = self.B[c["temsilci"]]
             sahte[c["temsilci"]] = self.sahte_oylari(B, B["secim"])
-        gec = [r for x in sahte.values() for r in x if r["gecerli"]]
+        kenar = self.kenar_birimleri(N0)
+        self._kenar = kenar
+        if TASARIM == "c":                       # TR-6c §C4: kenar kümelerinin sahte oyları p̂₀ ve p̂₀⁺'a girmez
+            m["kenar_birimleri"] = sorted(kenar)
+            m["kenar_kumeleri"] = [c["temsilci"] for c in kal if c["temsilci"] in kenar]
+            m["N0_ust"] = N0_UST_C
+        gec = [r for t, x in sahte.items() if t not in kenar for r in x if r["gecerli"]]
         J, Ss, Sp = len(gec), sum(r["D"] for r in gec), sum(r["A"] for r in gec)
         p0, zayif = p0_kestir(Ss, J)
         p0p, _ = p0_kestir(Sp, J)
@@ -859,6 +871,19 @@ class Analiz:
         m["son_indirme_plani"] = self.son_plani(m) if m["durum"] == "devam" else []
         return m
 
+    def kenar_birimleri(self, N0):
+        """TR-6c §C4: gölge kapı N0'ı N0_UST_C'yi aşan birimler (TR-6a'da boş küme)."""
+        if TASARIM != "c":
+            return set()
+        return {u for u, x in N0.items() if x > N0_UST_C}
+
+    def _kenar_A(self, r, lob="golge"):
+        """TR-6c §C4: kenar birimlerinin gölge (ve gölge türevi) lob artış oyu 0 sayılır; özgün değer A_kenar_oncesi."""
+        if r is not None and TASARIM == "c" and lob in GOLGE_LOBLARI and \
+                r.get("temsilci") in getattr(self, "_kenar", set()):
+            r["A_kenar_oncesi"], r["A"], r["kenar_etkisi"] = r["A"], 0, True
+        return r
+
     def _nk_kumeleri(self, ana, sahte):
         nk = {}
         for c in ana:
@@ -867,6 +892,8 @@ class Analiz:
                 B = self.B[c["temsilci"]]
                 o = self.nk_oyu(B, B["secim"])
                 if o is not None:
+                    if TASARIM == "c" and c["temsilci"] in getattr(self, "_kenar", set()):
+                        o = self._kenar_A(dict(o, temsilci=c["temsilci"]))
                     nk[c["temsilci"]] = o
         return nk
 
@@ -957,6 +984,7 @@ class Analiz:
         if not self.son_eklendi:
             raise KosuDur("olay sonrası veri eklenmeden oy sayılamaz")
         p0, p0p = m["sahte"]["p0"], m["sahte"]["p0_arti"]
+        self._kenar = set(m.get("kenar_birimleri", []))
         mcson = self.mc_son_gercek
         m = self.tamlik_eleme(m)
         if m["durum"] != "devam":
@@ -971,7 +999,7 @@ class Analiz:
             mk = mc_kul(ml, ms, mc_ek)
             r = self.lob_oyu(B, k, lob, self.pencere(B, tur), mk, kumesiz)
             r.update(temsilci=u, katalog=k, mc_lob=ml, mc_son=ms, mc_son_bilgi=msb)
-            return r
+            return self._kenar_A(r, lob)
 
         ana_c = m["ana_kumeler"]
         sec = {u: self.B[u]["secim"] for u in self.B if self.B[u]["durum"] == "hazır"}
@@ -1561,6 +1589,8 @@ def cekirdek(m):
     c["sahte"] = {k: m["sahte"][k] for k in ("J", "S", "S_arti", "p0", "p0_arti", "J30_kurali")}
     c["secim"] = {u: x.get("secim") for u, x in m["birimler"].items()}
     c["satir_K"] = {k: x["K"] for k, x in m["satir_kapilari"].items()}
+    if "kenar_birimleri" in m:                           # TR-6c §C4
+        c["kenar_birimleri"] = m["kenar_birimleri"]
     return json.loads(json_metni(c))
 
 
