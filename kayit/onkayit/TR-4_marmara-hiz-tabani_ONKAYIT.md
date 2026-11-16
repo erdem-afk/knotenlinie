@@ -673,3 +673,32 @@ bu ek gövdedeki sha256'ları yalnız aşağıdaki satırlar için günceller.
   ayın 1–20'si içinde); "en çok 5 gün" (ilk ölçümden 5 gün sonra eldeki ölçümlerin medyanıyla madde 1–2, yoksa
   madde 4); üstveri 26 istasyon.
 - Kod ne kendi sha256'sını ne bu belgenin sha256'sını denetler; bu ek hiçbir denetimi bozmaz.
+
+## Ek 2 (16 Kasım 2026, veri öncesi; koşu kodu incelemesi)
+
+Bu ek ilk dalga formu isteğinden önce yazıldı; hiçbir Marmara dalga formu açılmadı. Koşu kodu bağımsız incelemeden
+"DÜZELTMEYLE KABUL" aldı (`kayit/onkayit/TR-4_KOD-INCELEME.md`, commit b7b25eb). Dondurulan koşu kodu:
+`tr4_indir.py` sha256 `8ceefcd8d5db9737f6887fbfc49bb9b5c6c32baab930e630359cf45b35594574`, `tr4_kosu.py`
+`ecdba3ad0a3a7d13d15dd6008f172993b1d6a25d5d37b6585f1a455fa8f64b72`. İnceleme, metnin iki anlamlı ya da eksik olduğu
+yerleri saptadı; aşağıdaki cümleler metne en yakın okumayı sabitler (kod zaten bunları uygular, kod değişmez). Hüküm
+eşikleri, kapılar, kademe kuralı ve bütçe değişmez.
+
+1. Kademe C'de 1b'nin dolu gün oranının paydası, dilimin takvim ayının 1–20. günlerine (yerel ortalama güneş tarihi d)
+   düşen maskesiz günleridir; ötekiler "veri yok" oldukları için ne paya ne paydaya girer. Kademe A'da payda dilimin
+   bütün maskesiz günleridir. (Açık beyan: takvim günü okumasında C'de oran en çok 0,657 olur ve 0,60 eşiği neredeyse
+   her pencerede kırılırdı; bu okuma §4.3 adım 1, §3.2, §6.1 ve §6.2 ile tutarlı olandır ve veri görülmeden seçildi.)
+2. Enerji reddinde üç bileşenden herhangi birinin 0,5–2 Hz RMS'i o bileşenin medyanının 3 katını aşarsa o saat üç
+   çiftin hepsinden atılır. Medyan, yer-penceresinin [T − 1095, T − 8] aralığında o bileşenin tamlığı ≥ %99 olan bütün
+   indirilmiş saatlerinden (M5 maskeli günler dahil) alınır.
+3. Bilgi satırı 10 için 2,0–4,0 Hz bandının (0,1 Hz kosinüs kenarlı beyazlatma) saatlik ÇİF'i de saklanır; §5.5'teki
+   saklama hacimleri tek bant içindir ve iki bantta yaklaşık iki katıdır.
+4. Etkin indirme süresi, `indir` işlerinin başlangıcından çıkışına kadarki duvar saatlerinin toplamıdır (işleme
+   dahil); zorla kesilen bir iş, son kaydedilen isteğinin bitişine kadar sayılır.
+5. Kabul edilen bir saatte 1 sn'den uzun boşluklar ve uçtaki boşluklar, ortalama ve doğrusal eğilim dolu örneklerden
+   çıkarıldıktan sonra sıfırla doldurulur; saat reddedilmez.
+6. (Bilgi; kural değiştirmez.) Aşama H'de ölçülen bayt/örnek 1,60'tır (1,26–2,11). §5.3'ün kademe kuralı §5.4
+   formülündeki 1,3 ile uygulanır ve değişmez; gerçek hacmin bütçeyi aşması §5.3'ün kesik koşu kuralıyla karşılanır.
+   Beklenen: C'nin tamamı ≈ 256 GB, medyan hızda ≈ 24 gün (bütçe 21); T 2017–2021 ≈ 19 günde biter; etkin hız
+   ≈ 105 KiB/s'nin altına düşerse hüküm "veri yok (indirme bütçesi)" olur.
+7. İşletim: aynı anda tek `indir` işi koşar. İncelemenin düşük önemli bulguları (D1–D6) düzeltilmedi; hiçbiri hüküm
+   yönünü etkilemez.
