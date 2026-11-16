@@ -1,199 +1,219 @@
-# TR-1b ön kayıt TASLAĞI: deprem öncesi 2 yıllık GNSS hız değişimi, yalnız büyük etkiye bakan sınırlı koşu
+# TR-1b ön kayıt TASLAĞI, sürüm 2: deprem öncesi 2 yıllık GNSS hız değişimi, yerinde eşli sınırlı koşu
 
-Tarih: 16 Kasım 2026. Durum: **TASLAK. Dondurulmadı, incelenmedi, hiçbir seri ya da olay penceresi açılmadı.**
-Türediği yer: `kayit/turetme/ESIK-DAYANAGI.md` (düzeltme 4: kapı "geç/kal" yerine önceden yazılmış MDE) ve TR-1
-sürüm 2 (`TR-1_kuresel-gnss-hiz-degisimi_ONKAYIT.md`, `TR-1_INCELEME-1.md`, `TR-1_INCELEME-2.md`), TR-11 sonucu
-(`kayit/turetme/tr11/tr11_sonuc.md`). Güç hesabı: `kayit/turetme/tr1b/tr1b_mde.py` → `tr1b_mde.json` (commit
-6e926c9; yalnız yapay veri ve TR-11'in commit edilmiş nicelikleri; tohum 20261116, ≈ 13 sn).
+Tarih: 16 Kasım 2026. Durum: **TASLAK (sürüm 2). Dondurulmadı. Hiçbir tenv3 serisi, hiçbir olay penceresi açılmadı.**
+Sürüm 1: `TR-1b_sinirli-kosu_ONKAYIT_surum1.md`. İnceleme: `TR-1b_INCELEME-1.md` ("düzeltmeyle kabul, koşullu";
+commit 2eba1d7). Bu sürüm zorunlu düzeltmeler Z1–Z6'nın hepsini ve öneriler Ö1–Ö3'ü işler (§12 eşleme tablosu).
+Dayanaklar: `ESIK-DAYANAGI.md`, TR-1 sürüm 2 ve iki incelemesi, TR-11 sonucu.
 
-## 0. Özet hüküm (taslağın kendisi hakkında)
+Hesaplar (yalnız yapay veri ve commit edilmiş TR-11 nicelikleri):
+- `kayit/turetme/tr1b/tr1b_v2_z4.py` → `tr1b_v2_z4.json`: eşli sınamanın yapay yanlış alarmı ve MDE'si (Z4).
+- İnceleme betikleri `kayit/turetme/tr1b/inc1/` (bağımsız modelle eşli MDE; c0 yanlış alarmı).
+- Sürüm 1'in c0 hesabı `tr1b_mde.py/.json` (artık yalnız bilgi satırının dayanağı).
+- Aşama 0 (yalnız üstveri): `kayit/turetme/tr1b/tr1b_asama0.py`, çıktısı `kayit/turetme/tr1b/asama0/`. Aşama 0 bu metin
+  ve dal kuralı commit edildikten **sonra** bir kez koşulur; sonucu Ek 2'ye yazılır, kural seçmez (Z2).
 
-- **İstatistik olarak tasarım tutuyor; bilimsel olarak dar.** K = 12 ile, önceden sabit bölge payı c0 = 1,64 altında,
-  görülebilir en küçük etki: **uyumlu sinyalde g ≈ 1,4 mm/yıl, dağınık sinyalde g ≈ 3,1 mm/yıl** (2 yıllık hız
-  değişimi, 100 km içindeki istasyonlarda). Saf TR-11 tabanına göre AUC karşılığı ≈ 0,84–0,85.
-- Bu MDE, kuramın öngördüğü büyüklüğün (≈ 0,02–0,5 mm/yıl; aşağıda "kuram") uyumlu sinyalde **3–70**, dağınık
-  sinyalde **6–150 katı**dır. Olumsuz
-  sonuç kuramın öngördüğü etki hakkında **hiçbir şey söylemez.**
-- Plasebo eksikliğini TR-11 tabanı **çözmez, yalnız taşır**: yerinde plasebonun ölçeceği bölge yanlılığı, burada
-  önceden konmuş bir pay (c0) olur. c0'ın kendisi bir **tahmindir**. Bu pay, saf tabana göre görülebilir en küçük
-  etki kadar büyüktür (c0 = 1,64 tek başına AUC 0,70 üretir; c0 = 1'de MDE AUC'si 0,68). Yani pay konmazsa sınama
-  etkiyi yanlılıktan ayıramaz. Pay konunca da AUC ≈ 0,70'in altındaki etkiler **hiçbir K ile görülemez**.
-- **K bilinmiyor.** TR-1 sürüm 2'nin 11–12 kümesi eşleşik kontrol şartıyla sayılmıştı. Bu taslak kontrol şartını
-  kaldırır ama TR-11'in daha katı sakinlik kurallarını ekler. Dondurmadan önce yalnız üstveriyle bir aşama 0 sayımı
-  gerekir (§7). MDE tablosu K = 5–40 için verildi.
+## 0. Özet
+
+- **Ana sınama artık eşli:** her olay kümesi kendi yerinin, 730 g geriye kaydırılmış penceresiyle (yerinde plasebo)
+  karşılaştırılır. İstatistik d = log(S_olay / S_plasebo), sınama kesin tek yanlı işaret çevirme (2^K_p desen). Bölge
+  şişmesi, ağ ve dönem iki pencerede ortaktır; sürüm 1'in tahmini c0 = 1,64 payına artık gerek yoktur (Z3).
+- c0 sınaması **bilgi satırına** indi (Z5). Sürüm 1'in "c0 = 1" cümlesi kaldırıldı (Z6).
+- **Dal kuralı (aşama 0'dan önce sabit, Z2):** aşama 0'ın üst sınır sayımında K_p ≥ 6 ise ön kayıt ikinci incelemeye
+  gider ve koşulabilir; K_p < 6 ise **"veri yok (eşli küme)"** yazılır, koşu yapılmaz.
+- MDE (Z4 yapay modeli, ısınmalı kırpışma, paylaşılan pencere parçası dahil): K_p = 8'de uyumlu sinyalde **g ≈ 2,0**,
+  dağınıkta **≈ 3,9 mm/yıl**; K_p = 12'de 1,6 / 2,9 (§5). Z4 yapay yanlış alarmı 0,041–0,058: kapı (≤ 0,07) geçildi.
+- Olumsuz sonuç kuramın öngördüğü (≈ 0,02–0,5 mm/yıl) etki hakkında yine **hiçbir şey** söylemez.
 
 ## 1. Soru (sınırlı)
 
-M ≥ 6,5 sığ olaylardan önceki son 2 yılda, dış merkezin 100 km içindeki istasyonlarda ölçülen hız değişimi boyu S,
-TR-11'in depremsiz pencerelerindeki S dağılımının **c0 = 1,64 katına ölçeklenmiş** hâlinden sistematik olarak büyük
-mü? Bu, yalnız **büyük** bir etkinin varlığını sorar. Küçük etkiyi sormaz. Tahmin becerisi iddiası değildir.
+M ≥ 6,5 sığ olaylardan önceki son 2 yılda, dış merkezin 100 km içindeki istasyonların hız değişimi boyu S, aynı yerde
+aynı istasyonlarla 730 gün önce biten pencerede ölçülen S'ten sistematik olarak **büyük ölçüde** büyük mü? Yalnız büyük
+etkiyi sorar; tahmin becerisi iddiası değildir.
 
-## 2. Veri ve örneklem (TR-1 sürüm 2'den farklar işaretli)
+## 2. Veri, pencereler, örneklem
 
-- Olaylar: ComCat, 2000-01-01 → 2026-01-01T00:00:00 (2026 hariç), M ≥ 6,5, derinlik ≤ 30 km. **Fark:** T ≤ 2025-12-31
-  (kontrol için T + 2 yıl artık gerekmez). Dış merkezi Marmara kutusunda (39,5–42,0° K, 26,0–31,5° D) olan olay yok sayılır.
-- GNSS: NGL IGS20 tenv3, yatay. Marmara kutusu istasyonları indirilmez. Kutuya 150 km'den yakın istasyonlarda
-  (TR-11 Ö4: CMLD, AFYN, KRBK, AKHR, KLUU ve listeye giren yenileri) w1'den sonraki satırlar ayrıştırılmadan atlanır.
-- **Pencere TR-11 ile özdeş uzunlukta:** w1 = T − 7 g, w0 = w1 − 1826 g, menteşe H = w1 − 730 g. T − 7 günden sonraki
-  hiçbir gözlem ve hiçbir basamak kaydı kullanılmaz.
-- **İstasyon ve küme ölçüsü TR-11 koşu koduyla aynı** (`tr11_kosu.py`'nin istasyon modeli, doluluk ≥ 0,60, kod 1
-  sıçrama kuralı, ayıklama, S = medyan |Δv_yakın − medyan Δv_ref|). Yakın ≤ 100 km (3–8), **referans her olayda
-  200–500 km** (TR-1'in M ≥ 7,5 için 500–1000 km halkası kaldırıldı; büyük olayda sinyal referansa taşarsa yanlılık
-  H0 yönündedir).
-- **Postsismik ve kosismik dışlama (önceden sabit; TR-11 kurallarının olay penceresine çevirisi):**
-  - İstasyon: [w0 − 730 g, w1] içinde uzaklığı ne olursa olsun hiçbir kod 2 kaydı yok (TR-11 §2.3 kural 3; TR-1'in
-    "eşik/4" kuralının yerine). Hedef olayın kendi kaydı w1'den sonradır ve kurala girmez.
-  - Merkez (dış merkez): Ş1 merkezin 200 km içinde [w0 − 5 y, w1] arasında M ≥ 6,0, derinlik ≤ 40 km olay yok;
-    Ş2 500 km içinde [w0 − 10 y, w1] arasında M ≥ 7,0, derinlik ≤ 70 km olay yok; Ş3 1000 km içinde [w0 − 10 y, w1]
-    arasında M ≥ 8,0 yok. TR-11'deki "T + 2 yıl" uzantısı olay penceresinde uygulanamaz (hedef olayın kendisi).
-    "Deprem yok" sorgusu 1976-01-01'den başlar (INCELEME-2 bulgu 6).
-  - Gerekçe: dışlama olay ve taban için **aynı** kuraldır. Böylece kirlenme farkı yalnız bölge türünden kalır (§5.1).
-  - Bilinen bedel: Ş1, hedeften önceki 7 yıl içinde 200 km'de M ≥ 6 öncü dizisi olan olayları atar. Öncül bu
-    dizilerde ise yanlılık H0 yönündedir; kabul edilir.
-- **Bağımsızlık kümeleri:** TR-1 (i) ve (ii), ayrıca **(iii)** aynı 10° × 10° blokta ve pencereleri çakışan olaylar
-  aynı kümedir (TR-11'in ortak mod birimi). Küme puanı = olayların ortalaması. K = küme sayısı.
+- Olaylar: ComCat, 2000-01-01 → 2026-01-01T00:00:00 (2026 hariç), M ≥ 6,5, derinlik ≤ 30 km, T ≤ 2025-12-31. Dış
+  merkezi Marmara kutusunda (39,5–42,0° K, 26,0–31,5° D) olan olay sayılmaz.
+- GNSS: NGL IGS20 tenv3, yatay. Marmara kutusu istasyonları indirilmez; kutuya 150 km'den yakın istasyonlarda w1'den
+  sonraki satırlar ayrıştırılmadan atlanır (TR-11 Ö4 ve Ek 2 kuralı).
+- **Olay penceresi:** w1 = T − 7 g, w0 = w1 − 1825 g (1826 gün), menteşe H = T − 6 g − 730 g.
+- **Plasebo penceresi (Z3):** aynı uzunluk, 730 g geriye kaydırılmış: w1_p = w1 − 730 g, w0_p = w0 − 730 g, menteşe
+  H_p = H − 730 g. Plasebo, olay penceresinin H'den sonraki 2 yılına (öncülün arandığı kısım) hiç girmez. İki pencere
+  [w0, w1_p] parçasını (1096 g) paylaşır; etkisi Z4'te ölçüldü (Ek 1).
+- **İstasyonlar (iki pencerede aynı):** TR-11 §2.3 kuralları (kapsama, doluluk ≥ 0,60, kod 1 kenar ve menteşe ±30 g,
+  kendi penceresinin [w0 − 730 g, w1] aralığında hiçbir kod 2 kaydı yok) **her iki pencerede ayrı ayrı** sağlanmalı.
+  İkisinde de uygun istasyonlardan yakın ≤ 100 km (en yakın 3–8) ve referans 200–500 km (3–8) seçilir; iki pencere
+  aynı istasyonlarla ölçülür.
+- **Sakinlik (dış merkez; olay ve plasebo birlikte):** Ş1 200 km içinde [w0_p − 5 y, w1] arasında M ≥ 6,0 (z ≤ 40) yok;
+  Ş2 500 km içinde [w0_p − 10 y, w1] arasında M ≥ 7,0 (z ≤ 70) yok; Ş3 1000 km içinde [w0_p − 10 y, w1] arasında M ≥ 8,0
+  yok. Hedef olay w1'den sonradır ve kurala girmez.
+- **Bağımsızlık kümeleri:** (i) dış merkezler < 300 km ve tarihler < 1 yıl; (ii) ortak istasyon ve [w0_p, w1]
+  aralıkları çakışıyor; (iii) aynı 10° × 10° blok ve aralıklar çakışıyor. Bağlı bileşenler. **K_p** = eşli plasebosu
+  kurulabilen küme sayısı. K = yalnız olay penceresiyle kurulan küme sayısı (bilgi).
+- **Ölçü:** TR-11 koşu kodunun istasyon modeli ve S tanımı (`tr11_kosu.py`: olc, S_hesapla), iki pencerede aynı.
 
-## 3. Sınama (kesin, rastgeleleştirme)
+## 3. Ana sınama (eşli, kesin)
 
-- **Sıfır örneklemi:** TR-11'in 665 küme-penceresi, aynı koşuda, aynı kod ve aynı indirme tarihiyle **yeniden
-  hesaplanır** (NGL yeniden işleme farkını kaldırmak için). Yeniden hesaplanan q95, TR-11'in [2,06, 2,76] aralığının
-  dışındaysa hüküm "geçersiz (sürüm)" olur.
-- **Olay puanı:** u = F̂_s(S_olay), F̂_s olayın n_y katmanındaki (3–4 / 5–7 / 8) TR-11 S'lerinin orta-sıra ECDF'i.
-  Küme puanı u_k; istatistik ū = ortalama u_k.
-- **H0' (önceden sabit):** olay S'i, c0 × (aynı katmandan çekilmiş TR-11 S'i) gibi dağılır; **c0 = 1,64**.
-- **Sıfır dağılımı:** her küme için (m olaylıysa m tane) aynı katmandan rastgele TR-11 küme-penceresi çekilir, S'i
-  c0 ile çarpılır, F̂_s ile puanlanır; ū'nun 200 000 çekilişlik dağılımı. p = P(ū_sıfır ≥ ū_gözlenen). Tek yanlı
-  α = 0,05. Bu, değiş tokuş edilebilirlik varsayımı altında kesin bir rastgeleleştirme sınamasıdır; asıl varsayım
-  c0'dır (§5.1).
-- **İkincil (hüküm vermez):** q95 aşım sayısı, kesin binom. Yapayda A sınamasından belirgin güçsüz çıktı (uyumlu
-  sinyalde K = 12 için MDE 2,3 mm/yıl, A'da 1,4), bu yüzden birincil değildir.
-- **Bilgi satırları:** c0 = 1 ve c0 = 1,3 ile p; TR-1'in yerinde plasebo pencereleri (sayımda 3 olay) aynı yolla
-  puanlanır; TR-11 sınıf B küme-pencerelerinin (10 KP, 6 yer) c0 = 1 altındaki ū'su; bir kümeyi dışarıda bırakma
-  aralığı; olay ve TR-11 için yakın istasyon uzaklıklarının medyanı; bölge ve mekanizma bileşimi.
+- Küme puanı d_k = kümedeki olayların log(S_olay / S_plasebo) ortalaması.
+- İstatistik Σ d_k. Sıfır dağılımı: 2^K_p işaret deseni (K_p ≤ 20'de tam sayım; üstünde 10^6 rastgele desen).
+  p = P(Σ ±d_k ≥ Σ d_k). Tek yanlı α = 0,05.
+- **"Büyük etki VAR":** p ≤ 0,05 **ve** her "bir kümeyi dışarıda bırak" sınamasında p ≤ 0,10 **ve** Z4 kapısı geçilmiş
+  (Ek 1: yapay yanlış alarm ≤ 0,07).
+- Değiş tokuş edilebilirlik yaklaşıktır (paylaşılan parça, gürültünün zamanla değişmesi); Z4 bunu yapayda ölçer.
 
 ## 4. Etki büyüklüğü ve kaynağı
 
-| Kaynak | Değer (aynı ölçü, S cinsinden) | Etiket | Durum |
+| Kaynak | Değer (S cinsinden) | Etiket | Durum |
 |---|---|---|---|
-| Yayımlanmış yıl ölçekli GNSS öncül iddiaları (TR-12) | TR-11 tabanının (2,42) üstünde doğrulanan 0; 3 iddia altında; Bedford 2020 tersinmesi 0,3–2,8 mm/yıl; 8 iddia çevrilemedi | **literatür** | tablo projede; sayıların bir kısmı özetten, çevrilemeyenler "doğrulanamadı" |
-| Sünme cephesinin 2 yıllık yüzey izi (Halka 8) | TR-11 tabanının 5–100 kat altı, yani ≈ 0,02–0,5 mm/yıl | **kuram** (tarayıcının hesabı) | bağımsız doğrulanmadı |
-| Bu taslağın "büyük etki"si | bir varsayım değil; K ile görülebilen en küçük g (§5) | **hesap** (yapay model) | aşağıda |
-| Bölge payı c0 = 1,64 | TR-11 içinde gözlenen en büyük alt küme şişmesi: epok 2008 q95 3,98 / tüm 2,42 | **tahmin** | aktif bölge şişmesinin bundan küçük olduğuna dair kanıt yok |
+| Yıl ölçekli GNSS öncül iddiaları (TR-12) | TR-11 tabanının (2,42) üstünde doğrulanan 0; 3 iddia altında; Bedford 2020 tersinmesi 0,3–2,8 mm/yıl; 8 iddia çevrilemedi | **literatür** | bir kısmı özetten; çevrilemeyenler "doğrulanamadı" |
+| Sünme cephesinin 2 yıllık yüzey izi (Halka 8) | TR-11 tabanının 5–100 kat altı, ≈ 0,02–0,5 mm/yıl | **kuram** (tarayıcının hesabı) | doğrulanmadı |
+| Bu sınavın "büyük etki"si | varsayım değil; K_p ile görülebilen en küçük g (§5) | **hesap** (yapay) | Ek 1 |
+| c0 = 1,64 (sürüm 1) | TR-11'in **2008 epoğu (dönem) şişmesi**; ū biriminde 1,45. **Bölge yanlılığının ölçüsü değildir** (INCELEME-1 B) | **tahmin** | yalnız bilgi satırı (§6) |
 
-Yani bu sınavın görebildiği etkiyi ne literatür ne kuram öngörüyor. Sınav yalnız "beklenmedik ölçüde büyük ve
-yaygın bir sinyal var mı" sorusunu kapatabilir.
+## 5. MDE ve ×0,5 / ×2 duyarlılığı
 
-## 5. MDE ve ×0,5 / ×2 duyarlılığı (hesap: `tr1b_mde.json`)
+Hüküm kuralının (p ≤ 0,05 ve LOO p ≤ 0,10) gücü 0,8. Sinyal, yakın istasyonlara doğuda g × max(0, t − H) eklenir;
+"uyumlu" bütün istasyonlarda aynı, "dağınık" istasyon başına g × U(0, 1). Ana tablo Z4 modelinden (Ek 1:
+TR-11'in b_f* = 4,6 kırpışması, ısınmalı, paylaşılan parça dahil). İncelemenin bağımsız modeli (pencereler bağımsız,
+`tr1b_inc1_eslesik.json`) karşılaştırma için yanındadır.
 
-**Yapay model (varsayım):** küme başına n_y yakın istasyon (TR-11 katman sayıları); istasyon artık vektörü
-N2(0, σ_c²), σ_c log-normal; S = medyan boy. μ = −0,38, τ = 0,60, TR-11'in q50/q90/q95/q99'una uyduruldu (model
-0,79 / 1,83 / 2,33 / 3,66; TR-11 0,79 / 1,80 / 2,42 / 3,71). Sinyal g, bütün yakın istasyonlara aynı yönde
-eklenir ("uyumlu"); "dağınık" kipte istasyon başına g × U(0, 1). Güç 0,8, tek yanlı α 0,05.
-
-Doğrulama ve sınırları:
-- Modelde 3 mm/yıl eklenince S'in medyan artışı 2,35; TR-11'in kendi Monte Carlo beklentisi 2,17. Model sinyale ≈ %8
-  fazla duyarlı, yani MDE'ler **≈ %10 iyimser** olabilir.
-- Model katman farkını tutmuyor: q95 model 2,42 / 2,33 / 2,28; TR-11'de 2,76 / 2,24 / 1,94 (n_y 3–4 / 5–7 / 8).
-  Koşuda puanlama katman içinde yapıldığı için bu yalnız MDE'nin kesinliğini etkiler, sınamanın geçerliğini etkilemez.
-
-**MDE, g (mm/yıl); parantezde saf TR-11 tabanına göre AUC; A sınaması:**
-
-| K | c0 = 1,64 uyumlu (**ana**) | c0 = 1,64 dağınık (**ana**) | c0 = 1,3 uyumlu / dağınık | c0 = 1 uyumlu / dağınık (yanlılık payı yok) |
+| K_p | 6 | 8 | 10 | 12 |
 |---|---|---|---|---|
-| 5 | 1,74 (0,90) | 4,32 (0,92) | 1,39 / 3,14 | 1,06 / 2,22 |
-| 6 | 1,64 (0,89) | 3,96 (0,90) | 1,29 / 2,91 | 0,99 / 2,06 |
-| 8 | 1,51 (0,87) | 3,52 (0,88) | 1,21 / 2,60 | 0,90 / 1,83 |
-| 10 | 1,44 (0,85) | 3,24 (0,86) | 1,14 / 2,41 | 0,84 / 1,68 |
-| 11 | 1,40 (0,84) | 3,16 (0,86) | 1,12 / 2,30 | 0,82 / 1,62 |
-| **12** | **1,37 (0,84)** | **3,09 (0,85)** | 1,09 / 2,27 | 0,79 / 1,58 |
-| 15 | 1,31 (0,83) | 2,91 (0,84) | 1,05 / 2,17 | 0,74 / 1,45 |
-| 20 | 1,26 (0,82) | 2,70 (0,82) | 0,98 / 2,00 | 0,68 / 1,32 |
-| 27 | 1,19 (0,80) | 2,51 (0,80) | 0,93 / 1,86 | 0,64 / 1,19 |
-| 40 | 1,14 (0,79) | 2,35 (0,79) | 0,87 / 1,71 | 0,57 / 1,06 |
+| uyumlu g (mm/yıl), Z4 modeli (**ana**) | 2,39 | 1,96 | 1,74 | 1,58 |
+| dağınık g, Z4 modeli (**ana**) | 4,76 | 3,87 | 3,32 | 2,89 |
+| uyumlu g, inceleme modeli (pencereler bağımsız) | 1,35 | 1,10 | 0,95 | 0,87 |
+| dağınık g, inceleme modeli | 2,82 | 2,15 | 1,84 | 1,68 |
 
-- H0' altında saf tabana göre AUC: c0 = 1,3 → 0,61; c0 = 1,64 → 0,70. **Bu, c0 = 1'deki MDE AUC'sine (K = 12'de
-  0,68) eşittir.** Bölge payı ile aranan etki aynı büyüklüktedir.
-- K'nin MDE'ye etkisi zayıf: K 12 → 20 ana MDE'yi yalnız %8 düşürüyor. Darboğaz K değil, c0.
-- İkincil binom sınaması (q95 aşımı): K = 12'de uyumlu MDE 2,29 (c0 = 1,64), 2,06 (c0 = 1). Kesin eşik c = 6
-  aşım, gerçek α 0,014.
+Z4 modelinin MDE'si inceleme modelininkinin ≈ 1,7–1,8 katı. Nedeni büyük olasılıkla gürültü düzeyi: Z4, TR-11'in
+ölçülen eşdeğer kırpışmasını (b_f* = 4,6 mm/yıl^0,25) kullanır; inceleme modeli TR-11'in S niceliklerine uydurulmuş
+log-normal σ'dır. Ayrıştırılmadı. Tutucu olduğu için ana tablo Z4'tür.
 
-**×0,5 / ×2 (K = 12, A):**
+**×0,5 / ×2 (Z4, K_p = 8; parantezde K_p = 12):** uyumlu MDE 1,96 → yarısı g = 0,98'de güç 0,25 (0,34), iki katı
+g = 3,92'de 1,00 (1,00). Dağınık 3,87 → yarısı 1,94'te 0,31 (0,44), iki katı 7,74'te 1,00 (1,00). Yarısı için
+K_p = 12 bile yetmez; gereken K_p ölçülmedi (≈ 1/etki² ölçeklemesiyle ≈ 30–35 beklenir; **tahmin**).
 
-| Kip | MDE | ×0,5: g (AUC); güç K = 12; gereken K | ×2: g (AUC); güç K = 12 |
-|---|---|---|---|
-| uyumlu, c0 = 1,64 | 1,37 | 0,69 (0,65); 0,001; **hiçbir K ile görülmez** (AUC < 0,70 payı) | 2,74 (0,97); 1,00 |
-| dağınık, c0 = 1,64 | 3,09 | 1,54 (0,68); 0,006; **hiçbir K ile görülmez** | 6,18 (0,96); 1,00 |
-| uyumlu, c0 = 1,3 | 1,09 | 0,55 (0,60); 0,014; > 300 | 2,18 (0,94); 1,00 |
-| uyumlu, c0 = 1 | 0,79 | 0,40 (0,55); 0,13; ≈ 200 | 1,58 (0,88); 1,00 |
-| dağınık, c0 = 1 | 1,58 | 0,79 (0,57); 0,15; ≈ 130 | 3,16 (0,86); 1,00 |
+Sürüm 1 ile kıyas: c0 = 1,64 tasarımının K = 12 MDE'si 1,37 / 3,09 idi. Eşli tasarımın MDE'si K_p = 12'de 1,58 /
+2,89, K_p = 8'de 1,96 / 3,87. Bedel daha büyük MDE; kazanç, yanlış alarmın bölge şişmesinden bağımsız olması.
 
-Okuma: güç eğrisi dik. Etki MDE'nin iki katıysa K = 12 kesin görür; yarısıysa pay konduğu sürece hiç görülmez. Yani
-sonuç, c0'ın doğruluğuna K'den çok daha duyarlıdır.
+Okuma: bölge şişmesi ne olursa olsun yanlış alarm değişmez (Ek 1, BOLGE2 satırı).
 
-## 6. Varsayımdan bağımsız kusurlar ve çözümleri
+## 6. Bilgi satırları (hüküm vermez; Ö2)
 
-1. **Plasebo yok; TR-11 tabanı onun yerini tutar mı?** Kısmen.
-   - Çözdüğü: ölçü, işleme sürümü, istasyon modeli, n_y ve pencere uzunluğu farkı. Yeniden hesaplama ve katman
-     içinde puanlama bunları eşitler. Sayı sorunu da çözülür: 665 KP, plasebo için gereken ≥ 10'un çok üstünde.
-   - **Getirdiği yeni yanlılık:** TR-11 tabanı "az sismik bölge tabanı"dır (KP'lerin %98'i sınıf D; doğrultu atımlı
-     kuşakta 0 yer). Olay merkezleri ise aktif sınırlardadır. Orada eşik altı postsismik kalıntı, yavaş kayma,
-     volkanizma, büyük gerinim hızı ve seyrek, açık deniz geometrisi öncülden bağımsız olarak S'i büyütür. Yanlılığın
-     yönü **"büyük etki VAR"** yönündedir. Yerinde plasebo bunu ölçerdi; TR-11 ölçemez.
-   - Çözüm: önceden sabit c0 = 1,64 payı ve "VAR" hükmünün dili (§8). Bu bir **tahmin**dir. Ölçülmüş bir aktif bölge
-     tabanı (TR-11 sınıf A/B ≥ 30 yer) gelirse c0'ın yerini o alır (§10).
-   - Epok yanlılığı: TR-11 yalnız 5 epokta (1 Ocak 2003…2023) ölçüldü; 2008 epoğu belirgin yüksek. Olay T'leri her
-     tarihte. Bilgi satırı: olayın w1'ine en yakın TR-11 epoğunun ECDF'i ile puanlama.
-2. **Postsismik kirlenme:** §2'deki dışlama olay ve tabana aynı kuraldır, önceden sabittir. Kalan kirlenme
-   (eşik altındaki depremler, 200 km dışındaki M6'lar) aktif bölgelerde daha sık olduğu için 1. maddedeki paya girer.
-3. **Ortak mod hatası ve bağımlılık:** 10° blok kuralı (§2 (iii)) aynı bölgedeki eşzamanlı olayları tek küme yapar.
-   Sıfır çekilişleri bağımsız KP'lerdir; TR-11'de aynı yerin farklı epokları ayrı KP'dir. Bu, sıfır dağılımının
-   varyansını hafifçe küçük gösterebilir. Bilgi satırı: yer başına tek KP ile çekiliş.
-4. **K bilinmiyor:** §7 aşama 0 olmadan dondurulmaz.
-5. **MDE model bağımlı:** sinyal yanıtı ≈ %8 iyimser, katman farkı tutulmuyor (§5). MDE'ler ±%10–20 belirsizdir.
-6. **Çoklu c0:** hükmü yalnız c0 = 1,64 verir. Ötekiler bilgi satırıdır.
-7. **Kod denetimi:** TR-11'in (i) ve (ii-b) yapay denetimleri, ayrıca (ii-a) gerçek tabanda 3 mm/yıl doğu sinyali
-   ekleme (istasyon düzeyi medyan d_E [2,95, 3,05]). Biri kalırsa "geçersiz (kod)". Bunlar olay S'i görülmeden koşar.
-   INCELEME-2 bulgu 2'nin kendini boşa çıkaran pozitif kontrolü yok: sinyal yalnız sahte olaya, burada TR-11 KP'sine eklenir.
+Raporda **tek tabloda, şu sırayla** ve "hüküm vermez" başlığıyla basılır:
+1. K (yalnız olay penceresi) ve K_p; bölge, mekanizma ve n_y katmanı bileşimi.
+2. c0 sınaması (Z5): yalnız w0 ≥ 2008-01-01 olan olaylar; TR-11 tabanına karşı ortalama yüzdelik ū; c0 ū biriminde
+   1,45; cümle "**c_gerçek ≤ c0 varsayımı altında** …" diye başlar. Bu alt kümede K < 6 ise satır "koşulmadı" yazılır.
+3. TR-11 sınıf B küme-pencerelerinin ū'su (10 KP).
+4. Bir kümeyi dışarıda bırakma p aralığı.
+5. Literatür olayları (Ö3; aşama 0'da yazılan liste) dışarıda eşli p.
+6. Bilinen yavaş kayma / volkanik bölge listesindeki kümeler dışarıda eşli p. Liste koşudan önce, olay S'i görülmeden,
+   aşama 0 listesindeki her küme için "yavaş kayma bildirilmiş (evet/hayır)", "100 km içinde Holosen volkanı
+   (evet/hayır)" diye yazılır.
+7. Olay ve plasebo için yakın istasyon uzaklıklarının medyanı.
 
-## 7. Aşama 0 (dondurmadan önce, yalnız üstveri)
+## 7. Aşama 0 (yalnız üstveri) ve dal kuralı (Z1, Z2)
 
-TR-1 sayım betiği (`kayit/turetme/tr1/sayim_ustveri.py`) §2 kurallarıyla yeniden yazılır. Girdi yalnız
-`DataHoldings.txt`, `steps.txt` ve ComCat'tir. Olay penceresi serisi indirilmez. Sonuç K (üst sınır, doluluk
-atlanarak) ve bileşim yazılır. Bu taslak K'yi tahmin etmez. Kontrol şartı kalktığı için TR-1 sayımındaki 27 geçerli olay
-kümesi tavan sayılabilir. Ş1–Ş3 ve kod 2 kuralı bunu düşürür. Bu adımda kural K'yi büyütmek için değiştirilmez
-(INCELEME-2 bulgu 9).
+- Girdi yalnız NGL `DataHoldings.txt`, `steps.txt` ve ComCat (≤ 2025-12-31). TR-1 ve TR-11 sayımlarının önbellekleri
+  kullanılır (sha256 denetimli). Hiçbir konum zaman serisi indirilmez ya da açılmaz.
+- Çıktı: K, **K_p**, w0 ≥ 2008 alt kümesinde K, bölge/mekanizma/katman bileşimi, literatür olaylarının durumu.
+  **Dondurulan liste (Z1):** eşli kümeler ve olaylar (ComCat id, T, M, konum, katman üst sınırı, yakın ve referans
+  istasyonlar), `asama0/tr1b_asama0_liste.json`, sha256 ile. Koşu bu sha256'ya assert eder.
+- Doluluk aşama 0'da yalnız yaklaşık bilinir. **Dal kuralı üst sınır sayımını (doluluk atlanarak) kullanır:**
+  - K_p ≥ 6 → eşli sınama ana hükümdür; ön kayıt ikinci incelemeden sonra dondurulup koşulabilir.
+  - K_p < 6 → **"veri yok (eşli küme)"**; koşu yapılmaz, hiçbir seri indirilmez.
+- Koşuda doluluk uygulandıktan sonra K_p < 6'ya düşerse yine "veri yok (eşli küme)" yazılır (§8.1).
+- Aşama 0 bir kez koşulur. Kural, sonucu görüp değiştirilmez (TR-1 INCELEME-2 bulgu 9).
 
-## 8. Hüküm dalları (sıra kodda sabit)
+## 8. Hüküm dalları ve hesap sırası (Ö1)
 
-1. **Veri yok:** aşama 0'da ya da koşuda K < 6, veya TR-11 yeniden hesabı veri kapısını (≥ 100 yer, ≥ 30 blok)
-   geçmiyor. MDE yine K ile birlikte yazılır.
-2. **Geçersiz:** kod denetimi kaldı ya da yeniden hesaplanan q95 [2,06, 2,76] dışında.
-3. **Büyük etki VAR:** c0 = 1,64 altında p ≤ 0,05 **ve** her "bir kümeyi dışarıda bırak" koşusunda p ≤ 0,10.
-   Cümle: "Bu K kümede, olay öncesi 2 yıllık hız değişimi boyu, depremsiz tabanın 1,64 katından bile büyük. Bu bir
-   öncül ya da tahmin iddiası değildir; aktif bölge tabanıyla yeniden sınanmadan Marmara'ya taşınmaz."
-4. **Ayırt edilemez (MDE = …):** öteki her durum. Cümle: "K = …, bu örneklemle görülebilir en küçük etki uyumlu
-   sinyalde g = … mm/yıl, dağınık sinyalde g = … mm/yıl (AUC …, c0 = 1,64). Daha küçük etkiler hakkında bilgi yok."
-   c0 = 1'de p ≤ 0,05 ise şu da eklenir: "Saf depremsiz tabandan büyük, ama aktif bölge payı içinde."
-5. **H0 hükmü yoktur.**
+Kod şu sırayla çalışır ve her adımı olay S'i hesaplanmadan **önce** günlüğe yazar:
+1. **Veri yok:** liste sha256'sı uyuşmuyor, ya da doluluk sonrası K_p < 6, ya da TR-11 yeniden hesabı veri kapısını
+   (≥ 100 yer, ≥ 30 blok) geçmiyor. MDE (K_p'ye göre tablo) yine yazılır.
+2. **Geçersiz:** (a) Z4 yapay yanlış alarmı > 0,07 (Ek 1; koşu kodunun kendisiyle yeniden ölçülür); (b) TR-11 kod
+   denetimleri (i), (ii-a), (ii-b) kalır; (c) TR-11 yeniden hesaplanan q95 [2,06, 2,76] dışında.
+3. Ancak bunlardan sonra olay ve plasebo S'leri hesaplanır.
+4. **Büyük etki VAR:** §3'ün üç şartı. Cümle: "Bu K_p kümede, olay öncesi 2 yıllık hız değişimi boyu aynı yerin 2 yıl
+   önceki penceresinden belirgin biçimde büyük. Bu bir öncül ya da tahmin iddiası değildir; olaydan bağımsız ama
+   T'ye doğru artan gürültü (yavaş kayma döngüsü, volkanik kabarma, ağ bozulması) bu sınamada öncülden ayrılmaz
+   (§9, bilgi satırı 6)."
+5. **Ayırt edilemez (MDE = …):** öteki her durum. Cümle: "K_p = …, görülebilir en küçük etki uyumlu sinyalde g = … mm/yıl,
+   dağınık sinyalde g = … mm/yıl (Ek 1 tablosu). Daha küçük etkiler hakkında bilgi yok."
+6. **H0 hükmü yoktur.** c0 bilgi satırı hiçbir dalı değiştirmez; "saf tabandan büyük" türü ikinci bir cümle yazılmaz (Z6).
 
-## 9. Olumsuz sonuç ne söyler, ne söylemez
+## 9. Varsayımdan bağımsız kusurlar ve çözümleri
 
-- Söyler: bu K kümede, 100 km içindeki istasyonları birlikte g ≳ 1,4 mm/yıl (uyumlu) ya da g ≳ 3,1 mm/yıl (dağınık)
-  oynatan, 2 yıl süren bir olay öncesi hız değişimi olağan değildir (güç 0,8; ana tablo K = 12).
-- Söylemez: öncül yok. Kuramın öngördüğü ≤ 0,5 mm/yıl'lık izler, yönlü (fay doğrultusuna izdüşümlü) sinyaller,
-  2 yıldan kısa ya da uzun pencereler, Ş1'in attığı öncü dizili olaylar ve doğrultu atımlı alt küme hakkında bilgi
-  yoktur. Marmara için alarm yolu kapandı demek değildir. TR-11 Ö3 kuralı geçerlidir.
+1. **Plasebo eksikliği:** eşli tasarımla çözüldü; 665 KP'lik TR-11 tabanı artık yalnız kod denetimi ve bilgi satırıdır.
+2. **Tek kalan karıştırıcı — T'ye doğru artan, olaydan bağımsız gürültü:** "VAR" yönündedir ve büyüktür (Ek 1, ARTAN
+   satırı: son 2 yılda gürültü × 1,5 olunca yanlış alarm K_p = 8'de 0,35, K_p = 12'de 0,51). Çözüm: hüküm cümlesi bunu açıkça söyler;
+   bilgi satırı 6 bilinen yavaş kayma ve volkan bölgelerini dışarıda bırakır. Ayırt edemediği şey yazılır.
+3. **Öteki yanlılıklar H0 yönündedir (tutucu):** eski pencerenin daha gürültülü olması (dönem, 2003–2008 GNSS'i),
+   sönen postsismik, 2 yıldan uzun süren öncülün plasebo penceresine taşması.
+4. **Paylaşılan pencere parçası:** iki ölçü bağımlıdır; işaret çevirmenin geçerliği Z4'te ölçüldü (Ek 1).
+5. **Postsismik dışlama** önceden sabit (§2: kod 2 ve Ş1–Ş3, iki pencerede). Ş1, son 7 yılda 200 km'de M ≥ 6 öncüsü olan
+   olayları atar (H0 yönünde).
+6. **Ortak mod hatası:** referans farkı ve 10° blok kuralı; iki pencere aynı istasyonlarla ölçüldüğü için ortak mod
+   büyük ölçüde sadeleşir.
+7. **MDE model bağımlı:** Gauss istasyon gürültüsü, MAD ayıklaması ve kod 1 sıçraması yok, n_r = 8. Belirsizlik
+   ≈ ±%10–20.
 
-## 10. Yeniden açma şartı
+## 10. Olumsuz sonuç ne söyler, ne söylemez
 
-(a) Aktif kuşakta ölçülmüş bir taban (TR-11 sınıf A ya da B, ≥ 30 yer): c0'ın yerine ölçülen değer gelir.
-(b) Yerinde plasebosu ≥ 10 kümede hesaplanabilen bir arşiv (ör. GEONET F5 doğrudan).
-(c) Yönlü ölçü (TR-1 §9 (a)).
-(d) Aşama 0'daki K'yi en az iki katına çıkaran yeni açık GNSS arşivi.
-Her biri yeni ön kayıt ister.
+- Söyler: bu K_p kümede, 100 km içindeki istasyonları birlikte (uyumlu) ya da dağınık biçimde Ek 1'deki g kadar
+  oynatan, 2 yıl süren olay öncesi hız değişimi, aynı yerin 2 yıl önceki penceresine göre olağan değildir (güç 0,8).
+- Söylemez: öncül yok. Kuramın öngördüğü ≤ 0,5 mm/yıl'lık izler, yönlü sinyaller, 2 yıldan farklı pencereler, 4 yıldan
+  uzun süren öncüller (plasebo penceresine taşar), Ş1'in attığı öncü dizili olaylar ve Marmara hakkında bilgi yoktur.
+  TR-11 Ö3 kuralı geçerlidir. H0 değildir.
 
-## 11. Körlük ve İstanbul
+## 11. Yeniden açma şartı
 
-Bu taslak için hiçbir tenv3 serisi indirilmedi. Hiçbir olay penceresi açılmadı. Gerçek S hesaplanmadı. Tek gerçek
-girdi, TR-11'in commit edilmiş nicelikleri (q50, q90, q95, q99, katman q95'leri). Marmara kutusunun 2017+ GNSS'i ve
-bütün 2026 verisi kördür. Sonuç bir olasılık terimi üretmez. İstanbul için mutlak olasılık yazılmaz.
+(a) Aktif kuşakta ölçülmüş taban (TR-11 sınıf A/B ≥ 30 yer). (b) K_p'yi iki katına çıkaran açık GNSS arşivi (ör. GEONET
+F5 doğrudan). (c) Yönlü ölçü (TR-1 §9 (a)). (d) "VAR" çıkarsa: aktif bölge tabanı ve bilinen yavaş kayma kataloğuyla
+ayrı ön kayıt. Her biri yeni ön kayıt ister.
+
+## 12. INCELEME-1 eşleme
+
+| Madde | Nerede |
+|---|---|
+| Z1 liste ve sha256 | §7, §8.1 |
+| Z2 dal kuralı aşama 0'dan önce | §0, §7 (bu metin aşama 0'dan önce commit edildi) |
+| Z3 eşli sınama ana hüküm | §2, §3, §5 |
+| Z4 yapay yanlış alarm, > 0,07 geçersiz | §8.2, Ek 1 |
+| Z5 c0 bilgi satırı, ū birimi, w0 ≥ 2008, "c_gerçek ≤ c0 varsayımı altında" | §4, §6.2 |
+| Z6 c0 = 1 cümlesi kaldırıldı | §8.6 |
+| Ö1 hesap sırası | §8 |
+| Ö2 sabit bilgi tablosu | §6 |
+| Ö3 literatür olayları | §6.5, aşama 0 |
+
+## 13. Körlük ve İstanbul
+
+Bu sürüm için hiçbir tenv3 indirilmedi ya da açılmadı; gerçek S hesaplanmadı. Aşama 0 yalnız üstveri okur. Marmara
+kutusunun 2017+ GNSS'i ve bütün 2026 verisi kördür. Sonuç bir olasılık terimi üretmez; İstanbul için mutlak olasılık
+yazılmaz.
+
+## Ek 1: Z4 yapay yanlış alarm ve MDE (16 Kasım 2026, hiçbir gerçek seri açılmadan)
+
+Betik `kayit/turetme/tr1b/tr1b_v2_z4.py` → `tr1b_v2_z4.json` (tohum 20261122; sıfır havuzu 6000 küme, sinyal 2000,
+4000 çekiliş; ≈ 13 dk). Model: 2556 günlük günlük seri (plasebo w0_p'den olay w1'e), önünde 2000 günlük ısınma, iki
+yatay bileşen; beyaz 1,5 mm + kırpışma (TR-11 `h_katsayi` süzgeci); TR-11 `tasarim` ile menteşe katsayısı; TR-11
+`S_hesapla`; n_y TR-11 katman sayılarıyla 3–8, n_r = 8; küme ölçeği exp(0,4 Z) iki pencerede ortak. İki pencere
+1096 günü paylaşır. MAD ayıklaması ve kod 1 yok.
+
+**Sinyalsiz yanlış alarm (p ≤ 0,05 ve LOO p ≤ 0,10):**
+
+| Gürültü | K_p 6 | 8 | 10 | 12 | ort. d (sd) |
+|---|---|---|---|---|---|
+| N0: kırpışma 4,6 | 0,051 | 0,049 | 0,047 | 0,057 | +0,005 (0,40) |
+| kırpışma 3,0 | 0,053 | 0,058 | 0,050 | 0,047 | +0,002 (0,40) |
+| N1: + rastgele yürüyüş 1 mm/yıl^0,5 | 0,054 | 0,051 | 0,050 | 0,050 | −0,004 (0,41) |
+| BOLGE2: bütün gürültü × 2 (iki pencerede) | 0,041 | 0,045 | 0,048 | 0,055 | −0,004 (0,40) |
+| ARTAN: son 2 yılda gürültü × 1,5 (karıştırıcı; kapıya girmez) | 0,27 | 0,35 | 0,45 | 0,51 | +0,20 (0,40) |
+
+- **Z4 kapısı (≤ 0,07) geçildi:** en büyük değer 0,058 (Monte Carlo hatası ≈ ±0,004). Paylaşılan parça ve renkli
+  gürültü işaret çevirmenin geçerliğini bozmuyor.
+- **Uyarı (koşu öncesi düzeltme):** ısınmasız ilk denemede (kırpışma pencerenin başında başlatılmış) ort. d +0,014 ve
+  K_p = 10'da yanlış alarm 0,072 çıktı: yapay süreç pencerede durağan değildi. Gerçek istasyonların gürültüsü pencereden
+  önce başlamıştır; ısınma bu yüzden doğru modeldir. Ama gerçek seride gürültünün dönemle değişmesi (ARTAN satırı)
+  aynı yönde ve çok daha büyük bir etki yapar. Bu, ölçülemeyen, "VAR" yönlü tek karıştırıcıdır (§9.2).
+- LOO şartı yapayda hiçbir yanlış alarmı kesmedi (p ≤ 0,05 olan her durumda LOO da geçti).
+
+**Güç (uyumlu / dağınık; hüküm kuralı):** MDE tablosu §5'te. Güç eğrileri `tr1b_v2_z4.json` içinde.
