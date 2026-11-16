@@ -2,7 +2,7 @@
  "onkayit_sha256": "df426ffc59793dcb75e5167aca643145d3bd55be3bb4bdcce11f58e1ea544c20",
  "asamalar": {
   "manifest": {
-   "durum": "başladı",
+   "durum": "tamamlandı",
    "kip": "yeni",
    "baslatma": "2026-11-16T16:04:06+00:00",
    "kod_sha256": {
@@ -14,6 +14,17 @@
     "sure_s": 5.93,
     "gurultu_algilama": false,
     "tremor_algilama": true
+   },
+   "git": {
+    "head": "3ea302d8f2d8918377bdb9ad957249d7077773eb",
+    "uzak": "3ea302d8f2d8918377bdb9ad957249d7077773eb",
+    "dosya": "kayit/turetme/tr7/TR7_KOSU_DURUM.json"
+   },
+   "bitis": "2026-11-16T16:15:52+00:00",
+   "sonuc": {
+    "stationxml": 238,
+    "katalog": 565,
+    "planli": 4459
    }
   }
  },
