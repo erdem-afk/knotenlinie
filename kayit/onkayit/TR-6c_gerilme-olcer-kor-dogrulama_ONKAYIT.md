@@ -1,6 +1,6 @@
 # TR-6c ön kaydı: hız-durum gerilme ölçeri bilinen kosismik Coulomb gölgelerini kör olarak doğru işaretle buluyor mu? (TR-6a'nın ardılı)
 
-Tarih: 17 Kasım 2026. Durum: **dondurmaya hazır sürüm 2 (İNCELEME-2 düzeltmeleriyle).** Dondurulmadı; kodda
+Tarih: 17 Kasım 2026. Durum: **DONDURULDU** (sürüm 2, İNCELEME-2 düzeltmeleriyle; 17 Kasım 2026). Kodda
 `TR6C_ONKAYIT_SHA = None` olduğu sürece bağlayıcı aşamalar (`--tasarim c sinama --baglayici`, `manifest`, `kos`)
 koşmaz. Dondurma ve sonraki koşu adım adım §C12'dedir.
 

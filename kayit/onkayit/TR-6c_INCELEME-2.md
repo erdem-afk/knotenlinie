@@ -117,7 +117,7 @@ Kabul edilebilir. Gerekçe:
 - Prova bağlayıcı değildir; i:1500 ve ii:1500 yeni tohum 7321 ile de koşuldu ve geçti.
 - Bağlayıcı sınama yeni tohumla bütün hücreleri yeniden koşar.
 
-PARCA_SONUC
+(Bu denetimin çıktısı yazılamadı: inceleme oturumu makinenin yeniden başlamasıyla kesildi ve sürdürülemedi. İNCELEME-1'de aynı kodla altı prova parçası yeniden üretilmiş ve sha256'ları kayıtlı değerlerle aynı çıkmıştı; 4500 hücresi parçalarının bu turdaki bayt denetimi tamamlanmadı. Not kök oturumca eklendi, 17 Kasım 2026.)
 
 ## 5. Kod metne uyuyor mu (soru 5)
 
