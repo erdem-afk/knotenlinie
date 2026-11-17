@@ -113,3 +113,15 @@ class Language(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class SecretShapes(unittest.TestCase):
+    def test_token_like_strings_are_rejected(self):
+        from ajan.guard import check_public
+        self.assertIn("secret", check_public("here: sk-ant-oat01-abcdefghijklmnop"))
+        self.assertIn("secret", check_public("x " + "Ab3_" * 14 + " y"))
+
+    def test_sha256_and_prose_are_allowed(self):
+        from ajan.guard import check_public
+        self.assertNotIn("secret", check_public("sha256 " + "0123456789abcdef" * 4))
+        self.assertNotIn("secret", check_public("An ordinary sentence about aftershock productivity."))

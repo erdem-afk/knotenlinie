@@ -54,12 +54,19 @@ _INFRA_TERMS = ["hetzner", "doppler", "systemd", "journalctl", "kurul_", "agent_
 _PATH_RE = re.compile(r"(?<![\w.])(/home/|/root/|/var/|/etc/|/opt/|/srv/|/tmp/|/usr/|/mnt/|~/|[A-Za-z]:\\)")
 
 
+# Credential-shaped strings: provider key prefixes, or any long opaque token that is not plain hex
+# (a sha256 digest is hex and is allowed).
+_SECRET_RE = re.compile(r"sk-ant-[\w-]{8,}|(?<![\w-])(?![0-9a-fA-F]+(?![\w-]))[A-Za-z0-9_\-]{48,}(?![\w-])")
+
+
 def check_public(text: str, *, blocked_names=(), blocked_terms=(), local_paths=()) -> list[str]:
     """Return rule names this member-facing text violates (empty list = ok to post)."""
     if not text:
         return []
     v = []
     f = fold(text)
+    if _SECRET_RE.search(text):
+        v.append("secret")
     # Absolute probability for Istanbul / Marmara / a segment, in a forecast sense.
     for sent in re.split(r"(?<=[.!?;\n])\s+", f):
         if _PLACE_RE.search(sent) and _PCT_RE.search(sent) and _FORECAST_WORDS.search(sent):
