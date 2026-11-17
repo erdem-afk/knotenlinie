@@ -1,10 +1,17 @@
 # TR-7c ön kaydı: sabit sızıntı kuralı (K5) ve kör Parkfield kontrolüyle Marmara'da tetiklenmiş tremor taraması
 
-Durum: TASLAK (sürüm 1); dondurulmadı, hiçbir koşu için bağlayıcı değildir. Kod yok, gerçek veri yok.
-Tarih: 17 Kasım 2026.
+Durum: TASLAK (sürüm 2); hiçbir koşu için bağlayıcı değildir. Kod yok, kör olaylarda ve Marmara'da veri yok.
+Tarih: 17 Kasım 2026. Sürüm 1: `TR-7c_tetiklenmis-tremor_ONKAYIT_surum1.md` (commit 4ba57ab).
 
-Bağımsız inceleme: `TR-7c_INCELEME-0.md` (fikir düzeyinde, hüküm **DÜZELTMEYLE KABUL**). Bu taslak o incelemenin §6'daki
-düzeltme cümlelerini (Z1–Z8) **değiştirmeden** taşır. Hangi cümlenin nerede olduğu §14'teki eşleme tablosundadır.
+Bağımsız incelemeler:
+- `TR-7c_INCELEME-0.md` (fikir düzeyinde, hüküm **DÜZELTMEYLE KABUL**). Bu taslak o incelemenin §6'daki düzeltme
+  cümlelerini (Z1–Z8) **değiştirmeden** taşır.
+- `TR-7c_INCELEME-1.md` (sürüm 1 üzerine, commit 8b3a16c, hüküm **DÜZELTMEYLE KABUL**). Bu sürüm onun zorunlu
+  düzeltmelerini (D-1…D-10) incelemedeki kesin cümlelerle **aynen** işler. Öneriler Ö-a…Ö-i'den hangilerinin alındığı
+  gerekçesiyle §14.2'dedir. INCELEME-1'in hesabı: `kayit/turetme/tr7c/inc1/tr7c_inc1.py` (sha256 c809ce97…58a8),
+  `tr7c_inc1.json` (sha256 4974dbe6…2974).
+
+Hangi cümlenin nerede olduğu §14'teki eşleme tablolarındadır.
 
 Bu metinde üç tür cümle var:
 - İncelemenin cümlesi: alıntı (">") olarak ve "Z…" etiketiyle verilir. Değiştirilmez.
@@ -29,8 +36,8 @@ veri kullanılmadı.
 
 ## 0. Bağlayıcı metinlerin sırası (dondurulursa)
 
-1. Bu metin; alıntılanan Z1–Z8 cümleleri bu metnin parçasıdır.
-2. `TR-7c_INCELEME-0.md`, yalnız bu metnin sustuğu yerde.
+1. Bu metin; alıntılanan Z1–Z8 ve D-1…D-10 cümleleri bu metnin parçasıdır.
+2. `TR-7c_INCELEME-1.md`, sonra `TR-7c_INCELEME-0.md`, yalnız bu metnin sustuğu yerde.
 3. TR-7b taslağının bu metnin "aynen" dediği bölümleri (§4.2 tanımları, §6.2, §6.3, §6.4 (b′) ve (c) cümleleri, §7,
    §11.1). TR-7b'nin seçim kuralları (§4.3, §11.3, §12.4) TR-7c için **bağlayıcı değildir**; Z1 bu sapmayı beyan eder.
 4. TR-7 sürüm 3 ve Ek 1, yalnız yukarıdakilerin sustuğu ve "aynen" denen yerlerde.
@@ -93,7 +100,7 @@ Marmara sorusu yalnız bunun yanıtı "evet" (§6 dal (b)) ise açılır. Sonuç
 > TR-7b §6.3 aynen (yalnız P ve TR-7b'nin iki N olayı için; N_PK ≤ 120)."
 
 **Veri yetersizliği kuralı** (Z4 (a)'nın kendisi; §6): **n_P < 8 ya da n_N < 20 → "ölçü sınanamadı (Parkfield verisi
-yok)".**
+yok)".** D-1 gereği n_N en çok 29'dur (30 olay, 29 birim).
 
 ### 3.1 P (10 olay)
 
@@ -140,14 +147,21 @@ T0, Δ ve PGV_T `TR-7b_SAYIM.md` §3'ten. Δ, iz köşe ortalamasına (35,9125°
 - **Olaylar arası bağımlılık.**
   - Kuril 2006 ile Kuril 2007 aynı bölgeden, 2 ay arayla geldi.
   - Macquarie 2004 ile Sumatra 2004 arasında 3 gün var.
-  - **N 27 ve N 28 (2009-10-07, Vanuatu) 15 dakika arayla geldi.** Δ ≈ 9370 km'de W pencereleri (T0 + Δ/5,0 ile
-    T0 + Δ/2,8 + 600 sn arası) büyük ölçüde örtüşür (≈ 20 dk). Kaba iasp91 kestirimine göre ikinci olayın P'si
-    birincinin W'sinden hemen önce, S'si W'nin içine düşer; E1 (M ≥ 7: P ve S, 240 sn) bunu maskeler (doğrulanamadı:
-    varış zamanları hesaplanmadı, yalnız kaba). Bu iki satır büyük ölçüde aynı veriye bakar. INCELEME-0 bunu ayrıca anmıyor. **Yazarın seçimi:** Z2 gereği ikisi de N'de kalır ve
-    ayrı sayılır. Bir bilgi satırında N 28 çıkarılarak Z3 (iii) yeniden hesaplanır. Bu satır dalı değiştirmez.
+  - **N 27 ve N 28 (2009-10-07, Vanuatu) 15,6 dakika arayla geldi.** W'leri 1142 sn, K1b aralıkları 156 sn örtüşür;
+    N 27'nin W'si N 28'in Q referans aralığının 932 saniyesini kapsar (INCELEME-1 §4; varışlar kaba, doğrulanamadı).
+    43 olayda pencereleri başka bir olayın R'sine ya da W'sine taşan tek çift budur. **D-1 (aynen):**
+
+    > "N 27 (2009-10-07 22:03) ile N 28 (2009-10-07 22:18) tek bir N birimidir ('Vanuatu 2009 birimi'; TR-7'nin Wharton
+    > birimi örneği). Birimin W'si [N 27'nin W başı, N 28'in W sonu], K1b aralığı [N 27'nin K1b başı, N 28'in K1b sonu]'dur;
+    > R ve Q N 27'ninkidir. E1'de birimin tetikleyicisi N 27'dir; N 28 'öteki olay' olarak M ≥ 7,0 kuralıyla (P ve S,
+    > 240 sn) maskelenir. Birim, birleşik K1b aralığıyla kesişen ve ayıklamadan sağ çıkan en az bir küme varsa algılama
+    > verir. n_N ve X_N'de birim bir kez sayılır; n_N en çok 29'dur. Z2'nin olay listesi ve dal (a)'nın n_N < 20 sınırı
+    > değişmez. Bilgi satırı (dalı değiştirmez): iki olay ayrı sayılarak hesaplanan Z3 (iii)."
+
+    Bu metinde "N birimi" 29 birimdir: 28 tek olay ve Vanuatu 2009 birimi. Sürüm 1'in "ayrı say" seçimi kaldırıldı.
 - **Rastgele negatif pencereler:** TR-7b §6.3 aynen. Üreteç `default_rng(20261116 + 1)`, olaylar T0 sırasıyla, yalnız
-  10 P ile Macquarie 2004 ve Peru 2007 için, olay başına 10 pencere (N_PK ≤ 120). 28 N olayı için rastgele pencere
-  çekilmez.
+  10 P ile Macquarie 2004 ve Peru 2007 için, olay başına 10 pencere (N_PK ≤ 120). Öteki N olayları için rastgele
+  pencere çekilmez.
 
 ## 4. Ölçü: algılayıcı, pencereler ve sabit sızıntı kuralı K5
 
@@ -197,10 +211,22 @@ TR-7b §11.1 aynen:
 ve maskeler TR-7 aynen.
 
 **Uygulama** (yazarın seçimi; Z1'in "bayt bayt aynı" şartının denetlenebilir biçimi): Koşu kodu K5'i yeniden yazmaz.
-`kayit/turetme/tr7b/tr7b_yapay2.py`'deki `K5` işlevini değiştirmeden içe aktarır. Başlangıçta dosyanın sha256'sını
-`ae995ba8…f437f` ile karşılaştırır; uyuşmazsa hiçbir şey hesaplamadan durur. Gerçek veride ρ tanımsızsa (10 saniyeden
-az aşım saniyesi) ρ şartı sağlanmamış sayılır. Bu, `K5`'in kendi davranışıdır; bağımsız kod incelemesi bunu
+`kayit/turetme/tr7b/tr7b_yapay2.py`'deki `K5` işlevini değiştirmeden içe aktarır. Gerçek veride ρ tanımsızsa (10
+saniyeden az aşım saniyesi) ρ şartı sağlanmamış sayılır. Bu, `K5`'in kendi davranışıdır; bağımsız kod incelemesi bunu
 doğrulamalıdır (§10, Z8).
+
+**D-2 (aynen):**
+
+> "Koşu kodu başlangıçta K5'in çağırdığı her dosyanın sha256'sını denetler: `kayit/turetme/tr7b/tr7b_yapay2.py`
+> (ae995ba8802a934577cbf26051229360bcfb1a85d5d4d7dc16d358dfeaef437f; `K5`, `_rho`, `_delta`),
+> `kayit/turetme/tr7b/tr7b_yapay.py` (e92715318e21a0200b66e3c130853f73cbc382b0398aef561619fcbe1bb74374; `secili`,
+> `_k1_kalinti`) ve `kayit/turetme/tr7/tr7_cekirdek.py` (4a1b9131603d0f3d519cacb183fdbcccc106157b66392bf2d09350c9f49206f6;
+> `KSIG`). Biri uyuşmazsa hiçbir şey hesaplanmadan durur. Bağımsız kod incelemesi K5'in çağrı ağacında başka dosya
+> olmadığını doğrular."
+
+**Ö-h (alındı; bilgi satırı, dal değiştirmez):** Olay başına "Q doğrusu kuruldu mu" yazılır. Gerekçe: Küçük
+tetikleyicilerde Q'da 4σ_d'yi aşan saniye 30'dan az kalabilir. O zaman K5 N olaylarında çoğunlukla yalnız ρ koluyla
+bayraklar, P'de kalıntı kolu da çalışır (INCELEME-1 §1 ek bulgu; tutucu yön, doğrulanamadı).
 
 ## 5. Başarı ölçütü: D30M3
 
@@ -215,7 +241,7 @@ doğrulamalıdır (§10, Z8).
 > 'Olay algılaması' TR-7b §6.2 aynen."
 
 **Tanımlar** (TR-7b §6.4'ten; n'ler Z2'den):
-- n_P, n_N: §3 Z2 tanımıyla taranan P ve N olayı sayısı.
+- n_P, n_N: §3 Z2 tanımıyla taranan P olayı ve N birimi sayısı (D-1: Vanuatu 2009 birimi bir kez sayılır).
 - X_P, X_N: olay algılaması veren P ve N olayı sayısı.
 - p_üst ve X_min(n, f): TR-7 §8 tanımları; n = n_P, f = f_PK, N = N_PK.
 
@@ -234,14 +260,48 @@ doğrulamalıdır (§10, Z8).
    algılama veren P olaylarının en az ⌈X_P/2⌉'sinde en az bir algılama kümesi p ≤ 0,01. Z3 (iv) bundan bağımsız bir
    "sınandı" şartıdır. X_P ≥ 7 iken (iv) sağlanıp bu etiket sağlanmayabilir. O durumda dal (b) işler ve Marmara açılır,
    ama Marmara'da "VAR" verilemez (en çok "aday (modülasyon ölçüsü pozitif kontrolde doğrulanmadı)"). Bu, TR-7b §7'nin
-   "aynen" okunmasının sonucudur, yeni kural değildir.
+   "aynen" okunmasının sonucudur, yeni kural değildir. **D-10 (aynen):**
+
+   > "K1c (b) sağlanır ama 'Parkfield modülasyonu geçti' sağlanmazsa, K1c satırı Marmara indirilmeden önce 'ölçü sınandı
+   > (Parkfield modülasyonu geçmedi: Marmara'da en çok \"aday\")' diye yazılır ve Marmara aşamaları açılır. Bu durumun
+   > (b) içindeki olasılığı m_t 0,8'de ≈ 0,02, m_t 0,5'te ≈ 0,30–0,38'dir (`tr7c_inc1.json` `marmara_etiket`); o durumda
+   > Marmara'nın kör verisi en çok 'aday' verebilecek bir taramada harcanır."
+6. **Genliği eşlenmiş negatif etiketi. D-9 (aynen):**
+
+   > "Genlik etiketi (bağlayıcı; dal değiştirmez): PGV_T ≥ 0,02 cm/s olan 4 N olayının (Macquarie 2004, Nias 2005,
+   > Solomon 2007, Peru 2007) en az birinde, K1b aralığıyla kesişen ve ayıklamadan sağ çıkan bir kümede TR-7 §6.4
+   > modülasyon ölçüsü (P olaylarındaki başvuru istasyonu tanımı ve boş dağılımla) p ≤ 0,01 verirse K1c satırına 'genlik
+   > karıştırıcısı dışlanmadı' yazılır. Etkisi: Marmara'da 'VAR' verilemez, en çok 'aday'. Modülasyonu ölçülemeyen olay
+   > etiketi tetiklemez; bu 4 olayda ölçülemeyen olay sayısı K1c satırına yazılır. Üreteç sırasında bu 4 olayın kümeleri
+   > N olaylarıyla birlikte, T0 sırasıyla işlenir."
+
+   Neden dal şartı değil de etiket (INCELEME-1 §5): Kural (en az bir olayda modülasyonlu algılama, G1) v0 ≤ 0,03 olan
+   kilitli sızıntıyı büyük ölçüde yakalar (m_f 0,5'te "sınandı ve etiket yok" 0,89 → 0,09). Gerçek tremorda bedeli temiz
+   negatifte 0,013–0,019'dur. Kirli negatifte ise 0,33–0,60'tır; dal şartı olsaydı gücün bu kadarını yerdi. Etiket olarak
+   yalnız "VAR"ı engeller, yani tutucudur.
+
+**"Ölçü sınandı"nın okunuşu. D-9 (aynen):**
+
+> "'Ölçü sınandı' şu demektir: algılayıcı, Chao etiketini yüzey dalgasıyla eş periyotlu modülasyon taşıyan bir sinyalle,
+> FAR ve Fisher şartları içinde kör olarak yeniden üretiyor. Tetikleyicinin yüzey dalgası genliğini izleyen tremor dışı
+> bir 2–8 Hz sinyali (aletsel doğrusalsızlık, dinamik tetiklenmiş yerel ya da bölgesel mikrodepremler) bu sınamadan
+> geçebilir. Bu biçim yalnız 4 genliği eşlenmiş negatifle ve kısmen sınanır. Marmara 'VAR' kalıbının sonuna '(Parkfield
+> kör kontrolü genliğe bağlı, yüzey dalgasına kilitli sızıntıyı yalnız 4 genliği eşlenmiş negatifle sınadı)' eklenir."
 
 **Neden D30M3** (INCELEME-0 §2 ve §5):
 - TR-7b §6.4 (b) yalnız 2 negatifle kullanılsaydı, ayırt etmeyen bir algılayıcıyı %34–44 olasılıkla "sınandı" sayardı.
 - Chao etiketi tetikleyici genliğiyle karışıktır. Genliğe duyarlı bir sızıntı algılayıcısı, 30 negatifle bile %95–99
   olasılıkla "ayırt ediyor" görünür (D30, v0 0,01–0,03 cm/s).
-- Modülasyon şartı bu karıştırıcıyı kıran tek fiziksel, etiketten bağımsız tanıktır. D30M3'ün genliğe bağlı sızıntıda
-  yanlış kabulü ≤ 0,01 (m_f 0,05) ya da ≤ 0,06'dır (m_f 0,10).
+- Modülasyon şartı, zarfı yüzey dalgasından bağımsız olan sızıntıyı kıran, etiketten bağımsız fiziksel bir tanıktır.
+  D30M3'ün genliğe bağlı sızıntıda yanlış kabulü ≤ 0,01 (m_f 0,05) ya da ≤ 0,06'dır (m_f 0,10). **D-4 (aynen):**
+
+  > "m_f, §10 adım 2'de Y2 ve Y3 satırlarında ayıklamadan önce algılanan bütün kümelerde, K5'ten sağ çıkıp çıkmadığına
+  > bakılmadan, TR-7 §6.4 ölçüsüyle ölçülür (en az 100 küme; daha azsa pencere sayısı artırılır); K5'ten sağ kalanlardaki
+  > pay ayrıca yazılır. Ölçülen m_f > 0,10 ise taslak bağımsız incelemeye döner. Bu ölçüm yalnız yüzey dalgasına kilitli
+  > olmayan sızıntıyı kapsar: Y2/Y3'ün telesismik zarfında yüzey dalgası periyodu yoktur. 2–8 Hz zarfı tetikleyicinin
+  > yüzey dalgası genliğini izleyen tremor dışı bir sinyal için m_f tanım gereği 1'e yakındır; bu biçimde D30M3'ün yanlış
+  > kabulü m_f 0,3'te 0,07–0,56, m_f 0,5'te 0,20–0,89'dur (`kayit/turetme/tr7c/inc1/tr7c_inc1.json`
+  > `kilitli_sizinti`). '≤ 0,01 ya da ≤ 0,06' değerleri yalnız kilitli olmayan sızıntı için geçerlidir."
 - "Sınandı" sonucu "algılayıcı yayımlanmış görsel tremor tanımını kör olarak yeniden üretiyor" diye okunur.
   "Algılayıcı tremoru doğru buluyor" sonucu çıkmaz (INCELEME-0 §3).
 
@@ -263,15 +323,35 @@ sıra 1'de "K1b (a), (c) ya da (d)" yerine "K1c (a), (c), (d) ya da (e)" okunur.
 > (b) dışında Marmara verisi indirilmez. Bilgi satırları: Kuril 2007 çıkarılmış Z3; liste sınıfına karşı kuyu sınıfı;
 > PGV_T ≥ 0,02 cm/s olan 4 N olayında algılama sayısı; X_N/n_N ile X_P/n_P."
 
-Sıranın özeti (yeni kural değildir; çelişkide Z4 geçerlidir):
+**D-7 (aynen; Z4'ün metni değişmez):**
+
+> "Okuma kuralı (bağlayıcı): Z4 (e)'nin ikinci cümlesi ('Modülasyonun ölçülebildiği algılama veren P olayı 3'ten azsa …
+> dal (e)'dir') yalnız (a) sağlanmıyorsa ve Z3 (i) ile (ii) sağlanıyorsa uygulanır; (i) ya da (ii) sağlanmıyorsa sıra
+> (d) ve (e)'nin birinci cümlesidir. X_min(n_P, f_PK) yoksa (TR-7 §8) (i) sağlanmamış sayılır. A90_PK 'belirsiz' ya da
+> '> 100 µm/s' ise (d)'nin A90 şartı sağlanmamış sayılır."
+
+Örnek (INCELEME-1 §2): n_P 8, X_P 0, n_N 20, X_N 0, MDA tanımlı, A90 uygun → (i) sağlanmaz → dal (d); "modülasyon
+ölçülemedi" yazılmaz.
+
+**D-8, ikinci cümle (aynen):**
+
+> "(c), (d) ve (e) cümlelerinin sonuna '(ayırt edilemez: gerçekleşen n_P, n_N ile, q 0,1'de görülebilir en küçük
+> s = [..] (m_t 0,8) / [..] (m_t 0,5))' eklenir. Değerler `tr7c_inc1.json` `esik.MDE_tablosu_q0.1`'den okunur;
+> tabloda olmayan n'ler için aynı işlevle (`tr7c_inc1.py` `esik`) koşudan önce hesaplanıp dondurulur."
+
+**Ö-d (alındı):** Dal (c) cümlesinden sonra hangi şartın kaldığı parantezle yazılır: "(kalan: (iii))", "(kalan: (iv))"
+ya da "(kalan: (iii) ve (iv))". Gerekçe: (iv)'ün tek başına kalması genlik karıştırıcısından çok m_t'nin düşüklüğünü
+gösterir; Z4 cümlesi bunu ayırmıyor. Ek, D-8 ekinden önce gelir; Z4'ün cümlesi değişmez.
+
+Sıranın özeti (yeni kural değildir; çelişkide Z4 ve D-7 geçerlidir):
 
 | Sıra | Dal | Şart | Yazılan | Marmara |
 |---|---|---|---|---|
 | 1 | (a) | n_P < 8 ya da n_N < 20 | "ölçü sınanamadı (Parkfield verisi yok)" | indirilmez |
-| 2 | (b) | Z3 (i)–(iv) hepsi | "ölçü sınandı" (+ (b′) "belirsiz" etiketi varsa) | **açılır** (TR-7b §7) |
-| 3 | (c) | (i), (ii) var; modülasyon ≥ 3 P olayında ölçülebilir; (iii) ya da (iv) yok | "ölçü sınanamadı (algılayıcı kör olaylarda tetiklenmiş tremoru tetikleyici genliğinden ayıramadı)" | indirilmez |
-| 4 | (d) | (i) ya da (ii) yok; MDA tanımlı; A90_PK ≤ 100 µm/s | "ölçü sınanamadı (kör Parkfield olaylarında tetiklenmiş tremor ölçütü karşılamadı: X_P = [..] / n_P = [..]; A90_PK = [..] nm/s)" | indirilmez |
-| 5 | (e) | öteki; modülasyon < 3 P olayında ölçülebilir | "ölçü sınanamadı (yöntem)" / "ölçü sınanamadı (modülasyon ölçülemedi)" | indirilmez |
+| 2 | (b) | Z3 (i)–(iv) hepsi | "ölçü sınandı" (+ (b′) "belirsiz"; + D-10 "Parkfield modülasyonu geçmedi"; + D-9 "genlik karıştırıcısı dışlanmadı" etiketleri varsa) | **açılır** (TR-7b §7); etiketlerden biri varsa Marmara'da en çok "aday" |
+| 3 | (c) | (i), (ii) var; modülasyon ≥ 3 P olayında ölçülebilir; (iii) ya da (iv) yok | "ölçü sınanamadı (algılayıcı kör olaylarda tetiklenmiş tremoru tetikleyici genliğinden ayıramadı)" + Ö-d + D-8 eki | indirilmez |
+| 4 | (d) | (i) ya da (ii) yok (X_min yoksa (i) yok); MDA tanımlı; A90_PK ≤ 100 µm/s (belirsiz değil) | "ölçü sınanamadı (kör Parkfield olaylarında tetiklenmiş tremor ölçütü karşılamadı: X_P = [..] / n_P = [..]; A90_PK = [..] nm/s)" + D-8 eki | indirilmez |
+| 5 | (e) | öteki; ikinci cümlesi yalnız (i) ve (ii) varken (D-7) | "ölçü sınanamadı (yöntem)" / "ölçü sınanamadı (modülasyon ölçülemedi)" + D-8 eki | indirilmez |
 
 - **(b′) etiketi** (TR-7b §6.4 aynen): Algılama veren P olaylarının hepsinde bütün algılama kümeleri TR-7 §7.2 (b′) (i)
   ya da (ii) durumundaysa (çekirdek fazları olay başına iasp91 ile), "geçti, belirsiz" yazılır. Etkisi TR-7 (b′) aynen:
@@ -280,7 +360,8 @@ Sıranın özeti (yeni kural değildir; çelişkide Z4 geçerlidir):
   sızıntı kuralı değişmez. Yazarın seçimi: (c) dalında bu yol **yoktur**. Gerekçe: (c), algılayıcının kör olaylarda
   çalıştığını ama ayırmadığını söyler; bir "hata düzeltmesi" orada sonuca bakarak kural seçmeye dönüşür.
 - **Ek bilgi satırları** (yazarın seçimi; dalları değiştirmez):
-  - N 28 çıkarılmış Z3 (iii) (§3.2);
+  - N 27 ve N 28 ayrı sayılarak hesaplanan Z3 (iii) (D-1);
+  - olay başına "Q doğrusu kuruldu mu" (Ö-h);
   - olay başına algılama, küme sayısı, atılma nedenleri ve K5 bayrak sayıları;
   - N olaylarındaki algılama kümelerinin modülasyon p'leri (m_f'nin gerçek veride kaba bir göstergesi);
   - Tohoku duman satırı (§9).
@@ -290,8 +371,10 @@ Sıranın özeti (yeni kural değildir; çelişkide Z4 geçerlidir):
 TR-7b §7 aynen: TR-7'nin Marmara tarafı (birimler, K0 ve bant, önsayım, pencereler, işleme zinciri, K2 negatif kontrol,
 MDA, kestirici, §8 hüküm kuralları, X_min tabloları, kuyruk eşikleri, kalıplar, çıktı tabloları, tek koşu) değişmez.
 Yalnız §6.5 madde 3 K5'tir. Segment hükümleri TR-7 §8 sırasıyladır: "veri yok", "ölçü güvenilmez (…)", "tetiklenmiş
-tremor VAR", "aday, doğrulanmadı", "görülmedi". "VAR" ancak şu üçü birlikte varsa verilebilir: K1c (b) "belirsiz" değil,
-"Parkfield modülasyonu geçti" (§5 madde 5) ve TR-7 §8 sıra 5'in öteki şartları.
+tremor VAR", "aday, doğrulanmadı", "görülmedi". "VAR" ancak şunlar birlikte varsa verilebilir: K1c (b) "belirsiz" değil,
+"Parkfield modülasyonu geçti" (§5 madde 5, D-10), K1c satırında "genlik karıştırıcısı dışlanmadı" etiketi yok (§5
+madde 6, D-9) ve TR-7 §8 sıra 5'in öteki şartları. "VAR" kalıbının sonuna D-9'un eki yazılır: "(Parkfield kör kontrolü
+genliğe bağlı, yüzey dalgasına kilitli sızıntıyı yalnız 4 genliği eşlenmiş negatifle sınadı)".
 
 **"Görülmedi" cümlesi** (Z6: INCELEME-0 §4'teki alıntı aynen; TR-7 §8 "görülmedi" kalıbına eklenir):
 
@@ -308,9 +391,17 @@ tremor VAR", "aday, doğrulanmadı", "görülmedi". "VAR" ancak şu üçü birli
 > "A90(S_k)/A_PK > 1 olan segmentte 'görülmedi' cümlesine 'Parkfield türü kaynak bu gürültüde görülemezdi' eki
 > bağlayıcıdır."
 
+**D-6 (aynen):**
+
+> "Z6 cümlesindeki (1 − ŝ)^n, segmentin n_açık'ıyla (TR-7 §8: taranan ana birimlerden W'sinin maskeli payı ≤ 0,50
+> olanlar) hesaplanır ve '(1 − ŝ)^n = [..]' yerine '(1 − ŝ)^n_açık = [..] (n_açık = [..])' yazılır. n_açık < 5 ise bu
+> yan cümlenin yerine 'hiç görülmeme olasılığı hesaplanmadı (n_açık < 5)' yazılır. A90(S_k) 'belirsiz' ya da
+> '> 100 µm/s' ise ya da A_PK = 0 ise A90(S_k)/A_PK > 1 sayılır ve Z6 eki bağlayıcıdır."
+
 **Boş tarama ne söyler.** Boş bir tarama ("görülmedi") **yalnız A90(S_k)/A_PK ≤ 1 olan segmentte** Parkfield türü bir
 kaynak hakkında bir şey söyler. A90(S_k)/A_PK > 1 olan segmentte yalnız "A90(S_k)'nın üstündeki tremor yok" der ve Z6
-eki zorunludur. Kentsel gürültüde gerçek s_Marmara, ŝ_Parkfield'dan küçük olacaktır. (1 − ŝ)^n bu yüzden bir alt
+eki zorunludur. A90(S_k) belirsizse ya da A_PK = 0 ise oran > 1 sayılır (D-6). Kentsel gürültüde gerçek s_Marmara,
+ŝ_Parkfield'dan küçük olacaktır. (1 − ŝ)^n_açık bu yüzden bir alt
 sınır değil, Parkfield koşullarında bir ölçektir. TR-7 §7.5 bu oranı yalnız bilgi satırı olarak yazıyordu; TR-7c'de
 cümlenin şartıdır.
 
@@ -318,13 +409,20 @@ cümlenin şartıdır.
 - **A_PK:** Algılama veren her P olayında TR-7 §7.5 kestiricisiyle a (25 km'ye indirgenmiş, istasyon medyanı; olayda
   birden çok algılama kümesi varsa en büyüğü). A_PK, bu olay değerlerinin medyanıdır. X_P = 0 ise A_PK tanımsızdır,
   ama o durumda dal (b) zaten işlemez.
+  - **Ö-a (alındı; bilgi):** A_PK yukarı yanlıdır: olay başına en büyük küme alınıyor ve P'deki yanlış alarm kümeleri de
+    içeride. Bu yüzden iki bilgi satırı daha yazılır: yalnız modülasyonlu (p ≤ 0,01) kümelerden ve olay başına medyan
+    kümeden hesaplanan A_PK. Üçünün en küçüğüyle A90(S_k)/A_PK da bilgi olarak yazılır. Bağlayıcı oran (Z6, D-6) TR-7
+    §7.5 aynen tanımlı A_PK ile kalır.
 - **ŝ:** INCELEME-0 §2 modelindeki p_P = 1 − (1 − s)(1 − q) bağıntısından,
   ŝ = max(0, (X_P/n_P − X_N/n_N) / (1 − X_N/n_N)). Yani P'deki algılama oranı, N'de ölçülen tetikleyicili yanlış alarm
   payından arındırılır. X_P/n_P de bilgi olarak yazılır. Gerekçe: ham X_P/n_P yanlış alarmı içerir, s'yi büyütür ve
   (1 − ŝ)^n'i iyimser yapar. Arındırılmış değer tutucudur.
-- **n:** TR-7 §8'deki segmentin n'si (K0-tam ana birim).
+  - **Ö-e (alındı; bilgi):** ŝ'nin yanına, X_P/n_P'nin Clopper–Pearson tek yanlı %95 alt sınırını aynı formüle koyarak
+    hesaplanan ŝ_alt ile (1 − ŝ_alt)^n_açık yazılır. Gerekçe: n_P ≈ 10 ile ŝ'nin belirsizliği büyüktür.
+- **Üs:** D-6 gereği n_açık (sürüm 1'deki "n" seçimi kaldırıldı; n'yi üs almak hiç görülmeme olasılığını olduğundan
+  küçük gösteriyordu, yani yanlış kabul yönündeydi).
 
-Ölçek için (1 − s)^n (INCELEME-0 §4; `tr7c_guc.json` `marmara_bos_olasiligi`):
+Ölçek için (1 − s)^n (INCELEME-0 §4; `tr7c_guc.json` `marmara_bos_olasiligi`; burada n, D-6 gereği n_açık yerine okunur):
 
 | n | s = 0,2 | s = 0,3 | s = 0,5 |
 |---|---|---|---|
@@ -351,7 +449,7 @@ RMS (A_300 ölçeğinde). Kentsel gürültüde A90'ın daha büyük çıkacağı
 
 **Varsayımlar** (betik başlığında; bunlar sonuç değil, model): olaylar bağımsız; P olayında algılama
 p_P = 1 − (1 − s)(1 − q); N olayında q; rastgele negatif pencerede r (ana tabloda r = q); N_PK = 120; n_P = 10,
-n_N = 30. m_t, gerçek tremor kümesinin modülasyondan (p ≤ 0,01) geçme olasılığıdır. m_f, sızıntı kümesinin geçme
+n_N = 30 (D-1'den sonra en çok 29; güçteki fark ≤ 0,006, §7.3). m_t, gerçek tremor kümesinin modülasyondan (p ≤ 0,01) geçme olasılığıdır. m_f, sızıntı kümesinin geçme
 olasılığıdır.
 
 ### 7.1 Etki büyüklüğünün kaynağı (ESIK-DAYANAGI biçimi)
@@ -386,12 +484,17 @@ q = 0,3 sütununu FAR ≤ 0,30 tavanı yaklaşık yarı yarıya keser; sütun bi
 
 | Durum | D30M3 "sınandı" olasılığı |
 |---|---|
-| Ayırt etmeyen algılayıcı (her büyük tetikleyicide t 0,3–0,9 olasılıkla ateşler; r = 0,05) | ≤ 0,0002 |
-| Genliğe bağlı sızıntı, v0 0,01 / 0,03 / 0,1 cm/s, m_f 0,05 | 0,010 / 0,006 / 0,001 |
+| Ayırt etmeyen algılayıcı (her büyük tetikleyicide t 0,3–0,9 olasılıkla ateşler; r = 0,05) | ≤ 0,0002 (dayanak: `tr7c_inc1.json` `bagimsiz.ayirt_etmeyen_D30M3_kendi`; Ö-g) |
+| Genliğe bağlı, yüzey dalgasına kilitli olmayan sızıntı, v0 0,01 / 0,03 / 0,1 cm/s, m_f 0,05 | 0,010 / 0,006 / 0,001 |
 | Aynı, m_f 0,10 | 0,062 / 0,040 / 0,004 |
+| **Genliğe bağlı, kilitli sızıntı** (D-4; `tr7c_inc1.json` `kilitli_sizinti`), m_f 0,3 | 0,56 / 0,45 / 0,07 |
+| Aynı, m_f 0,5 | 0,89 / 0,83 / 0,20 |
+| Aynı, m_f 0,8 | 0,95 / 0,99 / 0,34 |
+| Kilitli sızıntı, m_f 0,5, "sınandı **ve** D-9 genlik etiketi yok" | 0,09 / 0,25 / 0,16 |
 
 Karşılaştırma: TR-7b §6.4 (b) (|N| = 2) ayırt etmeyen algılayıcıda 0,09–0,44; D30 (modülasyonsuz) genliğe bağlı
-sızıntıda 0,36–0,99.
+sızıntıda 0,36–0,99. Kilitli sızıntının Parkfield yüzey ağında var olup olmadığı ve m_f'nin gerçek değeri
+**doğrulanamadı**; 0 € ile ölçülemez. Kalan açık "sınandı"nın okunuşuna (§5, D-9) yazılıdır.
 
 ### 7.3 Olay sayısına duyarlılık (s 0,7, q 0,1; `D30M3_olay_sayisi`)
 
@@ -403,16 +506,45 @@ sızıntıda 0,36–0,99.
 | 5 | 0,58 / 0,23 | 0,56 / 0,22 | 0,50 / 0,21 |
 
 Değerler "m_t 0,8 / m_t 0,5" biçimindedir. n_P < 8 ya da n_N < 20 dal (a)'dır. n_P = 8'de m_t 0,5 iken güç 0,56'ya düşer;
-dal (a)'nın sınırı bu yüzden ancak m_t yüksekse yeterlidir (doğrulanamadı, §8).
+dal (a)'nın sınırı bu yüzden ancak m_t yüksekse yeterlidir (doğrulanamadı, §8). D-1 gereği n_N en çok 29'dur; 29 ile
+30 arasındaki fark güçte ≤ 0,006'dır (INCELEME-1 §4).
+
+**Gerçekleşen n'lerle görülebilir en küçük s** (q 0,1, güç 0,80; `tr7c_inc1.json` `esik.MDE_tablosu_q0.1`; m_t 0,8 /
+0,5). D-8 ekinin değerleri buradan okunur:
+
+| n_P \ n_N | 20 | 24 | 29 |
+|---|---|---|---|
+| 10 | 0,60 / 0,78 | 0,59 / 0,77 | 0,58 / 0,77 |
+| 9 | 0,64 / 0,84 | 0,63 / 0,84 | 0,63 / 0,84 |
+| 8 | 0,66 / 0,93 | 0,65 / 0,93 | 0,64 / 0,93 |
+
+**Başvuru istasyonlu P olayı sayısı k'ya göre güç** (s 0,7, q 0,1; `esik.D1_kref_guc_s0.7_q0.1`; m_t 0,8 / 0,5; D-5
+eşiğinin dayanağı):
+
+| k | 3 | 4 | 5 | 6 | 7 | 8 | 10 |
+|---|---|---|---|---|---|---|---|
+| güç | 0,18 / 0,04 | 0,41 / 0,13 | 0,61 / 0,24 | 0,75 / 0,35 | 0,85 / 0,47 | 0,90 / 0,57 | 0,95 / 0,73 |
 
 ### 7.4 ×0,5 / ×2 duyarlılığı
 
-| | m_t 0,8 (s₀ ≈ 0,57) | m_t 0,5 (s₀ ≈ 0,77) |
+Sürüm 1'in tablosu kaldırıldı: q satırları s₀'da değil s = 0,7'de hesaplanmıştı ve iki hücre kabaydı (INCELEME-1 §3).
+**D-8, birinci cümle (aynen):**
+
+> "×0,5 / ×2 duyarlılığı s₀'da (q 0,1; `kayit/turetme/tr7c/inc1/tr7c_inc1.json` `esik`): m_t 0,8 (s₀ 0,57): s ×0,5 →
+> 0,20; s ×2 (1'de kırpılmış) → 1,00; q ×0,5 → 0,79; q ×2 → 0,65; m_t ×0,5 → 0,39. m_t 0,5 (s₀ 0,77): s ×0,5 → 0,23;
+> s ×2 → 0,95; q ×0,5 → 0,81; q ×2 → 0,78; m_t ×0,5 → 0,30. Dal (a) sınırında (n_P 8, n_N 20) görülebilir en küçük s
+> 0,66 (m_t 0,8) / 0,93 (m_t 0,5)'tir."
+
+Aynı sayılar tablo olarak (güç, s₀'da):
+
+| | m_t 0,8 (s₀ 0,57) | m_t 0,5 (s₀ 0,77) |
 |---|---|---|
-| s ×0,5 | s ≈ 0,29: güç ≈ 0,2 (ızgarada s 0,3, q 0,1: 0,23) | s ≈ 0,39: güç ≈ 0,1–0,4 (ızgarada s 0,3–0,5: 0,12–0,42) |
-| s ×2 | s ≥ 1: güç ≈ 1 (s 0,9: 1,00) | s ≥ 1: güç ≈ 0,9 (s 0,9: 0,90; tavanı m_t koyar) |
-| q ×0,5 (0,05) | 0,95 (s 0,7) | 0,73 |
-| q ×2 (0,2) | 0,86 (s 0,7) | 0,68 |
+| s ×0,5 | 0,20 | 0,23 |
+| s ×2 (1'de kırpılmış) | 1,00 | 0,95 |
+| q ×0,5 (0,05) | 0,79 | 0,81 |
+| q ×2 (0,2) | 0,65 | 0,78 |
+| m_t ×0,5 | 0,39 | 0,30 |
+| Dal (a) sınırında görülebilir en küçük s | 0,66 | 0,93 |
 
 **Okuma.** "Sınanamadı" sonucu yalnız şunu dışlar: algılayıcı yüzey ağında bu olayların yarısından fazlasını
 modülasyonlu biçimde görüyor. Yarı yarıya duyarlı bir algılayıcı, beş denemenin dördünde yine "sınanamadı" verir.
@@ -433,15 +565,15 @@ istenmez; dataselect çağrısı yapılmaz.** Sonuçlar ayrı bir "TR-7c ÜSTVER
 
 | # | Doğrulanamayan | Neden | Koşudan önce 0 € yoklama | Yoklamanın sonucu ne yapar |
 |---|---|---|---|---|
-| D1 | **Uzun periyot başvuru istasyonu, 2001–2010** (Z3 (iv) bunsuz uygulanamaz) | INCELEME-0 §7: kör P olaylarında sayılmadı | Her P olayı için TR-7 §6.6 ölçütü (bant B ya da H, alet H, \|H(0,02 Hz)\|/\|H(1 Hz)\| ≥ 0,5) StationXML yanıtından, W ve R örtüsü ≥ %90 availability'den. İz köşe ortalamasına en yakın uygun istasyon olay başına yazılır | **Yazarın seçimi:** başvuru istasyonu olan P olayı 3'ten azsa TR-7c **dondurulmaz** ve kör koşu yapılmaz. Gerekçe: dal (e) önceden kesinleşmiş olur; kör olayları sonucu belli bir koşuda harcamak boşunadır. Kayda "modülasyon ölçülemez, kör olaylar harcanmadı" yazılır |
-| D2 | **Modülasyon geçme olasılıkları m_t ve m_f** | Tohoku'da hiçbir küme ayıklamadan sağ çıkmadı; Peng 2009 gözlemi görsel; faz sürümünün sızıntı kümelerindeki yanlış oranı ölçülmedi | m_t: dalga formu olmadan ölçülemez; literatürden (Peng 2009 ve Ghosh 2009'un yayımlanmış şekilleri) yalnız nitel okuma. m_f: kod yalnız yapay veride (§10 adım 2) Y2 ve Y3 satırlarının sağ kalan sızıntı kümelerinde TR-7 §6.4 ölçüsüyle ölçülür (0 €, gerçek veri yok) | m_t doğrulanamadı olarak kalır; güç tablosu iki değerle (0,8 / 0,5) yazılı kalır. Yapay m_f > 0,10 çıkarsa bu, D30M3'ün yanlış kabul tavanının (≤ 0,06) geçerli olmadığı demektir. **Yazarın seçimi:** o durumda taslak bağımsız incelemeye geri döner; Z3 kendiliğinden değiştirilmez |
+| D1 | **Uzun periyot başvuru istasyonu, 2001–2010** (Z3 (iv) bunsuz uygulanamaz) | INCELEME-0 §7: kör P olaylarında sayılmadı | Her P olayı için TR-7 §6.6 ölçütü (bant B ya da H, alet H, \|H(0,02 Hz)\|/\|H(1 Hz)\| ≥ 0,5) StationXML yanıtından, W ve R örtüsü ≥ %90 availability'den. İz köşe ortalamasına en yakın uygun istasyon olay başına yazılır | **D-5 (aynen):** "Başvuru istasyonu olan (TR-7 §6.6; W ve R örtüsü ≥ %90) P olayı sayısı k < 7 ise TR-7c dondurulmaz ve kör koşu yapılmaz; kayda 'modülasyon şartı için yeterli başvuru istasyonu yok (k = [..]), kör olaylar harcanmadı' yazılır. Gerekçe: s 0,7, q 0,1'de D30M3'ün gücü k = 7'de 0,85 / 0,47, k = 6'da 0,75 / 0,35, k = 3'te 0,18 / 0,04'tür (m_t 0,8 / 0,5; `tr7c_inc1.json` `esik.D1_kref_guc_s0.7_q0.1`). k ≥ 7 ise k ve k ile hesaplanan görülebilir en küçük s §7'ye yazılır." |
+| D2 | **Modülasyon geçme olasılıkları m_t ve m_f** | Tohoku'da hiçbir küme ayıklamadan sağ çıkmadı; Peng 2009 gözlemi görsel; faz sürümünün sızıntı kümelerindeki yanlış oranı ölçülmedi | m_t: dalga formu olmadan ölçülemez; literatürden (Peng 2009 ve Ghosh 2009'un yayımlanmış şekilleri) yalnız nitel okuma. m_f: §5'teki D-4 cümlesi aynen (Y2 ve Y3'te ayıklamadan önce algılanan bütün kümeler, en az 100 küme; K5'ten sağ kalanlardaki pay ayrıca) | m_t doğrulanamadı olarak kalır; güç tablosu iki değerle (0,8 / 0,5) yazılı kalır. D-4: ölçülen m_f > 0,10 ise taslak bağımsız incelemeye döner. **Kapsam (D-4):** bu ölçüm yalnız yüzey dalgasına kilitli olmayan sızıntıyı kapsar; kilitli sızıntının m_f'si 0 € ile ölçülemez (doğrulanamadı) |
 | D3 | **Chao 2012'de Q'yu belirleyen istasyonlar ve inceleme yöntemi** | Tam metin okunmadı | Chao 2012 tam metni ve Peng 2009 Ek Tablo S1–S2, açık ve yasal bir kaynakta varsa okunur (0 €). Yoksa doğrulanamadı kalır | Yalnız yorum değişir (Q'nun kuyu mu yüzey mi olduğu, s'nin anlamı). Olay listesi Z2'de sabittir, değişmez |
-| D4 | **Kör olaylarda gerçek W örtüsü ve E1 maske payları** (n_P, n_N) | Availability gün dosyası düzeyinde; E1 hesaplanmadı | E1: ComCat M ≥ 6,0 katalog satırlarıyla, TR-7 §6.5.1a kuralıyla, olay başına K1b aralığının açık payı. Örtü: availability'den liste istasyonu sayısı | Kestirilen n_P < 8 ya da n_N < 20 ise dal (a) önceden belli olur. **Yazarın seçimi:** o durumda da dondurulmaz, kör koşu yapılmaz. Kayda "Parkfield verisi yok (üstveriden)" yazılır |
+| D4 | **Kör olaylarda gerçek W örtüsü ve E1 maske payları** (n_P, n_N) | Availability gün dosyası düzeyinde; E1 hesaplanmadı | E1: ComCat M ≥ 6,0 katalog satırlarıyla, TR-7 §6.5.1a kuralıyla, olay (birim) başına K1b aralığının açık payı. Örtü: availability'den liste istasyonu sayısı | Kestirilen n_P < 8 ya da n_N < 20 (N birimleriyle, en çok 29) ise dal (a) önceden belli olur. **Yazarın seçimi:** o durumda da dondurulmaz, kör koşu yapılmaz. Kayda "Parkfield verisi yok (üstveriden)" yazılır |
 | D5 | **CI istasyonları** | EarthScope availability 404 verdi (SAYIM §5.2) | Aynı servis bir kez daha, belgelenmiş GET biçimiyle | Yalnız sayı (n_P, n_N) |
 | D6 | **PGV → kPa dönüşümü** (G, β) | Varsayım | Yok (kuram). Z6 cümlesi "≈ 2 kPa" der; ölçek TR-7 §12 aynen | Değişmez |
 | D7 | **Marmara A90** | Hiç ölçülmedi | Yok; ancak koşuda (dal (b) sonrası) ölçülür | – |
 | D8 | **Ham yoklama günlükleri** (`/mnt/project-files/turetme/tr7b-ham/`) | INCELEME-0'da açılmadı; körlük beyanı yalnız betik koduna dayanıyor | Bağımsız kod incelemecisi günlükte W'ye düşen bir dataselect satırı olmadığını denetler (yalnız istek satırları; gövde yok) | W'ye düşen bir istek bulunursa §11'e yazılır, o olay için "kör değil" notu eklenir |
-| D9 | **2009-10-07 çifti** (N 27, N 28) | W pencereleri örtüşüyor | E1 hesabında (D4) iki W'nin örtüşme payı yazılır | Yalnız §3.2'deki bilgi satırı |
+| D9 | **2009-10-07 çifti** (N 27, N 28) | W pencereleri örtüşüyor; varışlar kaba | E1 hesabında (D4) birleşik birimin W'si, K1b aralığı ve N 28'in E1 maskesi katalogla ve iasp91 ile hesaplanır | D-1 gereği çift tek birimdir; yoklama yalnız birimin pencerelerini sayıyla sabitler |
 
 **Yoklama sırası** (yazarın seçimi): D4 ve D1 önce yapılır. İkisinden biri dondurmayı engellerse ötekiler yapılmaz.
 
@@ -461,29 +593,53 @@ istenmez; dataselect çağrısı yapılmaz.** Sonuçlar ayrı bir "TR-7c ÜSTVER
   denetlenmedi).
 - Sonuç ne olursa olsun hiçbir dal değişmez. Kod çökerse yalnız okuma ve ayrıştırma katmanı düzeltilir, düzeltme
   "duman sonrası düzeltme" başlığıyla yazılır ve bağımsız kod incelemesine (§10 adım 4) dahil edilir.
+- **D-3:** Duman sınaması karar metni dondurulduktan **sonra** yapılır (§10 adım 3). Duman sonucu hiçbir "yazarın
+  seçimi"ni değiştirmez.
+- **Ö-c (alındı):** Dört TR-7 kümesinin ve saf telesismik P kümesinin (05:57:43–06:05:57) modülasyon M'si ve p'si
+  yazılır (modülasyon yolu çalıştırılabiliyorsa). Saf P kümesi bilinen, tremor dışı gerçek bir kümedir. Okunuşu önceden
+  yazılır: "p ≤ 0,01 ise kilitsiz sızıntıda da m_f'nin küçük olmadığına dair tek gözlemlik işaret; dal değişmez, D-3
+  gereği metin değişmez, yalnız §12'ye yazılır."
 
 ## 10. Koşu sırası
 
 Tek koşu kuralı TR-7 §10.6 aynen, aşama adlarında K1 → K1c.
 
-1. **Üstveri yoklaması** (§8; 0 €; dalga formu yok). D1 ya da D4 engellerse burada durulur, kör olaylar harcanmaz.
+1. **Üstveri yoklaması** (§8; 0 €; dalga formu yok). D1 (D-5: k < 7) ya da D4 engellerse burada durulur, kör olaylar
+   harcanmaz.
+
+   **D-3 (aynen; adım 1 ile adım 2 arasına):**
+
+   > "Karar metni dondurması: §8'in üstveri yoklamaları bittikten sonra, §10 adım 2'deki m_f ölçümünden ve adım 3'teki
+   > Tohoku duman sınamasından önce, bu metin 'Durum: KARAR METNİ DONDURULDU' satırıyla commit ve push edilir; sha256'sı
+   > deftere yazılır. Bundan sonra yalnız şunlar değişebilir: §8 yoklamalarının sayıları (n_P, n_N kestirimi, başvuru
+   > istasyonlu P olayı sayısı k), koşu kodunun okuma ve ayrıştırma katmanı ('duman sonrası düzeltme') ve bağımsız kod
+   > incelemesinin dal, eşik, olay listesi, birim, A_PK, ŝ ve n tanımlarına dokunmayan düzeltmeleri. Bu tanımlara dokunan
+   > her değişiklik yeni bir bağımsız metin incelemesi ister. Tohoku duman sınamasının sonucu hiçbir 'yazarın seçimi'ni
+   > değiştirmez."
+
+   D-3'teki "adım 2" ve "adım 3" aşağıdaki 2. ve 3. adımlardır. Karar metni dondurmasını koordinatör yapar.
 2. **Kod, yalnız yapay veride.** TR-7'nin KD'si (§7.1 D1–D15, bantlar aynen) ve TR-7b §11.2 satırları K5 ile koşulur.
    Bunlara Z3/Z4 dal mantığı için yapay sayılarla birim sınamaları ve mutasyonlar eklenir. Örnek mutasyonlar: Fisher
-   yönü ters; (iv)'de "≥ 3" yerine "≥ 1"; dal (a) eşiği n_N < 2; (b) dışında Marmara indirme. D2'nin m_f ölçümü de bu
+   yönü ters; (iv)'de "≥ 3" yerine "≥ 1"; dal (a) eşiği n_N < 2; (b) dışında Marmara indirme; Vanuatu birimi iki kez
+   sayılır (D-1); D-7 okuma kuralı kaldırılır; D-9 etiketi Marmara "VAR"ını engellemez. D2'nin m_f ölçümü (D-4) de bu
    adımdadır. KD bantlarından biri kalırsa kod düzeltilir; K5 ve eşikler değişmez. TR-7b §11.2 satırları yalnız bilgidir.
    Değerlerin Tur 2/3 değerleriyle tutarlılığı (Monte Carlo hatası içinde) kodun K5'i doğru çağırdığını gösterir; K5
    seçimini etkilemez.
-3. **Tohoku duman sınaması** (§9, Z7). Yazarın seçimi: kod incelemesinden önce yapılır, böylece duman sonrası bir
-   düzeltme varsa o da incelenir.
+3. **Tohoku duman sınaması** (§9, Z7). Karar metni dondurulduktan sonra (D-3) ve kod incelemesinden önce yapılır;
+   böylece duman sonrası bir düzeltme varsa o da incelenir.
 4. **Bağımsız kod incelemesi** (Z8, aynen): "TR-7b koşu kodu (K5 ile K1b) dondurulmadan önce bağımsız kod incelemesi
    gerekir. Gerekçe: K5 bu kodda ilk kez yapay ortam dışında çalışacak; Q referansı ve ρ gerçek maske parçalarıyla
-   hesaplanacak." "Koşulabilir" hükmü gerekir. İnceleme D8'i de denetler.
-5. **Dondurma.** Bu metin "Durum: DONDURULDU …" satırıyla commit ve push edilir. Kod, dondurulmuş metnin ve
-   `tr7b_yapay2.py`'nin sha256'larını denetlemeden gerçek kipte çalışmaz (TR-13b §12.1 örneği; yazarın seçimi).
+   hesaplanacak." "Koşulabilir" hükmü gerekir. İnceleme D8'i, D-2'nin çağrı ağacını ve Ö-i'nin iki notunu da denetler:
+   `_rho` Spearman'ının eşit değerlerde ortalama sıra kullanmaması ve `_k1_kalinti`'nin Q indislerinin gerçek veride
+   saniye eşlemesi ile maske hizası.
+5. **Koşu dondurması.** Bu metin "Durum: DONDURULDU …" satırıyla commit ve push edilir. Kod, dondurulmuş metnin ve
+   D-2'deki üç dosyanın sha256'larını denetlemeden gerçek kipte çalışmaz (TR-13b §12.1 örneği; yazarın seçimi).
 6. **Parkfield kör kontrolü, tek koşu.** Aşamalar: manifest → K1c-indirme (P, N ve rastgele negatifler) → K1c-negatif
-   (rastgele negatifler: f_PK, N_PK, MDA) → K1c-algılama. Algılama aşamasında sıra (yazarın seçimi): önce 30 N olayı,
-   sonra 10 P olayı. Z3 ve Z4 yalnız bütün olaylar bittikten sonra hesaplanır. Hüküm dosyası bir kez yazılır. Durum
-   dosyası `kayit/turetme/tr7c/TR7C_KOSU_DURUM.json`, her aşamada commit ve push edilir.
+   (rastgele negatifler: f_PK, N_PK, MDA) → K1c-algılama. Algılama aşamasında sıra (yazarın seçimi): önce 29 N birimi
+   (30 olay), sonra 10 P olayı. Z3 ve Z4 yalnız bütün olaylar bittikten sonra hesaplanır. Hüküm dosyası bir kez yazılır.
+   Durum dosyası `kayit/turetme/tr7c/TR7C_KOSU_DURUM.json`, her aşamada commit ve push edilir.
+   **Ö-b (alındı):** Durum dosyası aşama sonlarında yalnız "tamamlandı / hata" ve dosya sha256'larını taşır; X_N, f_PK
+   gibi sayılar hüküm dosyasına kadar yazılmaz. N aşamasından sonra koşu yalnız teknik çöküşle durur (TR-7 §10.6).
 7. **Ancak K1c (b) ise:** Marmara-indirme → Marmara-negatif → Marmara-algılama → hüküm (TR-7b §7 aynen, Z6 ile). (b)
    dışındaki her dalda koşu 6. adımda biter ve Marmara verisi indirilmez.
 
@@ -499,8 +655,13 @@ Tek koşu kuralı TR-7 §10.6 aynen, aşama adlarında K1 → K1c.
 - **Marmara** dalga formu hiç indirilmedi; Marmara tarafı tam kördür.
 - **Kör olmayan kısım.** Yazar Peng 2009'un tam metnini okudu ve olaylarda tremorun ne zaman, hangi dalgayla geldiğini
   literatürden bilir (SAYIM §5.4). K5'in eşikleri bundan önce yapay veriyle sabitlendi. Bu bilgi ancak bundan sonra bir
-  ayar yapılırsa zarar verir; §2 bu yolu kapatır. Yazar K5'in Tur 2 ve Tur 3 yapay sonuçlarını, INCELEME-0'ın güç
-  hesabını ve Chao etiketleriyle PGV_T değerlerini biliyor. Algılayıcının bu 40 olaydaki çıktısını bilmiyor.
+  ayar yapılırsa zarar verir; §2 bu yolu kapatır. Yazar K5'in Tur 2 ve Tur 3 yapay sonuçlarını, INCELEME-0 ve
+  INCELEME-1'in hesaplarını ve Chao etiketleriyle PGV_T değerlerini biliyor. Algılayıcının bu 40 olaydaki çıktısını
+  bilmiyor.
+- **Tohoku duman sınaması** (D-3): karar metni dondurulmadan görülmez; Z7'nin korumadığı seçimler bu yolla
+  değiştirilemez.
+- **Sürüm 2 için** hiçbir ağ isteği yapılmadı. §8'in üstveri yoklaması (D1, D4) sürüm 2 commit edildikten sonra yapılır
+  ve ayrı bir belgeye yazılır (`TR-7c_USTVERI.md`).
 
 ## 12. Bilinen zayıflıklar (INCELEME-0 §3–§4'ten; çözülmez, yazılır)
 
@@ -510,27 +671,35 @@ Tek koşu kuralı TR-7 §10.6 aynen, aşama adlarında K1 → K1c.
 3. **Kirli negatif.** "Tetiklemedi" etiketi görsel incelemedir ve büyük ölçüde kuyu kayıtlarına dayanır. Daha duyarlı bir
    algılayıcı Q = 0 olaylarında gerçek zayıf tremor bulabilir. Bunun yönü yanlış rettir.
 4. **Yüzey–kuyu farkı.** Ana sınıf yüzey ağıdır, Chao'nun büyük ölçüde kuyu/PKD. s düşer; yanlış ret yönündedir.
-5. **Bağımsızlık.** Kuril 2006/2007, Macquarie/Sumatra 2004, 2009-10-07 çifti. Binom ve Fisher bağımsızlık varsayar.
-6. **Aktarım.** Parkfield'da geçen bir kör kontrol yalnız şunu gösterir: kırsal, yoğun, yerel bir yüzey ağında,
+5. **Bağımsızlık.** Kuril 2006/2007 ve Macquarie/Sumatra 2004. Binom ve Fisher bağımsızlık varsayar. 2009-10-07
+   çifti D-1 ile tek birimdir.
+6. **Kilitli, genliğe bağlı sızıntı** (INCELEME-1 §5). Tetikleyicinin yüzey dalgası genliğini izleyen tremor dışı bir
+   2–8 Hz sinyali (aletsel doğrusalsızlık, dinamik tetiklenmiş yerel ya da bölgesel mikrodepremler; ör. Peng 2010'un
+   Maule'de bildirdiği Coso depremleri) modülasyon şartından geçebilir. Tohoku'da bu ağda genliğe bağlı, ağ çapında
+   tutarlı 2–8 Hz artışı gerçektir (TR-7b §2), ama tremor mu sızıntı mı olduğu gösterilemedi. Bu biçim yalnız 4 genliği
+   eşlenmiş negatifle ve kısmen sınanır (D-9). Büyük v0 ve büyük m_f birlikteyse açık kalır; 0 € ile kapatılamaz.
+7. **Aktarım.** Parkfield'da geçen bir kör kontrol yalnız şunu gösterir: kırsal, yoğun, yerel bir yüzey ağında,
    Parkfield–Cholame türü (20–25 km) ve ≈ 2 kPa'nın üstünde tetiklenen bir kaynağın tremoru bu algılayıcıyla s oranında
    yakalanır. Marmara'ya taşınmayanlar: kentsel ve durağan olmayan gürültü, KO'ya dayalı geometri, kaynağın varlığı ve
    derinliği, kaba τ'daki ×3 belirsizlik.
-7. TR-7 §12'nin bütün maddeleri aynen geçerlidir.
+8. TR-7 §12'nin bütün maddeleri aynen geçerlidir.
 
 ## 13. İstanbul'a bağ
 
 TR-7 §13 aynen. Mutlak olasılık ya da olasılık çarpanı yazılmaz; sonuç bir olasılık terimi değildir. Marmara sonucunun
 anlamı yalnız TR-7 §13'ün iki cümlesinden biridir: "dinamik gerilmeye duyarlı derin kayma bölgesi gözlendi" ya da "bu
 duyarlılıkla (A90, kaba τ, n) gözlenmedi". TR-7c bunlara Z6'nın A90(S_k)/A_PK şartını ekler. Z6 cümlesindeki
-(1 − ŝ)^n, Parkfield türü bir kaynağın bu taramada görülmeme olasılığıdır. İstanbul'da deprem olasılığı hakkında hiçbir
+(1 − ŝ)^n_açık (D-6), Parkfield türü bir kaynağın bu taramada görülmeme olasılığıdır. İstanbul'da deprem olasılığı hakkında hiçbir
 şey söylemez. K1c (b) dışında Marmara hakkında hiçbir cümle kurulmaz.
 
-## 14. İnceleme eşleme tablosu (`TR-7c_INCELEME-0.md` §6)
+## 14. İnceleme eşleme tabloları
+
+### 14.1 `TR-7c_INCELEME-0.md` §6
 
 | Madde | İçerik | Bu metinde nerede | Biçim |
 |---|---|---|---|
 | Z1 | Sapma ve körlük beyanı | §2 (aynen), §11 | alıntı aynen; §2 sonunda kapatılan yollar (yazarın seçimi), §4.2 uygulama (yazarın seçimi) |
-| Z2 | Olay listesi; n_P, n_N tanımı; E1 katalogdan; rastgele negatifler | §3 (aynen), §3.1–§3.2 tablolar | alıntı aynen; N 27/28 bilgi satırı yazarın seçimi |
+| Z2 | Olay listesi; n_P, n_N tanımı; E1 katalogdan; rastgele negatifler | §3 (aynen), §3.1–§3.2 tablolar | alıntı aynen; N 27/28 sürüm 2'de D-1 ile tek birim |
 | Z3 | Başarı ölçütü D30M3 | §5 (aynen) | alıntı aynen; Fisher biçimi, N_PK < 5, "ölçülebilir" tanımı yazarın seçimi |
 | Z4 | Dallar ve sırası; bilgi satırları | §6.1 (aynen) | alıntı aynen; "K1c" adı, (c)'de uygulama hatası yolunun olmaması ve ek bilgi satırları yazarın seçimi |
 | Z5 | Görülebilir en küçük etki, kaynak, ×0,5 / ×2 | §7 (aynen), §7.1–§7.4 | alıntı aynen; tablolar `tr7c_guc.json`'dan |
@@ -539,9 +708,46 @@ duyarlılıkla (A90, kaba τ, n) gözlenmedi". TR-7c bunlara Z6'nın A90(S_k)/A_
 | Z8 | Dondurmadan önce bağımsız kod incelemesi | §10 adım 4 (aynen) | aynen; D8 denetimi eklendi |
 | §7 doğrulanamayanlar | ham günlükler, Chao istasyonları, m_t/m_f, başvuru istasyonu, PGV→kPa, örtü/E1, Marmara A90 | §8 D1–D8 | her biri için 0 € yoklama |
 
+### 14.2 `TR-7c_INCELEME-1.md` §9–§10 (sürüm 2)
+
+Zorunlu düzeltmeler (hepsi incelemedeki kesin cümleyle aynen işlendi):
+
+| Madde | İçerik | Bu metinde nerede |
+|---|---|---|
+| D-1 | N 27 / N 28 tek birim ("Vanuatu 2009 birimi"), n_N ≤ 29 | §3.2 (aynen); §3 veri kuralı, §6.1 bilgi satırı, §7.3, §8 D4/D9, §10 adım 2 ve 6 |
+| D-2 | K5'in çağrı ağacındaki üç dosyanın sha256 denetimi | §4.2 (aynen); §10 adım 4–5 |
+| D-3 | Karar metni, m_f ölçümünden ve Tohoku duman sınamasından önce dondurulur | §10 adım 1 ile 2 arası (aynen); §9, §10 adım 3, §11 |
+| D-4 | m_f ≥ 100 kümede, ayıklamadan önce; kapsam yalnız kilitsiz sızıntı | §5 "Neden D30M3" (aynen); §7.2, §8 D2 |
+| D-5 | D1 durma eşiği k < 7 | §8 D1 (aynen); §7.3 k tablosu; §10 adım 1 |
+| D-6 | (1 − ŝ)^n_açık; n_açık < 5; A90 belirsiz ya da A_PK = 0 ise oran > 1 | §6.2 (aynen); §13 |
+| D-7 | Dal (e) ikinci cümlesinin okunuşu; X_min yoksa ve A90 belirsizse | §6.1 Z4'ün altı (aynen); özet tablo |
+| D-8 | §7.4'ün s₀'daki sayıları; (c), (d), (e)'ye "ayırt edilemez (MDE)" eki | §7.4 (aynen, birinci cümle); §6.1 (aynen, ikinci cümle); §7.3 MDE tablosu |
+| D-9 | Genliği eşlenmiş 4 N olayı etiketi; "sınandı"nın okunuşu; Marmara "VAR" eki | §5 madde 6 ve okunuş (aynen); §6.1 özet tablo; §6.2; §7.2; §12 madde 6 |
+| D-10 | (b) iken "Parkfield modülasyonu geçti" yoksa K1c satırı ve olasılığı | §5 madde 5 (aynen); §6.1 özet tablo; §6.2 |
+
+Öneriler:
+
+| Öneri | Alındı mı | Nerede / gerekçe |
+|---|---|---|
+| Ö-a A_PK'nın iki ek bilgi satırı | alındı (bilgi) | §6.2. Bağlayıcı oran TR-7 §7.5 aynen tanımlı A_PK ile kalır, çünkü TR-7b §7 "aynen" der |
+| Ö-b durum dosyasında ara sayı yok | alındı | §10 adım 6 |
+| Ö-c Tohoku duman satırında modülasyon M ve p, önceden yazılı okunuş | alındı | §9 |
+| Ö-d dal (c)'de kalan şartın parantezle yazılması | alındı | §6.1 |
+| Ö-e (1 − ŝ_alt)^n_açık bilgi satırı | alındı (bilgi) | §6.2 |
+| Ö-f `ESIK-DAYANAGI.md`'ye TR-7c satırı | **alınmadı (ertelendi)** | İnceleme bunu "dondurma sürümünde" istiyor; dondurmayı koordinatör yapar. Bu sürüm `ESIK-DAYANAGI.md`'yi değiştirmez; satırın içeriği §7.4'te hazır |
+| Ö-g "≤ 0,0002" satırının dayanağı | alındı | §7.2 |
+| Ö-h olay başına "Q doğrusu kuruldu mu" | alındı (bilgi) | §4.2, §6.1 |
+| Ö-i `_rho` eşitlikleri ve `_k1_kalinti` indis hizası | alındı (kod incelemesine not) | §10 adım 4 |
+
+Not: Koordinatör eşleme tablosunu "§11" diye andı. Bu metinde §11 körlük beyanıdır ve INCELEME-1'in düzeltme cümleleri
+bölüm numaralarına (§3.2, §4.2, §5, §6.1, §6.2, §7.4, §8, §10) atıf yapar. Numaralar değişmesin diye tablo §14.2'ye
+kondu.
+
 ## 15. Bu taslakta açık kalanlar (dondurmadan önce kapanmalı)
 
-- §8'in yoklamaları yapılmadı (D1–D5, D8, D9).
+- §8'in yoklamaları yapılmadı (D1–D5, D8, D9). D1 ve D4 sürüm 2'den sonra yapılır (`TR-7c_USTVERI.md`).
+- Karar metni dondurması (D-3) ve koşu dondurması yapılmadı; ikisini de koordinatör yapar.
+- `ESIK-DAYANAGI.md` TR-7c satırı (Ö-f) dondurma sürümüne ertelendi.
 - Koşu kodu yazılmadı; yapay sınamalar, mutasyonlar ve m_f ölçümü yok.
 - Tohoku duman sınaması yapılmadı.
 - Yazarın sınav öncesi beklentisi (TR-7 §11 ve TR-7b §10 biçiminde) dondurma sürümünde, kör koşudan önce yazılır.
