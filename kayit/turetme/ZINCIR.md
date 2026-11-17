@@ -310,3 +310,14 @@ düzeltmeyle kabul ve donduruldu; bağlayıcı yapay sınama 17 Kasım'da başla
 
 TR-4 (Marmara hız tabanı): kademe C seçildi, Kandilli indirmesi 17 Kasım 11:28Z'de başladı (≈ 256 GB, ≈ 3 hafta).
 Hiçbir ölçü indirme bitmeden hesaplanmaz.
+
+## Halka 14 (17 Kasım 2026): TR-13c sayımı, eşik düşürmek örneklemi büyütmüyor
+
+TR-13b'den çıkan soru sayıldı (`kayit/onkayit/TR-13c_SAYIM.md`, kural sayımdan önce yazıldı). Mw 6,0–6,49 bandında
+yalnız 5 yeni bağımsız küme var; öteki 5 geçen olay TR-13b'nin zaten görülmüş kümelerinde. Görülebilir en küçük etki
+f > 0,6 (TR-13b'de 0,39 idi). Ön kayıt yazılmadı, aday elenmedi.
+
+Başarısızlığın biçimi: yapısal. Küçük olayın bölgesi küçük (R = 50 km); bu yarıçapta hem gerçek arka plan sayısı
+sınırda hem de sıfır üreteci (yapay ETAS + GK74) kalibre edilemiyor. Çıkan soru büyüklük ekseninde değil: aynı
+ölçü, bölgesel yüksek çözünürlüklü kataloglarla (daha düşük tamlık büyüklüğü) referans kuralını geçen küme sayısını
+≥ 20'ye çıkarır mı. Bu, TR-13d adayı olarak önce katalog varlığı sayımı ister.
