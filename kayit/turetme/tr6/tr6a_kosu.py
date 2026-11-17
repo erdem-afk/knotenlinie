@@ -86,8 +86,8 @@ TASARIM = "a"
 AD = "TR-6a"                        # çıktılardaki sınav adı (TR-6c İNCELEME-1: TR-6c çıktıları "TR-6a" yazıyordu)
 TR6A_ONKAYIT, TR6A_ONKAYIT_SHA, TR6A_GOVDE_BAYT = ONKAYIT, ONKAYIT_SHA, ONKAYIT_GOVDE_BAYT
 TR6C_ONKAYIT = os.path.join(DEPO, "kayit", "onkayit", "TR-6c_gerilme-olcer-kor-dogrulama_ONKAYIT.md")
-TR6C_ONKAYIT_SHA = None             # dondurulunca: TR-6c gövdesinin sha256'sı
-TR6C_GOVDE_BAYT = None              # dondurulunca: TR-6c gövdesinin bayt uzunluğu
+TR6C_ONKAYIT_SHA = "172b2ebd281dd62c5cbfb95787051d71b13cfca156118195501d70d991abaa6c"             # dondurulunca: TR-6c gövdesinin sha256'sı
+TR6C_GOVDE_BAYT = 66337              # dondurulunca: TR-6c gövdesinin bayt uzunluğu
 N0_UST_C = 500.0                    # TR-6c §C4 kenar etkisi kuralı: gölge kapı N0'ı > 500 olay/yıl (n_on ≥ 2459)
 GOLGE_LOBLARI = ("golge", "D3a", "D3b", "D5", "D8")
 
