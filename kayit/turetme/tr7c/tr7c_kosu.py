@@ -102,7 +102,11 @@ GIRDI = {   # repo içi, yalnız okunur (O-3)
     os.path.join(BURA, 'inc1', 'tr7c_inc1.json'): '4974dbe66163b49ba8c1b7dab699121c45cdce5aa1fba53c0cb1b0791d912974',
     os.path.join(BURA, 'tr7c_mde_ek.json'): 'e759176ec28f0b4a9f18fed47bddfe1ed7f43a52fa24ed994c5d2a1d062c3b3d',
 }
-CIKTI = os.path.join(BURA, 'kosu')                       # gerçek koşunun çıktı dizini (kapı ister)
+TR7_MOTOR = {   # K-2: GercekOrtam/GercekKaynak'ın çağırdığı TR-7 motoru (tr7_sonuc.md'deki kod sha256'larıyla aynı)
+    os.path.join(TR7, 'tr7_kosu.py'): 'ce439a4797fd1992ddd68de734ee842b146bd6f13155ba6151769bceb26a9005',
+    os.path.join(TR7, 'tr7_indir.py'): '0763f46da14b2a12f5268937dc6e479dbfd1bc54c3c3ba93d700914dc4b91f2f',
+}
+CIKTI = os.path.join(BURA, 'kosu')                    # gerçek koşunun çıktı dizini (kapı ister)
 DURUM_AD = 'TR7C_KOSU_DURUM.json'
 HUKUM_AD = 'tr7c_k1c_hukum.json'
 ZARF_KOK = '/mnt/project-files/turetme/tr7c-zarf'        # depo dışı; yalnız kapı açıkken
@@ -173,6 +177,7 @@ def kosu_dondurulmus_mu(onkayit=None):
     try:
         d2_denetle()
         girdi_denetimi()
+        d2_denetle(TR7_MOTOR)     # K-2 (kod incelemesi): gerçek I/O katmanının çağırdığı TR-7 motoru da sabit
     except Tr7cDur as e:
         return False, str(e)
     return True, 'tamam'
@@ -247,7 +252,7 @@ def birimler_kur(ol=None, ustveri=None):
                 continue
             goruldu.add(bid)
             evids = BIRLESIK_BIRIMLER[bid]
-            u = ub.get(evids[0])
+            u = ub.get(bid)       # K-1 (kod incelemesi): USTVERI birleşik birimi birim adıyla yazar (D-1)
         else:
             bid, evids, u = e, (e,), ub.get(e)
         k1b = k1b_formul([ol[x] for x in evids])
