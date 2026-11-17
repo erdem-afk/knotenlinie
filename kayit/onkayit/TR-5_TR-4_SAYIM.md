@@ -5,8 +5,10 @@ erişim denemesi yapıldı, içerikleri okunmadı ve silindi (bölüm 4.1). 2026
 Katalog olarak hazır ComCat dosyaları kullanıldı (bitiş 2025-12-31). Erişimi reddedilen ya da bozuk servisler
 atlatılmadı. Betikler `kayit/turetme/tr5/` altında: `ustveri_indir.py` (FDSN istasyon üstverisi),
 `sayim_ustveri.py` (TR-5 sayımı), `kullanilabilirlik.py` (availability servisinden doluluk), `tr4_sayim.py` (TR-4).
-Talimat: Erdem, 12 Kasım ("tüm açık ihtimalleri götür, seçim yapmadan ilerlet, elemeyelim"). Bu belge adayları
+Talimat: Erdem, 12 Kasım (bütün açık adaylar seçimsiz ve elemesiz ilerletilsin). Bu belge adayları
 elemez. Yalnız sayıları ve kapı durumunu verir; karar kök oturumundur.
+Not (17 Kasım 2026): yukarıdaki talimat satırı birebir alıntı yerine nötr ifadeyle yeniden yazıldı; başka hiçbir
+satır değişmedi. TR-4 ön kaydının andığı sha256 `df912cb0…` bu düzeltmeden önceki dosyanındır (git geçmişinde duruyor).
 
 ## Hüküm
 

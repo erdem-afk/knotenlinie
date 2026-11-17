@@ -138,7 +138,7 @@ Zaman eksenini yıl ölçeğine indiren bir terim bulunmadı; yeni bir iddia kan
 
 ## Halka 6 (12 Kasım 2026): bütün açık adaylar ilerletildi, eleme yok
 
-Erdem'in talimatı (12 Kasım 00:41Z): "Tüm açık ihtimalleri götür, seçim yapmadan ilerlet, ihtimalleri elemeyelim."
+Erdem'in talimatı (12 Kasım 00:41Z): Bütün açık adaylar seçimsiz ve elemesiz ilerletilsin.
 Halka 5'teki "yeni iş paketi, seçim Erdem'in" cümlesinin yerini bu aldı: altı adayın her biri için ayrıntılı 0 €
 sayım ve güç kapısı yapıldı; kapıyı geçenler ön kayıt, bağımsız inceleme ve tek koşu hattına girdi.
 
@@ -194,7 +194,7 @@ Ek 1); yapay verili bağlayıcı yöntem sınamaları koşuyor.
 
 ## Halka 8 (12 Kasım 2026): teorik literatür taraması
 
-Erdem'in isteğiyle (12 Kasım 08:12Z: "teorik de çok kıymetli") zincire kuramsal kol eklendi; o ana dek halkalar yalnız
+Erdem'in isteğiyle (12 Kasım 08:12Z; kuramsal literatür de taranacak) zincire kuramsal kol eklendi; o ana dek halkalar yalnız
 ampirikti. Beş kol (çekirdeklenme ve ön kayma; döngü dinamiği ve kaos; gerilme etkileşimi ve yükleme; istatistiksel
 fizik ve bilgi sınırı; kilitli pürüz ve sünme), OpenAlex ile, 0 €. Notlar
 `research_notes/İstanbul depremi teorik öngörülebilirlik/`, rapor `reports/İstanbul depremi teorik öngörülebilirlik.md`.

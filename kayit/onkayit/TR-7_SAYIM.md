@@ -4,7 +4,7 @@
 denemesi yapıldı (bölüm 4) ve içerikleri açılmadı. Tetikleyici listesi 2025-12-31'de biter (2026 kör). Betik:
 `kayit/turetme/tr7/tr7_sayim.py`. Çıktılar: `tr7_tetikleyici.csv`, `tr7_cift.csv`, `tr7_istasyon.csv`,
 `tr7_sayim_ozet.json` (aynı dizin). Ham üstveri yanıtları depo dışında (scratchpad `tr7_onb/`).
-Talimat: Erdem, 12 Kasım ("tüm açık ihtimalleri götür, seçim yapmadan ilerlet, elemeyelim").
+Talimat: Erdem, 12 Kasım (bütün açık adaylar seçimsiz ve elemesiz ilerletilsin).
 
 ## Hüküm
 

@@ -3,10 +3,9 @@
 Tarih: 11 Kasım 2026. Bu dosya, Erdem'in 11 Kasım 20:56 UTC mesajının Fable 5.2 için yeniden yazılmış halidir.
 Türetme döngüsünü yürüten oturum bu istemi kullanır. Yeni bir oturum işi devralırsa buradan başlar.
 
-Erdem'in özgün mesajı: "bir fable aç /anthropic-skills:deep-research ile çalışsın openalex ile fable 5.2 ile çalışsın
-subagent olarak opus med kullansın. hedefimiz istanbul depremine henüz yaklaşmadığımız ve literatürden çıkan boşlukları
-test ederek derive ede ede varmak istiyoruz. fable'a bunu fable 5.2 için özel prompting tekniği ile ver. anthropic resmi
-sitesinden bak"
+Özgün istek (özet): literatür boşluklarını sınayarak, adım adım türeterek, henüz yaklaşamadığımız İstanbul
+depremine varmak; iş Fable 5.2 ile, deep-research skill'i ve OpenAlex kullanılarak yürütülsün, alt ajanlar Opus
+(orta düzey) olsun; istem Anthropic'in resmî Fable 5.2 yönlendirme belgesine göre yazılsın.
 
 ## Hangi teknik nereden geldi
 
