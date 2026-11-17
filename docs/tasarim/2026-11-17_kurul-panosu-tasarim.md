@@ -1,4 +1,4 @@
-# Kurul Panosu: tasarım önerisi (taslak, onay bekliyor)
+# Kurul Panosu: ilk tasarım önerisi (reddedildi; yerini kurul-sohbeti.html aldı)
 
 17 Kasım 2026. Yalnız tasarım; hiçbir şey kurulmadı, yayımlanmadı, paylaşılmadı.
 
