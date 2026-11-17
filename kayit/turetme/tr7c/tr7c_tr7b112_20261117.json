@@ -1,0 +1,552 @@
+{
+ "aciklama": "TR-7b §11.2 (Tur 2) satırları TR-7c koşu kodunun algılama yolundan; bilgi (K5 seçimini etkilemez). Aynı tohumda Tur 2 ile birebir beklenir.",
+ "kod_sha256": {
+  "tr7c_tr7b112.py": "8d19f035c329cc90b619058c5e55cb1a927a999128843a64f3a913bbdda35dda",
+  "tr7c_kosu.py": "345dc176ef5d00ae0e38931bbf0c18da99ef53422e67042a9638f5f10d3c73b3"
+ },
+ "d2_sha256": {
+  "kayit/turetme/tr7b/tr7b_yapay2.py": "ae995ba8802a934577cbf26051229360bcfb1a85d5d4d7dc16d358dfeaef437f",
+  "kayit/turetme/tr7b/tr7b_yapay.py": "e92715318e21a0200b66e3c130853f73cbc382b0398aef561619fcbe1bb74374",
+  "kayit/turetme/tr7/tr7_cekirdek.py": "4a1b9131603d0f3d519cacb183fdbcccc106157b66392bf2d09350c9f49206f6"
+ },
+ "tohum": 20261117,
+ "n": 100,
+ "tur2_json": "tr7b_yapay2_t1.json",
+ "birebir_tutmayan": [],
+ "hepsi_birebir": true,
+ "satirlar": {
+  "D7 yarım A10": {
+   "n": 100,
+   "n_alg": 100,
+   "K5_atilma_tam": 0.0,
+   "K5_atilma_sizinti": 0.0,
+   "K5_sag": 1.0,
+   "tur2": {
+    "n_alg": 100,
+    "K5_atilma_tam": 0.0,
+    "K5_atilma_sizinti": 0.0,
+    "K5_sag": 1.0
+   },
+   "birebir": true
+  },
+  "D7b patlama A3": {
+   "n": 100,
+   "n_alg": 99,
+   "K5_atilma_tam": 0.0,
+   "K5_atilma_sizinti": 0.0,
+   "K5_sag": 0.99,
+   "tur2": {
+    "n_alg": 99,
+    "K5_atilma_tam": 0.0,
+    "K5_atilma_sizinti": 0.0,
+    "K5_sag": 0.99
+   },
+   "birebir": true
+  },
+  "D7b patlama A10": {
+   "n": 100,
+   "n_alg": 100,
+   "K5_atilma_tam": 0.0,
+   "K5_atilma_sizinti": 0.0,
+   "K5_sag": 1.0,
+   "tur2": {
+    "n_alg": 100,
+    "K5_atilma_tam": 0.0,
+    "K5_atilma_sizinti": 0.0,
+    "K5_sag": 1.0
+   },
+   "birebir": true
+  },
+  "D7b patlama A30": {
+   "n": 100,
+   "n_alg": 100,
+   "K5_atilma_tam": 0.0,
+   "K5_atilma_sizinti": 0.0,
+   "K5_sag": 1.0,
+   "tur2": {
+    "n_alg": 100,
+    "K5_atilma_tam": 0.0,
+    "K5_atilma_sizinti": 0.0,
+    "K5_sag": 1.0
+   },
+   "birebir": true
+  },
+  "D7c düz A3": {
+   "n": 100,
+   "n_alg": 100,
+   "K5_atilma_tam": 0.0,
+   "K5_atilma_sizinti": 0.0,
+   "K5_sag": 1.0,
+   "tur2": {
+    "n_alg": 100,
+    "K5_atilma_tam": 0.0,
+    "K5_atilma_sizinti": 0.0,
+    "K5_sag": 1.0
+   },
+   "birebir": true
+  },
+  "D7c düz A10": {
+   "n": 100,
+   "n_alg": 100,
+   "K5_atilma_tam": 0.0,
+   "K5_atilma_sizinti": 0.0,
+   "K5_sag": 1.0,
+   "tur2": {
+    "n_alg": 100,
+    "K5_atilma_tam": 0.0,
+    "K5_atilma_sizinti": 0.0,
+    "K5_sag": 1.0
+   },
+   "birebir": true
+  },
+  "D7d koda x20": {
+   "n": 100,
+   "n_alg": 100,
+   "K5_atilma_tam": 1.0,
+   "K5_atilma_sizinti": 1.0,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 100,
+    "K5_atilma_tam": 1.0,
+    "K5_atilma_sizinti": 1.0,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "Y1 A3 a_y2 κ12.5 egim": {
+   "n": 100,
+   "n_alg": 100,
+   "K5_atilma_tam": 0.0,
+   "K5_atilma_sizinti": 0.0,
+   "K5_sag": 1.0,
+   "tur2": {
+    "n_alg": 100,
+    "K5_atilma_tam": 0.0,
+    "K5_atilma_sizinti": 0.0,
+    "K5_sag": 1.0
+   },
+   "birebir": true
+  },
+  "Y1 A3 a_y5 κ12.5 egim": {
+   "n": 100,
+   "n_alg": 100,
+   "K5_atilma_tam": 0.0,
+   "K5_atilma_sizinti": 0.0,
+   "K5_sag": 1.0,
+   "tur2": {
+    "n_alg": 100,
+    "K5_atilma_tam": 0.0,
+    "K5_atilma_sizinti": 0.0,
+    "K5_sag": 1.0
+   },
+   "birebir": true
+  },
+  "Y1 A3 a_y10 κ12.5 egim": {
+   "n": 100,
+   "n_alg": 100,
+   "K5_atilma_tam": 0.05,
+   "K5_atilma_sizinti": 0.05,
+   "K5_sag": 0.95,
+   "tur2": {
+    "n_alg": 100,
+    "K5_atilma_tam": 0.05,
+    "K5_atilma_sizinti": 0.05,
+    "K5_sag": 0.95
+   },
+   "birebir": true
+  },
+  "Y1 A10 a_y2 κ12.5 egim": {
+   "n": 100,
+   "n_alg": 100,
+   "K5_atilma_tam": 0.0,
+   "K5_atilma_sizinti": 0.0,
+   "K5_sag": 1.0,
+   "tur2": {
+    "n_alg": 100,
+    "K5_atilma_tam": 0.0,
+    "K5_atilma_sizinti": 0.0,
+    "K5_sag": 1.0
+   },
+   "birebir": true
+  },
+  "Y1 A10 a_y5 κ12.5 egim": {
+   "n": 100,
+   "n_alg": 100,
+   "K5_atilma_tam": 0.0,
+   "K5_atilma_sizinti": 0.0,
+   "K5_sag": 1.0,
+   "tur2": {
+    "n_alg": 100,
+    "K5_atilma_tam": 0.0,
+    "K5_atilma_sizinti": 0.0,
+    "K5_sag": 1.0
+   },
+   "birebir": true
+  },
+  "Y1 A10 a_y10 κ12.5 egim": {
+   "n": 100,
+   "n_alg": 100,
+   "K5_atilma_tam": 0.0,
+   "K5_atilma_sizinti": 0.0,
+   "K5_sag": 1.0,
+   "tur2": {
+    "n_alg": 100,
+    "K5_atilma_tam": 0.0,
+    "K5_atilma_sizinti": 0.0,
+    "K5_sag": 1.0
+   },
+   "birebir": true
+  },
+  "Y1 A3 a_y10 κ12.5 sabit": {
+   "n": 100,
+   "n_alg": 100,
+   "K5_atilma_tam": 1.0,
+   "K5_atilma_sizinti": 1.0,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 100,
+    "K5_atilma_tam": 1.0,
+    "K5_atilma_sizinti": 1.0,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "Y1 A10 a_y10 κ12.5 sabit": {
+   "n": 100,
+   "n_alg": 100,
+   "K5_atilma_tam": 1.0,
+   "K5_atilma_sizinti": 1.0,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 100,
+    "K5_atilma_tam": 1.0,
+    "K5_atilma_sizinti": 1.0,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "Y2 a_y2 κ6 egim": {
+   "n": 100,
+   "n_alg": 0,
+   "K5_atilma_tam": null,
+   "K5_atilma_sizinti": null,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 0,
+    "K5_atilma_tam": null,
+    "K5_atilma_sizinti": null,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "Y2 a_y2 κ6 sabit": {
+   "n": 100,
+   "n_alg": 79,
+   "K5_atilma_tam": 1.0,
+   "K5_atilma_sizinti": 1.0,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 79,
+    "K5_atilma_tam": 1.0,
+    "K5_atilma_sizinti": 1.0,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "Y2 a_y2 κ12.5 egim": {
+   "n": 100,
+   "n_alg": 0,
+   "K5_atilma_tam": null,
+   "K5_atilma_sizinti": null,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 0,
+    "K5_atilma_tam": null,
+    "K5_atilma_sizinti": null,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "Y2 a_y2 κ12.5 sabit": {
+   "n": 100,
+   "n_alg": 73,
+   "K5_atilma_tam": 1.0,
+   "K5_atilma_sizinti": 1.0,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 73,
+    "K5_atilma_tam": 1.0,
+    "K5_atilma_sizinti": 1.0,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "Y2 a_y2 κ25 egim": {
+   "n": 100,
+   "n_alg": 0,
+   "K5_atilma_tam": null,
+   "K5_atilma_sizinti": null,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 0,
+    "K5_atilma_tam": null,
+    "K5_atilma_sizinti": null,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "Y2 a_y2 κ25 sabit": {
+   "n": 100,
+   "n_alg": 82,
+   "K5_atilma_tam": 1.0,
+   "K5_atilma_sizinti": 1.0,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 82,
+    "K5_atilma_tam": 1.0,
+    "K5_atilma_sizinti": 1.0,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "Y2 a_y5 κ6 egim": {
+   "n": 100,
+   "n_alg": 0,
+   "K5_atilma_tam": null,
+   "K5_atilma_sizinti": null,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 0,
+    "K5_atilma_tam": null,
+    "K5_atilma_sizinti": null,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "Y2 a_y5 κ6 sabit": {
+   "n": 100,
+   "n_alg": 100,
+   "K5_atilma_tam": 0.98,
+   "K5_atilma_sizinti": 0.98,
+   "K5_sag": 0.02,
+   "tur2": {
+    "n_alg": 100,
+    "K5_atilma_tam": 0.98,
+    "K5_atilma_sizinti": 0.98,
+    "K5_sag": 0.02
+   },
+   "birebir": true
+  },
+  "Y2 a_y5 κ12.5 egim": {
+   "n": 100,
+   "n_alg": 1,
+   "K5_atilma_tam": 1.0,
+   "K5_atilma_sizinti": 1.0,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 1,
+    "K5_atilma_tam": 1.0,
+    "K5_atilma_sizinti": 1.0,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "Y2 a_y5 κ12.5 sabit": {
+   "n": 100,
+   "n_alg": 100,
+   "K5_atilma_tam": 1.0,
+   "K5_atilma_sizinti": 1.0,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 100,
+    "K5_atilma_tam": 1.0,
+    "K5_atilma_sizinti": 1.0,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "Y2 a_y5 κ25 egim": {
+   "n": 100,
+   "n_alg": 0,
+   "K5_atilma_tam": null,
+   "K5_atilma_sizinti": null,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 0,
+    "K5_atilma_tam": null,
+    "K5_atilma_sizinti": null,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "Y2 a_y5 κ25 sabit": {
+   "n": 100,
+   "n_alg": 100,
+   "K5_atilma_tam": 1.0,
+   "K5_atilma_sizinti": 1.0,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 100,
+    "K5_atilma_tam": 1.0,
+    "K5_atilma_sizinti": 1.0,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "Y2 a_y10 κ6 egim": {
+   "n": 100,
+   "n_alg": 21,
+   "K5_atilma_tam": 1.0,
+   "K5_atilma_sizinti": 1.0,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 21,
+    "K5_atilma_tam": 1.0,
+    "K5_atilma_sizinti": 1.0,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "Y2 a_y10 κ6 sabit": {
+   "n": 100,
+   "n_alg": 100,
+   "K5_atilma_tam": 1.0,
+   "K5_atilma_sizinti": 1.0,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 100,
+    "K5_atilma_tam": 1.0,
+    "K5_atilma_sizinti": 1.0,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "Y2 a_y10 κ12.5 egim": {
+   "n": 100,
+   "n_alg": 24,
+   "K5_atilma_tam": 1.0,
+   "K5_atilma_sizinti": 1.0,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 24,
+    "K5_atilma_tam": 1.0,
+    "K5_atilma_sizinti": 1.0,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "Y2 a_y10 κ12.5 sabit": {
+   "n": 100,
+   "n_alg": 100,
+   "K5_atilma_tam": 1.0,
+   "K5_atilma_sizinti": 1.0,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 100,
+    "K5_atilma_tam": 1.0,
+    "K5_atilma_sizinti": 1.0,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "Y2 a_y10 κ25 egim": {
+   "n": 100,
+   "n_alg": 18,
+   "K5_atilma_tam": 1.0,
+   "K5_atilma_sizinti": 1.0,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 18,
+    "K5_atilma_tam": 1.0,
+    "K5_atilma_sizinti": 1.0,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "Y2 a_y10 κ25 sabit": {
+   "n": 100,
+   "n_alg": 100,
+   "K5_atilma_tam": 1.0,
+   "K5_atilma_sizinti": 1.0,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 100,
+    "K5_atilma_tam": 1.0,
+    "K5_atilma_sizinti": 1.0,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "Y3 koda x20 + tele a_y2": {
+   "n": 100,
+   "n_alg": 100,
+   "K5_atilma_tam": 1.0,
+   "K5_atilma_sizinti": 1.0,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 100,
+    "K5_atilma_tam": 1.0,
+    "K5_atilma_sizinti": 1.0,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "Y3 koda x20 + tele a_y5": {
+   "n": 100,
+   "n_alg": 100,
+   "K5_atilma_tam": 1.0,
+   "K5_atilma_sizinti": 1.0,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 100,
+    "K5_atilma_tam": 1.0,
+    "K5_atilma_sizinti": 1.0,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "Y3 koda x20 + tele a_y10": {
+   "n": 100,
+   "n_alg": 100,
+   "K5_atilma_tam": 1.0,
+   "K5_atilma_sizinti": 1.0,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 100,
+    "K5_atilma_tam": 1.0,
+    "K5_atilma_sizinti": 1.0,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "F1 tetikleyicisiz kentsel": {
+   "n": 100,
+   "n_alg": 0,
+   "K5_atilma_tam": null,
+   "K5_atilma_sizinti": null,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 0,
+    "K5_atilma_tam": null,
+    "K5_atilma_sizinti": null,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  },
+  "F2 tetikleyicili kentsel": {
+   "n": 100,
+   "n_alg": 0,
+   "K5_atilma_tam": null,
+   "K5_atilma_sizinti": null,
+   "K5_sag": 0.0,
+   "tur2": {
+    "n_alg": 0,
+    "K5_atilma_tam": null,
+    "K5_atilma_sizinti": null,
+    "K5_sag": 0.0
+   },
+   "birebir": true
+  }
+ },
+ "sure_s": 1128.0
+}
