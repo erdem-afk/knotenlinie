@@ -310,6 +310,7 @@ def ref_modulasyon(kaynak, birimler, mod_n):
     sağ çıkan ve K1b (kapsayıcı) ile kesişen kümeler; K.mod_p (TR-7 çekirdeği)."""
     rng = np.random.default_rng(20261112 + 3)
     out = {}
+    ref_modulasyon.M = {}
     for b in sorted([b for b in birimler if b['sinif'] in ('P', 'N')], key=lambda b: b['t0']):
         pv = kaynak._pv.get(b['id']) or kaynak.pencere(b)
         ks = K.kumeler(pv['ist'], pv['maske'], pv['Wb'])
@@ -327,6 +328,7 @@ def ref_modulasyon(kaynak, birimler, mod_n):
                 a, bb = max(k['I'][0], W0) - W0, min(k['I'][1], W1) - W0
                 M, p = K.mod_p(np.where(gec, Lk, 0.0), cfs, a, bb, gec, rng, n=mod_n)
                 ps.append(p)
+                ref_modulasyon.M.setdefault(b['id'], []).append(float(M))
         out[b['id']] = ps
     return out
 
@@ -731,8 +733,12 @@ def uctan_uca(KM, R, ozet):
     h, d = k1c(KM, kay5, 'e5')
     ref = ref_modulasyon(kay5, kay5.birimler(), 200)
     kod = {b: [k['p'] for k in v['kumeler']] for b, v in h['modulasyon'].items()}
-    R.sina(g, 'E5 iki algılama kümeli P olayında p\'ler başvuruyla birebir (küme sırası I′ başı)',
-           len(ref[iki]) == 2 and kod == ref, dict(iki=(kod.get(iki), ref.get(iki))))
+    kodM = [float(k['M']) for k in h['modulasyon'][iki]['kumeler']]
+    refM = ref_modulasyon.M.get(iki, [])
+    # iki kilitli küme p'de eşit (1/(n+1)) çıkabilir: sırayı M ile de denetle (kod M'yi 4 basamağa yuvarlar)
+    R.sina(g, 'E5 iki algılama kümeli P olayında (M, p) başvuruyla birebir ve aynı sırada (küme sırası I′ başı)',
+           len(ref[iki]) == 2 and kod == ref and len(kodM) == 2 and np.allclose(kodM, refM, rtol=0, atol=6e-5),
+           dict(iki=(kod.get(iki), ref.get(iki)), M=(kodM, refM)))
     # E4 başvuru 8 P'de yok → M_olc 0 → (e) modülasyon ölçülemedi (D-7: i, ii var)
     kay4 = YapayKaynak(KM, sen_gercek(KM), ref_yok=list(KM.P_OLAY[:8]))
     h, d = k1c(KM, kay4, 'e4')
@@ -818,7 +824,10 @@ def main():
     if '--mutasyonsuz' not in sys.argv:
         kaynak = open(KOSU_YOL, encoding='utf-8').read()
         HAFIF['acik'] = True
+        sec = sys.argv[sys.argv.index('--mut') + 1] if '--mut' in sys.argv else None   # yalnız adında bu geçenler
         for i, (ad, eski, yeni) in enumerate(MUTASYONLAR):
+            if sec and sec not in ad:
+                continue
             if kaynak.count(eski) != 1:
                 mut.append(dict(ad=ad, durum=f'uygulanamadı ({kaynak.count(eski)})', yakalandi=False))
                 print('UYGULANAMADI', ad, flush=True)
