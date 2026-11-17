@@ -1,0 +1,241 @@
+{
+ "aciklama": "TR-7c D-4 m_f ölçümü: TR-7b Y2 (18 hücre) ve Y3 (3 hücre), ayıklamadan önce algılanan bütün tutarlı kümeler, TR-7 §6.4 ölçüsü (1000 kaydırma, p ≤ 0,01). Yalnız yapay veri.",
+ "kapsam": "Yalnız yüzey dalgasına kilitli OLMAYAN sızıntı (Y2/Y3 telesismik ve koda zarfları; başvuru hızı sızıntıdan bağımsız dar bantlı 15–30 sn). Kilitli sızıntının m_f'si bu ölçümle ölçülmez (D-4; doğrulanamadı); onun için tanım gereği m_f ≈ 1 (tr7c_inc1.json kilitli_sizinti).",
+ "kod_sha256": {
+  "tr7c_mf.py": "334185a28d3738b58a71b316495f63823cb36fe7543f2d67fe254f70dd120dd2",
+  "tr7c_kosu.py": "345dc176ef5d00ae0e38931bbf0c18da99ef53422e67042a9638f5f10d3c73b3"
+ },
+ "d2_sha256": {
+  "kayit/turetme/tr7b/tr7b_yapay2.py": "ae995ba8802a934577cbf26051229360bcfb1a85d5d4d7dc16d358dfeaef437f",
+  "kayit/turetme/tr7b/tr7b_yapay.py": "e92715318e21a0200b66e3c130853f73cbc382b0398aef561619fcbe1bb74374",
+  "kayit/turetme/tr7/tr7_cekirdek.py": "4a1b9131603d0f3d519cacb183fdbcccc106157b66392bf2d09350c9f49206f6"
+ },
+ "tohum": {
+  "pencere": 20261119,
+  "hiz_ve_kaydirma": 20261120
+ },
+ "pencere_hucre_basina": 20,
+ "mod_n": 1000,
+ "toplam": {
+  "kume": 326,
+  "olculen": 326,
+  "mod_p_le_001": 8,
+  "m_f": 0.024539877300613498,
+  "m_f_cp_ust": 0.043841540092341924,
+  "K5_ayiklamadan_sag": 0,
+  "sag_mod": 0,
+  "m_f_sag": null,
+  "p_dagilimi_ceyrek": [
+   0.07292707292707293,
+   0.21903096903096902,
+   0.4660339660339661
+  ]
+ },
+ "Y2": {
+  "kume": 264,
+  "olculen": 264,
+  "mod_p_le_001": 8,
+  "m_f": 0.030303030303030304,
+  "m_f_cp_ust": 0.05401122333636771,
+  "K5_ayiklamadan_sag": 0,
+  "sag_mod": 0,
+  "m_f_sag": null,
+  "p_dagilimi_ceyrek": [
+   0.06783216783216783,
+   0.21853146853146854,
+   0.442057942057942
+  ]
+ },
+ "Y3": {
+  "kume": 62,
+  "olculen": 62,
+  "mod_p_le_001": 0,
+  "m_f": 0.0,
+  "m_f_cp_ust": 0.0471695113753568,
+  "K5_ayiklamadan_sag": 0,
+  "sag_mod": 0,
+  "m_f_sag": null,
+  "p_dagilimi_ceyrek": [
+   0.13006993006993006,
+   0.237012987012987,
+   0.4915084915084915
+  ]
+ },
+ "hucreler": {
+  "Y2 a_y10 κ12.5 egim": {
+   "pencere": 20,
+   "kume": 3,
+   "olculen": 3,
+   "mod": 1,
+   "sag": 0,
+   "sag_mod": 0
+  },
+  "Y2 a_y10 κ12.5 sabit": {
+   "pencere": 20,
+   "kume": 20,
+   "olculen": 20,
+   "mod": 1,
+   "sag": 0,
+   "sag_mod": 0
+  },
+  "Y2 a_y10 κ25 egim": {
+   "pencere": 20,
+   "kume": 6,
+   "olculen": 6,
+   "mod": 0,
+   "sag": 0,
+   "sag_mod": 0
+  },
+  "Y2 a_y10 κ25 sabit": {
+   "pencere": 20,
+   "kume": 20,
+   "olculen": 20,
+   "mod": 0,
+   "sag": 0,
+   "sag_mod": 0
+  },
+  "Y2 a_y10 κ6 egim": {
+   "pencere": 20,
+   "kume": 8,
+   "olculen": 8,
+   "mod": 1,
+   "sag": 0,
+   "sag_mod": 0
+  },
+  "Y2 a_y10 κ6 sabit": {
+   "pencere": 20,
+   "kume": 20,
+   "olculen": 20,
+   "mod": 0,
+   "sag": 0,
+   "sag_mod": 0
+  },
+  "Y2 a_y2 κ12.5 egim": {
+   "pencere": 20,
+   "kume": 0,
+   "olculen": 0,
+   "mod": 0,
+   "sag": 0,
+   "sag_mod": 0
+  },
+  "Y2 a_y2 κ12.5 sabit": {
+   "pencere": 20,
+   "kume": 23,
+   "olculen": 23,
+   "mod": 1,
+   "sag": 0,
+   "sag_mod": 0
+  },
+  "Y2 a_y2 κ25 egim": {
+   "pencere": 20,
+   "kume": 0,
+   "olculen": 0,
+   "mod": 0,
+   "sag": 0,
+   "sag_mod": 0
+  },
+  "Y2 a_y2 κ25 sabit": {
+   "pencere": 20,
+   "kume": 31,
+   "olculen": 31,
+   "mod": 0,
+   "sag": 0,
+   "sag_mod": 0
+  },
+  "Y2 a_y2 κ6 egim": {
+   "pencere": 20,
+   "kume": 0,
+   "olculen": 0,
+   "mod": 0,
+   "sag": 0,
+   "sag_mod": 0
+  },
+  "Y2 a_y2 κ6 sabit": {
+   "pencere": 20,
+   "kume": 29,
+   "olculen": 29,
+   "mod": 1,
+   "sag": 0,
+   "sag_mod": 0
+  },
+  "Y2 a_y5 κ12.5 egim": {
+   "pencere": 20,
+   "kume": 0,
+   "olculen": 0,
+   "mod": 0,
+   "sag": 0,
+   "sag_mod": 0
+  },
+  "Y2 a_y5 κ12.5 sabit": {
+   "pencere": 20,
+   "kume": 33,
+   "olculen": 33,
+   "mod": 1,
+   "sag": 0,
+   "sag_mod": 0
+  },
+  "Y2 a_y5 κ25 egim": {
+   "pencere": 20,
+   "kume": 0,
+   "olculen": 0,
+   "mod": 0,
+   "sag": 0,
+   "sag_mod": 0
+  },
+  "Y2 a_y5 κ25 sabit": {
+   "pencere": 20,
+   "kume": 38,
+   "olculen": 38,
+   "mod": 1,
+   "sag": 0,
+   "sag_mod": 0
+  },
+  "Y2 a_y5 κ6 egim": {
+   "pencere": 20,
+   "kume": 0,
+   "olculen": 0,
+   "mod": 0,
+   "sag": 0,
+   "sag_mod": 0
+  },
+  "Y2 a_y5 κ6 sabit": {
+   "pencere": 20,
+   "kume": 33,
+   "olculen": 33,
+   "mod": 1,
+   "sag": 0,
+   "sag_mod": 0
+  },
+  "Y3 koda x20 + tele a_y10": {
+   "pencere": 20,
+   "kume": 22,
+   "olculen": 22,
+   "mod": 0,
+   "sag": 0,
+   "sag_mod": 0
+  },
+  "Y3 koda x20 + tele a_y2": {
+   "pencere": 20,
+   "kume": 20,
+   "olculen": 20,
+   "mod": 0,
+   "sag": 0,
+   "sag_mod": 0
+  },
+  "Y3 koda x20 + tele a_y5": {
+   "pencere": 20,
+   "kume": 20,
+   "olculen": 20,
+   "mod": 0,
+   "sag": 0,
+   "sag_mod": 0
+  }
+ },
+ "d4_esik": {
+  "esik": 0.1,
+  "asildi": false,
+  "not_": "m_f > 0,10 ise yalnız bildirilir (görev tanımı); taslak bağımsız incelemeye döner (D-4)."
+ },
+ "en_az_100_kume": true,
+ "sure_s": 1648.9
+}
