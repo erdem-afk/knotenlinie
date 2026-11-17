@@ -53,6 +53,13 @@ if [ -n "$HOST" ]; then
   printf '[Service]\nEnvironment=KURUL_HOST=%s\n' "$HOST" > /etc/systemd/system/caddy.service.d/kurul.conf
 fi
 
+# SSH: keys only. Applied only when root already has an authorized key, so a login path always remains.
+if [ -s /root/.ssh/authorized_keys ] && [ -d /etc/ssh/sshd_config.d ]; then
+  printf 'PasswordAuthentication no\nKbdInteractiveAuthentication no\n' > /etc/ssh/sshd_config.d/00-kurul-keys-only.conf
+  if sshd -t 2>/dev/null; then systemctl reload ssh 2>/dev/null || systemctl reload sshd 2>/dev/null || true
+  else rm -f /etc/ssh/sshd_config.d/00-kurul-keys-only.conf; fi
+fi
+
 systemctl daemon-reload
 systemctl enable kurul-site caddy
 systemctl restart kurul-site

@@ -160,6 +160,19 @@ if [ -n "$busy_event" ] && [ "$waited" -lt "$MAX_DEFER" ]; then
   exit 0
 fi
 
+# Test gate: the new code must pass the worker's own tests (run as the service user, fake model)
+# before the running worker is replaced. On failure the old process keeps running; retried every run.
+svc_user=$(systemctl show -p User --value "$UNIT" 2>/dev/null); svc_user=${svc_user:-kurul-ajan}
+if [ "${KURUL_UPDATE_TESTS:-1}" = "1" ] && id "$svc_user" >/dev/null 2>&1; then
+  if ! err=$(cd "$CODE/kurul" 2>/dev/null && setpriv --reuid="$svc_user" --regid="$(id -gn "$svc_user")" --init-groups \
+        env -i HOME=/tmp PATH=/usr/bin:/bin KURUL_LLM=fake PYTHONDONTWRITEBYTECODE=1 \
+        timeout 600 python3 -m unittest discover -s ajan/tests -t . 2>&1); then
+    problem tests "new code fails the worker tests; $UNIT not restarted: $(printf %s "$err" | tail -n 3 | tr '\n' ' ' | cut -c1-300)"
+    exit 0
+  fi
+  cleared tests
+fi
+
 if systemctl restart "$UNIT"; then
   if [ -n "$busy_event" ]; then
     say "restarted $UNIT on new code (waited ${waited}s; event $busy_event is replayed if it was cut)"
