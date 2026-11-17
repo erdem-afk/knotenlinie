@@ -1,0 +1,257 @@
+{
+ "not_": "TR-7c §9 Tohoku duman sınaması. GELİŞTİRME VERİSİ (kör değil). Yalnız kodun gerçek zarflarla çalıştığını gösterir; sonuç ne olursa olsun hiçbir dal, K5 ya da Z3 değişmez (Z7, D-3).",
+ "kod_sha256": {
+  "tr7c_duman.py": "d974586836bc5e028a26ef84045cd0592b14e01e5d68e9bf63afc6d6bd5c2515",
+  "tr7c_kosu.py": "345dc176ef5d00ae0e38931bbf0c18da99ef53422e67042a9638f5f10d3c73b3"
+ },
+ "d2_sha256": {
+  "kayit/turetme/tr7b/tr7b_yapay2.py": "ae995ba8802a934577cbf26051229360bcfb1a85d5d4d7dc16d358dfeaef437f",
+  "kayit/turetme/tr7b/tr7b_yapay.py": "e92715318e21a0200b66e3c130853f73cbc382b0398aef561619fcbe1bb74374",
+  "kayit/turetme/tr7/tr7_cekirdek.py": "4a1b9131603d0f3d519cacb183fdbcccc106157b66392bf2d09350c9f49206f6"
+ },
+ "depo_girdi_sha256": {
+  "tr7_k1.json": "9636b1788a2c571289aa6492d9f0e50c1331e7bd0da1bc332d38e6ee30ba7ef3",
+  "tr7_e1_maske.csv": "aef412df1d805fbbee65c1d4f7a76df67ce9b43ec9ee2a8bb3f1345bffccf391",
+  "tr7_parkfield_liste.csv": "9dca3380815196a8db15a8a5929441d38dd9b07fd7ed982845543e179957b2b8",
+  "tr7_zarf_sha256.jsonl": "e8aefe1de5bc1bdf2fece5892b50dee28e921b641f95a64733103780752b5950"
+ },
+ "zarf_sha256_denetimi": {
+  "dosya": 13,
+  "uyusmayan": []
+ },
+ "delta_derece": 73.49,
+ "tP_s": 689.8,
+ "tS_s": 1257.9,
+ "Wb": [
+  "2011-03-11 06:13:29",
+  "2011-03-11 06:45:15"
+ ],
+ "Q": [
+  "2011-03-11 05:57:53",
+  "2011-03-11 06:13:29"
+ ],
+ "K1b_bilgi": [
+  "2011-03-11 06:16:00",
+  "2011-03-11 06:31:48"
+ ],
+ "saf_P_araligi": [
+  "2011-03-11 05:57:43",
+  "2011-03-11 06:07:11"
+ ],
+ "P_araligi_maskeli_pay": 0.13,
+ "W_kumeleri": [
+  {
+   "Ip": [
+    "2011-03-11 06:13:29",
+    "2011-03-11 06:17:29"
+   ],
+   "n_ist": 10,
+   "n_cift_tutarli": 44,
+   "K5_bayrakli_ist": 0,
+   "K0_bayrakli_ist_bilgi": 9,
+   "darbe": false,
+   "sizinti_K5": false,
+   "taban": false,
+   "sag": true,
+   "K1b_kesisir_bilgi": true
+  },
+  {
+   "Ip": [
+    "2011-03-11 06:20:57",
+    "2011-03-11 06:23:51"
+   ],
+   "n_ist": 10,
+   "n_cift_tutarli": 40,
+   "K5_bayrakli_ist": 1,
+   "K0_bayrakli_ist_bilgi": 10,
+   "darbe": false,
+   "sizinti_K5": false,
+   "taban": false,
+   "sag": true,
+   "K1b_kesisir_bilgi": true
+  },
+  {
+   "Ip": [
+    "2011-03-11 06:25:35",
+    "2011-03-11 06:26:37"
+   ],
+   "n_ist": 7,
+   "n_cift_tutarli": 11,
+   "K5_bayrakli_ist": 2,
+   "K0_bayrakli_ist_bilgi": 7,
+   "darbe": false,
+   "sizinti_K5": false,
+   "taban": false,
+   "sag": true,
+   "K1b_kesisir_bilgi": true
+  },
+  {
+   "Ip": [
+    "2011-03-11 06:41:38",
+    "2011-03-11 06:45:09"
+   ],
+   "n_ist": 9,
+   "n_cift_tutarli": 4,
+   "K5_bayrakli_ist": 3,
+   "K0_bayrakli_ist_bilgi": 9,
+   "darbe": false,
+   "sizinti_K5": false,
+   "taban": true,
+   "sag": false,
+   "K1b_kesisir_bilgi": false
+  }
+ ],
+ "W_kumeleri_TR7_Ip_eslesmesi": {
+  "TR7": [
+   [
+    "2011-03-11 06:13:29",
+    "2011-03-11 06:17:29"
+   ],
+   [
+    "2011-03-11 06:20:57",
+    "2011-03-11 06:23:51"
+   ],
+   [
+    "2011-03-11 06:25:35",
+    "2011-03-11 06:26:37"
+   ],
+   [
+    "2011-03-11 06:41:38",
+    "2011-03-11 06:45:08"
+   ]
+  ],
+  "bu_kod": [
+   [
+    "2011-03-11 06:13:29",
+    "2011-03-11 06:17:29"
+   ],
+   [
+    "2011-03-11 06:20:57",
+    "2011-03-11 06:23:51"
+   ],
+   [
+    "2011-03-11 06:25:35",
+    "2011-03-11 06:26:37"
+   ],
+   [
+    "2011-03-11 06:41:38",
+    "2011-03-11 06:45:09"
+   ]
+  ],
+  "ayni": false
+ },
+ "saf_P_kumeleri": [
+  {
+   "Ip": [
+    "2011-03-11 05:57:43",
+    "2011-03-11 06:05:57"
+   ],
+   "n_ist": 10,
+   "n_cift_tutarli": 45,
+   "K5_bayrakli_ist": 4,
+   "K0_bayrakli_ist_bilgi": 10,
+   "darbe": false,
+   "sizinti_K5": false,
+   "taban": false,
+   "sag": true,
+   "K1b_kesisir_bilgi": false
+  }
+ ],
+ "Q_dogrusu_kuruldu_mu": {
+  "W": [
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   true,
+   false
+  ],
+  "saf_P": [
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false,
+   false
+  ]
+ },
+ "sag_kalan_kume": {
+  "W": 3,
+  "saf_P": 1
+ },
+ "modulasyon_basvuru": {
+  "ad": "BK.PKD",
+  "kanal_varsayilan": "HHZ",
+  "bilesen": 3,
+  "uzaklik_km": 8.0,
+  "not_": "kanal kodu TR-7 zarf kaydında yok; E-1 için HHZ varsayıldı (yanıt ve örtü TR-7 lp=true kaydından)"
+ },
+ "modulasyon": [
+  {
+   "kume": "W",
+   "Ip": [
+    "2011-03-11 06:13:29",
+    "2011-03-11 06:17:29"
+   ],
+   "sag": true,
+   "M": 0.1283,
+   "p": 0.18281718281718282
+  },
+  {
+   "kume": "W",
+   "Ip": [
+    "2011-03-11 06:20:57",
+    "2011-03-11 06:23:51"
+   ],
+   "sag": true,
+   "M": 0.2477,
+   "p": 0.08291708291708291
+  },
+  {
+   "kume": "W",
+   "Ip": [
+    "2011-03-11 06:25:35",
+    "2011-03-11 06:26:37"
+   ],
+   "sag": true,
+   "M": 0.6172,
+   "p": 0.1848151848151848
+  },
+  {
+   "kume": "W",
+   "Ip": [
+    "2011-03-11 06:41:38",
+    "2011-03-11 06:45:09"
+   ],
+   "sag": false,
+   "M": 0.2564,
+   "p": 0.2177822177822178
+  },
+  {
+   "kume": "saf P (başvuru W = saf P aralığı)",
+   "Ip": [
+    "2011-03-11 05:57:43",
+    "2011-03-11 06:05:57"
+   ],
+   "sag": true,
+   "M": 0.0801,
+   "p": 0.2787212787212787
+  }
+ ],
+ "modulasyon_okunusu": "Ö-c önceden yazılı okunuş: saf P kümesinde p ≤ 0,01 ise kilitsiz sızıntıda da m_f'nin küçük olmadığına dair tek gözlemlik işaret; dal değişmez, metin değişmez, yalnız §12'ye yazılır.",
+ "sonuc": "kod çalıştı",
+ "hata": null,
+ "sure_s": 24.6
+}

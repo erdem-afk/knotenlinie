@@ -174,7 +174,7 @@ def ref_dal(nP, nN, XP, XN, f, N, Molc, Mmod, A90):
 
 
 FAR_KOMB = [(0, 120, 50.0), (40, 120, 50.0), (3, 4, 50.0), (0, 120, 'belirsiz'), (10, 120, '> 100 µm/s'),
-            (0, 120, 2e5), (12, 30, 9.0)]
+            (0, 120, 2e5), (12, 30, 9.0), (30, 120, 50.0), (0, 4, 50.0)]
 
 
 def izgara(KM, tam=True):
@@ -199,7 +199,7 @@ def izgara(KM, tam=True):
                             continue
                         for Molc in range(XP + 1):
                             for Mmod in sorted({0, 2, 3, Molc} & set(range(Molc + 1))):
-                                for f, N, A90 in (FAR_KOMB if tam or XP in (0, 4, 5, nP) else FAR_KOMB[:2]):
+                                for f, N, A90 in FAR_KOMB:
                                     say += 1
                                     d, alt, _ = KM.k1c_dal(nP, nN, XP, XN, f, N, Molc, Mmod, A90)
                                     r = ref_dal(nP, nN, XP, XN, f, N, Molc, Mmod, A90)
@@ -336,7 +336,7 @@ class YapayKaynak:
         return out
 
     def b_prime_girdisi(self, desc, pv):
-        if self.bprime and pv.get('bas') is not None:
+        if (self.bprime is True or (self.bprime and desc['id'] in self.bprime)) and pv.get('bas') is not None:
             return [], [float(pv['bas'] - 30)]          # bir çekirdek fazı I′ başından 30 sn önce → (b′) (ii)
         return [], []
 
@@ -457,7 +457,7 @@ def birim(KM, R, tam_izgara):
 
     def kan(kod, ok=True, yan=True, konum='00', R_=True):
         return dict(kod=kod, konum=konum, uygun_yanit=yan, ortu_ok=ok,
-                    v=dict(Z=vv, R=vv if R_ else None, T=vv if R_ else None) if ok else None)
+                    v=dict(Z=vv, R=vv if R_ else None, T=vv if R_ else None))   # v örtü kalsa da verilir
     yakin = dict(ad='BK.YAK', la=35.92, lo=-120.46, kanallar=[kan('BHZ'), kan('HHZ')])
     uzak = dict(ad='NC.UZK', la=36.30, lo=-120.90, kanallar=[kan('HHZ')])
     s = KM.e1_secim([uzak, yakin])
@@ -538,10 +538,11 @@ def _k1c_hesap_sayim(KM):
     N = [b for b in bs if b['sinif'] == 'N']
     alg = {b['id']: dict(durum='tarandi', algilama=True) for b in P}
     alg.update({b['id']: dict(durum='tarandi', algilama=False) for b in N + [b for b in bs if b['sinif'] == 'B']})
-    ps = [0.0099, 0.0099, 0.0099, 0.0099, 0.0099, 0.03, 0.03, None, None, 0.011]
+    ps = [0.0099, 0.0099, 0.0099, 0.0099, 0.0099, 0.03, 0.03, None, 'refvar', 0.011]
     mod = {}
     for b, p in zip(P, ps):
-        ref = None if p is None else dict(ad='BK.PKD')
+        ref = None if p is None else dict(ad='BK.PKD')       # 'refvar': başvuru var ama M hesaplanamadı
+        p = None if p == 'refvar' else p
         mod[b['id']] = dict(ref=ref, kumeler=[dict(Ip=[0, 1], M=None if p is None else 0.5, p=p)])
     g4 = [b for b in N if b['genlik4']]
     mod[g4[0]['id']] = dict(ref=dict(ad='BK.PKD'), kumeler=[dict(Ip=[0, 1], M=0.5, p=0.0099)])
@@ -556,7 +557,7 @@ def _k1c_hesap_sayim(KM):
     neg = [dict(id=f'n{i}', durum='tarandi', W_algilama=False, mda=[]) for i in range(20)]
     h = KM.k1c_hesap(Bos(), bs, neg, alg, mod)
     return (h['M_olc'], h['M_mod'], h['etiket']['k_kosu'], h['etiket']['genlik'], h['X_N'],
-            h['etiket']['genlik_olculemeyen'], h['etiket']['mod_gecti']) == (8, 5, 8, True, 1, 3, True)
+            h['etiket']['genlik_olculemeyen'], h['etiket']['mod_gecti']) == (8, 5, 9, True, 1, 3, True)
 
 
 def _k5_ayni(KM):
@@ -845,6 +846,9 @@ def uctan_uca(KM, R, ozet):
     R.sina(g, '(b′): bütün algılama kümeleri çekirdek fazında → "geçti, belirsiz", VAR verilemez',
            h['dal'] == 'b' and h['etiket']['b_prime'] and 'geçti, belirsiz' in h['cumle'] and not h['var_verilebilir'],
            S['b_prime'])
+    h, _ = kosu('b_prime_kismi', YapayKaynak(KM, sen_gercek(), bprime=set(P[:3])))
+    R.sina(g, '(b′) yalnız 3 P olayında → etiket yok (hepsi şartı), VAR verilebilir',
+           h['dal'] == 'b' and not h['etiket']['b_prime'] and h['var_verilebilir'], S['b_prime_kismi'])
     h, _ = kosu('modulasyonsuz', YapayKaynak(KM, lambda s, b: dict(sen_gercek()(s, b), kilitli=False)
                                              if s == 'P' else sen_gercek()(s, b)))
     R.sina(g, 'kilitsiz tremor (P\'de) → (c) kalan (iv) ya da (b)+D-10 değil: (iv) sağlanmaz',

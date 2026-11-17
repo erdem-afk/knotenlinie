@@ -1102,7 +1102,9 @@ class GercekKaynak(Kaynak):
                 k1b = (int(b['K1b'][0]) - ws['k0'], int(b['K1b'][1]) - ws['k0'])
             for x, k in zip(ws['ist'], ws['kul']):
                 x['la'], x['lo'] = p['ist'][k]['la'], p['ist'][k]['lo']
-            pv.update(ist=ws['ist'], maske=ws['maske'], Wb=ws['Wb'], Q=Q, K1b=k1b)
+            pv.update(ist=ws['ist'], maske=ws['maske'], Wb=ws['Wb'], Q=Q, K1b=k1b,
+                      # TR-7 §6.4 aynen (tr7_kosu.modulasyon): başvuru istasyonunun KENDİ W'si (eksen_dilim)
+                      ref_W=lambda ad, p=p, k0=ws['k0']: T.eksen_dilim(p['ist'][tuple(ad.split('.', 1))], k0)[1])
         self._onbellek[pid] = pv
         return pv
 
