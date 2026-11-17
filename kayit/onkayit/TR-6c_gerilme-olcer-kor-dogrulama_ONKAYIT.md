@@ -1,8 +1,8 @@
 # TR-6c ön kaydı: hız-durum gerilme ölçeri bilinen kosismik Coulomb gölgelerini kör olarak doğru işaretle buluyor mu? (TR-6a'nın ardılı)
 
-Tarih: 16 Kasım 2026. Durum: **TASLAK sürüm 2, ikinci bağımsız incelemeye hazır.** Dondurulmadı; kodda
+Tarih: 17 Kasım 2026. Durum: **dondurmaya hazır sürüm 2 (İNCELEME-2 düzeltmeleriyle).** Dondurulmadı; kodda
 `TR6C_ONKAYIT_SHA = None` olduğu sürece bağlayıcı aşamalar (`--tasarim c sinama --baglayici`, `manifest`, `kos`)
-koşmaz.
+koşmaz. Dondurma ve sonraki koşu adım adım §C12'dedir.
 
 Sürüm 1 (`TR-6c_gerilme-olcer-kor-dogrulama_ONKAYIT_surum1.md`) bağımsız incelemede RET aldı (`TR-6c_INCELEME-1.md`).
 Sürüm 2 incelemenin sekiz zorunlu düzeltmesini işler:
@@ -20,6 +20,13 @@ Sürüm 2 incelemenin sekiz zorunlu düzeltmesini işler:
 
 Ayrıca incelemenin kod önerisi uygulandı: `hucre_parcasi_c` bağlayıcı ve tanı tohumlarını, bağlayıcı kip dışında ve
 ön kayıt dondurulmadan önce reddeder (§C10).
+
+İkinci bağımsız inceleme (`TR-6c_INCELEME-2.md`) "düzeltmeyle kabul" verdi. Zorunlu dört cümle (Z9–Z12) aynen eklendi:
+Z9 §C3a kural 1'in sonunda, Z10 §C9 madde 8'de, Z11 §C3a "Okuma ve seçim"de, Z12 §C10'da. Kural, eşik ve tohum
+değişmedi; yeni prova gerekmedi. İncelemenin öteki önerileri de işlendi:
+- tamlık elemesinden sonraki S1/S7 süzgecinin kod incelemesinde elle denetlenmesi (N9, §C8);
+- kapı sınırının hemen üstündeki olası 0,01'lik artık (§C9 madde 4);
+- C1 SE'sinin eşli SE ile farkı (§C3).
 
 Bu belge bir **fark belgesidir**. Soru, veri, kurallar ve hüküm TR-6a'nınkilerdir. Burada yalnız neyin değiştiği ve
 neyin aynen kaldığı yazılır; TR-6a metni kopyalanmaz.
@@ -41,7 +48,8 @@ yoktur) yazar Tohoku'nun bilinen sonucunu bilirken seçildi; R3 bu yüzden redde
 Tohoku gölgelerinde bilinen artışı ters yön sayımından çıkarır. Bu H1 lehine bir yöndür ve burada beyan edilir (§C4).
 
 Kullanılan tohumlar (hiçbiri bağlayıcı değil): 7311 (sürüm 1 yapay katalog provası), 7312 (tamlık provası), 7321
-(sürüm 2 provası), 7331 (Z2 deneme kayıtları), 7332 (Z2 küme düzeyi benzetim), 7400 (H1 bilgi koşusu), 5, 11, 98, 99
+(sürüm 2 provası), 7331 (Z2 deneme kayıtları), 7332 (Z2 küme düzeyi benzetim), 7341 (kesinti denemesi, §C12),
+7400 (H1 bilgi koşusu), 5, 11, 98, 99
 (geliştirme). TR-6a'nın bağlayıcı tohumları (20261114, 20261115), tanının tohumları (601–608) ve TR-6c'nin bağlayıcı
 tohumları (20261116, 20261117) kullanılmadı. Kod bu tohumları geliştirme ve provada reddeder.
 
@@ -140,7 +148,8 @@ sırayla, bir kez koşulur. Komut: `tr6a_kosu.py --tasarim c sinama --baglayici 
        havuzudur: gerçek koşuda sahte oylar kapıdan önceki bütün aday kümelerden gelir (§C3a). Bir hücre, aynı
        oranlı aday kümelerin bir evrenidir.
      - SE(p̂₀ − P(D | kapı)) = √(SE₀² + SE_D²); SE₀ = sd(S_i − p̂₀ J_i) / (ort(J) √n), SE_D = sd(D) / √n_kapı (TR-6a
-       (ii) ile aynı biçim).
+       (ii) ile aynı biçim). Bu SE, aynı denemedeki sahte ve gerçek oy arasındaki kovaryansı yok sayar. İNCELEME-2'nin
+       eşli (deneme başına fark) SE'si bundan en çok %3 farklıdır; önemsizdir.
    - **Ölçütler:**
      - **C1 (N0 ≤ 500 ve karma; (i) ve (ii)):** p̂₀ − P(D | kapı), 0'a karşı iki yanlı 3,5 SE içinde.
      - **C1′a (N0 > 500; (i) ve (ii)):** C1'in kendisi (iki yanlı).
@@ -182,6 +191,12 @@ alınır:
 1. Kalibrasyon kümeleri: katalog seçimi olan bütün hazır birimlerin küme seti (§3.7 kümelemesi), §3.4 ve §3.7
    çıkarmalarından sonra, **gerçek kapı uygulanmadan**. Kenar kümeleri (§C4) hariç. Liste manifestte
    (`kalibrasyon_kumeleri`) ve manifest çekirdeğinde yazılır.
+   Kalibrasyon kümesinin temsilcisi, TR-6a §3.7'deki gibi kümenin zamanca ilk birimidir ve gerçek kapıdan bağımsız
+   seçilir. Bir K_kapı kümesi, kapı altı bir birimle tek bağlantıyla birleşirse havuza K_kapı temsilcisinin değil,
+   birleşik kümenin ilk biriminin sahte oyları girer. Önsayımda üç K_kapı kümesi böyledir (usp000hrw0 → usp000hhuc,
+   us6000jllz → us60007ewc, nc75095651 → nc73821036); bu kümelerin ilk birimlerinin kaba N0'ı 1,35 / 14,03 / 17,85'tir
+   ve sahteleri havuza neredeyse hiç girmez. "Havuzun oran bileşimi K_kapı'nınkiyle aynı ağırlıkları taşır" cümlesi bu
+   yüzden yaklaşıktır. Farklar manifestte `kumeler` ile `kalibrasyon_kumeleri` karşılaştırılarak okunur.
 2. Her kalibrasyon kümesinin temsilcisi için TR-6a §4.6'nın üç sahte zamanı ve geçerlilik kuralları aynen uygulanır;
    sahte kapı (n_on' ≥ 155) dahil.
 3. p̂₀ = ΣD′ / J ve p̂₀⁺ = ΣA′ / J bu havuzdan; p₀ kuralı (taban 0,50, J < 30'da 0,52, p₀ > 0,60) aynen.
@@ -269,8 +284,9 @@ Okuma ve seçim:
   geçen kümelerin ne kadarının sınırda olduğu değil, sınırdakilerin ne kadar yanlı olduğu belirler. "60 aday λ 31,36"
   satırında 0,053, aşırı saçılımla 0,075'tir.
 - **(a2) en az güç kaybettiren güvenli yoldur.** Önsayım dünyasında v1'e göre kaybı 0,004 / 0,008'dir (0,801 → 0,797;
-  0,814 → 0,806). "60 aday λ 31,36" satırındaki güç düşüşü (0,86 → 0,70) bir kayıp değildir: v1'in oradaki gücü
-  α'nın 0,075'e çıkmasından gelir. (a2) orada p₀'ı gerçek H0 düzeyine (≈ 0,55) çeker; p₀ = 0,50 payı 0,65'ten
+  0,814 → 0,806). "60 aday λ 31,36" satırındaki güç düşüşünün (0,86 → 0,70) bir kısmı α'nın 0,075'ten 0,042'ye
+  inmesidir, bir kısmı gerçek kayıptır: (a2) orada p̂₀'ın gürültüsüyle p₀ > 0,60 payını 0,03'ten 0,14'e çıkarır
+  (aşırı saçılımla 0,28) ve bu denemeler "güç yok (ölçü yanlı)" olur. Önsayım dünyasında bu pay 0,01'dir. (a2) orada p₀'ı gerçek H0 düzeyine (≈ 0,55) çeker; p₀ = 0,50 payı 0,65'ten
   0,22'ye iner.
 - **(a2) seçildi.** Seçim yalnız yapay veriye ve olay öncesi önsayıma dayanır.
 
@@ -541,7 +557,8 @@ kalkar. 500'ün altında kalan kayma en kötü durumda (m = 23, N0 500) α'yı 0
   3–6. TR-6a §9 adım 3–6, `--tasarim c` ile:
      - manifest (`tr6c_manifest.json`, `tr6c_on_ham_sha256.txt`);
      - bağımsız kod incelemesi (`TR-6c_KOD-INCELEME.md`); §C3a havuzunu, §C4 kuralını ve `--tasarim c` yollarını
-       özellikle denetler;
+       özellikle denetler. Tamlık elemesinden (Ek 1 E1.3) sonra K⁺ ve K_nt'nin §C4 kural 7 süzgeciyle yeniden
+       kurulduğunu elle denetler: yapay sınamalar bu yolu görmez (İNCELEME-2 mutant N9);
      - olay sonrası tek indirme (`tr6c_son_ham_sha256.txt`, `tr6c_son_kayit.json`);
      - tek koşu (`tr6c_sonuc.json`, `tr6c_sonuc.md`, işaret `TR6C_OLAY_SONRASI_OYLAR_SAYILDI`).
 - Ham arşiv dizini TR-6a'nınkiyle aynıdır (`/mnt/project-files/turetme/tr6a-ham/`); TR-6c dizinleri `on_`/`son_`
@@ -574,6 +591,9 @@ TR-6a §11'in 18 maddesi aynen geçerlidir. Özellikle ve yeni olarak:
    - Bu türden bir uyuşmazlık δ ≈ 0,03'ü aşarsa her tasarımda α 0,05'i aşar (İNCELEME-1 §3.4). Bütün adaylar kapı
      sınırındayken δ 0,02 bile (a2)'de α'yı 0,057'ye çıkarır (§C3a).
    - Bu yanlılık kenar etkisinin tersi yöndedir; ikisinin toplamı bilinmez.
+   - Kapı sınırının hemen üstünde 0,01 düzeyinde bir artık dışlanmış değildir. İNCELEME-2'nin bağımsız kayıtlarında
+     λ 33'te C1 farkı −0,016 (z −1,69), 7321 provasında i:36 −0,005 (z −1,13) çıktı. Bağlayıcı sınamanın C1'i (3,5 SE)
+     bu büyüklüğü görmez. Yönü (p̂₀ < P(D | kapı)) H1 lehinedir.
 5. **(d)'nin oy oranı bedeli.** Yapay dünyada Mc_kul = Mc_lob + 0,2'dir; oyun gördüğü oran kapı oranının %63'üdür.
    Kapıyı sınırda geçen bir lobda kalıcı −10 kPa'da düşüş oyu olasılığı 0,987'den (TR-6a §4.5, 335 g, ΔMc 0) 0,940'a
    iner (§C3, C2). Gerçek veride ΔMc daha büyük olabilir (TR-6a §6.2 kural 6, etkin N0 cümlesi).
@@ -589,6 +609,12 @@ TR-6a §11'in 18 maddesi aynen geçerlidir. Özellikle ve yeni olarak:
    - Havuzun doğruluğu, kapı altı kümelerin sahte pencerelerinin K_kapı kümelerininkiyle aynı yapıda olmasına
      dayanır (aynı katalog kuralları, aynı lob ve Mc kuralları). Kapı altı kümelerde katalog ve Mc daha kötü olabilir.
      Bu fark p̂₀'ı iki yönde de kaydırabilir; yapay dünya bunu sınamaz.
+   - Katalog seçimi (§3.5: gölge kapı N0'ı en büyük katalog) da ön pencerenin sayımına bakan bir seçimdir ve gerçek
+     kapıyla aynı yönde çalışır: seçilen katalogda ön sayım yukarı, sahte son sayımlar da yukarı oynar; gerçek düşüş oyu
+     artar, sahte düşüş oyu azalır. Bu, kataloglar arası sayım farkının rastgele kısmıyla orantılıdır ve (a2) onu
+     soğurmaz; tek kataloglu yapay dünya bunu sınamaz. Yönü H1 lehinedir.
+   - Z9'daki temsilci kuralı yüzünden üç K_kapı kümesinin kendi sahteleri havuza girmez (İNCELEME-2 §2 madde 3: J ≈ 61'den
+     en çok ~6–9 geçerli sahte eksilir; p̂₀'a etkisi ±0,01'in altında beklenir).
 9. **Kenar kümeleri yanlış H0 oranını büyütür (İNCELEME-1 Z7).**
    - p₁ = 0,75 dünyasında (f 0,549) yanlış H0 (X ≤ h) oranı K 23'te kenarsız 0,043'tür.
    - Önsayımın iki kenar kümesiyle 0,045, beş Tohoku benzeri kümeyle 0,059'dur (K 28'de 0,031 / 0,033 / 0,042).
@@ -634,7 +660,9 @@ sayıları aynıdır.
 bağlıdır. Tek istisna `satir_istatistigi`dir: o da bütün A'lar sayılırken (TR-6a) aynı çıktıyı verir ve `K_Y` anahtarını
 yalnız bir A sayılmadığında yazar. `TTasarimC.test_tr6a_bit_duzeyi` dört özeti sabit tutar ve geçer.
 
-**Sınamalar:** `python3 -I -B kayit/turetme/tr6/tr6a_test_yapay.py` → 68 sınama, hepsi geçti (≈ 2 dakika; sürüm 1'de 62, İNCELEME-1'den sonra 66). Sürüm 2'nin eklediği ve değiştirdiği
+**Sınamalar:** `python3 -I -B kayit/turetme/tr6/tr6a_test_yapay.py` → 69 sınama (İNCELEME-2 `test_kalibrasyon_havuzu_kapi_alti_c` ekledi), hepsi geçti (≈ 2,5 dakika; sürüm 1'de
+62, İNCELEME-1'den sonra 66). `test_baglayici_parca_korumasi`'nın bağlayıcı tohumlu satırı yalnız
+`TR6C_ONKAYIT_SHA = None` iken koşar; dondurmadan sonra o satır bir bağlayıcı parça üretirdi. Sürüm 2'nin eklediği ve değiştirdiği
 sınamalar:
 - kenar kuralı: A sayılmaz, Y'nin paydası `K_Y`, y05 S2'de yok, `kalibrasyon_kumeleri` havuzu ve J'si;
 - `test_kenar_A_paydasi_ve_kontrol_suzgeci` (yeni);
@@ -657,6 +685,27 @@ python3 -I -B kayit/turetme/tr6/tr6a_kosu.py --tasarim c sinama --prova --tohum 
 # --yaz özetleri tr6c_prova_<hücre>.json adıyla yazar; depodaki 7321 özetleri tr6c_prova_t7321_<hücre>.json adıyla
 # saklandı (7311 özetleri tr6c_prova_<hücre>.json'da kaldı). ≈ 2,5 saat CPU (çoğu i:1500 ve ii:1500)
 ```
+
+**Kodun sha256'ları (bu sürüm; `kayit/turetme/tr6/`, dondurma öncesi):**
+
+| dosya | sha256 |
+|---|---|
+| `tr6a_kosu.py` | `4b60e6198642d04af000d173b35d96c6e256344cb96e56663523e80bde0e9d1d` |
+| `tr6a_okada.py` | `ef0d583169fb859d323aff094c45b8d996fba29664b1d20d61b6b918e7efc4dd` |
+| `tr6a_ffm.py` | `60871db70e4942d93d80ef39f17dfd3b87b9b07673311f9dc8fa953a6dc6dbf6` |
+| `tr6a_katalog.py` | `75d430edb20cd556b02f1c5057fa585c7cf6ac0d98315352b7d8b94a5f560fdd` |
+| `tr6a_yapay.py` | `2ea2e244cf0c0dc4695b61d32caa06a2c1497cd9ca054a2d2581ba93e8fc5806` |
+| `tr6a_onkayit_sayilar.py` | `e1d643a402e33218df33b94f81849e200429712c28d8530ff3cf85770962b2ae` |
+| `tr6_a_kapi.py` | `375d9e76bfdfd6e16e1436d504c7fd677172f7834984b9250fe083a82577835d` |
+| `tr6a_onbellek_kor.py` | `eb59b6d38911b5239ba1f1cd1ddf6b6cc444c30623eb1f1d9fba05a9cddaf04d` |
+| `tr6_sayim.py` | `5ad5edfcd0c8cd2422bb2e65f37b20c348cef8218ddc1fb3d239b54854454d5f` |
+| `tr6c_z2.py` | `a1475e6cbf27612d563a4ed74835d5e14402deeefd66d45fd10fce2a2dc5ab20` |
+| `tr6a_test_yapay.py` | `8c3a51d92a7a84d6d8b5f07189c26d7045dbebfb027f0cf284f0b845742c0cc3` |
+
+Dondurma commit'inden sonra yalnız `tr6a_kosu.py`'nin sha'sı değişir (§C12 adım 2'deki iki sabit; başka satır
+değişmez). Bağlayıcı çıktı (`tr6c_sinama_sonuc.json`) ve manifest o anki kod sha'larını `kod_sha256` / `girdi.kod`
+olarak kaydeder. Bağlayıcı adımdan önce `tr6a_kosu.py` dışında bu tablodan sapan bir dosya varsa bağlayıcı adım
+koşulmamalıdır (bu bir yordam kuralıdır; kod bu tabloyu denetlemez, yalnız git durumunu denetler).
 
 ## C11. Etki büyüklüğü: kaynağı, görülebilir en küçük etki ve olumsuz sonucun anlamı (yeni; İNCELEME-1 Z6)
 
@@ -697,3 +746,67 @@ etkiyi dışarıda bıraktığını söyler.
 - "Güç yok" (K_kapı < 23; yazar önseli ≈ 0,75) bir eleme değildir. Bu veriyle yalnız büyük bir etkinin sınanabileceğini
   söyler ve sınamayı yapmaz.
 - Bu sayılar `kayit/turetme/ESIK-DAYANAGI.md` tablosundaki TR-6a satırıyla aynıdır (0,70 → 37, 0,80 → 18).
+
+## C12. KOŞU SIRASI (dondurma ve sonrası; İNCELEME-2'den sonra)
+
+Bu sürümü yazan dondurmaz. Adımlar sırayla; her adımın komutu deponun kökünde (`cd /home/user/knotenlinie`).
+
+1. **Dondurma commit'i (metin).**
+   - Durum satırı "**DONDURULDU** (sürüm 2, İNCELEME-2 düzeltmeleriyle; <tarih>)" yapılır. Metinde başka değişiklik
+     yapılmaz.
+   - `git add kayit/onkayit/TR-6c_gerilme-olcer-kor-dogrulama_ONKAYIT.md && git commit && git push`.
+   - Gövde, o commit'teki dosyanın bütünüdür (sonraki ekler dosyanın SONUNA yazılır; TR-6a'daki Ek 1 düzeni):
+     `wc -c < kayit/onkayit/TR-6c_gerilme-olcer-kor-dogrulama_ONKAYIT.md` → bayt sayısı,
+     `sha256sum kayit/onkayit/TR-6c_gerilme-olcer-kor-dogrulama_ONKAYIT.md` → sha256.
+2. **Dondurma commit'i (kod; ayrı commit).**
+   - `kayit/turetme/tr6/tr6a_kosu.py`'de yalnız iki sabit doldurulur:
+     `TR6C_ONKAYIT_SHA = "<sha256>"` ve `TR6C_GOVDE_BAYT = <bayt>` (şu an 89–90. satırlar, ikisi de `None`).
+   - `python3 -I -B kayit/turetme/tr6/tr6a_test_yapay.py` → 69 sınama geçmeli (bağlayıcı tohumlu koruma satırı artık
+     atlanır, §C10). `__pycache__` kalmamalı.
+   - `git add kayit/turetme/tr6/tr6a_kosu.py && git commit && git push`. Bağlayıcı aşama git ile kodun ve ön kaydın
+     commit + push edildiğini denetler; edilmemişse durur.
+3. **Bağlayıcı yöntem sınaması (bir kez; tohum 20261116 katalog, 20261117 tamlık).**
+   - Parça dizini kalıcı ve deponun dışında olmalı (scratchpad yeniden başlatmada silinebilir; depo içi dizin git
+     denetimini bozar): `/mnt/project-files/turetme/tr6c-parca/`.
+   - Komut (tek süreç, oturumdan bağımsız):
+     ```
+     setsid nohup python3 -I -B kayit/turetme/tr6/tr6a_kosu.py --tasarim c sinama --baglayici \
+         --parca-dizini /mnt/project-files/turetme/tr6c-parca/ \
+         >> /mnt/project-files/turetme/tr6c-parca/kosu.log 2>&1 &
+     ```
+   - Sıra: Okada (Ek 1 E1.1) → 17 hücre × 20 000 deneme, 1000'lik parçalar (hücre başına 20 parça,
+     `<hücre>_t20261116_pNNN.json`) → tamlık (yalnız (d), 20 000). Süre ≈ 19 saat CPU, tek süreçte ≈ 19 saat duvar
+     saati; en uzun hücre ii:4500'dür.
+   - **Kesinti:** makine yeniden başlarsa aynı komut aynen yeniden verilir. Bitmiş parçalar dosyadan okunur, eksikler
+     hesaplanır; yarım kalan parça yalnız `<parça>.json.tmp` olarak kalır ve yeniden yazılır (parça `.tmp`'ye yazılıp
+     `os.replace` ile yerine konur). Okada ve tamlık parçalı değildir; her yeniden başlatmada baştan koşar (≈ 10 dk).
+     Parçalar belirlenimcidir (tohum, hücre kodu, parça); sonuç kesintiden bağımsızdır.
+   - Kesinti denemesi (yapay prova tohumu 7341, i:100, 4000 deneme = 4 parça): 2 parça yazıldıktan sonra süreç
+     SIGKILL ile öldürüldü ve dizine 5000 baytlık kesik bir `i_100_t7341_p002.json.tmp` kondu. Yeniden koşu yalnız
+     parça 3/4 ve 4/4'ü hesapladı; p000 ve p001'in sha256'sı ve zaman damgası değişmedi, kesik `.tmp` üzerine yazılıp
+     kayboldu. Dört parça kesintisiz bir koşunun parçalarıyla bayt bayt aynı, özet JSON'u aynı çıktı (C1 −0,00533).
+   - Sınır: bitmiş (yeniden adlandırılmış) bir parçanın içeriği yeniden doğrulanmaz. Disk bozulması gibi bir nedenle
+     bozuk bir `.json` kalırsa `json.load` hata verir ve koşu durur; o dosya silinip komut yeniden verilir.
+   - İsteğe bağlı hızlandırma (en çok 2 süreç): ana koşu sürerken ikinci bir süreç yalnız ii:4500'ü aynı dizine
+     hesaplayabilir:
+     ```
+     setsid nohup python3 -I -B -c "import sys; sys.path.insert(0, 'kayit/turetme/tr6'); import tr6a_yapay as Y; \
+         Y.hucre_kos_c('ii:4500', 20261116, 20000, '/mnt/project-files/turetme/tr6c-parca/', baglayici=True)" \
+         >> /mnt/project-files/turetme/tr6c-parca/yardimci.log 2>&1 &
+     ```
+     Bu çağrı biçiminin CLI ile aynı parçayı ürettiği yapay tohum 7341 ile denendi (i:100 p000, sha256 aynı).
+     Duvar saati ≈ 11,5 saate iner. İki süreç aynı parçayı aynı anda hesaplarsa ikisi aynı baytları yazar
+     (belirlenimci, `os.replace` atomik); zararsızdır, yalnız boşa CPU'dur. Hüküm yalnız ana koşunun yazdığı
+     `tr6c_sinama_sonuc.json`'dan okunur; o dosya parçaların sha256'larını da kaydeder.
+   - Bitince: `kayit/turetme/tr6/tr6c_sinama_sonuc.json` → `git add` (dosya adıyla) + commit + push. Dosya varsa
+     `--baglayici` yeniden koşmaz. Sınama tutmazsa hüküm "koşulmadı (yöntem: …)" olur ve TR-6c kapanır (§C8).
+4. **Manifest (yalnız olay öncesi veri).**
+   - `python3 -I -B kayit/turetme/tr6/tr6a_kosu.py --tasarim c manifest`
+   - Sınama çıktısı, ön kayıt, liste ve kod commit + push edilmiş olmalı; sınama tutmadıysa aşama durur.
+   - Kesintide: `--ham-dizin <var olan on_… dizini>` ile kaldığı yerden; uzun indirme `--yalniz-indir --birimler
+     <kimlikler>` ile bölünebilir, sonra `--ham-dizin` ile manifest yazılır.
+   - Çıktılar `tr6c_manifest.json`, `tr6c_on_ham_sha256.txt` (§C3a havuzu `kalibrasyon_kumeleri` ve J burada
+     görünür) → commit + push.
+5. **Bağımsız kod incelemesi** (`TR-6c_KOD-INCELEME.md`; §C8'deki N9 elle denetimi dahil) → commit + push.
+6. **Olay sonrası tek indirme ve tek koşu:** `... --tasarim c son-indir`, sonra `... --tasarim c kos` (§C8 adım
+   3–6). K_kapı < 23 ise olay sonrası veri indirilmez.

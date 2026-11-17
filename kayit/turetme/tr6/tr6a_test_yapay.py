@@ -1321,8 +1321,9 @@ class TTasarimC(unittest.TestCase):
         for t_ in (20261116, 20261117, 20261114, 601):
             with self.assertRaises(ValueError):
                 Y.hucre_parcasi_c("i:31.36", t_, 0, n=1)
-        with self.assertRaises(ValueError):
-            Y.hucre_parcasi_c("i:31.36", 20261116, 0, n=1, baglayici=True)     # TR6C_ONKAYIT_SHA = None
+        if KO.TR6C_ONKAYIT_SHA is None:          # dondurmadan sonra bu satır bağlayıcı parça üretirdi: atlanır
+            with self.assertRaises(ValueError):
+                Y.hucre_parcasi_c("i:31.36", 20261116, 0, n=1, baglayici=True)
         with self.assertRaises(ValueError):
             Y.hucre_parcasi_c("i:31.36", 7311, 0, n=1, baglayici=True)         # bağlayıcı kipte yalnız 20261116/7
 
