@@ -1,6 +1,6 @@
 # TR-7c ön kaydı: sabit sızıntı kuralı (K5) ve kör Parkfield kontrolüyle Marmara'da tetiklenmiş tremor taraması
 
-Durum: TASLAK (sürüm 2); hiçbir koşu için bağlayıcı değildir. Kod yok, kör olaylarda ve Marmara'da veri yok.
+Durum: KARAR METNİ DONDURULDU (17 Kasım 2026; sürüm 2 + INCELEME-2'nin E-1 ve E-2 cümleleri). D-3 uyarınca bu dondurma Tohoku duman sınamasından ve m_f ölçümünden öncedir; bu andan sonra karar metni (ölçüt, dallar, kurallar, yazarın seçimleri) değişmez. Koşu dondurması (kod sha256'ları, yapay sınama sonuçları, beklenti beyanı) kod incelemesinden sonra ayrı bir ekle yapılır. Kod yok; kör olaylarda ve Marmara'da dalga formu açılmadı. İncelemeler: INCELEME-0, INCELEME-1, INCELEME-2 ("iki cümle eklenince hazır").
 Tarih: 17 Kasım 2026. Sürüm 1: `TR-7c_tetiklenmis-tremor_ONKAYIT_surum1.md` (commit 4ba57ab).
 
 Bağımsız incelemeler:
@@ -184,6 +184,17 @@ T0, Δ ve PGV_T `TR-7b_SAYIM.md` §3'ten. Δ, iz köşe ortalamasına (35,9125°
     uygulanır (yine yeni bir örnekle).
   - Parkfield'da "segment" Parkfield izidir; başvuru istasyonu iz köşe ortalamasına en yakın uygun istasyondur.
     Olay başına ayrı seçilir.
+
+  **E-1 (INCELEME-2, aynen):**
+
+  > "Başvuru istasyonu ve kanalı koşuda olay başına şöyle belirlenir (TR-7 §6.4 ve §6.6'nın uygulaması): liste
+  > sınıfındaki istasyonların bant kodu B ya da H, alet kodu H olan ve olay anındaki StationXML epokunda |H(0,02 Hz)| /
+  > |H(1 Hz)| ≥ 0,5 veren düşey kanallarından, indirilen veride W ve R örtüsü (TR-7 §4.2 sayımıyla) ≥ %90 olanlar
+  > uygundur. Uygun kanalı olan istasyonlardan iz köşe ortalamasına en yakını seçilir; onun uygun kanallarından önce HH,
+  > yoksa BH alınır. Yatay kanallar seçilen düşey kanalla aynı konum ve bant kodundan alınır; ikisi birden yoksa M yalnız
+  > Z bileşeniyle hesaplanır. Bu seçim 2–8 Hz yolunun TR-7 §3.2 `z_kanal` seçiminden bağımsızdır. Aynı kural D-9'un 4 N
+  > olayında da uygulanır."
+
 
 ### 4.2 K5 (TR-7b §11.1 ve §4.2'den aynen; eşik oynatılmaz)
 
@@ -580,6 +591,15 @@ istenmez; dataselect çağrısı yapılmaz.** Sonuçlar ayrı bir "TR-7c ÜSTVER
 | D9 | **2009-10-07 çifti** (N 27, N 28) | W pencereleri örtüşüyor; varışlar kaba | E1 hesabında (D4) birleşik birimin W'si, K1b aralığı ve N 28'in E1 maskesi katalogla ve iasp91 ile hesaplanır | D-1 gereği çift tek birimdir; yoklama yalnız birimin pencerelerini sayıyla sabitler |
 
 **Yoklama sırası** (yazarın seçimi): D4 ve D1 önce yapılır. İkisinden biri dondurmayı engellerse ötekiler yapılmaz.
+
+**E-2 (INCELEME-2, aynen; D-5'in tamamlayıcısı):**
+
+> "D-5 yalnız koşudan önce, üstveriyle bir kez uygulanır (sonuç: k = 10, `TR-7c_USTVERI.md`). Koşuda E-1 ile başvuru
+> kanalı bulunamayan olay modülasyon bakımından 'ölçülemedi' sayılır; n_P ya da n_N'de, X_P ya da X_N'de ve Fisher
+> sınamasında kalır, yalnız modülasyonun ölçülebildiği olaylara girmez. Koşudaki k (k_koşu) 7'nin altına inse de koşu
+> durdurulmaz ve yeniden koşulmaz; dal yalnız Z4 ve D-7 ile verilir. Verideki örtü eksikliği uygulama hatası sayılmaz.
+> K1c satırına 'k: üstveriden 10, koşuda [k_koşu]' yazılır. k_koşu < 10 ise k_koşu ile hesaplanan güç (s 0,7, q 0,1;
+> `tr7c_inc1.json` `esik.D1_kref_guc_s0.7_q0.1` işlevi) bilgi olarak eklenir."
 
 ## 9. Tohoku'da duman sınaması
 
