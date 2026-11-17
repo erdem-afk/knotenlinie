@@ -1,0 +1,92 @@
+{
+ "kural": "TR-13c_SAYIM-KURALI.md §4 (ii)",
+ "satir": [
+  {
+   "id": "us7000irp8",
+   "yer": "15 km W of Düzce, Turkey",
+   "kume": 1095,
+   "M": 6.1,
+   "R": 50.0,
+   "n_indirilen": 741,
+   "mc_once": 2.1,
+   "mc_ref": 2.2,
+   "yeni_kume": true,
+   "N_ref_bg_mc_once": 178,
+   "ref_gecer_0.3": true,
+   "katalog": "ISC",
+   "mc_ortak": 2.2,
+   "mc_son": 2.2,
+   "mc_artis": 0.1,
+   "N3bg": 34,
+   "N_ref": 135,
+   "N_plasebo": 29,
+   "N_plasebo_ref": 106,
+   "ref_en_buyuk": {
+    "M": 4.5,
+    "uzaklik_km": 17.0,
+    "zaman": "2019-06-02"
+   },
+   "durum": "düşer: N3bg 34 < 50",
+   "yogun": true,
+   "dogrudan_cakisma_tr13b": []
+  },
+  {
+   "id": "usp000jmcv",
+   "yer": "75 km ESE of ?hara, Japan",
+   "kume": 774,
+   "M": 6.1,
+   "R": 50.0,
+   "n_indirilen": 1714,
+   "mc_once": 2.4,
+   "mc_ref": 2.0,
+   "yeni_kume": true,
+   "N_ref_bg_mc_once": 41,
+   "ref_gecer_0.3": false,
+   "katalog": "ISC",
+   "mc_ortak": 2.4,
+   "mc_son": 2.4,
+   "mc_artis": 0.0,
+   "N3bg": 16,
+   "N_ref": 43,
+   "N_plasebo": 18,
+   "N_plasebo_ref": 25,
+   "ref_en_buyuk": {
+    "M": 5.22,
+    "uzaklik_km": 14.4,
+    "zaman": "2004-08-20"
+   },
+   "durum": "ana listeye girmez: referans şartı (tol 0,3) sağlanmıyor; §3 sayısı: düşer: N3bg 16 < 50",
+   "yogun": true,
+   "dogrudan_cakisma_tr13b": []
+  },
+  {
+   "id": "usp000jqf3",
+   "yer": "51 km SSE of Palu, Indonesia",
+   "kume": 1115,
+   "M": 6.3,
+   "R": 50.0,
+   "n_indirilen": 165,
+   "mc_once": 3.4,
+   "mc_ref": 3.5,
+   "yeni_kume": true,
+   "N_ref_bg_mc_once": 12,
+   "ref_gecer_0.3": false,
+   "katalog": "ISC",
+   "mc_ortak": 3.5,
+   "mc_son": 3.5,
+   "mc_artis": 0.1,
+   "N3bg": 16,
+   "N_ref": 11,
+   "N_plasebo": 9,
+   "N_plasebo_ref": 2,
+   "ref_en_buyuk": {
+    "M": 6.23,
+    "uzaklik_km": 16.2,
+    "zaman": "2005-01-23"
+   },
+   "durum": "ana listeye girmez: referans şartı (tol 0,3) sağlanmıyor; §3 sayısı: düşer: N3bg 16 < 50",
+   "yogun": false,
+   "dogrudan_cakisma_tr13b": []
+  }
+ ]
+}
