@@ -366,8 +366,17 @@ def sifir_cekilis(rng, havuzlar, kumeler, nb):
 
 
 def sonlu(h):
+    """Plasebo satırı için: z ve z_p'si tanımlı, önce-pencere N >= 50 bölgeler."""
     h = np.asarray(h, float)
-    return h[np.isfinite(h[:, 0]) & np.isfinite(h[:, 1])]
+    return h[np.isfinite(h[:, 0]) & np.isfinite(h[:, 1]) & (h[:, 2] >= N_ALT)]
+
+
+def sonlu_z(h):
+    """T1/R0 sıfırı ve D-3 verisi için, gerçek üyenin seçimiyle aynı şart: z tanımlı ve önce-pencere N >= 50
+    (kod incelemesi, 17 Kasım 2026). Gerçek üyede z_p şartı olmadığından sıfırda da yoktur: z_p şartı sıfırın sol
+    kuyruğunu kesip "VAR" yönüne yanlılık üretiyordu; N >= 50 şartı gerçek üye N3bg >= 50 ile girdiği için konur."""
+    h = np.asarray(h, float)
+    return h[np.isfinite(h[:, 0]) & (h[:, 2] >= N_ALT)]
 
 
 def p_deger(sifir, gozlenen):
@@ -456,6 +465,7 @@ def _yaz_hukum(dizin, h):
 def havuz_nitelik(P):
     """Bilgi: sıfır havuzunda tanımsız z payı ve N < 50 bölge payı (gerçek üyede N >= 50 şartı var)."""
     return {f"{i}_{DALLANMA[di]}": dict(n=int(len(h)), z_tanimsiz=float(np.mean(~np.isfinite(h[:, 0]))),
+                                         zp_tanimsiz=float(np.mean(~np.isfinite(h[:, 1]))),
                                          N_50_alti=float(np.mean(h[:, 2] < N_ALT)), N_ort=float(np.mean(h[:, 2])))
             for (i, di), h in P.items()}
 
@@ -488,7 +498,21 @@ def havuzlari_kos(ayar, dizin, isler, havuz_ici):
 
 
 # ------------------------------------------------------------------ koşu
+def gercek_girdi_mi(yollar):
+    """Yollar gerçek arşiv dizinini ya da gerçek sha256 listesini gösteriyor mu (kod incelemesi, 17 Kasım 2026)."""
+    return (os.path.realpath(yollar.arsiv_dizin) == os.path.realpath(ARSIV_DIZIN)
+            or os.path.realpath(yollar.sha_liste) == os.path.realpath(SHA_LISTE))
+
+
 def kos(ayar=Ayar(), yollar=Yollar(), gercek=False, gunluk=print):
+    # Gerçek kip kapısı kos()'un içinde de: içe aktarılarak çağrılınca da dondurulmamış ön kayıtla gerçek arşiv
+    # açılmaz, hiçbir şey yazılmaz; gerçek girdiyle yalnız varsayılan (ön kayıt) ayarı kabul edilir.
+    if gercek or gercek_girdi_mi(yollar):
+        ok, neden = dondurulmus_mu()
+        if not ok:
+            raise SystemExit("GERÇEK KOŞU REDDEDİLDİ: " + neden)
+        if dataclasses.replace(ayar, cekirdek=Ayar().cekirdek) != Ayar() or not gercek_girdi_mi(yollar):
+            raise SystemExit("GERÇEK KOŞU REDDEDİLDİ: gerçek kipte ayar ön kayıttaki gibi ve girdi gerçek olmalı")
     dizin = yollar.cikti
     hyol = os.path.join(dizin, "tr13b_hukum.json")
     if os.path.exists(hyol):
@@ -592,7 +616,12 @@ def kos(ayar=Ayar(), yollar=Yollar(), gercek=False, gunluk=print):
             for k, f in enumerate(D3_FLIST, 1):
                 isler.append((f"v{i:02d}_{k}", tohum_veri(i, k), R[i], Nh, 0.6, f, ayar.d3_nf, 1))
         V = havuzlari_kos(ayar, dizin, isler, havuz_ici)
-    havuzlar = {d: {i: sonlu(P[(i, di)]) for i in BG} for di, d in enumerate(DALLANMA)}
+    havuzlar = {d: {i: sonlu_z(P[(i, di)]) for i in BG} for di, d in enumerate(DALLANMA)}
+    bos = [f"{i}_{d}" for d in DALLANMA for i in BG if len(havuzlar[d][i]) == 0]
+    bos += [f"veri_{i}_{k}" for i in BG for k in range(len(D3_FLIST) + 1) if len(sonlu_z(V[f"v{i:02d}_{k}"])) == 0]
+    if bos:   # yalnız çok küçük sınama havuzlarında olur; gerçek ayarda 2000 bölgenin ortalama N'si N3bg >= 50
+        return _yaz_hukum(dizin, dict(taban, dal=2, hukum="geçersiz", neden="süzgeçten sonra boş havuz: " + ", ".join(bos),
+                                      hazirlik=durum["hazirlik"], cumle="Geçersiz: sıfır havuzu boş kaldı."))
     S = {d: sifir_cekilis(np.random.default_rng(TOHUM_T1 + di), havuzlar[d], kum, ayar.ns_t1)
          for di, d in enumerate(DALLANMA)}
     Sa = {d: np.sort(S[d][:, :, 0].mean(1)) for d in DALLANMA}
@@ -600,7 +629,7 @@ def kos(ayar=Ayar(), yollar=Yollar(), gercek=False, gunluk=print):
     rr = np.random.default_rng(TOHUM_D3)
     oran = {}
     for k, f in [(0, 0.0)] + list(enumerate(D3_FLIST, 1)):
-        c = sifir_cekilis(rr, {i: sonlu(V[f"v{i:02d}_{k}"]) for i in BG}, kum, ayar.d3_nb)
+        c = sifir_cekilis(rr, {i: sonlu_z(V[f"v{i:02d}_{k}"]) for i in BG}, kum, ayar.d3_nb)
         oran[f] = r0_oran(Sa, Sk, c[:, :, 0].mean(1), c[:, kd, 0].mean(1))
     fs = [0.0] + list(D3_FLIST)
     m_yeni = mde(fs, [oran[f] for f in fs])
@@ -650,7 +679,8 @@ def kos(ayar=Ayar(), yollar=Yollar(), gercek=False, gunluk=print):
     kp, _, _ = kume_yapisi(uyp)
     p_pl = None
     if kp:
-        sp = sifir_cekilis(np.random.default_rng(TOHUM_T1 + 9), havuzlar[0.6], kp, ayar.ns_t1)
+        sp = sifir_cekilis(np.random.default_rng(TOHUM_T1 + 9), {i: sonlu(P[(i, 1)]) for i in BG}, kp,
+                           ayar.ns_t1)
         p_pl = p_deger(sp[:, :, 1].mean(1), kume_ort({i: Z[i]["z_p"] for i, _ in uyp}, kp))
     K_kd = len(kd2)
     mm = mde_metni(m_yeni)

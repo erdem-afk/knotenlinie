@@ -1,0 +1,46 @@
+{
+ "kayit": "inc_c2_kayit_i_31.36.json",
+ "dunya": "i",
+ "lam": 31.36,
+ "N_aday": 60,
+ "kenar": [
+  583.72,
+  4501.37
+ ],
+ "tekrar": 20000,
+ "tohum": 8812,
+ "sonuc": {
+  "v1 δ 0": {
+   "yanlis_H1": 0.0617,
+   "se": 0.0018,
+   "olcu_yanli": 0.0326,
+   "guc_yok": 0.021,
+   "K_ort": 30.25,
+   "J_ort": 58.5
+  },
+  "a2 δ 0": {
+   "yanlis_H1": 0.0349,
+   "se": 0.0013,
+   "olcu_yanli": 0.1366,
+   "guc_yok": 0.021,
+   "K_ort": 30.25,
+   "J_ort": 84.6
+  },
+  "v1 δ 0.02": {
+   "yanlis_H1": 0.0846,
+   "se": 0.0021,
+   "olcu_yanli": 0.0326,
+   "guc_yok": 0.0234,
+   "K_ort": 30.21,
+   "J_ort": 58.4
+  },
+  "a2 δ 0.02": {
+   "yanlis_H1": 0.0512,
+   "se": 0.0016,
+   "olcu_yanli": 0.1376,
+   "guc_yok": 0.0234,
+   "K_ort": 30.21,
+   "J_ort": 84.6
+  }
+ }
+}

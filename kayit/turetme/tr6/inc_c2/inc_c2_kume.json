@@ -1,0 +1,110 @@
+{
+ "aday_birim": 74,
+ "kapi_birim": 41,
+ "kapi_kume": 35,
+ "kalibrasyon_kume": 62,
+ "farkli": [
+  {
+   "kapi_kumesi": {
+    "temsilci": "usp000hrw0",
+    "birimler": [
+     "usp000hrw0"
+    ],
+    "bilinen": false
+   },
+   "kalibrasyon_kumesi": {
+    "temsilci": "usp000hhuc",
+    "birimler": [
+     "usp000hhuc",
+     "usp000hrw0"
+    ],
+    "bilinen": false
+   },
+   "temsilci_N0": 1.35,
+   "kapi_temsilci_N0": 39.86
+  },
+  {
+   "kapi_kumesi": {
+    "temsilci": "us20003k7a",
+    "birimler": [
+     "us20003k7a"
+    ],
+    "bilinen": false
+   },
+   "kalibrasyon_kumesi": {
+    "temsilci": "us20003k7a",
+    "birimler": [
+     "us20003k7a",
+     "us10008kce"
+    ],
+    "bilinen": false
+   },
+   "temsilci_N0": 82.21,
+   "kapi_temsilci_N0": 82.21
+  },
+  {
+   "kapi_kumesi": {
+    "temsilci": "us1000i2gt",
+    "birimler": [
+     "us1000i2gt",
+     "us6000dg77"
+    ],
+    "bilinen": false
+   },
+   "kalibrasyon_kumesi": {
+    "temsilci": "us1000i2gt",
+    "birimler": [
+     "us1000i2gt",
+     "us6000dg77",
+     "us6000kd0n"
+    ],
+    "bilinen": false
+   },
+   "temsilci_N0": 68.54,
+   "kapi_temsilci_N0": 68.54
+  },
+  {
+   "kapi_kumesi": {
+    "temsilci": "us6000jllz",
+    "birimler": [
+     "us6000jllz"
+    ],
+    "bilinen": false
+   },
+   "kalibrasyon_kumesi": {
+    "temsilci": "us60007ewc",
+    "birimler": [
+     "us60007ewc",
+     "us6000jllz"
+    ],
+    "bilinen": false
+   },
+   "temsilci_N0": 14.03,
+   "kapi_temsilci_N0": 147.75
+  },
+  {
+   "kapi_kumesi": {
+    "temsilci": "nc75095651",
+    "birimler": [
+     "nc75095651"
+    ],
+    "bilinen": false
+   },
+   "kalibrasyon_kumesi": {
+    "temsilci": "nc73821036",
+    "birimler": [
+     "nc73821036",
+     "nc75095651"
+    ],
+    "bilinen": false
+   },
+   "temsilci_N0": 17.85,
+   "kapi_temsilci_N0": 52.47
+  }
+ ],
+ "kenar_birimleri": [
+  "official20030925195006360_27",
+  "official20110311054624120_30",
+  "us20005iis"
+ ]
+}
