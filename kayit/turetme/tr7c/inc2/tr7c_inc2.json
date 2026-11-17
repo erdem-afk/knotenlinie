@@ -1,0 +1,156 @@
+{
+ "d_aynen": {
+  "D-1": [
+   {
+    "birebir": true,
+    "uzunluk": 661
+   }
+  ],
+  "D-10": [
+   {
+    "birebir": true,
+    "uzunluk": 418
+   }
+  ],
+  "D-2": [
+   {
+    "birebir": true,
+    "uzunluk": 569
+   }
+  ],
+  "D-3": [
+   {
+    "birebir": true,
+    "uzunluk": 702
+   }
+  ],
+  "D-4": [
+   {
+    "birebir": true,
+    "uzunluk": 778
+   }
+  ],
+  "D-5": [
+   {
+    "birebir": true,
+    "uzunluk": 468
+   }
+  ],
+  "D-6": [
+   {
+    "birebir": true,
+    "uzunluk": 421
+   }
+  ],
+  "D-7": [
+   {
+    "birebir": true,
+    "uzunluk": 407
+   }
+  ],
+  "D-8": [
+   {
+    "birebir": true,
+    "uzunluk": 382
+   },
+   {
+    "birebir": true,
+    "uzunluk": 320
+   }
+  ],
+  "D-9": [
+   {
+    "birebir": true,
+    "uzunluk": 612
+   },
+   {
+    "birebir": true,
+    "uzunluk": 585
+   }
+  ]
+ },
+ "dal_v2": {
+  "birden_cok_dal": 0,
+  "d7_ikinci_cumle_e_disinda": 0,
+  "d7_ikinci_cumle_e_icinde": 183985560,
+  "dal": {
+   "a": 8690684640,
+   "b": 268505632,
+   "c": 747893768,
+   "d": 962829765,
+   "e": 3072474855
+  },
+  "hicbir_dal": 0,
+  "toplam_nokta": 13742388660
+ },
+ "girdi_sha256": {
+  "kayit/onkayit/TR-7c_INCELEME-1.md": "7660c5a98e42fda92549cd6f77e74685e4a3d33f36f6f6596b815545a4a6c0f3",
+  "kayit/onkayit/TR-7c_tetiklenmis-tremor_ONKAYIT.md": "d76003aa3578a3dff3ff7a5a1683786d36885b3ec088e46f4560252508276728",
+  "kayit/turetme/tr7c/inc1/tr7c_inc1.py": "c809ce9755058fcba4f92c84cebf8e7cfadeb5cf055b8f0b8320e2e7499d58a8"
+ },
+ "not_": "TR-7c İNCELEME-2; ağ isteği ve dalga formu yok.",
+ "z_aynen_v2": {
+  "Z1": [
+   {
+    "birebir": true,
+    "tirnaksiz_birebir": true,
+    "uzunluk": 1261
+   }
+  ],
+  "Z2": [
+   {
+    "birebir": true,
+    "tirnaksiz_birebir": true,
+    "uzunluk": 654
+   }
+  ],
+  "Z3": [
+   {
+    "birebir": true,
+    "tirnaksiz_birebir": true,
+    "uzunluk": 432
+   }
+  ],
+  "Z4": [
+   {
+    "birebir": true,
+    "tirnaksiz_birebir": true,
+    "uzunluk": 883
+   }
+  ],
+  "Z5": [
+   {
+    "birebir": true,
+    "tirnaksiz_birebir": true,
+    "uzunluk": 509
+   }
+  ],
+  "Z6": [
+   {
+    "birebir": true,
+    "tirnaksiz_birebir": true,
+    "uzunluk": 123
+   }
+  ],
+  "Z7": [
+   {
+    "birebir": true,
+    "tirnaksiz_birebir": true,
+    "uzunluk": 200
+   }
+  ],
+  "Z8": [
+   {
+    "birebir": true,
+    "tirnaksiz_birebir": true,
+    "uzunluk": 116
+   }
+  ],
+  "Z8_duz": [
+   {
+    "birebir": true,
+    "uzunluk": 197
+   }
+  ]
+ }
+}
