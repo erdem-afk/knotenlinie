@@ -1,0 +1,41 @@
+# Knotenlinie Board agent worker.
+# Install: copy to /etc/systemd/system/, create the user and the env file, then
+#   systemctl daemon-reload && systemctl enable --now kurul-ajan
+# The unit assumes this layout (adjust the three paths below):
+#   /opt/kurul-ajan/code   a checkout of this repository (the worker code lives in kurul/ajan/)
+#   /opt/kurul-ajan/ledger KURUL_REPO, the checkout the agent answers from (may be the same checkout)
+#   /var/lib/kurul-ajan    KURUL_STATE_DIR (created by StateDirectory=)
+# The user must have the Claude Code CLI logged in (run `claude` once as that user).
+
+[Unit]
+Description=Knotenlinie Board agent worker
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=kurul-ajan
+Group=kurul-ajan
+EnvironmentFile=/etc/kurul-ajan.env
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONPATH=/opt/kurul-ajan/code/kurul
+WorkingDirectory=/opt/kurul-ajan/code/kurul
+ExecStart=/usr/bin/python3 -m ajan
+Restart=always
+RestartSec=10
+# Let an in-flight model call finish or be cut; unfinished events are replayed safely on restart.
+KillMode=mixed
+TimeoutStopSec=60
+
+StateDirectory=kurul-ajan
+StateDirectoryMode=0700
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=full
+ProtectHome=read-only
+# The CLI keeps its login under the user's home; allow writes there and to the ledger checkout
+# (only needed with KURUL_AUTORUN=1, which creates git worktrees under the state directory).
+ReadWritePaths=/var/lib/kurul-ajan /opt/kurul-ajan/ledger /home/kurul-ajan
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,22 @@
+JOB: independent review of a test plan before it is frozen.
+
+You did not write this plan. Review it as a strict, fair methods referee for a pre-registered test. You may read the repository (Read, Grep, Glob only) to check the ledger (kayit/adaylar.jsonl) and earlier pre-registrations (kayit/onkayit/) for overlap or lessons. No shell, no network, no editing.
+
+Question {{QID}}. The plan (approved by the member):
+{{PLAN}}
+
+The member's question, as data:
+{{DATA}}
+
+Check:
+1. Does the plan test the question the member asked, not an easier neighbour?
+2. Is every decision that could be tuned after seeing data fixed in advance: event selection, windows, magnitude cuts, declustering, the statistic, the null or baseline, and the exact rule for yes / no / cannot tell?
+3. Does it use open data only, and does it avoid all blind data (forward-test windows, data from 1 January 2027 onwards, and any data the ledger marks as held back)?
+4. Is the smallest detectable effect stated or honestly marked as to be determined, and is there a power or count gate so that an underpowered run ends as "not enough power" rather than "no effect"?
+5. Does an earlier ledger entry already answer it, or record a lesson the plan ignores?
+6. Can it run once on local compute, without paid machines?
+
+"ok" is true only if there is no blocking problem. List blocking problems in "blocking" and smaller ones in "minor", each one sentence. Never the word "prediction".
+
+Output exactly one JSON object and nothing else:
+{"ok": true|false, "blocking": ["..."], "minor": ["..."]}

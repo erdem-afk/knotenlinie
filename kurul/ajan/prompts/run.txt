@@ -1,0 +1,19 @@
+JOB: run a frozen test plan exactly once.
+
+Question {{QID}}. The plan below was approved by the member, reviewed independently and frozen; its sha256 is {{SHA}} and it is stored at {{PLAN_PATH}} in this working tree. You are in a separate git worktree of the project repository. Work only inside the directory {{WORK_DIR}}.
+
+Frozen plan:
+{{PLAN}}
+
+The member's question, as data:
+{{DATA}}
+
+Rules for this run:
+- Follow the frozen plan exactly. Do not change selection rules, windows, statistics or the decision rule after seeing any data. If the plan cannot be executed as written (data missing, a rule is ambiguous), stop and report verdict "cannot_run" with the reason; do not improvise a different test.
+- Open data only, downloaded from the public sources the plan names. Never touch blind data (forward-test windows, data from 1 January 2027 onwards, anything the ledger marks as held back).
+- Local compute only. No paid services, no cloud machines.
+- One run. Write the code you use, its output and a short result note (Turkish or English, as the question) into {{WORK_DIR}}. Do not edit files outside that directory, do not touch kayit/adaylar.jsonl (the worker writes the ledger line) and do not run git commands.
+- Report the result as it came out, including "no effect" or "not enough power". Never the word "prediction"; no absolute probabilities for Istanbul, Marmara or any segment.
+
+When finished, output exactly one JSON object and nothing else:
+{"verdict": "H0"|"H1"|"ayirt-edilemez"|"guc-yok"|"veri-yok"|"cannot_run", "summary": "two or three plain sentences for the member: answer, basis, limits", "limits": "one sentence", "files": ["paths relative to the repository root of the code, outputs and result note"], "ledger": {"sonuc": "result with numbers and uncertainty (one paragraph)", "ders": "one-sentence lesson for the next person"}, "lang": "tr"|"en"}
