@@ -200,8 +200,8 @@ def pencere_kur(KM, pid, tohum, tremor=None, A=8.0, n_ist=4, trem_ara=TREM, k1b=
     ist = []
     maske = np.zeros(NAX, bool)
     zarf = np.zeros(NAX)
-    if tremor is not None:
-        a, b = trem_ara
+    araliklar = trem_ara if isinstance(trem_ara, list) else [trem_ara]
+    for a, b in (araliklar if tremor is not None else []):
         tt = np.arange(b - a)
         tap = np.minimum(1, np.minimum(tt, b - a - 1 - tt) / 30.0)
         if tremor == 'kilitli':
@@ -210,7 +210,7 @@ def pencere_kur(KM, pid, tohum, tremor=None, A=8.0, n_ist=4, trem_ara=TREM, k1b=
             mod = 0.4 + np.maximum(0, faz_cos_W(ref_hiz(rng)))[a - W_[0]:b - W_[0]]
         else:
             mod = np.full(b - a, 0.9)
-        zarf[a:b] = A * tap * mod
+        zarf[a:b] += A * tap * mod
     for i in range(n_ist):
         g = np.exp(rng.normal(0, 0.12, NAX))
         gd = np.exp(rng.normal(0, 0.12, NAX))
@@ -440,6 +440,18 @@ def birim(KM, R):
         KM.k5_ist = eski
     R.sina(g, 'U8 K5 toplaması "istasyonların ≥ yarısı" (4/2 atılır, 4/1 atılmaz, 3/1 atılmaz, 3/2 atılır)',
            sonuc == {(4, 2): True, (4, 1): False, (3, 1): False, (3, 2): True}, {str(k): v for k, v in sonuc.items()})
+    # U8b K5'e pencerenin Q'su (§4.2, "Q-doğrusu") olduğu gibi gider
+    eskiY = KM.Y2.K5
+    qler = []
+    try:
+        KM.Y2.K5 = lambda x, p, m, Q: (qler.append(tuple(Q)), eskiY(x, p, m, Q))[1]
+        pv = pencere_kur(KM, 'u8b', 6, 'kilitli')
+        kk = K.kumeler(pv['ist'], pv['maske'], pv['Wb'])[0]
+        KM.ayikla_k5(pv['ist'], kk, pv['maske'], pv['Q'])
+    finally:
+        KM.Y2.K5 = eskiY
+    R.sina(g, "U8b K5 her istasyonda pencerenin Q aralığıyla çağrılır", bool(qler) and
+           all(q == tuple(pv['Q']) for q in qler), dict(Q=list(pv['Q']), gelen=qler[:4]))
     # U9 E-1
     v = dict(Z=np.zeros(10), R=np.zeros(10), T=np.zeros(10))
 
@@ -520,6 +532,8 @@ def birim(KM, R):
                K.epoch(ust['VANUATU2009']['K1b'][0]), K.epoch(ust['VANUATU2009']['K1b'][1]))
            and ('P', '2009-10-07T22:31:18') in n28 and ('S', '2009-10-07T22:40:04') in n28,
            dict(pay=vb['K1b_acik_pay'], e1=len(e1), n28=n28))
+    R.sina(g, 'U13 Vanuatu biriminin T0\'ı ve tetikleyicisi N 27 (D-1: R ve Q N 27\'nin)',
+           vb['t0'] == ol[KM.VANUATU[0]]['t0'] and D['pen']['pk|' + vb['id']]['tetikleyici'] == KM.VANUATU[0])
     eksik = [b['id'] for b in bs if b['sinif'] in 'PN' and (b['K1b_acik_pay'] is None or b['maskelenen'] is None)]
     R.sina(g, 'U13 39 P/N biriminin hepsinde dondurulmuş K1b payı ve E1 satırları kullanılıyor', not eksik, eksik)
     # U14 taranan sınırı
@@ -532,6 +546,10 @@ def birim(KM, R):
     kotu = [(k, KM.k_guc(k), v) for k, v in tab.items() if KM.k_guc(k) is None or
             any(abs(a - b) > 0.006 for a, b in zip(KM.k_guc(k), v))]
     R.sina(g, 'U15 k_koşu güç tablosu §7.3 k satırıyla aynı (±0,005)', not kotu, kotu)
+    c9 = KM.k1c_cumle('b', '', 10, 29, 8, 1.0, dict(k_kosu=9, mod_gecti=True, b_prime=False))
+    c10 = KM.k1c_cumle('b', '', 10, 29, 8, 1.0, dict(k_kosu=10, mod_gecti=True, b_prime=False))
+    R.sina(g, 'U15b E-2: güç satırı yalnız k_koşu < 10 iken (9 var, 10 yok); "koşuda 10" yazılır',
+           'k_koşu ile güç' in c9 and 'k_koşu ile güç' not in c10 and 'koşuda 10' in c10, dict(c9=c9[-160:], c10=c10[-120:]))
     # U16 D-8 MDE §7.3 tablosuyla
     tab = {(10, 20): (0.60, 0.78), (10, 24): (0.59, 0.77), (10, 29): (0.58, 0.77), (9, 20): (0.64, 0.84),
            (9, 29): (0.63, 0.84), (8, 20): (0.66, 0.93), (8, 29): (0.64, 0.93)}
@@ -702,6 +720,19 @@ def uctan_uca(KM, R, ozet):
            h['etiket']['k_kosu'] == 5 and h['X_P'] == 8 and h['n_P'] == 10 and h['M_olc'] == 3 and h['dal'] == 'b'
            and not h['etiket']['mod_gecti'] and 'Parkfield modülasyonu geçmedi' in h['cumle']
            and 'koşuda 5 (k_koşu ile güç' in h['cumle'], ozet['e3'])
+    # E5 bir P olayında iki ayrı tremor kümesi: üreteç kümeleri I′ başı sırasıyla tüketir
+    iki = KM.P_OLAY[0]
+
+    def sen5(b):
+        if b['id'] == iki:
+            return 'kilitli', dict(trem_ara=[(4420, 4620), (4760, 4980)])
+        return sen_gercek(KM)(b)
+    kay5 = YapayKaynak(KM, sen5)
+    h, d = k1c(KM, kay5, 'e5')
+    ref = ref_modulasyon(kay5, kay5.birimler(), 200)
+    kod = {b: [k['p'] for k in v['kumeler']] for b, v in h['modulasyon'].items()}
+    R.sina(g, 'E5 iki algılama kümeli P olayında p\'ler başvuruyla birebir (küme sırası I′ başı)',
+           len(ref[iki]) == 2 and kod == ref, dict(iki=(kod.get(iki), ref.get(iki))))
     # E4 başvuru 8 P'de yok → M_olc 0 → (e) modülasyon ölçülemedi (D-7: i, ii var)
     kay4 = YapayKaynak(KM, sen_gercek(KM), ref_yok=list(KM.P_OLAY[:8]))
     h, d = k1c(KM, kay4, 'e4')
