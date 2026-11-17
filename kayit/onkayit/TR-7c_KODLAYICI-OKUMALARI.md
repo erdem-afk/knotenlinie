@@ -51,9 +51,10 @@ Hepsi `kayit/turetme/tr7c/` altında:
 | `tr7c_duman.py` | `d974586836bc5e028a26ef84045cd0592b14e01e5d68e9bf63afc6d6bd5c2515` | §9 Tohoku duman sınaması |
 | `tr7c_duman.json` | `11aaa0a04ac4ce562e1f271a4ea20e0cbd334e3330a5f2b7e3d95270e085acb6` | Duman sonucu |
 | `tr7c_tr7b112.py` | `8d19f035c329cc90b619058c5e55cb1a927a999128843a64f3a913bbdda35dda` | TR-7b §11.2 satırları, koşu kodunun yolundan |
-| `tr7c_tr7b112_20261117.json`, `_9393.json` | §6'da | Sonuç (iki tohum) |
+| `tr7c_tr7b112_20261117.json` | `7e18100546b88267aa108e25d1b15f067c2fe2bcbe545296234a1b421d54a1af` | Sonuç, tohum 20261117 |
+| `tr7c_tr7b112_9393.json` | `52d3833f78c0f6d49b32d243fac840d6b5876f1b1a5b99e8951e108f09165ddf` | Sonuç, tohum 9393 |
 | `tr7c_kd_k5.py` | `77aeab9951972d7cc2580bd8e6fab95f8dc96dfa67218c8aea998b2076fc2a64` | TR-7 KD'si, K5 ile (kısaltılmış) |
-| `tr7c_kd_k5.json` | §6'da | KD sonucu |
+| `tr7c_kd_k5.json` | `c221e88b75e8a2e39062a6fe506598fd0d8c65f157bdc626573ac6855ace64aa` | KD sonucu |
 
 Doğrulanan girdiler:
 - **D-2 dosyaları** (modül yüklenirken denetlenir; üçü de uyuşuyor):
@@ -437,8 +438,29 @@ Dürüst not:
 ## 6. TR-7b §11.2 satırları ve TR-7 KD'si (K5 ile)
 
 - **TR-7b §11.2 satırları** koşu kodunun yolundan geçirildi: `pencere_algila_k5` → `ayikla_k5` → `k5_ist`. Tohumlar
-  20261117 ve 9393, n 100. Sonuç: <<T112>>.
-- **TR-7 KD'si (§7.1) K5 ile:** <<KD>>.
+  20261117 ve 9393, n 100. **Sonuç: iki tohumda 38 satırın 38'i de Tur 2 ile birebir.** Karşılaştırılan sütunlar:
+  `n_alg`, `K5_atilma_tam`, `K5_atilma_sizinti`, `K5_sag`. Örnekler:
+  - Y2 a_y 10 κ 12,5 sabit: sağ 0,00;
+  - Y3 a_y 10: sağ 0,00 / 0,01;
+  - Y1 A10 a_y 10 egim: tremor atılmadı (0,00);
+  - D7c düz A10: atılma 0,00.
+
+  Dosyalar:
+  - `tr7c_tr7b112_20261117.json`: sha256 `7e18100546b88267aa108e25d1b15f067c2fe2bcbe545296234a1b421d54a1af`, 1128 sn;
+  - `tr7c_tr7b112_9393.json`: sha256 `52d3833f78c0f6d49b32d243fac840d6b5876f1b1a5b99e8951e108f09165ddf`, 1105 sn.
+
+  Bu, koşu kodunun K5'i TR-7b'deki gibi çağırdığını gösterir.
+- **TR-7 KD'si (§7.1) K5 ile:** ölçek 0,25 ile koşuldu (her tohumda 100 yerine 25 pencere; Monte Carlo payı TR-7'dekinden büyük). Q = ∅ alındı, yani yalnız ρ kolu çalışır (O-41, KMS-9). Yalnız ayıklamaya bağlı satırlar koşuldu: D7, D7b (A 3/10/30), D7c (4 hücre), D7d (gauss/kentsel), D15 (a)/(b). D1–D3 ve MDA satırları (D13/D14) yeniden koşulmadı. 24 iş, toplam 3101 sn hesap; ana süreç süre sınırına takıldığı için D15 ayrı koşuldu ve iki ara jsonl birleştirildi (json'daki `sure_s` = 0, birleştirme koşusunun kendi süresidir; iş süreleri `ham[].sure_s`'tedir). Bantların hepsi GEÇTİ (`gecti: true`):
+
+  | Satır | Şart | K5 değeri (iki tohum) | TR-7 K0 değeri |
+  |---|---|---|---|
+  | D7 | atılma ≤ 0,03 | 0,0 / 0,0 | 0,0 / 0,0 |
+  | D7b A3, A10, A30 | atılma ≤ 0,03 | hepsi 0,0 | hepsi 0,0 |
+  | D7c (4 hücre) | atılma ≤ 0,05 | hepsi 0,0 | hepsi 0,0 |
+  | D7d gauss, kentsel | atılma ≥ 0,95 | 1,0 / 1,0 | 1,0 / 1,0 |
+  | D15 (a), (b) | algılama ≥ 0,90, atılma ≥ 0,95 | 1,0 / 1,0 | 1,0 / 1,0 |
+
+  Bilgi sütunlarındaki küçük farklar (ör. D7b `yanlis_on` 0,04–0,08, TR-7'de 0,05–0,11) n = 25 Monte Carlo payının içindedir.
 
 ## 7. m_f (D-4; `tr7c_mf.json`)
 
