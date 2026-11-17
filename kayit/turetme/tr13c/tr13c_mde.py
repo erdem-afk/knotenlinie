@@ -103,7 +103,30 @@ def main(ara, cikti, cekirdek):
             for k, f in enumerate(F_LIST):
                 isler.append((f"v{j}_f{f}", TOHUM + 1000 * j + 300 + k, z["R"], KAL[(j, "veri")]["Nh"], 0.6, f, NF, 2))
         H = havuz_kos(ara, isler, hv)
-    print("havuzlar", round(time.time() - t0), "s", flush=True)
+        # ±%5 denetimi ve bir yineleme (dondurulmuş §3.5 gibi): μ x N / ort, havuz yeni tohumla (+20) yeniden.
+        YIN = {}
+        isler2 = []
+        for j, z in enumerate(L):
+            for di, d in enumerate(DAL):
+                ort = float(H[f"s{j}_{di}"][:, 2].mean())
+                if not K.kal_tamam(ort, z["N3bg"]):
+                    YIN[f"s{j}_{di}"] = dict(ort_once=ort)
+                    isler2.append((f"s{j}_{di}r", TOHUM + 1000 * j + 120 + di, z["R"],
+                                   KAL[(j, d)]["Nh"] * z["N3bg"] / ort, d, 0.0, N0, 4))
+            ort = float(H[f"v{j}_D0"][:, 2].mean())
+            if not K.kal_tamam(ort, z["N3bg"]):
+                YIN[f"v{j}"] = dict(ort_once=ort)
+                Nh2 = KAL[(j, "veri")]["Nh"] * z["N3bg"] / ort
+                isler2.append((f"v{j}_D0r", TOHUM + 1000 * j + 220, z["R"], Nh2, 0.6, 0.0, ND, 3))
+                for k, f in enumerate(F_LIST):
+                    isler2.append((f"v{j}_f{f}r", TOHUM + 1000 * j + 320 + k, z["R"], Nh2, 0.6, f, NF, 2))
+        H2 = havuz_kos(ara, isler2, hv)
+        for ad, h in H2.items():
+            H[ad[:-1]] = h                                    # yinelenmiş havuz eskisinin yerine geçer
+        for ad in YIN:
+            k = ad + "_D0" if ad.startswith("v") else ad
+            YIN[ad]["ort_sonra"] = float(H[k][:, 2].mean())
+    print("havuzlar", round(time.time() - t0), "s", "yineleme", json.dumps(YIN), flush=True)
     sifir = {d: {j: K.sonlu_z(H[f"s{j}_{di}"]) for j in range(len(L))} for di, d in enumerate(DAL)}
     sen = ["D0"] + [f"f{f}" for f in F_LIST]
     veri = {s: {j: K.sonlu_z(H[f"v{j}_{s}"]) for j in range(len(L))} for s in sen}
@@ -130,7 +153,9 @@ def main(ara, cikti, cekirdek):
     out = dict(tohum=TOHUM, N0=N0, ND=ND, NF=NF, NS=NS, NB=NB, b_ref=K.B_REF, kal_deneme=K.KAL_DENEME,
                uyeler=[dict(id=z["id"], yer=z["yer"], kume=z["kume"], R=z["R"], N3bg=z["N3bg"], yogun=z["yogun"])
                        for z in L],
-               havuz_nitelik=nit,
+               havuz_nitelik=nit, kalibrasyon_yineleme=YIN,
+               kal_5_tutmayan=[k for k, v in YIN.items() if not K.kal_tamam(v["ort_sonra"], 1.0 * next(
+                   z["N3bg"] for j, z in enumerate(L) if k[1:].split("_")[0] == str(j)))],
                a=dict(K=Ka, guc=ga, yanlis_alarm=ga["D0"], MDE=egri(ga, F_LIST)),
                b=dict(K=len(kumb), ayni_liste=kumb == kum, guc=gb, yanlis_alarm=gb["D0"], MDE=egri(gb, F_LIST)),
                duyarlilik=dict(K_x2=dict(K=2 * Ka, guc=g2, MDE=egri(g2, F_LIST)),
