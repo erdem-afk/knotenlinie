@@ -408,7 +408,82 @@ güç hesabı içindir.
 TR-6a'nın dersi: yöntem sınaması dondurmadan önce tam ölçekte koşulur. §C3'ün bütün yapay katalog hücreleri ve tamlık
 sınaması, bağlayıcı olmayan tohumlarla ve bağlayıcı koşuyla aynı kodla, hücre başına 20 000 denemeyle koşuldu.
 
-⟨PROVA2⟩
+**Komutlar ve dosyalar.**
+
+| Prova | Tohum | Hücreler | Çıktı |
+|---|---|---|---|
+| Sürüm 1 provası, yeniden özetlenmiş | 7311 (yapay katalog) | 11 eski hücre | `tr6c_prova_<hücre>.json` |
+| Tamlık | 7312 | 96 | `tr6c_prova_tamlik.json` |
+| Sürüm 2'nin değişen ve yeni hücreleri | 7321 | 10 hücre (aşağıda) | `tr6c_prova_t7321_<hücre>.json` |
+| Tablolar | | | `tr6c_prova_bilgi.json` |
+
+- Parçalar, `hucre_parcasi_c`'yi doğrudan çağıran iki işçi betiğiyle koşuldu. Parça tohumu ve dosya biçimi
+  `--tasarim c sinama --prova` komutundakiyle aynıdır. Özetler bütün parçalar bittikten sonra `prova_c` ile bir kez
+  yazıldı.
+- Sürüm 2, eski hücrelerin parça kodunu ve parça baytlarını değiştirmedi (yeni hücreler sona eklendi; karma dalı
+  yalnız karma hücrede çalışır). Bu yüzden tohum 7311'in 220 parçası sürüm 2 ölçütleriyle yeniden özetlendi.
+- `kod_sha256` alanları bu özetlerin yazıldığı kodu gösterir (İNCELEME-1 Z8: sürüm 1 özetlerinin sha'sı, İNCELEME-1'in
+  `tr6a_kosu.py` değişikliğinden sonra güncel değildi).
+- Sürüm 1'in 7311 provasına sürüm 1 makine kesintisi ve yeniden üretim beyanı (bayt bayt aynı) aynen geçerlidir;
+  İNCELEME-1 altı parçayı bağımsız olarak yeniden üretti.
+- Tohum 7321'de ii:1500'ün 16. parçası iki işçi tarafından iki kez yazıldı. Parçalar belirlenimci olduğu için içerik
+  aynıdır.
+
+**Sonuç: tohum 7321'in 10 hücresi, tohum 7311'in 11 hücresi ve tamlık sınaması sürüm 2 ölçütleriyle geçti.**
+
+Sürüm 2'nin değişen ve yeni hücreleri (tohum 7321, hücre başına 20 000 deneme, veri yok payı her hücrede 0):
+
+| Hücre | Ölçüt | Değer | Beklenen | SE | z | Kapı payı | p̂₀ (a2) / P(D \| kapı) | Bilgi: kapı koşullu havuz p̂₀ − P(D \| kapı) (z) |
+|---|---|---|---|---|---|---|---|---|
+| i:28,5 | C1 | +0,0124 | 0 | 0,0120 | +1,03 | 0,109 | 0,643 / 0,631 | −0,107 (−7,6) |
+| ii:28,5 | C1 | +0,0030 | 0 | 0,0108 | +0,27 | 0,133 | 0,637 / 0,634 | −0,101 (−8,1) |
+| i:31,36 | C1 | +0,0013 | 0 | 0,0059 | +0,23 | 0,468 | 0,544 / 0,542 | −0,056 (−9,0) |
+| ii:31,36 | C1 | +0,0018 | 0 | 0,0057 | +0,31 | 0,514 | 0,535 / 0,533 | −0,052 (−8,8) |
+| i:36 | C1 | −0,0047 | 0 | 0,0042 | −1,13 | 0,952 | 0,458 / 0,463 | −0,011 (−2,7) |
+| ii:36 | C1 | +0,0017 | 0 | 0,0041 | +0,42 | 0,961 | 0,457 / 0,455 | −0,004 (−0,9) |
+| i:karma | C1 | +0,0015 | 0 | 0,0053 | +0,29 | 0,591 | 0,465 / 0,464 | −0,008 (−1,5) |
+| ii:karma | C1 | −0,0037 | 0 | 0,0053 | −0,69 | 0,595 | 0,466 / 0,470 | −0,013 (−2,4) |
+| i:1500 | C1′a | −0,0002 | 0 | 0,0041 | −0,05 | 1 | 0,426 / 0,426 | aynı (kapı payı 1) |
+| i:1500 | C1′ | 0,4264 | ≤ 0,4920 | 0,0035 | −18,6 | | | |
+| i:1500 | C1′b | 0,4920 | 0,4920 | 0,0035 | 0,00 | | | |
+| ii:1500 | C1′a | −0,0024 | 0 | 0,0041 | −0,60 | 1 | 0,421 / 0,423 | aynı |
+| ii:1500 | C1′ | 0,4231 | ≤ 0,4920 | 0,0035 | −19,5 | | | |
+
+Sürüm 1 provası, sürüm 2 ölçütleriyle (tohum 7311):
+
+| Hücre | Ölçüt | Değer | Beklenen | z | Not |
+|---|---|---|---|---|---|
+| i:31,36 | C1 | +0,0059 | 0 | +0,99 | kapı koşullu havuzla −0,052 (z −8,3) |
+| ii:31,36 | C1 | +0,0067 | 0 | +1,18 | kapı koşullu havuzla −0,044 (z −7,5) |
+| i:100 / i:500 | C1 | +0,0087 / +0,0019 | 0 | +2,14 / +0,45 | kapı payı 1; iki havuz aynı |
+| ii:100 / ii:500 | C1 | −0,0014 / −0,0035 | 0 | −0,34 / −0,87 | |
+| i:1500 | C1′a / C1′ / C1′b | −0,0014 / 0,4283 / 0,4941 | 0 / ≤ 0,4920 / 0,4920 | −0,35 / −18,0 / +0,59 | |
+| i:4500 | C1′a / C1′ / C1′b | +0,0031 / 0,3214 / 0,4921 | 0 / ≤ 0,4954 / 0,4954 | +0,79 / −49,2 / −0,94 | |
+| ii:1500 | C1′a / C1′ | −0,0027 / 0,4253 | 0 / ≤ 0,4920 | −0,67 / −18,9 | |
+| ii:4500 | C1′a / C1′ | −0,0063 / 0,3267 | 0 / ≤ 0,4954 | −1,62 / −47,7 | |
+| adım:31,36 | C2 / C3 | 0,93735 / 0,49415 | 0,94019 / 0,49688 | −1,69 / −0,77 | |
+
+Okuma:
+- **Kapı seçim yanlılığı gerçektir ve (a2) havuzu onu soğurur.**
+  - Kapı koşullu (TR-6a / sürüm 1) havuzla fark 28,5'te ≈ −0,10, 31,36'da ≈ −0,05'tir (z −7,5 … −9).
+  - (a2) havuzuyla aynı hücreler |z| ≤ 1,03'tür.
+  - Karma hücrelerde (λ 20–60 karışımı) (a2) +0,0015 / −0,0037'dir. Kapı koşullu havuz −0,008 / −0,013'tür (z −1,5 /
+    −2,4).
+- **Kenar hücrelerinde** C1′a ve C1′b dar ölçütlerdir ve tutar: |z| ≤ 1,62 ve ≤ 0,94. C1′ yön ölçütü olarak tutar.
+- **i:100'ün z'si** 2,14 (tohum 7311). İNCELEME-1'in bağımsız koşusunda +0,96 (tohum 8801). 20 C1 / C1′a satırı
+  içinde en büyük |z| budur; olağandışı değildir (İNCELEME-1 §4 madde 1).
+- **(ii)'de hat − ham farkı** küçük N0'da da 0,02'yi aşar (−0,023 / −0,037). Bu kenar etkisi değil, ham (D4) oyun lob içi
+  kümelenmeyle yukarı kaymasıdır (§C4 R2). (ii)'nin kenar etkisinin ölçüsü hat P(D) − kesindir: −0,001 / −0,020 /
+  −0,067 / −0,169 (N0 100 / 500 / 1500 / 4500).
+- **i:500 hücresi kenar dışı sınaması için tam temsilî değildir.** Denemelerin kapı N0'ı 500 civarında dalgalanır;
+  gerçek koşuda yaklaşık yarısı kenar sayılırdı (İNCELEME-1 §4 madde 2). Bilgi olarak yazılır.
+
+Tamlık ((d), tohum 7312, 96 hücre × 20 000): geçti. En büyük fark +0,0038 (M7, Mc 1, N0 4500, aσ 0; eşik 0,02).
+12 hücrenin bütün denemeleri veri yoktur (geçer sayılır); ortalama veri yok payı 0,232. Tamlık kodu sürüm 2'de
+değişmedi.
+
+H1 bilgisi (tohum 7400, (i) dünyası, kalıcı −10 kPa): N0 500 / 1500 / 4500'de 400 / 300 / 150 denemede hat ve
+kümesizleştirmesiz düşüş oyu payı 1,000, artış oyu payı 0,000.
 
 ## C7. Güç kaybı
 
@@ -559,7 +634,7 @@ sayıları aynıdır.
 bağlıdır. Tek istisna `satir_istatistigi`dir: o da bütün A'lar sayılırken (TR-6a) aynı çıktıyı verir ve `K_Y` anahtarını
 yalnız bir A sayılmadığında yazar. `TTasarimC.test_tr6a_bit_duzeyi` dört özeti sabit tutar ve geçer.
 
-**Sınamalar:** `python3 -I -B kayit/turetme/tr6/tr6a_test_yapay.py` ⟨TEST2⟩. Sürüm 2'nin eklediği ve değiştirdiği
+**Sınamalar:** `python3 -I -B kayit/turetme/tr6/tr6a_test_yapay.py` → 68 sınama, hepsi geçti (≈ 2 dakika; sürüm 1'de 62, İNCELEME-1'den sonra 66). Sürüm 2'nin eklediği ve değiştirdiği
 sınamalar:
 - kenar kuralı: A sayılmaz, Y'nin paydası `K_Y`, y05 S2'de yok, `kalibrasyon_kumeleri` havuzu ve J'si;
 - `test_kenar_A_paydasi_ve_kontrol_suzgeci` (yeni);
@@ -578,7 +653,9 @@ python3 -I -B kayit/turetme/tr6/tr6c_z2.py kayit ii 7331 6000 <dizin>/z2_kayit_i
 python3 -I -B kayit/turetme/tr6/tr6c_z2.py secim <dizin>/z2_kayit_i.json <dizin>/z2_kayit_ii.json 20000 7332 \
     kayit/turetme/tr6/tr6c_z2_secim.json                                                  # ≈ 1 dk
 python3 -I -B kayit/turetme/tr6/tr6a_kosu.py --tasarim c sinama --prova --tohum 7321 --deneme 20000 \
-    --parca-dizini <geçici_dizin> --hucreler i:31.36,ii:31.36,i:28.5,ii:28.5,i:36,ii:36,i:karma,ii:karma,i:1500,ii:1500 --yaz
+    --parca-dizini <geçici_dizin> --hucreler i:31.36,ii:31.36,i:28.5,ii:28.5,i:36,ii:36,i:karma,ii:karma,i:1500,ii:1500
+# --yaz özetleri tr6c_prova_<hücre>.json adıyla yazar; depodaki 7321 özetleri tr6c_prova_t7321_<hücre>.json adıyla
+# saklandı (7311 özetleri tr6c_prova_<hücre>.json'da kaldı). ≈ 2,5 saat CPU (çoğu i:1500 ve ii:1500)
 ```
 
 ## C11. Etki büyüklüğü: kaynağı, görülebilir en küçük etki ve olumsuz sonucun anlamı (yeni; İNCELEME-1 Z6)
@@ -592,19 +669,19 @@ literatürden alınmış değildir.
 - Hainzl vd.'nin CV ≈ 1 bulgusu yüzünden bu iyimser bir dünyadır.
 - Aynı tahmin `kayit/turetme/ESIK-DAYANAGI.md` tablosunda TR-6a satırında yazılıdır.
 
-**Görülebilir en küçük etki** (tek yanlı kesin binom, α 0,05, güç 0,80; `inc_c_alfa.py` `mde`, K 24 ⟨K24⟩):
+**Görülebilir en küçük etki** (tek yanlı kesin binom, α 0,05, güç 0,80; `inc_c_alfa.py` `mde`, K 24 (a1)'in önsayım K'si):
 
 | K | 23 | 24 | 25 | 28 | 30 | 35 | 40 |
 |---|---|---|---|---|---|---|---|
-| en küçük p₁, p₀ 0,50 | 0,749 | ⟨M24⟩ | 0,770 | 0,730 | 0,718 | 0,707 | 0,698 |
-| en küçük p₁, p₀ 0,52 | 0,788 | ⟨M24b⟩ | 0,770 | 0,763 | 0,749 | 0,734 | 0,722 |
+| en küçük p₁, p₀ 0,50 | 0,749 | 0,760 | 0,770 | 0,730 | 0,718 | 0,707 | 0,698 |
+| en küçük p₁, p₀ 0,52 | 0,788 | 0,760 | 0,770 | 0,763 | 0,749 | 0,734 | 0,722 |
 
 f cinsinden (w 0,457, P_D 0,987): p₀ 0,50'de K 23 için f ≥ 0,55, K 28 için f ≥ 0,51. §C3a, kapı sınırındaki kümelerde
 p₀'ı gerçek H0 düzeyine (≈ 0,55'e kadar) çıkarabilir. O zaman görülebilir en küçük p₁ bu tablonun p₀ 0,52 satırından
 da yüksektir.
 
 **Kapı altı (K < 23): yalnız büyük etki.** K < 23'te olay sonrası veri indirilmez ve aday elenmez (§C8). Bilgi olarak,
-o K'lerle görülebilecek en küçük etki (p₀ 0,50): ⟨KAPI_ALTI⟩. Bu sayılar hüküm vermez; "güç yok"un ne kadar büyük bir
+o K'lerle görülebilecek en küçük etki (p₀ 0,50): K 22 / 19 / 15 / 11 / 8 için p₁ ≥ 0,778 / 0,788 / 0,843 / 0,857 / 0,896 (c 16 / 14 / 12 / 9 / 7). K 19 ve 11, TR-6a §10'un "kaba N0 yarıya" ve "Mc + 0,5" K'leridir. Bu sayılar hüküm vermez; "güç yok"un ne kadar büyük bir
 etkiyi dışarıda bıraktığını söyler.
 
 **Duyarlılık (×0,5 / ×2).**

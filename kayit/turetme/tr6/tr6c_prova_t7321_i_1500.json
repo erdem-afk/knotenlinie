@@ -1,0 +1,127 @@
+{
+ "hucre": "i:1500",
+ "deneme": 20000,
+ "parca": 20,
+ "tohum": 7321,
+ "N0": 1500.0,
+ "N0_kul": 946.436,
+ "veri_yok_payi": 0.0,
+ "kapi_payi": 1.0,
+ "olcutler": [
+  {
+   "ad": "C1′a: p̂₀ − P(D | kapı) (kenar birimi)",
+   "deger": -0.00022,
+   "beklenen": 0.0,
+   "se": 0.00406,
+   "z": -0.05,
+   "gecti": true,
+   "bilgi": {
+    "p0_sapka": 0.42618,
+    "P_D_kapi": 0.4264,
+    "J_ort": 3.0,
+    "kapi_kosullu_havuz": {
+     "p0": 0.42618,
+     "fark": -0.00022,
+     "se": 0.00406,
+     "z": -0.05
+    }
+   }
+  },
+  {
+   "ad": "C1′: P(D | kapı) ≤ kesin Poisson (tek yanlı, kenar birimi)",
+   "deger": 0.4264,
+   "beklenen": 0.49196,
+   "se": 0.00354,
+   "z": -18.55,
+   "gecti": true,
+   "bilgi": null
+  },
+  {
+   "ad": "C1′b: D4 P(D | kapı) − kesin Poisson",
+   "deger": 0.49195,
+   "beklenen": 0.49196,
+   "se": 0.00354,
+   "z": -0.0,
+   "gecti": true,
+   "bilgi": null
+  }
+ ],
+ "bilgi": {
+  "P_D": 0.4264,
+  "P_A": 0.55885,
+  "P_D_kesin": 0.49196,
+  "P_A_kesin": 0.49199,
+  "P_D_kapi": 0.4264,
+  "P_A_kapi": 0.55885,
+  "P_Dh_kapi": 0.49195,
+  "P_Ah_kapi": 0.49235,
+  "p0_sapka_A_eksi_P_kapi": {
+   "p0": 0.55823,
+   "P": 0.55885,
+   "fark": -0.00062,
+   "se": 0.00408,
+   "z": -0.15
+  },
+  "p0_sapka_Dh_eksi_P_kapi": {
+   "p0": 0.49388,
+   "P": 0.49195,
+   "fark": 0.00193,
+   "se": 0.00406,
+   "z": 0.48
+  },
+  "p0_sapka_Ah_eksi_P_kapi": {
+   "p0": 0.49023,
+   "P": 0.49235,
+   "fark": -0.00212,
+   "se": 0.00406,
+   "z": -0.52
+  },
+  "kenar_D_hat_eksi_ham": {
+   "fark": -0.06555,
+   "se": 0.00326
+  },
+  "kenar_A_hat_eksi_ham": {
+   "fark": 0.0665,
+   "se": 0.00328
+  },
+  "artik_n_son_eksi_pi_n": 4.25,
+  "n_on_ort": 4173.46,
+  "n_son_ort": 643.93,
+  "sahte_gecerli_ort": 3.0
+ },
+ "gecti": true,
+ "parca_sha256": [
+  "9db4f1f6b4c4d93d693c9436363e8d4d69e1098a16b653eab32856545c408fc0",
+  "c8c950b720865fb950d2b8e9da390aea66805203ea7c26dc8463253b025333b3",
+  "20e2486cae1213d77eb34d76e0cf5cfe858758e299a9e090089aa9686e6c33c0",
+  "b508f2a70835b3dfcf4c07be6af77c80b7e596396cb87b2c4fa0af072465ed1f",
+  "04c42cb30d1c2764937f39112ea4b42138e85d38f1975dee92eb9bda377bbf41",
+  "40444cd09872e1a253e323aa9903053e2a32540904af2817230b9cc2b00cbfb5",
+  "0ed0b559b84eb9c891eaf09270ab2c3e556caf0f4e985e253c7fddb01a2d9ee5",
+  "21d30e760b6d5f5ccf0b6e21ad8f77dc4cdb584f8a9c642f71cd2a34f1ab8163",
+  "98eda05bb3871dc9e71d5681dd57f86e05265e574c73cc62907fe19e67b27c37",
+  "3b65e27cb497bfe15b1507d82dadfda4eafcc5fa36d5313b867c54fa7a77673d",
+  "b147904b8ec0d7ad050053878e31ec5c85262b649cb6ef90683f8da77de5bd32",
+  "0972f30ba9b20e81c3676787e2deb943276288a19a1d9f06f9d54ccc0642a3ec",
+  "2fd61d02c0f1d00185153d2a28336cd4554156e314ee3c2d80d5a025cfd6ee0d",
+  "90a6fb9397bb32ca64fe84bfdf3408f9adbbd6c68b5ae253abac3eae8308dd4d",
+  "2676cbc0ce474a9176d07deac697c8930a1be70faa3a70ee9156517326cf851e",
+  "4723711a820a74ccb15aa949aa9120f2b444ff3ba4c6c0360db7b90bb0028698",
+  "29a2b837622ba3906330654d6d9be4283ee7b41eff682921f1abee1773333398",
+  "adc91752343a210a82064218aca080e0c59a665521a65438ae4986a9372b0444",
+  "0234369e2d7a9a06283fd4271432e1b7e8af0ffee4f6040b84ddb3610f2e6092",
+  "9932b71c9446d8209ea0cd8cade6621f049e6e8fe5f9da23df1b999e859adb0c"
+ ],
+ "baglayici": false,
+ "kod_sha256": {
+  "tr6a_kosu.py": "4b60e6198642d04af000d173b35d96c6e256344cb96e56663523e80bde0e9d1d",
+  "tr6a_okada.py": "ef0d583169fb859d323aff094c45b8d996fba29664b1d20d61b6b918e7efc4dd",
+  "tr6a_ffm.py": "60871db70e4942d93d80ef39f17dfd3b87b9b07673311f9dc8fa953a6dc6dbf6",
+  "tr6a_katalog.py": "75d430edb20cd556b02f1c5057fa585c7cf6ac0d98315352b7d8b94a5f560fdd",
+  "tr6a_yapay.py": "2ea2e244cf0c0dc4695b61d32caa06a2c1497cd9ca054a2d2581ba93e8fc5806",
+  "tr6a_onkayit_sayilar.py": "e1d643a402e33218df33b94f81849e200429712c28d8530ff3cf85770962b2ae",
+  "tr6_a_kapi.py": "375d9e76bfdfd6e16e1436d504c7fd677172f7834984b9250fe083a82577835d",
+  "tr6a_onbellek_kor.py": "eb59b6d38911b5239ba1f1cd1ddf6b6cc444c30623eb1f1d9fba05a9cddaf04d",
+  "tr6_sayim.py": "5ad5edfcd0c8cd2422bb2e65f37b20c348cef8218ddc1fb3d239b54854454d5f"
+ }
+}

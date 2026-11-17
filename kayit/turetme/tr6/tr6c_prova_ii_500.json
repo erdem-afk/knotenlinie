@@ -18,7 +18,13 @@
    "bilgi": {
     "p0_sapka": 0.46222,
     "P_D_kapi": 0.46575,
-    "J_ort": 3.0
+    "J_ort": 3.0,
+    "kapi_kosullu_havuz": {
+     "p0": 0.46222,
+     "fark": -0.00353,
+     "se": 0.00407,
+     "z": -0.87
+    }
    }
   }
  ],
@@ -90,11 +96,11 @@
  ],
  "baglayici": false,
  "kod_sha256": {
-  "tr6a_kosu.py": "325da9a8a903c4ccdc87b4191e4eb6838146fac5ab560d8558df633acc3239f8",
+  "tr6a_kosu.py": "4b60e6198642d04af000d173b35d96c6e256344cb96e56663523e80bde0e9d1d",
   "tr6a_okada.py": "ef0d583169fb859d323aff094c45b8d996fba29664b1d20d61b6b918e7efc4dd",
   "tr6a_ffm.py": "60871db70e4942d93d80ef39f17dfd3b87b9b07673311f9dc8fa953a6dc6dbf6",
   "tr6a_katalog.py": "75d430edb20cd556b02f1c5057fa585c7cf6ac0d98315352b7d8b94a5f560fdd",
-  "tr6a_yapay.py": "9a8a8f62ace6049fff3a1c3dea67c7129fa90d7c5fb0aa9acd22455a3625113f",
+  "tr6a_yapay.py": "2ea2e244cf0c0dc4695b61d32caa06a2c1497cd9ca054a2d2581ba93e8fc5806",
   "tr6a_onkayit_sayilar.py": "e1d643a402e33218df33b94f81849e200429712c28d8530ff3cf85770962b2ae",
   "tr6_a_kapi.py": "375d9e76bfdfd6e16e1436d504c7fd677172f7834984b9250fe083a82577835d",
   "tr6a_onbellek_kor.py": "eb59b6d38911b5239ba1f1cd1ddf6b6cc444c30623eb1f1d9fba05a9cddaf04d",
