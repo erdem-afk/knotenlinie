@@ -223,7 +223,7 @@ olanlar şunlardır:
 
 Kentsel gürültüde gerçek s_Marmara, ŝ_Parkfield'dan küçük olacaktır. Boş tarama bu yüzden ancak A90(S_k)/A_PK ≤ 1 olan
 segmentlerde bir şey söyler. TR-7 §7.5 bu oranı yalnız bilgi satırı olarak yazıyor; TR-7c'de "görülmedi" cümlesinin
-şartı olmalıdır (Z8).
+şartı olmalıdır (Z6).
 
 ## 5. Önerilen başarı ölçütü (D30M3) ve görülebilir en küçük etki
 
