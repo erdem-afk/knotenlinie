@@ -1,0 +1,168 @@
+{
+ "kip": "mutasyon",
+ "modul_sha256": "d2494e6d37d74803ef569ed97293e1a391192a64fcf0b2cf5712679472d584a0",
+ "sure_s": 247.3,
+ "sonuc": [
+  {
+   "mutasyon": "M01 R0 've' -> 'veya' (iki liste)",
+   "yakalandi": true,
+   "dusen_sinamalar": [
+    "U6",
+    "U7"
+   ],
+   "s": 2.1
+  },
+  {
+   "mutasyon": "M02 bütün liste eşiği 0,10",
+   "yakalandi": true,
+   "dusen_sinamalar": [
+    "U6"
+   ],
+   "s": 2.1
+  },
+  {
+   "mutasyon": "M03 kalibrasyon R = 80 (K1)",
+   "yakalandi": true,
+   "dusen_sinamalar": [
+    "U5"
+   ],
+   "s": 0.4
+  },
+  {
+   "mutasyon": "M04 plasebo hükmü bağlar",
+   "yakalandi": true,
+   "dusen_sinamalar": [
+    "U7"
+   ],
+   "s": 2.0
+  },
+  {
+   "mutasyon": "M05 keşif kümeleri dışlanmaz",
+   "yakalandi": true,
+   "dusen_sinamalar": [
+    "U9"
+   ],
+   "s": 2.2
+  },
+  {
+   "mutasyon": "M06 sha256 denetimi atlanır",
+   "yakalandi": true,
+   "dusen_sinamalar": [
+    "U3"
+   ],
+   "s": 2.1
+  },
+  {
+   "mutasyon": "M07 hüküm üzerine yazılabilir",
+   "yakalandi": true,
+   "dusen_sinamalar": [
+    "U10"
+   ],
+   "s": 2.1
+  },
+  {
+   "mutasyon": "M08 kilit denetimi yok",
+   "yakalandi": true,
+   "dusen_sinamalar": [
+    "U10"
+   ],
+   "s": 2.0
+  },
+  {
+   "mutasyon": "M09 kuyruk yönü ters",
+   "yakalandi": true,
+   "dusen_sinamalar": [
+    "U6"
+   ],
+   "s": 2.2
+  },
+  {
+   "mutasyon": "M10 küme yerine üye ortalaması",
+   "yakalandi": true,
+   "dusen_sinamalar": [
+    "U8"
+   ],
+   "s": 2.0
+  },
+  {
+   "mutasyon": "M11 düşme eşiği 30",
+   "yakalandi": true,
+   "dusen_sinamalar": [
+    "U4"
+   ],
+   "s": 2.0
+  },
+  {
+   "mutasyon": "M12 D-3 kapısı yok (gerçek z D-3 başarısızken)",
+   "yakalandi": true,
+   "dusen_sinamalar": [
+    "E3d_D3_bozuk"
+   ],
+   "s": 127.2
+  },
+  {
+   "mutasyon": "M13 tohum formülü",
+   "yakalandi": true,
+   "dusen_sinamalar": [
+    "U1"
+   ],
+   "s": 2.2
+  },
+  {
+   "mutasyon": "M14 kalibrasyon toleransı ±%10",
+   "yakalandi": true,
+   "dusen_sinamalar": [
+    "U14"
+   ],
+   "s": 2.2
+  },
+  {
+   "mutasyon": "M15 önce-pencere 2 yıl",
+   "yakalandi": true,
+   "dusen_sinamalar": [
+    "U4"
+   ],
+   "s": 1.7
+  },
+  {
+   "mutasyon": "M16 veri yok eşiği keşif dışı K < 5",
+   "yakalandi": true,
+   "dusen_sinamalar": [
+    "E3b_eksik_parca"
+   ],
+   "s": 84.3
+  },
+  {
+   "mutasyon": "M17 ortak Mc = min",
+   "yakalandi": true,
+   "dusen_sinamalar": [
+    "U4"
+   ],
+   "s": 2.3
+  },
+  {
+   "mutasyon": "M18 D-3 güç eşiği 0,55",
+   "yakalandi": true,
+   "dusen_sinamalar": [
+    "U14"
+   ],
+   "s": 2.0
+  },
+  {
+   "mutasyon": "M19 doyma eşiği 150",
+   "yakalandi": true,
+   "dusen_sinamalar": [
+    "U4"
+   ],
+   "s": 2.2
+  },
+  {
+   "mutasyon": "M20 körlük süzgeci yok (ana şok anı ve sonrası)",
+   "yakalandi": true,
+   "dusen_sinamalar": [
+    "U4"
+   ],
+   "s": 2.1
+  }
+ ]
+}

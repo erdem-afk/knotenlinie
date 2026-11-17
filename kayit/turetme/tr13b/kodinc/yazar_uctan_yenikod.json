@@ -1,0 +1,229 @@
+{
+ "kip": "uctan",
+ "modul_sha256": "d2494e6d37d74803ef569ed97293e1a391192a64fcf0b2cf5712679472d584a0",
+ "sure_s": 430.1,
+ "sonuc": {
+  "E1_sinyalsiz": {
+   "gecti": true,
+   "hukum": "ayırt edilemez",
+   "dal": 5,
+   "neden": null,
+   "gercek_z_hesaplandi": true,
+   "s": 116.3,
+   "p_butun": {
+    "0.4": 0.19455,
+    "0.6": 0.191975,
+    "0.8": 0.236875
+   },
+   "p_kesif_disi": {
+    "0.4": 0.1929,
+    "0.6": 0.20135,
+    "0.8": 0.255775
+   },
+   "D3": {
+    "yanlis_alarm": 0.02475,
+    "guc": {
+     "0.2": 0.397375,
+     "0.3": 0.806125,
+     "0.4": 0.9325,
+     "0.5": 0.984875,
+     "0.6": 0.996125
+    },
+    "MDE": 0.299,
+    "gecer": true,
+    "veri_ort_n": {
+     "0": 88.9,
+     "1": 76.05,
+     "2": 101.58333333333333,
+     "3": 74.21666666666667,
+     "4": 70.68333333333334,
+     "5": 55.63333333333333,
+     "6": 84.63333333333334,
+     "7": 79.5,
+     "8": 97.86666666666666,
+     "9": 69.36666666666666,
+     "10": 87.08333333333333,
+     "11": 101.4,
+     "12": 59.25,
+     "13": 90.83333333333333,
+     "14": 81.21666666666667,
+     "15": 82.4
+    }
+   },
+   "K_kd": 11,
+   "cumle": "Keşif dışı K = 11; bu bileşimle görülebilir en küçük etki f ≈ 0,30 (koşudan önce, listenin gerçek R ve N3bg'siyle yapayda yeniden hesaplanan değer). Daha küçük yerelleşme hakkında bilgi yok."
+  },
+  "E2_f05": {
+   "gecti": true,
+   "hukum": "VAR",
+   "dal": 3,
+   "neden": null,
+   "gercek_z_hesaplandi": true,
+   "s": 80.9,
+   "p_butun": {
+    "0.4": 0.0014,
+    "0.6": 0.00465,
+    "0.8": 0.0082
+   },
+   "p_kesif_disi": {
+    "0.4": 0.00145,
+    "0.6": 0.0047,
+    "0.8": 0.0084
+   },
+   "D3": {
+    "yanlis_alarm": 0.0155,
+    "guc": {
+     "0.2": 0.469625,
+     "0.3": 0.9315,
+     "0.4": 0.988375,
+     "0.5": 0.999625,
+     "0.6": 1.0
+    },
+    "MDE": 0.272,
+    "gecer": true,
+    "veri_ort_n": {
+     "1": 60.06666666666667,
+     "2": 61.266666666666666,
+     "3": 69.73333333333333,
+     "4": 59.05,
+     "5": 57.21666666666667,
+     "6": 84.45,
+     "7": 56.266666666666666,
+     "8": 60.93333333333333,
+     "9": 59.15,
+     "10": 49.65,
+     "11": 72.13333333333334,
+     "12": 70.4,
+     "13": 80.58333333333333,
+     "14": 75.93333333333334,
+     "15": 64.75
+    }
+   },
+   "K_kd": 11,
+   "cumle": "BZ20'nin keşif olayları dışındaki K = 11 bölgede, ana şoktan önceki 3 yılda kümesizleştirilmiş arka plan, ETAS'ın ürettiğinden belirgin biçimde yerelleşmiş. Tahmin ya da alarm iddiası değildir; ileriye dönük sınav ayrı ön kayıt ister."
+  },
+  "E3a_sha": {
+   "gecti": true,
+   "hukum": "veri yok",
+   "dal": 1,
+   "neden": "ham arşiv sha256 uyuşmuyor",
+   "gercek_z_hesaplandi": false,
+   "s": 0.1,
+   "p_butun": null,
+   "p_kesif_disi": null,
+   "D3": null,
+   "K_kd": null,
+   "cumle": "Veri yok. MDE (ön kayıt): f ≈ 0,40 (bileşim, kendi R'de kalibrasyon; INCELEME-2)."
+  },
+  "E3b_eksik_parca": {
+   "gecti": true,
+   "hukum": "veri yok",
+   "dal": 1,
+   "neden": "keşif dışı K = 6 < 8",
+   "gercek_z_hesaplandi": false,
+   "s": 0.3,
+   "p_butun": null,
+   "p_kesif_disi": null,
+   "D3": null,
+   "K_kd": null,
+   "cumle": "Veri yok (keşif dışı K = 6). MDE (ön kayıt): f ≈ 0,40 (bileşim, kendi R'de kalibrasyon; INCELEME-2)."
+  },
+  "E3c_kalibrasyon_bozuk": {
+   "gecti": true,
+   "hukum": "geçersiz",
+   "dal": 2,
+   "neden": "kalibrasyon ±%5 dışında (iki kez)",
+   "gercek_z_hesaplandi": false,
+   "s": 143.3,
+   "p_butun": null,
+   "p_kesif_disi": null,
+   "D3": null,
+   "K_kd": null,
+   "cumle": "Geçersiz: sıfır havuzunun arka plan sayısı kalibre edilemedi."
+  },
+  "E3d_D3_bozuk": {
+   "gecti": true,
+   "hukum": "geçersiz",
+   "dal": 2,
+   "neden": "D-3 yapay denetimi geçilmedi",
+   "gercek_z_hesaplandi": false,
+   "s": 88.3,
+   "p_butun": null,
+   "p_kesif_disi": null,
+   "D3": {
+    "yanlis_alarm": 0.944875,
+    "guc": {
+     "0.2": 0.397375,
+     "0.3": 0.806125,
+     "0.4": 0.9325,
+     "0.5": 0.984875,
+     "0.6": 0.996125
+    },
+    "MDE": 0.299,
+    "gecer": false,
+    "veri_ort_n": {
+     "0": 72.75,
+     "1": 66.66666666666667,
+     "2": 78.05,
+     "3": 67.25,
+     "4": 62.416666666666664,
+     "5": 47.9,
+     "6": 75.21666666666667,
+     "7": 68.71666666666667,
+     "8": 84.06666666666666,
+     "9": 61.2,
+     "10": 70.66666666666667,
+     "11": 89.11666666666666,
+     "12": 55.916666666666664,
+     "13": 73.93333333333334,
+     "14": 67.46666666666667,
+     "15": 70.98333333333333
+    }
+   },
+   "K_kd": null,
+   "cumle": "Geçersiz: koşu betiği yapay girdide R0'ın yanlış alarmını ya da gücünü tutturamadı; gerçek z hesaplanmadı."
+  },
+  "E3e_kilit": {
+   "gecti": true,
+   "hukum": "geçersiz",
+   "dal": 2,
+   "neden": "D-3 yapay denetimi geçilmedi",
+   "gercek_z_hesaplandi": false,
+   "s": 0.1,
+   "p_butun": null,
+   "p_kesif_disi": null,
+   "D3": {
+    "yanlis_alarm": 0.944875,
+    "guc": {
+     "0.2": 0.397375,
+     "0.3": 0.806125,
+     "0.4": 0.9325,
+     "0.5": 0.984875,
+     "0.6": 0.996125
+    },
+    "MDE": 0.299,
+    "gecer": false,
+    "veri_ort_n": {
+     "0": 72.75,
+     "1": 66.66666666666667,
+     "2": 78.05,
+     "3": 67.25,
+     "4": 62.416666666666664,
+     "5": 47.9,
+     "6": 75.21666666666667,
+     "7": 68.71666666666667,
+     "8": 84.06666666666666,
+     "9": 61.2,
+     "10": 70.66666666666667,
+     "11": 89.11666666666666,
+     "12": 55.916666666666664,
+     "13": 73.93333333333334,
+     "14": 67.46666666666667,
+     "15": 70.98333333333333
+    }
+   },
+   "K_kd": null,
+   "cumle": "Geçersiz: koşu betiği yapay girdide R0'ın yanlış alarmını ya da gücünü tutturamadı; gerçek z hesaplanmadı."
+  }
+ }
+}

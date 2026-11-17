@@ -1,8 +1,10 @@
-# TR-13b ön kayıt TASLAĞI, sürüm 3: büyük doğrultu atımlı depremden 2–3 yıl önce sismisite yerelleşmesi, sınırlı koşu
+# TR-13b ön kayıt, sürüm 3 (donduruldu): büyük doğrultu atımlı depremden 2–3 yıl önce sismisite yerelleşmesi, sınırlı koşu
 
 Tarih: 16 Kasım 2026.
-Durum: **TASLAK (sürüm 3). Dondurulmadı. Gerçek katalogda hiçbir yerelleşme ölçüsü (V(q), z)
-hesaplanmadı.** Ham arşivlere yalnız sha256 ve biçim denetimi yapıldı (§12.6); katalog indirilmedi.
+Durum: DONDURULDU (17 Kasım 2026; sürüm 3 + kod incelemesi düzeltmeleri K-1, K-2, K-3; tek koşu bu commit'ten sonra).
+Gerçek katalogda hiçbir yerelleşme ölçüsü (V(q), z) hesaplanmadı. Ham arşivlere sha256 ve biçim denetimi yapıldı (§12.6);
+ayrıca kod incelemesi sırasında bir kez, istenmeden, hazırlık aşaması gerçek arşivde koştu ve iki olayın sayımı görüldü
+(§13 körlük beyanı). Kod incelemesi: `TR-13b_KOD-INCELEME.md` ("düzeltmeyle kabul").
 Sürüm 2: `TR-13b_sinirli-kosu_ONKAYIT_surum2.md`; sürüm 1: `…_surum1.md`. İncelemeler: `TR-13b_INCELEME-1.md`
 (Z1–Z5, commit d846acf), `TR-13b_INCELEME-2.md` ("düzeltmeyle kabul", commit cb4623a). Bu sürüm INCELEME-2'nin zorunlu
 düzeltmeleri D-1…D-5'in hepsini ve öneriler Ö-a, Ö-b'yi işler (§11.2 eşleme tablosu). §3.8, §7.3, §7.4 ve §9.4,
@@ -93,7 +95,7 @@ Adım sırası, her olay için:
    Mc_b = max(Mc_önce, Mc_ref)**, önce ve referansa birlikte uygulanır. Süzgeç: [t − 10 y, t), t < 2026-01-01,
    derinlik ≤ 40 km.
 2. GK74 m ≥ Mc_b olaylarla, indirilen bütün dairede (ComCat'te R_ind, ötekilerde R) koşulur; önce-pencere
-   [t − 3 y, t) arka plan sayısı N3bg R dairesinde sayılır.
+   [t − 3 y, t) arka plan sayısı N3bg R dairesinde sayılır. GK74, §3.1'in derinlik süzgecinden sonra kalan olaylarla koşulur.
 3. **Doyma kuralı:** N3bg > 100 ise Mc_b 0,1 artırılır, **GK74 yeniden koşulur**, sayı ≤ 100 olana dek yinelenir. Yükseltilen
    Mc hem önce-pencereye hem referansa uygulanır. Son adımda N3bg < 50 olursa olay düşer. Referans [t − 10 y, t − 3 y)
    arka plan sayısı N3bg + 5'ten azsa olay düşer (alt örnekleme yapılamaz). Gerekçe: güç (sürüm 2 §3.3).
@@ -110,7 +112,10 @@ Adım sırası, her olay için:
    tohum **`20261201 + 1000 × olay sırası + dallanma sırası`**; havuz 4 parçada üretilir, parça p'nin üreteci
    `SeedSequence(tohum, spawn_key=(p,))`. Öteki ETAS parametreleri TR-13 §4.1. Her bölgede hem olay z'si hem plasebo
    z_p'si (önce [t − 6 y, t − 3 y), referans [t − 10 y, t − 6 y)) alınır. En çok olabilirlik dallanma uydurması yapılmaz.
-   z'si tanımsız bölge (bkz. §9.8) havuzdan düşer; sayısı raporlanır.
+   z'si tanımsız bölge ve önce-pencere arka plan sayısı 50'den az olan bölge, gerçek üyenin seçimiyle aynı biçimde,
+   T1/R0 sıfırından ve D-3 verisinden düşer; ikisinin sayısı da raporlanır. z_p'si tanımsız bölge T1/R0 sıfırında
+   kalır, yalnız plasebo satırından düşer (gerçek üyede z_p şartı yoktur). Kalibrasyonun ±%5 denetimi süzgeçten önce,
+   2000 bölgenin tümünün ortalama N'siyle yapılır. Süzgeçten sonra boş kalan havuz dal 2'dir. (Kod incelemesi §E-1.)
 6. **Küme puanı:** küme z = üyelerin z ortalaması. Sıfırda her üye kendi havuzundan bir çekiliş alır, küme içinde
    ortalanır. İki çok olaylı küme: 397 (Superstition Hills + Hector Mine), 1139 (Jamaika + Küba). Bir üye düşerse küme
    kalan üyeyle sürer; küme boşalırsa düşer.
@@ -221,14 +226,21 @@ güçte ≈ ±0,03:
    Jan Mayen 1. Doğu Akdeniz yok. Marmara'ya çevrilmez.
 7. **Bölge yarıçapı:** MDE gerçek R'lerle (58–426 km) hesaplandı. Benzetimde öteki fay parçalarının boyu 20–60 km sabit;
    büyük R'li bölgelerde yapı gerçekçi olmayabilir.
-8. **Sıfır havuzu ile gerçek üye arasındaki iki asimetri (koşu betiği yazılırken bulundu):** (a) Yapay bölgede büyük bir
-   ETAS olayının (M ≤ 7,5) GK74 penceresi önce-pencereyi neredeyse boşaltabilir; çok küçük n'de `tr13_guc.V_q` hata
-   veriyor. Betik bu bölgenin z'sini tanımsız sayar ve havuzdan düşürür (`tr13_guc.py` değiştirilmez). Yapay sınamada
-   tanımsız pay olay başına %0–3. (b) Gerçek üye N3bg ≥ 50 şartıyla girer, sıfır havuzunda bu şart yoktur (havuz
-   ortalaması N3bg'ye kalibre edilir; INCELEME-2'nin sayıları da böyledir). N < 50 bölge payı her havuz için
-   raporlanır (yapay sınamada N3bg 52'lik üyede %40, 59'da %13, ≥ 68'de %0–7). Kural değişmez; yönü belirsizdir.
+8. **Sıfır havuzu ile gerçek üye arasındaki asimetriler (kod incelemesi, `TR-13b_KOD-INCELEME.md` §B):**
+   (a) Sıfır havuzunda z'si tanımsız bölge payı ortalama %0,7 (üye başına %0–2,7); bunlar `z_olcu`'nun "referans <
+   n + 5" ve "n < 5" kurallarından gelir ve gerçek üyenin "referans arka planı < N3bg + 5 → düşer" kuralının eşidir;
+   `tr13_guc.V_q`'nun IndexError'ı 750 yapay bölgede hiç görülmedi. Yanlılık ölçülemeyecek kadar küçüktür.
+   (b) Gerçek üye N3bg ≥ 50 şartıyla girer; sıfır havuzu ve D-3 verisi de aynı şartla süzülür. Şartsız sıfır,
+   bileşimde R0 yanlış alarmını −0,001 (H0 yönü), bütün üyelerin N3bg'si 55 olduğunda +0,003 ("VAR" yönü) kaydırıyordu.
+   (c) Sürüm 3'ün ilk betiği sıfırdan z_p'si tanımsız bölgeleri de atıyordu (havuzun ≈ %10'u, z'leri ortalamadan
+   ≈ 0,3 düşük); bu, yanlış alarmı bileşimde 0,016'dan 0,022'ye çıkarıyordu ve D-3'te görünmüyordu. Düzeltildi.
+   Düzeltilmiş betikle bileşimde R0: sinyalsiz yanlış alarm 0,018, f = 0,4 gücü 0,78 (havuz 1000, ± 0,003 / ± 0,02);
+   başlıktaki 0,020 / 0,80 ile Monte Carlo hatası içinde aynıdır, §0 ve §5 sayıları değiştirilmedi.
 9. **Isınma:** yapay bölgede GK74 5 yıllık ısınma dönemini de görür, gerçek katalogda [t − 10 y, t) öncesi yoktur.
    Referans penceresinin ilk aylarında kümesizleştirme biraz farklı olabilir; etkisi ölçülmedi.
+   Ayrıca yapay bölgede GK74 R + 30 km'lik dairede koşulur; ComCat dışı gerçek olaylarda yalnız R dairesi indirildi.
+   Gerçek biçimli yapay kataloglarla uçtan uca seride (`TR-13b_KOD-INCELEME.md` §D) bu iki farkın net etkisi H0
+   yönündedir (sinyalsiz p'ler yukarı kaymış).
 
 ## 10. Yeniden açma şartı
 
@@ -269,15 +281,19 @@ bir ETAS yanlış alarm sınaması yayımlanır. (c) Daha düşük Mc'li açık 
 
 | Dosya | sha256 |
 |---|---|
-| `kayit/turetme/tr13b/tr13b_kosu.py` (koşu betiği) | `1bc2277bae9aa2e6e031fccf9e2ee716ab05892866ba63aee551289e48cbed3e` |
+| `kayit/turetme/tr13b/tr13b_kosu.py` (koşu betiği; kod incelemesinden sonra) | `d2494e6d37d74803ef569ed97293e1a391192a64fcf0b2cf5712679472d584a0` |
 | `kayit/turetme/tr13/tr13_guc.py` (ETAS, GK74 düzlem, V(q), z; değiştirilmedi) | `0223ca7a0b55a26f27c9c04af183cbc53150f07d22141f7e897f6a7201d035b2` |
 | `kayit/turetme/tr13/tr13_sayim.py` (gk74, uzak, sabitler; değiştirilmedi) | `d526db7de33a816c6e4217cafb2fa034c4060ff27b9e6b864145388f829fbc9b` |
 | `kayit/turetme/tr13b/tr13b_test_yapay.py` (yapay sınama; koşuya girmez) | `3a24af28714eb187a0a3670aa124cc907258ebeb9f605bae6cf6b94e64652fd6` |
 
-Bağımsız kod incelemesi betikte değişiklik isterse yeni sha256 buraya yazılır ve §12.4–12.5 sınamaları yeniden koşulur.
+Bağımsız kod incelemesi betikte üç değişiklik istedi (K-1, K-2, K-3); yeni sha256 yukarıdadır (eski: `1bc2277b…`) ve
+§12.4–12.5 sınamaları yeni betikte yeniden koşuldu (§12.7).
 
-Gerçek kip yalnız bu ön kaydın "Durum:" ile başlayan satırı DONDURULDU içerdiğinde ve yukarıdaki üç sha256 bu dosyada yazılı
-olduğunda çalışır (`dondurulmus_mu`); şu an betik gerçek koşuyu reddeder.
+Gerçek kip yalnız bu ön kaydın "Durum:" ile başlayan satırı dondurma sözcüğünü içerdiğinde ve yukarıdaki üç sha256 bu
+dosyada yazılı olduğunda çalışır (`dondurulmus_mu`). Kapı `kos()` işlevinin içindedir: içe aktarılarak çağrıldığında da,
+gerçek arşiv dizini ya da gerçek sha256 listesi verildiğinde dondurulmamış ön kayıtla hiçbir şey açılmaz ve yazılmaz;
+gerçek girdiyle yalnız ön kayıt ayarı (havuz 2000, B_ref 200, 200 000 çekiliş, sınama düğmeleri kapalı; çekirdek sayısı
+serbest) kabul edilir. Dondurma satırı tam olarak "Durum: DONDURULDU …" biçiminde yazılır; satırda olumsuzlama bulunmaz.
 
 ### 12.2 Aşamalar ve kilit
 
@@ -356,7 +372,7 @@ Mutasyonlar (betiğin kopyasına uygulanır; birim + ilgili uçtan uca sınama):
 | M20 | körlük süzgeci gevşer (ana şok anı ve sonrası) | U4 |
 
 Yeniden üretim (≈ 18 dk, 4 çekirdek): `python3 -I -B kayit/turetme/tr13b/tr13b_test_yapay.py <karalama> birim`,
-`… uctan`, `… mutasyon`. Sınamalar betik sha256'sı `1bc2277b…` üzerinde koşuldu.
+`… uctan`, `… mutasyon`. Bu tablodaki sayılar betik sha256'sı `1bc2277b…` (inceleme öncesi) üzerinde üretildi; yeni betikteki yineleme §12.7'dedir.
 
 ### 12.6 Gerçek arşivlerde yapılan tek şey
 
@@ -364,9 +380,36 @@ Yeniden üretim (≈ 18 dk, 4 çekirdek): `python3 -I -B kayit/turetme/tr13b/tr1
 arşivde; örnek npz anahtarları (t, la, lo, de, m) doğru; `sayim_tam_satirlar.json` 16 olayın hepsini içeriyor. Sayı,
 Mc, GK74, V(q) ya da z hesaplanmadı.
 
+### 12.7 Kod incelemesinden sonra yeniden koşulan sınamalar (betik sha256 `d2494e6d…`)
+
+İnceleme oturumu kesildiği için son sınamaları kök oturum koştu; betiğe dokunulmadı. Çıktılar `kayit/turetme/tr13b/kodinc/`.
+
+| Sınama | Sonuç |
+|---|---|
+| Yazarın `birim` (U1–U14, 11 grup) | 11 / 11 geçti (`yazar_birim_yenikod.json`) |
+| Yazarın `uctan` (E1–E3e) | 7 / 7 geçti; E1 ayırt edilemez (p bütün 0,195/0,192/0,237; D-3 yanlış alarm 0,025, f 0,4 gücü 0,93, MDE 0,30), E2 VAR (p ≤ 0,008) (`yazar_uctan_yenikod.json`) |
+| Yazarın 20 mutasyonu | 20 / 20 yakalandı (`yazar_mutasyon_yenikod.json`) |
+| İnceleyenin `birim` Y1–Y6, `uctan` Yu1–Yu4 | 6 / 6, 4 / 4 geçti |
+| İnceleyenin 21 mutasyonu | 21 / 21 yakalandı (ikisi ek sınamayla; `test_mutasyon.json`, `test_mutasyon2.json`) |
+| Uçtan uca seri, sinyalsiz, 20 liste (küçültülmüş ayar: havuz 100, B_ref 50, 40 000 çekiliş) | 0 / 20 "VAR"; 20'si "ayırt edilemez" (`test_seri_f0.json`) |
+| Uçtan uca seri, f = 0,4, 12 liste (aynı ayar) | 9 "VAR", 2 "ayırt edilemez", 1 "geçersiz" (D-3 yanlış alarm 0,056 > 0,05; küçültülmüş havuzun gürültüsü) (`test_seri_f04.json`) |
+
+Seri küçük ayarda koştuğu için 9/12 (0,75) güç kestirimi kabadır (ikiterimli %95 aralık ≈ 0,43–0,95); başlıktaki MDE
+f ≈ 0,40 (güç 0,80) ile çelişmez. Gerçek koşuda D-3 kapısı tam ayarla (havuz 200/150) yeniden hesaplanır ve geçmezse
+hüküm "geçersiz"dir (dal 2); bu durumda gerçek z hesaplanmaz.
+
 ## 13. Körlük ve İstanbul
 
-Gerçek katalogda V(q), Gini ya da z hesaplanmadı; katalog indirilmedi; ham arşivlere yalnız sha256 ve biçim denetimi
-yapıldı; ana şok sonrası pencere yok. Koşu betiği t ≥ ana şok ve t ≥ 2026-01-01 olan satırları sayılmadan atar. Bütün
+Gerçek katalogda V(q), Gini ya da z hesaplanmadı; bu ön kayıt için yeni katalog indirilmedi; ham arşivlere sha256 ve
+biçim denetimi yapıldı; ana şok sonrası pencere yok.
+
+**Körlük beyanı (kod incelemesi olayı, `TR-13b_KOD-INCELEME.md` §G):** inceleme sırasında, kapının `kos()` içinde
+olmaması yüzünden (K-1), eski betik bir kez gerçek arşivde ≈ 5 dakika koştu: sha256 denetimi, hazırlık (ortak Mc, GK74,
+doyma, yalnız sayılar) ve yapay kalibrasyon ile 20 yapay havuz parçası. Gerçek katalogda V(q) ya da z hesaplanmadı;
+`gercek_z.json` ve hüküm dosyası oluşmadı. Görülen: iki olayın hazırlık satırı (Superstition Hills 1987 N3bg 85, Loma
+Prieta 1989 N3bg 94, Mc ve N_plasebo değerleri). Bunlar §2'deki üstveri sayımlarıyla (86, 96) aynı türden bilgidir ve
+ölçü hakkında bilgi taşımaz; ölçü, eşikler ve hüküm kuralları bu olaydan sonra değiştirilmedi (kod değişiklikleri
+K-1…K-3 yapay asimetri ölçümüne dayanır, bu sayılara değil). Çıktı silindi, commit edilmedi. Sonuç okunurken bu beyan
+birlikte okunmalıdır. Koşu betiği t ≥ ana şok ve t ≥ 2026-01-01 olan satırları sayılmadan atar. Bütün
 2026 verisi kördür; katalog 2025-12-31'de biter. Sonuç bir olasılık terimi değildir. İstanbul için mutlak olasılık
 yazılmaz. İzmit 1999 bir keşif kümesidir ve Marmara terimi değildir.

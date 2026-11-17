@@ -141,7 +141,7 @@ tohumlu yeniden hesabı yakalar), Y18 için Yu4 eklendi. Sonuç: `kodinc/test_mu
 | Y20 | sıfır havuzu z_p şartıyla (K-2 geri) | Yu1 |
 | Y21 | sıfır havuzunda N ≥ 50 şartı kalkar (K-3 geri) | Y6 |
 
-Yazarın 20 mutasyonu yeni kodda yeniden koşuldu: **XXX**.
+Yazarın 20 mutasyonu yeni kodda yeniden koşuldu: **20 / 20 yakalandı** (`kodinc/yazar_mutasyon_yenikod.json`; kök oturum koştu, aşağıdaki nota bakınız).
 
 ## D. Uçtan uca yapay seri
 
@@ -152,7 +152,15 @@ D-3 havuzları 40 / 30 (200 / 150), D-3 çekilişi 8000, kalibrasyon 40 + 40 (ay
 koşunun p'leri havuz dosyalarından bağımsız yeniden hesaplandı (hepsinde fark yok). `kodinc/test_seri_f0.json`,
 `kodinc/test_seri_f04.json`.
 
-SSS
+**Sonuç (kök oturum koştu; inceleme oturumu kesildi, betik ve sınama kodu değişmedi):**
+- Sinyalsiz, 20 liste: **0 / 20 "VAR"**, 20'si "ayırt edilemez". En küçük p'ler liste 3'te (bütün liste 0,030 / 0,057 /
+  0,072; keşif dışı 0,008 / 0,020 / 0,030): bütün liste üç dallanmanın ikisinde 0,05'in üstünde kaldığı için R0
+  ateşlemedi. Öteki 19 listede en küçük p 0,088. D-3 yanlış alarmı 0,005–0,047.
+- f = 0,4, 12 liste: **9 "VAR"**, 2 "ayırt edilemez" (bütün liste p ≤ 0,02 ama keşif dışı listede en büyük p 0,077 ve 0,060), 1 "geçersiz" (dal 2: D-3 yanlış
+  alarmı 0,056 > 0,05; küçültülmüş D-3 havuzunun gürültüsü, tam ayarda beklenmez ama dışlanamaz).
+- Bağımsız yeniden hesap: bütün koşularda fark yok.
+Okuma: yanlış alarm yönünde sorun yok; güç kestirimi 9/12 kabadır ve ön kaydın MDE'siyle (f ≈ 0,40'ta 0,78–0,80)
+uyumludur.
 
 ## E. Ön kayıt metni için önerilen ek cümleler (kesin)
 
@@ -190,13 +198,13 @@ SSS
 
 | Dosya | sha256 |
 |---|---|
-| `kayit/turetme/tr13b/tr13b_kosu.py` (düzeltilmiş) | `SHAKOSU` |
+| `kayit/turetme/tr13b/tr13b_kosu.py` (düzeltilmiş) | `d2494e6d37d74803ef569ed97293e1a391192a64fcf0b2cf5712679472d584a0` |
 | `kayit/turetme/tr13/tr13_guc.py` (değişmedi) | `0223ca7a0b55a26f27c9c04af183cbc53150f07d22141f7e897f6a7201d035b2` |
 | `kayit/turetme/tr13/tr13_sayim.py` (değişmedi) | `d526db7de33a816c6e4217cafb2fa034c4060ff27b9e6b864145388f829fbc9b` |
 | `kayit/turetme/tr13b/tr13b_test_yapay.py` (değişmedi) | `3a24af28714eb187a0a3670aa124cc907258ebeb9f605bae6cf6b94e64652fd6` |
-| `kayit/turetme/tr13b/kodinc/tr13b_kodinc.py` (bu inceleme) | `SHAKODINC` |
+| `kayit/turetme/tr13b/kodinc/tr13b_kodinc.py` (bu inceleme) | `746d31ae3510d26e627746843b87d70b9d576544c38dba7c41ef3bff0387df2d` |
 
-Yeni betikte koşulan sınamalar: yazarın `birim` 11/11, `uctan` E1–E3e TTT; Y `birim` Y1–Y6 6/6, Y `uctan` Yu1–Yu4 4/4.
+Yeni betikte koşulan sınamalar: yazarın `birim` 11/11, `uctan` E1–E3e 7/7, `mutasyon` 20/20; Y `birim` Y1–Y6 6/6, Y `uctan` Yu1–Yu4 4/4.
 
 ## G. Olay kaydı: inceleme sırasında gerçek arşive istenmeden dokunuldu
 
