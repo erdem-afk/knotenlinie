@@ -321,3 +321,19 @@ Başarısızlığın biçimi: yapısal. Küçük olayın bölgesi küçük (R = 
 sınırda hem de sıfır üreteci (yapay ETAS + GK74) kalibre edilemiyor. Çıkan soru büyüklük ekseninde değil: aynı
 ölçü, bölgesel yüksek çözünürlüklü kataloglarla (daha düşük tamlık büyüklüğü) referans kuralını geçen küme sayısını
 ≥ 20'ye çıkarır mı. Bu, TR-13d adayı olarak önce katalog varlığı sayımı ister.
+
+## Halka 15 (17 Kasım 2026): TR-13d sayımı, bölgesel kataloglar da örneklemi yeterince büyütmüyor; TR-7c karar metni donduruldu
+
+TR-13d (`kayit/onkayit/TR-13d_SAYIM.md`): 488 düşen kümeden açık bölgesel kataloglarla (JMA, NRCan, AUTH, GeoNet, IMO)
+yalnız 7 yeni küme (M ≥ 6,5) TR-13b kurallarını geçti; M ≥ 6,0 ile 8, TR-13c'nin 5'iyle 13. Kaba görülebilir en küçük
+etki f ≈ 0,34–0,51; hedeflenen 0,2–0,25 için 24–84 küme gerekir. Türkiye'den geçen yok. İran, Meksika, Kuzey And,
+Tayvan ve Çin katalogları erişilemedi ya da kayıt istiyor.
+
+Başarısızlığın biçimi: açık verinin sınırı. Yerelleşme kolu üç sayımla (eşik, büyüklük, katalog) aynı yere çıktı:
+açık kataloglarla bu ölçü yalnız çok büyük etkiyi görebilir. Açık kalan tek seçenek 13 yeni kümeyle TR-13b'nin
+bağımsız yinelemesi (aynı MDE düzeyi; sınırlı koşu). Kol aday olarak durur.
+
+TR-7c (tremor, kör gerçek kontrol): fikir incelemesi, taslak, iki inceleme ve üstveri yoklaması (10 pozitif, 29
+negatif birim taranabilir) sonrası karar metni donduruldu (bd3c93a), Tohoku duman sınamasından ve yapay ölçümlerden
+önce. Başarı ölçütü sıkılaştı: 30 negatifle Fisher sınaması + modülasyon şartı; görülebilir en küçük duyarlılık
+0,58–0,77. Koşu kodu yalnız yapay veride yazılıyor; kör olaylar ve Marmara açılmadı.
