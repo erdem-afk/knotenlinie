@@ -1118,11 +1118,12 @@ class GercekKaynak(Kaynak):
         gercek_kapi('lp')
         T = self.go.T
         out = []
-        kayit = {(r['pencere'], r['ad'], r['kanal']): r for r in jsonl_oku(self.go.yol('tr7c_lp_sha256.jsonl'))}
+        kayit = {(r['pencere'], r['ad'], r['kanal'], r.get('konum')): r      # K-3: anahtarda konum da var
+                 for r in jsonl_oku(self.go.yol('tr7c_lp_sha256.jsonl'))}
         for a in self.man.get('lp_aday', {}).get(f"pk|{desc['id']}", []):
             ks = []
             for c in a['kanallar']:
-                r = kayit.get((f"pk|{desc['id']}", a['ad'], c['kod']))
+                r = kayit.get((f"pk|{desc['id']}", a['ad'], c['kod'], c['konum']))
                 v = None
                 ok = bool(r and r.get('dusme') is None and r.get('sha256'))
                 if ok:
@@ -1264,13 +1265,15 @@ def lp_indir(go, D, man):
     gercek_kapi('lp indirme')
     T = go.T
     yol_j = go.yol('tr7c_lp_sha256.jsonl')
-    yazili = {(r['pencere'], r['ad'], r['kanal']) for r in jsonl_oku(yol_j)}
+    yazili = {(r['pencere'], r['ad'], r['kanal'], r.get('konum')): r for r in jsonl_oku(yol_j)}   # K-3
     for pid, adaylar in man['lp_aday'].items():
         p = D['pen'][pid]
         for a in adaylar:
             gecti = False
             for c in sorted([c for c in a['kanallar'] if c['uygun_yanit']], key=lambda c: (c['kod'][0] != 'H',)):
-                if (pid, a['ad'], c['kod']) in yazili:
+                onceki = yazili.get((pid, a['ad'], c['kod'], c['konum']))
+                if onceki is not None:          # K-3: sürdürmede geçmiş kanal da 'gecti' sayılır
+                    gecti = gecti or (onceki.get('dusme') is None and bool(onceki.get('sha256')))
                     continue
                 ag, ist = a['ad'].split('.', 1)
                 lp_p = dict(p, id=f"{pid}|lp|{c['konum']}.{c['kod']}",
@@ -1284,7 +1287,7 @@ def lp_indir(go, D, man):
                 os.makedirs(os.path.dirname(hedef), exist_ok=True)
                 url = T.I.dataselect_url('ncedc', ag, ist, c['konum'], q['kanallar'], q['bas'], q['son'])
                 r = go.istemci().iste('ncedc', url, hedef=hedef)
-                satir = dict(pencere=pid, ad=a['ad'], kanal=c['kod'], http=r['http'], bayt=r.get('bayt', 0),
+                satir = dict(pencere=pid, ad=a['ad'], kanal=c['kod'], konum=c['konum'], http=r['http'], bayt=r.get('bayt', 0),
                              dusme=None if r['durum'] == 'tamam' else r['durum'], sha256=None)
                 if r['durum'] == 'tamam':
                     k0, n = T.pencere_ekseni(p)

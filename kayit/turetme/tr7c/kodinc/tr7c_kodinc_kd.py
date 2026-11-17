@@ -9,6 +9,7 @@ Kullanım (depo kökünden):
   parça i/n: planın yalnız (sıra % n == i) işlerini koşar (iki çekirdeğe bölmek için); birleştirme `--birlestir`
   ile aynı ara jsonl'ler verilerek yapılır:
   python3 -I -B .../tr7c_kodinc_kd.py --birlestir <çıktı.json> <olcek> <satırlar> <ara1.jsonl> [<ara2.jsonl> ...]
+  K0/K5 bayrak ayrışma sayımı (koşulmayan satırlar için): ... --say <çıktı.json> <olcek> <satırlar>
 """
 import json
 import os
@@ -106,9 +107,39 @@ def birlestir(cikti, olcek, adlar, aralar):
     print('eksik iş:', len(eksik), 'engellenen:', len(ENGEL))
 
 
+def say(cikti, olcek, adlar):
+    """K0 ile K5 sızıntı bayraklarının küme düzeyinde ayrıştığı sayı (KD'nin koşulmayan satırları için)."""
+    sayac = {}
+    cari = {'ad': None}
+
+    def sar(ist, kume, maske, yanlis=False):
+        b = KD.ayikla_tr7c(ist, kume, maske, yanlis)
+        k = (cari['ad'], bool(b['sizinti_K0']), bool(b['sizinti']))
+        sayac[k] = sayac.get(k, 0) + 1
+        return b
+    KD.K.ayikla = sar
+    sure = {}
+    for ad, ek, tohum, n in [x for x in T7.kd_plan(olcek) if x[0] in adlar]:
+        cari['ad'] = ad
+        t = time.time()
+        T7.kd_is(ad, ek, tohum, n)
+        sure[f'{ad} {ek} {tohum} n={n}'] = round(time.time() - t, 1)
+        print(ad, ek, tohum, n, sure[f'{ad} {ek} {tohum} n={n}'], flush=True)
+    out = dict(aciklama='K0 (TR-7) ile K5 sızıntı bayrağının küme düzeyinde karşılaştırması; yalnız yapay KD verisi.',
+               olcek=olcek, satirlar=adlar, sayac=[dict(satir=k[0], K0=k[1], K5=k[2], kume=v) for k, v in sorted(
+                   sayac.items(), key=str)], ayrisan=sum(v for k, v in sayac.items() if k[1] != k[2]),
+               toplam=sum(sayac.values()), sure_s=sure, engellenen=ENGEL,
+               kod_sha256={f: TC.sha256_dosya(os.path.join(TR7C, f)) for f in ('tr7c_kd_k5.py', 'tr7c_kosu.py')})
+    with open(cikti, 'w', encoding='utf-8') as f:
+        f.write(json.dumps(out, ensure_ascii=False, indent=1) + '\n')
+    print('ayrışan', out['ayrisan'], '/', out['toplam'])
+
+
 if __name__ == '__main__':
     a = sys.argv[1:]
-    if a[0] == '--birlestir':
+    if a[0] == '--say':
+        say(a[1], float(a[2]), a[3].split(','))
+    elif a[0] == '--birlestir':
         birlestir(a[1], float(a[2]), a[3].split(','), a[4:])
     else:
         p = tuple(int(x) for x in a[4].split('/')) if len(a) > 4 else None
