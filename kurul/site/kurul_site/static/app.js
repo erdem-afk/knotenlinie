@@ -668,6 +668,7 @@
     $("profile-avatar").textContent = initials(S.me.name);
     $("profile-signed-in").textContent = `Signed in as ${S.me.name} (${S.me.email})`;
     $("menu-admin").hidden = S.me.role !== "coordinator";
+    $("menu-invite").hidden = !(S.me.role === "member" && S.me.can_invite);
   }
 
   function renderMembers() {
@@ -711,6 +712,59 @@
     } catch (err) { $(errId).textContent = err.message; }
   }
 
+  // ------------------------------------------------------------------ invite a colleague
+
+  function openInvite() {
+    toggleMenu(false);
+    $("invite-name").value = "";
+    $("invite-email").value = "";
+    $("invite-error").textContent = "";
+    $("invite-fields").hidden = false;
+    $("invite-result").hidden = true;
+    $("invite-link-box").hidden = true;
+    $("invite-link").value = "";
+    $("invite-send").hidden = false;
+    $("invite-send").disabled = false;
+    $("invite-cancel").textContent = "Cancel";
+    $("invite-dialog").showModal();
+    if (!touch) $("invite-name").focus();
+  }
+
+  async function sendInvite(e) {
+    e.preventDefault();
+    $("invite-error").textContent = "";
+    const name = $("invite-name").value.trim(), email = $("invite-email").value.trim();
+    if (!name) { $("invite-error").textContent = "Please enter your colleague's name."; return; }
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]{2,}$/.test(email)) { $("invite-error").textContent = "Please enter a valid email address."; return; }
+    $("invite-send").disabled = true;
+    try {
+      const r = await api("POST", "/api/invites", { name, email });
+      let note;
+      if (r.already_invited) note = r.message || "This address has already been invited to the board.";
+      else if (r.login_url) note = r.created ? `${name} can now join the board.` : "This colleague was already invited by you; here is a fresh link.";
+      else note = `We emailed a sign-in link to ${email}.`;
+      $("invite-note").textContent = note;
+      if (r.login_url) {
+        $("invite-link").value = r.login_url;
+        $("invite-link-box").hidden = false;
+      }
+      $("invite-fields").hidden = true;
+      $("invite-result").hidden = false;
+      $("invite-send").hidden = true;
+      $("invite-cancel").textContent = "Close";
+      if (r.created) loadMembers().catch(() => {});
+    } catch (err) {
+      $("invite-error").textContent = err.message;
+    }
+    $("invite-send").disabled = false;
+  }
+
+  async function copyInvite() {
+    const input = $("invite-link");
+    try { await navigator.clipboard.writeText(input.value); toast("Link copied."); }
+    catch (e) { input.focus(); input.select(); toast("Press Ctrl+C (or Cmd+C) to copy."); }
+  }
+
   async function loadMembers() {
     const r = await api("GET", "/api/members");
     S.members = r.members;
@@ -737,6 +791,11 @@
     $("profile-btn").addEventListener("click", (e) => { e.stopPropagation(); toggleMenu(); });
     document.addEventListener("click", (e) => { if (!e.target.closest(".profile")) toggleMenu(false); });
     $("menu-profile").addEventListener("click", openProfile);
+    $("menu-invite").addEventListener("click", openInvite);
+    $("invite-form").addEventListener("submit", sendInvite);
+    $("invite-copy").addEventListener("click", copyInvite);
+    for (const id of ["invite-name", "invite-email"]) $(id).addEventListener("input", () => { $("invite-error").textContent = ""; });
+    $("invite-cancel").addEventListener("click", () => $("invite-dialog").close());
     $("menu-logout").addEventListener("click", async () => {
       try { await api("POST", "/auth/logout"); } catch (e) { /* ignore */ }
       location.href = "/login";

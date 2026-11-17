@@ -20,7 +20,10 @@ CREATE TABLE IF NOT EXISTS users(
   name TEXT NOT NULL,
   role TEXT NOT NULL CHECK (role IN ('member','coordinator','agent')),
   public_name_ok INTEGER NULL,
-  created_at TEXT NOT NULL
+  created_at TEXT NOT NULL,
+  -- delegated invitation right (members only; the coordinator can always invite)
+  can_invite INTEGER NOT NULL DEFAULT 0,
+  invited_by INTEGER NULL REFERENCES users(id)
 );
 
 CREATE TABLE IF NOT EXISTS login_tokens(
@@ -110,6 +113,17 @@ CREATE TABLE IF NOT EXISTS suggestion_log(
   created_at TEXT NOT NULL,
   PRIMARY KEY (message_id, source)
 );
+
+-- every invitation attempt that passed validation (audit trail and per-inviter rate limit)
+CREATE TABLE IF NOT EXISTS invites(
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER NULL REFERENCES users(id),
+  invited_by INTEGER NULL REFERENCES users(id),
+  email TEXT NOT NULL,
+  outcome TEXT NOT NULL CHECK (outcome IN ('created','new_link','exists')),
+  created_at TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS invites_by ON invites(invited_by, created_at);
 """
 
 
@@ -145,6 +159,11 @@ def init_db(path: str) -> None:
         cols = {r[1] for r in conn.execute("PRAGMA table_info(messages)")}
         if "moved_from" not in cols:  # databases created before this column existed
             conn.execute("ALTER TABLE messages ADD COLUMN moved_from INTEGER NULL REFERENCES messages(id)")
+        cols = {r[1] for r in conn.execute("PRAGMA table_info(users)")}
+        if "can_invite" not in cols:  # databases created before delegated invitations
+            conn.execute("ALTER TABLE users ADD COLUMN can_invite INTEGER NOT NULL DEFAULT 0")
+        if "invited_by" not in cols:
+            conn.execute("ALTER TABLE users ADD COLUMN invited_by INTEGER NULL REFERENCES users(id)")
     finally:
         conn.close()
 

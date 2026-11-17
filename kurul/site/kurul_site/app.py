@@ -240,6 +240,11 @@ def create_app(settings: Settings | None = None, mailer: Mailer | None = None) -
     def card_action(msg_id: int, data: dict = Body(default={}), user: dict = Depends(current_user)):
         return board.card_action(user, msg_id, data.get("action"), data.get("text"))
 
+    @app.post("/api/invites")
+    def member_invite(data: dict = Body(default={}), user: dict = Depends(current_user)):
+        # Authorization (coordinator, or a member with can_invite) is checked in Board.invite.
+        return board.invite(data, user)
+
     @app.get("/api/questions")
     def questions(user: dict = Depends(current_user)):
         with board.store.read() as db:
@@ -296,9 +301,17 @@ def create_app(settings: Settings | None = None, mailer: Mailer | None = None) -
     def admin_users(user: dict = Depends(coordinator)):
         return {"users": board.admin_users()}
 
+    @app.patch("/api/admin/users/{user_id}")
+    def admin_patch_user(user_id: int, data: dict = Body(default={}), user: dict = Depends(coordinator)):
+        return board.admin_set_user(user_id, data)
+
     @app.post("/api/admin/invites")
     def admin_invite(data: dict = Body(default={}), user: dict = Depends(coordinator)):
-        return board.invite(data)
+        return board.invite(data, user)
+
+    @app.get("/api/admin/invites")
+    def admin_invites(user: dict = Depends(coordinator)):
+        return {"invites": board.admin_invites()}
 
     @app.get("/api/admin/feasibility")
     def admin_feas(user: dict = Depends(coordinator)):

@@ -58,7 +58,17 @@
   <section class="panel" aria-labelledby="users-title">
     <h2 id="users-title">Users</h2>
     <div class="table-wrap"><table id="users-table">
-      <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Name in ledger</th><th>Joined</th><th>Last message</th></tr></thead>
+      <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Invited by</th><th>Can invite</th><th>Name in ledger</th><th>Joined</th><th>Last message</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <p class="small muted">Members with “Can invite” see “Invite a colleague” in their menu (up to 10 invitations a day). Their invitees always join as members.</p>
+  </section>
+
+  <section class="panel" aria-labelledby="invites-title">
+    <h2 id="invites-title">Invitations</h2>
+    <p class="small muted">Every invitation, newest first, and who made it.</p>
+    <div class="table-wrap"><table id="invites-table">
+      <thead><tr><th>When</th><th>Invited</th><th>Email</th><th>By</th><th>Result</th></tr></thead>
       <tbody></tbody>
     </table></div>
   </section>

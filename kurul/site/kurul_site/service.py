@@ -10,7 +10,7 @@ from typing import Any
 from . import core
 from .config import Settings
 from .core import ApiError, jdumps, jloads
-from .db import Store, now_iso
+from .db import Store, in_iso, now_iso
 from .mail import Mailer, notify
 from .security import Hasher, RateLimiter, new_token
 
@@ -174,7 +174,8 @@ class Board:
     @staticmethod
     def me_out(u: dict) -> dict:
         return {"id": u["id"], "name": u["name"], "email": u["email"], "role": u["role"],
-                "public_name_ok": None if u["public_name_ok"] is None else bool(u["public_name_ok"])}
+                "public_name_ok": None if u["public_name_ok"] is None else bool(u["public_name_ok"]),
+                "can_invite": u["role"] == "coordinator" or bool(u.get("can_invite"))}
 
     def update_me(self, user: dict, data: dict) -> dict:
         sets: dict[str, Any] = {}
@@ -372,33 +373,124 @@ class Board:
 
     def admin_users(self) -> list[dict]:
         with self.store.read() as db:
-            rows = db.all("SELECT u.*, (SELECT MAX(created_at) FROM messages WHERE author_id=u.id) "
-                          "AS last_message_at FROM users u ORDER BY u.id")
-            return [{"id": r["id"], "email": r["email"], "name": r["name"], "role": r["role"],
-                     "public_name_ok": None if r["public_name_ok"] is None else bool(r["public_name_ok"]),
-                     "created_at": r["created_at"], "last_message_at": r["last_message_at"]}
+            rows = db.all("SELECT u.*, i.name AS invited_by_name, "
+                          "(SELECT MAX(created_at) FROM messages WHERE author_id=u.id) AS last_message_at "
+                          "FROM users u LEFT JOIN users i ON i.id=u.invited_by ORDER BY u.id")
+            return [self._admin_user_out(r) for r in rows]
+
+    @staticmethod
+    def _admin_user_out(r) -> dict:
+        return {"id": r["id"], "email": r["email"], "name": r["name"], "role": r["role"],
+                "public_name_ok": None if r["public_name_ok"] is None else bool(r["public_name_ok"]),
+                "created_at": r["created_at"], "last_message_at": r["last_message_at"],
+                "can_invite": r["role"] == "coordinator" or bool(r["can_invite"]),
+                "invited_by": ({"id": r["invited_by"], "name": r["invited_by_name"]}
+                               if r["invited_by"] is not None else None)}
+
+    def admin_set_user(self, user_id: int, data: dict) -> dict:
+        if not isinstance(data, dict) or set(data) != {"can_invite"}:
+            raise ApiError(400, "send {can_invite: true|false}")
+        if not isinstance(data["can_invite"], bool):
+            raise ApiError(400, "can_invite must be true or false")
+        with self.store.tx() as tx:
+            u = tx.one("SELECT role FROM users WHERE id=?", (user_id,))
+            if not u:
+                raise ApiError(404, "user not found")
+            if u["role"] != "member":
+                raise ApiError(400, "only members have a changeable invitation right")
+            tx.execute("UPDATE users SET can_invite=? WHERE id=?", (int(data["can_invite"]), user_id))
+        with self.store.read() as db:
+            r = db.one("SELECT u.*, i.name AS invited_by_name, "
+                       "(SELECT MAX(created_at) FROM messages WHERE author_id=u.id) AS last_message_at "
+                       "FROM users u LEFT JOIN users i ON i.id=u.invited_by WHERE u.id=?", (user_id,))
+            return self._admin_user_out(r)
+
+    def admin_invites(self, limit: int = 500) -> list[dict]:
+        with self.store.read() as db:
+            rows = db.all("SELECT v.*, u.name AS user_name, b.name AS by_name, b.role AS by_role "
+                          "FROM invites v LEFT JOIN users u ON u.id=v.user_id "
+                          "LEFT JOIN users b ON b.id=v.invited_by ORDER BY v.id DESC LIMIT ?", (limit,))
+            return [{"id": r["id"], "created_at": r["created_at"], "email": r["email"],
+                     "outcome": r["outcome"],
+                     "user": {"id": r["user_id"], "name": r["user_name"]} if r["user_id"] else None,
+                     "invited_by": ({"id": r["invited_by"], "name": r["by_name"], "role": r["by_role"]}
+                                    if r["invited_by"] is not None else None)}
                     for r in rows]
 
-    def invite(self, data: dict) -> dict:
-        email = str(data.get("email") or "").strip().lower()
-        name = str(data.get("name") or "").strip()
-        if not EMAIL_RE.match(email):
+    @staticmethod
+    def _clean_invite(data: Any) -> tuple[str, str]:
+        if not isinstance(data, dict):
+            raise ApiError(400, "send {email, name}")
+        email = data.get("email")
+        name = data.get("name")
+        email = email.strip().lower() if isinstance(email, str) else ""
+        name = name.strip() if isinstance(name, str) else ""
+        if len(email) > 254 or not EMAIL_RE.match(email):
             raise ApiError(400, "please enter a valid email address")
         if not (1 <= len(name) <= 80):
             raise ApiError(400, "please enter a name (up to 80 characters)")
+        if any(ord(c) < 32 or 0x7F <= ord(c) < 0xA0 or c in "\u2028\u2029" for c in name):
+            raise ApiError(400, "the name must be a single line of text")
+        return email, name
+
+    def invite(self, data: dict, inviter: dict | None = None) -> dict:
+        """Invite a member. inviter None = internal call (tests, scripts), treated like the coordinator.
+
+        The invitee is always a new `member`; an existing address is never changed or duplicated.
+        """
+        by_coordinator = inviter is None or inviter["role"] == "coordinator"
+        if not by_coordinator and not (inviter["role"] == "member" and inviter.get("can_invite")):
+            raise ApiError(403, "you cannot invite colleagues; ask the coordinator")
+        email, name = self._clean_invite(data)
+        inviter_id = inviter["id"] if inviter else None
+        mail_job = None
         with self.store.tx() as tx:
+            if not by_coordinator:
+                n = tx.one("SELECT COUNT(*) AS n FROM invites WHERE invited_by=? AND created_at>?",
+                           (inviter_id, in_iso(days=-1)))["n"]
+                if n >= self.settings.invite_rate_per_day:
+                    raise ApiError(429, f"you can send up to {self.settings.invite_rate_per_day} "
+                                        "invitations a day; please try again tomorrow")
             u = tx.one("SELECT * FROM users WHERE email=?", (email,))
-            created = False
             if u:
-                if u["role"] == "agent":
-                    raise ApiError(400, "that address belongs to the agent")
-                uid = u["id"]
+                if by_coordinator:
+                    if u["role"] == "agent":
+                        raise ApiError(400, "that address belongs to the agent")
+                    may_link = True
+                else:
+                    may_link = u["role"] == "member" and u["invited_by"] == inviter_id
+                tx.execute("INSERT INTO invites(user_id,invited_by,email,outcome,created_at) VALUES (?,?,?,?,?)",
+                           (u["id"] if may_link else None, inviter_id, email,
+                            "new_link" if may_link else "exists", now_iso()))
+                if not may_link:
+                    return {"created": False, "already_invited": True,
+                            "message": "This address has already been invited to the board."}
+                uid, invitee_name, created = u["id"], u["name"], False
             else:
-                uid = int(tx.execute("INSERT INTO users(email,name,role,public_name_ok,created_at) "
-                                     "VALUES (?,?,?,NULL,?)", (email, name, "member", now_iso())).lastrowid)
-                created = True
+                uid = int(tx.execute(
+                    "INSERT INTO users(email,name,role,public_name_ok,created_at,can_invite,invited_by) "
+                    "VALUES (?,?,'member',NULL,?,0,?)", (email, name, now_iso(), inviter_id)).lastrowid)
+                invitee_name, created = name, True
+                tx.execute("INSERT INTO invites(user_id,invited_by,email,outcome,created_at) VALUES (?,?,?,?,?)",
+                           (uid, inviter_id, email, "created", now_iso()))
+                tx.emit("user.invited", {"user_id": uid, "invited_by": inviter_id})
             token = core.create_login_token(tx, self.hash, uid, LONG_LINK_MINUTES)
-        return {"user_id": uid, "created": created, "login_url": self.login_url(token)}
+            link = self.login_url(token)
+            if not by_coordinator:
+                text = (f"Hello {invitee_name},\n\n{inviter['name']} invited you to Knotenlinie Board, "
+                        "the board chat of the Knotenlinie project.\n\nOpen this link to sign in. "
+                        f"It works once and expires in 7 days.\n\n{link}\n\n"
+                        "If you do not want to join, you can ignore this email.\n")
+                mail_job = (email, text)
+                tx.after_commit(lambda: self.mailer.send(mail_job[0], "You are invited to Knotenlinie Board",
+                                                         mail_job[1]))
+        if by_coordinator:
+            return {"user_id": uid, "created": created, "login_url": link}
+        out: dict[str, Any] = {"user_id": uid, "created": created, "emailed": self.mailer.enabled}
+        if not self.mailer.enabled:
+            # Without SMTP the email only reaches the server log, so the inviter passes the link on.
+            out["login_url"] = link
+        return out
 
     def admin_feasibility(self) -> list[dict]:
         with self.store.read() as db:
@@ -713,7 +805,7 @@ class Board:
                 t = r["type"]
                 if t in self.HUMAN_HIDDEN_TYPES:
                     continue
-                if t == "feasibility.updated" and viewer["role"] != "coordinator":
+                if t in ("feasibility.updated", "user.invited") and viewer["role"] != "coordinator":
                     continue
                 if t == "message.forwarded" and p.get("by_user_id") != viewer["id"]:
                     continue

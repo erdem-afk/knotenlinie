@@ -21,6 +21,7 @@ class Settings:
     message_rate_per_min: int = 20
     login_rate_per_ip: int = 10        # per 15 minutes
     login_rate_per_email: int = 3      # per 15 minutes
+    invite_rate_per_day: int = 10      # per member inviter, rolling 24 hours
     extra: dict = field(default_factory=dict)
 
     @property

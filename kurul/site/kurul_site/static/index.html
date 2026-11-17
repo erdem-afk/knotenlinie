@@ -27,6 +27,7 @@
       <div class="menu" id="profile-menu" role="menu" hidden>
         <p class="menu-head small muted" id="profile-signed-in"></p>
         <button type="button" role="menuitem" id="menu-profile">Name and ledger setting</button>
+        <button type="button" role="menuitem" id="menu-invite" hidden>Invite a colleague</button>
         <a role="menuitem" id="menu-admin" href="/admin" hidden>Coordinator page</a>
         <button type="button" role="menuitem" id="menu-logout">Sign out</button>
       </div>
@@ -143,6 +144,35 @@
     <div class="dialog-actions">
       <button type="submit" class="btn primary" value="save">Save</button>
       <button type="button" class="btn" id="profile-cancel">Cancel</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="invite-dialog" class="dialog" aria-labelledby="invite-title">
+  <form method="dialog" id="invite-form" novalidate>
+    <h2 id="invite-title">Invite a colleague</h2>
+    <div id="invite-fields">
+      <p class="small muted">They join the board as a member.</p>
+      <label class="field-label" for="invite-name">Name, as shown on the board</label>
+      <input type="text" id="invite-name" maxlength="80" autocomplete="off" required>
+      <label class="field-label" for="invite-email">Email address</label>
+      <input type="email" id="invite-email" maxlength="254" autocomplete="off" required>
+    </div>
+    <div id="invite-result" hidden>
+      <p id="invite-note"></p>
+      <div id="invite-link-box" hidden>
+        <div class="copy-row">
+          <label class="sr-only" for="invite-link">Sign-in link</label>
+          <input type="text" id="invite-link" readonly>
+          <button type="button" class="btn" id="invite-copy">Copy</button>
+        </div>
+        <p class="small muted">Send this link to your colleague; it works once and expires in 7 days.</p>
+      </div>
+    </div>
+    <p class="form-error" id="invite-error" role="alert"></p>
+    <div class="dialog-actions">
+      <button type="submit" class="btn primary" id="invite-send">Create invitation</button>
+      <button type="button" class="btn" id="invite-cancel">Cancel</button>
     </div>
   </form>
 </dialog>

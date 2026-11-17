@@ -91,10 +91,42 @@
     const { users } = await api("GET", "/api/admin/users");
     const tb = clear($("users-table").querySelector("tbody"));
     for (const u of users) {
+      let canInvite;
+      if (u.role === "member") {
+        const box = h("input", { type: "checkbox", "aria-label": `${u.name} can invite colleagues` });
+        box.checked = !!u.can_invite;
+        box.addEventListener("change", async () => {
+          box.disabled = true;
+          try {
+            const r = await api("PATCH", `/api/admin/users/${u.id}`, { can_invite: box.checked });
+            box.checked = !!r.can_invite;
+            toast(`${u.name} ${r.can_invite ? "can now invite colleagues" : "can no longer invite"}.`);
+          } catch (err) { box.checked = !box.checked; toast(err.message, "error"); }
+          box.disabled = false;
+        });
+        canInvite = h("td", null, box);
+      } else {
+        canInvite = h("td", { class: "muted", text: u.role === "coordinator" ? "always" : "" });
+      }
       tb.append(h("tr", null,
         h("td", { text: u.name }), h("td", { text: u.email }), h("td", { text: u.role }),
+        h("td", { text: u.invited_by ? u.invited_by.name : "" }), canInvite,
         h("td", { text: u.public_name_ok === null ? "not asked yet" : u.public_name_ok ? "yes" : "no" }),
         h("td", { text: when(u.created_at) }), h("td", { text: u.last_message_at ? when(u.last_message_at) : "" })));
+    }
+  }
+
+  const OUTCOME = { created: "New member", new_link: "Fresh link for an existing invitee", exists: "Already on the board; no link given" };
+
+  async function loadInvites() {
+    const { invites } = await api("GET", "/api/admin/invites");
+    const tb = clear($("invites-table").querySelector("tbody"));
+    if (!invites.length) { tb.append(h("tr", null, h("td", { colspan: 5, class: "muted", text: "No invitations recorded yet." }))); return; }
+    for (const v of invites) {
+      tb.append(h("tr", null,
+        h("td", { text: when(v.created_at) }), h("td", { text: v.user ? v.user.name : "" }), h("td", { text: v.email }),
+        h("td", { text: v.invited_by ? v.invited_by.name + (v.invited_by.role === "coordinator" ? " (coordinator)" : "") : "" }),
+        h("td", { text: OUTCOME[v.outcome] || v.outcome })));
     }
   }
 
@@ -110,7 +142,7 @@
       $("invite-note").textContent = r.created ? `${name} was added to the board.` : "This address was already on the board; here is a fresh link.";
       $("invite-result").hidden = false;
       $("invite-name").value = ""; $("invite-email").value = "";
-      await loadUsers();
+      await Promise.allSettled([loadUsers(), loadInvites()]);
     } catch (err) { $("invite-error").textContent = err.message; }
     $("invite-send").disabled = false;
   });
@@ -121,7 +153,7 @@
   });
 
   async function loadAll() {
-    const res = await Promise.allSettled([loadReports(), loadSuggestions(), loadUsers()]);
+    const res = await Promise.allSettled([loadReports(), loadSuggestions(), loadUsers(), loadInvites()]);
     const bad = res.find((r) => r.status === "rejected");
     if (bad) toast(bad.reason.message, "error");
   }

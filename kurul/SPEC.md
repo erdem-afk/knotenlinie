@@ -30,8 +30,12 @@ UI language: English. Members write Turkish or English. Code comments: English.
 
 ## 3. Data model (SQLite, single file)
 
-- `users(id, email UNIQUE, name, role, public_name_ok INTEGER NULL, created_at)`
+- `users(id, email UNIQUE, name, role, public_name_ok INTEGER NULL, created_at,
+   can_invite INTEGER NOT NULL DEFAULT 0, invited_by INTEGER NULL)`
   `public_name_ok` NULL = not asked yet; asked at first login; changeable any time.
+  `can_invite`: member may invite colleagues (set by the coordinator). `invited_by`: user id of the inviter.
+- `invites(id, user_id NULL, invited_by NULL, email, outcome, created_at)`; every invite attempt;
+  `outcome`: `created` | `new_link` | `exists`. Used for the admin list and the per-inviter daily limit.
 - `login_tokens(token_hash, user_id, expires_at, used_at)`; single use, 30 min (bootstrap/invite links: 7 days).
 - `sessions(token_hash, user_id, expires_at)`; 60 days, HttpOnly Secure SameSite=Lax cookie.
 - `messages(id, root_id NULL, author_id, body, kind, card_json, visible_to NULL, created_at, hidden_at NULL)`
@@ -58,7 +62,13 @@ Question `status` values and UI labels:
   send it by SMTP when configured; otherwise log the link to the server log only.
 - `GET /auth/verify?token=`: sets session, redirects to `/`.
 - `POST /auth/logout`
-- `GET /api/me` · `PATCH /api/me {name?, public_name_ok?}`
+- `GET /api/me` (includes `can_invite`) · `PATCH /api/me {name?, public_name_ok?}`
+- `POST /api/invites {email, name}`: coordinator, or a member with `can_invite` (else 403). Creates a
+  `member` with `invited_by` = caller and sends the 7-day sign-in link by mail; while SMTP is not configured
+  the response carries `login_url` for the inviter to pass on. Members: 10 invites per 24 h (429). An existing
+  email is never duplicated: a fresh link only for the coordinator or the original inviter, otherwise
+  `{already_invited: true}`. Emits `user.invited {user_id, invited_by}` (coordinator and agent only).
+  Never announced in the feed.
 - `GET /api/messages?root=<id|none>&after=<id>&limit=`: messages visible to the caller. Hidden ones come
   as `{id, hidden:true, author, created_at}`. Each top-level message carries `reply_count` and, if it is a
   question root, `question: {id, status, path, queue_pos}`.
@@ -72,7 +82,9 @@ Question `status` values and UI labels:
 - `GET /api/questions`: for the "Questions only" view.
 - `GET /api/stream`: Server-Sent Events of `events` the caller may see (ids only + type; client refetches).
 - Coordinator only:
-  `GET /api/admin/users` · `POST /api/admin/invites {email, name}` → `{login_url}` (7-day link) ·
+  `GET /api/admin/users` (with `can_invite`, `invited_by`) · `PATCH /api/admin/users/{id} {can_invite}` ·
+  `POST /api/admin/invites {email, name}` → `{login_url}` (7-day link; records `invited_by`) ·
+  `GET /api/admin/invites` ·
   `GET /api/admin/feasibility` · `POST /api/admin/questions/{id}/hold {reason}` ·
   `POST /api/admin/questions/{id}/release` · `POST /api/admin/questions/{id}/approve_run` ·
   `GET /api/admin/suggestions` (accept/decline counts, for tuning the detection threshold).

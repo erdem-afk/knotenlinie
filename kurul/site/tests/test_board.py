@@ -475,11 +475,12 @@ def test_agent_question_and_thread(env):
 
 def test_events_long_poll(env):
     a = env.member()
+    base = env.board.last_event_id()  # the member's user.invited event
     t0 = time.time()
-    r = env.agent.get("/api/agent/events?after=0&wait=0", headers=A).json()
-    assert r["events"] == [] and r["last"] == 0 and time.time() - t0 < 1
+    r = env.agent.get(f"/api/agent/events?after={base}&wait=0", headers=A).json()
+    assert r["events"] == [] and r["last"] == base and time.time() - t0 < 1
     env.post(a, "hello")
-    r = env.agent.get("/api/agent/events?after=0&wait=25", headers=A).json()
+    r = env.agent.get(f"/api/agent/events?after={base}&wait=25", headers=A).json()
     assert len(r["events"]) == 1 and r["last"] == r["events"][0]["id"]
     last = r["last"]
     t0 = time.time()
