@@ -31,9 +31,17 @@ UI language: English. Members write Turkish or English. Code comments: English.
 ## 3. Data model (SQLite, single file)
 
 - `users(id, email UNIQUE, name, role, public_name_ok INTEGER NULL, created_at,
-   can_invite INTEGER NOT NULL DEFAULT 0, invited_by INTEGER NULL)`
+   can_invite INTEGER NOT NULL DEFAULT 0, invited_by INTEGER NULL, handle TEXT)`
   `public_name_ok` NULL = not asked yet; asked at first login; changeable any time.
   `can_invite`: member may invite colleagues (set by the coordinator). `invited_by`: user id of the inviter.
+  `handle`: `@handle` for mentions, stored lower-case, `[a-z0-9_]{2,24}`, unique case-insensitively
+  (index `users_handle ON users(handle COLLATE NOCASE)`). Derived from the name when the user is created:
+  ASCII-folded (ç→c, ğ→g, ı/İ→i, ö→o, ş→s, ü→u, é→e, ß→ss, …), titles dropped (prof, dr, doç, assoc,
+  asst, öğr. üyesi, phd, …), first word + last word with no separator ("Prof. Dr. Ayşe Nur Yılmaz" →
+  `ayseyilmaz`), cut to 24; on collision `2`, `3`, … appended; nothing left → `member<id>`. Reserved,
+  never a person's handle: `knotenlinie` (the agent user's own handle), `coordinator`, `agent`, `admin`,
+  `everyone`, `all`, `here`, `board`. Databases from before handles get the column and derived handles at
+  start-up (in place, idempotent, oldest user first).
 - `invites(id, user_id NULL, invited_by NULL, email, outcome, created_at)`; every invite attempt;
   `outcome`: `created` | `new_link` | `exists`. Used for the admin list and the per-inviter daily limit.
 - `login_tokens(token_hash, user_id, expires_at, used_at)`; single use, 30 min (bootstrap/invite links: 7 days).
@@ -62,7 +70,10 @@ Question `status` values and UI labels:
   send it by SMTP when configured; otherwise log the link to the server log only.
 - `GET /auth/verify?token=`: sets session, redirects to `/`.
 - `POST /auth/logout`
-- `GET /api/me` (includes `can_invite`) · `PATCH /api/me {name?, public_name_ok?}`
+- `GET /api/me` (includes `can_invite`, `handle`) · `PATCH /api/me {name?, public_name_ok?, handle?}`:
+  `handle` is trimmed, one leading `@` dropped, lower-cased; 400 if not `[a-z0-9_]{2,24}`, 409 if reserved or
+  taken (nothing is written then).
+- `GET /api/members`: `[{id, name, handle, role}]` for every user incl. agent and coordinator; no emails.
 - `POST /api/invites {email, name}`: coordinator, or a member with `can_invite` (else 403). Creates a
   `member` with `invited_by` = caller and sends the 7-day sign-in link by mail; while SMTP is not configured
   the response carries `login_url` for the inviter to pass on. Members: 10 invites per 24 h (429). An existing
@@ -82,12 +93,25 @@ Question `status` values and UI labels:
 - `GET /api/questions`: for the "Questions only" view.
 - `GET /api/stream`: Server-Sent Events of `events` the caller may see (ids only + type; client refetches).
 - Coordinator only:
-  `GET /api/admin/users` (with `can_invite`, `invited_by`) · `PATCH /api/admin/users/{id} {can_invite}` ·
+  `GET /api/admin/users` (with `can_invite`, `invited_by`, `handle`) · `PATCH /api/admin/users/{id} {can_invite}` ·
   `POST /api/admin/invites {email, name}` → `{login_url}` (7-day link; records `invited_by`) ·
   `GET /api/admin/invites` ·
   `GET /api/admin/feasibility` · `POST /api/admin/questions/{id}/hold {reason}` ·
   `POST /api/admin/questions/{id}/release` · `POST /api/admin/questions/{id}/approve_run` ·
   `GET /api/admin/suggestions` (accept/decline counts, for tuning the detection threshold).
+
+### Mentions
+
+`@knotenlinie` (case-insensitive) addresses the agent: the `message.created` event carries `mention: true`;
+nothing else about it changed. A token `@handle` (case-insensitive; `@` at the start or after a character
+that is not a letter, digit, `_ . + - @`, so never inside an email address; not followed by a letter,
+digit or `_`) addresses that user; `@coordinator` addresses every user with role `coordinator`. Each
+addressed user except the author gets one `mention` notification per message (the older full-name form,
+"Prof. Beta", still counts and is merged, never doubled). The UI highlights known mentions as text spans
+(never HTML from member text) and offers inline completion in the composers: the rest of the best
+handle appears in grey at the caret; Tab (or → at the end of the text, or a tap on it) accepts,
+↑/↓ cycle, Esc dismisses. Order: `knotenlinie`, `coordinator`, then colleagues by handle; the typed part
+also matches the start of a colleague's name words.
 
 ## 5. Agent API (header `Authorization: Bearer <AGENT_TOKEN>`)
 

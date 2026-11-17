@@ -2,7 +2,7 @@
 "use strict";
 
 (() => {
-  const { h, clear, link, linkify, api, when, fullWhen, initials, toast } = K;
+  const { h, clear, link, richText, api, when, fullWhen, initials, toast } = K;
   const $ = (id) => document.getElementById(id);
 
   const LABELS = {
@@ -18,7 +18,10 @@
   const S = {
     me: null, members: [], feed: [], questions: [], view: "board",
     threadId: null, thread: null, hasMore: false, loadingMore: false,
+    known: new Map([["knotenlinie", "agent"], ["coordinator", "coordinator"]]), knownKey: "",
   };
+  const HANDLE_RE = /^[a-z0-9_]{2,24}$/;
+  const RESERVED = new Set(["knotenlinie", "coordinator", "agent", "admin", "everyone", "all", "here", "board"]);
   const touch = window.matchMedia("(hover: none)").matches;
   const sigs = new WeakMap();
 
@@ -31,7 +34,7 @@
     let prev = null;
     for (const item of items) {
       const k = String(keyOf(item));
-      const sig = JSON.stringify(item);
+      const sig = S.knownKey + "|" + JSON.stringify(item);  // known @handles change the rendering
       let el = existing.get(k);
       if (!el || sigs.get(el) !== sig) {
         const fresh = render(item);
@@ -324,7 +327,7 @@
       main.append(h("p", { class: "tombstone", text: "Message hidden" }));
     } else if (m.kind === "text") {
       const body = h("div", { class: "msg-body" });
-      body.append(linkify(m.body || ""));
+      body.append(richText(m.body || "", S.known));
       main.append(body);
     } else {
       main.append(renderCard(m));
@@ -576,13 +579,14 @@
     catch (e) { toast("Copying is not available here.", "error"); }
   }
 
-  let forwardTarget = null;
+  let forwardTarget = null, forwardGhost = null;
   function openForward(m) {
     forwardTarget = m;
     const mine = m.author.id === S.me.id;
     $("forward-from").textContent = mine ? "Your message" : `Message from ${m.author.name}`;
     $("forward-quote").textContent = m.body;
     $("forward-note").value = "";
+    if (forwardGhost) forwardGhost.update();
     $("forward-credit").textContent = mine ? "You will be credited as the author."
       : `${m.author.name} will be credited as the author. You will be recorded as the person who forwarded it.`;
     $("forward-send").disabled = false;
@@ -636,8 +640,34 @@
     ta.style.height = Math.min(ta.scrollHeight + 2, Math.round(window.innerHeight * 0.35)) + "px";
   }
 
+  // ------------------------------------------------------------------ @mentions
+
+  /** Ghost-completion candidates: the agent, the coordinator alias, then colleagues by handle. */
+  function mentionCandidates() {
+    const out = [{ handle: "knotenlinie", words: ["knotenlinie", "agent"] },
+      { handle: "coordinator", words: ["coordinator", "gradiva"] }];
+    const people = S.members.filter((u) => u.handle && u.role !== "agent" && !RESERVED.has(u.handle)
+      && !(S.me && u.id === S.me.id));
+    people.sort((a, b) => (a.handle < b.handle ? -1 : a.handle > b.handle ? 1 : 0));
+    for (const u of people) out.push({ handle: u.handle, words: K.nameWords(u.name) });
+    return out;
+  }
+
+  /** Handles that are highlighted in message text. Returns true when the set changed. */
+  function updateKnown() {
+    const known = new Map([["knotenlinie", "agent"], ["coordinator", "coordinator"]]);
+    for (const u of S.members) {
+      if (u.handle && !known.has(u.handle)) known.set(u.handle, u.role === "agent" ? "agent" : u.role);
+    }
+    const key = Array.from(known.keys()).sort().join(",");
+    if (key === S.knownKey) return false;
+    S.known = known; S.knownKey = key;
+    return true;
+  }
+
   function setupComposer(form, input, getRoot, after) {
     input.addEventListener("input", () => autogrow(input));
+    const ghost = K.ghost.attach(input, mentionCandidates);
     input.addEventListener("keydown", (e) => {
       if (e.key === "Enter" && !e.shiftKey && !e.isComposing && !touch) {
         e.preventDefault();
@@ -654,6 +684,7 @@
         await api("POST", "/api/messages", { body, root_id: getRoot() });
         input.value = "";
         autogrow(input);
+        ghost.update();
         await after();
       } catch (err) { toast(err.message, "error"); }
       btn.disabled = false;
@@ -666,7 +697,7 @@
   function renderMe() {
     $("profile-name").textContent = S.me.name;
     $("profile-avatar").textContent = initials(S.me.name);
-    $("profile-signed-in").textContent = `Signed in as ${S.me.name} (${S.me.email})`;
+    $("profile-signed-in").textContent = `Signed in as ${S.me.name}` + (S.me.handle ? ` (@${S.me.handle})` : "") + ` · ${S.me.email}`;
     $("menu-admin").hidden = S.me.role !== "coordinator";
     $("menu-invite").hidden = !(S.me.role === "member" && S.me.can_invite);
   }
@@ -675,7 +706,8 @@
     const people = S.members.filter((u) => u.role === "member");
     const staff = S.members.filter((u) => u.role !== "member");
     $("member-count").textContent = `· ${people.length} member${people.length === 1 ? "" : "s"}`;
-    const li = (u) => h("li", null, avatar(u), h("span", { text: u.name }), u.role === "agent" ? h("span", { class: "muted small", text: " (agent)" }) : null);
+    const li = (u) => h("li", { title: u.handle ? "@" + u.handle : null }, avatar(u), h("span", { text: u.name }),
+      u.role === "agent" ? h("span", { class: "muted small", text: " (agent)" }) : null);
     clear($("members-list")).append(...people.map(li));
     clear($("staff-list")).append(...staff.map(li));
   }
@@ -690,6 +722,7 @@
   function openProfile() {
     toggleMenu(false);
     $("profile-name-input").value = S.me.name;
+    $("profile-handle").value = S.me.handle || "";
     for (const r of document.querySelectorAll("input[name=profile-public]")) {
       r.checked = (r.value === "yes" && S.me.public_name_ok === true) || (r.value === "no" && S.me.public_name_ok === false);
     }
@@ -697,14 +730,16 @@
     $("profile-dialog").showModal();
   }
 
-  async function saveProfile(e, nameId, radioName, errId, dialogId) {
+  async function saveProfile(e, nameId, handleId, radioName, errId, dialogId) {
     e.preventDefault();
     const name = $(nameId).value.trim();
+    const handle = $(handleId).value.trim().replace(/^@/, "").toLowerCase();
     const sel = document.querySelector(`input[name=${radioName}]:checked`);
     if (!name) { $(errId).textContent = "Please enter your name."; return; }
+    if (!HANDLE_RE.test(handle)) { $(errId).textContent = "Your handle needs 2 to 24 characters: a–z, 0–9 or _."; return; }
     if (!sel) { $(errId).textContent = "Please choose yes or no."; return; }
     try {
-      S.me = await api("PATCH", "/api/me", { name, public_name_ok: sel.value === "yes" });
+      S.me = await api("PATCH", "/api/me", { name, handle, public_name_ok: sel.value === "yes" });
       renderMe();
       $(dialogId).close();
       await Promise.allSettled([loadMembers(), refreshAll()]);
@@ -769,6 +804,10 @@
     const r = await api("GET", "/api/members");
     S.members = r.members;
     renderMembers();
+    if (updateKnown()) {  // re-render messages so new @handles are highlighted
+      if (S.feed.length) renderFeed(false);
+      if (S.threadId && S.thread) refreshThread(false).catch(() => {});
+    }
   }
 
   // ------------------------------------------------------------------ wiring
@@ -800,11 +839,12 @@
       try { await api("POST", "/auth/logout"); } catch (e) { /* ignore */ }
       location.href = "/login";
     });
-    $("profile-form").addEventListener("submit", (e) => saveProfile(e, "profile-name-input", "profile-public", "profile-error", "profile-dialog"));
+    $("profile-form").addEventListener("submit", (e) => saveProfile(e, "profile-name-input", "profile-handle", "profile-public", "profile-error", "profile-dialog"));
     $("profile-cancel").addEventListener("click", () => $("profile-dialog").close());
-    $("welcome-form").addEventListener("submit", (e) => saveProfile(e, "welcome-name", "welcome-public", "welcome-error", "welcome-dialog"));
+    $("welcome-form").addEventListener("submit", (e) => saveProfile(e, "welcome-name", "welcome-handle", "welcome-public", "welcome-error", "welcome-dialog"));
     $("welcome-dialog").addEventListener("cancel", (e) => e.preventDefault());
     $("forward-form").addEventListener("submit", sendForward);
+    forwardGhost = K.ghost.attach($("forward-note"), mentionCandidates);
     $("forward-cancel").addEventListener("click", () => $("forward-dialog").close());
     $("actions-cancel").addEventListener("click", () => $("actions-dialog").close());
     for (const d of document.querySelectorAll("dialog.sheet")) {
@@ -824,6 +864,7 @@
   async function start() {
     if (touch) document.body.classList.add("touch");
     if (window.innerWidth < 520) $("composer-input").placeholder = "Write a message";
+    if (touch) $("composer-hint").textContent = "Type @ to address the agent or a colleague; tap the grey text to complete.";
     wire();
     try {
       S.me = await api("GET", "/api/me");
@@ -834,6 +875,7 @@
     if (t) openThread(t);
     if (S.me.public_name_ok === null) {
       $("welcome-name").value = S.me.name;
+      $("welcome-handle").value = S.me.handle || "";
       $("welcome-dialog").showModal();
     } else if (!touch) {
       $("composer-input").focus();

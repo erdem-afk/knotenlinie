@@ -54,6 +54,53 @@ const K = (() => {
     return frag;
   }
 
+  // Mirrors kurul_site/handles.py: ASCII folding and the titles dropped from names.
+  const FOLD = { "ı": "i", "İ": "i", "ß": "ss", "æ": "ae", "Æ": "ae", "ø": "o", "Ø": "o", "đ": "d", "Đ": "d",
+    "ð": "d", "Ð": "d", "ł": "l", "Ł": "l", "œ": "oe", "Œ": "oe", "þ": "th", "Þ": "th", "ħ": "h", "Ħ": "h" };
+  const TITLES = new Set(["prof", "professor", "dr", "doc", "docent", "assoc", "asst", "assist", "yrd", "ogr",
+    "uyesi", "ars", "gor", "phd", "md", "mr", "mrs", "ms", "dipl", "ing", "emer", "emeritus"]);
+
+  function fold(s) {
+    return String(s || "").replace(/[ıİßæÆøØđĐðÐłŁœŒþÞħĦ]/g, (c) => FOLD[c])
+      .normalize("NFKD").replace(/\p{M}/gu, "").toLowerCase();
+  }
+
+  function nameWords(name) {
+    return fold(name).split(/[^a-z0-9]+/).filter((w) => w && !TITLES.has(w));
+  }
+
+  // An @handle token: not after a letter, digit, "_", ".", "+", "-" or "@" (so never inside an email
+  // address), and not followed by a letter, digit, "_" or "@". Same rule as the server.
+  const MENTION_RE = /(^|[^\p{L}\p{N}_.+\-@])@([A-Za-z0-9_]{2,24})(?![\p{L}\p{N}_@])/gu;
+
+  /**
+   * Plain text with links (linkify) and known @mentions wrapped in <span class="mention">.
+   * known: Map lower-case handle -> kind ("agent" | "coordinator" | "member"). Text nodes only.
+   */
+  function richText(text, known) {
+    const frag = linkify(text);
+    if (!known || !known.size) return frag;
+    for (const node of Array.from(frag.childNodes)) {
+      if (node.nodeType !== Node.TEXT_NODE) continue;
+      const t = node.nodeValue;
+      const parts = [];
+      let last = 0, m;
+      MENTION_RE.lastIndex = 0;
+      while ((m = MENTION_RE.exec(t)) !== null) {
+        const kind = known.get(m[2].toLowerCase());
+        if (!kind) continue;
+        const at = m.index + m[1].length;
+        if (at > last) parts.push(document.createTextNode(t.slice(last, at)));
+        parts.push(h("span", { class: "mention mention-" + kind, text: "@" + m[2] }));
+        last = at + 1 + m[2].length;
+      }
+      if (!parts.length) continue;
+      if (last < t.length) parts.push(document.createTextNode(t.slice(last)));
+      node.replaceWith(...parts);
+    }
+    return frag;
+  }
+
   class ApiError extends Error {
     constructor(status, detail) { super(detail); this.status = status; }
   }
@@ -165,5 +212,5 @@ const K = (() => {
     });
   }
 
-  return { h, clear, link, linkify, safeUrl, api, ApiError, when, fullWhen, initials, toast, live };
+  return { h, clear, link, linkify, richText, fold, nameWords, safeUrl, api, ApiError, when, fullWhen, initials, toast, live };
 })();

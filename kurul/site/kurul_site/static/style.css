@@ -7,6 +7,7 @@
   --q: #8a4f1c; --q-bg: #f3eadd;
   --ok: #2f6b3a; --warn: #9a6a10; --warn-bg: #f5edd8; --danger: #9b2c22; --danger-bg: #f6e3e0;
   --hover: #eef1ea; --wire: #e9ebe6; --shadow: 0 6px 24px rgba(29, 36, 32, .12);
+  --ghost: #979f99;
   --radius: 10px;
   --font: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", Arial, sans-serif;
   --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
@@ -20,6 +21,7 @@
     --q: #e0a46a; --q-bg: #2b2318;
     --ok: #8fcb97; --warn: #e0b45a; --warn-bg: #2c2616; --danger: #f08a7e; --danger-bg: #3a1f1b;
     --hover: #20261f; --wire: #222823; --shadow: 0 6px 24px rgba(0, 0, 0, .45);
+    --ghost: #6f7871;
     color-scheme: dark;
   }
 }
@@ -148,6 +150,8 @@ time { color: var(--muted); font-size: .82rem; }
 .privacy { font-size: .8rem; color: var(--agent); font-style: italic; }
 .msg-body { white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; margin-top: .1rem; }
 .msg-body a { overflow-wrap: anywhere; }
+.mention { font-weight: 600; color: var(--accent); background: var(--accent-soft); border-radius: 4px; padding: 0 .12em; }
+.mention-agent { color: var(--agent); background: var(--agent-bg); }
 .tombstone { margin: .1rem 0 0; color: var(--muted); font-style: italic; }
 .msg-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: .35rem; }
 .replies {
@@ -245,6 +249,28 @@ time { color: var(--muted); font-size: .82rem; }
 }
 .composer textarea { resize: none; min-height: 44px; max-height: 35vh; }
 .composer .btn { flex: none; }
+.composer .ghost-wrap { flex: 1; }
+.composer { flex-wrap: wrap; }
+.composer-hint { order: 3; flex-basis: 100%; margin: -.3rem 0 0; font-size: .78rem; color: var(--muted); }
+@media (max-width: 720px) { .composer-hint { display: none; } }
+
+/* Inline @handle completion (ghost.js): a mirror exactly over the textarea; only the grey rest shows. */
+.ghost-wrap { position: relative; min-width: 0; }
+.ghost-wrap > textarea { display: block; }
+.ghost-mirror {
+  position: absolute; z-index: 1; margin: 0; overflow: hidden; pointer-events: none; color: transparent;
+  background: transparent; border-style: solid; border-color: transparent;
+  white-space: pre-wrap; overflow-wrap: break-word; word-break: normal;
+}
+.ghost-text { color: var(--ghost); pointer-events: auto; cursor: pointer; }
+
+.prefixed { display: flex; align-items: stretch; }
+.prefixed span {
+  display: flex; align-items: center; padding: 0 .6rem; color: var(--muted); background: var(--wire);
+  border: 1px solid var(--rule); border-right: 0; border-radius: 8px 0 0 8px;
+}
+.prefixed input { border-radius: 0 8px 8px 0; min-width: 0; }
+.field-help { margin: .3rem 0 0; }
 
 /* ------------------------------------------------------------------ questions view */
 .questions-scroll { padding: 1rem 16px 2rem; }

@@ -11,6 +11,8 @@ import sqlite3
 from datetime import datetime, timedelta, timezone
 from typing import Any, Callable
 
+from . import handles
+
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS meta(key TEXT PRIMARY KEY, value TEXT NOT NULL);
 
@@ -23,7 +25,9 @@ CREATE TABLE IF NOT EXISTS users(
   created_at TEXT NOT NULL,
   -- delegated invitation right (members only; the coordinator can always invite)
   can_invite INTEGER NOT NULL DEFAULT 0,
-  invited_by INTEGER NULL REFERENCES users(id)
+  invited_by INTEGER NULL REFERENCES users(id),
+  -- @handle for mentions: lower-case [a-z0-9_]{2,24}; unique index created in init_db
+  handle TEXT NULL
 );
 
 CREATE TABLE IF NOT EXISTS login_tokens(
@@ -164,8 +168,27 @@ def init_db(path: str) -> None:
             conn.execute("ALTER TABLE users ADD COLUMN can_invite INTEGER NOT NULL DEFAULT 0")
         if "invited_by" not in cols:
             conn.execute("ALTER TABLE users ADD COLUMN invited_by INTEGER NULL REFERENCES users(id)")
+        if "handle" not in cols:  # databases created before @handles
+            conn.execute("ALTER TABLE users ADD COLUMN handle TEXT NULL")
+        migrate_handles(conn)
     finally:
         conn.close()
+
+
+def migrate_handles(conn: sqlite3.Connection) -> None:
+    """Give every user without a handle its derived one (oldest first), then enforce uniqueness.
+
+    Idempotent: only NULL handles are filled, and the index is created IF NOT EXISTS.
+    """
+    conn.execute("BEGIN IMMEDIATE")
+    try:
+        for r in conn.execute("SELECT id, name, role FROM users WHERE handle IS NULL ORDER BY id").fetchall():
+            handles.assign(conn, r["id"], r["name"], r["role"])
+        conn.execute("CREATE UNIQUE INDEX IF NOT EXISTS users_handle ON users(handle COLLATE NOCASE)")
+        conn.execute("COMMIT")
+    except BaseException:
+        conn.execute("ROLLBACK")
+        raise
 
 
 class Tx:

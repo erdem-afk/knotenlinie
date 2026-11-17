@@ -10,6 +10,7 @@ import json
 import re
 from typing import Any
 
+from . import handles
 from .db import Tx, in_iso, now_iso
 from .security import new_token
 
@@ -77,6 +78,27 @@ def user_brief(u: dict | None) -> dict:
     return {"id": u["id"], "name": u["name"], "role": u["role"]}
 
 
+def mentioned_user_ids(db, body: str, exclude: int | None = None) -> set[int]:
+    """Board users addressed with @handle in a text; `@coordinator` means every coordinator.
+
+    `@knotenlinie` is not resolved here: it reaches the agent through the event's `mention` flag.
+    """
+    tokens = handles.mention_tokens(body)
+    if not tokens:
+        return set()
+    ids: set[int] = set()
+    if handles.COORDINATOR_ALIAS in tokens:
+        ids.update(r["id"] for r in db.all("SELECT id FROM users WHERE role='coordinator'"))
+    names = sorted(tokens - handles.RESERVED)
+    if names:
+        marks = ",".join("?" * len(names))
+        ids.update(r["id"] for r in db.all(
+            f"SELECT id FROM users WHERE role IN ('member','coordinator') AND lower(handle) IN ({marks})",
+            names))
+    ids.discard(exclude)
+    return ids
+
+
 def agent_id(db) -> int:
     r = db.one("SELECT id FROM users WHERE role='agent' ORDER BY id LIMIT 1")
     if not r:
@@ -92,8 +114,9 @@ def ensure_bootstrap(tx: Tx, coordinator_email: str, bootstrap_hash: str | None)
     """Create the coordinator and agent users on first start. Returns True if created."""
     created = False
     if not tx.one("SELECT 1 FROM users WHERE role='agent'"):
-        tx.execute("INSERT INTO users(email,name,role,public_name_ok,created_at) VALUES (?,?,?,?,?)",
-                   ("agent@invalid", "Knotenlinie", "agent", 1, now_iso()))
+        cur = tx.execute("INSERT INTO users(email,name,role,public_name_ok,created_at) VALUES (?,?,?,?,?)",
+                         ("agent@invalid", "Knotenlinie", "agent", 1, now_iso()))
+        handles.assign(tx, cur.lastrowid, "Knotenlinie", "agent")
     if not tx.one("SELECT 1 FROM users WHERE role='coordinator'"):
         email = coordinator_email.strip().lower() or "coordinator@invalid"
         existing = tx.one("SELECT id FROM users WHERE email=?", (email,))
@@ -105,6 +128,7 @@ def ensure_bootstrap(tx: Tx, coordinator_email: str, bootstrap_hash: str | None)
                 "INSERT INTO users(email,name,role,public_name_ok,created_at) VALUES (?,?,?,?,?)",
                 (email, "Board Coordinator", "coordinator", None, now_iso()))
             uid = cur.lastrowid
+            handles.assign(tx, uid, "Board Coordinator", "coordinator")
         if bootstrap_hash:
             tx.execute("INSERT OR IGNORE INTO login_tokens(token_hash,user_id,expires_at,used_at) "
                        "VALUES (?,?,?,NULL)", (bootstrap_hash, uid, in_iso(days=7)))

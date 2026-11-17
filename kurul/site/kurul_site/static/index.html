@@ -26,7 +26,7 @@
       </button>
       <div class="menu" id="profile-menu" role="menu" hidden>
         <p class="menu-head small muted" id="profile-signed-in"></p>
-        <button type="button" role="menuitem" id="menu-profile">Name and ledger setting</button>
+        <button type="button" role="menuitem" id="menu-profile">Name, handle and ledger setting</button>
         <button type="button" role="menuitem" id="menu-invite" hidden>Invite a colleague</button>
         <a role="menuitem" id="menu-admin" href="/admin" hidden>Coordinator page</a>
         <button type="button" role="menuitem" id="menu-logout">Sign out</button>
@@ -60,6 +60,7 @@
           <label class="sr-only" for="composer-input">Message</label>
           <textarea id="composer-input" rows="1" maxlength="4000" placeholder="Write a message. Type @knotenlinie to ask the agent."></textarea>
           <button type="submit" class="btn primary" id="composer-send">Send</button>
+          <p class="composer-hint" id="composer-hint">Type @ to address the agent or a colleague; Tab completes.</p>
         </form>
       </section>
       <section class="view" id="view-questions" aria-label="Questions" hidden>
@@ -117,6 +118,10 @@
     <p class="muted">Two quick choices before you start. You can change both later from the menu under your name.</p>
     <label class="field-label" for="welcome-name">Your name, as other members see it</label>
     <input type="text" id="welcome-name" maxlength="80" required>
+    <label class="field-label" for="welcome-handle">Your handle, so colleagues can write @handle</label>
+    <div class="prefixed"><span aria-hidden="true">@</span><input type="text" id="welcome-handle" maxlength="25" required
+      autocapitalize="none" autocorrect="off" spellcheck="false" aria-describedby="welcome-handle-help"></div>
+    <p class="small muted field-help" id="welcome-handle-help">2 to 24 characters: a–z, 0–9 or _.</p>
     <fieldset class="choice">
       <legend>When a question of yours is recorded, show your name in the public ledger?</legend>
       <label class="radio"><input type="radio" name="welcome-public" value="yes"> Yes, show my name</label>
@@ -131,9 +136,13 @@
 
 <dialog id="profile-dialog" class="dialog" aria-labelledby="profile-title">
   <form method="dialog" id="profile-form">
-    <h2 id="profile-title">Name and ledger setting</h2>
+    <h2 id="profile-title">Name, handle and ledger setting</h2>
     <label class="field-label" for="profile-name-input">Your name, as other members see it</label>
     <input type="text" id="profile-name-input" maxlength="80" required>
+    <label class="field-label" for="profile-handle">Your handle, so colleagues can write @handle</label>
+    <div class="prefixed"><span aria-hidden="true">@</span><input type="text" id="profile-handle" maxlength="25" required
+      autocapitalize="none" autocorrect="off" spellcheck="false" aria-describedby="profile-handle-help"></div>
+    <p class="small muted field-help" id="profile-handle-help">2 to 24 characters: a–z, 0–9 or _.</p>
     <fieldset class="choice">
       <legend>Show my name in the public ledger</legend>
       <label class="radio"><input type="radio" name="profile-public" value="yes"> Yes</label>
@@ -199,6 +208,7 @@
 
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 <script src="/static/common.js"></script>
+<script src="/static/ghost.js"></script>
 <script src="/static/app.js"></script>
 </body>
 </html>

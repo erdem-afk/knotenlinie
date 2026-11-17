@@ -7,7 +7,7 @@ import logging
 import re
 from typing import Any
 
-from . import core
+from . import core, handles
 from .config import Settings
 from .core import ApiError, jdumps, jloads
 from .db import Store, in_iso, now_iso
@@ -174,6 +174,7 @@ class Board:
     @staticmethod
     def me_out(u: dict) -> dict:
         return {"id": u["id"], "name": u["name"], "email": u["email"], "role": u["role"],
+                "handle": u.get("handle"),
                 "public_name_ok": None if u["public_name_ok"] is None else bool(u["public_name_ok"]),
                 "can_invite": u["role"] == "coordinator" or bool(u.get("can_invite"))}
 
@@ -188,7 +189,19 @@ class Board:
             if not isinstance(data["public_name_ok"], bool):
                 raise ApiError(400, "public_name_ok must be true or false")
             sets["public_name_ok"] = int(data["public_name_ok"])
+        new_handle = None
+        if "handle" in data and data["handle"] is not None:
+            new_handle = handles.normalise(data["handle"])
+            if new_handle is None or not handles.HANDLE_RE.match(new_handle):
+                raise ApiError(400, "a handle is 2 to 24 characters: a-z, 0-9 and _")
         with self.store.tx() as tx:
+            if new_handle is not None and new_handle != (user.get("handle") or "").lower():
+                why = handles.check_available(tx, new_handle, user["id"])
+                if why == "reserved":
+                    raise ApiError(409, f"@{new_handle} is reserved; please choose another handle")
+                if why:
+                    raise ApiError(409, f"@{new_handle} is already taken; please choose another handle")
+                sets["handle"] = new_handle
             if sets:
                 tx.execute(f"UPDATE users SET {', '.join(k + '=?' for k in sets)} WHERE id=?",
                            (*sets.values(), user["id"]))
@@ -200,8 +213,8 @@ class Board:
 
     def members(self) -> list[dict]:
         with self.store.read() as db:
-            return [core.user_brief(dict(r)) for r in
-                    db.all("SELECT * FROM users ORDER BY CASE role WHEN 'member' THEN 0 "
+            return [{"id": r["id"], "name": r["name"], "handle": r["handle"], "role": r["role"]} for r in
+                    db.all("SELECT id, name, handle, role FROM users ORDER BY CASE role WHEN 'member' THEN 0 "
                            "WHEN 'coordinator' THEN 1 ELSE 2 END, name")]
 
     # ------------------------------------------------------------ notifications
@@ -238,14 +251,15 @@ class Board:
                 if root["root_id"] is not None:
                     raise ApiError(400, "replies go to the thread's first message")
             mid = core.post_message(tx, user["id"], body=body.rstrip(), root_id=root_id)
-            # Mentions by name -> notification
-            mentioned = []
+            # Mentions -> one notification per person: @handle, @coordinator (every coordinator),
+            # and the older full-name form ("Prof. Beta" or "@Prof. Beta"). Never the author.
+            mentioned = core.mentioned_user_ids(tx, body, exclude=user["id"])
             for u in tx.all("SELECT * FROM users WHERE role IN ('member','coordinator') AND id<>?",
                             (user["id"],)):
                 name = u["name"].strip()
                 if len(name) >= 3 and re.search(r"(?<!\w)@?" + re.escape(name) + r"(?!\w)", body,
                                                 re.IGNORECASE):
-                    mentioned.append(u["id"])
+                    mentioned.add(u["id"])
             if mentioned:
                 self._notify_users(tx, mentioned, "mention",
                                    f"{user['name']} mentioned you on Knotenlinie Board",
@@ -380,7 +394,7 @@ class Board:
 
     @staticmethod
     def _admin_user_out(r) -> dict:
-        return {"id": r["id"], "email": r["email"], "name": r["name"], "role": r["role"],
+        return {"id": r["id"], "email": r["email"], "name": r["name"], "handle": r["handle"], "role": r["role"],
                 "public_name_ok": None if r["public_name_ok"] is None else bool(r["public_name_ok"]),
                 "created_at": r["created_at"], "last_message_at": r["last_message_at"],
                 "can_invite": r["role"] == "coordinator" or bool(r["can_invite"]),
@@ -470,6 +484,7 @@ class Board:
                 uid = int(tx.execute(
                     "INSERT INTO users(email,name,role,public_name_ok,created_at,can_invite,invited_by) "
                     "VALUES (?,?,'member',NULL,?,0,?)", (email, name, now_iso(), inviter_id)).lastrowid)
+                handles.assign(tx, uid, name, "member")
                 invitee_name, created = name, True
                 tx.execute("INSERT INTO invites(user_id,invited_by,email,outcome,created_at) VALUES (?,?,?,?,?)",
                            (uid, inviter_id, email, "created", now_iso()))

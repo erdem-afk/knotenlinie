@@ -109,7 +109,8 @@
         canInvite = h("td", { class: "muted", text: u.role === "coordinator" ? "always" : "" });
       }
       tb.append(h("tr", null,
-        h("td", { text: u.name }), h("td", { text: u.email }), h("td", { text: u.role }),
+        h("td", null, h("span", { text: u.name }), u.handle ? h("span", { class: "muted small", text: " @" + u.handle }) : null),
+        h("td", { text: u.email }), h("td", { text: u.role }),
         h("td", { text: u.invited_by ? u.invited_by.name : "" }), canInvite,
         h("td", { text: u.public_name_ok === null ? "not asked yet" : u.public_name_ok ? "yes" : "no" }),
         h("td", { text: when(u.created_at) }), h("td", { text: u.last_message_at ? when(u.last_message_at) : "" })));
