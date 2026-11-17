@@ -1,0 +1,31 @@
+{
+ "kip": "birim",
+ "modul_sha256": "d2494e6d37d74803ef569ed97293e1a391192a64fcf0b2cf5712679472d584a0",
+ "sure_s": 0.0,
+ "sonuc": {
+  "Y1": {
+   "gecti": true,
+   "s": 0.0
+  },
+  "Y2": {
+   "gecti": true,
+   "s": 0.0
+  },
+  "Y3": {
+   "gecti": true,
+   "s": 0.0
+  },
+  "Y4": {
+   "gecti": true,
+   "s": 0.0
+  },
+  "Y5": {
+   "gecti": true,
+   "s": 0.0
+  },
+  "Y6": {
+   "gecti": true,
+   "s": 0.0
+  }
+ }
+}

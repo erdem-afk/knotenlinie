@@ -1,0 +1,23 @@
+{
+ "kip": "mutasyon",
+ "modul_sha256": "d2494e6d37d74803ef569ed97293e1a391192a64fcf0b2cf5712679472d584a0",
+ "sure_s": 20.7,
+ "sonuc": [
+  {
+   "mutasyon": "Y04 küme: üyeler ortak indeksle çekilir",
+   "yakalandi": true,
+   "dusen": [
+    "Y:Yu1_yeniden_hesap"
+   ],
+   "s": 10.3
+  },
+  {
+   "mutasyon": "Y18 D-3 kapısı f = 0,5 gücüyle",
+   "yakalandi": true,
+   "dusen": [
+    "Y:Yu4_D3_kapisi_f04"
+   ],
+   "s": 10.3
+  }
+ ]
+}

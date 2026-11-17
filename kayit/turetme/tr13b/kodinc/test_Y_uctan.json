@@ -1,0 +1,26 @@
+{
+ "kip": "uctan",
+ "modul_sha256": "d2494e6d37d74803ef569ed97293e1a391192a64fcf0b2cf5712679472d584a0",
+ "sure_s": 21.5,
+ "sonuc": {
+  "Yu4_D3_kapisi_f04": {
+   "gecti": true
+  },
+  "Yu1_yeniden_hesap": {
+   "gecti": true,
+   "hata": "[]",
+   "bagimsiz": "{'p_a': {0.4: 0.37785, 0.6: 0.369125, 0.8: 0.4023}, 'p_k': {0.4: 0.4448, 0.6: 0.4348, 0.8: 0.453575}, 'zbar': (np.float64(-0.258720394016356), np.float64(-0.19051802713257318)), 'K': (13, 10)}",
+   "hukum": "ayırt edilemez",
+   "s": 1.1
+  },
+  "Yu2_surdurme": {
+   "gecti": true
+  },
+  "Yu3_K8_surer": {
+   "gecti": true,
+   "dal": 2,
+   "neden": "süzgeçten sonra boş havuz: veri_0_5, veri_5_5",
+   "K_kd": 8
+  }
+ }
+}

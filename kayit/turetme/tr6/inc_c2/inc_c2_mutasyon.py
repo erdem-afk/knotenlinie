@@ -62,7 +62,12 @@ def main():
     gecici, cikti = sys.argv[1], sys.argv[2]
     siniflar = sys.argv[3:] or ["TTasarimC"]
     sonuc = []
+    if os.path.exists(cikti):                       # kesintiden sonra sürdürme: biten mutantlar atlanır
+        sonuc = json.load(open(cikti, encoding="utf-8"))["mutantlar"]
+    bitti = {r["ad"] for r in sonuc}
     for i, (ad, dosya, eski, yeni) in enumerate([("M0 mutasyonsuz", K, "", "")] + MUTANTLAR):
+        if ad in bitti:
+            continue
         kok = os.path.join(gecici, f"m{i:02d}")
         if os.path.exists(kok):
             shutil.rmtree(kok)
@@ -81,8 +86,9 @@ def main():
                           sure_s=round(time.time() - t, 1)))
         print(ad, "YAKALANDI" if p.returncode else "yakalanmadı", son, flush=True)
         shutil.rmtree(kok)
-    with open(cikti, "w", encoding="utf-8") as f:
-        json.dump(dict(siniflar=siniflar, mutantlar=sonuc), f, ensure_ascii=False, indent=1)
+        with open(cikti + ".yeni", "w", encoding="utf-8") as f:   # her mutanttan sonra ara kayıt
+            json.dump(dict(siniflar=siniflar, mutantlar=sonuc), f, ensure_ascii=False, indent=1)
+        os.replace(cikti + ".yeni", cikti)
 
 
 if __name__ == "__main__":

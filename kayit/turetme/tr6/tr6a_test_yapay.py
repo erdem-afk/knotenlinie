@@ -1130,6 +1130,62 @@ def kenar_kurali_sinamasi(tc):
 
 
 class TTasarimC(unittest.TestCase):
+    def test_kalibrasyon_havuzu_kapi_alti_c(self):
+        """TR-6c İNCELEME-2: §C3a havuzu kapı altı kümeleri içerir ve geçerli sahteleri J ve S'ye girer; liste manifest
+        çekirdeğindedir; kenar kümesi varken Y'nin p'si ve ters yön eşiği K_Y ile kurulur (§C4 kural 4). Yazarın
+        sınamalarında kapı altı kümelerin sahteleri hiç geçerli değildi; v1'e dönüş ve yalnız K_kapı havuzu görünmüyordu."""
+        liste, d = kenar_dunyasi()
+        with tasarim_c():
+            an = KO.Analiz(liste, Y.YapayKaynak(d, "on"), kural="yedek_d", log=lambda *a: None)
+            an.hazirla()
+            an.on_katalog()
+            an.katalog_secimi()
+            N0 = {u: B["kapi"][B["secim"]]["golge"]["N0"] for u, B in an.B.items() if B.get("secim")}
+            alt = {u for u, x in N0.items() if x < KO.ESIK[19.0]}
+            self.assertTrue(alt)
+            ozgun = an.sahte_oylari
+
+            def zorla(B, k):                       # kapı altı birimlerin sahteleri yapay olarak geçerli (D′ 1, A′ 0)
+                x = ozgun(B, k)
+                return [dict(r, gecerli=True, D=1, A=0) for r in x] if B["id"] in alt else x
+            an.sahte_oylari = zorla
+            ust = max(x for u, x in N0.items() if u != "y05")
+            eski = KO.N0_UST_C
+            KO.N0_UST_C = (N0["y05"] + ust) / 2 if eski != math.inf else eski
+            try:
+                m = json.loads(KO.json_metni(an.manifest()))
+            finally:
+                KO.N0_UST_C = eski
+            K_kapi = {c["temsilci"] for c in m["kumeler"]}
+            kal_alt = [t for t in m["kalibrasyon_kumeleri"] if t in alt]
+            self.assertTrue(kal_alt)
+            self.assertFalse(set(kal_alt) & K_kapi)
+            self.assertEqual(KO.cekirdek(m)["kalibrasyon_kumeleri"], m["kalibrasyon_kumeleri"])
+            gec = [r for t in m["kalibrasyon_kumeleri"] for r in m["sahte"]["oylar"][t] if r["gecerli"]]
+            self.assertEqual(m["sahte"]["J"], len(gec))
+            self.assertEqual(m["sahte"]["S"], sum(r["D"] for r in gec))
+            J_kapi = sum(1 for t in K_kapi - {"y05"} for r in m["sahte"]["oylar"][t] if r["gecerli"])
+            self.assertEqual(m["sahte"]["J"], J_kapi + sum(len(m["sahte"]["oylar"][t]) for t in kal_alt))
+            # §C4 kural 4: K_Y paydası (p_Y) ve c⁺(K − m) (ters yön eşiği)
+            an.son_ekle(m["son_indirme_plani"], Y.YapayKaynak(d, "son"))
+            R = an.oylar(m)
+            me = R.get("m_etkin", m)
+            K = len(R["ana"])
+            q = next(x / 100 for x in range(50, 61) if S.kritik(K - 1, x / 100) < S.kritik(K, x / 100))
+            me["sahte"]["p0_arti"] = q
+            y = S.kritik(K - 1, q)
+            n = 0
+            for r in R["ana"]:
+                r["D"] = 0                         # H0 tabanı: ters yön notu hüküm adına eklenir
+                if r["temsilci"] != "y05":
+                    r["A"], n = (1 if n < y else 0), n + 1
+            T = KO.satir_istatistigi(R["ana"], 0.5, q)
+            self.assertEqual((T["Y"], T["K_Y"]), (y, K - 1))
+            self.assertEqual(T["p_Y_p0arti"], KO.ust_kuyruk(y, K - 1, q))
+            self.assertNotEqual(T["p_Y_p0arti"], KO.ust_kuyruk(y, K, q))
+            H = KO.hukum_kur(m, R, an)
+            self.assertIn("ters yön", json.dumps(H["hukum"], ensure_ascii=False))
+
     def test_tr6a_bit_duzeyi(self):
         liste, spec, d = Y.coklu_dunya()
         an = KO.Analiz(liste, Y.YapayKaynak(d, "on"), log=lambda *a: None)

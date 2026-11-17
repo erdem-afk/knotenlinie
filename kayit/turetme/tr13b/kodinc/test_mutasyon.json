@@ -1,0 +1,171 @@
+{
+ "kip": "mutasyon",
+ "modul_sha256": "d2494e6d37d74803ef569ed97293e1a391192a64fcf0b2cf5712679472d584a0",
+ "sure_s": 521.6,
+ "sonuc": [
+  {
+   "mutasyon": "Y01 p kuyruk: keşif dışı p bütün listenin sıfırına karşı",
+   "yakalandi": true,
+   "dusen": [
+    "Y:Yu1_yeniden_hesap"
+   ],
+   "s": 23.9
+  },
+  {
+   "mutasyon": "Y02 p kuyruk: D-3'te p_vektor üst kuyruk",
+   "yakalandi": true,
+   "dusen": [
+    "Y:Y4"
+   ],
+   "s": 0.6
+  },
+  {
+   "mutasyon": "Y03 küme ortalaması: keşif dışı z̄ bütün listeden",
+   "yakalandi": true,
+   "dusen": [
+    "Y:Yu1_yeniden_hesap"
+   ],
+   "s": 25.4
+  },
+  {
+   "mutasyon": "Y04 küme: üyeler ortak indeksle çekilir",
+   "yakalandi": false,
+   "dusen": [],
+   "s": 5.9
+  },
+  {
+   "mutasyon": "Y05 dallanma listesi: üç sıfır da 0,6 havuzundan",
+   "yakalandi": true,
+   "dusen": [
+    "Y:Yu1_yeniden_hesap"
+   ],
+   "s": 24.4
+  },
+  {
+   "mutasyon": "Y20 sıfır havuzu z_p şartıyla (inceleme öncesi davranış)",
+   "yakalandi": true,
+   "dusen": [
+    "Y:Yu1_yeniden_hesap"
+   ],
+   "s": 25.8
+  },
+  {
+   "mutasyon": "Y06 dallanma listesi: D-3 R0'ı 0,8'i yok sayar",
+   "yakalandi": true,
+   "dusen": [
+    "Y:Y4"
+   ],
+   "s": 0.5
+  },
+  {
+   "mutasyon": "Y07 K sayımı: cümledeki K bütün liste",
+   "yakalandi": true,
+   "dusen": [
+    "Y:Yu1_yeniden_hesap"
+   ],
+   "s": 23.4
+  },
+  {
+   "mutasyon": "Y08 K sayımı: K = 8'de veri yok",
+   "yakalandi": true,
+   "dusen": [
+    "Y:Yu3_K8_surer"
+   ],
+   "s": 10.2
+  },
+  {
+   "mutasyon": "Y09 körlük: 2026-01-01T00:00 dahil",
+   "yakalandi": true,
+   "dusen": [
+    "Y:Y2"
+   ],
+   "s": 0.5
+  },
+  {
+   "mutasyon": "Y10 körlük: 31 gün kayık",
+   "yakalandi": true,
+   "dusen": [
+    "Y:Y2"
+   ],
+   "s": 0.5
+  },
+  {
+   "mutasyon": "Y11 havuz boyu: son parça okunmaz",
+   "yakalandi": true,
+   "dusen": [
+    "Y:Yu1_yeniden_hesap"
+   ],
+   "s": 186.3
+  },
+  {
+   "mutasyon": "Y12 havuz boyu: %10 eksik havuz",
+   "yakalandi": true,
+   "dusen": [
+    "Y:Yu1_yeniden_hesap"
+   ],
+   "s": 150.1
+  },
+  {
+   "mutasyon": "Y13 kilit: DONDURULDU bütün metinde aranır",
+   "yakalandi": true,
+   "dusen": [
+    "Y:Y5"
+   ],
+   "s": 0.3
+  },
+  {
+   "mutasyon": "Y14 kilit: sha256 denetimi kapıdan kalkar",
+   "yakalandi": true,
+   "dusen": [
+    "Y:Y5"
+   ],
+   "s": 0.3
+  },
+  {
+   "mutasyon": "Y15 kilit: sürdürmede gerçek z yeniden hesaplanır",
+   "yakalandi": true,
+   "dusen": [
+    "Y:Yu2_surdurme"
+   ],
+   "s": 13.7
+  },
+  {
+   "mutasyon": "Y16 tohum: kalibrasyon tohumu +11",
+   "yakalandi": true,
+   "dusen": [
+    "Y:Y1"
+   ],
+   "s": 0.4
+  },
+  {
+   "mutasyon": "Y17 tohum: T1 çekilişi üç dallanmada aynı",
+   "yakalandi": true,
+   "dusen": [
+    "Y:Yu1_yeniden_hesap"
+   ],
+   "s": 13.3
+  },
+  {
+   "mutasyon": "Y19 kilit: kos()'un kendi gerçek kip kapısı kalkar",
+   "yakalandi": true,
+   "dusen": [
+    "Y:Y5"
+   ],
+   "s": 0.3
+  },
+  {
+   "mutasyon": "Y21 sıfır havuzunda N >= 50 şartı kalkar",
+   "yakalandi": true,
+   "dusen": [
+    "Y:Y6"
+   ],
+   "s": 0.4
+  },
+  {
+   "mutasyon": "Y18 D-3 kapısı f = 0,5 gücüyle",
+   "yakalandi": false,
+   "dusen": [],
+   "s": 15.0
+  }
+ ]
+}

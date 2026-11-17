@@ -1,0 +1,131 @@
+{
+ "siniflar": [
+  "TTasarimC"
+ ],
+ "mutantlar": [
+  {
+   "ad": "M0 mutasyonsuz",
+   "yakalandi": false,
+   "son_satir": "OK",
+   "hatalar": [],
+   "sure_s": null,
+   "not_": "kesintiden önceki günlükten"
+  },
+  {
+   "ad": "N1 havuz kapıdan sonra (K_kapı birimleri; v1'e dönüş)",
+   "yakalandi": false,
+   "son_satir": "OK",
+   "hatalar": [],
+   "sure_s": null,
+   "not_": "kesintiden önceki günlükten"
+  },
+  {
+   "ad": "N2 kenar kümeleri havuzdan çıkmaz",
+   "yakalandi": true,
+   "son_satir": "FAILED (failures=1)",
+   "hatalar": [],
+   "sure_s": null,
+   "not_": "kesintiden önceki günlükten"
+  },
+  {
+   "ad": "N3 havuz yalnız sahtesi önceden hesaplanmış (K_kapı) kümelerden",
+   "yakalandi": false,
+   "son_satir": "OK",
+   "hatalar": [],
+   "sure_s": null,
+   "not_": "kesintiden önceki günlükten"
+  },
+  {
+   "ad": "N4 manifest çekirdeğinde kalibrasyon listesi yok",
+   "yakalandi": false,
+   "son_satir": "OK",
+   "hatalar": [],
+   "sure_s": null,
+   "not_": "kesintiden önceki günlükten"
+  },
+  {
+   "ad": "N5 S1/S7 süzgeci ≤ yerine < 0 (hep çıkar)",
+   "yakalandi": true,
+   "son_satir": "FAILED (failures=1)",
+   "hatalar": [],
+   "sure_s": null,
+   "not_": "kesintiden önceki günlükten"
+  },
+  {
+   "ad": "N6 S2'de kenar kümesi kalır",
+   "yakalandi": true,
+   "son_satir": "FAILED (failures=1)",
+   "hatalar": [],
+   "sure_s": null,
+   "not_": "kesintiden önceki günlükten"
+  },
+  {
+   "ad": "N7 Y p'si paydası K (KY değil)",
+   "yakalandi": false,
+   "son_satir": "OK",
+   "hatalar": [],
+   "sure_s": null,
+   "not_": "kesintiden önceki günlükten"
+  },
+  {
+   "ad": "N8 ters yön eşiği c⁺(K) (K_Y değil)",
+   "yakalandi": false,
+   "son_satir": "OK",
+   "hatalar": [],
+   "sure_s": 53.7
+  },
+  {
+   "ad": "N9 tamlık elemesinden sonra S7 süzgeci yok",
+   "yakalandi": false,
+   "son_satir": "OK",
+   "hatalar": [],
+   "sure_s": 47.0
+  },
+  {
+   "ad": "N10 C1 havuzu kapı koşullu (sürüm 1)",
+   "yakalandi": true,
+   "son_satir": "FAILED (failures=1)",
+   "hatalar": [
+    "FAIL: test_ozet_olcut_aritmetigi (__main__.TTasarimC.test_ozet_olcut_aritmetigi)"
+   ],
+   "sure_s": 49.1
+  },
+  {
+   "ad": "N11 C1′b (ii)'ye de uygulanır",
+   "yakalandi": true,
+   "son_satir": "FAILED (failures=1)",
+   "hatalar": [
+    "FAIL: test_ozet_olcut_aritmetigi (__main__.TTasarimC.test_ozet_olcut_aritmetigi)"
+   ],
+   "sure_s": 47.5
+  },
+  {
+   "ad": "N12 karma aralığı 20–60 → 30–60",
+   "yakalandi": true,
+   "son_satir": "FAILED (failures=1)",
+   "hatalar": [
+    "FAIL: test_parca_semasi_ve_sabitler_c (__main__.TTasarimC.test_parca_semasi_ve_sabitler_c)"
+   ],
+   "sure_s": 47.8
+  },
+  {
+   "ad": "N13 bağlayıcı parça koruması (sha boşken) yok",
+   "yakalandi": true,
+   "son_satir": "FAILED (failures=1)",
+   "hatalar": [
+    "FAIL: test_baglayici_parca_korumasi (__main__.TTasarimC.test_baglayici_parca_korumasi)"
+   ],
+   "sure_s": 47.1
+  },
+  {
+   "ad": "N14 kenar A'sı 0 (sürüm 1 davranışı)",
+   "yakalandi": true,
+   "son_satir": "FAILED (failures=2)",
+   "hatalar": [
+    "FAIL: test_kenar_kurali (__main__.TTasarimC.test_kenar_kurali)",
+    "FAIL: test_kenar_sabitleri_ve_kural_birimi (__main__.TTasarimC.test_kenar_sabitleri_ve_kural_birimi)"
+   ],
+   "sure_s": 36.9
+  }
+ ]
+}
