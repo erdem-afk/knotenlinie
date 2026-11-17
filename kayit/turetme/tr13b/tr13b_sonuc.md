@@ -16,12 +16,13 @@ yerelleşme hakkında bilgi yok. Bu bir H0 değildir.
 
 Kural R0 her iki listede üç dallanmada da p ≤ 0,05 isterdi; hiçbiri sağlanmadı. Negatif z yerelleşme yönüdür: ortalama
 iddianın yönünde ama ETAS'ın kendi ürettiği dağılımın içinde. Yapay denetim (D-3) geçti: yanlış alarm 0,016, f = 0,4
-gücü 0,84. Girdi sha256'ları uyuştu; 16 olaydan biri (Jan Mayen 2018) "referans arka planı < N + 5" kuralıyla düştü.
+gücü 0,84. Girdi sha256'ları uyuştu; 16 olaydan biri (Jan Mayen 2025) "referans arka planı < N + 5" kuralıyla düştü; üstveri tahmininde düşeceği
+öngörülen Ishigaki 2009 ise N3bg = 50 ile tam sınırda kaldı. Keşif dışı küme sayısı yine 10.
 
 ## Bilgi satırları (hükmü değiştirmez)
 
 - Olay başına z: Küba 2024 −3,9; Kumamoto 2016 −2,7; Darfield (Methven) 2010 −2,6; Akashi (Kobe) 1995 −1,4; Ishigaki
-  2002 −1,1; İzmit 1999 −0,9; Superstition Hills 1987 −0,2; Kaikoura bölgesi (Blenheim) 2013 +0,1; Gisborne 2021 +0,1;
+  2009 −1,1; İzmit 1999 −0,9; Superstition Hills 1987 −0,2; Cook Boğazı 2013 +0,1; Gisborne 2021 +0,1;
   Jamaika 2020 +0,4; Chiniak 2018 +0,4; Ridgecrest 2019 +0,8; Hector Mine 1999 +0,9; Loma Prieta 1989 +1,2; Big Lagoon
   2005 +1,8. Üç olay güçlü negatif, geri kalanı sıfır çevresinde: ortak bir kayma değil, dağınık bir tablo.
 - İddianın kendi keşif olayları (İzmit, Hector Mine, Ridgecrest) bu ölçüyle öne çıkmıyor (−0,9, +0,9, +0,8). Ölçü
