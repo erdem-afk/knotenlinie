@@ -1,0 +1,63 @@
+{
+ "aciklama": "K0 (TR-7) ile K5 sızıntı bayrağının küme düzeyinde karşılaştırması; yalnız yapay KD verisi.",
+ "olcek": 0.05,
+ "satirlar": [
+  "D2",
+  "D3",
+  "D12",
+  "D13",
+  "D14"
+ ],
+ "sayac": [
+  {
+   "satir": "D12",
+   "K0": false,
+   "K5": false,
+   "kume": 20
+  },
+  {
+   "satir": "D13",
+   "K0": false,
+   "K5": false,
+   "kume": 90
+  },
+  {
+   "satir": "D14",
+   "K0": false,
+   "K5": false,
+   "kume": 875
+  },
+  {
+   "satir": "D2",
+   "K0": false,
+   "K5": false,
+   "kume": 180
+  },
+  {
+   "satir": "D3",
+   "K0": false,
+   "K5": false,
+   "kume": 103
+  }
+ ],
+ "ayrisan": 0,
+ "toplam": 1268,
+ "sure_s": {
+  "D2 3 20262012 n=10": 84.2,
+  "D2 3 9090 n=10": 84.2,
+  "D3 8 20262013 n=5": 121.3,
+  "D3 8 9091 n=5": 117.7,
+  "D12 (5.0, 60.0, (240, 60)) 20262041 n=5": 63.5,
+  "D12 (5.0, 60.0, (240, 60)) 9119 n=5": 46.4,
+  "D13 None 20262046 n=5": 24.8,
+  "D13 None 9124 n=5": 24.4,
+  "D14 jeofon4.5 20262047 n=5": 52.6,
+  "D14 jeofon4.5 9125 n=5": 52.9,
+  "D14 bh20 20262048 n=5": 53.2
+ },
+ "engellenen": [],
+ "kod_sha256": {
+  "tr7c_kd_k5.py": "77aeab9951972d7cc2580bd8e6fab95f8dc96dfa67218c8aea998b2076fc2a64",
+  "tr7c_kosu.py": "b0f706423894a0d73b4edd26dcedc7dfeb2441b7a3821c70b365aa4594674a1a"
+ }
+}

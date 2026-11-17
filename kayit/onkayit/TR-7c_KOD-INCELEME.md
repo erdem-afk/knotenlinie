@@ -134,28 +134,28 @@ bağımsız kod incelemecisine verir; açık kalır).
 
 ## C. Bağımsız sınamalar ve mutasyonlar (`tr7c_kodinc.py`, `tr7c_kodinc.json`)
 
-**Sonuç: ⟨SINAMA⟩.** Gruplar: birim ⟨B⟩, kapı ⟨K⟩, uçtan uca ⟨U⟩.
+**Sonuç: 74/74 geçti (K-1…K-3 sonrası kodda).** Gruplar: birim 32/32, kapı 29/29, uçtan uca 13/13.
 
 Birim (seçme): U1 olay listeleri karar metninin tablolarından ayrıştırıldı; U2 D-2 sha'ları metinden ayrıştırıldı ve
 içe aktarılan modüllerin dosyaları denetlendi; U3 K5 çağrı ağacı `sys.setprofile` ile; U4 Fisher scipy ile; U5 X_min
-scipy beta/binom ile; U6 dal (126 060 nokta, metinden yazılmış başvuru); U7 K1b uçları; U8 "≥ yarı" toplaması; U9 E-1
+scipy beta/binom ile; U6 dal (126 060 nokta, metinden yazılmış başvuru); U7 K1b uçları; U8 "≥ yarı" toplaması; U8b K5'e pencerenin Q'su; U9 E-1
 altı durum; U10 `modulasyon_kume` = `K.mod_p`; U11 `_rho`; U12 Q geometrisi (41 birim, gerçek koordinatlar, iasp91);
-U13 Vanuatu birimi (K-1) ve 39 birimin dondurulmuş payı; U14 %50 sınırı; U15–U16 §7.3 tabloları; U17 tohum ve eşikler.
+U13 Vanuatu birimi (K-1) ve 39 birimin dondurulmuş payı; U14 %50 sınırı; U15–U16 §7.3 tabloları; U15b güç satırı yalnız k_koşu < 10; U17 tohum ve eşikler.
 
 Uçtan uca (bağımsız üreteç: log-normal gürültü, dar bantlı 15–30 sn Gauss başvuru hızı, fazına kilitli 2–8 Hz tremor;
 41 birim, 12 negatif; mod_n 200):
 
 | Senaryo | Sonuç |
 |---|---|
-| E1 gerçek tremor: 8/10 P kilitli, 1 N kilitsiz, negatif temiz | ⟨E1⟩ |
+| E1 gerçek tremor: 8/10 P kilitli, 1 N kilitsiz, negatif temiz | (b), X_P 8/10, X_N 1/29, f_PK 0/12, M_olc = M_mod = 8, "ölçü sınandı", VAR verilebilir; p'ler başvuruyla birebir |
 | E1 modülasyon p'leri, kendi yazdığım başvuruyla (P+N T0 sırası, tek üreteç, `K.mod_p`) | birebir |
 | E1 kilit: ikinci `k1c_kos` | hiçbir pencereye dokunmadı, aynı hüküm |
-| E2 D-9 (Nias'ta kilitli tremor) + D-1 (Vanuatu'da tremor) + 1 negatif yanlış alarm | ⟨E2⟩ |
+| E2 D-9 (Nias'ta kilitli tremor) + D-1 (Vanuatu'da tremor) + 1 negatif yanlış alarm | (b) + "genlik karıştırıcısı dışlanmadı", VAR yok; Vanuatu bir kez sayılır (n_N 29, X_N 3); f_PK 1/12, MDA yalnız 11 negatifte |
 | E3 E-2: 5 P'de başvuru yok | (b), k_koşu 5, M_mod 3, "Parkfield modülasyonu geçmedi", güç bilgisi 0,61 / 0,24 |
 | E4 8 P'de başvuru yok | (e) "modülasyon ölçülemedi" + D-8 eki |
-| E5 bir P olayında iki algılama kümesi | p'ler başvuruyla birebir (I′ başı sırası) |
+| E5 bir P olayında iki algılama kümesi | (M, p) başvuruyla birebir ve aynı sırada (I′ başı) |
 
-**Mutasyonlar: ⟨MUT⟩** (hepsi kodlayıcının 34'ünden farklı; liste json'da). Kapsanan konular: modülasyon üreteç sırası
+**Mutasyonlar: 31 / 31 yakalandı** (hepsi kodlayıcının 34'ünden farklı; liste json'da). Kapsanan konular: modülasyon üreteç sırası
 (önce P sonra N; yalnız P; B de girer; küme sırası; kaydırma aralığı; p'nin +1'i), Fisher (katı kuyruk; n_P/n_N
 yer değiştirir), N birimi birleştirme (USTVERI kaydı; birim T0'ı), E-1 (konum önceliği; alet kodu; tek yatay), k_koşu
 (yalnız taranan; k = 10'da güç satırı; tablo kayması), kilit (iki katman birden), kapı (Durum'da "DONDURULDU" yeter;
@@ -163,7 +163,7 @@ K-2 yok; `zyol` kapısız; `pencere` kapısız), K5 (toplama "> yarı"; Q yerine
 MDA'nın algılamalı negatifte koşması, A90 sınırı, K1b üst ucu, algılama sırası, GENLIK4 eksik olay, D-9'un P'yi de
 taraması.
 
-Dürüst not: ⟨MUTNOT⟩
+Dürüst not: ilk koşuda 31'in 27'si yakalandı. Yakalanmayan dördü sınamalarımın açığıydı, kodun kusuru değil: "küme sırası I′ sonu tersten" (E1'de her P olayında tek küme vardı; iki kilitli kümenin p'si 1/(n+1)'de eşit çıktığından p karşılaştırması da yetmedi → E5 iki kümeli olay ve M sırası eklendi), "D-1: birim T0'ı N 28'den" (→ U13 T0 sınaması), "E-2 güç satırı k = 10'da da" (→ U15b), "K5'e Q yerine boş aralık" (kalıntı kolu yapay pencerelerde tetiklenmiyordu → U8b, K5'e giden Q doğrudan denetlenir). Eklemelerden sonra 31/31. Kalan açık: U8b Q'nun K5'e iletildiğini denetler, K5'in kalıntı kolunun bir yapay pencerede gerçekten karar değiştirdiğini göstermez (o kol TR-7b §11.2 sınamalarına dayanır; KMS-9). Engellenen tek erişim, obspy içe aktarılırken kendiliğinden denenen `git rev-parse` alt sürecidir (zararsız; ağ ve /mnt/project-files girişimi 0).
 
 ## D. KMS-1…KMS-10: değerlendirme ve koşu dondurması ekine aynen girecek cümleler
 
@@ -257,9 +257,9 @@ Tam ölçek süresi (ölçüm): kodlayıcının 5 satırı 0,25'te 3101 sn → t
 (2 çekirdekte). D2 ≈ 9 sn/pencere, D3 ≈ 26 sn/pencere (ölçüldü) → D2/D3 tam ölçek ≈ 2,5 sa; D13/D14 TR-7'de KD'nin en
 pahalı satırlarıdır. Hepsi birlikte 2 saati aşıyor. Bu yüzden:
 1. **Kodlayıcının 5 satırı tam ölçekte (olcek 1,0; 100 pencere/tohum, iki tohum, 24 iş) koşuldu**, 2 çekirdekte iki
-   parça, ara sonuç her işten sonra jsonl'e: ⟨KDSONUC⟩
+   parça, ara sonuç her işten sonra jsonl'e: **12/12 bant geçti, eksik iş 0, engellenen erişim 0** (24 iş, 12 872 çekirdek-sn ≈ 3,6 çekirdek-sa; iki parça 1 sa 48 dk'da bir kez durdurulup ara jsonl'den sürdürüldü). Bütün satırlarda K5'in tam ölçek değerleri TR-7'nin K0 tam ölçek değerleriyle (tr7_kd.json) **birebir aynıdır** (D7 0/0, D7b 0/0 üç genlikte, D7c 0/0 dört durumda, D7d 1,0/1,0, D15 (a)/(b) atılma 1,0). Kodlayıcının 0,25 ölçekli bilgi sütunları (yanlis_on, yanlis_inc1_I) tam ölçekte biraz farklıdır (ör. D7b 3 sn yanlis_on 0,071/0,111; 0,25'te 0,04/0,042); bunlar bant değildir. Sonuç: kısaltılmış koşunun hükmü (K5, K0'ın KD davranışını bozmaz) tam ölçekte doğrulandı; dosya `kodinc/tr7c_kodinc_kd.json`.
 2. **D2, D3, D12, D13, D14 için bayrak ayrışma sayımı:** bu satırlarda K5'in K0'dan farklı karar verdiği küme sayısı
-   küçük ölçekte sayıldı (`--say`). ⟨KDSAY⟩
+   küçük ölçekte sayıldı (`--say`). Ölçek 0,05 (D2 20, D3 10, D12 10, D13 10, D14 15 pencere/tohum; 725 sn): **1268 kümenin 0'ında K5 ile K0 ayrıştı**; iki kural da hiçbir kümede sızıntı bayrağı kaldırmadı (D2 180, D3 103, D12 20, D13 90, D14 875 küme). Ayıklamanın öteki kolları (darbe, taban, 3a) ortak olduğundan, bu satırların K5'li değerleri bu ölçekte K0'lı değerlerle aynıdır; tam ölçekte yeniden koşmak (tahmin ≥ 3 sa) bu yüzden gerekli görülmedi. Sınır: 0,05 ölçek nadir ayrışmaları (≲ 1/1268) dışlamaz; bu satırların bantları K5'e değil algılayıcıya bağlıdır. Dosya `kodinc/tr7c_kodinc_kd_say.json`.
 
 ## F. Duman sınaması ve m_t (bilgi satırı; dal değişmez, Z7)
 
@@ -313,11 +313,21 @@ Koşu dondurması ekine bilgi satırı olarak önerilen cümle (aynen):
 
 ## H. Kodlayıcının sınamalarının yeni kodda yeniden koşusu ve son sha256'lar
 
-⟨YENIDEN⟩
+Kodlayıcının `tr7c_test_yapay.py`'si değiştirilmeden K-1…K-3 sonrası kodda yeniden koşuldu: **sınamalar 100/100** (birim 49, kapı 27, sha/kilit 9, uçtan uca 15), **mutasyonlar 34/34 yakalandı**; mutasyon dizelerinin hepsi yeni kodda uygulanabildi (`kodinc/tr7c_kodlayici_test_yeniden.json`). İncelemecinin takımı: 74/74, 31/31 (`kodinc/tr7c_kodinc.json`). Koşu dondurması eki `tr7c_kosu.py` için aşağıdaki sha256'yı yazmalıdır (kodlayıcının 345dc176… değeri artık geçersizdir).
 
 | Dosya | sha256 |
 |---|---|
-⟨SHA⟩
+| `kayit/turetme/tr7c/tr7c_kosu.py (K-1…K-3 sonrası)` | b0f706423894a0d73b4edd26dcedc7dfeb2441b7a3821c70b365aa4594674a1a |
+| `kayit/turetme/tr7c/tr7c_kd_k5.py (değişmedi)` | 77aeab9951972d7cc2580bd8e6fab95f8dc96dfa67218c8aea998b2076fc2a64 |
+| `kayit/turetme/tr7c/tr7c_test_yapay.py (değişmedi)` | 6267a5b53b0405e0e2c3d4c2f24771a97b9477548e4327b00ac09e26be82fd9f |
+| `kayit/turetme/tr7/tr7_kosu.py (K-2 ile denetlenir)` | ce439a4797fd1992ddd68de734ee842b146bd6f13155ba6151769bceb26a9005 |
+| `kayit/turetme/tr7/tr7_indir.py (K-2 ile denetlenir)` | 0763f46da14b2a12f5268937dc6e479dbfd1bc54c3c3ba93d700914dc4b91f2f |
+| `kayit/turetme/tr7c/kodinc/tr7c_kodinc.py` | 03e479639222ba184a0dcd1b51a046ac2990da266fb35235378eb8ba31e31c06 |
+| `kayit/turetme/tr7c/kodinc/tr7c_kodinc_kd.py` | ae3feb2f40314926642c1b81469256a1c02ea6d6026b60dd0160853294537d63 |
+| `kayit/turetme/tr7c/kodinc/tr7c_kodinc.json` | 9c891ec156d10c662f3e00e88bd1101383fb9de8949f04d6102c2d23bd56b498 |
+| `kayit/turetme/tr7c/kodinc/tr7c_kodinc_kd.json` | abd774cbcbe790b128cb2c0c3713e42095851a850db485349b73b83eca05ce99 |
+| `kayit/turetme/tr7c/kodinc/tr7c_kodinc_kd_say.json` | 5de5611b247645d73bc7540d49af7d0d6fca4c45351e5fdbb0323c3f8c8a3881 |
+| `kayit/turetme/tr7c/kodinc/tr7c_kodlayici_test_yeniden.json` | 6ea61e62501184983e885359170d2d6359bd5a8f92a899dffb097517ce3bec38 |
 
 ## I. Koşu dondurması ekine ek cümleler (bu incelemenin bulgularından; aynen)
 
