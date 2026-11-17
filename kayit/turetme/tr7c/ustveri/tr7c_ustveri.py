@@ -27,7 +27,9 @@ KURAL (ön kayıt sürüm 2, commit 41d2ff5; sonuç görülmeden yazıldı):
   Karar (ön kayıt §8 D1 = D-5 ve D4 satırı): k < 7 ya da kestirilen n_P < 8 ya da n_N < 20 → TR-7c dondurulmaz, kör koşu
      yapılmaz; aksi hâlde "dondurulabilir (üstveri kapısı geçti)".
   Bilgi (karara girmez): k'nin n_P'ye giren olaylarla sınırlı hâli; üç bileşen (yatay kanalların varlığı ve örtüsü) şartlı
-     k_3; D-9'un 4 genliği eşlenmiş N olayında başvuru istasyonu; yüzey_diger sınıfıyla k.
+     k_3 (uygun istasyonun aynı bant ve alet kodlu iki yatay kanalı da W ve R'de ≥ 0,90; availability, istasyon başına
+     olay başına tek GET); D-9'un 4 genliği eşlenmiş N olayında başvuru istasyonu. (yüzey_diger sınıfıyla k
+     hesaplanmadı: aday listesi ilk koşudan sonra bu bilgi satırı kapsamdan çıkarıldı; karara girmez.)
 """
 import csv, datetime as dt, hashlib, json, math, os, sys, time, urllib.error, urllib.parse, urllib.request
 
@@ -36,7 +38,7 @@ from obspy.taup import TauPyModel
 from obspy.geodetics import locations2degrees
 
 BURADA = os.path.dirname(os.path.abspath(__file__))
-KOK = os.path.abspath(os.path.join(BURADA, '..', '..'))
+KOK = os.path.abspath(os.path.join(BURADA, '..', '..', '..'))
 SAYIM = os.path.join(KOK, 'turetme', 'tr7b', 'tr7b_sayim.json')
 LISTE = os.path.join(KOK, 'turetme', 'tr7', 'tr7_parkfield_liste.csv')
 UA = 'fdsn-client/1.0 (python-urllib)'
@@ -221,9 +223,10 @@ def availability(servis, net, sta, loc, cha, a, b, ham):
         for s in g.decode('utf-8', 'replace').splitlines():
             if s.startswith('#') or not s.strip():
                 continue
-            p = s.split()
-            if len(p) >= 8:
-                ar.append((zt(p[6]), zt(p[7])))
+            # Sütun sayısı servise göre değişir (SCEDC'de boş Quality alanı); ilk iki ISO zamanı Earliest, Latest'tir.
+            zs = [x for x in s.split() if len(x) >= 19 and x[:4].isdigit() and x[4] == '-' and 'T' in x]
+            if len(zs) >= 2:
+                ar.append((zt(zs[0]), zt(zs[1])))
     return ar, kod
 
 
@@ -340,6 +343,34 @@ def main():
     for e, v in d1.items():
         print(e, olay[e]['ad'], 'başvuru', v['basvuru'], flush=True)
 
+    # ---------------------------------------------------------------- bilgi: üç bileşen (k_3)
+    for o in hedef:
+        p = pencereler(o)
+        v = d1[o['evid']]
+        uc = []
+        for ist in v['uygun_istasyon']:
+            net, sta = ist.split('.')
+            servis = SCEDC if net == 'CI' else NCEDC
+            q = dict(net=net, sta=sta, loc='*' if servis == NCEDC else '--', cha='BH?,HH?', starttime=iso(p['R0']),
+                     endtime=iso(p['W1']), format='text')
+            ad = f'avail3_{servis_ad(servis)}_{net}.{sta}_{p["R0"]:%Y%m%d%H%M}.txt'
+            kod, g = iste(f'{servis}/availability/1/query?' + urllib.parse.urlencode(q), ham, ad)
+            kan = {}
+            if kod == 200:
+                for s in g.decode('utf-8', 'replace').splitlines():
+                    if s.startswith('#') or not s.strip():
+                        continue
+                    zs = [x for x in s.split() if len(x) >= 19 and x[:4].isdigit() and x[4] == '-' and 'T' in x]
+                    if len(zs) >= 2:
+                        kan.setdefault(s.split()[3], []).append((zt(zs[0]), zt(zs[1])))
+            ok = {c: (ortu(a, p['W0'], p['W1']) >= 0.9 and ortu(a, p['R0'], p['R1']) >= 0.9) for c, a in kan.items()}
+            bant = [b for b in ('BH', 'HH') if ok.get(b + 'Z') and sum(1 for c in ok if c[:2] == b and c[2] != 'Z'
+                                                                       and ok[c]) >= 2]
+            uc.append(dict(istasyon=ist, http=kod, kanal_ortu_ok={c: bool(x) for c, x in sorted(ok.items())},
+                           uc_bilesen_bant=bant))
+        v['uc_bilesen'] = uc
+        v['uc_bilesen_var'] = any(u['uc_bilesen_bant'] for u in uc)
+
     # ---------------------------------------------------------------- karar
     nP = sum(1 for b in birimler if b['sinif'] == 'P' and b['sayilir'])
     nN = sum(1 for b in birimler if b['sinif'] == 'N' and b['sayilir'])
@@ -362,6 +393,7 @@ def main():
         liste_sha256=hashlib.sha256(open(LISTE, 'rb').read()).hexdigest(),
         obspy=__import__('obspy').__version__,
         karar=karar, k=k, k_nP_icinde=k_nP, n_P=nP, n_N=nN,
+        k_3_bilgi=sum(1 for e in P_OLAY if d1[e].get('uc_bilesen_var')),
         birimler=[dict(ad=b['ad'], sinif=b['sinif'], olaylar=[o['evid'] for o in b['olaylar']],
                        adlar=[o['ad'] for o in b['olaylar']], liste_var=b['liste_var'], sayilir=b['sayilir'], **b['e1'])
                   for b in birimler],

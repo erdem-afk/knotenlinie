@@ -525,6 +525,10 @@ eşiğinin dayanağı):
 |---|---|---|---|---|---|---|---|
 | güç | 0,18 / 0,04 | 0,41 / 0,13 | 0,61 / 0,24 | 0,75 / 0,35 | 0,85 / 0,47 | 0,90 / 0,57 | 0,95 / 0,73 |
 
+**Üstveri yoklamasının sonucu (D-5 gereği; sürüm 2 commit'inden sonra eklendi, `TR-7c_USTVERI.md`):** k = 10,
+kestirilen n_P = 10, n_N = 29. Bu n'lerle görülebilir en küçük s ≈ 0,58 (m_t 0,8) / 0,77 (m_t 0,5) (q 0,1;
+`esik.MDE_tablosu_q0.1`, nP10_nN29). 2001–2003'ün dört P olayında tek başvuru istasyonu BK.PKD'dir.
+
 ### 7.4 ×0,5 / ×2 duyarlılığı
 
 Sürüm 1'in tablosu kaldırıldı: q satırları s₀'da değil s = 0,7'de hesaplanmıştı ve iki hücre kabaydı (INCELEME-1 §3).
@@ -745,7 +749,8 @@ kondu.
 
 ## 15. Bu taslakta açık kalanlar (dondurmadan önce kapanmalı)
 
-- §8'in yoklamaları yapılmadı (D1–D5, D8, D9). D1 ve D4 sürüm 2'den sonra yapılır (`TR-7c_USTVERI.md`).
+- §8'in D1, D4 ve D5 yoklamaları sürüm 2'den sonra yapıldı (`TR-7c_USTVERI.md`): k = 10, n_P = 10, n_N = 29; kural
+  sonucu "dondurulabilir". D2, D3 ve D8 yapılmadı.
 - Karar metni dondurması (D-3) ve koşu dondurması yapılmadı; ikisini de koordinatör yapar.
 - `ESIK-DAYANAGI.md` TR-7c satırı (Ö-f) dondurma sürümüne ertelendi.
 - Koşu kodu yazılmadı; yapay sınamalar, mutasyonlar ve m_f ölçümü yok.

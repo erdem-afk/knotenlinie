@@ -1,0 +1,3884 @@
+{
+ "tarih": "2026-11-17T19:24:27",
+ "betik_sha256": "e05778558e54c73fd7240274ee65296d13f512bcd8a508b7467f0027a7cdbd92",
+ "sayim_sha256": "55318360214f96237802346d84a501e6c6964116906332362e704e3b0e5e5114",
+ "liste_sha256": "9dca3380815196a8db15a8a5929441d38dd9b07fd7ed982845543e179957b2b8",
+ "obspy": "1.5.1",
+ "karar": "dondurulabilir (üstveri kapısı geçti)",
+ "k": 10,
+ "k_nP_icinde": 10,
+ "n_P": 10,
+ "n_N": 29,
+ "k_3_bilgi": 10,
+ "birimler": [
+  {
+   "ad": "200106232033",
+   "sinif": "P",
+   "olaylar": [
+    "200106232033"
+   ],
+   "adlar": [
+    "Peru 2001"
+   ],
+   "liste_var": 38,
+   "sayilir": true,
+   "comcat_kayit": 2,
+   "comcat_sha256": "b9bbb792100678e8148874239081c086b1cc23ca9b96c06812dbed356f334b1b",
+   "tetikleyici_id": "official20010623203314130_33",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [
+    {
+     "olay": "usp000ah57",
+     "t": "2001-06-23T21:27:35",
+     "M": 6.1,
+     "faz": "P",
+     "varis": "2001-06-23T21:38:42",
+     "kuyruk_s": 60.0
+    }
+   ],
+   "K1b": [
+    "2001-06-23T21:00:48",
+    "2001-06-23T21:15:30"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200211032212",
+   "sinif": "P",
+   "olaylar": [
+    "200211032212"
+   ],
+   "adlar": [
+    "Denali 2002"
+   ],
+   "liste_var": 38,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "5ff7570187eb8e11acf6973fbaddf6a7c32402006475fdee0c1e495b7aefd108",
+   "tetikleyici_id": "ak002e435qpj",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2002-11-03T22:25:38",
+    "2002-11-03T22:32:32"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200301220206",
+   "sinif": "P",
+   "olaylar": [
+    "200301220206"
+   ],
+   "adlar": [
+    "Colima 2003"
+   ],
+   "liste_var": 38,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "37145bd0d1210b59c799eb0c3fa82fd817aadc955e185b5af389a87d91fa7b1c",
+   "tetikleyici_id": "usp000bnyr",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2003-01-22T02:15:36",
+    "2003-01-22T02:20:24"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200309251950",
+   "sinif": "P",
+   "olaylar": [
+    "200309251950"
+   ],
+   "adlar": [
+    "Tokachi-oki 2003"
+   ],
+   "liste_var": 41,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "f1f53ee9284dfdf73ad2a4dfe16b86efb545301e4a6305bbd20426963683fc00",
+   "tetikleyici_id": "official20030925195006360_27",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2003-09-25T20:18:33",
+    "2003-09-25T20:33:43"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200412260058",
+   "sinif": "P",
+   "olaylar": [
+    "200412260058"
+   ],
+   "adlar": [
+    "Sumatra 2004"
+   ],
+   "liste_var": 49,
+   "sayilir": true,
+   "comcat_kayit": 5,
+   "comcat_sha256": "3a9962d9c2c2b7735c814c47540ac53ca2551e3d076a25f9d403e7633eb481a0",
+   "tetikleyici_id": "official20041226005853450_30",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [
+    {
+     "olay": "usp000dbeg",
+     "t": "2004-12-26T01:21:20",
+     "M": 6.1,
+     "faz": "P",
+     "varis": "2004-12-26T01:37:03",
+     "kuyruk_s": 60.0
+    },
+    {
+     "olay": "usp000dbeh",
+     "t": "2004-12-26T01:22:25",
+     "M": 6.0,
+     "faz": "P",
+     "varis": "2004-12-26T01:38:02",
+     "kuyruk_s": 60.0
+    },
+    {
+     "olay": "usp000dbej",
+     "t": "2004-12-26T01:25:48",
+     "M": 6.1,
+     "faz": "P",
+     "varis": "2004-12-26T01:41:32",
+     "kuyruk_s": 60.0
+    },
+    {
+     "olay": "usp000dbet",
+     "t": "2004-12-26T02:00:40",
+     "M": 6.0,
+     "faz": "P",
+     "varis": "2004-12-26T02:16:17",
+     "kuyruk_s": 60.0
+    }
+   ],
+   "K1b": [
+    "2004-12-26T01:50:29",
+    "2004-12-26T02:18:00"
+   ],
+   "K1b_maskeli_pay": 0.042,
+   "K1b_acik_pay": 0.958,
+   "W_maskeli_pay": 0.025
+  },
+  {
+   "ad": "200611151114",
+   "sinif": "P",
+   "olaylar": [
+    "200611151114"
+   ],
+   "adlar": [
+    "Kuril 2006"
+   ],
+   "liste_var": 50,
+   "sayilir": true,
+   "comcat_kayit": 6,
+   "comcat_sha256": "6b38a3a9fc72fef40a4f7f9dafb3b4191b03db7fc6eeff28461a77e53556b4f7",
+   "tetikleyici_id": "usp000exfn",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [
+    {
+     "olay": "usp000exfs",
+     "t": "2006-11-15T11:25:09",
+     "M": 6.0,
+     "faz": "P",
+     "varis": "2006-11-15T11:35:32",
+     "kuyruk_s": 60.0
+    },
+    {
+     "olay": "usp000exfu",
+     "t": "2006-11-15T11:28:38",
+     "M": 6.0,
+     "faz": "P",
+     "varis": "2006-11-15T11:38:59",
+     "kuyruk_s": 60.0
+    },
+    {
+     "olay": "usp000exfv",
+     "t": "2006-11-15T11:29:22",
+     "M": 6.2,
+     "faz": "P",
+     "varis": "2006-11-15T11:39:41",
+     "kuyruk_s": 60.0
+    },
+    {
+     "olay": "usp000exfy",
+     "t": "2006-11-15T11:34:58",
+     "M": 6.4,
+     "faz": "P",
+     "varis": "2006-11-15T11:45:12",
+     "kuyruk_s": 60.0
+    },
+    {
+     "olay": "usp000exg0",
+     "t": "2006-11-15T11:40:55",
+     "M": 6.7,
+     "faz": "P",
+     "varis": "2006-11-15T11:51:12",
+     "kuyruk_s": 60.0
+    }
+   ],
+   "K1b": [
+    "2006-11-15T11:39:23",
+    "2006-11-15T11:52:48"
+   ],
+   "K1b_maskeli_pay": 0.271,
+   "K1b_acik_pay": 0.729,
+   "W_maskeli_pay": 0.149
+  },
+  {
+   "ad": "200701130423",
+   "sinif": "P",
+   "olaylar": [
+    "200701130423"
+   ],
+   "adlar": [
+    "Kuril 2007"
+   ],
+   "liste_var": 50,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "3c114f93f71d0117425c969b9242684c4ffcdbd453bab5cf885568f5724499b8",
+   "tetikleyici_id": "usp000f2ab",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2007-01-13T04:48:15",
+    "2007-01-13T05:01:32"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200805120628",
+   "sinif": "P",
+   "olaylar": [
+    "200805120628"
+   ],
+   "adlar": [
+    "Wenchuan 2008"
+   ],
+   "liste_var": 51,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "658e8d83571f9f710222ef9cff0fa000aa16e776ad398f73aa1261439bb98131",
+   "tetikleyici_id": "usp000g650",
+   "tetikleyici_sapma_s": 0.57,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2008-05-12T07:08:54",
+    "2008-05-12T07:30:42"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200909291748",
+   "sinif": "P",
+   "olaylar": [
+    "200909291748"
+   ],
+   "adlar": [
+    "Samoa 2009"
+   ],
+   "liste_var": 52,
+   "sayilir": true,
+   "comcat_kayit": 2,
+   "comcat_sha256": "605ab907739237d9f7d3bd157eef1c7db6eecfbd82840416c1ae98c489e53c10",
+   "tetikleyici_id": "usp000h1ys",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [
+    {
+     "olay": "usp000h1yt",
+     "t": "2009-09-29T17:56:05",
+     "M": 6.0,
+     "faz": "P",
+     "varis": "2009-09-29T18:07:26",
+     "kuyruk_s": 60.0
+    }
+   ],
+   "K1b": [
+    "2009-09-29T18:16:43",
+    "2009-09-29T18:31:57"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "201002270634",
+   "sinif": "P",
+   "olaylar": [
+    "201002270634"
+   ],
+   "adlar": [
+    "Maule 2010"
+   ],
+   "liste_var": 45,
+   "sayilir": true,
+   "comcat_kayit": 5,
+   "comcat_sha256": "528baac04687bc8704810553bd2216f3e4749f5cd4584ab503707dd49ef19389",
+   "tetikleyici_id": "official20100227063411530_30",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [
+    {
+     "olay": "usp000h7rj",
+     "t": "2010-02-27T06:51:17",
+     "M": 6.0,
+     "faz": "P",
+     "varis": "2010-02-27T07:03:38",
+     "kuyruk_s": 60.0
+    },
+    {
+     "olay": "usp000h7rk",
+     "t": "2010-02-27T06:52:34",
+     "M": 6.2,
+     "faz": "P",
+     "varis": "2010-02-27T07:04:58",
+     "kuyruk_s": 60.0
+    },
+    {
+     "olay": "usp000h7ru",
+     "t": "2010-02-27T07:12:28",
+     "M": 6.0,
+     "faz": "P",
+     "varis": "2010-02-27T07:24:51",
+     "kuyruk_s": 60.0
+    },
+    {
+     "olay": "usp000h7s9",
+     "t": "2010-02-27T07:37:17",
+     "M": 6.0,
+     "faz": "P",
+     "varis": "2010-02-27T07:49:50",
+     "kuyruk_s": 60.0
+    }
+   ],
+   "K1b": [
+    "2010-02-27T07:08:14",
+    "2010-02-27T07:26:23"
+   ],
+   "K1b_maskeli_pay": 0.064,
+   "K1b_acik_pay": 0.936,
+   "W_maskeli_pay": 0.048
+  },
+  {
+   "ad": "200107070938",
+   "sinif": "N",
+   "olaylar": [
+    "200107070938"
+   ],
+   "adlar": [
+    "2001 M7.60 (-17.5, -72.1)"
+   ],
+   "liste_var": 38,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "25692d0cc4717dfe47be3641c7ac9feaee88dfb1dcb58668b47008239d2df2fa",
+   "tetikleyici_id": "usp000aj40",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2001-07-07T10:07:04",
+    "2001-07-07T10:22:11"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200110190328",
+   "sinif": "N",
+   "olaylar": [
+    "200110190328"
+   ],
+   "adlar": [
+    "2001 M7.50 (-4.1, 123.9)"
+   ],
+   "liste_var": 38,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "3e9e17b624a056fc99403e2ecbeb518e051282e224020bac5ad3f70f61e9b2df",
+   "tetikleyici_id": "usp000ar78",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2001-10-19T04:14:17",
+    "2001-10-19T04:38:34"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200203052116",
+   "sinif": "N",
+   "olaylar": [
+    "200203052116"
+   ],
+   "adlar": [
+    "2002 M7.50 (6.0, 124.2)"
+   ],
+   "liste_var": 38,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "fa19dd8ad12f0c9992fcf0942bb8e8a20e8e50a2a6e417297913f68a8075bfe7",
+   "tetikleyici_id": "usp000azqw",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2002-03-05T21:59:01",
+    "2002-03-05T22:21:53"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200209081844",
+   "sinif": "N",
+   "olaylar": [
+    "200209081844"
+   ],
+   "adlar": [
+    "2002 M7.60 (-3.3, 142.9)"
+   ],
+   "liste_var": 38,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "a1ba413254350b5735c102c81d7f2aaa7a2e197ccd9815cf80706115fe3d3454",
+   "tetikleyici_id": "usp000bbpf",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2002-09-08T19:23:34",
+    "2002-09-08T19:44:28"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200210101050",
+   "sinif": "N",
+   "olaylar": [
+    "200210101050"
+   ],
+   "adlar": [
+    "2002 M7.60 (-1.8, 134.3)"
+   ],
+   "liste_var": 38,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "b1027e47b2077afc0e1cb7d77787c85cbf5329aa2c0160ff816b0341647980be",
+   "tetikleyici_id": "usp000be54",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2002-10-10T11:31:58",
+    "2002-10-10T11:54:10"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200307152027",
+   "sinif": "N",
+   "olaylar": [
+    "200307152027"
+   ],
+   "adlar": [
+    "2003 M7.60 (-2.6, 68.4)"
+   ],
+   "liste_var": 34,
+   "sayilir": true,
+   "comcat_kayit": 2,
+   "comcat_sha256": "4f7a3b0f550dd6ad027a434855136637ecabdb0cc4179b283fa142069049744d",
+   "tetikleyici_id": "usp000c2ka",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [
+    {
+     "olay": "usp000c2k4",
+     "t": "2003-07-15T18:46:38",
+     "M": 6.5,
+     "faz": "P",
+     "varis": "2003-07-15T18:59:34",
+     "kuyruk_s": 60.0
+    }
+   ],
+   "K1b": [
+    "2003-07-15T21:26:32",
+    "2003-07-15T21:57:50"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200308040437",
+   "sinif": "N",
+   "olaylar": [
+    "200308040437"
+   ],
+   "adlar": [
+    "2003 M7.60 (-60.5, -43.4)"
+   ],
+   "liste_var": 41,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "92e36193b620f2ee606f919b28f8f2ac1f4aa0f733733ba298e8c48440bd02e8",
+   "tetikleyici_id": "usp000c41f",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2003-08-04T05:23:38",
+    "2003-08-04T05:48:20"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200311170643",
+   "sinif": "N",
+   "olaylar": [
+    "200311170643"
+   ],
+   "adlar": [
+    "2003 M7.80 (51.1, 178.7)"
+   ],
+   "liste_var": 40,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "68e632f1fc3a9d803c65fec3cc29dd64bd6c4d7d71682b457e2a69edb291f07c",
+   "tetikleyici_id": "usp000cd1n",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2003-11-17T07:01:20",
+    "2003-11-17T07:11:03"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200411112126",
+   "sinif": "N",
+   "olaylar": [
+    "200411112126"
+   ],
+   "adlar": [
+    "2004 M7.50 (-8.2, 124.9)"
+   ],
+   "liste_var": 41,
+   "sayilir": true,
+   "comcat_kayit": 3,
+   "comcat_sha256": "d9a96bb8703bb4dc80dafb4ce8a58c6cd808efa10bcf25d1f794aafce4a7128c",
+   "tetikleyici_id": "usp000d85g",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [
+    {
+     "olay": "usp000d855",
+     "t": "2004-11-11T17:34:52",
+     "M": 6.7,
+     "faz": "P",
+     "varis": "2004-11-11T17:47:35",
+     "kuyruk_s": 60.0
+    },
+    {
+     "olay": "usp000d860",
+     "t": "2004-11-11T22:49:48",
+     "M": 6.4,
+     "faz": "P",
+     "varis": "2004-11-11T23:04:38",
+     "kuyruk_s": 60.0
+    }
+   ],
+   "K1b": [
+    "2004-11-11T22:12:54",
+    "2004-11-11T22:37:32"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200412231459",
+   "sinif": "N",
+   "olaylar": [
+    "200412231459"
+   ],
+   "adlar": [
+    "2004 M8.10 (-49.3, 161.3)"
+   ],
+   "liste_var": 41,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "59a54205a92ea7200cb2b6f76b7fbaf811013ee6df01ef71b2f5262bac0a824c",
+   "tetikleyici_id": "usp000db93",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2004-12-23T15:43:15",
+    "2004-12-23T16:06:49"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200503281609",
+   "sinif": "N",
+   "olaylar": [
+    "200503281609"
+   ],
+   "adlar": [
+    "2005 M8.60 (2.1, 97.1)"
+   ],
+   "liste_var": 50,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "677918cf02018060cb6a10c8996a0e984e11df899b5a2c418d707a54549cffaf",
+   "tetikleyici_id": "official20050328160936530_30",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2005-03-28T17:01:18",
+    "2005-03-28T17:28:52"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200509090726",
+   "sinif": "N",
+   "olaylar": [
+    "200509090726"
+   ],
+   "adlar": [
+    "2005 M7.70 (-4.5, 153.5)"
+   ],
+   "liste_var": 50,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "9a60fde0c352d3629b07c1993a87c574fc71a761f28a8d0fcf470b68c044d207",
+   "tetikleyici_id": "usp000dz2j",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2005-09-09T08:02:46",
+    "2005-09-09T08:22:00"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200510080350",
+   "sinif": "N",
+   "olaylar": [
+    "200510080350"
+   ],
+   "adlar": [
+    "2005 M7.60 (34.5, 73.6)"
+   ],
+   "liste_var": 50,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "e7852b1486924b52a3700ec312fdbffc512689985f073946e8849c5df4a62dba",
+   "tetikleyici_id": "usp000e12e",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2005-10-08T04:34:19",
+    "2005-10-08T04:57:36"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200604202325",
+   "sinif": "N",
+   "olaylar": [
+    "200604202325"
+   ],
+   "adlar": [
+    "2006 M7.60 (60.9, 167.1)"
+   ],
+   "liste_var": 50,
+   "sayilir": true,
+   "comcat_kayit": 2,
+   "comcat_sha256": "c8bfe0ac3c315558ba44123f002ed633f70f4ea2985ffeaf20ba2212e7968377",
+   "tetikleyici_id": "usp000ef1h",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [
+    {
+     "olay": "usp000ef1j",
+     "t": "2006-04-20T23:28:03",
+     "M": 6.1,
+     "faz": "P",
+     "varis": "2006-04-20T23:37:04",
+     "kuyruk_s": 60.0
+    }
+   ],
+   "K1b": [
+    "2006-04-20T23:45:31",
+    "2006-04-20T23:56:27"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200607170819",
+   "sinif": "N",
+   "olaylar": [
+    "200607170819"
+   ],
+   "adlar": [
+    "2006 M7.70 (-9.3, 107.4)"
+   ],
+   "liste_var": 50,
+   "sayilir": true,
+   "comcat_kayit": 2,
+   "comcat_sha256": "527495306aaa3f10e261251b47ee01b59838b76df45cab6ae710619ecd5d515b",
+   "tetikleyici_id": "usp000ensm",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [
+    {
+     "olay": "usp000ensv",
+     "t": "2006-07-17T09:13:04",
+     "M": 6.0,
+     "faz": "P",
+     "varis": "2006-07-17T09:28:57",
+     "kuyruk_s": 60.0
+    }
+   ],
+   "K1b": [
+    "2006-07-17T09:11:27",
+    "2006-07-17T09:39:11"
+   ],
+   "K1b_maskeli_pay": 0.042,
+   "K1b_acik_pay": 0.958,
+   "W_maskeli_pay": 0.025
+  },
+  {
+   "ad": "200701211127",
+   "sinif": "N",
+   "olaylar": [
+    "200701211127"
+   ],
+   "adlar": [
+    "2007 M7.50 (1.1, 126.3)"
+   ],
+   "liste_var": 50,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "4d95298f4a72a32c9c02ca1a9a355542926afeda3f9fdae75a35bc4816733901",
+   "tetikleyici_id": "usp000f34b",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2007-01-21T12:11:15",
+    "2007-01-21T12:34:28"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200704012039",
+   "sinif": "N",
+   "olaylar": [
+    "200704012039"
+   ],
+   "adlar": [
+    "Solomon 2007"
+   ],
+   "liste_var": 50,
+   "sayilir": true,
+   "comcat_kayit": 5,
+   "comcat_sha256": "c1adf3ddfac167c7236626cf1daa6e54edc95c0720c00d2b3f955ce517cd3eaf",
+   "tetikleyici_id": "usp000f83m",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [
+    {
+     "olay": "usp000f83n",
+     "t": "2007-04-01T20:46:19",
+     "M": 6.1,
+     "faz": "P",
+     "varis": "2007-04-01T20:59:15",
+     "kuyruk_s": 60.0
+    },
+    {
+     "olay": "usp000f83p",
+     "t": "2007-04-01T20:47:31",
+     "M": 6.6,
+     "faz": "P",
+     "varis": "2007-04-01T21:00:27",
+     "kuyruk_s": 60.0
+    },
+    {
+     "olay": "usp000f83w",
+     "t": "2007-04-01T21:11:33",
+     "M": 6.9,
+     "faz": "P",
+     "varis": "2007-04-01T21:24:29",
+     "kuyruk_s": 60.0
+    },
+    {
+     "olay": "usp000f83x",
+     "t": "2007-04-01T21:15:22",
+     "M": 6.0,
+     "faz": "P",
+     "varis": "2007-04-01T21:28:19",
+     "kuyruk_s": 60.0
+    }
+   ],
+   "K1b": [
+    "2007-04-01T21:15:48",
+    "2007-04-01T21:34:55"
+   ],
+   "K1b_maskeli_pay": 0.122,
+   "K1b_acik_pay": 0.878,
+   "W_maskeli_pay": 0.065
+  },
+  {
+   "ad": "200708152340",
+   "sinif": "N",
+   "olaylar": [
+    "200708152340"
+   ],
+   "adlar": [
+    "Peru 2007"
+   ],
+   "liste_var": 51,
+   "sayilir": true,
+   "comcat_kayit": 2,
+   "comcat_sha256": "14034ed8f56fa81b0d183d7c852123c4d006cd4914ee7e7327db6bffc622b092",
+   "tetikleyici_id": "usp000fjta",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [
+    {
+     "olay": "usp000fjsq",
+     "t": "2007-08-15T20:22:11",
+     "M": 6.5,
+     "faz": "P",
+     "varis": "2007-08-15T20:30:09",
+     "kuyruk_s": 60.0
+    }
+   ],
+   "K1b": [
+    "2007-08-16T00:06:53",
+    "2007-08-16T00:20:43"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200709121110",
+   "sinif": "N",
+   "olaylar": [
+    "200709121110"
+   ],
+   "adlar": [
+    "G. Sumatra 2007"
+   ],
+   "liste_var": 49,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "c62f57d44ec61b0ba0c648f9ba8445bde72d15dd8628954e67cb2f9e13ecb93d",
+   "tetikleyici_id": "official20070912111026830_34",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2007-09-12T12:02:56",
+    "2007-09-12T12:30:56"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200709122349",
+   "sinif": "N",
+   "olaylar": [
+    "200709122349"
+   ],
+   "adlar": [
+    "2007 M7.90 (-2.6, 100.8)"
+   ],
+   "liste_var": 50,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "a08a8c72ad64dbb18568fc4c323d83413a7fef0724de947d4063e2114866816d",
+   "tetikleyici_id": "usp000fn2b",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2007-09-13T00:41:11",
+    "2007-09-13T01:08:59"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200711141540",
+   "sinif": "N",
+   "olaylar": [
+    "200711141540"
+   ],
+   "adlar": [
+    "2007 M7.70 (-22.2, -69.9)"
+   ],
+   "liste_var": 51,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "af13f9455b701da7b5f04ace4927e60b8a71d2c5da465a2d927f7edc18833737",
+   "tetikleyici_id": "usp000fshy",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2007-11-14T16:11:10",
+    "2007-11-14T16:27:20"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200901031943",
+   "sinif": "N",
+   "olaylar": [
+    "200901031943"
+   ],
+   "adlar": [
+    "2009 M7.70 (-0.4, 132.9)"
+   ],
+   "liste_var": 51,
+   "sayilir": true,
+   "comcat_kayit": 2,
+   "comcat_sha256": "b2b5f1dfd9a939da68bfdac718bddc8fd404de709696b4d64483308c5e1e92c1",
+   "tetikleyici_id": "usp000gs2d",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [
+    {
+     "olay": "usp000gs2v",
+     "t": "2009-01-03T20:23:20",
+     "M": 6.6,
+     "faz": "P",
+     "varis": "2009-01-03T20:37:12",
+     "kuyruk_s": 60.0
+    }
+   ],
+   "K1b": [
+    "2009-01-03T20:25:36",
+    "2009-01-03T20:47:53"
+   ],
+   "K1b_maskeli_pay": 0.052,
+   "K1b_acik_pay": 0.948,
+   "W_maskeli_pay": 0.029
+  },
+  {
+   "ad": "200903191817",
+   "sinif": "N",
+   "olaylar": [
+    "200903191817"
+   ],
+   "adlar": [
+    "2009 M7.60 (-23.0, -174.7)"
+   ],
+   "liste_var": 49,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "d5f9960837721b643db69ef395202d24613ccb8617ea2cb94ba3092231e38f1e",
+   "tetikleyici_id": "usp000gv5p",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2009-03-19T18:49:08",
+    "2009-03-19T19:05:54"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200907150922",
+   "sinif": "N",
+   "olaylar": [
+    "200907150922"
+   ],
+   "adlar": [
+    "2009 M7.80 (-45.8, 166.6)"
+   ],
+   "liste_var": 51,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "baee2e030e0929b7e3b4cb61fc48aa8211270838c682d4f2647f6a61eead11cd",
+   "tetikleyici_id": "usp000gz8j",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2009-07-15T10:04:41",
+    "2009-07-15T10:27:12"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200908101955",
+   "sinif": "N",
+   "olaylar": [
+    "200908101955"
+   ],
+   "adlar": [
+    "2009 M7.50 (14.1, 92.9)"
+   ],
+   "liste_var": 51,
+   "sayilir": true,
+   "comcat_kayit": 2,
+   "comcat_sha256": "b5dc14e71e13fae5ba8bdec27f296bdf20bf1a990a7a7407768d62722a6979d6",
+   "tetikleyici_id": "usp000h05x",
+   "tetikleyici_sapma_s": 3.12,
+   "maskelenen_varis": [
+    {
+     "olay": "usp000h05y",
+     "t": "2009-08-10T20:07:09",
+     "M": 6.2,
+     "faz": "P",
+     "varis": "2009-08-10T20:19:04",
+     "kuyruk_s": 60.0
+    }
+   ],
+   "K1b": [
+    "2009-08-10T20:44:17",
+    "2009-08-10T21:10:15"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "200909301016",
+   "sinif": "N",
+   "olaylar": [
+    "200909301016"
+   ],
+   "adlar": [
+    "2009 M7.50 (-0.7, 99.9)"
+   ],
+   "liste_var": 46,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "afc602237391f5c33c0fec1e16984048c62c335e1efd7257c1cc3eea7201ea1c",
+   "tetikleyici_id": "usp000h237",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2009-09-30T11:07:59",
+    "2009-09-30T11:35:38"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "VANUATU2009",
+   "sinif": "N",
+   "olaylar": [
+    "200910072203",
+    "200910072218"
+   ],
+   "adlar": [
+    "2009 M7.70 (-13.0, 166.5)",
+    "2009 M7.80 (-12.5, 166.4)"
+   ],
+   "liste_var": 52,
+   "sayilir": true,
+   "comcat_kayit": 5,
+   "comcat_sha256": "5274c9c9d181f67e343cadce4d551d36fd6a29962cd3f2a1ea044be4737059af",
+   "tetikleyici_id": "usp000h2g9",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [
+    {
+     "olay": "usp000h2g6",
+     "t": "2009-10-07T21:41:13",
+     "M": 6.8,
+     "faz": "P",
+     "varis": "2009-10-07T21:54:37",
+     "kuyruk_s": 60.0
+    },
+    {
+     "olay": "usp000h2gd",
+     "t": "2009-10-07T22:18:51",
+     "M": 7.8,
+     "faz": "P",
+     "varis": "2009-10-07T22:31:18",
+     "kuyruk_s": 240.0
+    },
+    {
+     "olay": "usp000h2gd",
+     "t": "2009-10-07T22:18:51",
+     "M": 7.8,
+     "faz": "S",
+     "varis": "2009-10-07T22:40:04",
+     "kuyruk_s": 240.0
+    },
+    {
+     "olay": "usp000h2gj",
+     "t": "2009-10-07T22:50:15",
+     "M": 6.8,
+     "faz": "P",
+     "varis": "2009-10-07T23:02:45",
+     "kuyruk_s": 60.0
+    },
+    {
+     "olay": "usp000h2gr",
+     "t": "2009-10-07T23:13:48",
+     "M": 7.4,
+     "faz": "P",
+     "varis": "2009-10-07T23:26:17",
+     "kuyruk_s": 240.0
+    },
+    {
+     "olay": "usp000h2gr",
+     "t": "2009-10-07T23:13:48",
+     "M": 7.4,
+     "faz": "S",
+     "varis": "2009-10-07T23:35:02",
+     "kuyruk_s": 240.0
+    }
+   ],
+   "K1b": [
+    "2009-10-07T22:37:13",
+    "2009-10-07T23:10:50"
+   ],
+   "K1b_maskeli_pay": 0.159,
+   "K1b_acik_pay": 0.841,
+   "W_maskeli_pay": 0.123
+  },
+  {
+   "ad": "201004062215",
+   "sinif": "N",
+   "olaylar": [
+    "201004062215"
+   ],
+   "adlar": [
+    "2010 M7.80 (2.4, 97.0)"
+   ],
+   "liste_var": 52,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "4dda39cfb5d384eda5edb73073e6c4ecb02053fc2e0fa237b91419aee7459b4f",
+   "tetikleyici_id": "usp000hat0",
+   "tetikleyici_sapma_s": 0.0,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2010-04-06T23:06:38",
+    "2010-04-06T23:34:10"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  },
+  {
+   "ad": "201006121926",
+   "sinif": "N",
+   "olaylar": [
+    "201006121926"
+   ],
+   "adlar": [
+    "2010 M7.50 (7.9, 91.9)"
+   ],
+   "liste_var": 52,
+   "sayilir": true,
+   "comcat_kayit": 1,
+   "comcat_sha256": "dda5f5fa6a585e68ba2ac4b344d9c0f00060879b4ac057a54bbd7af1b7265ce7",
+   "tetikleyici_id": "usp000hdwb",
+   "tetikleyici_sapma_s": 0.01,
+   "maskelenen_varis": [],
+   "K1b": [
+    "2010-06-12T20:17:52",
+    "2010-06-12T20:45:04"
+   ],
+   "K1b_maskeli_pay": 0.0,
+   "K1b_acik_pay": 1.0,
+   "W_maskeli_pay": 0.0
+  }
+ ],
+ "d1": {
+  "200106232033": {
+   "ad": "Peru 2001",
+   "grup": "P",
+   "basvuru": [
+    8.0,
+    "BK.PKD",
+    "BHZ"
+   ],
+   "uygun_istasyon": [
+    "BK.PKD"
+   ],
+   "kanallar": [
+    {
+     "kanal": "BK.PKD.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 1.012,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.PKD.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.046,
+     "oran_002_1": 0.982,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.PHL.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 1.025,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.PHL.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.994,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.979,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.984,
+     "hata": null,
+     "uygun": false
+    }
+   ],
+   "uc_bilesen": [
+    {
+     "istasyon": "BK.PKD",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": false,
+      "HHN": false,
+      "HHZ": false
+     },
+     "uc_bilesen_bant": [
+      "BH"
+     ]
+    }
+   ],
+   "uc_bilesen_var": true
+  },
+  "200211032212": {
+   "ad": "Denali 2002",
+   "grup": "P",
+   "basvuru": [
+    8.0,
+    "BK.PKD",
+    "BHZ"
+   ],
+   "uygun_istasyon": [
+    "BK.PKD"
+   ],
+   "kanallar": [
+    {
+     "kanal": "BK.PKD.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 1.012,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.PKD.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.982,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.PHL.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 1.025,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.PHL.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.994,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.979,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.984,
+     "hata": null,
+     "uygun": false
+    }
+   ],
+   "uc_bilesen": [
+    {
+     "istasyon": "BK.PKD",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    }
+   ],
+   "uc_bilesen_var": true
+  },
+  "200301220206": {
+   "ad": "Colima 2003",
+   "grup": "P",
+   "basvuru": [
+    8.0,
+    "BK.PKD",
+    "BHZ"
+   ],
+   "uygun_istasyon": [
+    "BK.PKD"
+   ],
+   "kanallar": [
+    {
+     "kanal": "BK.PKD.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 1.012,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.PKD.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.982,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.PHL.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 1.025,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.PHL.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.994,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.979,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.984,
+     "hata": null,
+     "uygun": false
+    }
+   ],
+   "uc_bilesen": [
+    {
+     "istasyon": "BK.PKD",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH"
+     ]
+    }
+   ],
+   "uc_bilesen_var": true
+  },
+  "200309251950": {
+   "ad": "Tokachi-oki 2003",
+   "grup": "P",
+   "basvuru": [
+    8.0,
+    "BK.PKD",
+    "BHZ"
+   ],
+   "uygun_istasyon": [
+    "BK.PKD"
+   ],
+   "kanallar": [
+    {
+     "kanal": "BK.PKD.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 1.012,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.PKD.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.982,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.PHL.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 1.025,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.PHL.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.994,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.979,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.984,
+     "hata": null,
+     "uygun": false
+    }
+   ],
+   "uc_bilesen": [
+    {
+     "istasyon": "BK.PKD",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    }
+   ],
+   "uc_bilesen_var": true
+  },
+  "200412260058": {
+   "ad": "Sumatra 2004",
+   "grup": "P",
+   "basvuru": [
+    8.0,
+    "BK.PKD",
+    "BHZ"
+   ],
+   "uygun_istasyon": [
+    "BK.PKD",
+    "BK.RAMR",
+    "NC.PAGB",
+    "NC.PMPB"
+   ],
+   "kanallar": [
+    {
+     "kanal": "BK.PKD.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 1.001,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.PKD.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.982,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.RAMR.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.977,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.RAMR.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.983,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.PHL.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 1.025,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.PHL.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.994,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.984,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "NC.PAGB.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.983,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "NC.PAGB.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": null,
+     "hata": "yanıt alınamadı (HTTP 204)",
+     "uygun": false
+    },
+    {
+     "kanal": "NC.PMPB.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.992,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "NC.PMPB.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": true
+    }
+   ],
+   "uc_bilesen": [
+    {
+     "istasyon": "BK.PKD",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "BK.RAMR",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "NC.PAGB",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": false,
+      "BHN": false,
+      "BHZ": false,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "NC.PMPB",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": false,
+      "BHN": false,
+      "BHZ": false,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "HH"
+     ]
+    }
+   ],
+   "uc_bilesen_var": true
+  },
+  "200611151114": {
+   "ad": "Kuril 2006",
+   "grup": "P",
+   "basvuru": [
+    8.0,
+    "BK.PKD",
+    "BHZ"
+   ],
+   "uygun_istasyon": [
+    "BK.PKD",
+    "BK.RAMR",
+    "NC.PAGB",
+    "NC.PMPB"
+   ],
+   "kanallar": [
+    {
+     "kanal": "BK.PKD.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 1.001,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.PKD.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.982,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.RAMR.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.977,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.RAMR.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.983,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.CAR.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.CAR.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.984,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.PHL.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 1.013,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.PHL.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.994,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.984,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "NC.PAGB.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.983,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "NC.PMPB.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": true
+    }
+   ],
+   "uc_bilesen": [
+    {
+     "istasyon": "BK.PKD",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "BK.RAMR",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "NC.PAGB",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "NC.PMPB",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "HH"
+     ]
+    }
+   ],
+   "uc_bilesen_var": true
+  },
+  "200701130423": {
+   "ad": "Kuril 2007",
+   "grup": "P",
+   "basvuru": [
+    8.0,
+    "BK.PKD",
+    "BHZ"
+   ],
+   "uygun_istasyon": [
+    "BK.PKD",
+    "BK.RAMR",
+    "NC.PAGB",
+    "NC.PMPB"
+   ],
+   "kanallar": [
+    {
+     "kanal": "BK.PKD.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 1.001,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.PKD.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.982,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.RAMR.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.977,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.RAMR.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.983,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.CAR.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.CAR.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.984,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.PHL.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 1.013,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.PHL.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.994,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.984,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "NC.PAGB.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.983,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "NC.PMPB.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": true
+    }
+   ],
+   "uc_bilesen": [
+    {
+     "istasyon": "BK.PKD",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "BK.RAMR",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "NC.PAGB",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "NC.PMPB",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "HH"
+     ]
+    }
+   ],
+   "uc_bilesen_var": true
+  },
+  "200805120628": {
+   "ad": "Wenchuan 2008",
+   "grup": "P",
+   "basvuru": [
+    8.0,
+    "BK.PKD",
+    "BHZ"
+   ],
+   "uygun_istasyon": [
+    "BK.PKD",
+    "BK.RAMR",
+    "NC.PAGB",
+    "NC.PMPB"
+   ],
+   "kanallar": [
+    {
+     "kanal": "BK.PKD.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 1.001,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.PKD.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.982,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.RAMR.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.975,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.RAMR.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.98,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.CAR.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.CAR.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.984,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.PHL.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 1.013,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.PHL.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.994,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.984,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "NC.PAGB.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.983,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "NC.PMPB.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": true
+    }
+   ],
+   "uc_bilesen": [
+    {
+     "istasyon": "BK.PKD",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "BK.RAMR",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "NC.PAGB",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "NC.PMPB",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "HH"
+     ]
+    }
+   ],
+   "uc_bilesen_var": true
+  },
+  "200909291748": {
+   "ad": "Samoa 2009",
+   "grup": "P",
+   "basvuru": [
+    8.0,
+    "BK.PKD",
+    "BHZ"
+   ],
+   "uygun_istasyon": [
+    "BK.PKD",
+    "BK.RAMR",
+    "CI.CAR",
+    "CI.PHL",
+    "CI.SMM",
+    "CI.SMR",
+    "NC.BBGB",
+    "NC.PAGB",
+    "NC.PMPB"
+   ],
+   "kanallar": [
+    {
+     "kanal": "BK.PKD.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 1.001,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.PKD.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.982,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.RAMR.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.975,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.RAMR.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.98,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.CAR.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.CAR.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.984,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.PHL.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 1.013,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.PHL.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.994,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.SMM.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.SMM.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.984,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.SMR.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.979,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.SMR.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.984,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "NC.BBGB.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.821,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "NC.PAGB.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.983,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "NC.PMPB.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": true
+    }
+   ],
+   "uc_bilesen": [
+    {
+     "istasyon": "BK.PKD",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "BK.RAMR",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "CI.CAR",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "CI.PHL",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "CI.SMM",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "CI.SMR",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH"
+     ]
+    },
+    {
+     "istasyon": "NC.BBGB",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "NC.PAGB",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "NC.PMPB",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "HH"
+     ]
+    }
+   ],
+   "uc_bilesen_var": true
+  },
+  "201002270634": {
+   "ad": "Maule 2010",
+   "grup": "P",
+   "basvuru": [
+    8.0,
+    "BK.PKD",
+    "BHZ"
+   ],
+   "uygun_istasyon": [
+    "BK.PKD",
+    "BK.RAMR",
+    "CI.CAR",
+    "CI.PHL",
+    "CI.SMM",
+    "CI.SMR",
+    "NC.BBGB",
+    "NC.PAGB",
+    "NC.PMPB"
+   ],
+   "kanallar": [
+    {
+     "kanal": "BK.PKD.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 1.001,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.PKD.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.982,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.RAMR.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.975,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.RAMR.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.98,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.CAR.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.CAR.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.984,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.PHL.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.991,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.PHL.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.996,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.SMM.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.SMM.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.984,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.SMR.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.979,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.SMR.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.984,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "NC.BBGB.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.821,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "NC.PAGB.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 0.985,
+     "oran_002_1": 0.983,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "NC.PMPB.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": true
+    }
+   ],
+   "uc_bilesen": [
+    {
+     "istasyon": "BK.PKD",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "BK.RAMR",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "CI.CAR",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "CI.PHL",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "CI.SMM",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "CI.SMR",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH"
+     ]
+    },
+    {
+     "istasyon": "NC.BBGB",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "NC.PAGB",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "NC.PMPB",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "HH"
+     ]
+    }
+   ],
+   "uc_bilesen_var": true
+  },
+  "200412231459": {
+   "ad": "2004 M8.10 (-49.3, 161.3)",
+   "grup": "N_genlik4",
+   "basvuru": [
+    8.0,
+    "BK.PKD",
+    "BHZ"
+   ],
+   "uygun_istasyon": [
+    "BK.PKD",
+    "BK.RAMR",
+    "NC.PAGB",
+    "NC.PMPB"
+   ],
+   "kanallar": [
+    {
+     "kanal": "BK.PKD.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 1.001,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.PKD.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.982,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.RAMR.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.977,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.RAMR.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.983,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.PHL.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 1.025,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.PHL.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.994,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.984,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "NC.PAGB.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.983,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "NC.PAGB.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": null,
+     "hata": "yanıt alınamadı (HTTP 204)",
+     "uygun": false
+    },
+    {
+     "kanal": "NC.PMPB.--.BHZ",
+     "ortu_W": 0.078,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.992,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "NC.PMPB.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": true
+    }
+   ],
+   "uc_bilesen": [
+    {
+     "istasyon": "BK.PKD",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "BK.RAMR",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "NC.PAGB",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "NC.PMPB",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": false,
+      "BHN": false,
+      "BHZ": false,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "HH"
+     ]
+    }
+   ],
+   "uc_bilesen_var": true
+  },
+  "200503281609": {
+   "ad": "2005 M8.60 (2.1, 97.1)",
+   "grup": "N_genlik4",
+   "basvuru": [
+    8.0,
+    "BK.PKD",
+    "BHZ"
+   ],
+   "uygun_istasyon": [
+    "BK.PKD",
+    "BK.RAMR",
+    "NC.PAGB",
+    "NC.PMPB"
+   ],
+   "kanallar": [
+    {
+     "kanal": "BK.PKD.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 1.001,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.PKD.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.982,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.RAMR.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.977,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.RAMR.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.983,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.PHL.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 1.025,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.PHL.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.994,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.984,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "NC.PAGB.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.983,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "NC.PAGB.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": null,
+     "hata": "yanıt alınamadı (HTTP 204)",
+     "uygun": false
+    },
+    {
+     "kanal": "NC.PMPB.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.992,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "NC.PMPB.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": true
+    }
+   ],
+   "uc_bilesen": [
+    {
+     "istasyon": "BK.PKD",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "BK.RAMR",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "NC.PAGB",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "NC.PMPB",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": false,
+      "BHN": false,
+      "BHZ": false,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "HH"
+     ]
+    }
+   ],
+   "uc_bilesen_var": true
+  },
+  "200704012039": {
+   "ad": "Solomon 2007",
+   "grup": "N_genlik4",
+   "basvuru": [
+    8.0,
+    "BK.PKD",
+    "BHZ"
+   ],
+   "uygun_istasyon": [
+    "BK.PKD",
+    "BK.RAMR",
+    "NC.PAGB",
+    "NC.PMPB"
+   ],
+   "kanallar": [
+    {
+     "kanal": "BK.PKD.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 1.001,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.PKD.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.982,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.RAMR.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.977,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.RAMR.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.983,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.CAR.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.CAR.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.984,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.PHL.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 1.013,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.PHL.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.994,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.984,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "NC.PAGB.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.983,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "NC.PMPB.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": true
+    }
+   ],
+   "uc_bilesen": [
+    {
+     "istasyon": "BK.PKD",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "BK.RAMR",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "NC.PAGB",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "NC.PMPB",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "HH"
+     ]
+    }
+   ],
+   "uc_bilesen_var": true
+  },
+  "200708152340": {
+   "ad": "Peru 2007",
+   "grup": "N_genlik4",
+   "basvuru": [
+    8.0,
+    "BK.PKD",
+    "BHZ"
+   ],
+   "uygun_istasyon": [
+    "BK.PKD",
+    "BK.RAMR",
+    "NC.PAGB",
+    "NC.PMPB"
+   ],
+   "kanallar": [
+    {
+     "kanal": "BK.PKD.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 1.001,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.PKD.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.982,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.RAMR.--.BHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.977,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "BK.RAMR.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.983,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "CI.CAR.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.CAR.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.984,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.PHL.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 1.013,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.PHL.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.994,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.BHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "CI.SMM.--.HHZ",
+     "ortu_W": 0.0,
+     "ortu_R": 0.0,
+     "oran_002_1": 0.984,
+     "hata": null,
+     "uygun": false
+    },
+    {
+     "kanal": "NC.PAGB.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.983,
+     "hata": null,
+     "uygun": true
+    },
+    {
+     "kanal": "NC.PMPB.--.HHZ",
+     "ortu_W": 1.0,
+     "ortu_R": 1.0,
+     "oran_002_1": 0.981,
+     "hata": null,
+     "uygun": true
+    }
+   ],
+   "uc_bilesen": [
+    {
+     "istasyon": "BK.PKD",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "BK.RAMR",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "BHE": true,
+      "BHN": true,
+      "BHZ": true,
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "BH",
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "NC.PAGB",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "HH"
+     ]
+    },
+    {
+     "istasyon": "NC.PMPB",
+     "http": 200,
+     "kanal_ortu_ok": {
+      "HHE": true,
+      "HHN": true,
+      "HHZ": true
+     },
+     "uc_bilesen_bant": [
+      "HH"
+     ]
+    }
+   ],
+   "uc_bilesen_var": true
+  }
+ },
+ "ci_ortu": {
+  "200106232033|CI|PHL||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200106232033|CI|PHL||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200106232033|CI|SMM||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200106232033|CI|SMM||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200211032212|CI|PHL||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200211032212|CI|PHL||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200211032212|CI|SMM||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200211032212|CI|SMM||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200301220206|CI|PHL||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200301220206|CI|PHL||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200301220206|CI|SMM||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200301220206|CI|SMM||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200309251950|CI|PHL||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200309251950|CI|PHL||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200309251950|CI|SMM||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200309251950|CI|SMM||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200412260058|CI|PHL||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200412260058|CI|PHL||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200412260058|CI|SMM||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200412260058|CI|SMM||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200611151114|CI|CAR||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200611151114|CI|CAR||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200611151114|CI|PHL||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200611151114|CI|PHL||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200611151114|CI|SMM||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200611151114|CI|SMM||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200701130423|CI|CAR||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200701130423|CI|CAR||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200701130423|CI|PHL||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200701130423|CI|PHL||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200701130423|CI|SMM||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200701130423|CI|SMM||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200805120628|CI|CAR||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200805120628|CI|CAR||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200805120628|CI|PHL||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200805120628|CI|PHL||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200805120628|CI|SMM||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200805120628|CI|SMM||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200909291748|CI|CAR||BHZ": {
+   "W": 1.0,
+   "R": 1.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200909291748|CI|CAR||HHZ": {
+   "W": 1.0,
+   "R": 1.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200909291748|CI|PHL||BHZ": {
+   "W": 1.0,
+   "R": 1.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200909291748|CI|PHL||HHZ": {
+   "W": 1.0,
+   "R": 1.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200909291748|CI|SMM||BHZ": {
+   "W": 1.0,
+   "R": 1.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200909291748|CI|SMM||HHZ": {
+   "W": 1.0,
+   "R": 1.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200909291748|CI|SMR||BHZ": {
+   "W": 1.0,
+   "R": 1.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200909291748|CI|SMR||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "201002270634|CI|CAR||BHZ": {
+   "W": 1.0,
+   "R": 1.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "201002270634|CI|CAR||HHZ": {
+   "W": 1.0,
+   "R": 1.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "201002270634|CI|PHL||BHZ": {
+   "W": 1.0,
+   "R": 1.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "201002270634|CI|PHL||HHZ": {
+   "W": 1.0,
+   "R": 1.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "201002270634|CI|SMM||BHZ": {
+   "W": 1.0,
+   "R": 1.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "201002270634|CI|SMM||HHZ": {
+   "W": 1.0,
+   "R": 1.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "201002270634|CI|SMR||BHZ": {
+   "W": 1.0,
+   "R": 1.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "201002270634|CI|SMR||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200412231459|CI|PHL||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200412231459|CI|PHL||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200412231459|CI|SMM||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200412231459|CI|SMM||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200503281609|CI|PHL||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200503281609|CI|PHL||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200503281609|CI|SMM||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200503281609|CI|SMM||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200704012039|CI|CAR||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200704012039|CI|CAR||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200704012039|CI|PHL||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200704012039|CI|PHL||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200704012039|CI|SMM||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200704012039|CI|SMM||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200708152340|CI|CAR||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200708152340|CI|CAR||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200708152340|CI|PHL||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200708152340|CI|PHL||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200708152340|CI|SMM||BHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  },
+  "200708152340|CI|SMM||HHZ": {
+   "W": 0.0,
+   "R": 0.0,
+   "kaynak": "scedc (200; esc 404)"
+  }
+ },
+ "yanit_http": {
+  "BK.PKD.--.BHZ": 200,
+  "BK.PKD.--.HHZ": 200,
+  "BK.RAMR.--.BHZ": 200,
+  "BK.RAMR.--.HHZ": 200,
+  "CI.CAR.--.BHZ": 200,
+  "CI.CAR.--.HHZ": 200,
+  "CI.PHL.--.BHZ": 200,
+  "CI.PHL.--.HHZ": 200,
+  "CI.SMM.--.BHZ": 200,
+  "CI.SMM.--.HHZ": 200,
+  "CI.SMR.--.BHZ": 200,
+  "CI.SMR.--.HHZ": 200,
+  "NC.BBGB.--.HHZ": 200,
+  "NC.PAGB.--.BHZ": 204,
+  "NC.PAGB.--.HHZ": 200,
+  "NC.PMPB.--.BHZ": 200,
+  "NC.PMPB.--.HHZ": 200
+ },
+ "http_istek": 258,
+ "http_dagilim": {
+  "200": 183,
+  "204": 1,
+  "404": 74
+ },
+ "dataselect_istegi": 0
+}
