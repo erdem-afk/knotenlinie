@@ -89,6 +89,7 @@ Mc ≥ 4 ve bölgesel tamlıkları bilinmiyor), ya da (2) TR-13c'de yazılan yö
   el ile.
 - **Doğrulanamayan / tamamlanmayan:** CSN ile Constitución 2020 (M 6,1) ve Pocito 2021 (M 6,4) sayımı rapor
   yazılırken sürüyordu (günlük sayfalar, ≈ 1 sayfa/s). İkisi M < 6,5'tir; birincil K'yi değiştiremez, ikincil K'yi en
-  çok 2 artırır. Sonuç `tr13d_sayim.json`'a sonradan eklenirse burada beyan edilir. Teno 2004: 2001 öncesi sayfalar 403,
+  çok 2 artırır. Süre sınırı yüzünden iş 19:50 UTC'de durduruldu (≈ 3576 günlük sayfa önbellekte, scratch'ta; pakete
+  girmedi). Bu iki olay **sayılmadı**; sürdürmek için aynı komut önbellekten devam eder. Teno 2004: 2001 öncesi sayfalar 403,
   Mc kestirilemedi. KOERI'nin web listesinin üst sınırı belgelenmemiş; yıllık parçalar 700 satırın altında kaldı.
 - Ham: `/mnt/project-files/turetme/tr13d-ham/` (sha256 `kayit/turetme/tr13d/tr13d_ham_sha256.txt`).
