@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Knotenlinie Board</title>
+<link rel="icon" href="/static/icon.svg">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="board-page">
+<div class="app" id="app">
+  <header class="topbar">
+    <div class="brand-block">
+      <span class="brand">Knotenlinie Board</span>
+      <span class="muted small" id="member-count"></span>
+    </div>
+    <nav class="viewtabs" aria-label="Views">
+      <button type="button" class="viewtab" id="tab-board" aria-pressed="true">Board</button>
+      <button type="button" class="viewtab" id="tab-questions" aria-pressed="false">Questions only <span class="count" id="q-count"></span></button>
+    </nav>
+    <div class="profile">
+      <button type="button" class="profile-btn" id="profile-btn" aria-haspopup="menu" aria-expanded="false">
+        <span class="avatar small" id="profile-avatar" aria-hidden="true"></span>
+        <span class="profile-name" id="profile-name"></span>
+      </button>
+      <div class="menu" id="profile-menu" role="menu" hidden>
+        <p class="menu-head small muted" id="profile-signed-in"></p>
+        <button type="button" role="menuitem" id="menu-profile">Name and ledger setting</button>
+        <a role="menuitem" id="menu-admin" href="/admin" hidden>Coordinator page</a>
+        <button type="button" role="menuitem" id="menu-logout">Sign out</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout" id="layout">
+    <aside class="sidebar" aria-label="Board">
+      <div class="side-section">
+        <button type="button" class="side-link" id="side-board" aria-current="page"># board</button>
+        <button type="button" class="side-link" id="side-questions">Questions only <span class="count" id="q-count-side"></span></button>
+      </div>
+      <div class="side-section">
+        <h2 class="side-title">Members</h2>
+        <ul class="side-list" id="members-list"></ul>
+      </div>
+      <div class="side-section">
+        <h2 class="side-title">Gradiva</h2>
+        <ul class="side-list" id="staff-list"></ul>
+      </div>
+    </aside>
+
+    <main class="main" id="main">
+      <section class="view" id="view-board" aria-label="Board">
+        <div class="feed-scroll" id="feed-scroll">
+          <div class="feed-top" id="feed-top"></div>
+          <div class="feed" id="feed" role="log" aria-live="polite" aria-relevant="additions"></div>
+        </div>
+        <form class="composer" id="composer" autocomplete="off">
+          <label class="sr-only" for="composer-input">Message</label>
+          <textarea id="composer-input" rows="1" maxlength="4000" placeholder="Write a message. Type @knotenlinie to ask the agent."></textarea>
+          <button type="submit" class="btn primary" id="composer-send">Send</button>
+        </form>
+      </section>
+      <section class="view" id="view-questions" aria-label="Questions" hidden>
+        <div class="questions-scroll">
+          <header class="view-head">
+            <h1>Questions</h1>
+            <p class="muted small">Every message that a member confirmed as a research question. Each one has its own thread.</p>
+          </header>
+          <ul class="qlist" id="qlist"></ul>
+        </div>
+      </section>
+    </main>
+
+    <aside class="thread" id="thread" aria-label="Thread" hidden>
+      <header class="thread-head">
+        <button type="button" class="btn ghost back" id="thread-back" aria-label="Back to the board">Back</button>
+        <h2 id="thread-title">Thread</h2>
+        <button type="button" class="btn ghost" id="thread-close" aria-label="Close thread">Close</button>
+      </header>
+      <div class="thread-scroll" id="thread-scroll">
+        <div id="thread-root"></div>
+        <div class="thread-divider" id="thread-divider"></div>
+        <div class="feed" id="thread-replies" role="log" aria-live="polite"></div>
+      </div>
+      <form class="composer" id="thread-composer" autocomplete="off">
+        <label class="sr-only" for="thread-input">Reply</label>
+        <textarea id="thread-input" rows="1" maxlength="4000" placeholder="Reply in this thread"></textarea>
+        <button type="submit" class="btn primary">Send</button>
+      </form>
+    </aside>
+  </div>
+</div>
+
+<dialog id="forward-dialog" class="dialog" aria-labelledby="forward-title">
+  <form method="dialog" id="forward-form">
+    <header class="dialog-head">
+      <h2 id="forward-title">Forward to agent</h2>
+      <span class="muted small hide-touch">Esc to cancel</span>
+    </header>
+    <p class="small muted" id="forward-from"></p>
+    <blockquote class="quote" id="forward-quote"></blockquote>
+    <label class="field-label" for="forward-note">Your note to the agent <span class="muted">(optional)</span></label>
+    <textarea id="forward-note" rows="4" maxlength="4000" autofocus placeholder="What should the agent look at? You may leave this empty."></textarea>
+    <p class="small muted" id="forward-credit"></p>
+    <div class="dialog-actions">
+      <button type="submit" class="btn primary" value="send" id="forward-send">Send to agent</button>
+      <button type="button" class="btn" id="forward-cancel">Cancel</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="welcome-dialog" class="dialog" aria-labelledby="welcome-title">
+  <form method="dialog" id="welcome-form">
+    <h2 id="welcome-title">Welcome to the Knotenlinie Board</h2>
+    <p class="muted">Two quick choices before you start. You can change both later from the menu under your name.</p>
+    <label class="field-label" for="welcome-name">Your name, as other members see it</label>
+    <input type="text" id="welcome-name" maxlength="80" required>
+    <fieldset class="choice">
+      <legend>When a question of yours is recorded, show your name in the public ledger?</legend>
+      <label class="radio"><input type="radio" name="welcome-public" value="yes"> Yes, show my name</label>
+      <label class="radio"><input type="radio" name="welcome-public" value="no"> No, write “Board member”</label>
+    </fieldset>
+    <p class="form-error" id="welcome-error" role="alert"></p>
+    <div class="dialog-actions">
+      <button type="submit" class="btn primary" value="save">Continue</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="profile-dialog" class="dialog" aria-labelledby="profile-title">
+  <form method="dialog" id="profile-form">
+    <h2 id="profile-title">Name and ledger setting</h2>
+    <label class="field-label" for="profile-name-input">Your name, as other members see it</label>
+    <input type="text" id="profile-name-input" maxlength="80" required>
+    <fieldset class="choice">
+      <legend>Show my name in the public ledger</legend>
+      <label class="radio"><input type="radio" name="profile-public" value="yes"> Yes</label>
+      <label class="radio"><input type="radio" name="profile-public" value="no"> No, write “Board member”</label>
+    </fieldset>
+    <p class="small muted">Changing to “no” applies from now on.</p>
+    <p class="form-error" id="profile-error" role="alert"></p>
+    <div class="dialog-actions">
+      <button type="submit" class="btn primary" value="save">Save</button>
+      <button type="button" class="btn" id="profile-cancel">Cancel</button>
+    </div>
+  </form>
+</dialog>
+
+<dialog id="actions-dialog" class="dialog sheet" aria-labelledby="actions-title">
+  <div class="sheet-body">
+    <h2 class="sr-only" id="actions-title">Message actions</h2>
+    <p class="sheet-preview small muted" id="actions-preview"></p>
+    <div class="sheet-buttons" id="actions-buttons"></div>
+    <button type="button" class="btn sheet-cancel" id="actions-cancel">Cancel</button>
+  </div>
+</dialog>
+
+<dialog id="confirm-dialog" class="dialog" aria-labelledby="confirm-title">
+  <form method="dialog">
+    <h2 id="confirm-title"></h2>
+    <p id="confirm-text" class="muted"></p>
+    <div class="dialog-actions">
+      <button type="submit" class="btn danger" value="ok" id="confirm-ok">OK</button>
+      <button type="submit" class="btn" value="cancel">Cancel</button>
+    </div>
+  </form>
+</dialog>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="/static/common.js"></script>
+<script src="/static/app.js"></script>
+</body>
+</html>

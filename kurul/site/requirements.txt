@@ -1,0 +1,3 @@
+# Runtime (transitive deps such as starlette and pydantic come with fastapi)
+fastapi==0.163.1
+uvicorn==0.54.0

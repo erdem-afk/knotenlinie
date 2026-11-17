@@ -129,4 +129,10 @@ class SiteClient:
         return self._call("PUT", f"/api/agent/feasibility/{urllib.parse.quote(qid)}", body)
 
     def suggestion(self, message_id, outcome: str) -> dict:
-        return self._call("POST", "/api/agent/suggestions", {"message_id": message_id, "outcome": outcome})
+        # The site logs "offered" itself when the card is posted; a 409 here means it is already recorded.
+        try:
+            return self._call("POST", "/api/agent/suggestions", {"message_id": message_id, "outcome": outcome})
+        except ApiError as e:
+            if e.status == 409:
+                return {"ok": True, "already": True}
+            raise

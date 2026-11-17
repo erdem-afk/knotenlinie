@@ -1,0 +1,37 @@
+[Unit]
+Description=Knotenlinie Board (kurul site)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=kurul
+Group=kurul
+WorkingDirectory=/opt/kurul/site
+# KURUL_DB, KURUL_BASE_URL, KURUL_AGENT_TOKEN, KURUL_SESSION_SECRET, KURUL_BOOTSTRAP_TOKEN,
+# KURUL_SMTP_URL, KURUL_MAIL_FROM, KURUL_COORDINATOR_EMAIL. Readable by root only.
+EnvironmentFile=/etc/kurul/env
+# One worker: live updates and rate limits live in process memory.
+ExecStart=/opt/kurul/site/.venv/bin/uvicorn kurul_site.app:main_app --factory \
+  --host 127.0.0.1 --port 8000 --workers 1 --proxy-headers --forwarded-allow-ips 127.0.0.1 \
+  --timeout-graceful-shutdown 5 --no-server-header
+Restart=on-failure
+RestartSec=3
+
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/kurul
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+CapabilityBoundingSet=
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

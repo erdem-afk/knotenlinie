@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Coordinator · Knotenlinie Board</title>
+<link rel="icon" href="/static/icon.svg">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body class="admin-page">
+<div class="admin-wrap">
+  <header class="admin-top">
+    <div>
+      <p class="brand">Knotenlinie Board</p>
+      <h1>Coordinator page</h1>
+    </div>
+    <a class="btn" href="/">Back to the board</a>
+  </header>
+
+  <section class="panel" aria-labelledby="invite-title">
+    <h2 id="invite-title">Invite a member</h2>
+    <form id="invite-form" class="form-row" novalidate>
+      <div>
+        <label class="field-label" for="invite-name">Name (as shown on the board)</label>
+        <input type="text" id="invite-name" maxlength="80" placeholder="Prof. A" required>
+      </div>
+      <div>
+        <label class="field-label" for="invite-email">Email address</label>
+        <input type="email" id="invite-email" placeholder="a@example.org" required>
+      </div>
+      <button type="submit" class="btn primary" id="invite-send">Create sign-in link</button>
+    </form>
+    <p class="form-error" id="invite-error" role="alert"></p>
+    <div id="invite-result" hidden>
+      <p class="small muted" id="invite-note"></p>
+      <div class="copy-row">
+        <label class="sr-only" for="invite-link">Sign-in link</label>
+        <input type="text" id="invite-link" readonly>
+        <button type="button" class="btn" id="invite-copy">Copy link</button>
+      </div>
+      <p class="small muted">The link works once and for 7 days. Send it to the member yourself; it signs them in directly.</p>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="reports-title">
+    <h2 id="reports-title">Feasibility reports and runs</h2>
+    <p class="small muted"><span class="private-note">Not shown to board members.</span> Runs under 10 EUR that touch no blind data start when the member approves the plan. Everything else waits for you here.</p>
+    <div id="reports"></div>
+  </section>
+
+  <section class="panel" aria-labelledby="sugg-title">
+    <h2 id="sugg-title">Agent suggestions</h2>
+    <p class="small muted">How members answered the agent's “Shall I record it?” cards. Many declines mean the detection threshold is too low.</p>
+    <div id="suggestions"></div>
+  </section>
+
+  <section class="panel" aria-labelledby="users-title">
+    <h2 id="users-title">Users</h2>
+    <div class="table-wrap"><table id="users-table">
+      <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Name in ledger</th><th>Joined</th><th>Last message</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+  </section>
+</div>
+
+<dialog id="hold-dialog" class="dialog" aria-labelledby="hold-title">
+  <form method="dialog" id="hold-form">
+    <h2 id="hold-title">Hold this run</h2>
+    <p class="muted small">The reason is posted in the question's thread, where members can read it.</p>
+    <label class="field-label" for="hold-reason">Reason</label>
+    <textarea id="hold-reason" rows="3" maxlength="1000" required></textarea>
+    <p class="form-error" id="hold-error" role="alert"></p>
+    <div class="dialog-actions">
+      <button type="submit" class="btn danger" id="hold-ok">Hold run</button>
+      <button type="button" class="btn" id="hold-cancel">Cancel</button>
+    </div>
+  </form>
+</dialog>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="/static/common.js"></script>
+<script src="/static/admin.js"></script>
+</body>
+</html>

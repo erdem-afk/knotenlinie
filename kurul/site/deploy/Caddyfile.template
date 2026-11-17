@@ -1,0 +1,20 @@
+# Copied to /etc/caddy/Caddyfile by install.sh, with {$KURUL_HOST} left for Caddy to fill from
+# its environment (/etc/default/caddy or a systemd override: KURUL_HOST=board.example.org).
+# Caddy obtains and renews the TLS certificate automatically.
+{$KURUL_HOST} {
+	encode zstd gzip
+	request_body {
+		max_size 1MB
+	}
+	reverse_proxy 127.0.0.1:8000 {
+		# Server-Sent Events: pass bytes through immediately
+		flush_interval -1
+	}
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		-Server
+	}
+	log {
+		output file /var/log/caddy/kurul.log
+	}
+}
