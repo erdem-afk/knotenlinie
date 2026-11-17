@@ -11,7 +11,7 @@ from . import core, handles
 from .config import Settings
 from .core import ApiError, jdumps, jloads
 from .db import Store, in_iso, now_iso
-from .mail import Mailer, notify
+from .mail import COORDINATOR_KINDS, Mailer, notify
 from .security import Hasher, RateLimiter, new_token
 
 log = logging.getLogger("kurul")
@@ -28,6 +28,9 @@ class Bus:
     def __init__(self):
         self.loop: asyncio.AbstractEventLoop | None = None
         self._ev: asyncio.Event | None = None
+        # Set when the server is stopping: long-polls and streams end at once with a normal response.
+        # Otherwise uvicorn cancels them after --timeout-graceful-shutdown and answers HTTP 500.
+        self.closing = False
 
     def attach(self, loop: asyncio.AbstractEventLoop) -> None:
         self.loop = loop
@@ -45,6 +48,11 @@ class Bus:
         if self._ev is not None:
             self._ev.set()
         self._ev = asyncio.Event()
+
+    def close(self) -> None:
+        """Wake every waiter for good (safe to call from a signal handler or another thread)."""
+        self.closing = True
+        self.bump()
 
     def snapshot(self) -> asyncio.Event | None:
         return self._ev
@@ -174,7 +182,7 @@ class Board:
     @staticmethod
     def me_out(u: dict) -> dict:
         return {"id": u["id"], "name": u["name"], "email": u["email"], "role": u["role"],
-                "handle": u.get("handle"),
+                "handle": u.get("handle"), "onboarded_at": u.get("onboarded_at"),
                 "public_name_ok": None if u["public_name_ok"] is None else bool(u["public_name_ok"]),
                 "can_invite": u["role"] == "coordinator" or bool(u.get("can_invite"))}
 
@@ -189,6 +197,11 @@ class Board:
             if not isinstance(data["public_name_ok"], bool):
                 raise ApiError(400, "public_name_ok must be true or false")
             sets["public_name_ok"] = int(data["public_name_ok"])
+        if "onboarded" in data and data["onboarded"] is not None:
+            if data["onboarded"] is not True:
+                raise ApiError(400, "onboarded can only be set to true")
+            if not user.get("onboarded_at"):
+                sets["onboarded_at"] = now_iso()
         new_handle = None
         if "handle" in data and data["handle"] is not None:
             new_handle = handles.normalise(data["handle"])
@@ -229,6 +242,13 @@ class Board:
             token = core.create_login_token(tx, self.hash, uid, LONG_LINK_MINUTES)
             jobs.append((u, self.login_url(token, f"/?thread={root_id}")))
         tx.after_commit(lambda: [notify(self.mailer, u, kind, subject, line, link) for u, link in jobs])
+
+    def _notify_coordinators(self, tx, kind: str, subject: str, line: str, root_id: int) -> None:
+        """Coordinator-only mail. Silent no-op while SMTP is not configured (nothing logged, no tokens)."""
+        assert kind in COORDINATOR_KINDS
+        if not self.mailer.enabled:
+            return
+        self._notify_users(tx, [c["id"] for c in core.coordinators(tx)], kind, subject, line, root_id)
 
     def _short(self, s: str, n: int = 90) -> str:
         s = " ".join((s or "").split())
@@ -361,6 +381,13 @@ class Board:
                 if action == "approve":
                     run_allowed = core.approve_plan(tx, q, user["id"], maxr)
                     q2 = core.get_question(tx, q["id"])
+                    what = {"frozen": "frozen and ready to run", "queued": f"queued (position {q2['queue_pos']})",
+                            "on_hold": "waiting for your approval to run"}.get(q2["status"], q2["status"])
+                    self._notify_coordinators(
+                        tx, "plan_approved", f"Plan approved: {q['id']} is {what}",
+                        f"{user['name']} approved the test plan for {q['id']}: \"{self._short(q['restated'])}\"\n"
+                        f"Status: {core.STATUS_LABELS.get(q2['status'], q2['status'])}. "
+                        "See \"Waiting for the team\" on the coordinator page.", q["root_message_id"])
                     result.update(question_id=q["id"], run_allowed=run_allowed, status=q2["status"],
                                   queue_pos=q2["queue_pos"])
                 else:
@@ -526,8 +553,18 @@ class Board:
                     "est_cost_eur": f.get("est_cost_eur"),
                     "touches_blind": None if not f else bool(f.get("touches_blind")),
                     "decision": f.get("decision"), "decided_at": f.get("decided_at"),
+                    "created_at": q["created_at"], "updated_at": q["updated_at"],
+                    "waiting_for_team": core.waiting_for_team(dict(q), f.get("decision")),
                 })
             return out
+
+    def admin_waiting(self) -> dict:
+        """Ids of the questions in "Waiting for the team" (for the badge on the board page)."""
+        with self.store.read() as db:
+            feas = core.feas_map(db)
+            ids = [q["id"] for q in db.all("SELECT * FROM questions ORDER BY updated_at, id")
+                   if core.waiting_for_team(dict(q), (feas.get(q["id"]) or {}).get("decision"))]
+        return {"count": len(ids), "question_ids": ids}
 
     def admin_hold(self, user: dict, qid: str, reason: Any) -> dict:
         reason = str(reason or "").strip()
@@ -781,8 +818,7 @@ class Board:
             q = core.get_question(tx, qid)
             subj = (f"Feasibility report {qid}: needs your decision" if res["decision"] == "needs_coordinator"
                     else f"Feasibility report {qid}")
-            coords = [c["id"] for c in core.coordinators(tx)]
-            self._notify_users(tx, coords, "feasibility", subj,
+            self._notify_coordinators(tx, "feasibility", subj,
                                f"Question: \"{self._short(q['restated'])}\"\n"
                                f"Estimated cost: {float(data['est_cost_eur']):.2f} EUR. "
                                f"Blind data: {'yes' if data.get('touches_blind') else 'no'}. "

@@ -23,12 +23,14 @@
       <button type="button" class="profile-btn" id="profile-btn" aria-haspopup="menu" aria-expanded="false">
         <span class="avatar small" id="profile-avatar" aria-hidden="true"></span>
         <span class="profile-name" id="profile-name"></span>
+        <span class="badge" id="profile-badge" hidden></span>
       </button>
       <div class="menu" id="profile-menu" role="menu" hidden>
         <p class="menu-head small muted" id="profile-signed-in"></p>
         <button type="button" role="menuitem" id="menu-profile">Name, handle and ledger setting</button>
+        <button type="button" role="menuitem" id="menu-how">How this works</button>
         <button type="button" role="menuitem" id="menu-invite" hidden>Invite a colleague</button>
-        <a role="menuitem" id="menu-admin" href="/admin" hidden>Coordinator page</a>
+        <a role="menuitem" id="menu-admin" href="/admin" hidden>Coordinator page <span class="badge" id="admin-badge" hidden></span></a>
         <button type="button" role="menuitem" id="menu-logout">Sign out</button>
       </div>
     </div>
@@ -112,10 +114,36 @@
   </form>
 </dialog>
 
+<dialog id="how-dialog" class="dialog how" aria-labelledby="how-title">
+  <form method="dialog" id="how-form">
+    <h2 id="how-title">How this board works</h2>
+    <div class="how-body">
+      <p>This is a shared chat for the board. Write here as you would in any group conversation.</p>
+      <p><strong>Nothing becomes a research question until you confirm it</strong>, with one tap.</p>
+      <h3>Three ways to ask</h3>
+      <ol>
+        <li>The agent may suggest that one of your messages reads as a testable question. Tap “Yes, record it”, or “No, just chatting”.</li>
+        <li>Choose “Forward to agent” on any message, yours or a colleague's, and add a note if you like.</li>
+        <li>Write <span class="mention mention-agent">@knotenlinie</span> in a message.</li>
+      </ol>
+      <h3>What happens next</h3>
+      <p>The agent either answers from past work, with references to the ledger, or drafts a test plan. Nothing runs until you approve the plan.</p>
+      <p>Before a test runs, its plan is frozen. Every result goes into the open ledger, including “no effect”.</p>
+      <h3>What this work can and cannot do</h3>
+      <p>It tests specific, clearly stated questions against data. It does not give absolute earthquake probabilities, for Istanbul or anywhere else, and we never call it “prediction”.</p>
+      <h3>What is kept</h3>
+      <p>Everything written here is stored. You can hide your own message; that erases its text for everyone, including us. Your name appears in the public ledger only if you choose so, and you can change that later from the menu under your name.</p>
+    </div>
+    <div class="dialog-actions">
+      <button type="submit" class="btn primary" value="ok" id="how-ok">Got it</button>
+    </div>
+  </form>
+</dialog>
+
 <dialog id="welcome-dialog" class="dialog" aria-labelledby="welcome-title">
   <form method="dialog" id="welcome-form">
     <h2 id="welcome-title">Welcome to the Knotenlinie Board</h2>
-    <p class="muted">Two quick choices before you start. You can change both later from the menu under your name.</p>
+    <p class="muted">A few quick choices before you start. You can change them later from the menu under your name.</p>
     <label class="field-label" for="welcome-name">Your name, as other members see it</label>
     <input type="text" id="welcome-name" maxlength="80" required>
     <label class="field-label" for="welcome-handle">Your handle, so colleagues can write @handle</label>

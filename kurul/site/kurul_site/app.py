@@ -6,6 +6,7 @@ import asyncio
 import html
 import json
 import logging
+import signal
 from contextlib import asynccontextmanager
 from pathlib import Path
 from urllib.parse import parse_qs, quote
@@ -33,6 +34,43 @@ def safe_next(n: str | None) -> str:
     return n
 
 
+def install_stop_hook(hook) -> callable:
+    """Call hook() first when the server receives SIGTERM/SIGINT, then the server's own handler.
+
+    uvicorn installs its handlers with signal.signal before the lifespan starts; we chain in front of
+    them so open long-polls can answer before uvicorn's graceful-shutdown timeout cancels them (a
+    cancelled request that has not started its response is answered with HTTP 500). Outside the main
+    thread (e.g. the test client) this does nothing. Returns a function that restores the handlers.
+    """
+    saved = {}
+    for sig in (signal.SIGTERM, signal.SIGINT):
+        try:
+            prev = signal.getsignal(sig)
+            if not callable(prev):
+                continue
+
+            def handler(signum, frame, prev=prev):
+                try:
+                    hook()
+                except Exception:  # never block the shutdown
+                    log.exception("stop hook failed")
+                prev(signum, frame)
+
+            signal.signal(sig, handler)
+            saved[sig] = prev
+        except ValueError:  # not the main thread
+            return lambda: None
+
+    def restore():
+        for sig, prev in saved.items():
+            try:
+                if signal.getsignal(sig) is not prev:
+                    signal.signal(sig, prev)
+            except ValueError:
+                pass
+    return restore
+
+
 def create_app(settings: Settings | None = None, mailer: Mailer | None = None) -> FastAPI:
     settings = settings or Settings.from_env()
     board = Board(settings, mailer)
@@ -40,7 +78,12 @@ def create_app(settings: Settings | None = None, mailer: Mailer | None = None) -
     @asynccontextmanager
     async def lifespan(app: FastAPI):
         board.bus.attach(asyncio.get_running_loop())
-        yield
+        restore = install_stop_hook(board.bus.close)
+        try:
+            yield
+        finally:
+            board.bus.close()
+            restore()
 
     app = FastAPI(title="Knotenlinie Board", lifespan=lifespan, docs_url=None, redoc_url=None,
                   openapi_url=None)
@@ -274,7 +317,7 @@ def create_app(settings: Settings | None = None, mailer: Mailer | None = None) -
             yield f"retry: 3000\nevent: hello\ndata: {json.dumps({'last': last})}\n\n"
             idle = 0.0
             while True:
-                if await request.is_disconnected():
+                if board.bus.closing or await request.is_disconnected():
                     return
                 ev = board.bus.snapshot()
                 items, last = await run_in_threadpool(board.visible_events, user, last)
@@ -313,6 +356,10 @@ def create_app(settings: Settings | None = None, mailer: Mailer | None = None) -
     def admin_invites(user: dict = Depends(coordinator)):
         return {"invites": board.admin_invites()}
 
+    @app.get("/api/admin/waiting")
+    def admin_waiting(user: dict = Depends(coordinator)):
+        return board.admin_waiting()
+
     @app.get("/api/admin/feasibility")
     def admin_feas(user: dict = Depends(coordinator)):
         return {"reports": board.admin_feasibility()}
@@ -344,7 +391,7 @@ def create_app(settings: Settings | None = None, mailer: Mailer | None = None) -
             ev = board.bus.snapshot()
             events = await run_in_threadpool(board.agent_events, after)
             remaining = deadline - loop.time()
-            if events or remaining <= 0 or await request.is_disconnected():
+            if events or remaining <= 0 or board.bus.closing or await request.is_disconnected():
                 break
             await Bus.wait(ev, min(2.0, remaining))
         last = events[-1]["id"] if events else after

@@ -667,7 +667,8 @@
 
   function setupComposer(form, input, getRoot, after) {
     input.addEventListener("input", () => autogrow(input));
-    const ghost = K.ghost.attach(input, mentionCandidates);
+    const ghost = K.ghost.attach(input, mentionCandidates,
+      { chipBefore: form.querySelector("button[type=submit]"), onLayout: () => autogrow(input) });
     input.addEventListener("keydown", (e) => {
       if (e.key === "Enter" && !e.shiftKey && !e.isComposing && !touch) {
         e.preventDefault();
@@ -747,6 +748,41 @@
     } catch (err) { $(errId).textContent = err.message; }
   }
 
+  // ------------------------------------------------------------------ how this works
+
+  /** The explainer. first: shown once at first login; closing it in any way records that it was seen. */
+  function showHow(first) {
+    toggleMenu(false);
+    const d = $("how-dialog");
+    $("how-ok").textContent = first && S.me.public_name_ok === null ? "Continue" : "Got it";
+    return new Promise((resolve) => {
+      d.addEventListener("close", async () => {
+        if (first) {
+          try { S.me = await api("PATCH", "/api/me", { onboarded: true }); } catch (e) { /* shown again next time */ }
+        }
+        resolve();
+      }, { once: true });
+      d.showModal();
+      d.querySelector(".how-body").scrollTop = 0;
+      $("how-ok").focus();
+    });
+  }
+
+  // ------------------------------------------------------------------ waiting for the team (coordinator)
+
+  async function loadWaiting() {
+    if (!S.me || S.me.role !== "coordinator") return;
+    let n = 0;
+    try { n = (await api("GET", "/api/admin/waiting")).count; } catch (e) { return; }
+    for (const id of ["admin-badge", "profile-badge"]) {
+      const b = $(id);
+      b.textContent = n ? String(n) : "";
+      b.hidden = !n;
+      b.setAttribute("aria-label", `${n} waiting for the team`);
+      b.title = `${n} question${n === 1 ? "" : "s"} waiting for the team`;
+    }
+  }
+
   // ------------------------------------------------------------------ invite a colleague
 
   function openInvite() {
@@ -813,7 +849,7 @@
   // ------------------------------------------------------------------ wiring
 
   async function refreshAll() {
-    const jobs = [refreshFeed(false), refreshQuestions()];
+    const jobs = [refreshFeed(false), refreshQuestions(), loadWaiting()];
     if (S.threadId) jobs.push(refreshThread(false));
     const res = await Promise.allSettled(jobs);
     const bad = res.find((r) => r.status === "rejected");
@@ -831,6 +867,7 @@
     document.addEventListener("click", (e) => { if (!e.target.closest(".profile")) toggleMenu(false); });
     $("menu-profile").addEventListener("click", openProfile);
     $("menu-invite").addEventListener("click", openInvite);
+    $("menu-how").addEventListener("click", () => showHow(false));
     $("invite-form").addEventListener("submit", sendInvite);
     $("invite-copy").addEventListener("click", copyInvite);
     for (const id of ["invite-name", "invite-email"]) $(id).addEventListener("input", () => { $("invite-error").textContent = ""; });
@@ -844,7 +881,7 @@
     $("welcome-form").addEventListener("submit", (e) => saveProfile(e, "welcome-name", "welcome-handle", "welcome-public", "welcome-error", "welcome-dialog"));
     $("welcome-dialog").addEventListener("cancel", (e) => e.preventDefault());
     $("forward-form").addEventListener("submit", sendForward);
-    forwardGhost = K.ghost.attach($("forward-note"), mentionCandidates);
+    forwardGhost = K.ghost.attach($("forward-note"), mentionCandidates, { chipBefore: $("forward-send") });
     $("forward-cancel").addEventListener("click", () => $("forward-dialog").close());
     $("actions-cancel").addEventListener("click", () => $("actions-dialog").close());
     for (const d of document.querySelectorAll("dialog.sheet")) {
@@ -864,7 +901,7 @@
   async function start() {
     if (touch) document.body.classList.add("touch");
     if (window.innerWidth < 520) $("composer-input").placeholder = "Write a message";
-    if (touch) $("composer-hint").textContent = "Type @ to address the agent or a colleague; tap the grey text to complete.";
+    if (touch) $("composer-hint").textContent = "Type @ to address the agent or a colleague; tap the suggestion to complete.";
     wire();
     try {
       S.me = await api("GET", "/api/me");
@@ -873,6 +910,12 @@
     await Promise.allSettled([loadMembers(), refreshQuestions(), refreshFeed(true)]);
     const t = parseInt(new URLSearchParams(location.search).get("thread") || "", 10);
     if (t) openThread(t);
+    K.live((events) => {
+      if (events.some((e) => e.type === "visible" || e.type === "reconnected")) loadMembers().catch(() => {});
+      refreshAll();
+    });
+    loadWaiting();
+    if (!S.me.onboarded_at) await showHow(true);
     if (S.me.public_name_ok === null) {
       $("welcome-name").value = S.me.name;
       $("welcome-handle").value = S.me.handle || "";
@@ -880,10 +923,6 @@
     } else if (!touch) {
       $("composer-input").focus();
     }
-    K.live((events) => {
-      if (events.some((e) => e.type === "visible" || e.type === "reconnected")) loadMembers().catch(() => {});
-      refreshAll();
-    });
   }
 
   start();

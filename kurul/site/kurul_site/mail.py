@@ -67,13 +67,20 @@ class Mailer:
             log.exception("mail delivery failed to=%s subject=%s", to, subject)
 
 
+# Notifications about runs, costs and feasibility: coordinators only, and only by real email.
+COORDINATOR_KINDS = frozenset({"feasibility", "plan_approved"})
+
+
 def notify(mailer: Mailer, user: dict, kind: str, subject: str, line: str, link: str) -> None:
     """The single entry point for notification emails.
 
-    kind: 'plan_waiting' | 'answer' | 'mention' | 'feasibility'.
-    Without SMTP this only logs.
+    kind: 'plan_waiting' | 'answer' | 'mention' | 'feasibility' | 'plan_approved'.
+    Member kinds without SMTP only log. Coordinator kinds (COORDINATOR_KINDS) never reach a member
+    and do nothing at all while SMTP is not configured.
     """
     if not user or not user.get("email") or user.get("role") == "agent":
+        return
+    if kind in COORDINATOR_KINDS and (user.get("role") != "coordinator" or not mailer.enabled):
         return
     if user["email"].endswith("@invalid"):
         log.info("notify[%s] to user %s (no real address): %s %s", kind, user.get("id"), subject, link)

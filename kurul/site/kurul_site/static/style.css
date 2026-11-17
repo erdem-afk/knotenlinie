@@ -263,6 +263,31 @@ time { color: var(--muted); font-size: .82rem; }
   white-space: pre-wrap; overflow-wrap: break-word; word-break: normal;
 }
 .ghost-text { color: var(--ghost); pointer-events: auto; cursor: pointer; }
+/* When the rest does not fit on the caret's line: an inline block capped (in ghost.js) to the room left,
+   so the typed text is never re-wrapped; the end is cut with an ellipsis. */
+.ghost-text.clip { display: inline-block; vertical-align: top; white-space: pre; overflow: hidden; text-overflow: ellipsis; }
+
+/* Accept chip for touch and narrow screens, shown next to Send while a ghost is showing. */
+.ghost-chip {
+  flex: none; align-self: flex-end; min-height: 44px; max-width: 9.5rem; padding: 0 .6rem; border-radius: 8px;
+  font: 600 .88rem var(--font); color: var(--accent); background: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap; cursor: pointer; touch-action: manipulation;
+}
+.dialog-actions .ghost-chip { align-self: auto; }
+
+.badge {
+  display: inline-block; min-width: 1.35em; padding: 0 .4em; border-radius: 999px; background: var(--q); color: var(--card);
+  font: 700 .74rem/1.45 var(--font); text-align: center; vertical-align: .1em; margin-left: .3rem;
+}
+
+/* First-login explainer ("How this works") */
+.dialog.how { width: min(620px, calc(100vw - 24px)); }
+.how-body { max-height: min(62dvh, 560px); overflow-y: auto; padding-right: .3rem; }
+.how-body p { margin: .45rem 0; }
+.how-body h3 { font: 700 .82rem var(--font); text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 1rem 0 .3rem; }
+.how-body ol { margin: .3rem 0; padding-left: 1.3rem; }
+.how-body li { margin: .3rem 0; }
 
 .prefixed { display: flex; align-items: stretch; }
 .prefixed span {
@@ -402,3 +427,4 @@ td { overflow-wrap: anywhere; }
 .stat { border: 1px solid var(--rule); border-radius: 8px; padding: .6rem .8rem; }
 .stat .n { font-size: 1.5rem; font-weight: 700; font-variant-numeric: tabular-nums; display: block; }
 .private-note { display: inline-block; font-size: .8rem; color: var(--danger); }
+.report.waiting { border-left: 4px solid var(--q); }

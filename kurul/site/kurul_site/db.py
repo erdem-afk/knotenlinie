@@ -27,7 +27,9 @@ CREATE TABLE IF NOT EXISTS users(
   can_invite INTEGER NOT NULL DEFAULT 0,
   invited_by INTEGER NULL REFERENCES users(id),
   -- @handle for mentions: lower-case [a-z0-9_]{2,24}; unique index created in init_db
-  handle TEXT NULL
+  handle TEXT NULL,
+  -- when the user dismissed the first-login "How this works" explainer; NULL = not seen yet
+  onboarded_at TEXT NULL
 );
 
 CREATE TABLE IF NOT EXISTS login_tokens(
@@ -170,6 +172,8 @@ def init_db(path: str) -> None:
             conn.execute("ALTER TABLE users ADD COLUMN invited_by INTEGER NULL REFERENCES users(id)")
         if "handle" not in cols:  # databases created before @handles
             conn.execute("ALTER TABLE users ADD COLUMN handle TEXT NULL")
+        if "onboarded_at" not in cols:  # databases created before the first-login explainer
+            conn.execute("ALTER TABLE users ADD COLUMN onboarded_at TEXT NULL")
         migrate_handles(conn)
     finally:
         conn.close()

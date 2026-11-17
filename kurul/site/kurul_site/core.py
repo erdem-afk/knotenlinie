@@ -605,6 +605,15 @@ def decision_for(tx: Tx, qid: str) -> str:
 
 
 WAITING_FOR_COORDINATOR = "Waiting for the coordinator's approval to run."
+TEAM_STATUSES = ("frozen", "queued", "on_hold")
+
+
+def waiting_for_team(q: dict, decision: str | None) -> bool:
+    """A question the coordinator or project team should look at: approved and frozen, queued,
+    on hold, or with a feasibility report that needs the coordinator's decision."""
+    if q["status"] in TEAM_STATUSES:
+        return True
+    return decision == "needs_coordinator" and q["status"] not in FINISHED
 
 
 def approve_plan(tx: Tx, q: dict, by_user_id: int, max_running: int) -> bool:

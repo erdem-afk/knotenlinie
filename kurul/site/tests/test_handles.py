@@ -75,12 +75,14 @@ def test_new_users_get_unique_handles(env):
 # ---------------------------------------------------------------- migration
 
 def schema_without_handle() -> str:
+    """The users table as it was before @handles (and before onboarded_at)."""
     s = kdb.SCHEMA
-    a = s.index("  -- @handle for mentions")
-    b = s.index("handle TEXT NULL\n", a) + len("handle TEXT NULL\n")
-    s = s[:a] + s[b:]
-    s = s.replace("invited_by INTEGER NULL REFERENCES users(id),\n);", "invited_by INTEGER NULL REFERENCES users(id)\n);")
-    assert "handle" not in s
+    a = s.index("CREATE TABLE IF NOT EXISTS users(")
+    b = s.index(");", a)
+    lines = [ln for ln in s[a:b].split("\n") if not any(w in ln for w in ("handle", "onboarded", "first-login"))]
+    block = "\n".join(lines).rstrip().rstrip(",") + "\n"
+    s = s[:a] + block + s[b:]
+    assert "handle" not in s and "onboarded" not in s
     return s
 
 

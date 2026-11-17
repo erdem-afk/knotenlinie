@@ -10,6 +10,7 @@
 K.ghost = (() => {
   const { h } = K;
   const touch = window.matchMedia("(hover: none)").matches;
+  const coarse = window.matchMedia("(pointer: coarse)");
   const COPY = ["fontFamily", "fontSize", "fontWeight", "fontStyle", "fontVariant", "fontStretch", "fontKerning",
     "fontFeatureSettings", "fontVariantLigatures", "lineHeight", "letterSpacing", "wordSpacing", "textTransform",
     "textIndent", "textRendering", "tabSize", "paddingTop", "paddingRight", "paddingBottom", "paddingLeft",
@@ -29,14 +30,26 @@ K.ghost = (() => {
 
   /**
    * ta: the textarea. candidates(): the current list [{handle, words}].
+   * opts.chipBefore: an element (the Send button) before which a "⇥ @handle" accept chip is shown
+   * while a ghost is showing, on coarse pointers or below 720 px only; opts.onLayout() is called when
+   * the chip appears or goes (the textarea's width changes).
    * Returns {update} so callers can refresh after changing the value programmatically.
    */
-  function attach(ta, candidates) {
+  function attach(ta, candidates, opts) {
     const wrap = h("div", { class: "ghost-wrap" });
     ta.parentNode.insertBefore(wrap, ta);
     const mirror = h("div", { class: "ghost-mirror", "aria-hidden": "true", hidden: true });
     const hint = h("span", { class: "sr-only", "aria-live": "polite" });
     wrap.append(ta, mirror, hint);
+    let chip = null;
+    if (opts && opts.chipBefore) {
+      chip = h("button", { type: "button", class: "ghost-chip", tabindex: "-1", hidden: true });
+      // pointerdown keeps the focus (and the on-screen keyboard) in the textarea
+      chip.addEventListener("pointerdown", (e) => e.preventDefault());
+      chip.addEventListener("mousedown", (e) => e.preventDefault());
+      chip.addEventListener("click", (e) => { e.preventDefault(); accept(); });
+      opts.chipBefore.parentNode.insertBefore(chip, opts.chipBefore);
+    }
 
     let composing = false;
     let dismissed = null;      // token key the user dismissed with Escape
@@ -81,7 +94,22 @@ K.ghost = (() => {
       mirror.style.top = ta.offsetTop + "px";
     }
 
+    function renderChip(st) {
+      if (!chip) return;
+      const want = !!st && (coarse.matches || window.innerWidth < 720);
+      if (want) {
+        chip.textContent = "⇥ @" + st.c.handle;
+        chip.setAttribute("aria-label", "Complete @" + st.c.handle);
+      }
+      if (chip.hidden === want) {
+        chip.hidden = !want;
+        // the textarea got narrower or wider: let the caller re-fit its height
+        if (opts.onLayout) opts.onLayout();
+      }
+    }
+
     function render(st) {
+      renderChip(st);
       if (!st) {
         if (!mirror.hidden) { mirror.hidden = true; K.clear(mirror); }
         if (announced) { announced = ""; hint.textContent = ""; }
@@ -89,11 +117,28 @@ K.ghost = (() => {
       }
       syncBox();
       const v = ta.value;
+      const marker = h("span");
       const g = h("span", { class: "ghost-text", text: st.ghost });
       g.addEventListener("pointerdown", (e) => { e.preventDefault(); accept(); });
-      K.clear(mirror).append(document.createTextNode(v.slice(0, st.end)), g,
-        document.createTextNode(v.slice(st.end) + "​"));
+      // First without the grey text: where the caret really is.
+      K.clear(mirror).append(document.createTextNode(v.slice(0, st.end)), marker,
+        document.createTextNode(v.slice(st.end) + "\u200b"));
       mirror.hidden = false;
+      const at = marker.getBoundingClientRect();
+      // Plain inline text keeps the font's kerning across the caret and so matches the completed text
+      // exactly. If it would wrap, or push the typed token to the next line, cap it to the room left on
+      // the caret's line instead.
+      marker.after(g);
+      const moved = marker.getBoundingClientRect();
+      const rects = g.getClientRects();
+      if (Math.abs(moved.top - at.top) > 1 || Math.abs(moved.left - at.left) > 1 || rects.length !== 1
+          || Math.abs(rects[0].top - at.top) > 1) {
+        const cs = getComputedStyle(mirror);
+        const right = mirror.getBoundingClientRect().right - (parseFloat(cs.borderRightWidth) || 0)
+          - (parseFloat(cs.paddingRight) || 0);
+        g.classList.add("clip");
+        g.style.maxWidth = Math.max(0, Math.floor(right - at.left) - 1) + "px";
+      }
       mirror.scrollTop = ta.scrollTop;
       const say = `${touch ? "Tap the suggestion" : "Tab"} to complete @${st.c.handle}`;
       if (say !== announced) { announced = say; hint.textContent = say; }

@@ -31,7 +31,7 @@ UI language: English. Members write Turkish or English. Code comments: English.
 ## 3. Data model (SQLite, single file)
 
 - `users(id, email UNIQUE, name, role, public_name_ok INTEGER NULL, created_at,
-   can_invite INTEGER NOT NULL DEFAULT 0, invited_by INTEGER NULL, handle TEXT)`
+   can_invite INTEGER NOT NULL DEFAULT 0, invited_by INTEGER NULL, handle TEXT, onboarded_at TEXT NULL)`
   `public_name_ok` NULL = not asked yet; asked at first login; changeable any time.
   `can_invite`: member may invite colleagues (set by the coordinator). `invited_by`: user id of the inviter.
   `handle`: `@handle` for mentions, stored lower-case, `[a-z0-9_]{2,24}`, unique case-insensitively
@@ -42,6 +42,8 @@ UI language: English. Members write Turkish or English. Code comments: English.
   never a person's handle: `knotenlinie` (the agent user's own handle), `coordinator`, `agent`, `admin`,
   `everyone`, `all`, `here`, `board`. Databases from before handles get the column and derived handles at
   start-up (in place, idempotent, oldest user first).
+  `onboarded_at`: when the user closed the first-login "How this works" explainer; NULL = not seen yet
+  (also NULL for everyone who joined before it existed, so each user sees it once). Added in place.
 - `invites(id, user_id NULL, invited_by NULL, email, outcome, created_at)`; every invite attempt;
   `outcome`: `created` | `new_link` | `exists`. Used for the admin list and the per-inviter daily limit.
 - `login_tokens(token_hash, user_id, expires_at, used_at)`; single use, 30 min (bootstrap/invite links: 7 days).
@@ -70,7 +72,9 @@ Question `status` values and UI labels:
   send it by SMTP when configured; otherwise log the link to the server log only.
 - `GET /auth/verify?token=`: sets session, redirects to `/`.
 - `POST /auth/logout`
-- `GET /api/me` (includes `can_invite`, `handle`) · `PATCH /api/me {name?, public_name_ok?, handle?}`:
+- `GET /api/me` (includes `can_invite`, `handle`, `onboarded_at`) ·
+  `PATCH /api/me {name?, public_name_ok?, handle?, onboarded?}`: `onboarded: true` sets `onboarded_at` once
+  (later calls keep the first time; any other value is 400).
   `handle` is trimmed, one leading `@` dropped, lower-cased; 400 if not `[a-z0-9_]{2,24}`, 409 if reserved or
   taken (nothing is written then).
 - `GET /api/members`: `[{id, name, handle, role}]` for every user incl. agent and coordinator; no emails.
@@ -96,7 +100,11 @@ Question `status` values and UI labels:
   `GET /api/admin/users` (with `can_invite`, `invited_by`, `handle`) · `PATCH /api/admin/users/{id} {can_invite}` ·
   `POST /api/admin/invites {email, name}` → `{login_url}` (7-day link; records `invited_by`) ·
   `GET /api/admin/invites` ·
-  `GET /api/admin/feasibility` · `POST /api/admin/questions/{id}/hold {reason}` ·
+  `GET /api/admin/feasibility` (each report also has `created_at`, `updated_at`, `waiting_for_team`) ·
+  `GET /api/admin/waiting` → `{count, question_ids}` (oldest first; the badge on the board page). A question is
+  *waiting for the team* when its status is `frozen`, `queued` or `on_hold`, or its feasibility decision is
+  `needs_coordinator` and it is not finished. The coordinator page lists these first, with the private detail
+  and the cost estimate and the hold/release/approve_run actions · `POST /api/admin/questions/{id}/hold {reason}` ·
   `POST /api/admin/questions/{id}/release` · `POST /api/admin/questions/{id}/approve_run` ·
   `GET /api/admin/suggestions` (accept/decline counts, for tuning the detection threshold).
 
@@ -110,8 +118,31 @@ addressed user except the author gets one `mention` notification per message (th
 "Prof. Beta", still counts and is merged, never doubled). The UI highlights known mentions as text spans
 (never HTML from member text) and offers inline completion in the composers: the rest of the best
 handle appears in grey at the caret; Tab (or → at the end of the text, or a tap on it) accepts,
-↑/↓ cycle, Esc dismisses. Order: `knotenlinie`, `coordinator`, then colleagues by handle; the typed part
+↑/↓ cycle, Esc dismisses. On touch devices and below 720 px a "⇥ @handle" chip next to Send
+accepts as well. When the rest does not fit on the caret's line it is cut with an ellipsis. Order: `knotenlinie`, `coordinator`, then colleagues by handle; the typed part
 also matches the start of a colleague's name words.
+
+### First login
+
+A short "How this works" explainer opens once (until `onboarded_at` is set), before the name/handle/ledger
+choices, and stays reachable from the user menu. It covers: shared chat; nothing is a question until
+confirmed with one tap; three ways to ask (accept a suggestion, "Forward to agent" with an optional note,
+`@knotenlinie`); answer from the record with ledger references or a test plan approved before anything
+runs; frozen plans and every result, "no effect" included, in the open ledger; no absolute earthquake
+probabilities and never "prediction"; what is stored, hiding, and the ledger-name choice.
+
+### Notifications (email)
+
+Members: `mention`, `plan_waiting`, `answer`. Coordinators only: `feasibility` (every feasibility report;
+the subject says when it needs a decision) and `plan_approved` (a member approved a plan; says whether it
+is frozen, queued or waiting for the coordinator). Coordinator kinds are never sent to members and do
+nothing at all while SMTP is not configured (no log line with content, no sign-in link minted). Without
+SMTP, member kinds are written to the server log.
+
+### Shutdown
+
+On SIGTERM/SIGINT the site first ends open agent long-polls (`GET /api/agent/events` answers at once with
+the events so far, usually none) and live streams, then lets the server stop. The worker simply polls again.
 
 ## 5. Agent API (header `Authorization: Bearer <AGENT_TOKEN>`)
 
