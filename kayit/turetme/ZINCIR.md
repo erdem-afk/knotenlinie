@@ -285,3 +285,28 @@ TR-4: koşu kodu yazıldı, bağımsız kod incelemesi "DÜZELTMEYLE KABUL" verd
 düzeltildi; 23 yeni mutantın 23'ü yakalandı), okumalar veri öncesi Ek 2 ile sabitlendi (fd1c1e8). Ölçülen bayt/örnek
 1,60 (ön kayıt 1,3 varsaymıştı): orta kademe fiilen ≈256 GB, medyan hızda ≈24 gün; bütçe 21 gün. Kural değişmedi:
 aşılırsa kesik koşu, T 2017–2021 tamamlanmazsa "veri yok (indirme bütçesi)". Kademe kararı 17 Kasım.
+
+## Halka 13 (17 Kasım 2026): eşik kuralı değişti; TR-1b veri yok, TR-13b tek koşu "ayırt edilemez"; TR-6c donduruldu, TR-4 indirmesi başladı
+
+Kural değişikliği (Erdem'in sorusu, 16 Kasım: "o rakamları neye göre belirledik, ezbere mi?"): kapılardaki "K ≥ 20"
+hesaptan geliyordu ama hesaba giren etki büyüklüğü bizim "orta etki" seçimimizdi (`ESIK-DAYANAGI.md`). Artık kapı
+geç/kal değil; "bu sayıyla görülebilir en küçük etki" önceden yazılır, kapı altı adaylar yalnız büyük etkiye bakan
+sınırlı koşuya girer, olumsuz sonuç "ayırt edilemez (MDE)" diye okunur.
+
+TR-1b (deprem öncesi GNSS hız değişimi, eşli kaydırılmış pencere): aşama 0 üstveri sayımı 665 aday olaydan K = 2,
+eşli 1 → veri yok. Eleme varsayıma bağlı değil: sakinlik kuralı olayların %82'sini atıyor.
+
+TR-13b (yerelleşme, sınırlı koşu): iki tasarım incelemesi, bağımsız kod incelemesi (gerçek kip kapısı işlevin içine
+alındı; sıfır havuzu gerçek üyeyle aynı süzgeçten geçirildi), dondurma 41efef8, tek koşu. Hüküm: ayırt edilemez,
+MDE f ≈ 0,39, keşif dışı 10 küme; z̄ −0,60 (p 0,14–0,22). `tr13b/tr13b_sonuc.md`.
+
+Başarısızlığın biçimi: örneklem. Yön iddiayla aynı, üç olay güçlü (Küba 2024, Kumamoto 2016, Darfield 2010), ama
+tablo dağınık ve 10 kümeyle yalnız çok büyük etki görülür. Çıkan soru TR-13c: aynı dondurulmuş ölçüyle eşik Mw 6,0'a
+inip yoğun ağ bölgelerine sınırlanınca yeni küme sayısı MDE'yi f ≈ 0,2'ye indirir mi (önce 0 € sayım; bu koşudaki 15
+olay geliştirme verisi olur).
+
+TR-6c (gerilme ölçer kör doğrulaması): sürüm 1 RET (yöntem ölçütü gerçek kalibrasyon havuzunu sınamıyordu), sürüm 2
+düzeltmeyle kabul ve donduruldu; bağlayıcı yapay sınama 17 Kasım'da başladı (≈ 19 saat). Olay sonrası veri açılmadı.
+
+TR-4 (Marmara hız tabanı): kademe C seçildi, Kandilli indirmesi 17 Kasım 11:28Z'de başladı (≈ 256 GB, ≈ 3 hafta).
+Hiçbir ölçü indirme bitmeden hesaplanmaz.
