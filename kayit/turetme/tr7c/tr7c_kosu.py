@@ -857,6 +857,12 @@ def k1c_hesap(kaynak, birimler, neg, alg, mod):
     M_modk = sum(olc(b['id'])[1] for b in alg_P if b['id'] != KURIL2007)
     bilgi['Kuril2007_cikarilmis_Z3'] = z3(n_Pk, n_N, X_Pk, X_N, f_PK, N_PK, M_modk)
     bilgi['genlik4_algilama'] = {b['id']: alg[b['id']]['algilama'] for b in g4}
+    # O-37: "modülasyonu ölçülemeyen" = §5 madde 4'ün ölçülebilir olay tanımını sağlamayan (algılama kümesi yok da dahil)
+    bilgi['genlik4_olculemeyen_neden'] = {
+        b['id']: ('taranmadı' if not tar[b['id']] else 'ölçüldü' if olc(b['id'])[0] else
+                  'algılama kümesi yok' if not alg[b['id']]['algilama'] else
+                  'başvuru kanalı yok' if mod.get(b['id'], {}).get('ref') is None else 'M hesaplanamadı')
+        for b in g4}
     bilgi['X_N_bolu_n_N'] = X_N / n_N if n_N else None
     bilgi['X_P_bolu_n_P'] = X_P / n_P if n_P else None
     ayri = [r for r in alg.values() if r.get('sinif') == 'Nayri']
