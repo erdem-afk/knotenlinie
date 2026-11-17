@@ -23,6 +23,10 @@ from .texts import LANG_NAME, text
 
 PLAN_STATES = {None, "", "recorded", "plan_drafted", "waiting_approval"}
 
+# Files in KURUL_STATE_DIR read by the ops scripts in deploy/ (health check, updater).
+HEARTBEAT_FILE = "heartbeat"   # epoch seconds of the last successful long-poll
+BUSY_FILE = "busy.json"        # present while an event is being processed: {pid, event_id, type, since}
+
 
 class Skip(Exception):
     """Event cannot be processed and should not be retried."""
@@ -53,6 +57,7 @@ class Worker:
             log("stopping")
         signal.signal(signal.SIGTERM, _stop)
         signal.signal(signal.SIGINT, _stop)
+        self._clear_busy()  # a marker left by a killed process is stale
         log("started", last_event_id=self.state.last_event_id(), llm=self.cfg.llm, autorun=self.cfg.autorun,
             ledger_rows=len(self.ledger.rows()))
         failures = 0
@@ -78,6 +83,7 @@ class Worker:
 
     def poll_once(self, wait: int = 0) -> int:
         resp = self.client.events(self.state.last_event_id(), wait)
+        self._heartbeat()
         events = sorted(resp.get("events") or [], key=lambda e: int(e.get("id", 0)))
         for ev in events:
             if self.stop:
@@ -88,12 +94,40 @@ class Worker:
             self.state.set_last_event_id(last)
         return len(events)
 
+    # Ops markers (best effort; never break the loop) ------------------------------------------
+
+    def _heartbeat(self) -> None:
+        try:
+            _write_atomic(Path(self.cfg.state_dir) / HEARTBEAT_FILE, f"{time.time():.0f}\n")
+        except OSError as e:
+            log("heartbeat_failed", level="warning", error=str(e)[:200])
+
+    def _set_busy(self, eid: int, etype: str) -> None:
+        try:
+            _write_atomic(Path(self.cfg.state_dir) / BUSY_FILE, json.dumps(
+                {"pid": os.getpid(), "event_id": eid, "type": etype, "since": round(time.time())}) + "\n")
+        except OSError:
+            pass
+
+    def _clear_busy(self) -> None:
+        try:
+            (Path(self.cfg.state_dir) / BUSY_FILE).unlink(missing_ok=True)
+        except OSError:
+            pass
+
     def process(self, ev: dict) -> str:
         eid = int(ev.get("id", 0))
         etype = ev.get("type", "?")
         if self.state.is_handled(eid):
             self.state.set_last_event_id(eid)
             return "duplicate"
+        self._set_busy(eid, etype)
+        try:
+            return self._process(ev, eid, etype)
+        finally:
+            self._clear_busy()
+
+    def _process(self, ev: dict, eid: int, etype: str) -> str:
         outcome = "error"
         for attempt in range(1, self.cfg.event_attempts + 1):
             try:
@@ -735,6 +769,12 @@ class Worker:
 
 
 # ---------------------------------------------------------------------------------------------
+
+def _write_atomic(path: Path, data: str) -> None:
+    tmp = path.with_name("." + path.name + ".tmp")
+    tmp.write_text(data, encoding="utf-8")
+    os.replace(tmp, path)
+
 
 def _respond_public(o: dict):
     if o.get("path") == "record":

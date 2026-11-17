@@ -18,6 +18,12 @@ Production: `deploy/kurul-ajan.service` (unprivileged user, `EnvironmentFile=/et
 `Restart=always`) and `deploy/kurul-ajan.env.example`. Log in to the Claude Code CLI once as the
 service user.
 
+Ops timers (`sudo bash deploy/install-ops.sh`, idempotent): `kurul-ajan-update` (every 5 min:
+fast-forward the code and ledger clones, restart the worker when the code changed and it is not
+mid-event), `kurul-ajan-health` (every 10 min: `KURUL-HEALTH OK|FAIL` in the journal and
+`health.json`), `kurul-ajan-backup` (daily tar.gz of the state directory, 14 kept). Runbook:
+`../OPERATIONS.md`.
+
 ## Environment
 
 | Variable | Default | Meaning |
@@ -31,9 +37,15 @@ service user.
 | `KURUL_SUGGEST_THRESHOLD` | `0.85` | minimum classifier confidence for a suggestion card |
 | `KURUL_MENTION_THRESHOLD` | `0.6` | same, for `@knotenlinie` messages (an explicit request) |
 | `KURUL_BLOCKED_NAMES`, `KURUL_BLOCKED_TERMS` | empty | comma lists never allowed in posts (e.g. the coordinator's personal name) |
-| `KURUL_STATE_DIR` | `~/.local/state/kurul-ajan` | SQLite state, `kuyruk/`, `coordinator.jsonl`, worktrees |
+| `KURUL_STATE_DIR` | `~/.local/state/kurul-ajan` | SQLite state, `kuyruk/`, `coordinator.jsonl`, worktrees; ops files below |
 | `KURUL_LLM_TIMEOUT`, `KURUL_RUN_TIMEOUT` | `900`, `21600` | seconds per model call / per run |
 | `KURUL_CLAUDE_BIN`, `KURUL_POLL_WAIT`, `KURUL_LEDGER_PATH` | `claude`, `25`, `kayit/adaylar.jsonl` | |
+
+Files the worker writes in `KURUL_STATE_DIR` for operations: `heartbeat` (epoch seconds of the
+last successful long-poll), `busy.json` (only while an event is processed: pid, event id, type,
+start), `usage.jsonl` (one line per model call: `ts`, `job`, `model` alias, `seconds`, `ok`,
+`error?`, and when the CLI reports them `total_cost_usd`, `duration_ms`, `duration_api_ms`,
+`num_turns`, token counts, `models`). The health check adds `health.json`.
 
 ## Tests
 

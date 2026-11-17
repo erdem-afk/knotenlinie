@@ -1,0 +1,10 @@
+[Unit]
+Description=Daily backup of the Knotenlinie Board agent worker state
+
+[Timer]
+OnCalendar=*-*-* 03:30:00
+RandomizedDelaySec=20min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,28 @@
+# Fast-forward the agent worker's code and ledger clones; restart kurul-ajan when the code changed.
+# Installed by install-ops.sh. Runs as root because it restarts kurul-ajan; git itself runs as the
+# owner of each clone (see kurul-ajan-update.sh). Triggered by kurul-ajan-update.timer.
+[Unit]
+Description=Update the Knotenlinie Board agent worker from git
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+# KURUL_REPO, KURUL_REPO_REF, KURUL_STATE_DIR; optional KURUL_CODE_DIR, KURUL_CODE_BRANCH,
+# KURUL_UPDATE_MAX_DEFER.
+EnvironmentFile=-/etc/kurul-ajan.env
+ExecStart=/usr/local/lib/kurul-ajan-ops/kurul-ajan-update.sh
+StateDirectory=kurul-ajan-ops
+StateDirectoryMode=0700
+TimeoutStartSec=15min
+Nice=10
+IOSchedulingClass=idle
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=full
+ProtectHome=read-only
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+UMask=0022

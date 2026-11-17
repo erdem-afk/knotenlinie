@@ -24,6 +24,9 @@ elif mode == "crash":
     sys.stderr.write("boom"); sys.exit(3)
 else:
     print(json.dumps({"type": "result", "subtype": "success", "is_error": False, "num_turns": 1,
+                      "total_cost_usd": 0.0123, "duration_ms": 1500,
+                      "usage": {"input_tokens": 100, "output_tokens": 20, "cache_read_input_tokens": 5},
+                      "modelUsage": {"stub-model-id": {}},
                       "result": "```json\n{\"is_question\": false, \"confidence\": 0.1}\n```"}))
 """
 
@@ -83,6 +86,46 @@ class CLI(unittest.TestCase):
         os.environ["STUB_MODE"] = "crash"
         with self.assertRaises(LLMError):
             cli("respond", "x", self.tmp, READ_ONLY)
+
+    def usage(self) -> list[dict]:
+        f = self.tmp / "s" / "usage.jsonl"
+        return [json.loads(x) for x in f.read_text().splitlines()] if f.exists() else []
+
+    def test_usage_line_per_call(self):
+        cli = ClaudeCLI(self.cfg)
+        cli("classify", "p", self.tmp, [])
+        cli("respond", "p", self.tmp, READ_ONLY)
+        rows = self.usage()
+        self.assertEqual([r["job"] for r in rows], ["classify", "respond"])
+        self.assertEqual([r["model"] for r in rows], ["fastmodel", "mainmodel"])
+        r = rows[0]
+        self.assertTrue(r["ok"])
+        self.assertIn("ts", r)
+        self.assertIsInstance(r["seconds"], float)
+        self.assertEqual((r["total_cost_usd"], r["duration_ms"], r["num_turns"]), (0.0123, 1500, 1))
+        self.assertEqual((r["input_tokens"], r["output_tokens"], r["cache_read_input_tokens"]), (100, 20, 5))
+        self.assertNotIn("cache_creation_input_tokens", r)  # absent in the CLI output: not invented
+        self.assertEqual(r["models"], ["stub-model-id"])
+        self.assertNotIn("prompt", r)
+
+    def test_usage_recorded_for_failed_calls(self):
+        cli = ClaudeCLI(self.cfg)
+        os.environ["STUB_MODE"] = "error"
+        with self.assertRaises(LLMError):
+            cli("respond", "x", self.tmp, READ_ONLY)
+        os.environ["STUB_MODE"] = "crash"
+        with self.assertRaises(LLMError):
+            cli("respond", "x", self.tmp, READ_ONLY)
+        rows = self.usage()
+        self.assertEqual(len(rows), 2)
+        self.assertEqual([r["ok"] for r in rows], [False, False])
+        self.assertEqual(rows[0]["error"], "error_max_turns")
+        self.assertEqual(rows[1]["error"], "exit 3")
+
+    def test_usage_write_failure_does_not_break_call(self):
+        (self.tmp / "s").write_text("not a directory")
+        out = ClaudeCLI(self.cfg)("classify", "p", self.tmp, [])
+        self.assertEqual(parse_json(out)["confidence"], 0.1)
 
     def test_fake_selected_by_env(self):
         from ajan.fake_llm import FakeLLM

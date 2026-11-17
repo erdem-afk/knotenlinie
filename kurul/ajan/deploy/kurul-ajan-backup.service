@@ -1,0 +1,23 @@
+# Daily local backup of the agent worker's state directory (/var/lib/kurul-ajan) to
+# /var/backups/kurul-ajan, newest 14 kept. Installed by install-ops.sh; see kurul-ajan-backup.sh.
+# Does not read /etc/kurul-ajan.env; the archive holds no tokens.
+[Unit]
+Description=Back up the Knotenlinie Board agent worker state
+
+[Service]
+Type=oneshot
+User=kurul-ajan
+Group=kurul-ajan
+Environment=KURUL_STATE_DIR=/var/lib/kurul-ajan
+Environment=KURUL_BACKUP_DIR=/var/backups/kurul-ajan
+Environment=KURUL_BACKUP_KEEP=14
+ExecStart=/usr/local/lib/kurul-ajan-ops/kurul-ajan-backup.sh
+Nice=10
+IOSchedulingClass=idle
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+# SQLite readers of a WAL database write to its -shm file, hence read-write on the state dir.
+ReadWritePaths=/var/lib/kurul-ajan /var/backups/kurul-ajan
+PrivateNetwork=yes

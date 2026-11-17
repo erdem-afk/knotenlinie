@@ -1,0 +1,27 @@
+# Health check of the agent worker: unit active, site /healthz reachable, last successful poll recent.
+# Installed by install-ops.sh; triggered by kurul-ajan-health.timer. Journal line:
+#   KURUL-HEALTH OK ...   or   KURUL-HEALTH FAIL <reasons>
+# and /var/lib/kurul-ajan/health.json. Runs as the worker's own user (reads its state directory).
+[Unit]
+Description=Knotenlinie Board agent worker health check
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=kurul-ajan
+Group=kurul-ajan
+# KURUL_BASE_URL, KURUL_STATE_DIR, KURUL_AUTORUN, KURUL_LLM_TIMEOUT, KURUL_RUN_TIMEOUT;
+# optional KURUL_HEALTH_MAX_POLL_AGE, KURUL_HEALTH_BUSY_MAX.
+EnvironmentFile=/etc/kurul-ajan.env
+ExecStart=/usr/bin/python3 /usr/local/lib/kurul-ajan-ops/kurul-ajan-health.py
+TimeoutStartSec=2min
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/lib/kurul-ajan
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
