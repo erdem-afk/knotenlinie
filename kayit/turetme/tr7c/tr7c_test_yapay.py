@@ -825,6 +825,9 @@ def protokol(KM, R):
            ac_dene(pr, yk) and KM._PROVA is None)
     R.sina(g, 'prova reddedilir: 127.0.0.1 dışı taban, https, çıktı kosu/, zarf gerçek kök, depo içi dizin',
            ac_dene(KM.Prova(pr.dizin, pr.zarf, dict(pr.servis, ncedc='http://service.ncedc.org/fdsnws'), pr.katalog))
+           and ac_dene(KM.Prova(pr.dizin, pr.zarf, dict(pr.servis, ncedc='http://service.ncedc.org:80/fdsnws'),
+                                pr.katalog))   # portlu dış ad da reddedilir (mutasyon "taban URL 127.0.0.1 denetimi yok")
+           and ac_dene(KM.Prova(pr.dizin, pr.zarf, pr.servis, dict(pr.katalog, comcat='http://10.0.0.1:8080/q')))
            and ac_dene(KM.Prova(pr.dizin, pr.zarf, pr.servis, dict(pr.katalog, comcat='https://127.0.0.1:9/q')))
            and ac_dene(KM.Prova(KM.CIKTI, pr.zarf, pr.servis, pr.katalog))
            and ac_dene(KM.Prova(pr.dizin, KM.ZARF_KOK, pr.servis, pr.katalog))
