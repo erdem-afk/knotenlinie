@@ -16,9 +16,11 @@
    }
   },
   "K1c-negatif": {
-   "durum": "hata",
-   "zaman": "2026-11-18T07:34:21+00:00",
-   "sha256": {}
+   "durum": "başladı",
+   "zaman": "2026-11-18T07:34:27+00:00",
+   "sha256": {
+    "tr7c_kosu.py": "c86d8b9b17ae17e8fa67a12ff945a90df791dc0bfd6b548e1f2d3cbaac20a5b2"
+   }
   }
  },
  "durmalar": [
