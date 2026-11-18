@@ -1,0 +1,448 @@
+{
+ "aciklama": "TR-7c kod incelemesi-2: b0f70642… → c86d8b9b… farkı (kuru prova düğmesi, taban, aşama protokolü, durma kaydı); yalnız yapay; hiçbir soket açılmaz; aşama gövdesi saplanır.",
+ "kod_sha256": {
+  "tr7c_kosu.py": "c86d8b9b17ae17e8fa67a12ff945a90df791dc0bfd6b548e1f2d3cbaac20a5b2",
+  "tr7c_kodinc2.py": "cbb25303c34d263a95f7539db7d96436fbe9056ed63c4d7d6f650094639cd5fa"
+ },
+ "sinama": {
+  "gruplar": {
+   "düğme": [
+    10,
+    10
+   ],
+   "protokol": [
+    20,
+    20
+   ],
+   "bilgi": [
+    1,
+    1
+   ]
+  }
+ },
+ "sinamalar": [
+  {
+   "grup": "düğme",
+   "ad": "D1 dondurulmuş metinle (kapı açık) prova_ac reddedilir; kapalı metinle açılır",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "düğme",
+   "ad": "D2 prova açıkken kapı açılırsa (dondurma) gercek_kapi reddeder: düğme dondurmadan sonra işlemez",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "düğme",
+   "ad": "D2b _PROVA elle kurulsa da (prova_ac atlanarak) dondurulmuş kipte gercek_kapi reddeder",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "düğme",
+   "ad": "D3 taban URL: 11 kötü biçim × 2 alan reddedilir; eksik/fazla anahtar reddedilir; http://127.0.0.1:<port> kabul",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "düğme",
+   "ad": "D4 prova dizini depo içi, kosu/, gerçek kökler, /mnt altı ya da /mnt'ye giden bağ olamaz",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "düğme",
+   "ad": "D5 prova kancası: yalnız izinli (127.0.0.1, port) bağlantı/ad çözümü; vekil portu, dış ad, gethostbyname, sendto reddedilir; prova kapalıyken kanca etkisiz",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "düğme",
+   "ad": "D6 provada GercekOrtam: zarf/ham/çıktı prova dizinlerinde (TR7_HAM_DIZIN=/mnt/... olsa da), servis ve katalog prova tabanı, git doğrulaması kapalı",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "düğme",
+   "ad": "D6b prova dışında GercekOrtam: kapı kapalıyken kurulamaz; dondurulmuş kipte ZARF_KOK, CIKTI, git doğrulaması AÇIK, taban None",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "düğme",
+   "ad": "D7 provada k1c_kos(gercek=True) kosu/, kosu/ altı, ZARF_KOK ve prova dışı dizinle reddedilir",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "düğme",
+   "ad": "D8 provada manifest ComCat isteği prova tabanına (http://127.0.0.1:9/comcat) gider; katalog/ dizini kurulur",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "protokol",
+   "ad": "P1 sıra dışı baslat (K1c-indirme manifest'ten önce) reddedilir",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "protokol",
+   "ad": "P1b bilinmeyen aşama reddedilir",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "protokol",
+   "ad": "P4 başlatılmamış aşama kos edilemez",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "protokol",
+   "ad": "P2 baslat manifest → yeni",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "protokol",
+   "ad": "P2b ikinci baslat (başladı iken) reddedilir",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "protokol",
+   "ad": "P2c başladı kaydı tr7c_kosu.py sha256'sını taşır",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "protokol",
+   "ad": "P5 baslat'tan sonra kod değişmişse kos reddedilir",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "protokol",
+   "ad": "P3 kos → tamamlandı",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "protokol",
+   "ad": "P3b tamamlanmış aşama yeniden başlatılamaz (--surdur ile de)",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "protokol",
+   "ad": "P6 gövde hatası → durum hata, durmalar'da tür kod (ileti ve saat)",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "protokol",
+   "ad": "P6b hata durumundaki aşama baslat'sız kos edilemez",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "protokol",
+   "ad": "P10 kos: önceki aşama tamamlanmamışsa reddedilir",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "protokol",
+   "ad": "P7 algılama aşamasına --surdur'suz yeniden giriş reddedilir",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "protokol",
+   "ad": "P7b yalnız kod durma kaydıyla --surdur reddedilir (elle kayıt gerekir)",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "protokol",
+   "ad": "P7c boş durma nedeni reddedilir",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "protokol",
+   "ad": "P7d durdu → hata + elle kayıt; kos baslat'sız reddedilir",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "protokol",
+   "ad": "P7e elle kayıttan sonra baslat --surdur → surdur",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "protokol",
+   "ad": "P8 yeni kesintiden sonra eski elle kayıt yetmez (--surdur reddedilir)",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "protokol",
+   "ad": "P11 durma kayıtlarında yalnız aşama/tür/neden/zaman",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "protokol",
+   "ad": "P12 durum dosyası aşama kayıtları yalnız durum/zaman/sha256",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "bilgi",
+   "ad": "P9 (bilgi, kodun bugünkü davranışı) \"başladı\"da kalan aşama elle durma kaydı istenmeden kos edilir (TR-7 ile aynı; dondurma eki §7)",
+   "gecti": true,
+   "ayrinti": null
+  }
+ ],
+ "mutasyon": {
+  "toplam": 26,
+  "koşulan": 26,
+  "yakalanan": 25,
+  "liste": [
+   {
+    "ad": "düğme: gercek_kapi prova kolunda yeniden denetlemez",
+    "yakalandi": true,
+    "yakalayan": [
+     "[düğme] D2 prova açıkken kapı açılırsa (dondurma) gercek_kapi reddeder: düğme dondurmadan sonra işlemez",
+     "[düğme] D2b _PROVA elle kurulsa da (prova_ac atlanarak) dondurulmuş kipte gercek_kapi reddeder"
+    ],
+    "yasak_girisim": 0
+   },
+   {
+    "ad": "taban: host denetimi yok",
+    "yakalandi": true,
+    "yakalayan": [
+     "[düğme] D3 taban URL: 11 kötü biçim × 2 alan reddedilir; eksik/fazla anahtar reddedilir; http://127.0.0.1:<port> kabul"
+    ],
+    "yasak_girisim": 0
+   },
+   {
+    "ad": "taban: https de kabul",
+    "yakalandi": true,
+    "yakalayan": [
+     "[düğme] D3 taban URL: 11 kötü biçim × 2 alan reddedilir; eksik/fazla anahtar reddedilir; http://127.0.0.1:<port> kabul"
+    ],
+    "yasak_girisim": 0
+   },
+   {
+    "ad": "kanca: 127.0.0.1'in her portu",
+    "yakalandi": true,
+    "yakalayan": [
+     "[düğme] D5 prova kancası: yalnız izinli (127.0.0.1, port) bağlantı/ad çözümü; vekil portu, dış ad, gethostbyname, sendto reddedilir; prova kapalıyken kanca etkisiz"
+    ],
+    "yasak_girisim": 0
+   },
+   {
+    "ad": "düğme: /mnt denetimi yok",
+    "yakalandi": true,
+    "yakalayan": [
+     "[düğme] D4 prova dizini depo içi, kosu/, gerçek kökler, /mnt altı ya da /mnt'ye giden bağ olamaz"
+    ],
+    "yasak_girisim": 0
+   },
+   {
+    "ad": "düğme: hyol provada TR7_HAM_DIZIN'i dinler",
+    "yakalandi": true,
+    "yakalayan": [
+     "[düğme] D6 provada GercekOrtam: zarf/ham/çıktı prova dizinlerinde (TR7_HAM_DIZIN=/mnt/... olsa da), servis ve katalog prova tabanı, git doğrulaması kapalı"
+    ],
+    "yasak_girisim": 0
+   },
+   {
+    "ad": "düğme: k1c_kos dizin denetimi gevşek (gerçek yol da olur)",
+    "yakalandi": true,
+    "yakalayan": [
+     "[düğme] D7 provada k1c_kos(gercek=True) kosu/, kosu/ altı, ZARF_KOK ve prova dışı dizinle reddedilir"
+    ],
+    "yasak_girisim": 3
+   },
+   {
+    "ad": "düğme: GercekOrtam prova dışında git doğrulamasız",
+    "yakalandi": true,
+    "yakalayan": [
+     "[düğme] D6b prova dışında GercekOrtam: kapı kapalıyken kurulamaz; dondurulmuş kipte ZARF_KOK, CIKTI, git doğrulaması AÇIK, taban None"
+    ],
+    "yasak_girisim": 0
+   },
+   {
+    "ad": "aşama sırası: kos önceki aşamaya bakmaz",
+    "yakalandi": true,
+    "yakalayan": [
+     "[protokol] P10 kos: önceki aşama tamamlanmamışsa reddedilir"
+    ],
+    "yasak_girisim": 0
+   },
+   {
+    "ad": "durma: algılamaya --surdur'suz yeniden giriş",
+    "yakalandi": true,
+    "yakalayan": [
+     "[protokol] P7 algılama aşamasına --surdur'suz yeniden giriş reddedilir"
+    ],
+    "yasak_girisim": 0
+   },
+   {
+    "ad": "durma: eski elle kayıt yeter",
+    "yakalandi": true,
+    "yakalayan": [
+     "[protokol] P8 yeni kesintiden sonra eski elle kayıt yetmez (--surdur reddedilir)"
+    ],
+    "yasak_girisim": 0
+   },
+   {
+    "ad": "durma: hata yolunda kod durma kaydı yok",
+    "yakalandi": true,
+    "yakalayan": [
+     "[protokol] P6 gövde hatası → durum hata, durmalar'da tür kod (ileti ve saat)"
+    ],
+    "yasak_girisim": 0
+   },
+   {
+    "ad": "durma: boş neden kabul",
+    "yakalandi": true,
+    "yakalayan": [
+     "[protokol] P7c boş durma nedeni reddedilir"
+    ],
+    "yasak_girisim": 0
+   },
+   {
+    "ad": "düğme: prova dondurmaya bakmaz",
+    "yakalandi": true,
+    "yakalayan": [
+     "[düğme] D1 dondurulmuş metinle (kapı açık) prova_ac reddedilir; kapalı metinle açılır",
+     "[düğme] D2 prova açıkken kapı açılırsa (dondurma) gercek_kapi reddeder: düğme dondurmadan sonra işlemez",
+     "[düğme] D2b _PROVA elle kurulsa da (prova_ac atlanarak) dondurulmuş kipte gercek_kapi reddeder"
+    ],
+    "yasak_girisim": 0
+   },
+   {
+    "ad": "taban: port denetimi yok",
+    "yakalandi": true,
+    "yakalayan": [
+     "[düğme] D3 taban URL: 11 kötü biçim × 2 alan reddedilir; eksik/fazla anahtar reddedilir; http://127.0.0.1:<port> kabul"
+    ],
+    "yasak_girisim": 0
+   },
+   {
+    "ad": "taban: localhost da kabul",
+    "yakalandi": true,
+    "yakalayan": [
+     "[düğme] D3 taban URL: 11 kötü biçim × 2 alan reddedilir; eksik/fazla anahtar reddedilir; http://127.0.0.1:<port> kabul"
+    ],
+    "yasak_girisim": 0
+   },
+   {
+    "ad": "kanca: ad çözümü serbest",
+    "yakalandi": true,
+    "yakalayan": [
+     "[düğme] D5 prova kancası: yalnız izinli (127.0.0.1, port) bağlantı/ad çözümü; vekil portu, dış ad, gethostbyname, sendto reddedilir; prova kapalıyken kanca etkisiz"
+    ],
+    "yasak_girisim": 0
+   },
+   {
+    "ad": "düğme: GercekOrtam provada gerçek zarf kökü",
+    "yakalandi": true,
+    "yakalayan": [
+     "[düğme] D6 provada GercekOrtam: zarf/ham/çıktı prova dizinlerinde (TR7_HAM_DIZIN=/mnt/... olsa da), servis ve katalog prova tabanı, git doğrulaması kapalı"
+    ],
+    "yasak_girisim": 0
+   },
+   {
+    "ad": "düğme: _cikti provada CIKTI",
+    "yakalandi": true,
+    "yakalayan": [
+     "[düğme] D6 provada GercekOrtam: zarf/ham/çıktı prova dizinlerinde (TR7_HAM_DIZIN=/mnt/... olsa da), servis ve katalog prova tabanı, git doğrulaması kapalı",
+     "[düğme] D7 provada k1c_kos(gercek=True) kosu/, kosu/ altı, ZARF_KOK ve prova dışı dizinle reddedilir",
+     "[çöküş] protokol: PermissionError: KOD İNCELEMESİ-2: yasak dizin işlemi: /home/user/knotenlinie/kayit/turetme/tr7c/kosu"
+    ],
+    "yasak_girisim": 4
+   },
+   {
+    "ad": "taban: manifest tetikleyici isteği taban almaz",
+    "yakalandi": true,
+    "yakalayan": [
+     "[düğme] D8 provada manifest ComCat isteği prova tabanına (http://127.0.0.1:9/comcat) gider; katalog/ dizini kurulur"
+    ],
+    "yasak_girisim": 0
+   },
+   {
+    "ad": "aşama sırası: baslat önceki aşamaya bakmaz",
+    "yakalandi": true,
+    "yakalayan": [
+     "[çöküş] protokol: Tr7cDur: \"K1c-indirme\" zaten başlatıldı: durum dosyasını commit + push edin, sonra `kos K1c-indirme`"
+    ],
+    "yasak_girisim": 0
+   },
+   {
+    "ad": "tek koşu: tamamlanmış aşama yeniden",
+    "yakalandi": true,
+    "yakalayan": [
+     "[çöküş] protokol: Tr7cDur: önceki aşama \"manifest\" tamamlanmamış"
+    ],
+    "yasak_girisim": 0
+   },
+   {
+    "ad": "durma: kod durması da sürdürmeye yeter",
+    "yakalandi": true,
+    "yakalayan": [
+     "[protokol] P7b yalnız kod durma kaydıyla --surdur reddedilir (elle kayıt gerekir)",
+     "[protokol] P8 yeni kesintiden sonra eski elle kayıt yetmez (--surdur reddedilir)"
+    ],
+    "yasak_girisim": 0
+   },
+   {
+    "ad": "kos: kod değişikliğini reddetmez",
+    "yakalandi": true,
+    "yakalayan": [
+     "[protokol] P5 baslat'tan sonra kod değişmişse kos reddedilir"
+    ],
+    "yasak_girisim": 0
+   },
+   {
+    "ad": "aşama: baslat başladı'yı yeniden yazar",
+    "yakalandi": true,
+    "yakalayan": [
+     "[protokol] P2b ikinci baslat (başladı iken) reddedilir"
+    ],
+    "yasak_girisim": 0
+   },
+   {
+    "ad": "kos: hata durumundaki aşamayı baslat'sız koşar",
+    "yakalandi": false,
+    "yakalayan": [],
+    "yasak_girisim": 0
+   }
+  ]
+ },
+ "engellenen_giris": [
+  [
+   "os.mkdir",
+   "/home/user/knotenlinie/kayit/turetme/tr7c/kosu"
+  ],
+  [
+   "os.mkdir",
+   "/home/user/knotenlinie/kayit/turetme/tr7c/kosu"
+  ],
+  [
+   "os.mkdir",
+   "/home/user/knotenlinie/kayit/turetme/tr7c/kosu"
+  ],
+  [
+   "os.mkdir",
+   "/home/user/knotenlinie/kayit/turetme/tr7c/kosu"
+  ]
+ ]
+}
