@@ -1,0 +1,1076 @@
+{
+ "aciklama": "TR-7c bağımsız kod incelemesi: incelemecinin sınamaları ve mutasyonları; yalnız yapay veri; denetim kancası soket, /mnt/project-files, kosu/ yazma ve alt süreçleri reddeder.",
+ "kod_sha256": {
+  "tr7c_kosu.py": "c86d8b9b17ae17e8fa67a12ff945a90df791dc0bfd6b548e1f2d3cbaac20a5b2",
+  "tr7c_kodinc.py": "03e479639222ba184a0dcd1b51a046ac2990da266fb35235378eb8ba31e31c06"
+ },
+ "sinama": {
+  "toplam": 74,
+  "gecen": 74,
+  "gruplar": {
+   "birim": [
+    32,
+    32
+   ],
+   "kapı": [
+    29,
+    29
+   ],
+   "uçtan uca": [
+    13,
+    13
+   ]
+  }
+ },
+ "sinamalar": [
+  {
+   "grup": "birim",
+   "ad": "U1 P listesi §3.1 tablosuyla aynı (10 olay, T0 sırası)",
+   "gecti": true,
+   "ayrinti": {
+    "kod": [
+     "200106232033",
+     "200211032212",
+     "200301220206",
+     "200309251950",
+     "200412260058",
+     "200611151114",
+     "200701130423",
+     "200805120628",
+     "200909291748",
+     "201002270634"
+    ],
+    "metin": [
+     "200106232033",
+     "200211032212",
+     "200301220206",
+     "200309251950",
+     "200412260058",
+     "200611151114",
+     "200701130423",
+     "200805120628",
+     "200909291748",
+     "201002270634"
+    ]
+   }
+  },
+  {
+   "grup": "birim",
+   "ad": "U1 N olayları §3.2 tablosuyla aynı (30 olay)",
+   "gecti": true,
+   "ayrinti": {
+    "n_kod": 30,
+    "n_metin": 30
+   }
+  },
+  {
+   "grup": "birim",
+   "ad": "U1 GENLIK4 = §3.2'de PGV_T ≥ 0,02 olan N olayları (D-9)",
+   "gecti": true,
+   "ayrinti": {
+    "metin": [
+     "200412231459",
+     "200503281609",
+     "200704012039",
+     "200708152340"
+    ]
+   }
+  },
+  {
+   "grup": "birim",
+   "ad": "U1 Vanuatu = N 27 + N 28 (D-1)",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "birim",
+   "ad": "U1 birim sayıları 10 P / 29 N / 2 B",
+   "gecti": true,
+   "ayrinti": {
+    "P": 10,
+    "N": 29,
+    "B": 2
+   }
+  },
+  {
+   "grup": "birim",
+   "ad": "U2 D-2 dosya/sha listesi karar metnindeki üç satırla aynı",
+   "gecti": true,
+   "ayrinti": {
+    "kod": {
+     "tr7b/tr7b_yapay2.py": "ae995ba8802a934577cbf26051229360bcfb1a85d5d4d7dc16d358dfeaef437f",
+     "tr7b/tr7b_yapay.py": "e92715318e21a0200b66e3c130853f73cbc382b0398aef561619fcbe1bb74374",
+     "tr7/tr7_cekirdek.py": "4a1b9131603d0f3d519cacb183fdbcccc106157b66392bf2d09350c9f49206f6"
+    },
+    "metin": {
+     "tr7b/tr7b_yapay2.py": "ae995ba8802a934577cbf26051229360bcfb1a85d5d4d7dc16d358dfeaef437f",
+     "tr7b/tr7b_yapay.py": "e92715318e21a0200b66e3c130853f73cbc382b0398aef561619fcbe1bb74374",
+     "tr7/tr7_cekirdek.py": "4a1b9131603d0f3d519cacb183fdbcccc106157b66392bf2d09350c9f49206f6"
+    }
+   }
+  },
+  {
+   "grup": "birim",
+   "ad": "U2 içe aktarılan modüller tam olarak D-2 dosyaları",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "birim",
+   "ad": "U3 K5 çağrı ağacında depo içinden yalnız D-2 dosyaları (tr7b_yapay2, tr7b_yapay; tr7_cekirdek yalnız sabit KSIG)",
+   "gecti": true,
+   "ayrinti": {
+    "depo_ici": [
+     "tr7b_yapay.py",
+     "tr7b_yapay2.py"
+    ],
+    "kume": 1
+   }
+  },
+  {
+   "grup": "birim",
+   "ad": "U4 Fisher üst kuyruğu = scipy hypergeom.sf ve fisher_exact(greater)",
+   "gecti": true,
+   "ayrinti": {
+    "kotu": []
+   }
+  },
+  {
+   "grup": "birim",
+   "ad": "U5 X_min = bağımsız Clopper–Pearson + binom (K2 kapısı yok, KMS-5)",
+   "gecti": true,
+   "ayrinti": {
+    "kotu": []
+   }
+  },
+  {
+   "grup": "birim",
+   "ad": "U6 Z4 + D-7 dalı bağımsız başvuruyla (126060 nokta)",
+   "gecti": true,
+   "ayrinti": {
+    "kotu": [],
+    "dal": {
+     "a": 63161,
+     "d": 20908,
+     "e": 39207,
+     "c": 1992,
+     "b": 792
+    }
+   }
+  },
+  {
+   "grup": "birim",
+   "ad": "U6 Marmara yalnız (b)",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "birim",
+   "ad": "U7 kesişim sınırları: b = c yok; b = c + 1 var; a = d var; a = d + 1 yok",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "birim",
+   "ad": "U8 K5 toplaması \"istasyonların ≥ yarısı\" (4/2 atılır, 4/1 atılmaz, 3/1 atılmaz, 3/2 atılır)",
+   "gecti": true,
+   "ayrinti": {
+    "(4, 2)": true,
+    "(4, 1)": false,
+    "(3, 1)": false,
+    "(3, 2)": true
+   }
+  },
+  {
+   "grup": "birim",
+   "ad": "U8b K5 her istasyonda pencerenin Q aralığıyla çağrılır",
+   "gecti": true,
+   "ayrinti": {
+    "Q": [
+     3700,
+     3900
+    ],
+    "gelen": [
+     [
+      3700,
+      3900
+     ],
+     [
+      3700,
+      3900
+     ],
+     [
+      3700,
+      3900
+     ],
+     [
+      3700,
+      3900
+     ]
+    ]
+   }
+  },
+  {
+   "grup": "birim",
+   "ad": "U9 E-1: en yakın istasyon (BH bile olsa) uzaktaki HH'den önce",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "birim",
+   "ad": "U9 E-1: aynı istasyonda HH, konum sırasından bağımsız BH'den önce",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "birim",
+   "ad": "U9 E-1: HN/EH/BL kanalları uygun değil",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "birim",
+   "ad": "U9 E-1: HH örtüsü kalırsa BH",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "birim",
+   "ad": "U9 E-1: yataylardan biri yoksa yalnız Z",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "birim",
+   "ad": "U9 E-1: eşit uzaklıkta ad sırası (belirlenimci)",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "birim",
+   "ad": "U10 modulasyon_kume (p, M) = TR-7 çekirdeği K.mod_p (aynı tohum)",
+   "gecti": true,
+   "ayrinti": {
+    "kod": {
+     "M": 0.3236,
+     "p": 0.0033222591362126247,
+     "bilesen": 1
+    },
+    "ref": [
+     0.3235628276116621,
+     0.0033222591362126247
+    ]
+   }
+  },
+  {
+   "grup": "birim",
+   "ad": "U11 _rho = Spearman (sürekli L); eşitlikte sıra okuması (bilgi: nicemlenmiş L'de en büyük fark)",
+   "gecti": true,
+   "ayrinti": {
+    "surekli_max": 0.0,
+    "nicem_0_01_max": 0.13187093847721065,
+    "nicem_0_01_medyan": 0.013908795718657219
+   }
+  },
+  {
+   "grup": "birim",
+   "ad": "U12 Q = [⌊T0 + t_P⌋, Wb başı) gerçek geometride pozitif ve ≥ 30 sn (Ö-i ikinci not)",
+   "gecti": true,
+   "ayrinti": {
+    "en_kucuk_Q0": 4452,
+    "en_kisa_Q": 189,
+    "kotu": []
+   }
+  },
+  {
+   "grup": "birim",
+   "ad": "U13 Vanuatu: K1b ve açık pay USTVERI birleşik biriminden; N 28 P ve S (M 7,8) E1'de",
+   "gecti": true,
+   "ayrinti": {
+    "pay": 0.841,
+    "e1": 6,
+    "n28": [
+     [
+      "P",
+      "2009-10-07T22:31:18"
+     ],
+     [
+      "S",
+      "2009-10-07T22:40:04"
+     ],
+     [
+      "P",
+      "2009-10-07T23:26:17"
+     ],
+     [
+      "S",
+      "2009-10-07T23:35:02"
+     ]
+    ]
+   }
+  },
+  {
+   "grup": "birim",
+   "ad": "U13 Vanuatu biriminin T0'ı ve tetikleyicisi N 27 (D-1: R ve Q N 27'nin)",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "birim",
+   "ad": "U13 39 P/N biriminin hepsinde dondurulmuş K1b payı ve E1 satırları kullanılıyor",
+   "gecti": true,
+   "ayrinti": []
+  },
+  {
+   "grup": "birim",
+   "ad": "U14 K1b açık payı tam 0,50 taranır, 0,499 taranmaz (Z2 \"≥ %50\")",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "birim",
+   "ad": "U15 k_koşu güç tablosu §7.3 k satırıyla aynı (±0,005)",
+   "gecti": true,
+   "ayrinti": []
+  },
+  {
+   "grup": "birim",
+   "ad": "U15b E-2: güç satırı yalnız k_koşu < 10 iken (9 var, 10 yok); \"koşuda 10\" yazılır",
+   "gecti": true,
+   "ayrinti": {
+    "c9": "ndı; genliği eşlenmiş 4 N olayında modülasyonu ölçülemeyen: —; k: üstveriden 10, koşuda 9 (k_koşu ile güç, s 0,7, q 0,1: 0,93 (m_t 0,8) / 0,66 (m_t 0,5); bilgi)",
+    "c10": "ölçü sınandı; genliği eşlenmiş 4 N olayında modülasyonu ölçülemeyen: —; k: üstveriden 10, koşuda 10"
+   }
+  },
+  {
+   "grup": "birim",
+   "ad": "U16 D-8 MDE §7.3 tablosuyla aynı; n_P 8–10 × n_N 20–29 hepsi dondurulmuş",
+   "gecti": true,
+   "ayrinti": {
+    "kotu": [],
+    "yok": []
+   }
+  },
+  {
+   "grup": "birim",
+   "ad": "U17 tohumlar ve eşikler metindeki gibi",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "kapı",
+   "ad": "B kapalı kapı: main kos manifest → GERÇEK KİP REDDEDİLDİ",
+   "gecti": true,
+   "ayrinti": "GERÇEK KİP REDDEDİLDİ (aşama manifest): koşu dondurması yok ('Durum:' satırında 'KOŞU DONDURULDU' yok)"
+  },
+  {
+   "grup": "kapı",
+   "ad": "B kapalı kapı: main kos K1c-algılama → GERÇEK KİP REDDEDİLDİ",
+   "gecti": true,
+   "ayrinti": "GERÇEK KİP REDDEDİLDİ (aşama K1c-algılama): koşu dondurması yok ('Durum:' satırında 'KOŞU DONDURULDU' yok)"
+  },
+  {
+   "grup": "kapı",
+   "ad": "B kapalı kapı: main baslat → GERÇEK KİP REDDEDİLDİ",
+   "gecti": true,
+   "ayrinti": "GERÇEK KİP REDDEDİLDİ (baslat manifest): koşu dondurması yok ('Durum:' satırında 'KOŞU DONDURULDU' yok)"
+  },
+  {
+   "grup": "kapı",
+   "ad": "B kapalı kapı: main marmara → GERÇEK KİP REDDEDİLDİ",
+   "gecti": true,
+   "ayrinti": "GERÇEK KİP REDDEDİLDİ (Marmara Marmara-indirme): koşu dondurması yok ('Durum:' satırında 'KOŞU DONDURULDU' yok)"
+  },
+  {
+   "grup": "kapı",
+   "ad": "B kapalı kapı: asama_kos → GERÇEK KİP REDDEDİLDİ",
+   "gecti": true,
+   "ayrinti": "GERÇEK KİP REDDEDİLDİ (aşama K1c-indirme): koşu dondurması yok ('Durum:' satırında 'KOŞU DONDURULDU' yok)"
+  },
+  {
+   "grup": "kapı",
+   "ad": "B kapalı kapı: asama_manifest → GERÇEK KİP REDDEDİLDİ",
+   "gecti": true,
+   "ayrinti": "GERÇEK KİP REDDEDİLDİ (manifest): koşu dondurması yok ('Durum:' satırında 'KOŞU DONDURULDU' yok)"
+  },
+  {
+   "grup": "kapı",
+   "ad": "B kapalı kapı: asama_indirme → GERÇEK KİP REDDEDİLDİ",
+   "gecti": true,
+   "ayrinti": "GERÇEK KİP REDDEDİLDİ (indirme): koşu dondurması yok ('Durum:' satırında 'KOŞU DONDURULDU' yok)"
+  },
+  {
+   "grup": "kapı",
+   "ad": "B kapalı kapı: lp_adaylari_manifest → GERÇEK KİP REDDEDİLDİ",
+   "gecti": true,
+   "ayrinti": "GERÇEK KİP REDDEDİLDİ (lp adayları): koşu dondurması yok ('Durum:' satırında 'KOŞU DONDURULDU' yok)"
+  },
+  {
+   "grup": "kapı",
+   "ad": "B kapalı kapı: lp_indir → GERÇEK KİP REDDEDİLDİ",
+   "gecti": true,
+   "ayrinti": "GERÇEK KİP REDDEDİLDİ (lp indirme): koşu dondurması yok ('Durum:' satırında 'KOŞU DONDURULDU' yok)"
+  },
+  {
+   "grup": "kapı",
+   "ad": "B kapalı kapı: marmara_kos → GERÇEK KİP REDDEDİLDİ",
+   "gecti": true,
+   "ayrinti": "GERÇEK KİP REDDEDİLDİ (Marmara Marmara-indirme): koşu dondurması yok ('Durum:' satırında 'KOŞU DONDURULDU' yok)"
+  },
+  {
+   "grup": "kapı",
+   "ad": "B kapalı kapı: GercekOrtam() → GERÇEK KİP REDDEDİLDİ",
+   "gecti": true,
+   "ayrinti": "GERÇEK KİP REDDEDİLDİ (GercekOrtam): koşu dondurması yok ('Durum:' satırında 'KOŞU DONDURULDU' yok)"
+  },
+  {
+   "grup": "kapı",
+   "ad": "B kapalı kapı: GercekKaynak() → GERÇEK KİP REDDEDİLDİ",
+   "gecti": true,
+   "ayrinti": "GERÇEK KİP REDDEDİLDİ (GercekKaynak): koşu dondurması yok ('Durum:' satırında 'KOŞU DONDURULDU' yok)"
+  },
+  {
+   "grup": "kapı",
+   "ad": "B kapalı kapı: GercekOrtam.zyol (kurucu atlanarak) → GERÇEK KİP REDDEDİLDİ",
+   "gecti": true,
+   "ayrinti": "GERÇEK KİP REDDEDİLDİ (zarf deposu): koşu dondurması yok ('Durum:' satırında 'KOŞU DONDURULDU' yok)"
+  },
+  {
+   "grup": "kapı",
+   "ad": "B kapalı kapı: GercekOrtam.hyol (kurucu atlanarak) → GERÇEK KİP REDDEDİLDİ",
+   "gecti": true,
+   "ayrinti": "GERÇEK KİP REDDEDİLDİ (ham veri): koşu dondurması yok ('Durum:' satırında 'KOŞU DONDURULDU' yok)"
+  },
+  {
+   "grup": "kapı",
+   "ad": "B kapalı kapı: GercekOrtam.istemci (kurucu atlanarak) → GERÇEK KİP REDDEDİLDİ",
+   "gecti": true,
+   "ayrinti": "GERÇEK KİP REDDEDİLDİ (ağ istemcisi): koşu dondurması yok ('Durum:' satırında 'KOŞU DONDURULDU' yok)"
+  },
+  {
+   "grup": "kapı",
+   "ad": "B kapalı kapı: GercekKaynak.pencere (kurucu atlanarak) → GERÇEK KİP REDDEDİLDİ",
+   "gecti": true,
+   "ayrinti": "GERÇEK KİP REDDEDİLDİ (pencere): koşu dondurması yok ('Durum:' satırında 'KOŞU DONDURULDU' yok)"
+  },
+  {
+   "grup": "kapı",
+   "ad": "B kapalı kapı: GercekKaynak.lp_adaylari (kurucu atlanarak) → GERÇEK KİP REDDEDİLDİ",
+   "gecti": true,
+   "ayrinti": "GERÇEK KİP REDDEDİLDİ (lp): koşu dondurması yok ('Durum:' satırında 'KOŞU DONDURULDU' yok)"
+  },
+  {
+   "grup": "kapı",
+   "ad": "B kapalı kapı: GercekKaynak.mda (kurucu atlanarak) → GERÇEK KİP REDDEDİLDİ",
+   "gecti": true,
+   "ayrinti": "GERÇEK KİP REDDEDİLDİ (MDA): koşu dondurması yok ('Durum:' satırında 'KOŞU DONDURULDU' yok)"
+  },
+  {
+   "grup": "kapı",
+   "ad": "B kapalı kapı: GercekKaynak.b_prime (kurucu atlanarak) → GERÇEK KİP REDDEDİLDİ",
+   "gecti": true,
+   "ayrinti": "GERÇEK KİP REDDEDİLDİ (b_prime): koşu dondurması yok ('Durum:' satırında 'KOŞU DONDURULDU' yok)"
+  },
+  {
+   "grup": "kapı",
+   "ad": "B kapalı kapı: k1c_kos gerçek dizin → GERÇEK KİP REDDEDİLDİ",
+   "gecti": true,
+   "ayrinti": "GERÇEK KİP REDDEDİLDİ (k1c_kos): koşu dondurması yok ('Durum:' satırında 'KOŞU DONDURULDU' yok)"
+  },
+  {
+   "grup": "kapı",
+   "ad": "B kapalı kapı: k1c_kos gercek=True → GERÇEK KİP REDDEDİLDİ",
+   "gecti": true,
+   "ayrinti": "GERÇEK KİP REDDEDİLDİ (k1c_kos): koşu dondurması yok ('Durum:' satırında 'KOŞU DONDURULDU' yok)"
+  },
+  {
+   "grup": "kapı",
+   "ad": "B kapalı kapı: k1c_kos gerçek kaynak → GERÇEK KİP REDDEDİLDİ",
+   "gecti": true,
+   "ayrinti": "GERÇEK KİP REDDEDİLDİ (k1c_kos): koşu dondurması yok ('Durum:' satırında 'KOŞU DONDURULDU' yok)"
+  },
+  {
+   "grup": "kapı",
+   "ad": "B kapı sınamalarında hiçbir soket / /mnt / kosu/ / alt süreç girişimi olmadı",
+   "gecti": true,
+   "ayrinti": []
+  },
+  {
+   "grup": "kapı",
+   "ad": "B `kapi` ve `durum` komutları kapalı der, hiçbir yasak girişim yok",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "kapı",
+   "ad": "B geçici kopyada (belirteç + kod sha'ları) kapı açılır",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "kapı",
+   "ad": "B KMS-1: yalnız \"KARAR METNİ DONDURULDU\" + sha'lar kapıyı açmaz",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "kapı",
+   "ad": "B K-2: TR-7 motoru (tr7_kosu.py / tr7_indir.py) değişmişse kapı kapanır",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "kapı",
+   "ad": "B gerçek kipte yapay düğmeler kapalı: yapay kaynak, yapay dizin, mod_n ≠ 1000 reddedilir",
+   "gecti": true,
+   "ayrinti": {
+    "yapay_kaynak": true,
+    "yapay_dizin": true,
+    "mod_n": true
+   }
+  },
+  {
+   "grup": "kapı",
+   "ad": "B sahte açık kapı sınamasında da hiçbir yasak girişim yok",
+   "gecti": true,
+   "ayrinti": []
+  },
+  {
+   "grup": "uçtan uca",
+   "ad": "E1 gerçek tremor → (b), X_P 8/10, X_N 1/29, f_PK 0/12, M_mod 8, VAR verilebilir",
+   "gecti": true,
+   "ayrinti": {
+    "dal": "b",
+    "n_P": 10,
+    "n_N": 29,
+    "X_P": 8,
+    "X_N": 1,
+    "f_PK": 0,
+    "N_PK": 12,
+    "M_olc": 8,
+    "M_mod": 8,
+    "A90_PK": 22.3872113856834,
+    "cumle": "ölçü sınandı; genliği eşlenmiş 4 N olayında modülasyonu ölçülemeyen: 4; k: üstveriden 10, koşuda 10"
+   }
+  },
+  {
+   "grup": "uçtan uca",
+   "ad": "E1 modülasyon p'leri bağımsız başvuruyla birebir (tek üreteç, P+N T0 sırası, I′ sırası)",
+   "gecti": true,
+   "ayrinti": {
+    "fark": []
+   }
+  },
+  {
+   "grup": "uçtan uca",
+   "ad": "E1 E-1 başvurusu birimler T0 sırasıyla istendi (P ve N iç içe)",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "uçtan uca",
+   "ad": "E1 MDA yalnız W'de algılama vermeyen negatiflerde, pencere başına 3 başlangıç",
+   "gecti": true,
+   "ayrinti": {
+    "mda": 12,
+    "deneme": 36
+   }
+  },
+  {
+   "grup": "uçtan uca",
+   "ad": "E1 algılama jsonl sırası: önce 29 N, sonra 10 P, sonra 2 B",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "uçtan uca",
+   "ad": "E1 durum dosyasında sayı yok (Ö-b)",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "uçtan uca",
+   "ad": "E1 kilit: ikinci çağrı hiçbir pencereye dokunmaz ve aynı hükmü döndürür",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "uçtan uca",
+   "ad": "E2 D-9: genliği eşlenmiş N'de modülasyonlu algılama → (b) + \"genlik karıştırıcısı dışlanmadı\"; VAR yok",
+   "gecti": true,
+   "ayrinti": {
+    "dal": "b",
+    "n_N": 29,
+    "X_N": 3,
+    "f_PK": 1,
+    "N_PK": 12,
+    "etiket": {
+     "b_prime": false,
+     "mod_gecti": true,
+     "genlik": true,
+     "genlik_olculemeyen": 3,
+     "k_kosu": 10
+    }
+   }
+  },
+  {
+   "grup": "uçtan uca",
+   "ad": "E2 D-1: Vanuatu birimi bir kez sayılır (n_N 29; X_N = 1 + Nias + Vanuatu = 3)",
+   "gecti": true,
+   "ayrinti": {
+    "dal": "b",
+    "n_N": 29,
+    "X_N": 3,
+    "f_PK": 1,
+    "N_PK": 12,
+    "etiket": {
+     "b_prime": false,
+     "mod_gecti": true,
+     "genlik": true,
+     "genlik_olculemeyen": 3,
+     "k_kosu": 10
+    }
+   }
+  },
+  {
+   "grup": "uçtan uca",
+   "ad": "E2 f_PK = W'de algılama veren negatif sayısı (1/12); MDA yalnız 11 negatifte",
+   "gecti": true,
+   "ayrinti": {
+    "f": 1,
+    "mda": 11
+   }
+  },
+  {
+   "grup": "uçtan uca",
+   "ad": "E3 E-2: 5 P'de başvuru yok → k_koşu 5, X_P ve n_P değişmez, M_olc = M_mod = 3 → (b), D-10 \"geçmedi\"",
+   "gecti": true,
+   "ayrinti": {
+    "dal": "b",
+    "alt": null,
+    "X_P": 8,
+    "M_olc": 3,
+    "M_mod": 3,
+    "cumle": "ölçü sınandı (Parkfield modülasyonu geçmedi: Marmara'da en çok \"aday\"); genliği eşlenmiş 4 N olayında modülasyonu ölçülemeyen: 4; k: üstveriden 10, koşuda 5 (k_koşu ile güç, s 0,7, q 0,1: 0,61 (m_t 0,8) / 0,24 (m_t 0,5); bilgi)"
+   }
+  },
+  {
+   "grup": "uçtan uca",
+   "ad": "E5 iki algılama kümeli P olayında (M, p) başvuruyla birebir ve aynı sırada (küme sırası I′ başı)",
+   "gecti": true,
+   "ayrinti": {
+    "iki": [
+     [
+      0.004975124378109453,
+      0.004975124378109453
+     ],
+     [
+      0.004975124378109453,
+      0.004975124378109453
+     ]
+    ],
+    "M": [
+     [
+      0.2964,
+      0.3656
+     ],
+     [
+      0.29643524492906825,
+      0.36563113753032805
+     ]
+    ]
+   }
+  },
+  {
+   "grup": "uçtan uca",
+   "ad": "E4 başvurusuz 8 P → (e) \"modülasyon ölçülemedi\" + D-8 eki",
+   "gecti": true,
+   "ayrinti": {
+    "dal": "e",
+    "alt": "modülasyon ölçülemedi"
+   }
+  }
+ ],
+ "ozet": {
+  "e1_sure_s": 2.6,
+  "e1": {
+   "dal": "b",
+   "n_P": 10,
+   "n_N": 29,
+   "X_P": 8,
+   "X_N": 1,
+   "f_PK": 0,
+   "N_PK": 12,
+   "M_olc": 8,
+   "M_mod": 8,
+   "A90_PK": 22.3872113856834,
+   "cumle": "ölçü sınandı; genliği eşlenmiş 4 N olayında modülasyonu ölçülemeyen: 4; k: üstveriden 10, koşuda 10"
+  },
+  "e2": {
+   "dal": "b",
+   "n_N": 29,
+   "X_N": 3,
+   "f_PK": 1,
+   "N_PK": 12,
+   "etiket": {
+    "b_prime": false,
+    "mod_gecti": true,
+    "genlik": true,
+    "genlik_olculemeyen": 3,
+    "k_kosu": 10
+   }
+  },
+  "e3": {
+   "dal": "b",
+   "alt": null,
+   "X_P": 8,
+   "M_olc": 3,
+   "M_mod": 3,
+   "cumle": "ölçü sınandı (Parkfield modülasyonu geçmedi: Marmara'da en çok \"aday\"); genliği eşlenmiş 4 N olayında modülasyonu ölçülemeyen: 4; k: üstveriden 10, koşuda 5 (k_koşu ile güç, s 0,7, q 0,1: 0,61 (m_t 0,8) / 0,24 (m_t 0,5); bilgi)"
+  }
+ },
+ "mutasyon": {
+  "toplam": 31,
+  "yakalanan": 31,
+  "liste": [
+   {
+    "ad": "modülasyon sırası: önce bütün P, sonra N",
+    "yakalandi": true,
+    "yakalayan": [
+     "[uçtan uca] E1 modülasyon p'leri bağımsız başvuruyla birebir (tek üreteç, P+N T0 sırası, I′ sırası)",
+     "[uçtan uca] E1 E-1 başvurusu birimler T0 sırasıyla istendi (P ve N iç içe)",
+     "[uçtan uca] E5 iki algılama kümeli P olayında (M, p) başvuruyla birebir ve aynı sırada (küme sırası I′ başı)"
+    ],
+    "n_yakalayan": 3,
+    "yasak_girisim": 0,
+    "sure_s": 45.7
+   },
+   {
+    "ad": "modülasyon akışına yalnız P girer",
+    "yakalandi": true,
+    "yakalayan": [
+     "[uçtan uca] E1 modülasyon p'leri bağımsız başvuruyla birebir (tek üreteç, P+N T0 sırası, I′ sırası)",
+     "[uçtan uca] E1 E-1 başvurusu birimler T0 sırasıyla istendi (P ve N iç içe)",
+     "[uçtan uca] E2 D-9: genliği eşlenmiş N'de modülasyonlu algılama → (b) + \"genlik karıştırıcısı dışlanmadı\"; VAR yok",
+     "[uçtan uca] E5 iki algılama kümeli P olayında (M, p) başvuruyla birebir ve aynı sırada (küme sırası I′ başı)"
+    ],
+    "n_yakalayan": 4,
+    "yasak_girisim": 0,
+    "sure_s": 43.6
+   },
+   {
+    "ad": "modülasyon akışına B (bilgi) birimleri de girer",
+    "yakalandi": true,
+    "yakalayan": [
+     "[uçtan uca] E1 modülasyon p'leri bağımsız başvuruyla birebir (tek üreteç, P+N T0 sırası, I′ sırası)",
+     "[uçtan uca] E1 E-1 başvurusu birimler T0 sırasıyla istendi (P ve N iç içe)",
+     "[uçtan uca] E5 iki algılama kümeli P olayında (M, p) başvuruyla birebir ve aynı sırada (küme sırası I′ başı)"
+    ],
+    "n_yakalayan": 3,
+    "yasak_girisim": 0,
+    "sure_s": 42.1
+   },
+   {
+    "ad": "küme sırası I′ sonu tersten",
+    "yakalandi": true,
+    "yakalayan": [
+     "[uçtan uca] E5 iki algılama kümeli P olayında (M, p) başvuruyla birebir ve aynı sırada (küme sırası I′ başı)"
+    ],
+    "n_yakalayan": 1,
+    "yasak_girisim": 0,
+    "sure_s": 42.9
+   },
+   {
+    "ad": "modülasyon kaydırma aralığı [0, W)",
+    "yakalandi": true,
+    "yakalayan": [
+     "[birim] U10 modulasyon_kume (p, M) = TR-7 çekirdeği K.mod_p (aynı tohum)",
+     "[uçtan uca] E1 gerçek tremor → (b), X_P 8/10, X_N 1/29, f_PK 0/12, M_mod 8, VAR verilebilir",
+     "[uçtan uca] E1 modülasyon p'leri bağımsız başvuruyla birebir (tek üreteç, P+N T0 sırası, I′ sırası)",
+     "[uçtan uca] E5 iki algılama kümeli P olayında (M, p) başvuruyla birebir ve aynı sırada (küme sırası I′ başı)"
+    ],
+    "n_yakalayan": 4,
+    "yasak_girisim": 0,
+    "sure_s": 41.9
+   },
+   {
+    "ad": "modülasyon p = say/n (+1 yok)",
+    "yakalandi": true,
+    "yakalayan": [
+     "[birim] U10 modulasyon_kume (p, M) = TR-7 çekirdeği K.mod_p (aynı tohum)",
+     "[uçtan uca] E1 modülasyon p'leri bağımsız başvuruyla birebir (tek üreteç, P+N T0 sırası, I′ sırası)",
+     "[uçtan uca] E5 iki algılama kümeli P olayında (M, p) başvuruyla birebir ve aynı sırada (küme sırası I′ başı)"
+    ],
+    "n_yakalayan": 3,
+    "yasak_girisim": 0,
+    "sure_s": 42.6
+   },
+   {
+    "ad": "Fisher katı kuyruk (X > X_P)",
+    "yakalandi": true,
+    "yakalayan": [
+     "[birim] U4 Fisher üst kuyruğu = scipy hypergeom.sf ve fisher_exact(greater)",
+     "[birim] U6 Z4 + D-7 dalı bağımsız başvuruyla (18060 nokta)"
+    ],
+    "n_yakalayan": 2,
+    "yasak_girisim": 0,
+    "sure_s": 43.0
+   },
+   {
+    "ad": "Fisher n_P ile n_N yer değiştirir",
+    "yakalandi": true,
+    "yakalayan": [
+     "[birim] U4 Fisher üst kuyruğu = scipy hypergeom.sf ve fisher_exact(greater)",
+     "[birim] U6 Z4 + D-7 dalı bağımsız başvuruyla (18060 nokta)",
+     "[uçtan uca] E1 gerçek tremor → (b), X_P 8/10, X_N 1/29, f_PK 0/12, M_mod 8, VAR verilebilir",
+     "[uçtan uca] E2 D-9: genliği eşlenmiş N'de modülasyonlu algılama → (b) + \"genlik karıştırıcısı dışlanmadı\"; VAR yok",
+     "[uçtan uca] E3 E-2: 5 P'de başvuru yok → k_koşu 5, X_P ve n_P değişmez, M_olc = M_mod = 3 → (b), D-10 \"geçmedi\""
+    ],
+    "n_yakalayan": 5,
+    "yasak_girisim": 0,
+    "sure_s": 43.2
+   },
+   {
+    "ad": "D-1: USTVERI birleşik birim kaydı okunmaz (K-1 öncesi hâl)",
+    "yakalandi": true,
+    "yakalayan": [
+     "[birim] U13 Vanuatu: K1b ve açık pay USTVERI birleşik biriminden; N 28 P ve S (M 7,8) E1'de",
+     "[birim] U13 39 P/N biriminin hepsinde dondurulmuş K1b payı ve E1 satırları kullanılıyor"
+    ],
+    "n_yakalayan": 2,
+    "yasak_girisim": 0,
+    "sure_s": 42.6
+   },
+   {
+    "ad": "D-1: birim T0'ı N 28'den",
+    "yakalandi": true,
+    "yakalayan": [
+     "[birim] U13 Vanuatu biriminin T0'ı ve tetikleyicisi N 27 (D-1: R ve Q N 27'nin)"
+    ],
+    "n_yakalayan": 1,
+    "yasak_girisim": 0,
+    "sure_s": 44.1
+   },
+   {
+    "ad": "E-1: konum bant tercihinden önce",
+    "yakalandi": true,
+    "yakalayan": [
+     "[birim] U9 E-1: aynı istasyonda HH, konum sırasından bağımsız BH'den önce"
+    ],
+    "n_yakalayan": 1,
+    "yasak_girisim": 0,
+    "sure_s": 41.9
+   },
+   {
+    "ad": "E-1: alet kodu H şartı yok",
+    "yakalandi": true,
+    "yakalayan": [
+     "[birim] U9 E-1: HN/EH/BL kanalları uygun değil"
+    ],
+    "n_yakalayan": 1,
+    "yasak_girisim": 0,
+    "sure_s": 42.5
+   },
+   {
+    "ad": "E-1: tek yatayla da üç bileşen",
+    "yakalandi": true,
+    "yakalayan": [
+     "[birim] U9 E-1: yataylardan biri yoksa yalnız Z"
+    ],
+    "n_yakalayan": 1,
+    "yasak_girisim": 0,
+    "sure_s": 44.1
+   },
+   {
+    "ad": "k_koşu yalnız taranan P'de sayılır",
+    "yakalandi": true,
+    "yakalayan": [
+     "[uçtan uca] E3 E-2: 5 P'de başvuru yok → k_koşu 5, X_P ve n_P değişmez, M_olc = M_mod = 3 → (b), D-10 \"geçmedi\""
+    ],
+    "n_yakalayan": 1,
+    "yasak_girisim": 0,
+    "sure_s": 42.1
+   },
+   {
+    "ad": "E-2 güç satırı k = 10'da da",
+    "yakalandi": true,
+    "yakalayan": [
+     "[birim] U15b E-2: güç satırı yalnız k_koşu < 10 iken (9 var, 10 yok); \"koşuda 10\" yazılır"
+    ],
+    "n_yakalayan": 1,
+    "yasak_girisim": 0,
+    "sure_s": 42.4
+   },
+   {
+    "ad": "kilit iki katmanıyla kalkar",
+    "yakalandi": true,
+    "yakalayan": [
+     "[çöküş] uçtan uca: FileExistsError: [Errno 17] File exists: '/tmp/claude-0/-home-user/635decb6-3930-5a4d-9c31-b6f30d64fb94/scratchpad/tr7c_kodinc/e2e/e1/tr7c_k1c_hukum.json'"
+    ],
+    "n_yakalayan": 1,
+    "yasak_girisim": 0,
+    "sure_s": 33.5
+   },
+   {
+    "ad": "kapı: Durum satırında \"DONDURULDU\" yeter (KMS-1)",
+    "yakalandi": true,
+    "yakalayan": [
+     "[kapı] B KMS-1: yalnız \"KARAR METNİ DONDURULDU\" + sha'lar kapıyı açmaz"
+    ],
+    "n_yakalayan": 1,
+    "yasak_girisim": 0,
+    "sure_s": 41.0
+   },
+   {
+    "ad": "kapı: K-2 motor denetimi yok",
+    "yakalandi": true,
+    "yakalayan": [
+     "[kapı] B K-2: TR-7 motoru (tr7_kosu.py / tr7_indir.py) değişmişse kapı kapanır"
+    ],
+    "n_yakalayan": 1,
+    "yasak_girisim": 0,
+    "sure_s": 40.8
+   },
+   {
+    "ad": "kapı: GercekOrtam.zyol kapısız",
+    "yakalandi": true,
+    "yakalayan": [
+     "[kapı] B kapalı kapı: GercekOrtam.zyol (kurucu atlanarak) → GERÇEK KİP REDDEDİLDİ"
+    ],
+    "n_yakalayan": 1,
+    "yasak_girisim": 0,
+    "sure_s": 40.1
+   },
+   {
+    "ad": "kapı: GercekKaynak.pencere kapısız",
+    "yakalandi": true,
+    "yakalayan": [
+     "[kapı] B kapalı kapı: GercekKaynak.pencere (kurucu atlanarak) → GERÇEK KİP REDDEDİLDİ"
+    ],
+    "n_yakalayan": 1,
+    "yasak_girisim": 0,
+    "sure_s": 41.2
+   },
+   {
+    "ad": "K5 toplaması \"> yarı\"",
+    "yakalandi": true,
+    "yakalayan": [
+     "[birim] U8 K5 toplaması \"istasyonların ≥ yarısı\" (4/2 atılır, 4/1 atılmaz, 3/1 atılmaz, 3/2 atılır)"
+    ],
+    "n_yakalayan": 1,
+    "yasak_girisim": 0,
+    "sure_s": 41.8
+   },
+   {
+    "ad": "K5'e Q yerine boş aralık",
+    "yakalandi": true,
+    "yakalayan": [
+     "[birim] U8b K5 her istasyonda pencerenin Q aralığıyla çağrılır"
+    ],
+    "n_yakalayan": 1,
+    "yasak_girisim": 0,
+    "sure_s": 40.7
+   },
+   {
+    "ad": "taranan sınırı \"> 0,5\"",
+    "yakalandi": true,
+    "yakalayan": [
+     "[birim] U14 K1b açık payı tam 0,50 taranır, 0,499 taranmaz (Z2 \"≥ %50\")"
+    ],
+    "n_yakalayan": 1,
+    "yasak_girisim": 0,
+    "sure_s": 39.5
+   },
+   {
+    "ad": "f_PK K1b algılamasıyla sayılır",
+    "yakalandi": true,
+    "yakalayan": [
+     "[uçtan uca] E2 f_PK = W'de algılama veren negatif sayısı (1/12); MDA yalnız 11 negatifte"
+    ],
+    "n_yakalayan": 1,
+    "yasak_girisim": 0,
+    "sure_s": 39.7
+   },
+   {
+    "ad": "MDA algılama veren negatifte de",
+    "yakalandi": true,
+    "yakalayan": [
+     "[uçtan uca] E2 f_PK = W'de algılama veren negatif sayısı (1/12); MDA yalnız 11 negatifte"
+    ],
+    "n_yakalayan": 1,
+    "yasak_girisim": 0,
+    "sure_s": 40.0
+   },
+   {
+    "ad": "dal (d) A90 sınırı dışlayıcı",
+    "yakalandi": true,
+    "yakalayan": [
+     "[birim] U6 Z4 + D-7 dalı bağımsız başvuruyla (18060 nokta)"
+    ],
+    "n_yakalayan": 1,
+    "yasak_girisim": 0,
+    "sure_s": 40.1
+   },
+   {
+    "ad": "K1b üst ucu dışlayıcı (I′ başı = K1b sonu kesişmez)",
+    "yakalandi": true,
+    "yakalayan": [
+     "[birim] U7 kesişim sınırları: b = c yok; b = c + 1 var; a = d var; a = d + 1 yok"
+    ],
+    "n_yakalayan": 1,
+    "yasak_girisim": 0,
+    "sure_s": 40.9
+   },
+   {
+    "ad": "E-2 güç tablosu bir kaymış",
+    "yakalandi": true,
+    "yakalayan": [
+     "[birim] U15 k_koşu güç tablosu §7.3 k satırıyla aynı (±0,005)"
+    ],
+    "n_yakalayan": 1,
+    "yasak_girisim": 0,
+    "sure_s": 41.1
+   },
+   {
+    "ad": "algılama sırası B önce",
+    "yakalandi": true,
+    "yakalayan": [
+     "[uçtan uca] E1 algılama jsonl sırası: önce 29 N, sonra 10 P, sonra 2 B"
+    ],
+    "n_yakalayan": 1,
+    "yasak_girisim": 0,
+    "sure_s": 40.9
+   },
+   {
+    "ad": "GENLIK4 bir olay eksik (Peru 2007 yok)",
+    "yakalandi": true,
+    "yakalayan": [
+     "[birim] U1 GENLIK4 = §3.2'de PGV_T ≥ 0,02 olan N olayları (D-9)"
+    ],
+    "n_yakalayan": 1,
+    "yasak_girisim": 0,
+    "sure_s": 43.1
+   },
+   {
+    "ad": "D-9 etiketi yalnız taranmayanda değil, sınıf P'de de aranır",
+    "yakalandi": true,
+    "yakalayan": [
+     "[uçtan uca] E1 gerçek tremor → (b), X_P 8/10, X_N 1/29, f_PK 0/12, M_mod 8, VAR verilebilir"
+    ],
+    "n_yakalayan": 1,
+    "yasak_girisim": 0,
+    "sure_s": 41.9
+   }
+  ]
+ },
+ "engellenen_giris": [
+  [
+   "subprocess.Popen",
+   "('git', ['git', 'rev-parse', '--show-toplevel'], '/usr/local/lib/python3.13/site-packages', None)"
+  ]
+ ],
+ "sure_s": {
+  "ana": 120.9,
+  "toplam": 1411.9
+ }
+}
