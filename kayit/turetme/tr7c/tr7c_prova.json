@@ -1,0 +1,1872 @@
+{
+ "aciklama": "TR-7c kuru prova (§B.3): gerçek I/O katmanı 127.0.0.1'deki sahte FDSN sunucusuna karşı; yalnız yapay veri; gerçek kip kapısı açılmadı.",
+ "kod_sha256": {
+  "tr7c_prova.py": "bb573f3bc255ac4e1ce30388085e921f4a65e61341445e5116bc991b586e4ec7",
+  "tr7c_kosu.py": "c86d8b9b17ae17e8fa67a12ff945a90df791dc0bfd6b548e1f2d3cbaac20a5b2"
+ },
+ "tr7_motor_sha256": {
+  "tr7_kosu.py": "ce439a4797fd1992ddd68de734ee842b146bd6f13155ba6151769bceb26a9005",
+  "tr7_indir.py": "0763f46da14b2a12f5268937dc6e479dbfd1bc54c3c3ba93d700914dc4b91f2f"
+ },
+ "kapi": [
+  false,
+  "koşu dondurması yok ('Durum:' satırında 'KOŞU DONDURULDU' yok)"
+ ],
+ "senaryolar": {
+  "dugme": {
+   "taban_mutasyonu_engel": [
+    [
+     "socket.getaddrinfo",
+     "('earthquake.usgs.gov', 443)"
+    ]
+   ],
+   "sure_toplam_s": 1.0
+  },
+  "S1": {
+   "aciklama": "gerçek tremor: 10 P olayında başvuru hızına kilitli tremor; N'de yok; 1 negatif pencerede kilitsiz tremor (yanlış alarm)",
+   "sure_s": {
+    "manifest": 8.8,
+    "K1c-indirme": 125.8,
+    "K1c-negatif": 53.1,
+    "K1c-algılama": 40.3
+   },
+   "tremor_basi": {
+    "200106232033": 993329956.9321,
+    "200211032212": 1036362318.46921,
+    "200301220206": 1043201733.961439,
+    "200309251950": 1064521019.480188,
+    "200412260058": 1104025709.0,
+    "200611151114": 1163591535.369535,
+    "200701130423": 1168663618.498349,
+    "200805120628": 1210576129.0,
+    "200909291748": 1254248107.401528,
+    "201002270634": 1267254444.0
+   },
+   "hukum": {
+    "dal": "b",
+    "alt": null,
+    "cumle": "ölçü sınandı; genliği eşlenmiş 4 N olayında modülasyonu ölçülemeyen: 4; k: üstveriden 10, koşuda 10",
+    "var_verilebilir": true,
+    "n_P": 10,
+    "n_N": 29,
+    "X_P": 10,
+    "X_N": 0,
+    "f_PK": 1,
+    "N_PK": 10,
+    "M_olc": 10,
+    "M_mod": 10,
+    "A90_PK": 56.23413251903491,
+    "mda_deneme": 27
+   },
+   "etiket": {
+    "b_prime": false,
+    "mod_gecti": true,
+    "genlik": false,
+    "genlik_olculemeyen": 4,
+    "k_kosu": 10
+   },
+   "z3": {
+    "i": true,
+    "ii": true,
+    "iii": true,
+    "iv": true,
+    "X_min": 8,
+    "fisher_p": 1.5729567312509488e-09,
+    "FAR_PK": 0.1
+   },
+   "istek_sayisi": 16911,
+   "istek_tur": {
+    "dataselect": 14562,
+    "station": 2014,
+    "comcat": 335,
+    "emsc": 0
+   },
+   "ariza_sayac": {},
+   "durmalar": [],
+   "hukum_sha256": "a3fc93c9c6932e00145e33230c35f943635d9ab515cc90a3b0879b230a0a10ea",
+   "sure_toplam_s": 236.0
+  },
+  "S2": {
+   "aciklama": "ayırt etmeyen algılayıcı: P ve N olaylarının hepsinde aynı kilitli tremor",
+   "sure_s": {
+    "manifest": 6.4,
+    "K1c-indirme": 126.3,
+    "K1c-negatif": 51.0,
+    "K1c-algılama": 138.2
+   },
+   "tremor_basi": {
+    "200106232033": 993329956.9321,
+    "200107070938": 994500329.446802,
+    "200110190328": 1003464737.0,
+    "200203052116": 1015365421.0,
+    "200209081844": 1031512894.0,
+    "200210101050": 1034249463.0,
+    "200211032212": 1036362318.46921,
+    "200301220206": 1043201733.961439,
+    "200307152027": 1058304272.0,
+    "200308040437": 1059974498.0,
+    "200309251950": 1064521019.480188,
+    "200311170643": 1069052435.857495,
+    "200411112126": 1100211054.0,
+    "200412231459": 1103816475.0,
+    "200412260058": 1104025709.0,
+    "200503281609": 1112029158.0,
+    "200509090726": 1126253006.0,
+    "200510080350": 1128745939.0,
+    "200604202325": 1145576675.627489,
+    "200607170819": 1153127367.0,
+    "200611151114": 1163591535.369535,
+    "200701130423": 1168663618.498349,
+    "200701211127": 1169381355.0,
+    "200704012039": 1175462198.0,
+    "200708152340": 1187222730.876361,
+    "200709121110": 1189598456.0,
+    "200709122349": 1189643951.0,
+    "200711141540": 1195056565.916196,
+    "200805120628": 1210576129.0,
+    "200901031943": 1231014271.0,
+    "200903191817": 1237488437.470706,
+    "200907150922": 1247652191.0,
+    "200908101955": 1249936937.0,
+    "200909291748": 1254248107.401528,
+    "200909301016": 1254308759.0,
+    "VANUATU2009": 1254955508.0,
+    "201002270634": 1267254444.0,
+    "201004062215": 1270595078.0,
+    "201006121926": 1276373752.0
+   },
+   "hukum": {
+    "dal": "c",
+    "alt": "(iii)",
+    "cumle": "ölçü sınanamadı (algılayıcı kör olaylarda tetiklenmiş tremoru tetikleyici genliğinden ayıramadı) (kalan: (iii)) (ayırt edilemez: gerçekleşen n_P, n_N ile, q 0,1'de görülebilir en küçük s = 0,58 (m_t 0,8) / 0,77 (m_t 0,5)); genlik karıştırıcısı dışlanmadı; genliği eşlenmiş 4 N olayında modülasyonu ölçülemeyen: 0; k: üstveriden 10, koşuda 10",
+    "var_verilebilir": false,
+    "n_P": 10,
+    "n_N": 29,
+    "X_P": 10,
+    "X_N": 29,
+    "f_PK": 1,
+    "N_PK": 10,
+    "M_olc": 10,
+    "M_mod": 10,
+    "A90_PK": 56.23413251903491,
+    "mda_deneme": 27
+   },
+   "etiket": {
+    "b_prime": false,
+    "mod_gecti": true,
+    "genlik": true,
+    "genlik_olculemeyen": 0,
+    "k_kosu": 10
+   },
+   "z3": {
+    "i": true,
+    "ii": true,
+    "iii": false,
+    "iv": true,
+    "X_min": 8,
+    "fisher_p": 1.0,
+    "FAR_PK": 0.1
+   },
+   "istek_sayisi": 16911,
+   "istek_tur": {
+    "dataselect": 14562,
+    "station": 2014,
+    "comcat": 335,
+    "emsc": 0
+   },
+   "ariza_sayac": {},
+   "durmalar": [],
+   "hukum_sha256": "e230f829bb60f4504bef01c0cd72329c360d2b2a0eff83703253472efac13aa5",
+   "sure_toplam_s": 325.0
+  },
+  "S3": {
+   "aciklama": "eksik veri: 1 P ve 2 N olayında hiç veri yok, 3 P olayında E-1 başvurusu yok (k_koşu 6); işletim arızaları ve iki kesinti + sürdürme",
+   "sure_s": {
+    "manifest": 8.9,
+    "K1c-indirme_surdur": 90.6,
+    "K1c-negatif": 58.8,
+    "K1c-algılama": 26.6
+   },
+   "tremor_basi": {
+    "200106232033": 993329956.9321,
+    "200301220206": 1043201733.961439,
+    "200309251950": 1064521019.480188,
+    "200412260058": 1104025709.0,
+    "200611151114": 1163591535.369535,
+    "200701130423": 1168663618.498349,
+    "200805120628": 1210576129.0,
+    "200909291748": 1254248107.401528,
+    "201002270634": 1267254444.0
+   },
+   "kesinti2_once_satir": 34,
+   "hukum": {
+    "dal": "b",
+    "alt": null,
+    "cumle": "ölçü sınandı; genliği eşlenmiş 4 N olayında modülasyonu ölçülemeyen: 4; k: üstveriden 10, koşuda 6 (k_koşu ile güç, s 0,7, q 0,1: 0,75 (m_t 0,8) / 0,35 (m_t 0,5); bilgi)",
+    "var_verilebilir": true,
+    "n_P": 9,
+    "n_N": 27,
+    "X_P": 9,
+    "X_N": 0,
+    "f_PK": 0,
+    "N_PK": 10,
+    "M_olc": 6,
+    "M_mod": 6,
+    "A90_PK": 56.23413251903491,
+    "mda_deneme": 30
+   },
+   "etiket": {
+    "b_prime": false,
+    "mod_gecti": true,
+    "genlik": false,
+    "genlik_olculemeyen": 4,
+    "k_kosu": 6
+   },
+   "z3": {
+    "i": true,
+    "ii": true,
+    "iii": true,
+    "iv": true,
+    "X_min": 6,
+    "fisher_p": 1.062210706913972e-08,
+    "FAR_PK": 0.0
+   },
+   "istek_sayisi": 16938,
+   "istek_tur": {
+    "dataselect": 14589,
+    "station": 2014,
+    "comcat": 335,
+    "emsc": 0
+   },
+   "ariza_sayac": {
+    "bosluk": 1,
+    "bozuk": 2,
+    "429": 2,
+    "500": 2,
+    "zaman": 2,
+    "istemci_kopardi": 2,
+    "bos200": 2,
+    "404": 2,
+    "kesinti": 9
+   },
+   "durmalar": [
+    {
+     "asama": "K1c-indirme",
+     "tur": "kod",
+     "neden": "KosuDur: K1c-indirme: biçim hatası payı 0.067 > %1 (10/149); kalan pencereler işlenmeden durur, \"veri yok\" yazılmaz (§10 madde 6)",
+     "zaman": "2026-11-18T00:26:37+00:00"
+    },
+    {
+     "asama": "K1c-indirme",
+     "tur": "elle",
+     "neden": "prova: sahte sunucu bozuk miniSEED verdi (kesinti 1)",
+     "zaman": "2026-11-18T00:26:37+00:00"
+    },
+    {
+     "asama": "K1c-algılama",
+     "tur": "kod",
+     "neden": "BicimHata: zarf deposu sha256 uyuşmuyor: /tmp/claude-0/-home-user/635decb6-3930-5a4d-9c31-b6f30d64fb94/scratchpad/tr7c_kod/prova/S3_1794961550168418226/zarf/zarf/pk_200611151114/NC.PGH.npz",
+     "zaman": "2026-11-18T00:29:10+00:00"
+    },
+    {
+     "asama": "K1c-algılama",
+     "tur": "elle",
+     "neden": "prova: zarf dosyası bozuldu (kesinti 2); yedekten geri kondu",
+     "zaman": "2026-11-18T00:29:10+00:00"
+    }
+   ],
+   "hukum_sha256": "385351c94a4914fd16c6b77f613124483731d6201d5930c3af2809a691c7499d",
+   "sure_toplam_s": 228.2
+  }
+ },
+ "parca_engel": {
+  "dugme": {
+   "betik": [],
+   "kosu_kodu": [],
+   "obspy_git": 0,
+   "sure_s": 1.0
+  },
+  "S1": {
+   "betik": [],
+   "kosu_kodu": [],
+   "obspy_git": 1,
+   "sure_s": 236.0
+  },
+  "S2": {
+   "betik": [],
+   "kosu_kodu": [],
+   "obspy_git": 1,
+   "sure_s": 325.0
+  },
+  "S3": {
+   "betik": [],
+   "kosu_kodu": [],
+   "obspy_git": 1,
+   "sure_s": 228.2
+  }
+ },
+ "sinamalar": [
+  {
+   "grup": "düğme",
+   "ad": "düğme gerçek kipte kapalı: koşu dondurulmuş ön kayıtla (geçici kopya, kapı açık) prova açılmaz",
+   "gecti": true,
+   "ayrinti": [
+    true,
+    "tamam"
+   ]
+  },
+  {
+   "grup": "düğme",
+   "ad": "gerçek kip benzetimi: taban None (gerçek sunucular), çıktı kosu/, zarf gerçek kök, git doğrulaması açık, prova açılamaz",
+   "gecti": true,
+   "ayrinti": {
+    "servis": null,
+    "tr7": "/home/user/knotenlinie/kayit/turetme/tr7c/kosu"
+   }
+  },
+  {
+   "grup": "düğme",
+   "ad": "prova reddedilir: 127.0.0.1 dışı taban",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "düğme",
+   "ad": "prova reddedilir: https taban",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "düğme",
+   "ad": "prova reddedilir: eksik servis anahtarı",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "düğme",
+   "ad": "prova reddedilir: çıktı dizini kosu/",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "düğme",
+   "ad": "prova reddedilir: zarf gerçek kök",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "düğme",
+   "ad": "prova reddedilir: çıktı depo içinde",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "düğme",
+   "ad": "koşu kodunun prova kancası: 127.0.0.1'in başka portu (kapsayıcının vekili), dış adres, dış ad çözümü reddedilir; yalnız sahte sunucunun (127.0.0.1, port) çifti geçer",
+   "gecti": true,
+   "ayrinti": {
+    "sonuc": [
+     "ret",
+     "ret",
+     "ret",
+     "ret",
+     "ret",
+     "izin",
+     "izin"
+    ],
+    "engel": [
+     [
+      "socket.connect",
+      "('127.0.0.1', 44457)"
+     ],
+     [
+      "socket.connect",
+      "('203.0.113.7', 443)"
+     ],
+     [
+      "socket.getaddrinfo",
+      "('earthquake.usgs.gov', 443)"
+     ],
+     [
+      "socket.getaddrinfo",
+      "('127.0.0.1', 44457)"
+     ],
+     [
+      "socket.gethostbyname",
+      "('service.ncedc.org',)"
+     ]
+    ]
+   }
+  },
+  {
+   "grup": "düğme",
+   "ad": "gerçek bağlantı girişimleri reddedildi (vekil portu, dış ad); sahte sunucu yanıt verdi (204)",
+   "gecti": true,
+   "ayrinti": {
+    "gercek": [
+     "ret",
+     "ret"
+    ],
+    "engel": [
+     [
+      "socket.getaddrinfo",
+      "('127.0.0.1', 44457)"
+     ],
+     [
+      "socket.getaddrinfo",
+      "('earthquake.usgs.gov', 443)"
+     ]
+    ]
+   }
+  },
+  {
+   "grup": "düğme",
+   "ad": "prova kapanınca _PROVA None; gercek_kapi yeniden kapalı kapı",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "düğme",
+   "ad": "mutasyon dizesi kodda var",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "düğme",
+   "ad": "taban düzeltmesi geri alınınca: ilk ComCat isteği (earthquake.usgs.gov) ad çözümünde reddedildi, manifest durdu, sahte sunucuya da istek gitmedi",
+   "gecti": true,
+   "ayrinti": {
+    "r": "KosuDur: katalog sorgusu başarısız (servis_hatasi, HTTP None): https://earthquake.usgs.gov/fdsnws/event/1/query?format=csv&starttime=2001-06-23T20%3A32%3A14.130&endtime=2001-06-23T20%3A34%3A14.130&latitude=0.0",
+    "kosu": [],
+    "betik": [
+     [
+      "socket.getaddrinfo",
+      "('earthquake.usgs.gov', 443)"
+     ]
+    ]
+   }
+  },
+  {
+   "grup": "düğme",
+   "ad": "P-1 dizesi kodda var",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "düğme",
+   "ad": "P-1 geri alınınca: boş zarf deposunda ilk ComCat yanıtı yazılamadı, manifest \"katalog sorgusu başarısız\" ile durdu (sahte sunucu isteği aldı; ağ dışına çıkılmadı)",
+   "gecti": true,
+   "ayrinti": "KosuDur: katalog sorgusu başarısız (servis_hatasi, HTTP None): http://127.0.0.1:40999/comcat/query?format=csv&starttime=2001-06-23T20%3A32%3A14.130&endtime=2001-06-23T20%3A34%3A14.130&latitude=0.0000&longitude"
+  },
+  {
+   "grup": "S1",
+   "ad": "senaryo kurulumu: tremor başı her tremorlu birimde bulundu",
+   "gecti": true,
+   "ayrinti": {
+    "200106232033": 993329956.9321,
+    "200211032212": 1036362318.46921,
+    "200301220206": 1043201733.961439,
+    "200309251950": 1064521019.480188,
+    "200412260058": 1104025709.0,
+    "200611151114": 1163591535.369535,
+    "200701130423": 1168663618.498349,
+    "200805120628": 1210576129.0,
+    "200909291748": 1254248107.401528,
+    "201002270634": 1267254444.0
+   }
+  },
+  {
+   "grup": "S1",
+   "ad": "prova: GercekOrtam taban URL'leri yalnız 127.0.0.1, dizinler prova dizini, git doğrulaması yok",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "S1",
+   "ad": "önkoşul: manifest tamamlanmadan K1c-indirme başlatılamaz",
+   "gecti": true,
+   "ayrinti": "DUR: önceki aşama \"manifest\" tamamlanmamış\n"
+  },
+  {
+   "grup": "S1",
+   "ad": "önkoşul: başlatılmamış aşama koşulamaz",
+   "gecti": true,
+   "ayrinti": "DUR: \"manifest\" başlatılmamış (önce `baslat manifest`, commit + push)\n"
+  },
+  {
+   "grup": "S1",
+   "ad": "manifest: baslat + kos (CLI) başarıyla",
+   "gecti": true,
+   "ayrinti": {
+    "baslat": "",
+    "kos": ""
+   }
+  },
+  {
+   "grup": "S1",
+   "ad": "tek koşu: tamamlanmış manifest ikinci kez başlatılamaz",
+   "gecti": true,
+   "ayrinti": "DUR: \"manifest\" zaten tamamlandı (tek koşu)\n"
+  },
+  {
+   "grup": "S1",
+   "ad": "K1c-indirme: baslat + kos (CLI) başarıyla",
+   "gecti": true,
+   "ayrinti": {
+    "baslat": "",
+    "kos": ""
+   }
+  },
+  {
+   "grup": "S1",
+   "ad": "K1c-negatif: baslat + kos (CLI) başarıyla",
+   "gecti": true,
+   "ayrinti": {
+    "baslat": "",
+    "kos": ""
+   }
+  },
+  {
+   "grup": "S1",
+   "ad": "tek koşu: K1c-negatif ikinci kez başlatılamaz",
+   "gecti": true,
+   "ayrinti": "DUR: \"K1c-negatif\" zaten tamamlandı (tek koşu)\n"
+  },
+  {
+   "grup": "S1",
+   "ad": "K1c-algılama: baslat + kos (CLI) başarıyla",
+   "gecti": true,
+   "ayrinti": {
+    "baslat": "",
+    "kos": ""
+   }
+  },
+  {
+   "grup": "S1",
+   "ad": "tek koşu: tamamlanmış K1c-algılama --surdur ile de başlatılamaz",
+   "gecti": true,
+   "ayrinti": "DUR: \"K1c-algılama\" zaten tamamlandı (tek koşu)\n"
+  },
+  {
+   "grup": "S1",
+   "ad": "kilit: hüküm dosyası varken ikinci k1c_kos hiçbir şey hesaplamadı ve istek atmadı",
+   "gecti": true,
+   "ayrinti": [
+    "KİLİT: K1c hüküm dosyası var; koşu bir kez yapılır. Hiçbir şey hesaplanmadı."
+   ]
+  },
+  {
+   "grup": "S1",
+   "ad": "hüküm: dal ve sayımlar beklenenle aynı",
+   "gecti": true,
+   "ayrinti": {
+    "gercek": {
+     "dal": "b",
+     "n_P": 10,
+     "n_N": 29,
+     "X_P": 10,
+     "X_N": 0,
+     "f_PK": 1,
+     "N_PK": 10,
+     "k_kosu": 10
+    },
+    "beklenen": {
+     "dal": "b",
+     "n_P": 10,
+     "n_N": 29,
+     "X_P": 10,
+     "X_N": 0,
+     "f_PK": 1,
+     "N_PK": 10,
+     "k_kosu": 10
+    }
+   }
+  },
+  {
+   "grup": "S1",
+   "ad": "hüküm cümlesi beklenen biçimde",
+   "gecti": true,
+   "ayrinti": "ölçü sınandı; genliği eşlenmiş 4 N olayında modülasyonu ölçülemeyen: 4; k: üstveriden 10, koşuda 10"
+  },
+  {
+   "grup": "S1",
+   "ad": "VAR verilebilirliği beklenen",
+   "gecti": true,
+   "ayrinti": true
+  },
+  {
+   "grup": "S1",
+   "ad": "hüküm: gerçek kip bayrağı, ayar ön kayıttaki gibi (mod_n 1000, MDA 3), tohumlar",
+   "gecti": true,
+   "ayrinti": {
+    "mod_n": 1000,
+    "mda_bas": 3
+   }
+  },
+  {
+   "grup": "S1",
+   "ad": "algılama sırası: önce 29 N, sonra 10 P, sonra 2 B (jsonl)",
+   "gecti": true,
+   "ayrinti": [
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "P",
+    "P",
+    "P",
+    "P",
+    "P",
+    "P",
+    "P",
+    "P",
+    "P",
+    "P",
+    "B",
+    "B"
+   ]
+  },
+  {
+   "grup": "S1",
+   "ad": "E-1: başvuru en yakın UYGUN istasyon (PST 1 Hz yanıtlı atlandı), HH önce BH, iki konumda \"00\", üç bileşen; başvurusuz olaylar None",
+   "gecti": true,
+   "ayrinti": {
+    "gercek": {
+     "200106232033": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200211032212": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200301220206": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200309251950": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200412260058": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200611151114": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200701130423": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200805120628": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200909291748": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "201002270634": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ]
+    },
+    "beklenen": {
+     "200106232033": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200211032212": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200301220206": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200309251950": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200412260058": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200611151114": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200701130423": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200805120628": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200909291748": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "201002270634": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ]
+    }
+   }
+  },
+  {
+   "grup": "S1",
+   "ad": "K-3: aynı kanal kodu iki konumda (00.HHZ, 10.HHZ) ayrı kayıt; seçilen 00 (10'da başvuru sinyali yok, yanlış konum modülasyonu bozardı)",
+   "gecti": true,
+   "ayrinti": {
+    "iki_konumlu": 10
+   }
+  },
+  {
+   "grup": "S1",
+   "ad": "E-1: PST (yanıt oranı < 0,5) için hiç lp isteği gitmedi",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "S1",
+   "ad": "modülasyon: kilitli P kümelerinin p ≤ 0,01 (M_mod = X_P)",
+   "gecti": true,
+   "ayrinti": [
+    0.000999000999000999,
+    0.000999000999000999,
+    0.000999000999000999,
+    0.000999000999000999,
+    0.000999000999000999,
+    0.000999000999000999,
+    0.000999000999000999,
+    0.000999000999000999,
+    0.000999000999000999,
+    0.000999000999000999
+   ]
+  },
+  {
+   "grup": "S1",
+   "ad": "durum dosyası: dört aşama \"tamamlandı\"; kayıtlar yalnız durum, zaman, sha256",
+   "gecti": true,
+   "ayrinti": {
+    "manifest": {
+     "durum": "tamamlandı",
+     "zaman": "2026-11-18T00:26:07+00:00",
+     "sha256": {
+      "tr7c_manifest.json": "c3ccfa3ff44b67a0ebe5028369843cf32463560f65a98cb89abce5a31860b1c1"
+     }
+    },
+    "K1c-indirme": {
+     "durum": "tamamlandı",
+     "zaman": "2026-11-18T00:28:13+00:00",
+     "sha256": {
+      "tr7c_zarf_sha256.jsonl": "c3675f91f3ad16c47b7109ad7b21473b6431a6a083b9533b03a2ff5f7a476f12",
+      "tr7c_lp_sha256.jsonl": "9f7dce0d6c32d3aa76ba08da61dc9e3b571128cf5a3258e5dd13323facdc27fd"
+     }
+    },
+    "K1c-negatif": {
+     "durum": "tamamlandı",
+     "zaman": "2026-11-18T00:29:06+00:00",
+     "sha256": {
+      "tr7c_negatif.jsonl": "ce7722ad3e9a0ca55cb403e6dc6bf0432efc5d1e23c664b8cb1b522489efccde"
+     }
+    },
+    "K1c-algılama": {
+     "durum": "tamamlandı",
+     "zaman": "2026-11-18T00:29:46+00:00",
+     "sha256": {
+      "tr7c_algilama.jsonl": "b44a7be340e48dec996c7de2558804c33e56bd0f4b46058bfa12895649b0b8a6",
+      "tr7c_k1c_hukum.json": "a3fc93c9c6932e00145e33230c35f943635d9ab515cc90a3b0879b230a0a10ea"
+     }
+    }
+   }
+  },
+  {
+   "grup": "S1",
+   "ad": "ağ: bütün istekler sahte sunucuya, genel User-Agent; 2026+ istek yok; sunucu hatası yok",
+   "gecti": true,
+   "ayrinti": []
+  },
+  {
+   "grup": "S1",
+   "ad": "ağ: prova kancası ve betik kancası hiçbir girişimi reddetmedi (gerçek sunucuya istek denenmedi)",
+   "gecti": true,
+   "ayrinti": {
+    "kosu": [],
+    "betik": []
+   }
+  },
+  {
+   "grup": "S1",
+   "ad": "gerçek çıktı dizini kosu/ kurulmadı",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "S2",
+   "ad": "senaryo kurulumu: tremor başı her tremorlu birimde bulundu",
+   "gecti": true,
+   "ayrinti": {
+    "200106232033": 993329956.9321,
+    "200107070938": 994500329.446802,
+    "200110190328": 1003464737.0,
+    "200203052116": 1015365421.0,
+    "200209081844": 1031512894.0,
+    "200210101050": 1034249463.0,
+    "200211032212": 1036362318.46921,
+    "200301220206": 1043201733.961439,
+    "200307152027": 1058304272.0,
+    "200308040437": 1059974498.0,
+    "200309251950": 1064521019.480188,
+    "200311170643": 1069052435.857495,
+    "200411112126": 1100211054.0,
+    "200412231459": 1103816475.0,
+    "200412260058": 1104025709.0,
+    "200503281609": 1112029158.0,
+    "200509090726": 1126253006.0,
+    "200510080350": 1128745939.0,
+    "200604202325": 1145576675.627489,
+    "200607170819": 1153127367.0,
+    "200611151114": 1163591535.369535,
+    "200701130423": 1168663618.498349,
+    "200701211127": 1169381355.0,
+    "200704012039": 1175462198.0,
+    "200708152340": 1187222730.876361,
+    "200709121110": 1189598456.0,
+    "200709122349": 1189643951.0,
+    "200711141540": 1195056565.916196,
+    "200805120628": 1210576129.0,
+    "200901031943": 1231014271.0,
+    "200903191817": 1237488437.470706,
+    "200907150922": 1247652191.0,
+    "200908101955": 1249936937.0,
+    "200909291748": 1254248107.401528,
+    "200909301016": 1254308759.0,
+    "VANUATU2009": 1254955508.0,
+    "201002270634": 1267254444.0,
+    "201004062215": 1270595078.0,
+    "201006121926": 1276373752.0
+   }
+  },
+  {
+   "grup": "S2",
+   "ad": "prova: GercekOrtam taban URL'leri yalnız 127.0.0.1, dizinler prova dizini, git doğrulaması yok",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "S2",
+   "ad": "önkoşul: manifest tamamlanmadan K1c-indirme başlatılamaz",
+   "gecti": true,
+   "ayrinti": "DUR: önceki aşama \"manifest\" tamamlanmamış\n"
+  },
+  {
+   "grup": "S2",
+   "ad": "önkoşul: başlatılmamış aşama koşulamaz",
+   "gecti": true,
+   "ayrinti": "DUR: \"manifest\" başlatılmamış (önce `baslat manifest`, commit + push)\n"
+  },
+  {
+   "grup": "S2",
+   "ad": "manifest: baslat + kos (CLI) başarıyla",
+   "gecti": true,
+   "ayrinti": {
+    "baslat": "",
+    "kos": ""
+   }
+  },
+  {
+   "grup": "S2",
+   "ad": "tek koşu: tamamlanmış manifest ikinci kez başlatılamaz",
+   "gecti": true,
+   "ayrinti": "DUR: \"manifest\" zaten tamamlandı (tek koşu)\n"
+  },
+  {
+   "grup": "S2",
+   "ad": "K1c-indirme: baslat + kos (CLI) başarıyla",
+   "gecti": true,
+   "ayrinti": {
+    "baslat": "",
+    "kos": ""
+   }
+  },
+  {
+   "grup": "S2",
+   "ad": "K1c-negatif: baslat + kos (CLI) başarıyla",
+   "gecti": true,
+   "ayrinti": {
+    "baslat": "",
+    "kos": ""
+   }
+  },
+  {
+   "grup": "S2",
+   "ad": "tek koşu: K1c-negatif ikinci kez başlatılamaz",
+   "gecti": true,
+   "ayrinti": "DUR: \"K1c-negatif\" zaten tamamlandı (tek koşu)\n"
+  },
+  {
+   "grup": "S2",
+   "ad": "K1c-algılama: baslat + kos (CLI) başarıyla",
+   "gecti": true,
+   "ayrinti": {
+    "baslat": "",
+    "kos": ""
+   }
+  },
+  {
+   "grup": "S2",
+   "ad": "tek koşu: tamamlanmış K1c-algılama --surdur ile de başlatılamaz",
+   "gecti": true,
+   "ayrinti": "DUR: \"K1c-algılama\" zaten tamamlandı (tek koşu)\n"
+  },
+  {
+   "grup": "S2",
+   "ad": "kilit: hüküm dosyası varken ikinci k1c_kos hiçbir şey hesaplamadı ve istek atmadı",
+   "gecti": true,
+   "ayrinti": [
+    "KİLİT: K1c hüküm dosyası var; koşu bir kez yapılır. Hiçbir şey hesaplanmadı."
+   ]
+  },
+  {
+   "grup": "S2",
+   "ad": "hüküm: dal ve sayımlar beklenenle aynı",
+   "gecti": true,
+   "ayrinti": {
+    "gercek": {
+     "dal": "c",
+     "n_P": 10,
+     "n_N": 29,
+     "X_P": 10,
+     "X_N": 29,
+     "f_PK": 1,
+     "N_PK": 10,
+     "k_kosu": 10
+    },
+    "beklenen": {
+     "dal": "c",
+     "n_P": 10,
+     "n_N": 29,
+     "X_P": 10,
+     "X_N": 29,
+     "f_PK": 1,
+     "N_PK": 10,
+     "k_kosu": 10
+    }
+   }
+  },
+  {
+   "grup": "S2",
+   "ad": "hüküm: (c) kalan şart (iii)",
+   "gecti": true,
+   "ayrinti": "(iii)"
+  },
+  {
+   "grup": "S2",
+   "ad": "hüküm cümlesi beklenen biçimde",
+   "gecti": true,
+   "ayrinti": "ölçü sınanamadı (algılayıcı kör olaylarda tetiklenmiş tremoru tetikleyici genliğinden ayıramadı) (kalan: (iii)) (ayırt edilemez: gerçekleşen n_P, n_N ile, q 0,1'de görülebilir en küçük s = 0,58 (m_t 0,8) / 0,77 (m_t 0,5)); genlik karıştırıcısı dışlanmadı; genliği eşlenmiş 4 N olayında modülasyonu ölçülemeyen: 0; k: üstveriden 10, koşuda 10"
+  },
+  {
+   "grup": "S2",
+   "ad": "VAR verilebilirliği beklenen",
+   "gecti": true,
+   "ayrinti": false
+  },
+  {
+   "grup": "S2",
+   "ad": "D-9 genlik etiketi beklenen",
+   "gecti": true,
+   "ayrinti": {
+    "b_prime": false,
+    "mod_gecti": true,
+    "genlik": true,
+    "genlik_olculemeyen": 0,
+    "k_kosu": 10
+   }
+  },
+  {
+   "grup": "S2",
+   "ad": "hüküm: gerçek kip bayrağı, ayar ön kayıttaki gibi (mod_n 1000, MDA 3), tohumlar",
+   "gecti": true,
+   "ayrinti": {
+    "mod_n": 1000,
+    "mda_bas": 3
+   }
+  },
+  {
+   "grup": "S2",
+   "ad": "algılama sırası: önce 29 N, sonra 10 P, sonra 2 B (jsonl)",
+   "gecti": true,
+   "ayrinti": [
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "P",
+    "P",
+    "P",
+    "P",
+    "P",
+    "P",
+    "P",
+    "P",
+    "P",
+    "P",
+    "B",
+    "B"
+   ]
+  },
+  {
+   "grup": "S2",
+   "ad": "E-1: başvuru en yakın UYGUN istasyon (PST 1 Hz yanıtlı atlandı), HH önce BH, iki konumda \"00\", üç bileşen; başvurusuz olaylar None",
+   "gecti": true,
+   "ayrinti": {
+    "gercek": {
+     "200106232033": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200211032212": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200301220206": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200309251950": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200412260058": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200611151114": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200701130423": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200805120628": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200909291748": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "201002270634": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ]
+    },
+    "beklenen": {
+     "200106232033": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200211032212": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200301220206": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200309251950": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200412260058": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200611151114": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200701130423": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200805120628": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200909291748": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "201002270634": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ]
+    }
+   }
+  },
+  {
+   "grup": "S2",
+   "ad": "K-3: aynı kanal kodu iki konumda (00.HHZ, 10.HHZ) ayrı kayıt; seçilen 00 (10'da başvuru sinyali yok, yanlış konum modülasyonu bozardı)",
+   "gecti": true,
+   "ayrinti": {
+    "iki_konumlu": 10
+   }
+  },
+  {
+   "grup": "S2",
+   "ad": "E-1: PST (yanıt oranı < 0,5) için hiç lp isteği gitmedi",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "S2",
+   "ad": "durum dosyası: dört aşama \"tamamlandı\"; kayıtlar yalnız durum, zaman, sha256",
+   "gecti": true,
+   "ayrinti": {
+    "manifest": {
+     "durum": "tamamlandı",
+     "zaman": "2026-11-18T00:29:56+00:00",
+     "sha256": {
+      "tr7c_manifest.json": "de36769ac4a41b7b64379239294560547a6bc5e08df84eec249fbc1a22a0e207"
+     }
+    },
+    "K1c-indirme": {
+     "durum": "tamamlandı",
+     "zaman": "2026-11-18T00:32:03+00:00",
+     "sha256": {
+      "tr7c_zarf_sha256.jsonl": "ca0740b212c61e4aaa18202c0cd0b84903c251ef872e0288e6a825b05950498a",
+      "tr7c_lp_sha256.jsonl": "9f7dce0d6c32d3aa76ba08da61dc9e3b571128cf5a3258e5dd13323facdc27fd"
+     }
+    },
+    "K1c-negatif": {
+     "durum": "tamamlandı",
+     "zaman": "2026-11-18T00:32:54+00:00",
+     "sha256": {
+      "tr7c_negatif.jsonl": "ce7722ad3e9a0ca55cb403e6dc6bf0432efc5d1e23c664b8cb1b522489efccde"
+     }
+    },
+    "K1c-algılama": {
+     "durum": "tamamlandı",
+     "zaman": "2026-11-18T00:35:12+00:00",
+     "sha256": {
+      "tr7c_algilama.jsonl": "22c5dc93d62841c099e709479f329fa6ed490b6e6471d8aa857f240ef51a1896",
+      "tr7c_k1c_hukum.json": "e230f829bb60f4504bef01c0cd72329c360d2b2a0eff83703253472efac13aa5"
+     }
+    }
+   }
+  },
+  {
+   "grup": "S2",
+   "ad": "ağ: bütün istekler sahte sunucuya, genel User-Agent; 2026+ istek yok; sunucu hatası yok",
+   "gecti": true,
+   "ayrinti": []
+  },
+  {
+   "grup": "S2",
+   "ad": "ağ: prova kancası ve betik kancası hiçbir girişimi reddetmedi (gerçek sunucuya istek denenmedi)",
+   "gecti": true,
+   "ayrinti": {
+    "kosu": [],
+    "betik": []
+   }
+  },
+  {
+   "grup": "S2",
+   "ad": "gerçek çıktı dizini kosu/ kurulmadı",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "S3",
+   "ad": "senaryo kurulumu: tremor başı her tremorlu birimde bulundu",
+   "gecti": true,
+   "ayrinti": {
+    "200106232033": 993329956.9321,
+    "200301220206": 1043201733.961439,
+    "200309251950": 1064521019.480188,
+    "200412260058": 1104025709.0,
+    "200611151114": 1163591535.369535,
+    "200701130423": 1168663618.498349,
+    "200805120628": 1210576129.0,
+    "200909291748": 1254248107.401528,
+    "201002270634": 1267254444.0
+   }
+  },
+  {
+   "grup": "S3",
+   "ad": "prova: GercekOrtam taban URL'leri yalnız 127.0.0.1, dizinler prova dizini, git doğrulaması yok",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "S3",
+   "ad": "önkoşul: manifest tamamlanmadan K1c-indirme başlatılamaz",
+   "gecti": true,
+   "ayrinti": "DUR: önceki aşama \"manifest\" tamamlanmamış\n"
+  },
+  {
+   "grup": "S3",
+   "ad": "önkoşul: başlatılmamış aşama koşulamaz",
+   "gecti": true,
+   "ayrinti": "DUR: \"manifest\" başlatılmamış (önce `baslat manifest`, commit + push)\n"
+  },
+  {
+   "grup": "S3",
+   "ad": "manifest: baslat + kos (CLI) başarıyla",
+   "gecti": true,
+   "ayrinti": {
+    "baslat": "",
+    "kos": ""
+   }
+  },
+  {
+   "grup": "S3",
+   "ad": "tek koşu: tamamlanmış manifest ikinci kez başlatılamaz",
+   "gecti": true,
+   "ayrinti": "DUR: \"manifest\" zaten tamamlandı (tek koşu)\n"
+  },
+  {
+   "grup": "S3",
+   "ad": "kesinti 1 (K1c-indirme, biçim hatası payı > %1): aşama durur, durum \"hata\", durma kaydı (kod) yazıldı",
+   "gecti": true,
+   "ayrinti": "DUR: K1c-indirme durdu: KosuDur: K1c-indirme: biçim hatası payı 0.067 > %1 (10/149); kalan pencereler işlenmeden durur, \"veri yok\" yazılmaz (§10 madde 6). Durma nedenini `durdu K1c-indirme --neden \"...\"` ile kayda geçirin, commit + push, sonra `baslat K1c-indirme --surdur`.\n"
+  },
+  {
+   "grup": "S3",
+   "ad": "kesinti 1: \"hata\" durumundaki aşama yeniden başlatılmadan koşulamaz",
+   "gecti": true,
+   "ayrinti": "DUR: \"K1c-indirme\" başlatılmamış (önce `baslat K1c-indirme`, commit + push)\n"
+  },
+  {
+   "grup": "S3",
+   "ad": "kesinti 1: elle durma kaydı olmadan --surdur reddedilir",
+   "gecti": true,
+   "ayrinti": "DUR: sürdürme için önce `durdu K1c-indirme --neden \"...\"` ile durma nedeni elle kayda geçmeli\n"
+  },
+  {
+   "grup": "S3",
+   "ad": "kesinti 1: durdu + baslat --surdur + kos ile sürdü ve tamamlandı",
+   "gecti": true,
+   "ayrinti": {
+    "e1": "",
+    "e2": ""
+   }
+  },
+  {
+   "grup": "S3",
+   "ad": "K1c-negatif: baslat + kos (CLI) başarıyla",
+   "gecti": true,
+   "ayrinti": {
+    "baslat": "",
+    "kos": ""
+   }
+  },
+  {
+   "grup": "S3",
+   "ad": "tek koşu: K1c-negatif ikinci kez başlatılamaz",
+   "gecti": true,
+   "ayrinti": "DUR: \"K1c-negatif\" zaten tamamlandı (tek koşu)\n"
+  },
+  {
+   "grup": "S3",
+   "ad": "kesinti 2 (K1c-algılama, bozuk zarf): aşama durur, \"hata\" + durma kaydı (kod, ileti, saat), hüküm yazılmadı",
+   "gecti": true,
+   "ayrinti": "DUR: K1c-algılama durdu: BicimHata: zarf deposu sha256 uyuşmuyor: /tmp/claude-0/-home-user/635decb6-3930-5a4d-9c31-b6f30d64fb94/scratchpad/tr7c_kod/prova/S3_1794961550168418226/zarf/zarf/pk_200611151114/NC.PGH.npz. Durma nedenini `durdu K1c-algılama --neden \"...\"` ile kayda geçirin, commit + push, sonra `baslat K1c-algılama --surdur`.\n"
+  },
+  {
+   "grup": "S3",
+   "ad": "kesinti 2: algılama aşamasına --surdur olmadan ikinci kez girilemez",
+   "gecti": true,
+   "ayrinti": "DUR: \"K1c-algılama\" algılama aşamasına daha önce girildi: yalnız durma nedeni kayda geçtikten sonra `durdu` + `baslat --surdur` ile kaldığı pencereden sürdürülür (§10 madde 6)\n"
+  },
+  {
+   "grup": "S3",
+   "ad": "kesinti 2: elle durma kaydı olmadan --surdur reddedilir",
+   "gecti": true,
+   "ayrinti": "DUR: sürdürme için önce `durdu K1c-algılama --neden \"...\"` ile durma nedeni elle kayda geçmeli\n"
+  },
+  {
+   "grup": "S3",
+   "ad": "kesinti 2: sürdürme kaldığı birimden devam etti (önceki satırlar yeniden yazılmadı, her birim bir kez)",
+   "gecti": true,
+   "ayrinti": {
+    "once": 34,
+    "sonra": 41,
+    "e1": "",
+    "e2": ""
+   }
+  },
+  {
+   "grup": "S3",
+   "ad": "tek koşu: tamamlanmış K1c-algılama --surdur ile de başlatılamaz",
+   "gecti": true,
+   "ayrinti": "DUR: \"K1c-algılama\" zaten tamamlandı (tek koşu)\n"
+  },
+  {
+   "grup": "S3",
+   "ad": "kilit: hüküm dosyası varken ikinci k1c_kos hiçbir şey hesaplamadı ve istek atmadı",
+   "gecti": true,
+   "ayrinti": [
+    "KİLİT: K1c hüküm dosyası var; koşu bir kez yapılır. Hiçbir şey hesaplanmadı."
+   ]
+  },
+  {
+   "grup": "S3",
+   "ad": "hüküm: dal ve sayımlar beklenenle aynı",
+   "gecti": true,
+   "ayrinti": {
+    "gercek": {
+     "dal": "b",
+     "n_P": 9,
+     "n_N": 27,
+     "X_P": 9,
+     "X_N": 0,
+     "f_PK": 0,
+     "N_PK": 10,
+     "k_kosu": 6
+    },
+    "beklenen": {
+     "dal": "b",
+     "n_P": 9,
+     "n_N": 27,
+     "X_P": 9,
+     "X_N": 0,
+     "f_PK": 0,
+     "N_PK": 10,
+     "k_kosu": 6
+    }
+   }
+  },
+  {
+   "grup": "S3",
+   "ad": "hüküm: gerçek kip bayrağı, ayar ön kayıttaki gibi (mod_n 1000, MDA 3), tohumlar",
+   "gecti": true,
+   "ayrinti": {
+    "mod_n": 1000,
+    "mda_bas": 3
+   }
+  },
+  {
+   "grup": "S3",
+   "ad": "algılama sırası: önce 29 N, sonra 10 P, sonra 2 B (jsonl)",
+   "gecti": true,
+   "ayrinti": [
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "N",
+    "P",
+    "P",
+    "P",
+    "P",
+    "P",
+    "P",
+    "P",
+    "P",
+    "P",
+    "P",
+    "B",
+    "B"
+   ]
+  },
+  {
+   "grup": "S3",
+   "ad": "E-1: başvuru en yakın UYGUN istasyon (PST 1 Hz yanıtlı atlandı), HH önce BH, iki konumda \"00\", üç bileşen; başvurusuz olaylar None",
+   "gecti": true,
+   "ayrinti": {
+    "gercek": {
+     "200106232033": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200211032212": null,
+     "200301220206": null,
+     "200309251950": null,
+     "200412260058": null,
+     "200611151114": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200701130423": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200805120628": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200909291748": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "201002270634": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ]
+    },
+    "beklenen": {
+     "200106232033": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200211032212": null,
+     "200301220206": null,
+     "200309251950": null,
+     "200412260058": null,
+     "200611151114": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200701130423": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200805120628": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "200909291748": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ],
+     "201002270634": [
+      "BK.PKD",
+      "HHZ",
+      "00",
+      3
+     ]
+    }
+   }
+  },
+  {
+   "grup": "S3",
+   "ad": "K-3: aynı kanal kodu iki konumda (00.HHZ, 10.HHZ) ayrı kayıt; seçilen 00 (10'da başvuru sinyali yok, yanlış konum modülasyonu bozardı)",
+   "gecti": true,
+   "ayrinti": {
+    "iki_konumlu": 6
+   }
+  },
+  {
+   "grup": "S3",
+   "ad": "E-1: PST (yanıt oranı < 0,5) için hiç lp isteği gitmedi",
+   "gecti": true,
+   "ayrinti": null
+  },
+  {
+   "grup": "S3",
+   "ad": "durum dosyası: dört aşama \"tamamlandı\"; kayıtlar yalnız durum, zaman, sha256",
+   "gecti": true,
+   "ayrinti": {
+    "manifest": {
+     "durum": "tamamlandı",
+     "zaman": "2026-11-18T00:26:07+00:00",
+     "sha256": {
+      "tr7c_manifest.json": "865bb47733a00f318d7f99cee2567efc93b9ae4bceecaf4b2e71bb0761d57686"
+     }
+    },
+    "K1c-indirme": {
+     "durum": "tamamlandı",
+     "zaman": "2026-11-18T00:28:07+00:00",
+     "sha256": {
+      "tr7c_zarf_sha256.jsonl": "dc64c8cb7b6465702c33d1d6cdea0a01505a8c3b4adaf40c0028824a714719d6",
+      "tr7c_lp_sha256.jsonl": "d9128487df3fffc1a076072bf3617c2b9ba77684a2dedb67e4883a661cc5aeb3"
+     }
+    },
+    "K1c-negatif": {
+     "durum": "tamamlandı",
+     "zaman": "2026-11-18T00:29:06+00:00",
+     "sha256": {
+      "tr7c_negatif.jsonl": "c1578c3a235da45f414c75a68faccd4025815f8daca2b654aec5e5d7de2dafbb"
+     }
+    },
+    "K1c-algılama": {
+     "durum": "tamamlandı",
+     "zaman": "2026-11-18T00:29:37+00:00",
+     "sha256": {
+      "tr7c_algilama.jsonl": "752f3bc8ef9a805c5e41f8634f5af2d8199ecea70470b18c45cc560370330be5",
+      "tr7c_k1c_hukum.json": "385351c94a4914fd16c6b77f613124483731d6201d5930c3af2809a691c7499d"
+     }
+    }
+   }
+  },
+  {
+   "grup": "S3",
+   "ad": "durma kayıtları: iki kesintinin her biri kod + elle",
+   "gecti": true,
+   "ayrinti": [
+    {
+     "asama": "K1c-indirme",
+     "tur": "kod",
+     "neden": "KosuDur: K1c-indirme: biçim hatası payı 0.067 > %1 (10/149); kalan pencereler işlenmeden durur, \"veri yok\" yazılmaz (§10 madde 6)",
+     "zaman": "2026-11-18T00:26:37+00:00"
+    },
+    {
+     "asama": "K1c-indirme",
+     "tur": "elle",
+     "neden": "prova: sahte sunucu bozuk miniSEED verdi (kesinti 1)",
+     "zaman": "2026-11-18T00:26:37+00:00"
+    },
+    {
+     "asama": "K1c-algılama",
+     "tur": "kod",
+     "neden": "BicimHata: zarf deposu sha256 uyuşmuyor: /tmp/claude-0/-home-user/635decb6-3930-5a4d-9c31-b6f30d64fb94/scratchpad/tr7c_kod/prova/S3_1794961550168418226/zarf/zarf/pk_200611151114/NC.PGH.npz",
+     "zaman": "2026-11-18T00:29:10+00:00"
+    },
+    {
+     "asama": "K1c-algılama",
+     "tur": "elle",
+     "neden": "prova: zarf dosyası bozuldu (kesinti 2); yedekten geri kondu",
+     "zaman": "2026-11-18T00:29:10+00:00"
+    }
+   ]
+  },
+  {
+   "grup": "S3",
+   "ad": "arızalar: 429 → yeniden deneme tamam; 500 ve zaman aşımı → servis hatası; boş 200 ve 404 → yok; bozuk → biçim hatası",
+   "gecti": true,
+   "ayrinti": {
+    "gercek": {
+     "429": [
+      "tamam",
+      200
+     ],
+     "500": [
+      "servis_hatasi",
+      500
+     ],
+     "zaman": [
+      "servis_hatasi",
+      null
+     ],
+     "bos200": [
+      "yok",
+      200
+     ],
+     "404": [
+      "yok",
+      404
+     ],
+     "bosluk": [
+      "tamam",
+      200
+     ],
+     "bozuk": [
+      "bicim_hatasi",
+      200
+     ]
+    },
+    "beklenen": {
+     "429": [
+      "tamam",
+      200
+     ],
+     "500": [
+      "servis_hatasi",
+      500
+     ],
+     "zaman": [
+      "servis_hatasi",
+      null
+     ],
+     "bos200": [
+      "yok",
+      200
+     ],
+     "404": [
+      "yok",
+      404
+     ],
+     "bosluk": [
+      "tamam",
+      200
+     ],
+     "bozuk": [
+      "bicim_hatasi",
+      200
+     ]
+    }
+   }
+  },
+  {
+   "grup": "S3",
+   "ad": "arıza: boşluklu veri örtüden düştü (dusme \"ortu\")",
+   "gecti": true,
+   "ayrinti": {
+    "ag": "NC",
+    "bilesen": null,
+    "dosya": "zarf/pk_200107070938/NC.PMM.npz",
+    "dusme": "ortu",
+    "istasyon": "PMM",
+    "lp": false,
+    "ortu_R": 0.7439600111080256,
+    "ortu_W": 1.0,
+    "pencere": "pk|200107070938",
+    "sha256": "c99ecef9c2751200fa3ba2c47e9f2eb6a18f8591e2983057f0bde019263670b8"
+   }
+  },
+  {
+   "grup": "S3",
+   "ad": "boş olaylar \"dustu\", arızalı birimler 3 istasyonla taranmış",
+   "gecti": true,
+   "ayrinti": {
+    "200106232033": "tarandi",
+    "200107070938": "tarandi",
+    "200110190328": "dustu",
+    "200111140926": "tarandi",
+    "200203052116": "tarandi",
+    "200209081844": "dustu",
+    "200210101050": "tarandi",
+    "200211032212": "dustu",
+    "200301220206": "tarandi",
+    "200307152027": "tarandi",
+    "200308040437": "tarandi",
+    "200309251950": "tarandi",
+    "200311170643": "tarandi",
+    "200411112126": "tarandi",
+    "200412231459": "tarandi",
+    "200412260058": "tarandi",
+    "200503281609": "tarandi",
+    "200509090726": "tarandi",
+    "200510080350": "tarandi",
+    "200604202325": "tarandi",
+    "200605031526": "tarandi",
+    "200607170819": "tarandi",
+    "200611151114": "tarandi",
+    "200701130423": "tarandi",
+    "200701211127": "tarandi",
+    "200704012039": "tarandi",
+    "200708152340": "tarandi",
+    "200709121110": "tarandi",
+    "200709122349": "tarandi",
+    "200711141540": "tarandi",
+    "200805120628": "tarandi",
+    "200901031943": "tarandi",
+    "200903191817": "tarandi",
+    "200907150922": "tarandi",
+    "200908101955": "tarandi",
+    "200909291748": "tarandi",
+    "200909301016": "tarandi",
+    "VANUATU2009": "tarandi",
+    "201002270634": "tarandi",
+    "201004062215": "tarandi",
+    "201006121926": "tarandi"
+   }
+  },
+  {
+   "grup": "S3",
+   "ad": "S3 hüküm cümlesi: \"k: üstveriden 10, koşuda 6\" ve güç bilgisi",
+   "gecti": true,
+   "ayrinti": "ölçü sınandı; genliği eşlenmiş 4 N olayında modülasyonu ölçülemeyen: 4; k: üstveriden 10, koşuda 6 (k_koşu ile güç, s 0,7, q 0,1: 0,75 (m_t 0,8) / 0,35 (m_t 0,5); bilgi)"
+  },
+  {
+   "grup": "S3",
+   "ad": "ağ: bütün istekler sahte sunucuya, genel User-Agent; 2026+ istek yok; sunucu hatası yok",
+   "gecti": true,
+   "ayrinti": []
+  },
+  {
+   "grup": "S3",
+   "ad": "ağ: prova kancası ve betik kancası hiçbir girişimi reddetmedi (gerçek sunucuya istek denenmedi)",
+   "gecti": true,
+   "ayrinti": {
+    "kosu": [],
+    "betik": []
+   }
+  },
+  {
+   "grup": "S3",
+   "ad": "gerçek çıktı dizini kosu/ kurulmadı",
+   "gecti": true,
+   "ayrinti": null
+  }
+ ],
+ "gecen": 99,
+ "toplam": 99,
+ "hepsi_gecti": true,
+ "not_": "Dört parça ayrı süreçlerde koşuldu (makine yeniden başladığı için); kod sha256 her parçada aynı."
+}
