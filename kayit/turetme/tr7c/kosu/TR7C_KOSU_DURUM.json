@@ -23,10 +23,11 @@
    }
   },
   "K1c-algılama": {
-   "durum": "başladı",
-   "zaman": "2026-11-18T18:30:28+00:00",
+   "durum": "tamamlandı",
+   "zaman": "2026-11-18T18:33:51+00:00",
    "sha256": {
-    "tr7c_kosu.py": "c86d8b9b17ae17e8fa67a12ff945a90df791dc0bfd6b548e1f2d3cbaac20a5b2"
+    "tr7c_algilama.jsonl": "3fed9e68cf678cb3b32653e5abdb375a8e8522e0bbd533d27a70ce37fd079dd2",
+    "tr7c_k1c_hukum.json": "75ece97156e9a0fb1aa4c986519911d3fd93fc6fa4d53a70de233a307fe421c2"
    }
   }
  },

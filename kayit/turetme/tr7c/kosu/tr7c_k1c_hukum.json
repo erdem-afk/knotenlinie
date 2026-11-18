@@ -1,0 +1,742 @@
+{
+ "dal": "c",
+ "alt": "(iv)",
+ "cumle": "ölçü sınanamadı (algılayıcı kör olaylarda tetiklenmiş tremoru tetikleyici genliğinden ayıramadı) (kalan: (iv)) (ayırt edilemez: gerçekleşen n_P, n_N ile, q 0,1'de görülebilir en küçük s = 0,58 (m_t 0,8) / 0,77 (m_t 0,5)); genliği eşlenmiş 4 N olayında modülasyonu ölçülemeyen: 4; k: üstveriden 10, koşuda 5 (k_koşu ile güç, s 0,7, q 0,1: 0,61 (m_t 0,8) / 0,24 (m_t 0,5); bilgi)",
+ "marmara_acilir": false,
+ "var_verilebilir": false,
+ "etiket": {
+  "b_prime": false,
+  "mod_gecti": false,
+  "genlik": false,
+  "genlik_olculemeyen": 4,
+  "k_kosu": 5
+ },
+ "n_P": 10,
+ "n_N": 29,
+ "X_P": 9,
+ "X_N": 5,
+ "f_PK": 10,
+ "N_PK": 116,
+ "M_olc": 4,
+ "M_mod": 0,
+ "z3": {
+  "i": true,
+  "ii": true,
+  "iii": true,
+  "iv": false,
+  "X_min": 4,
+  "fisher_p": 8.030101408709219e-05,
+  "FAR_PK": 0.08620689655172414
+ },
+ "A90_PK": 19.952623149688797,
+ "A50_PK": 10.0,
+ "mda_deneme": 318,
+ "A_PK": 33.08713839543056,
+ "s_sapka": 0.8791666666666667,
+ "s_sapka_alt": 0.5237193428892234,
+ "bilgi": {
+  "Kuril2007_cikarilmis_Z3": {
+   "i": true,
+   "ii": true,
+   "iii": true,
+   "iv": false,
+   "X_min": 4,
+   "fisher_p": 0.00020176473287429044,
+   "FAR_PK": 0.08620689655172414
+  },
+  "genlik4_algilama": {
+   "200412231459": true,
+   "200503281609": false,
+   "200704012039": false,
+   "200708152340": false
+  },
+  "genlik4_olculemeyen_neden": {
+   "200412231459": "başvuru kanalı yok",
+   "200503281609": "algılama kümesi yok",
+   "200704012039": "algılama kümesi yok",
+   "200708152340": "algılama kümesi yok"
+  },
+  "X_N_bolu_n_N": 0.1724137931034483,
+  "X_P_bolu_n_P": 0.9,
+  "Q_dogrusu_kuruldu_mu": {
+   "200107070938": [
+    10,
+    12
+   ],
+   "200110190328": [
+    12,
+    12
+   ],
+   "200203052116": [
+    11,
+    12
+   ],
+   "200209081844": [
+    11,
+    12
+   ],
+   "200210101050": [
+    10,
+    12
+   ],
+   "200307152027": [
+    12,
+    12
+   ],
+   "200308040437": [
+    9,
+    12
+   ],
+   "200311170643": [
+    12,
+    12
+   ],
+   "200411112126": [
+    12,
+    12
+   ],
+   "200412231459": [
+    10,
+    12
+   ],
+   "200503281609": [
+    12,
+    12
+   ],
+   "200509090726": [
+    10,
+    12
+   ],
+   "200510080350": [
+    10,
+    12
+   ],
+   "200604202325": [
+    12,
+    12
+   ],
+   "200607170819": [
+    10,
+    12
+   ],
+   "200701211127": [
+    10,
+    12
+   ],
+   "200704012039": [
+    12,
+    12
+   ],
+   "200708152340": [
+    11,
+    12
+   ],
+   "200709121110": [
+    12,
+    12
+   ],
+   "200709122349": [
+    11,
+    12
+   ],
+   "200711141540": [
+    11,
+    12
+   ],
+   "200901031943": [
+    11,
+    12
+   ],
+   "200903191817": [
+    12,
+    12
+   ],
+   "200907150922": [
+    11,
+    12
+   ],
+   "200908101955": [
+    11,
+    12
+   ],
+   "200909301016": [
+    11,
+    12
+   ],
+   "VANUATU2009": [
+    11,
+    12
+   ],
+   "201004062215": [
+    11,
+    12
+   ],
+   "201006121926": [
+    12,
+    12
+   ],
+   "200106232033": [
+    12,
+    12
+   ],
+   "200211032212": [
+    10,
+    12
+   ],
+   "200301220206": [
+    12,
+    12
+   ],
+   "200309251950": [
+    12,
+    12
+   ],
+   "200412260058": [
+    10,
+    12
+   ],
+   "200611151114": [
+    10,
+    12
+   ],
+   "200701130423": [
+    10,
+    12
+   ],
+   "200805120628": [
+    12,
+    12
+   ],
+   "200909291748": [
+    12,
+    12
+   ],
+   "201002270634": [
+    10,
+    12
+   ],
+   "200111140926": [
+    11,
+    12
+   ],
+   "200605031526": [
+    12,
+    12
+   ]
+  },
+  "N_modulasyon_p": {
+   "200107070938": [],
+   "200110190328": [],
+   "200203052116": [],
+   "200209081844": [],
+   "200210101050": [
+    null
+   ],
+   "200307152027": [],
+   "200308040437": [],
+   "200311170643": [
+    null
+   ],
+   "200411112126": [
+    null
+   ],
+   "200412231459": [
+    null,
+    null
+   ],
+   "200503281609": [],
+   "200509090726": [],
+   "200510080350": [],
+   "200604202325": [],
+   "200607170819": [],
+   "200701211127": [],
+   "200704012039": [],
+   "200708152340": [],
+   "200709121110": [],
+   "200709122349": [],
+   "200711141540": [],
+   "200901031943": [],
+   "200903191817": [],
+   "200907150922": [],
+   "200908101955": [],
+   "200909301016": [
+    1.0,
+    0.35264735264735264
+   ],
+   "VANUATU2009": [],
+   "201004062215": [],
+   "201006121926": []
+  },
+  "k_nP_icinde": 5,
+  "A_PK_yalniz_modulasyonlu": null,
+  "A_PK_olay_medyan_kume": 33.08713839543056
+ },
+ "modulasyon": {
+  "200106232033": {
+   "ref": null,
+   "kumeler": [
+    {
+     "Ip": [
+      993330277,
+      993331662
+     ],
+     "M": null,
+     "p": null
+    }
+   ]
+  },
+  "200107070938": {
+   "ref": null,
+   "kumeler": []
+  },
+  "200110190328": {
+   "ref": null,
+   "kumeler": []
+  },
+  "200203052116": {
+   "ref": null,
+   "kumeler": []
+  },
+  "200209081844": {
+   "ref": null,
+   "kumeler": []
+  },
+  "200210101050": {
+   "ref": null,
+   "kumeler": [
+    {
+     "Ip": [
+      1034250432,
+      1034250562
+     ],
+     "M": null,
+     "p": null
+    }
+   ]
+  },
+  "200211032212": {
+   "ref": null,
+   "kumeler": [
+    {
+     "Ip": [
+      1036362272,
+      1036363435
+     ],
+     "M": null,
+     "p": null
+    }
+   ]
+  },
+  "200301220206": {
+   "ref": null,
+   "kumeler": [
+    {
+     "Ip": [
+      1043201867,
+      1043202575
+     ],
+     "M": null,
+     "p": null
+    }
+   ]
+  },
+  "200307152027": {
+   "ref": null,
+   "kumeler": []
+  },
+  "200308040437": {
+   "ref": null,
+   "kumeler": []
+  },
+  "200309251950": {
+   "ref": null,
+   "kumeler": [
+    {
+     "Ip": [
+      1064521188,
+      1064521294
+     ],
+     "M": null,
+     "p": null
+    },
+    {
+     "Ip": [
+      1064521392,
+      1064522808
+     ],
+     "M": null,
+     "p": null
+    }
+   ]
+  },
+  "200311170643": {
+   "ref": null,
+   "kumeler": [
+    {
+     "Ip": [
+      1069052392,
+      1069053789
+     ],
+     "M": null,
+     "p": null
+    }
+   ]
+  },
+  "200411112126": {
+   "ref": null,
+   "kumeler": [
+    {
+     "Ip": [
+      1100212431,
+      1100212518
+     ],
+     "M": null,
+     "p": null
+    }
+   ]
+  },
+  "200412231459": {
+   "ref": null,
+   "kumeler": [
+    {
+     "Ip": [
+      1103816561,
+      1103816977
+     ],
+     "M": null,
+     "p": null
+    },
+    {
+     "Ip": [
+      1103817069,
+      1103818901
+     ],
+     "M": null,
+     "p": null
+    }
+   ]
+  },
+  "200412260058": {
+   "ref": null,
+   "kumeler": [
+    {
+     "Ip": [
+      1104025832,
+      1104027018
+     ],
+     "M": null,
+     "p": null
+    }
+   ]
+  },
+  "200503281609": {
+   "ref": null,
+   "kumeler": []
+  },
+  "200509090726": {
+   "ref": null,
+   "kumeler": []
+  },
+  "200510080350": {
+   "ref": null,
+   "kumeler": []
+  },
+  "200604202325": {
+   "ref": {
+    "ad": "NC.PMPB",
+    "kanal": "HHZ",
+    "konum": "",
+    "bilesen": 3,
+    "uzaklik_km": 45.45
+   },
+   "kumeler": []
+  },
+  "200607170819": {
+   "ref": {
+    "ad": "NC.PAGB",
+    "kanal": "HHZ",
+    "konum": "",
+    "bilesen": 3,
+    "uzaklik_km": 27.86
+   },
+   "kumeler": []
+  },
+  "200611151114": {
+   "ref": {
+    "ad": "NC.PAGB",
+    "kanal": "HHZ",
+    "konum": "",
+    "bilesen": 3,
+    "uzaklik_km": 27.86
+   },
+   "kumeler": []
+  },
+  "200701130423": {
+   "ref": {
+    "ad": "NC.PAGB",
+    "kanal": "HHZ",
+    "konum": "",
+    "bilesen": 3,
+    "uzaklik_km": 27.86
+   },
+   "kumeler": [
+    {
+     "Ip": [
+      1168663653,
+      1168665244
+     ],
+     "M": 0.0617,
+     "p": 0.17182817182817184
+    }
+   ]
+  },
+  "200701211127": {
+   "ref": {
+    "ad": "NC.PAGB",
+    "kanal": "HHZ",
+    "konum": "",
+    "bilesen": 3,
+    "uzaklik_km": 27.86
+   },
+   "kumeler": []
+  },
+  "200704012039": {
+   "ref": {
+    "ad": "NC.PAGB",
+    "kanal": "HHZ",
+    "konum": "",
+    "bilesen": 3,
+    "uzaklik_km": 27.86
+   },
+   "kumeler": []
+  },
+  "200708152340": {
+   "ref": {
+    "ad": "NC.PAGB",
+    "kanal": "HHZ",
+    "konum": "",
+    "bilesen": 3,
+    "uzaklik_km": 27.86
+   },
+   "kumeler": []
+  },
+  "200709121110": {
+   "ref": {
+    "ad": "NC.PAGB",
+    "kanal": "HHZ",
+    "konum": "",
+    "bilesen": 3,
+    "uzaklik_km": 27.86
+   },
+   "kumeler": []
+  },
+  "200709122349": {
+   "ref": {
+    "ad": "NC.PAGB",
+    "kanal": "HHZ",
+    "konum": "",
+    "bilesen": 3,
+    "uzaklik_km": 27.86
+   },
+   "kumeler": []
+  },
+  "200711141540": {
+   "ref": {
+    "ad": "NC.PAGB",
+    "kanal": "HHZ",
+    "konum": "",
+    "bilesen": 3,
+    "uzaklik_km": 27.86
+   },
+   "kumeler": []
+  },
+  "200805120628": {
+   "ref": {
+    "ad": "NC.PAGB",
+    "kanal": "HHZ",
+    "konum": "",
+    "bilesen": 3,
+    "uzaklik_km": 27.86
+   },
+   "kumeler": [
+    {
+     "Ip": [
+      1210576082,
+      1210577368
+     ],
+     "M": 0.0829,
+     "p": 0.04795204795204795
+    },
+    {
+     "Ip": [
+      1210577410,
+      1210577886
+     ],
+     "M": 0.0513,
+     "p": 0.8691308691308691
+    }
+   ]
+  },
+  "200901031943": {
+   "ref": {
+    "ad": "NC.PAGB",
+    "kanal": "HHZ",
+    "konum": "",
+    "bilesen": 3,
+    "uzaklik_km": 27.86
+   },
+   "kumeler": []
+  },
+  "200903191817": {
+   "ref": {
+    "ad": "NC.PAGB",
+    "kanal": "HHZ",
+    "konum": "",
+    "bilesen": 3,
+    "uzaklik_km": 27.86
+   },
+   "kumeler": []
+  },
+  "200907150922": {
+   "ref": {
+    "ad": "NC.PAGB",
+    "kanal": "HHZ",
+    "konum": "",
+    "bilesen": 3,
+    "uzaklik_km": 27.86
+   },
+   "kumeler": []
+  },
+  "200908101955": {
+   "ref": {
+    "ad": "NC.PAGB",
+    "kanal": "HHZ",
+    "konum": "",
+    "bilesen": 3,
+    "uzaklik_km": 27.86
+   },
+   "kumeler": []
+  },
+  "200909291748": {
+   "ref": {
+    "ad": "NC.PAGB",
+    "kanal": "HHZ",
+    "konum": "",
+    "bilesen": 3,
+    "uzaklik_km": 27.86
+   },
+   "kumeler": [
+    {
+     "Ip": [
+      1254248067,
+      1254249234
+     ],
+     "M": 0.0205,
+     "p": 0.8931068931068931
+    }
+   ]
+  },
+  "200909301016": {
+   "ref": {
+    "ad": "NC.PAGB",
+    "kanal": "HHZ",
+    "konum": "",
+    "bilesen": 3,
+    "uzaklik_km": 27.86
+   },
+   "kumeler": [
+    {
+     "Ip": [
+      1254309423,
+      1254309805
+     ],
+     "M": 0.0309,
+     "p": 1.0
+    },
+    {
+     "Ip": [
+      1254310072,
+      1254310318
+     ],
+     "M": 0.1689,
+     "p": 0.35264735264735264
+    }
+   ]
+  },
+  "VANUATU2009": {
+   "ref": {
+    "ad": "NC.PAGB",
+    "kanal": "HHZ",
+    "konum": "",
+    "bilesen": 3,
+    "uzaklik_km": 27.86
+   },
+   "kumeler": []
+  },
+  "201002270634": {
+   "ref": {
+    "ad": "NC.PAGB",
+    "kanal": "HHZ",
+    "konum": "",
+    "bilesen": 3,
+    "uzaklik_km": 27.86
+   },
+   "kumeler": [
+    {
+     "Ip": [
+      1267254655,
+      1267255481
+     ],
+     "M": 0.106,
+     "p": 0.017982017982017984
+    }
+   ]
+  },
+  "201004062215": {
+   "ref": {
+    "ad": "NC.PAGB",
+    "kanal": "HHZ",
+    "konum": "",
+    "bilesen": 3,
+    "uzaklik_km": 27.86
+   },
+   "kumeler": []
+  },
+  "201006121926": {
+   "ref": {
+    "ad": "BK.PKD",
+    "kanal": "HHZ",
+    "konum": "00",
+    "bilesen": 3,
+    "uzaklik_km": 8.0
+   },
+   "kumeler": []
+  }
+ },
+ "d2_sha256": {
+  "kayit/turetme/tr7b/tr7b_yapay2.py": "ae995ba8802a934577cbf26051229360bcfb1a85d5d4d7dc16d358dfeaef437f",
+  "kayit/turetme/tr7b/tr7b_yapay.py": "e92715318e21a0200b66e3c130853f73cbc382b0398aef561619fcbe1bb74374",
+  "kayit/turetme/tr7/tr7_cekirdek.py": "4a1b9131603d0f3d519cacb183fdbcccc106157b66392bf2d09350c9f49206f6"
+ },
+ "girdi_sha256": {
+  "kayit/turetme/tr7b/tr7b_sayim.json": "55318360214f96237802346d84a501e6c6964116906332362e704e3b0e5e5114",
+  "kayit/turetme/tr7c/ustveri/tr7c_ustveri.json": "ed8cf3c63cc89609ed4bc865df788bc94c4f6fab40168f7985dd99d2d66ead8c",
+  "kayit/turetme/tr7/tr7_parkfield_liste.csv": "9dca3380815196a8db15a8a5929441d38dd9b07fd7ed982845543e179957b2b8",
+  "kayit/turetme/tr7c/inc1/tr7c_inc1.json": "4974dbe66163b49ba8c1b7dab699121c45cdce5aa1fba53c0cb1b0791d912974",
+  "kayit/turetme/tr7c/tr7c_mde_ek.json": "e759176ec28f0b4a9f18fed47bddfe1ed7f43a52fa24ed994c5d2a1d062c3b3d"
+ },
+ "kod_sha256": {
+  "tr7c_kosu.py": "c86d8b9b17ae17e8fa67a12ff945a90df791dc0bfd6b548e1f2d3cbaac20a5b2",
+  "tr7c_mde_ek.py": "4876dcbee8ce455c221efa4782e4af0047e5ade2f7b84eb985f9eb127873e910"
+ },
+ "gercek_kip": true,
+ "ayar": {
+  "mod_n": 1000,
+  "mda_bas": 3
+ },
+ "tohum": {
+  "modulasyon": 20261115,
+  "mda": 20261114,
+  "negatif_secim": 20261117
+ }
+}
