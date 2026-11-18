@@ -8,10 +8,11 @@
    }
   },
   "K1c-indirme": {
-   "durum": "başladı",
-   "zaman": "2026-11-18T02:30:12+00:00",
+   "durum": "tamamlandı",
+   "zaman": "2026-11-18T05:28:07+00:00",
    "sha256": {
-    "tr7c_kosu.py": "c86d8b9b17ae17e8fa67a12ff945a90df791dc0bfd6b548e1f2d3cbaac20a5b2"
+    "tr7c_zarf_sha256.jsonl": "31b726a5ce496317c6c2f1dd5ee92041c32a8ea6caee4a86722b7be70a20aef4",
+    "tr7c_lp_sha256.jsonl": "77211db6205800182b653fa16fc464c7cb2d52b9259141f3eefba5316a037270"
    }
   }
  }
