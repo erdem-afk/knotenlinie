@@ -16,11 +16,17 @@
    }
   },
   "K1c-negatif": {
-   "durum": "başladı",
-   "zaman": "2026-11-18T06:30:14+00:00",
-   "sha256": {
-    "tr7c_kosu.py": "c86d8b9b17ae17e8fa67a12ff945a90df791dc0bfd6b548e1f2d3cbaac20a5b2"
-   }
+   "durum": "hata",
+   "zaman": "2026-11-18T07:34:21+00:00",
+   "sha256": {}
   }
- }
+ },
+ "durmalar": [
+  {
+   "asama": "K1c-negatif",
+   "tur": "elle",
+   "neden": "Süreç 06:30:34Z başladıktan yaklaşık 7 dk sonra dışarıdan öldürüldü: Ubuntu otomatik güvenlik güncellemesi 06:37:35Z de iş ajanı servisini yeniden başlattı (KillMode=control-group), kos süreci o servisin altındaydı. Hiçbir algılama çıktısı yazılmadı, hiçbir sonuç görülmedi. Sürdürme cron altından başlatılır.",
+   "zaman": "2026-11-18T07:34:21+00:00"
+  }
+ ]
 }
