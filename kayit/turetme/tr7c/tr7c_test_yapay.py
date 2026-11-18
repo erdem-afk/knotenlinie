@@ -832,6 +832,17 @@ def protokol(KM, R):
            and ac_dene(KM.Prova(KM.CIKTI, pr.zarf, pr.servis, pr.katalog))
            and ac_dene(KM.Prova(pr.dizin, KM.ZARF_KOK, pr.servis, pr.katalog))
            and ac_dene(KM.Prova(os.path.join(KM.DEPO, 'x'), pr.zarf, pr.servis, pr.katalog)))
+    # Gerçek kökler bugün /mnt altında, /mnt denetimi onları zaten yakalar; gerçek kök denetimini ayrıca sınamak için
+    # depo ve /mnt dışında geçici bir "gerçek kök" tanımlanır (mutasyon "prova dizini gerçek kök olabilir").
+    sahte_kok = os.path.join(kok, 'gercek_kok')
+    eski_kokler = KM.GERCEK_KOKLER
+    try:
+        KM.GERCEK_KOKLER = tuple(eski_kokler) + (sahte_kok,)
+        kok_ret = (ac_dene(KM.Prova(os.path.join(sahte_kok, 'c'), pr.zarf, pr.servis, pr.katalog))
+                   and ac_dene(KM.Prova(pr.dizin, sahte_kok, pr.servis, pr.katalog)))
+    finally:
+        KM.GERCEK_KOKLER = eski_kokler
+    R.sina(g, 'prova reddedilir: /mnt dışında olsa da gerçek kök (ya da altı) prova dizini olamaz', kok_ret)
     R.sina(g, 'protokol ve prova sınamalarında ağ / gerçek veri girişimi yok', len(ENGELLENEN) == once,
            ENGELLENEN[once:])
     shutil.rmtree(kok, ignore_errors=True)
