@@ -647,6 +647,10 @@ def kapi(KM, R):
             ('main kos', lambda: KM.main(['kos', 'manifest']), '(aşama manifest)'),
             ('main baslat', lambda: KM.main(['baslat', 'manifest']), '(baslat manifest)'),
             ('main marmara', lambda: KM.main(['marmara', 'Marmara-indirme']), '(Marmara Marmara-indirme)'),
+            ('baslat', lambda: KM.baslat('K1c-indirme'), '(baslat K1c-indirme)'),
+            ('durdu', lambda: KM.durdu('K1c-algılama', 'x'), '(durdu K1c-algılama)'),
+            ('main durdu', lambda: KM.main(['durdu', 'K1c-algılama', '--neden', 'x']), '(durdu K1c-algılama)'),
+            ('main baslat --surdur', lambda: KM.main(['baslat', 'K1c-algılama', '--surdur']), '(baslat K1c-algılama)'),
             ('k1c_kos gerçek dizin', lambda: KM.k1c_kos(YapayKaynak(KM, sen_veri_yok), dizin=KM.CIKTI), '(k1c_kos)'),
             ('k1c_kos gercek=True', lambda: KM.k1c_kos(YapayKaynak(KM, sen_veri_yok),
                                                      dizin=os.path.join(GECICI, 'kapi_t'), gercek=True), '(k1c_kos)'),
@@ -708,6 +712,126 @@ def kapi(KM, R):
         KM.gercek_kapi = orj
     R.sina(g, 'Marmara yalnız K1c (b): (a)/(c)/(d)/(e) → "(b) dışında Marmara verisi indirilmez"',
            all('(b) dışında' in sonuc[x] for x in 'acde') and 'yazılmadı' in sonuc['b'] and r0, dict(sonuc, yok=m0))
+
+
+def protokol(KM, R):
+    """§B.4 aşama protokolü (önkoşul, durma kaydı, sürdürme) ve kuru prova düğmesi (§B.3). Ağ yok: provanın taban
+    URL'leri 127.0.0.1:9'dur ama hiçbir istek atılmaz (aşama, manifest olmadığı için ağdan önce durur)."""
+    g = 'protokol'
+    import tr7_indir as I
+    z = '2026-11-18T00:00:00+00:00'
+
+    def D(*ciftler, durmalar=()):
+        return dict(asamalar={a: dict(durum=d, zaman=z, sha256={}) for a, d in ciftler}, durmalar=list(durmalar))
+
+    def on(asama, d, surdur=False):
+        try:
+            return KM.onkosul(asama, d, surdur)
+        except KM.Tr7cDur as e:
+            return 'DUR: ' + str(e)
+    T_, H_ = 'tamamlandı', 'hata'
+    R.sina(g, 'önkoşul: ilk aşama "yeni"', on('manifest', D()) == 'yeni')
+    R.sina(g, 'önkoşul: sıra dışı aşama reddedilir (manifest yokken K1c-indirme; K1c-negatif "hata" iken K1c-algılama)',
+           'önceki aşama' in on('K1c-indirme', D()) and 'önceki aşama' in on('K1c-algılama', D(
+               ('manifest', T_), ('K1c-indirme', T_), ('K1c-negatif', H_))))
+    R.sina(g, 'önkoşul: tamamlanmış aşama ikinci kez başlatılmaz (--surdur ile de)',
+           'zaten tamamlandı' in on('manifest', D(('manifest', T_))) and
+           'zaten tamamlandı' in on('manifest', D(('manifest', T_)), True))
+    d_alg = D(('manifest', T_), ('K1c-indirme', T_), ('K1c-negatif', T_), ('K1c-algılama', H_))
+    R.sina(g, 'önkoşul: algılama aşamasına --surdur olmadan ikinci kez girilmez',
+           'algılama aşamasına daha önce girildi' in on('K1c-algılama', d_alg))
+    R.sina(g, 'önkoşul: yalnız koşu kodunun (kod) durma kaydı sürdürmeye yetmez; elle kayıt gerekir',
+           'elle' in on('K1c-algılama', dict(d_alg, durmalar=[dict(asama='K1c-algılama', tur='kod', neden='x',
+                                                                   zaman=z)]), True))
+    R.sina(g, 'önkoşul: aşamanın son durumundan ÖNCEKİ elle kayıt yetmez',
+           'elle' in on('K1c-algılama', dict(d_alg, durmalar=[dict(asama='K1c-algılama', tur='elle', neden='x',
+                                                                   zaman='2026-11-17T00:00:00+00:00')]), True))
+    R.sina(g, 'önkoşul: elle durma kaydıyla --surdur geçer',
+           on('K1c-algılama', dict(d_alg, durmalar=[dict(asama='K1c-algılama', tur='elle', neden='x', zaman=z)]),
+              True) == 'surdur')
+    R.sina(g, 'önkoşul: indirme aşaması (algılama değil) hata sonrası yeniden başlatılabilir (TR-7 gibi)',
+           on('K1c-indirme', D(('manifest', T_), ('K1c-indirme', H_))) == 'surdur')
+    R.sina(g, 'önkoşul: hiç başlamamış aşama sürdürülemez; bilinmeyen aşama reddedilir',
+           'hiç başlamadı' in on('manifest', D(), True) and 'bilinmeyen' in on('hüküm', D()))
+    # kuru prova kipinde (ağsız) aşama protokolü: başlat, hata ile durma kaydı, elle durdu, sürdür, kod değişikliği
+    kok = os.path.join(GECICI, 'protokol', str(time.time_ns()))
+    pr = KM.Prova(dizin=os.path.join(kok, 'c'), zarf=os.path.join(kok, 'z'),
+                  servis={k: f'http://127.0.0.1:9/{k}/fdsnws' for k in I.SERVIS},
+                  katalog={k: f'http://127.0.0.1:9/{k}/query' for k in I.KATALOG})
+    once = len(ENGELLENEN)
+    sonuc = {}
+    with KM.prova_ac(pr):
+        dz = pr.dizin
+        os.makedirs(dz)
+        KM.durum_isle(dz, 'manifest', 'tamamlandı')
+        KM.durum_isle(dz, 'K1c-indirme', 'tamamlandı')
+        sonuc['baslat'] = KM.baslat('K1c-negatif')
+        sonuc['baslat2'] = beklenen_hata(lambda: KM.baslat('K1c-negatif'), KM.Tr7cDur, 'zaten başlatıldı')
+        sonuc['kos_hata'] = beklenen_hata(lambda: KM.asama_kos('K1c-negatif'), KM.Tr7cDur, 'durdu')
+        d1 = KM.durum_oku(dz)
+        sonuc['kos_tekrar'] = beklenen_hata(lambda: KM.asama_kos('K1c-negatif'), KM.Tr7cDur, 'başlatılmamış')
+        sonuc['baslat_surdursuz'] = beklenen_hata(lambda: KM.baslat('K1c-negatif'), KM.Tr7cDur, 'daha önce girildi')
+        sonuc['baslat_elle_yok'] = beklenen_hata(lambda: KM.baslat('K1c-negatif', surdur=True), KM.Tr7cDur, 'elle')
+        sonuc['main_durdu'] = KM.main(['durdu', 'K1c-negatif', '--neden', 'sınama: manifest yok'])
+        sonuc['surdur'] = KM.baslat('K1c-negatif', surdur=True)
+        d2 = KM.durum_oku(dz)
+        d2['asamalar']['K1c-negatif']['sha256']['tr7c_kosu.py'] = 'x' * 64
+        KM.json_yaz(os.path.join(dz, KM.DURUM_AD), d2)
+        sonuc['kod_degisti'] = beklenen_hata(lambda: KM.asama_kos('K1c-negatif'), KM.Tr7cDur, 'değişti')
+        go = KM.GercekOrtam(log=lambda *a: None)
+        sonuc['ortam'] = (go.servis == pr.servis and go.tr7 == dz and go.zarf == pr.zarf and not go.git_dogrula and
+                          go.zaman_asimi == pr.zaman_asimi)
+        sonuc['kanca'] = []
+        for hedef in (('127.0.0.1', 44457), ('203.0.113.7', 443), ('127.0.0.1', 9)):
+            try:
+                KM._prova_kancasi('socket.connect', (None, hedef))
+                sonuc['kanca'].append('izin')
+            except PermissionError:
+                sonuc['kanca'].append('ret')
+        try:
+            KM._prova_kancasi('socket.getaddrinfo', ('earthquake.usgs.gov', 443, 0, 0, 0))
+            sonuc['kanca'].append('izin')
+        except PermissionError:
+            sonuc['kanca'].append('ret')
+    kod = [x for x in d1['durmalar'] if x['tur'] == 'kod']
+    R.sina(g, 'prova kipinde: baslat "yeni"; ikinci baslat reddedilir', sonuc['baslat'] == 'yeni' and
+           sonuc['baslat2'][0], sonuc)
+    R.sina(g, 'hata ile durma: durum "hata" + durma kaydı (tur kod, ileti, saat); sayı yazılmaz',
+           sonuc['kos_hata'][0] and d1['asamalar']['K1c-negatif']['durum'] == 'hata' and len(kod) == 1 and
+           'FileNotFoundError' in kod[0]['neden'] and kod[0]['zaman'] and
+           all(set(v) == {'durum', 'zaman', 'sha256'} for v in d1['asamalar'].values()), d1)
+    R.sina(g, 'durmadan sonra: kos reddedilir; baslat --surdur olmadan ve elle kayıtsız reddedilir',
+           sonuc['kos_tekrar'][0] and sonuc['baslat_surdursuz'][0] and sonuc['baslat_elle_yok'][0], sonuc)
+    R.sina(g, 'durdu (CLI) + baslat --surdur → "surdur"; kod baslattan sonra değişince kos reddedilir',
+           sonuc['main_durdu'] == 0 and sonuc['surdur'] == 'surdur' and sonuc['kod_degisti'][0], sonuc)
+    R.sina(g, 'prova: GercekOrtam 127.0.0.1 tabanı, prova dizinleri, git doğrulaması yok', sonuc['ortam'])
+    R.sina(g, 'prova kancası: vekil portu, dış adres, dış ad çözümü ret; yalnız provanın (127.0.0.1, port) çifti izinli',
+           sonuc['kanca'] == ['ret', 'ret', 'izin', 'ret'], sonuc['kanca'])
+    R.sina(g, 'prova kapanınca kapı yeniden kapalı', KM._PROVA is None and
+           beklenen_hata(lambda: KM.gercek_kapi('x'), KM.GercekKipReddedildi)[0])
+    # düğme gerçek kipte kapalı: koşu dondurulmuş (geçici kopya) ön kayıtla prova açılmaz; geçersiz ayar reddedilir
+    metin = open(KM.ONKAYIT, encoding='utf-8').read()
+    ac = metin.replace('Durum: KARAR METNİ DONDURULDU', 'Durum: KOŞU DONDURULDU; KARAR METNİ DONDURULDU', 1) + \
+        '\n' + '\n'.join(KM.kod_sha().values()) + '\n'
+    yk = os.path.join(kok, 'onkayit_kopya.md')
+    open(yk, 'w', encoding='utf-8').write(ac)
+
+    def ac_dene(pr_, onk=None):
+        def f():
+            with KM.prova_ac(pr_, onkayit=onk):
+                pass
+        return beklenen_hata(f, KM.GercekKipReddedildi)[0]
+    R.sina(g, 'düğme gerçek kipte kapalı: kapı açıkken (geçici kopya) prova açılmaz', KM.kosu_dondurulmus_mu(yk)[0] and
+           ac_dene(pr, yk) and KM._PROVA is None)
+    R.sina(g, 'prova reddedilir: 127.0.0.1 dışı taban, https, çıktı kosu/, zarf gerçek kök, depo içi dizin',
+           ac_dene(KM.Prova(pr.dizin, pr.zarf, dict(pr.servis, ncedc='http://service.ncedc.org/fdsnws'), pr.katalog))
+           and ac_dene(KM.Prova(pr.dizin, pr.zarf, pr.servis, dict(pr.katalog, comcat='https://127.0.0.1:9/q')))
+           and ac_dene(KM.Prova(KM.CIKTI, pr.zarf, pr.servis, pr.katalog))
+           and ac_dene(KM.Prova(pr.dizin, KM.ZARF_KOK, pr.servis, pr.katalog))
+           and ac_dene(KM.Prova(os.path.join(KM.DEPO, 'x'), pr.zarf, pr.servis, pr.katalog)))
+    R.sina(g, 'protokol ve prova sınamalarında ağ / gerçek veri girişimi yok', len(ENGELLENEN) == once,
+           ENGELLENEN[once:])
+    shutil.rmtree(kok, ignore_errors=True)
 
 
 def sha_kilit(KM, R):
@@ -870,6 +994,26 @@ def uctan_uca(KM, R, ozet):
 
 # ================================================================ MUTASYONLAR
 MUTASYONLAR = [
+    # §B.4 aşama protokolü ve §B.3 kuru prova düğmesi (kod incelemesinden sonra eklendi)
+    ('önkoşul: önceki aşama denetimi yok',
+     "    if i > 0 and a.get(ASAMALAR[i - 1], {}).get('durum') != 'tamamlandı':\n        raise Tr7cDur(f'önceki aşama",
+     "    if False:\n        raise Tr7cDur(f'önceki aşama"),
+    ('önkoşul: tamamlanmış aşama yeniden başlatılabilir', "    if mevcut.get('durum') == 'tamamlandı':\n        raise",
+     "    if False:\n        raise"),
+    ('önkoşul: algılama aşamasına --surdur olmadan yeniden girilir',
+     "    if asama in ALGILAMA_ASAMALARI and not surdur:\n        raise", "    if False:\n        raise"),
+    ('sürdürme: koşu kodunun durma kaydı yeter (elle şartı yok)', "x.get('tur') == 'elle' and ", ""),
+    ('hata ile durmada durma kaydı yazılmaz', "        durma_yaz(dz, asama, neden, 'kod')\n", ""),
+    ('kod baslattan sonra değişse de koşar',
+     "    if (a.get('sha256') or {}).get('tr7c_kosu.py') != sha256_dosya(os.path.abspath(__file__)):",
+     "    if False:"),
+    ('prova düğmesi kapı açıkken de açılır',
+     "    if ok:\n        raise GercekKipReddedildi('PROVA REDDEDİLDİ: koşu dondurulmuş",
+     "    if False:\n        raise GercekKipReddedildi('PROVA REDDEDİLDİ: koşu dondurulmuş"),
+    ('prova kancası portu denetlemez (vekil 127.0.0.1\'de)', "(a[0], a[1]) in izin)", "a[0] == '127.0.0.1')"),
+    ('prova taban URL 127.0.0.1 denetimi yok', "x.hostname != '127.0.0.1' or ", ""),
+    ('prova dizini gerçek kök olabilir', "if gercek_yol_mu(y) or not I.depo_disi", "if not I.depo_disi"),
+    ('prova bağlamı kapanınca düğme açık kalır', "    finally:\n        _PROVA = None", "    finally:\n        pass"),
     ('Fisher yönü ters (alt kuyruk)', 'for x in range(xp, min(k, n) + 1)) / den', 'for x in range(0, xp + 1)) / den'),
     ('(iv) "≥ 3" yerine "≥ 1"', 'MOD_P_MIN = 3 ', 'MOD_P_MIN = 1 '),
     ('dal (a) eşiği n_N < 2', 'N_P_MIN, N_N_MIN = 8, 20', 'N_P_MIN, N_N_MIN = 8, 2'),
@@ -918,7 +1062,8 @@ MUTASYONLAR = [
 
 def suite(KM, tam_izgara, uc=True, ozet=None):
     R = Kayit()
-    for adim in (lambda: birim(KM, R, tam_izgara), lambda: kapi(KM, R), lambda: sha_kilit(KM, R)):
+    for adim in (lambda: birim(KM, R, tam_izgara), lambda: kapi(KM, R), lambda: protokol(KM, R),
+                 lambda: sha_kilit(KM, R)):
         try:
             adim()
         except BaseException as e:   # noqa: BLE001

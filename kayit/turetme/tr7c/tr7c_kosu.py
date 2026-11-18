@@ -21,13 +21,29 @@ Marmara: `marmara` komutu ayrıdır ve yalnız K1c hüküm dosyası dal (b) ise 
 Yapay sınama `kos`un çekirdeğini (`k1c_kos`) bellekteki bir `Kaynak`la çağırır; gerçek dalga formu açan hiçbir sınama
 yoktur.
 
+Aşama protokolü (§B.4 kod incelemesi; TR-7 `onkosul`/`kos`/`durdu` ile aynı davranış): aşamalar yalnız sırayla
+başlatılır; tamamlanmış aşama ikinci kez başlatılmaz; koşu kodu bir aşamada hata ile durursa durum dosyasına 'hata' ve
+durma kaydı (ileti, saat) yazılır; algılama aşamasına (K1c-negatif, K1c-algılama) ikinci kez ancak durma nedeni ELLE
+(`durdu`) kayda geçtikten sonra `baslat --surdur` ile girilir ve jsonl'lerden kaldığı yerden sürer.
+
+KURU PROVA (§B.3 kod incelemesi): `prova_ac(Prova(...))` bağlamında gerçek I/O katmanı (GercekOrtam, GercekKaynak,
+asama_*) yerel SAHTE bir FDSN sunucusuna karşı koşulur. Sınama yolu ile gerçek yol arasındaki fark yalnız şudur:
+`gercek_kapi` prova açıkken ön kayıttaki koşu dondurmasını aramaz ('prova' döner); bunun karşılığında prova ancak kapı
+KAPALIYKEN açılır (koşu dondurulmuşsa `prova_ac` reddeder: düğme gerçek kipte kapalıdır), bütün servis ve katalog taban
+URL'leri http://127.0.0.1:<port> olmalıdır, süreçte bu (host, port) çiftleri dışındaki her bağlantı ve ad çözümü bir
+denetim kancasıyla reddedilir ve kayda geçer (`PROVA_ENGEL`), çıktı ve zarf dizinleri depo ve gerçek kökler dışında
+olmalıdır, git doğrulaması yapılmaz, bekleme süreleri kısalır. Hesap, eşik, ayar (mod_n 1000, MDA 3 başlangıç) ve
+aşama protokolü gerçek kiptekiyle aynıdır.
+
 Kullanım (depo kökünden, python3 -I -B):
-  tr7c_kosu.py kapi                     kapının durumunu yazar (hiçbir şey açılmaz)
-  tr7c_kosu.py baslat <aşama>           durum dosyasına "başladı" yazar (commit + push sonra)
-  tr7c_kosu.py kos <aşama> [--surdur]   aşamayı koşar (kapı + git doğrulaması)
-  tr7c_kosu.py marmara <aşama>          yalnız K1c (b) hüküm dosyası varsa
+  tr7c_kosu.py kapi                          kapının durumunu yazar (hiçbir şey açılmaz)
+  tr7c_kosu.py baslat <aşama> [--surdur]     önkoşul; durum dosyasına "başladı" yazar (commit + push sonra)
+  tr7c_kosu.py kos <aşama>                   aşamayı koşar (kapı + git doğrulaması)
+  tr7c_kosu.py durdu <aşama> --neden "..."   durma nedenini elle kayda geçirir (sürdürmeden önce; commit + push)
+  tr7c_kosu.py marmara <aşama>               yalnız K1c (b) hüküm dosyası varsa
   tr7c_kosu.py durum
 """
+import contextlib
 import dataclasses
 import datetime as dt
 import hashlib
@@ -184,7 +200,11 @@ def kosu_dondurulmus_mu(onkayit=None):
 
 
 def gercek_kapi(islem, onkayit=None):
-    """Her gerçek yolun girişinde. Kapalıysa GercekKipReddedildi (SystemExit): hiçbir şey açılmadı, istenmedi."""
+    """Her gerçek yolun girişinde. Kapalıysa GercekKipReddedildi (SystemExit): hiçbir şey açılmadı, istenmedi.
+    Kuru prova açıksa (yalnız kapı kapalıyken açılabilir) prova ayarı yeniden denetlenir ve 'prova' döner."""
+    if _PROVA is not None:
+        prova_denetle(_PROVA[0])
+        return 'prova'
     ok, neden = kosu_dondurulmus_mu(onkayit)
     if not ok:
         raise GercekKipReddedildi(f'GERÇEK KİP REDDEDİLDİ ({islem}): {neden}')
@@ -195,6 +215,107 @@ def gercek_yol_mu(yol):
     r = os.path.realpath(yol)
     return any(r == os.path.realpath(k) or r.startswith(os.path.realpath(k) + os.sep) for k in GERCEK_KOKLER) \
         or r == os.path.realpath(CIKTI) or r.startswith(os.path.realpath(CIKTI) + os.sep)
+
+
+# ====================================================================== KURU PROVA (sınama düğmesi; gerçek kipte kapalı)
+@dataclasses.dataclass(frozen=True)
+class Prova:
+    """servis / katalog: tr7_indir.SERVIS / KATALOG ile aynı anahtarlar, her URL http://127.0.0.1:<port>/...; dizin
+    (çıktı) ve zarf (zarf deposu; ham altında) depo dışında, gerçek köklerin dışında. Zaman ayarları yalnız beklemeyi
+    kısaltır (yerel sunucu)."""
+    dizin: str
+    zarf: str
+    servis: dict
+    katalog: dict
+    aralik: float = 0.0
+    bekle_429: float = 0.0
+    yeniden_bekle: float = 0.0
+    zaman_asimi: float = 2.0
+
+
+_PROVA = None             # (Prova, izinli (host, port) kümesi) yalnız prova_ac içinde
+PROVA_ENGEL = []          # prova sırasında reddedilen bağlantı / ad çözümü girişimleri
+_PROVA_KANCA = []
+
+
+def _prova_uclar(pr):
+    import urllib.parse
+    import tr7_indir as I
+    if set(pr.servis) != set(I.SERVIS) or set(pr.katalog) != set(I.KATALOG):
+        raise GercekKipReddedildi('PROVA REDDEDİLDİ: servis/katalog anahtarları tr7_indir ile aynı olmalı')
+    uclar = set()
+    for u in list(pr.servis.values()) + list(pr.katalog.values()):
+        x = urllib.parse.urlsplit(u)
+        if x.scheme != 'http' or x.hostname != '127.0.0.1' or not x.port:
+            raise GercekKipReddedildi(f'PROVA REDDEDİLDİ: taban URL yalnız http://127.0.0.1:<port> olabilir: {u}')
+        uclar.add(('127.0.0.1', int(x.port)))
+    return frozenset(uclar)
+
+
+def prova_denetle(pr, onkayit=None):
+    """Prova ayarı geçerli mi. Koşu dondurulmuşsa (gerçek kip) prova AÇILMAZ. Dönüş: izinli (host, port) kümesi."""
+    import tr7_indir as I
+    ok, _ = kosu_dondurulmus_mu(onkayit)
+    if ok:
+        raise GercekKipReddedildi('PROVA REDDEDİLDİ: koşu dondurulmuş (gerçek kip); prova düğmesi gerçek kipte kapalıdır')
+    uclar = _prova_uclar(pr)
+    for y in (pr.dizin, pr.zarf):
+        r = os.path.realpath(y)
+        if gercek_yol_mu(y) or not I.depo_disi(y, DEPO) or r == '/mnt' or r.startswith('/mnt' + os.sep):
+            raise GercekKipReddedildi(f'PROVA REDDEDİLDİ: prova dizini gerçek kök, depo ya da /mnt altında: {y}')
+    return uclar
+
+
+def _prova_kancasi(olay, args):
+    """Prova açıkken: izinli (127.0.0.1, port) dışındaki her bağlantı ve ad çözümü reddedilir (kapsayıcının vekil
+    sunucusu da 127.0.0.1'dedir; bu yüzden port da denetlenir)."""
+    if _PROVA is None:
+        return
+    izin = _PROVA[1]
+    if olay == 'socket.connect':
+        a = args[1] if len(args) > 1 else None
+        if not (isinstance(a, tuple) and len(a) >= 2 and (a[0], a[1]) in izin):
+            PROVA_ENGEL.append((olay, repr(a)[:160]))
+            raise PermissionError(f'KURU PROVA: izinsiz bağlantı {a!r}')
+    elif olay == 'socket.getaddrinfo':
+        h, p = args[0], args[1]
+        h = h.decode() if isinstance(h, bytes) else h
+        try:
+            p = int(p) if p is not None else None
+        except (TypeError, ValueError):
+            p = None
+        if (h, p) not in izin:
+            PROVA_ENGEL.append((olay, repr((h, p))[:160]))
+            raise PermissionError(f'KURU PROVA: izinsiz ad çözümü {h!r}:{p!r}')
+    elif olay in ('socket.gethostbyname', 'socket.gethostbyaddr', 'socket.sendto', 'socket.sendmsg'):
+        PROVA_ENGEL.append((olay, repr(args)[:160]))
+        raise PermissionError(f'KURU PROVA: {olay} yasak')
+
+
+@contextlib.contextmanager
+def prova_ac(pr, onkayit=None):
+    """Kuru prova bağlamı. Kapı açıksa (koşu dondurulmuşsa) ya da ayar geçersizse GercekKipReddedildi."""
+    global _PROVA
+    if _PROVA is not None:
+        raise GercekKipReddedildi('PROVA REDDEDİLDİ: prova zaten açık')
+    uclar = prova_denetle(pr, onkayit)
+    if not _PROVA_KANCA:
+        sys.addaudithook(_prova_kancasi)
+        _PROVA_KANCA.append(True)
+    _PROVA = (pr, uclar)
+    try:
+        yield pr
+    finally:
+        _PROVA = None
+
+
+def _cikti():
+    """Gerçek kipte CIKTI; kuru provada provanın dizini."""
+    return _PROVA[0].dizin if _PROVA is not None else CIKTI
+
+
+def _cikti_mi(dizin):
+    return os.path.realpath(dizin) == os.path.realpath(_cikti())
 
 
 def girdi_denetimi():
@@ -718,6 +839,87 @@ def durum_isle(dizin, asama, durum, dosyalar=()):
     return d
 
 
+# ---------------------------------------------------------------------- aşama protokolü (§B.4; TR-7 onkosul/kos/durdu)
+ASAMALAR = ('manifest', 'K1c-indirme', 'K1c-negatif', 'K1c-algılama')
+ALGILAMA_ASAMALARI = ('K1c-negatif', 'K1c-algılama')
+
+
+def simdi_utc():
+    return dt.datetime.now(dt.timezone.utc).isoformat(timespec='seconds')
+
+
+def durum_oku(dizin):
+    y = os.path.join(dizin, DURUM_AD)
+    d = _json(y) if os.path.exists(y) else {}
+    d.setdefault('asamalar', {})
+    d.setdefault('durmalar', [])
+    return d
+
+
+def durma_yaz(dizin, asama, neden, tur):
+    """Durma kaydı: tur 'kod' (koşu kodu hata ile durdu; ileti ve saat) ya da 'elle' (`durdu --neden`). Sayı yazılmaz."""
+    d = durum_oku(dizin)
+    d['durmalar'].append(dict(asama=asama, tur=tur, neden=str(neden)[:2000], zaman=simdi_utc()))
+    json_yaz(os.path.join(dizin, DURUM_AD), d)
+    return d
+
+
+def onkosul(asama, d, surdur=False):
+    """TR-7 `onkosul` ile aynı davranış (Marmara ve uygulama hatası yolu yok: O-30, KMS-8). Sıra dışı aşama
+    başlatılmaz; tamamlanmış aşama ikinci kez başlatılmaz (tek koşu); algılama aşamasına ikinci kez ancak durma nedeni
+    ELLE kayda geçtikten sonra `--surdur` ile girilir. Dönüş 'yeni' ya da 'surdur'; değilse Tr7cDur."""
+    if asama not in ASAMALAR:
+        raise Tr7cDur(f'bilinmeyen aşama: {asama}')
+    i = ASAMALAR.index(asama)
+    a = d['asamalar']
+    if i > 0 and a.get(ASAMALAR[i - 1], {}).get('durum') != 'tamamlandı':
+        raise Tr7cDur(f'önceki aşama "{ASAMALAR[i - 1]}" tamamlanmamış')
+    mevcut = a.get(asama)
+    if not mevcut:
+        if surdur:
+            raise Tr7cDur(f'"{asama}" hiç başlamadı: sürdürülemez')
+        return 'yeni'
+    if mevcut.get('durum') == 'tamamlandı':
+        raise Tr7cDur(f'"{asama}" zaten tamamlandı (tek koşu)')
+    if asama in ALGILAMA_ASAMALARI and not surdur:
+        raise Tr7cDur(f'"{asama}" algılama aşamasına daha önce girildi: yalnız durma nedeni kayda geçtikten sonra '
+                      f'`durdu` + `baslat --surdur` ile kaldığı pencereden sürdürülür (§10 madde 6)')
+    if surdur and not any(x['asama'] == asama and x.get('tur') == 'elle' and x['zaman'] >= mevcut.get('zaman', '')
+                          for x in d['durmalar']):
+        raise Tr7cDur(f'sürdürme için önce `durdu {asama} --neden "..."` ile durma nedeni elle kayda geçmeli')
+    return 'surdur'
+
+
+def baslat(asama, surdur=False):
+    """Önkoşul + durum dosyasına 'başladı' (kod sha256'sıyla). Sonra commit + push, sonra `kos`."""
+    gercek_kapi(f'baslat {asama}')
+    dz = _cikti()
+    os.makedirs(dz, exist_ok=True)
+    d = durum_oku(dz)
+    m = d['asamalar'].get(asama)
+    if m and m.get('durum') == 'başladı':
+        raise Tr7cDur(f'"{asama}" zaten başlatıldı: durum dosyasını commit + push edin, sonra `kos {asama}`')
+    kip = onkosul(asama, d, surdur)
+    durum_isle(dz, asama, 'başladı', [os.path.abspath(__file__)])
+    return kip
+
+
+def durdu(asama, neden):
+    """Durma nedenini elle kayda geçirir (§10 madde 6; ek cümle §I.2). Sonra commit + push, `baslat --surdur`."""
+    gercek_kapi(f'durdu {asama}')
+    dz = _cikti()
+    d = durum_oku(dz)
+    a = d['asamalar'].get(asama)
+    if not a:
+        raise Tr7cDur(f'"{asama}" hiç başlamadı')
+    if a.get('durum') == 'tamamlandı':
+        raise Tr7cDur(f'"{asama}" tamamlanmış')
+    if not str(neden).strip():
+        raise Tr7cDur('durma nedeni boş olamaz')
+    durum_isle(dz, asama, 'hata')
+    return durma_yaz(dz, asama, neden, 'elle')
+
+
 # ====================================================================== K1c koşusu (gerçek ve yapay ortak çekirdek)
 def negatif_turu(kaynak, dizin, ayar):
     """Rastgele negatif pencereler: algılama (W'nin herhangi bir yerinde), f_PK, N_PK, MDA (pencere başına 3
@@ -795,8 +997,9 @@ def modulasyon_turu(kaynak, birimler, ayar):
             r = modulasyon_kume(pv, k, ref, rng, ayar.mod_n) if ref is not None else None
             km.append(dict(Ip=[pv['k0'] + k['Ip'][0], pv['k0'] + k['Ip'][1]], M=None if r is None else r['M'],
                            p=None if r is None else r['p']))
-        out[b['id']] = dict(ref=None if ref is None else dict(ad=ref['ad'], kanal=ref['kanal'], bilesen=ref['bilesen'],
-                                                              uzaklik_km=ref['uzaklik_km']), kumeler=km)
+        out[b['id']] = dict(ref=None if ref is None else dict(ad=ref['ad'], kanal=ref['kanal'], konum=ref.get('konum'),
+                                                              bilesen=ref['bilesen'], uzaklik_km=ref['uzaklik_km']),
+                            kumeler=km)
     return out
 
 
@@ -897,12 +1100,12 @@ def k1c_hesap(kaynak, birimler, neg, alg, mod):
                 s_sapka_alt=sh_alt, bilgi=bilgi, modulasyon=mod)
 
 
-def k1c_kos(kaynak, dizin=CIKTI, ayar=Ayar(), gercek=False, gunluk=print):
+def k1c_kos(kaynak, dizin=CIKTI, ayar=Ayar(), gercek=False, gunluk=print, durum_yaz=True):
     """K1c'nin çekirdeği: negatifler → algılama (N, P) → modülasyon → Z3/Z4 → hüküm dosyası bir kez ('x').
     Kapı içeride: gerçek kip, gerçek kaynak ya da gerçek çıktı dizini → kapı (dondurulmamışsa SystemExit)."""
     if gercek or kaynak.gercek or gercek_yol_mu(dizin):
         gercek_kapi('k1c_kos')
-        if ayar != Ayar() or not kaynak.gercek or not gercek_yol_mu(dizin):
+        if ayar != Ayar() or not kaynak.gercek or not _cikti_mi(dizin):
             raise GercekKipReddedildi('GERÇEK KİP REDDEDİLDİ: gerçek kipte ayar ön kayıttaki gibi, kaynak ve dizin '
                                       'gerçek olmalı')
     d2 = d2_denetle()
@@ -912,10 +1115,12 @@ def k1c_kos(kaynak, dizin=CIKTI, ayar=Ayar(), gercek=False, gunluk=print):
     if os.path.exists(hy):
         gunluk('KİLİT: K1c hüküm dosyası var; koşu bir kez yapılır. Hiçbir şey hesaplanmadı.')
         return _json(hy)
-    durum_isle(dizin, 'K1c-negatif', 'başladı')
+    if durum_yaz:           # aşama protokolüyle çağrılınca (asama_kos) durum dosyasını asama_kos yazar
+        durum_isle(dizin, 'K1c-negatif', 'başladı')
     neg = negatif_turu(kaynak, dizin, ayar)
-    durum_isle(dizin, 'K1c-negatif', 'tamamlandı', [os.path.join(dizin, 'tr7c_negatif.jsonl')])
-    durum_isle(dizin, 'K1c-algılama', 'başladı')
+    if durum_yaz:
+        durum_isle(dizin, 'K1c-negatif', 'tamamlandı', [os.path.join(dizin, 'tr7c_negatif.jsonl')])
+        durum_isle(dizin, 'K1c-algılama', 'başladı')
     alg = algilama_turu(kaynak, dizin)
     birimler = kaynak.birimler()
     mod = modulasyon_turu(kaynak, birimler, ayar)
@@ -924,7 +1129,8 @@ def k1c_kos(kaynak, dizin=CIKTI, ayar=Ayar(), gercek=False, gunluk=print):
              ayar=dataclasses.asdict(ayar),
              tohum=dict(modulasyon=MOD_TOHUM_PK, mda=K.MDA_TOHUM, negatif_secim=NEG_TOHUM))
     json_yaz(hy, h, kip='x')
-    durum_isle(dizin, 'K1c-algılama', 'tamamlandı', [os.path.join(dizin, 'tr7c_algilama.jsonl'), hy])
+    if durum_yaz:
+        durum_isle(dizin, 'K1c-algılama', 'tamamlandı', [os.path.join(dizin, 'tr7c_algilama.jsonl'), hy])
     return h
 
 
@@ -971,20 +1177,28 @@ class GercekOrtam:
     def __init__(self, zarf=ZARF_KOK, log=print):
         import tr7_kosu as T
         self.T = T
-        self.o = T.Ortam(tr7=CIKTI, depo=DEPO, zarf=zarf, dondurulmus={}, log=log)
-        self.tr7, self.depo, self.zarf, self.log = CIKTI, DEPO, zarf, log
-        self.servis = self.katalog = None
+        pr = _PROVA[0] if _PROVA is not None else None
+        if pr is not None:              # kuru prova: yerel sahte sunucu, prova dizinleri (gerçek kökler değil)
+            zarf = pr.zarf
+        self.o = T.Ortam(tr7=_cikti(), depo=DEPO, zarf=zarf, dondurulmus={}, log=log)
+        self.tr7, self.depo, self.zarf, self.log = _cikti(), DEPO, zarf, log
+        self.servis = None if pr is None else dict(pr.servis)
+        self.katalog = None if pr is None else dict(pr.katalog)
         self.uyku, self.aralik, self.bekle_429, self.yeniden_bekle = self.o.uyku, self.o.aralik, self.o.bekle_429, \
             self.o.yeniden_bekle
+        self.zaman_asimi = T.I.ZAMAN_ASIMI_S
+        if pr is not None:
+            self.aralik, self.bekle_429, self.yeniden_bekle = pr.aralik, pr.bekle_429, pr.yeniden_bekle
+            self.zaman_asimi = pr.zaman_asimi
         self.dondurulmus = {}
-        self.git_dogrula = True
+        self.git_dogrula = pr is None
 
     def yol(self, ad):
         if ad == 'TR7_KOSU_DURUM.json':
             ad = DURUM_AD
         elif ad.startswith('tr7_'):
             ad = 'tr7c_' + ad[4:]
-        return os.path.join(CIKTI, ad)
+        return os.path.join(_cikti(), ad)
 
     def zyol(self, *p):
         gercek_kapi('zarf deposu')
@@ -992,11 +1206,14 @@ class GercekOrtam:
 
     def hyol(self, *p):
         gercek_kapi('ham veri')
+        if _PROVA is not None:
+            return os.path.join(self.zarf, 'ham', *p)
         return os.path.join(os.environ.get('TR7_HAM_DIZIN') or os.path.join(self.zarf, 'ham'), *p)
 
     def istemci(self):
         gercek_kapi('ağ istemcisi')
-        return self.T.I.Istemci(aralik=self.aralik, bekle_429=self.bekle_429, uyku=self.uyku)
+        return self.T.I.Istemci(aralik=self.aralik, bekle_429=self.bekle_429, uyku=self.uyku,
+                                zaman_asimi=self.zaman_asimi)
 
 
 def _sayim_istasyonlari(evid, sinif='liste'):
@@ -1152,22 +1369,52 @@ class GercekKaynak(Kaynak):
 
 
 def asama_kos(asama, surdur=False):
-    """Gerçek aşamalar. Kapı ilk satırda. Bu sürümde (koşu dondurması yok) her çağrı burada reddedilir."""
+    """Gerçek aşamalar. Kapı ilk satırda. Bu sürümde (koşu dondurması yok) her çağrı burada reddedilir.
+    Aşama `baslat` ile başlamış olmalı (önkoşul orada); kod `baslat`tan sonra değişmemiş olmalı. Hata ile durursa durum
+    dosyasına 'hata' ve durma kaydı (ileti, saat) yazılır (§B.4). `surdur` yalnız geriye uyum için; sürdürme `baslat
+    --surdur` iledir."""
     gercek_kapi(f'aşama {asama}')
+    if asama not in ASAMALAR:
+        raise Tr7cDur(f'bilinmeyen aşama: {asama}')
+    dz = _cikti()
+    d = durum_oku(dz)
+    a = d['asamalar'].get(asama)
+    if not a or a.get('durum') != 'başladı':
+        raise Tr7cDur(f'"{asama}" başlatılmamış (önce `baslat {asama}`, commit + push)')
+    i = ASAMALAR.index(asama)
+    if i > 0 and d['asamalar'].get(ASAMALAR[i - 1], {}).get('durum') != 'tamamlandı':
+        raise Tr7cDur(f'önceki aşama "{ASAMALAR[i - 1]}" tamamlanmamış')
+    if (a.get('sha256') or {}).get('tr7c_kosu.py') != sha256_dosya(os.path.abspath(__file__)):
+        raise Tr7cDur('kod `baslat`tan sonra değişti: yeniden `baslat` (koşu öncesi düzeltme kaydıyla)')
     go = GercekOrtam()
-    go.T.git_dogrula(go, asama)                     # durum dosyası 'başladı' ile commit + push edilmiş olmalı
+    if go.git_dogrula:
+        go.T.git_dogrula(go, asama)                 # durum dosyası 'başladı' ile commit + push edilmiş olmalı
+    try:
+        sonuc, dosyalar = _asama_govde(go, asama, dz)
+    except Exception as e:                          # noqa: BLE001  (GercekKipReddedildi SystemExit'tir, geçer)
+        neden = f'{type(e).__name__}: {e}'
+        durum_isle(dz, asama, 'hata')
+        durma_yaz(dz, asama, neden, 'kod')
+        raise Tr7cDur(f'{asama} durdu: {neden}. Durma nedenini `durdu {asama} --neden "..."` ile kayda geçirin, '
+                      f'commit + push, sonra `baslat {asama} --surdur`.') from e
+    durum_isle(dz, asama, 'tamamlandı', dosyalar)
+    return sonuc
+
+
+def _asama_govde(go, asama, dz):
     birim = birimler_kur()
     if asama == 'manifest':
-        return asama_manifest(go, birim)
+        return asama_manifest(go, birim), [go.yol('tr7c_manifest.json')]
     man = _json(go.yol('tr7c_manifest.json'))
     D = dunya_kur(birim, man['negatif_kaydirma'])
     if asama == 'K1c-indirme':
-        return asama_indirme(go, D, man)
+        return asama_indirme(go, D, man), [go.yol('tr7c_zarf_sha256.jsonl'), go.yol('tr7c_lp_sha256.jsonl')]
     kay = GercekKaynak(go, D, man, birim, man['derinlik'])
     if asama == 'K1c-negatif':
-        return negatif_turu(kay, CIKTI, Ayar())
+        return negatif_turu(kay, dz, Ayar()), [os.path.join(dz, 'tr7c_negatif.jsonl')]
     if asama == 'K1c-algılama':
-        return k1c_kos(kay, CIKTI, Ayar(), gercek=True)
+        return k1c_kos(kay, dz, Ayar(), gercek=True, durum_yaz=False), \
+            [os.path.join(dz, 'tr7c_algilama.jsonl'), os.path.join(dz, HUKUM_AD)]
     raise Tr7cDur(f'bilinmeyen aşama: {asama}')
 
 
@@ -1178,12 +1425,13 @@ def asama_manifest(go, birim):
     gercek_kapi('manifest')
     T = go.T
     cl = go.istemci()
+    os.makedirs(go.zyol('katalog'), exist_ok=True)   # P-1 (kuru prova): yoksa ilk ComCat yanıtı yazılamaz, manifest durur
     ol = olaylar()
     derinlik, kayit = {}, {}
     for e in sorted(set(x for b in birim for x in b['evids']) | set(NEG_OLAY), key=lambda x: ol[x]['t0']):
         t0 = ol[e]['t0']
         url = T.I.event_url('comcat', t0 - dt.timedelta(seconds=60), t0 + dt.timedelta(seconds=60), 0.0, 0.0, 180.0,
-                            K.E1_M7)
+                            K.E1_M7, taban=go.katalog)     # taban: gerçek kipte None (kuru provada bulundu)
         r = T._katalog_iste(cl, go.zyol('katalog'), 'comcat', url, f'tet|{e}')
         kat = T.katalog_ayristir('comcat', T._govde(go.zyol('katalog'), r))
         aday = sorted([k for k in kat if k['M'] is not None and k['M'] >= K.E1_M7
@@ -1201,7 +1449,7 @@ def asama_manifest(go, birim):
         R0 = min(x['R'][0] for x in p['ist'].values())
         W1 = max(x['W'][1] for x in p['ist'].values())
         url = T.I.event_url('comcat', R0 - dt.timedelta(days=61, hours=3), W1 + dt.timedelta(days=61), 0.0, 0.0, 180.0,
-                            6.5)
+                            6.5, taban=go.katalog)
         r = T._katalog_iste(cl, go.zyol('katalog'), 'comcat', url, f'neg65|{e}')
         kat = [K.epoch_zaman(k['t0']) for k in T.katalog_ayristir('comcat', T._govde(go.zyol('katalog'), r))]
         kayd[e] = negatif_sec(rng, p['t0'], R0, W1, kat)
@@ -1225,7 +1473,7 @@ def lp_adaylari_manifest(go, D):
         ad = []
         for key, x in p['ist'].items():
             url = T.I.station_url('ncedc', key[0], key[1], '*', ['HH?', 'BH?'], x['R'][0] - dt.timedelta(days=1),
-                                  min(x['W'][1] + dt.timedelta(days=1), T.I.KATALOG_SON))
+                                  min(x['W'][1] + dt.timedelta(days=1), T.I.KATALOG_SON), taban=go.servis)
             yol = go.zyol('stationxml', f'lp.{key[0]}.{key[1]}.xml')
             os.makedirs(os.path.dirname(yol), exist_ok=True)
             r = cl.iste('ncedc', url.replace('loc=%2A', 'loc=*'), hedef=yol)
@@ -1285,7 +1533,8 @@ def lp_indir(go, D, man):
                          son=(x['W'][1] + dt.timedelta(seconds=K.DOLGU_S)).isoformat(), servis='ncedc')
                 hedef = go.hyol('lp', lp_p['id'].replace('|', '_') + '.mseed')
                 os.makedirs(os.path.dirname(hedef), exist_ok=True)
-                url = T.I.dataselect_url('ncedc', ag, ist, c['konum'], q['kanallar'], q['bas'], q['son'])
+                url = T.I.dataselect_url('ncedc', ag, ist, c['konum'], q['kanallar'], q['bas'], q['son'],
+                                         taban=go.servis)
                 r = go.istemci().iste('ncedc', url, hedef=hedef)
                 satir = dict(pencere=pid, ad=a['ad'], kanal=c['kod'], konum=c['konum'], http=r['http'], bayt=r.get('bayt', 0),
                              dusme=None if r['durum'] == 'tamam' else r['durum'], sha256=None)
@@ -1334,18 +1583,26 @@ def main(argv=None):
         print(json.dumps(dict(acik=ok, neden=neden, kod_sha256=kod_sha(), d2=D2_SONUC), ensure_ascii=False, indent=1))
         return 0
     if a == ['durum']:
-        y = os.path.join(CIKTI, DURUM_AD)
+        y = os.path.join(_cikti(), DURUM_AD)
         print(open(y, encoding='utf-8').read() if os.path.exists(y) else 'durum dosyası yok')
         return 0
-    if len(a) == 2 and a[0] == 'baslat':
-        gercek_kapi(f'baslat {a[1]}')
-        os.makedirs(CIKTI, exist_ok=True)
-        durum_isle(CIKTI, a[1], 'başladı')
-        print('durum dosyası yazıldı; commit + push edin, sonra `kos`.')
-        return 0
-    if len(a) >= 2 and a[0] == 'kos':
-        asama_kos(a[1], surdur='--surdur' in a)
-        return 0
+    try:
+        if len(a) in (2, 3) and a[0] == 'baslat' and a[2:] in ([], ['--surdur']):
+            gercek_kapi(f'baslat {a[1]}')
+            kip = baslat(a[1], surdur=a[2:] == ['--surdur'])
+            print(f'"{a[1]}" başlatıldı ({kip}); durum dosyasını commit + push edin, sonra `kos {a[1]}`.')
+            return 0
+        if len(a) >= 2 and a[0] == 'kos':
+            asama_kos(a[1])
+            print(f'"{a[1]}" tamamlandı; çıktıları ve durum dosyasını commit + push edin.')
+            return 0
+        if len(a) == 4 and a[0] == 'durdu' and a[2] == '--neden':
+            durdu(a[1], a[3])
+            print('durma nedeni kayda geçti; commit + push, sonra `baslat <aşama> --surdur`.')
+            return 0
+    except Tr7cDur as e:
+        print(f'DUR: {e}', file=sys.stderr)
+        return 2
     if len(a) == 2 and a[0] == 'marmara':
         marmara_kos(a[1])
         return 0
