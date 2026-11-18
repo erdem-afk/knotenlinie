@@ -1091,7 +1091,52 @@ def suite(KM, tam_izgara, uc=True, ozet=None):
     return R, S
 
 
+def mutasyon_tek(kaynak, i):
+    ad, eski, yeni = MUTASYONLAR[i]
+    if kaynak.count(eski) != 1:
+        return dict(i=i, ad=ad, durum=f'uygulanamadı (bulunma sayısı {kaynak.count(eski)})', yakalandi=False)
+    t = time.time()
+    try:
+        KM = modul_yukle(kaynak.replace(eski, yeni), f'tr7c_kosu_mut{i}')
+        Rm, _ = suite(KM, tam_izgara=False)
+        kalan = [f"[{x['grup']}] {x['ad']}" for x in Rm.kalan()]
+    except BaseException as e:   # noqa: BLE001
+        kalan = [f'yükleme/çöküş: {type(e).__name__}: {str(e)[:150]}']
+    return dict(i=i, ad=ad, yakalandi=bool(kalan), yakalayan=kalan[:6], n_yakalayan=len(kalan),
+                sure_s=round(time.time() - t, 1))
+
+
+def mutasyon_parca(jsonl, bas, son):
+    """Parçalı mutasyon koşusu (makine yeniden başlamasına dayanıklı): MUTASYONLAR[bas:son]'dan jsonl'de (aynı kod
+    sha256'larıyla) kaydı olmayanları koşar; her sonucu hemen bir satır olarak ekler. Yeniden başlamada yalnız o an
+    koşan mutasyon kaybolur."""
+    os.makedirs(GECICI, exist_ok=True)
+    sha = {'tr7c_kosu.py': T0.sha256_dosya(KOSU_YOL), 'tr7c_test_yapay.py': T0.sha256_dosya(os.path.abspath(__file__))}
+    bitti = set()
+    if os.path.exists(jsonl):
+        with open(jsonl, encoding='utf-8') as f:
+            for s in f:
+                try:
+                    x = json.loads(s)
+                except ValueError:
+                    continue      # yarım kalmış son satır
+                if x.get('kod_sha256') == sha:
+                    bitti.add(x['i'])
+    kaynak = open(KOSU_YOL, encoding='utf-8').read()
+    for i in range(bas, min(son, len(MUTASYONLAR))):
+        if i in bitti:
+            continue
+        m = mutasyon_tek(kaynak, i)
+        m['kod_sha256'] = sha
+        m['engellenen_giris'] = list(ENGELLENEN)
+        with open(jsonl, 'a', encoding='utf-8') as f:
+            f.write(json.dumps(m, ensure_ascii=False, default=str) + '\n')
+        print(('YAKALANDI ' if m['yakalandi'] else 'YAKALANMADI ') + m['ad'], m.get('yakalayan', [])[:3], flush=True)
+
+
 def main():
+    if sys.argv[1] == '--mut-parca':      # python3 -I -B tr7c_test_yapay.py --mut-parca <jsonl> <baş> <son>
+        return mutasyon_parca(sys.argv[2], int(sys.argv[3]), int(sys.argv[4]))
     cikti = sys.argv[1]
     hizli = '--hizli' in sys.argv
     os.makedirs(GECICI, exist_ok=True)
@@ -1107,21 +1152,11 @@ def main():
     mut = []
     if not hizli:
         kaynak = open(KOSU_YOL, encoding='utf-8').read()
-        for i, (ad, eski, yeni) in enumerate(MUTASYONLAR):
-            if kaynak.count(eski) != 1:
-                mut.append(dict(ad=ad, durum=f'uygulanamadı (bulunma sayısı {kaynak.count(eski)})', yakalandi=False))
-                print('MUTASYON UYGULANAMADI', ad, flush=True)
-                continue
-            t = time.time()
-            try:
-                KM = modul_yukle(kaynak.replace(eski, yeni), f'tr7c_kosu_mut{i}')
-                Rm, _ = suite(KM, tam_izgara=False)
-                kalan = [f"[{x['grup']}] {x['ad']}" for x in Rm.kalan()]
-            except BaseException as e:   # noqa: BLE001
-                kalan = [f'yükleme/çöküş: {type(e).__name__}: {str(e)[:150]}']
-            mut.append(dict(ad=ad, yakalandi=bool(kalan), yakalayan=kalan[:6], n_yakalayan=len(kalan),
-                            sure_s=round(time.time() - t, 1)))
-            print(('YAKALANDI ' if kalan else 'YAKALANMADI ') + ad, kalan[:3], flush=True)
+        for i in range(len(MUTASYONLAR)):
+            m = mutasyon_tek(kaynak, i)
+            mut.append(m)
+            print(('YAKALANDI ' if m['yakalandi'] else 'YAKALANMADI ') + m['ad'], m.get('yakalayan', [])[:3],
+                  flush=True)
     grup = {}
     for x in R.s:
         grup.setdefault(x['grup'], [0, 0])
