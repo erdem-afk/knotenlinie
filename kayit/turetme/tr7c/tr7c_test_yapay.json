@@ -1,20 +1,24 @@
 {
  "aciklama": "TR-7c koşu kodunun yalnız yapay veride sınaması (§10 adım 2). Gerçek dalga formu, zarf ya da ağ yok; denetim kancası bütün soket ve /mnt/project-files açma girişimlerini reddeder.",
  "kod_sha256": {
-  "tr7c_kosu.py": "345dc176ef5d00ae0e38931bbf0c18da99ef53422e67042a9638f5f10d3c73b3",
-  "tr7c_test_yapay.py": "6267a5b53b0405e0e2c3d4c2f24771a97b9477548e4327b00ac09e26be82fd9f"
+  "tr7c_kosu.py": "c86d8b9b17ae17e8fa67a12ff945a90df791dc0bfd6b548e1f2d3cbaac20a5b2",
+  "tr7c_test_yapay.py": "28ef86b432d84ecab7013f985b64fabd96d631e48081cdf2d6c133bbd35851ff"
  },
  "sinama": {
-  "toplam": 100,
-  "gecen": 100,
+  "toplam": 124,
+  "gecen": 124,
   "gruplar": {
    "birim": [
     49,
     49
    ],
    "kapı": [
-    27,
-    27
+    31,
+    31
+   ],
+   "protokol": [
+    20,
+    20
    ],
    "sha/kilit": [
     9,
@@ -350,6 +354,26 @@
   },
   {
    "grup": "kapı",
+   "ad": "kapı içeride reddeder: baslat",
+   "gecti": true
+  },
+  {
+   "grup": "kapı",
+   "ad": "kapı içeride reddeder: durdu",
+   "gecti": true
+  },
+  {
+   "grup": "kapı",
+   "ad": "kapı içeride reddeder: main durdu",
+   "gecti": true
+  },
+  {
+   "grup": "kapı",
+   "ad": "kapı içeride reddeder: main baslat --surdur",
+   "gecti": true
+  },
+  {
+   "grup": "kapı",
    "ad": "kapı içeride reddeder: k1c_kos gerçek dizin",
    "gecti": true
   },
@@ -406,6 +430,106 @@
   {
    "grup": "kapı",
    "ad": "Marmara yalnız K1c (b): (a)/(c)/(d)/(e) → \"(b) dışında Marmara verisi indirilmez\"",
+   "gecti": true
+  },
+  {
+   "grup": "protokol",
+   "ad": "önkoşul: ilk aşama \"yeni\"",
+   "gecti": true
+  },
+  {
+   "grup": "protokol",
+   "ad": "önkoşul: sıra dışı aşama reddedilir (manifest yokken K1c-indirme; K1c-negatif \"hata\" iken K1c-algılama)",
+   "gecti": true
+  },
+  {
+   "grup": "protokol",
+   "ad": "önkoşul: tamamlanmış aşama ikinci kez başlatılmaz (--surdur ile de)",
+   "gecti": true
+  },
+  {
+   "grup": "protokol",
+   "ad": "önkoşul: algılama aşamasına --surdur olmadan ikinci kez girilmez",
+   "gecti": true
+  },
+  {
+   "grup": "protokol",
+   "ad": "önkoşul: yalnız koşu kodunun (kod) durma kaydı sürdürmeye yetmez; elle kayıt gerekir",
+   "gecti": true
+  },
+  {
+   "grup": "protokol",
+   "ad": "önkoşul: aşamanın son durumundan ÖNCEKİ elle kayıt yetmez",
+   "gecti": true
+  },
+  {
+   "grup": "protokol",
+   "ad": "önkoşul: elle durma kaydıyla --surdur geçer",
+   "gecti": true
+  },
+  {
+   "grup": "protokol",
+   "ad": "önkoşul: indirme aşaması (algılama değil) hata sonrası yeniden başlatılabilir (TR-7 gibi)",
+   "gecti": true
+  },
+  {
+   "grup": "protokol",
+   "ad": "önkoşul: hiç başlamamış aşama sürdürülemez; bilinmeyen aşama reddedilir",
+   "gecti": true
+  },
+  {
+   "grup": "protokol",
+   "ad": "prova kipinde: baslat \"yeni\"; ikinci baslat reddedilir",
+   "gecti": true
+  },
+  {
+   "grup": "protokol",
+   "ad": "hata ile durma: durum \"hata\" + durma kaydı (tur kod, ileti, saat); sayı yazılmaz",
+   "gecti": true
+  },
+  {
+   "grup": "protokol",
+   "ad": "durmadan sonra: kos reddedilir; baslat --surdur olmadan ve elle kayıtsız reddedilir",
+   "gecti": true
+  },
+  {
+   "grup": "protokol",
+   "ad": "durdu (CLI) + baslat --surdur → \"surdur\"; kod baslattan sonra değişince kos reddedilir",
+   "gecti": true
+  },
+  {
+   "grup": "protokol",
+   "ad": "prova: GercekOrtam 127.0.0.1 tabanı, prova dizinleri, git doğrulaması yok",
+   "gecti": true
+  },
+  {
+   "grup": "protokol",
+   "ad": "prova kancası: vekil portu, dış adres, dış ad çözümü ret; yalnız provanın (127.0.0.1, port) çifti izinli",
+   "gecti": true
+  },
+  {
+   "grup": "protokol",
+   "ad": "prova kapanınca kapı yeniden kapalı",
+   "gecti": true
+  },
+  {
+   "grup": "protokol",
+   "ad": "düğme gerçek kipte kapalı: kapı açıkken (geçici kopya) prova açılmaz",
+   "gecti": true
+  },
+  {
+   "grup": "protokol",
+   "ad": "prova reddedilir: 127.0.0.1 dışı taban, https, çıktı kosu/, zarf gerçek kök, depo içi dizin",
+   "gecti": true
+  },
+  {
+   "grup": "protokol",
+   "ad": "prova reddedilir: /mnt dışında olsa da gerçek kök (ya da altı) prova dizini olamaz",
+   "gecti": true
+  },
+  {
+   "grup": "protokol",
+   "ad": "protokol ve prova sınamalarında ağ / gerçek veri girişimi yok",
    "gecti": true
   },
   {
@@ -565,7 +689,7 @@
    "cumle": "ölçü sınandı; genliği eşlenmiş 4 N olayında modülasyonu ölçülemeyen: 4; k: üstveriden 10, koşuda 10",
    "marmara": true,
    "VAR": true,
-   "sure_s": 18.7
+   "sure_s": 16.6
   },
   "ayirt_etmeyen": {
    "dal": "c",
@@ -589,7 +713,7 @@
    "cumle": "ölçü sınanamadı (algılayıcı kör olaylarda tetiklenmiş tremoru tetikleyici genliğinden ayıramadı) (kalan: (iii)) (ayırt edilemez: gerçekleşen n_P, n_N ile, q 0,1'de görülebilir en küçük s = 0,58 (m_t 0,8) / 0,77 (m_t 0,5)); genlik karıştırıcısı dışlanmadı; genliği eşlenmiş 4 N olayında modülasyonu ölçülemeyen: 0; k: üstveriden 10, koşuda 10",
    "marmara": false,
    "VAR": false,
-   "sure_s": 22.3
+   "sure_s": 21.3
   },
   "genlik_sizinti": {
    "dal": "c",
@@ -613,7 +737,7 @@
    "cumle": "ölçü sınanamadı (algılayıcı kör olaylarda tetiklenmiş tremoru tetikleyici genliğinden ayıramadı) (kalan: (iii) ve (iv)) (ayırt edilemez: gerçekleşen n_P, n_N ile, q 0,1'de görülebilir en küçük s = 0,58 (m_t 0,8) / 0,77 (m_t 0,5)); genliği eşlenmiş 4 N olayında modülasyonu ölçülemeyen: 0; k: üstveriden 10, koşuda 10",
    "marmara": false,
    "VAR": false,
-   "sure_s": 24.6
+   "sure_s": 23.2
   },
   "tele_sizinti_K5": {
    "dal": "d",
@@ -637,7 +761,7 @@
    "cumle": "ölçü sınanamadı (kör Parkfield olaylarında tetiklenmiş tremor ölçütü karşılamadı: X_P = 0 / n_P = 10; A90_PK = 15,8 nm/s) (ayırt edilemez: gerçekleşen n_P, n_N ile, q 0,1'de görülebilir en küçük s = 0,58 (m_t 0,8) / 0,77 (m_t 0,5)); genliği eşlenmiş 4 N olayında modülasyonu ölçülemeyen: 4; k: üstveriden 10, koşuda 10",
    "marmara": false,
    "VAR": false,
-   "sure_s": 16.2
+   "sure_s": 14.5
   },
   "veri_yok": {
    "dal": "a",
@@ -661,7 +785,7 @@
    "cumle": "ölçü sınanamadı (Parkfield verisi yok); genliği eşlenmiş 4 N olayında modülasyonu ölçülemeyen: 4; k: üstveriden 10, koşuda 0 (k_koşu ile güç, s 0,7, q 0,1: 0,00 (m_t 0,8) / 0,00 (m_t 0,5); bilgi)",
    "marmara": false,
    "VAR": false,
-   "sure_s": 0.1
+   "sure_s": 0.0
   },
   "D9_etiket": {
    "dal": "b",
@@ -685,7 +809,7 @@
    "cumle": "ölçü sınandı; genlik karıştırıcısı dışlanmadı; genliği eşlenmiş 4 N olayında modülasyonu ölçülemeyen: 3; k: üstveriden 10, koşuda 10",
    "marmara": true,
    "VAR": false,
-   "sure_s": 1.8
+   "sure_s": 1.5
   },
   "E2_k4": {
    "dal": "e",
@@ -757,7 +881,7 @@
    "cumle": "ölçü sınandı; geçti, belirsiz (cisim dalgası açıklaması dışlanamadı); genliği eşlenmiş 4 N olayında modülasyonu ölçülemeyen: 4; k: üstveriden 10, koşuda 10",
    "marmara": true,
    "VAR": false,
-   "sure_s": 1.7
+   "sure_s": 1.4
   },
   "b_prime_kismi": {
    "dal": "b",
@@ -781,7 +905,7 @@
    "cumle": "ölçü sınandı; genliği eşlenmiş 4 N olayında modülasyonu ölçülemeyen: 4; k: üstveriden 10, koşuda 10",
    "marmara": true,
    "VAR": true,
-   "sure_s": 1.4
+   "sure_s": 1.2
   },
   "modulasyonsuz": {
    "dal": "c",
@@ -805,7 +929,7 @@
    "cumle": "ölçü sınanamadı (algılayıcı kör olaylarda tetiklenmiş tremoru tetikleyici genliğinden ayıramadı) (kalan: (iv)) (ayırt edilemez: gerçekleşen n_P, n_N ile, q 0,1'de görülebilir en küçük s = 0,58 (m_t 0,8) / 0,77 (m_t 0,5)); genliği eşlenmiş 4 N olayında modülasyonu ölçülemeyen: 4; k: üstveriden 10, koşuda 10",
    "marmara": false,
    "VAR": false,
-   "sure_s": 6.2
+   "sure_s": 5.7
   }
  },
  "sizinti_kumeleri": {
@@ -821,378 +945,13 @@
   }
  },
  "mutasyon": {
-  "toplam": 34,
-  "yakalanan": 34,
-  "liste": [
-   {
-    "ad": "Fisher yönü ters (alt kuyruk)",
-    "yakalandi": true,
-    "yakalayan": [
-     "[birim] Z4+D-7 ızgarası (küçük; 63342 nokta) bağımsız başvuruyla birebir",
-     "[birim] Z3 tam → (b) (A90 belirsiz olsa da)",
-     "[birim] Fisher tek yanlı = kesin hipergeometrik üst kuyruk (311 hücre)",
-     "[birim] Fisher yönü: P fazlası küçük p, N fazlası büyük p",
-     "[birim] Fisher = tr7c_guc.py fisher_tek (yazarın seçimi 1)",
-     "[uçtan uca] gerçek tremor (8/10 P, kilitli) → (b) \"ölçü sınandı\", Marmara açılır, VAR verilebilir"
-    ],
-    "n_yakalayan": 10,
-    "sure_s": 26.4
-   },
-   {
-    "ad": "(iv) \"≥ 3\" yerine \"≥ 1\"",
-    "yakalandi": true,
-    "yakalayan": [
-     "[birim] Z4+D-7 ızgarası (küçük; 63342 nokta) bağımsız başvuruyla birebir",
-     "[birim] (i),(ii),(iii) var, M_ölç 2 → (e) modülasyon ölçülemedi",
-     "[birim] (c) kalan \"(iii) ve (iv)\""
-    ],
-    "n_yakalayan": 3,
-    "sure_s": 26.1
-   },
-   {
-    "ad": "dal (a) eşiği n_N < 2",
-    "yakalandi": true,
-    "yakalayan": [
-     "[birim] Z4+D-7 ızgarası (küçük; 63342 nokta) bağımsız başvuruyla birebir",
-     "[birim] n_N 19 → (a)"
-    ],
-    "n_yakalayan": 2,
-    "sure_s": 24.7
-   },
-   {
-    "ad": "(b) dışında Marmara (c de açar)",
-    "yakalandi": true,
-    "yakalayan": [
-     "[birim] Marmara yalnız (b)",
-     "[kapı] Marmara yalnız K1c (b): (a)/(c)/(d)/(e) → \"(b) dışında Marmara verisi indirilmez\"",
-     "[uçtan uca] ayırt etmeyen algılayıcı (P ve N'de aynı tremor) → (c) \"sınanamadı\", kalan (iii), Marmara kapalı",
-     "[uçtan uca] genliğe bağlı, kilitsiz 2–8 Hz sızıntı (K5'ten geçer) → (iv) sağlanmaz, (b) değil, Marmara kapalı"
-    ],
-    "n_yakalayan": 4,
-    "sure_s": 25.6
-   },
-   {
-    "ad": "Vanuatu iki kez sayılır (D-1 kalkar)",
-    "yakalandi": true,
-    "yakalayan": [
-     "[birim] D-1: 10 P, 29 N birimi (30 olay), 2 bilgi",
-     "[birim] D-1: N27 + N28 tek birim, K1b USTVERI'den (ilk başı, son sonu)",
-     "[uçtan uca] algılama sırası: önce bütün N, sonra P, sonra bilgi"
-    ],
-    "n_yakalayan": 3,
-    "sure_s": 30.4
-   },
-   {
-    "ad": "D-7 okuma kuralı kaldırılır",
-    "yakalandi": true,
-    "yakalayan": [
-     "[birim] Z4+D-7 ızgarası (küçük; 63342 nokta) bağımsız başvuruyla birebir"
-    ],
-    "n_yakalayan": 1,
-    "sure_s": 25.1
-   },
-   {
-    "ad": "D-9 etiketi VAR'ı engellemez",
-    "yakalandi": true,
-    "yakalayan": [
-     "[birim] \"VAR\" şartları (§6.2): yalnız (b), (b′) yok, mod geçti, D-9 yok",
-     "[uçtan uca] D-9: Peru 2007 (N) modülasyonlu → (b) + \"genlik karıştırıcısı dışlanmadı\", VAR verilemez"
-    ],
-    "n_yakalayan": 2,
-    "sure_s": 26.2
-   },
-   {
-    "ad": "K5 yerine TR-7 K0",
-    "yakalandi": true,
-    "yakalayan": [
-     "[birim] K5 = TR-7b tr7b_yapay2.K5 (istasyon ve küme toplaması; K0 ile ayırt edici örnekte)",
-     "[uçtan uca] gerçek tremor (8/10 P, kilitli) → (b) \"ölçü sınandı\", Marmara açılır, VAR verilebilir",
-     "[uçtan uca] ayırt etmeyen algılayıcı (P ve N'de aynı tremor) → (c) \"sınanamadı\", kalan (iii), Marmara kapalı",
-     "[uçtan uca] D-9: Peru 2007 (N) modülasyonlu → (b) + \"genlik karıştırıcısı dışlanmadı\", VAR verilemez",
-     "[uçtan uca] E-2: k_koşu 1 → (e) \"modülasyon ölçülemedi\" (D-7: (i), (ii) var)",
-     "[uçtan uca] (b′): bütün algılama kümeleri çekirdek fazında → \"geçti, belirsiz\", VAR verilemez"
-    ],
-    "n_yakalayan": 8,
-    "sure_s": 6.4
-   },
-   {
-    "ad": "K5 hiç bayraklamaz",
-    "yakalandi": true,
-    "yakalayan": [
-     "[birim] K5 = TR-7b tr7b_yapay2.K5 (istasyon ve küme toplaması; K0 ile ayırt edici örnekte)",
-     "[uçtan uca] telesismik koda sızıntısı (TR-7b Y2 sabit, a_y ∝ PGV_T) → K5 atar, (b) değil, Marmara kapalı"
-    ],
-    "n_yakalayan": 2,
-    "sure_s": 29.6
-   },
-   {
-    "ad": "K1b bir saniye kayık (kapsayıcı uç dışlayıcı)",
-    "yakalandi": true,
-    "yakalayan": [
-     "[birim] K1b kapsayıcı uç: I′ [200, 250) ile [100, 200] kesişir; [201, 250) ile kesişmez"
-    ],
-    "n_yakalayan": 1,
-    "sure_s": 26.9
-   },
-   {
-    "ad": "E-1 önce BH",
-    "yakalandi": true,
-    "yakalayan": [
-     "[birim] E-1: en yakın uygun istasyon, onda önce HH"
-    ],
-    "n_yakalayan": 1,
-    "sure_s": 26.1
-   },
-   {
-    "ad": "E-1 en uzak istasyon",
-    "yakalandi": true,
-    "yakalayan": [
-     "[birim] E-1: en yakın uygun istasyon, onda önce HH",
-     "[birim] E-1: HH örtüsü < %90 → aynı istasyonda BH"
-    ],
-    "n_yakalayan": 2,
-    "sure_s": 30.1
-   },
-   {
-    "ad": "E-1 örtü şartı yok",
-    "yakalandi": true,
-    "yakalayan": [
-     "[birim] E-1: HH örtüsü < %90 → aynı istasyonda BH",
-     "[birim] E-1: uygun kanal yoksa None"
-    ],
-    "n_yakalayan": 2,
-    "sure_s": 29.5
-   },
-   {
-    "ad": "kod sha256 denetimi atlanır",
-    "yakalandi": true,
-    "yakalayan": [
-     "[kapı] kapı kapanır: tr7c_kosu.py sha256 yazılı değil"
-    ],
-    "n_yakalayan": 1,
-    "sure_s": 28.1
-   },
-   {
-    "ad": "karar metni gövde denetimi atlanır",
-    "yakalandi": true,
-    "yakalayan": [
-     "[kapı] kapı kapanır: karar metni gövdesi değişmiş"
-    ],
-    "n_yakalayan": 1,
-    "sure_s": 25.6
-   },
-   {
-    "ad": "kilit atlanır",
-    "yakalandi": true,
-    "yakalayan": [
-     "[çöküş] FileExistsError: [Errno 17] File exists: '/tmp/claude-0/-home-user/635decb6-3930-5a4d-9c31-b6f30d64fb94/scratchpad/tr7c_kod/e2e/kilit_7659_1794947524424732948/tr7c_k1c_hukum.json'"
-    ],
-    "n_yakalayan": 1,
-    "sure_s": 26.1
-   },
-   {
-    "ad": "kapı tümden açık",
-    "yakalandi": true,
-    "yakalayan": [
-     "[kapı] kapı içeride reddeder: gercek_kapi",
-     "[kapı] kapı içeride reddeder: GercekOrtam()",
-     "[kapı] kapı içeride reddeder: GercekKaynak()",
-     "[kapı] kapı içeride reddeder: asama_kos manifest",
-     "[kapı] kapı içeride reddeder: asama_kos K1c-indirme",
-     "[kapı] kapı içeride reddeder: asama_kos K1c-algılama"
-    ],
-    "n_yakalayan": 18,
-    "sure_s": 26.4
-   },
-   {
-    "ad": "GercekOrtam kapısı yok",
-    "yakalandi": true,
-    "yakalayan": [
-     "[kapı] kapı içeride reddeder: GercekOrtam()"
-    ],
-    "n_yakalayan": 1,
-    "sure_s": 26.2
-   },
-   {
-    "ad": "k1c_kos kapısı yok",
-    "yakalandi": true,
-    "yakalayan": [
-     "[kapı] kapı içeride reddeder: k1c_kos gerçek dizin",
-     "[kapı] kapı içeride reddeder: k1c_kos gercek=True",
-     "[kapı] kapı içeride reddeder: k1c_kos gerçek kaynak"
-    ],
-    "n_yakalayan": 3,
-    "sure_s": 26.2
-   },
-   {
-    "ad": "asama_kos kapısı yok",
-    "yakalandi": true,
-    "yakalayan": [
-     "[kapı] kapı içeride reddeder: asama_kos manifest",
-     "[kapı] kapı içeride reddeder: asama_kos K1c-indirme",
-     "[kapı] kapı içeride reddeder: asama_kos K1c-algılama",
-     "[kapı] kapı içeride reddeder: main kos"
-    ],
-    "n_yakalayan": 4,
-    "sure_s": 26.9
-   },
-   {
-    "ad": "D-2 karşılaştırması yok",
-    "yakalandi": true,
-    "yakalayan": [
-     "[sha/kilit] D-2: değişmiş tr7b_yapay2.py → durur"
-    ],
-    "n_yakalayan": 1,
-    "sure_s": 27.6
-   },
-   {
-    "ad": "modülasyon eşiği 0,05",
-    "yakalandi": true,
-    "yakalayan": [
-     "[birim] modülasyon sayımı: p ≤ 0,01 (eşik TR-7 §6.4)"
-    ],
-    "n_yakalayan": 1,
-    "sure_s": 26.6
-   },
-   {
-    "ad": "X_min yok sayılır",
-    "yakalandi": true,
-    "yakalayan": [
-     "[birim] Z4+D-7 ızgarası (küçük; 63342 nokta) bağımsız başvuruyla birebir"
-    ],
-    "n_yakalayan": 1,
-    "sure_s": 26.6
-   },
-   {
-    "ad": "N_PK < 5 kuralı yok",
-    "yakalandi": true,
-    "yakalayan": [
-     "[birim] Z4+D-7 ızgarası (küçük; 63342 nokta) bağımsız başvuruyla birebir"
-    ],
-    "n_yakalayan": 1,
-    "sure_s": 27.0
-   },
-   {
-    "ad": "ŝ ham X_P/n_P",
-    "yakalandi": true,
-    "yakalayan": [
-     "[birim] ŝ arındırılmış (8/10, 3/29)",
-     "[birim] ŝ ≥ 0 (X_N oranı büyükse 0)"
-    ],
-    "n_yakalayan": 2,
-    "sure_s": 26.6
-   },
-   {
-    "ad": "D-10 yazılmaz",
-    "yakalandi": true,
-    "yakalayan": [
-     "[birim] D-10 cümlesi"
-    ],
-    "n_yakalayan": 1,
-    "sure_s": 27.1
-   },
-   {
-    "ad": "(b′) yazılmaz",
-    "yakalandi": true,
-    "yakalayan": [
-     "[birim] (b′) \"geçti, belirsiz\"",
-     "[uçtan uca] (b′): bütün algılama kümeleri çekirdek fazında → \"geçti, belirsiz\", VAR verilemez"
-    ],
-    "n_yakalayan": 2,
-    "sure_s": 26.2
-   },
-   {
-    "ad": "D-8 eki yok",
-    "yakalandi": true,
-    "yakalayan": [
-     "[birim] Ö-d + D-8 eki (c): kalan ve MDE değerleri"
-    ],
-    "n_yakalayan": 1,
-    "sure_s": 25.6
-   },
-   {
-    "ad": "E-2 güç satırı yok",
-    "yakalandi": true,
-    "yakalayan": [
-     "[birim] E-2: k_koşu 6 → güç (dondurulmuş tablo) bilgi olarak",
-     "[uçtan uca] E-2: k_koşu 4 → koşu sürer, n_P aynı, dal Z4 ile, güç bilgisi yazılır"
-    ],
-    "n_yakalayan": 2,
-    "sure_s": 26.0
-   },
-   {
-    "ad": "modülasyon tohumu farklı",
-    "yakalandi": true,
-    "yakalayan": [
-     "[birim] tohumlar ön kayıttaki gibi (20261112 + 3, + 2, 20261116 + 1)",
-     "[uçtan uca] hüküm dosyası tek ve tohumlar yazılı"
-    ],
-    "n_yakalayan": 2,
-    "sure_s": 25.3
-   },
-   {
-    "ad": "algılama sırası önce P",
-    "yakalandi": true,
-    "yakalayan": [
-     "[uçtan uca] algılama sırası: önce bütün N, sonra P, sonra bilgi"
-    ],
-    "n_yakalayan": 1,
-    "sure_s": 24.7
-   },
-   {
-    "ad": "ölçülebilir olay: ref yeterli (M aranmaz)",
-    "yakalandi": true,
-    "yakalayan": [
-     "[birim] modülasyon sayımı: p ≤ 0,01 (eşik TR-7 §6.4)"
-    ],
-    "n_yakalayan": 1,
-    "sure_s": 25.3
-   },
-   {
-    "ad": "D-9 ölçülemeyen olay etiketi tetikler",
-    "yakalandi": true,
-    "yakalayan": [
-     "[uçtan uca] gerçek tremor (8/10 P, kilitli) → (b) \"ölçü sınandı\", Marmara açılır, VAR verilebilir",
-     "[uçtan uca] (b′) yalnız 3 P olayında → etiket yok (hepsi şartı), VAR verilebilir"
-    ],
-    "n_yakalayan": 2,
-    "sure_s": 26.7
-   },
-   {
-    "ad": "(b′) tek olay yeter (hepsi yerine)",
-    "yakalandi": true,
-    "yakalayan": [
-     "[uçtan uca] (b′) yalnız 3 P olayında → etiket yok (hepsi şartı), VAR verilebilir"
-    ],
-    "n_yakalayan": 1,
-    "sure_s": 27.8
-   }
-  ]
+  "toplam": 0,
+  "yakalanan": 0,
+  "liste": []
  },
- "engellenen_giris": [
-  [
-   "subprocess.Popen",
-   "('git', ['git', '-C', '/home/user/knotenlinie', 'ls-files', '--error-unmatch', 'kayit/turetme/tr7c/kosu/TR7C_KOSU_DURUM.json'], None, None)"
-  ],
-  [
-   "subprocess.Popen",
-   "('git', ['git', '-C', '/home/user/knotenlinie', 'ls-files', '--error-unmatch', 'kayit/turetme/tr7c/kosu/TR7C_KOSU_DURUM.json'], None, None)"
-  ],
-  [
-   "subprocess.Popen",
-   "('git', ['git', '-C', '/home/user/knotenlinie', 'ls-files', '--error-unmatch', 'kayit/turetme/tr7c/kosu/TR7C_KOSU_DURUM.json'], None, None)"
-  ],
-  [
-   "subprocess.Popen",
-   "('git', ['git', '-C', '/home/user/knotenlinie', 'ls-files', '--error-unmatch', 'kayit/turetme/tr7c/kosu/TR7C_KOSU_DURUM.json'], None, None)"
-  ],
-  [
-   "os.mkdir",
-   "/home/user/knotenlinie/kayit/turetme/tr7c/kosu"
-  ]
- ],
+ "engellenen_giris": [],
  "sure_s": {
-  "ana": 107.9,
-  "toplam": 995.8
+  "ana": 99.2,
+  "toplam": 99.2
  }
 }
