@@ -21,6 +21,13 @@
    "sha256": {
     "tr7c_negatif.jsonl": "375fba4669b99e12c7d4ffb8827e1c2eaba8458f1623107f127079f4af71a782"
    }
+  },
+  "K1c-algılama": {
+   "durum": "başladı",
+   "zaman": "2026-11-18T18:30:28+00:00",
+   "sha256": {
+    "tr7c_kosu.py": "c86d8b9b17ae17e8fa67a12ff945a90df791dc0bfd6b548e1f2d3cbaac20a5b2"
+   }
   }
  },
  "durmalar": [
