@@ -576,3 +576,85 @@ yalnız bir kod incelemesiyle karara bağlanabilir. Hacmi kabaca 3 kat azaltır.
 4. Marmara bağlantısı (O-30). Yalnız K1c (b) çıkarsa gerekir; ama kod incelemesi o durumda ikinci kez yapılmalı.
 5. KMS-1…KMS-10'un koordinatörce görülmesi. Hiçbiri karar metninin değiştirilmesini zorunlu kılmaz. KMS-1, KMS-2 ve
    KMS-4'ün okunuşları koşu dondurmasına yazılmalıdır.
+
+## 11. Kod incelemesinden sonra (18 Kasım 2026; kodlayıcı eki)
+
+Kod incelemesi (`TR-7c_KOD-INCELEME.md`) "DÜZELTMEYLE KABUL" verdi. Bu ek, incelemeden sonra yapılanları ve
+kodlayıcının K-1…K-3 hakkındaki görüşünü yazar. Karar metni, inceleme dosyaları ve TR-7/TR-7b dosyaları
+değişmedi. Kör olayların ve Marmara'nın dalga formu açılmadı; gerçek sunucuya istek atılmadı.
+
+### 11.1 K-1, K-2, K-3: kabul
+
+Üçünü de kabul ediyorum.
+- **K-1 benim hatamdı.** USTVERI'de birleşik birimin adı `VANUATU2009`'dur; ben ilk olay kimliğiyle aradım.
+  Sınamalarım birim sayısını (29) denetliyordu, birimin maskesini (E1 satırları) ve K1b açık payını denetlemiyordu.
+  Bu yüzden hata görünmedi. O-4'teki "K1b'si USTVERI'nin dondurulmuş birleşik aralığı" cümlem kodda doğru değildi.
+  İncelemecinin U13 sınaması bu açığı kapatıyor.
+- **K-2 doğru.** Kapı, gerçek kipin çağırdığı TR-7 motorunu da sabitlemeli.
+- **K-3 doğru.** Kuru provada (§11.3) doğrulandı: sahte sunucuda BK.PKD'nin iki konumu var (00 uzun dönem sinyalli,
+  10 yalnız gürültü). E-1 00'ı seçti ve modülasyon başvurusu 00'ın verisini kullandı (çıktıya `konum` alanı
+  eklendi).
+
+### 11.2 Aşama önkoşulu ve durma kaydı (§B.4)
+
+`asama_kos` artık TR-7'nin aşama protokolünü uygular:
+- **Aşamalar ve komutlar.** Aşamalar sırasıyla manifest → K1c-indirme → K1c-negatif → K1c-algılama. Komutlar:
+  - `baslat <aşama> [--surdur]`;
+  - `kos <aşama>`;
+  - `durdu <aşama> --neden "..."`.
+- **Önkoşul (`onkosul`).**
+  - Önceki aşama 'tamamlandı' değilse aşama başlamaz.
+  - Tamamlanmış aşama ikinci kez başlamaz.
+  - Algılama aşamalarına (K1c-negatif, K1c-algılama) ikinci kez yalnız `--surdur` ile girilir.
+  - `--surdur` için aşamanın son durumundan sonra yazılmış bir `elle` durma kaydı gerekir.
+- **`kos` ne zaman reddeder.**
+  - Aşama 'başladı' değilse.
+  - Önceki aşama tamamlanmamışsa.
+  - `tr7c_kosu.py`'nin sha256'sı `baslat`ta yazılandan farklıysa.
+- **Hata olunca.** Aşama gövdesi hata verirse durum 'hata' olur ve `durmalar` listesine `kod` türünde bir kayıt
+  (ileti metni, saat) yazılır. Durum değerleri yalnız 'başladı', 'tamamlandı' ve 'hata'dır (ek cümle §I.1).
+- **Sınamalar.** Yapay sınamalara 19 satırlık `protokol` grubu ve kapı grubuna 4 satır eklendi.
+- **Bilinen sınır.** Süreç SIGKILL ile ölürse aşama 'başladı'da kalır. Yeni `kos` elle kayıt istemeden sürer;
+  TR-7 de böyledir. İşletim kuralı olarak dondurma ekinin §7'sine yazıldı.
+
+### 11.3 Kuru prova (§B.3)
+
+`tr7c_prova.py`, gerçek G/Ç katmanını (TR-7 motoru dahil) dört aşamada uçtan uca, 127.0.0.1'deki sahte bir FDSN
+sunucusuna karşı koştu. Sonuç `tr7c_prova.json`'da: 99/99.
+- düğme 15/15;
+- S1 (tremor var → dal (b) "ölçü sınandı") 25/25;
+- S2 (ayırt etmeyen → dal (c), kalan (iii)) 26/26;
+- S3 (eksik veri: n_P 9, n_N 27, k_koşu 6; 204/404/429/zaman aşımı/boş yanıt; iki kesme ve sürdürme) 33/33.
+
+Gerçek erişim girişimi 0'dı. Ayrıntı dondurma ekinin §6'sındadır.
+
+Prova iki gerçek kusur buldu; ikisi de düzeltildi:
+- **P-1.** `katalog/` dizini yoktu. Manifest ilk ComCat yanıtını yazamadı ve durdu. Gerçek koşu da dururdu.
+- **taban.** TR-7c'nin kendi ComCat, lp StationXML ve lp dataselect istekleri `taban` almıyordu. Gerçek kipte
+  davranış aynıdır; provada bekçi yakaladı.
+
+İkisinin geri alınması düğme parçasında mutasyon olarak sınanır.
+
+### 11.4 Yeniden koşulan sınamalar ve son sha256'lar
+
+Bütün sayılar c86d8b9b… üzerindedir.
+- **Kendi sınamalarım** (`tr7c_test_yapay.json`): sınamalar 124/124 (birim 49, kapı 31, protokol 20, sha/kilit 9,
+  uçtan uca 15); mutasyonlar 45/45 yakalandı.
+  - İlk koşuda iki prova mutasyonu yakalanmadı. Kod doğruydu, sınama açıktı; iki satır eklenerek kapatıldı
+    (dondurma eki §6).
+  - Makine iki kez yeniden başladığı için mutasyonlar 8'erli parçalarla koşuldu (`--mut-parca`). Her sonuç hemen
+    `tr7c_test_yapay_mut.jsonl`'e yazıldı ve her parçadan sonra commit edildi.
+- **İncelemecinin takımı**, değiştirilmeden: 74/74 sınama, 31/31 mutasyon (`tr7c_kodinc_yeniden.json`).
+- **Kuru prova**: 99/99.
+- **Yeniden koşulmayanlar.** KD, TR-7b §11.2, m_f ve duman yeniden koşulmadı. Gerekçe: algılama, K5, MDA ve
+  modülasyon hesabı değişmedi (git farkıyla denetlendi).
+- **Bilinen sınır.** 'başladı'da SIGKILL ile kalan bir aşama elle kayıt istenmeden yeniden koşulabilir; TR-7 de
+  böyledir. Dondurma eki §7 ve §9 madde 3'e bakın.
+
+Son sha256'lar:
+- `tr7c_kosu.py`: c86d8b9b17ae17e8fa67a12ff945a90df791dc0bfd6b548e1f2d3cbaac20a5b2;
+- `tr7c_mde_ek.py`: 4876dcbee8ce455c221efa4782e4af0047e5ade2f7b84eb985f9eb127873e910 (değişmedi);
+- `tr7c_test_yapay.py`: 28ef86b432d84ecab7013f985b64fabd96d631e48081cdf2d6c133bbd35851ff;
+- `tr7c_prova.py`: bb573f3bc255ac4e1ce30388085e921f4a65e61341445e5116bc991b586e4ec7.
+
+Tam tablo `TR-7c_KOSU-DONDURMA-EKI.md` §5'tedir.

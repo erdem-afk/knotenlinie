@@ -178,12 +178,13 @@ Kapıda olmayan, kayıt için dosyalar:
 
 | Dosya | sha256 |
 |---|---|
-| `kayit/turetme/tr7c/tr7c_test_yapay.py` | 814732246f2b4422843f7ee6d8b87df1863f0046cc3be01cafcba968cc9de48b |
-| `kayit/turetme/tr7c/tr7c_test_yapay.json` | (koşu sürüyor) |
+| `kayit/turetme/tr7c/tr7c_test_yapay.py` | 28ef86b432d84ecab7013f985b64fabd96d631e48081cdf2d6c133bbd35851ff |
+| `kayit/turetme/tr7c/tr7c_test_yapay.json` | 5a50a6f20c612d673a2248f55153110181504fc9643f8772ad1b3bb8649711a8 |
+| `kayit/turetme/tr7c/tr7c_test_yapay_mut.jsonl` (mutasyon parçaları) | e17b97181330f29b61138681a5df7d8207a6bd3706080b10e1c6d20218567373 |
 | `kayit/turetme/tr7c/tr7c_prova.py` | bb573f3bc255ac4e1ce30388085e921f4a65e61341445e5116bc991b586e4ec7 |
 | `kayit/turetme/tr7c/tr7c_prova.json` | 3daaf90ecc32fef7ccb77ee89e3dfeebee26ee6d12460b75ed1c946743d566e3 |
 | `kayit/turetme/tr7c/kodinc/tr7c_kodinc.py` (değişmedi) | 03e479639222ba184a0dcd1b51a046ac2990da266fb35235378eb8ba31e31c06 |
-| `kayit/turetme/tr7c/tr7c_kodinc_yeniden.json` (incelemeci takımının yeni kodda koşusu) | (koşu sürüyor) |
+| `kayit/turetme/tr7c/tr7c_kodinc_yeniden.json` (incelemeci takımının yeni kodda koşusu) | b7a1304e36fdb6c62b4bf150655115c73e48c70d45d50e82bc61831eab447774 |
 | `kayit/turetme/tr7c/tr7c_kd_k5.py` (değişmedi) | 77aeab9951972d7cc2580bd8e6fab95f8dc96dfa67218c8aea998b2076fc2a64 |
 | `kayit/turetme/tr7c/kodinc/tr7c_kodinc_kd.py` (değişmedi) | ae3feb2f40314926642c1b81469256a1c02ea6d6026b60dd0160853294537d63 |
 | `kayit/turetme/tr7c/kodinc/tr7c_kodinc_kd.json` | abd774cbcbe790b128cb2c0c3713e42095851a850db485349b73b83eca05ce99 |
@@ -199,11 +200,22 @@ düzeltmesini içerir. Algılama, K5, MDA ve modülasyon hesabı değişmedi. Te
 
 ## 6. Sonuç özetleri
 
-**Kodlayıcının sınamaları (`tr7c_test_yapay.py`, c86d8b9b… üzerinde).**
-(Koşu sürüyor; sonuç bu taslağa eklenecek.)
+**Kodlayıcının sınamaları (`tr7c_test_yapay.py` 28ef86b4…, c86d8b9b… üzerinde).**
+- Sınamalar **124/124**: birim 49, kapı 31, protokol 20, sha/kilit 9, uçtan uca 15.
+- Mutasyonlar **45/45 yakalandı**; hepsi yeni kodda uygulanabildi. Mutasyonlar 8'erli parçalarla koşuldu
+  (`--mut-parca`; `tr7c_test_yapay_mut.jsonl`).
+- İlk tam koşuda iki mutasyon yakalanmadı. Sınama açıktı; kod doğruydu. İkisi de sınamaya satır eklenerek kapatıldı:
+  - "prova taban URL 127.0.0.1 denetimi yok": eski sınama yalnız portsuz dış URL kullanıyordu; portsuz URL'yi port
+    şartı zaten reddediyordu. Portlu dış ad ve 10.0.0.1 eklendi.
+  - "prova dizini gerçek kök olabilir": gerçek kökler /mnt altında olduğundan /mnt denetimi onları zaten
+    yakalıyordu. /mnt dışında geçici bir gerçek kök tanımlanarak ayrıca sınandı.
+- Ana takımda engellenen giriş yok. Bazı mutasyonlu sürümler `kosu/` dizinini açmaya çalıştı; denetim kancası bunu
+  engelledi (jsonl'de yazılı).
 
 **İncelemecinin takımı (`kodinc/tr7c_kodinc.py`, değiştirilmeden, c86d8b9b… üzerinde).**
-(Koşu sürüyor; sonuç bu taslağa eklenecek.)
+- **74/74 sınama** (birim 32, kapı 29, uçtan uca 13) ve **31/31 mutasyon** yakalandı
+  (`tr7c_kodinc_yeniden.json`). İncelemecinin özgün `kodinc/tr7c_kodinc.json` dosyasına dokunulmadı.
+- Engellenen tek giriş, obspy'nin `git rev-parse` alt sürecidir. Özgün koşuda da aynı giriş vardı.
 
 **KD (K5 ile).**
 - İncelemecinin tam ölçek koşusu (b0f70642… üzerinde): 12/12 bant; eksik iş 0. K5 değerleri TR-7'nin K0 tam ölçek
