@@ -195,6 +195,10 @@ class SahteFDSN(http.server.BaseHTTPRequestHandler):
             if u.path.startswith('/emsc'):
                 return self._katalog(q, 'emsc')
             return self._kod(404)
+        except (BrokenPipeError, ConnectionResetError):
+            with sv.kilit:          # zaman aşımı arızası: istemci 2 sn'de bağlantıyı kapattı (beklenen)
+                sv.sayac['istemci_kopardi'] = sv.sayac.get('istemci_kopardi', 0) + 1
+            return None
         except Exception as e:      # noqa: BLE001
             sv.hatalar.append(f'{type(e).__name__}: {e}')
             return self._kod(500)
