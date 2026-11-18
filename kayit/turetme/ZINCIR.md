@@ -337,3 +337,17 @@ TR-7c (tremor, kör gerçek kontrol): fikir incelemesi, taslak, iki inceleme ve 
 negatif birim taranabilir) sonrası karar metni donduruldu (bd3c93a), Tohoku duman sınamasından ve yapay ölçümlerden
 önce. Başarı ölçütü sıkılaştı: 30 negatifle Fisher sınaması + modülasyon şartı; görülebilir en küçük duyarlılık
 0,58–0,77. Koşu kodu yalnız yapay veride yazılıyor; kör olaylar ve Marmara açılmadı.
+
+## Halka 16 (18 Kasım 2026): TR-7c kör Parkfield kontrolü, tek koşu: ayırma var, doğrulama yok → "ölçü sınanamadı"
+
+TR-7c koşu dondurması a278070; dört aşama kiralık makinede koşuldu (defter `kayit/turetme/tr7c/kosu/KOSU-DEFTERI.md`,
+sonuç `kayit/turetme/tr7c/tr7c_sonuc.md`). Hüküm dal (c), kalan (iv): algılayıcı tetiklenmiş tremor bildirilen 10
+olayın 9'unda, bildirilmeyen 29 birimin 5'inde algılama verdi (Fisher p 8 × 10⁻⁵, yanlış alarm 0,086), ama
+modülasyon şartı (≥ 3 pozitif olayda p ≤ 0,01) sağlanmadı: yalnız 4 olayda ölçülebildi, en iyisi p 0,018.
+Marmara açılmadı.
+
+Başarısızlığın biçimi: TR-7'nin kusuru (tutarlı kümelerin silinmesi) giderildi; kalan engel doğrulama ölçütünün
+kendisi. Faz modülasyonu uzun dönem başvuru kanalı ister, 2006 öncesi olaylarda yok; kalan olay sayısıyla şartın gücü
+0,24–0,61 idi. Ders: bir ölçütün her alt şartının gücü, koşuda gerçekleşecek olay sayısıyla ayrı ayrı yazılmalı
+(üstveriden k 10 beklendi, 5 gerçekleşti). Çıkan soru TR-7d: başvuru kanalı gerektirmeyen tremor doğrulaması (çok
+istasyonlu tutarlılık ya da bağımsız tremor kataloğu) ve yeni bir kör kontrol bölgesi; önce 0 € sayım.
