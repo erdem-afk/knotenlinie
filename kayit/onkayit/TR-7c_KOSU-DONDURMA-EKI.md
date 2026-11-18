@@ -1,10 +1,11 @@
-# TR-7c koşu dondurması eki: TASLAK
+# TR-7c koşu dondurması eki
 
-Durum: TASLAK. Bu dosya koşu dondurmasının işareti değildir; dondurma satırını koordinatör ana ön kayda
-(`TR-7c_tetiklenmis-tremor_ONKAYIT.md`) yazar. Karar metnine dokunulmadı.
+Ek durumu: SON BİÇİM (18 Kasım 2026). Bu ekin sha256'sı ana ön kaydın (`TR-7c_tetiklenmis-tremor_ONKAYIT.md`) dondurma satırında
+yazılıdır (E-6); o commit'ten sonra bu dosya değişmez. Karar metninin §0–§6 gövdesine dokunulmadı.
 
 Tarih: 18 Kasım 2026. Dayanaklar:
 - `TR-7c_KOD-INCELEME.md` (DÜZELTMEYLE KABUL; §D, §F, §G, §I);
+- `TR-7c_KOD-INCELEME-2.md` (inceleme sonrası kod farkı: DONDURULABİLİR, koda düzeltme yok; §E cümleleri E-1…E-6, aşağıda §0);
 - `TR-7c_KODLAYICI-OKUMALARI.md` §11;
 - `kayit/turetme/TASIMA-2026-11-17.md`.
 
@@ -13,7 +14,80 @@ Tarih: 18 Kasım 2026. Dayanaklar:
 - ek, ana dosyanın sonuna (§7 başlığından sonra; §0–§6 gövdesi değişmeden) eklenir;
 - ya da iki sha256 "Durum:" satırına tam (64 karakter) yazılır.
 
-Bu ek ayrı dosyada kaldıkça kapı kapalı kalır.
+Seçilen yol ikincisidir: iki kod sha256'sı ve bu ekin sha256'sı ana dosyanın "Durum:" satırına yazılır (E-6). (Taslaktaki "ek ayrı
+dosyada kaldıkça kapı kapalı kalır" cümlesi yanlıştı; KOD-INCELEME-2 §(4).)
+
+## 0. KOD-INCELEME-2 cümleleri ve koordinatör beyanları (bu ekin çelişen her cümlesinin yerine geçer)
+
+**E-1** (KOD-INCELEME-2 §E, aynen):
+
+> "Bir aşama süreç öldürülerek ya da makine yeniden başlayarak kesilirse (durum dosyasında aşama 'başladı'da kalır,
+> kod durma kaydı yazılmaz) aynı aşama yeniden `kos` edilmeden önce `durdu <aşama> --neden "<kesintinin saati ve
+> nedeni>"` yazılır, durum dosyası commit + push edilir ve aşama `baslat <aşama> --surdur` ile yeniden başlatılır. Kod
+> bu sırayı bu sürümde zorlamadığı için K1c-negatif ve K1c-algılama hiçbir otomatik bekçi ya da yeniden başlatıcı
+> altında koşulmaz. Bu sıranın dışındaki her yeniden `kos` sapma olarak olay kaydına ve sonuç raporuna yazılır; hüküm
+> dosyası değişmez (jsonl'den sürdürme belirlenimcidir)."
+
+**E-2** (KOD-INCELEME-2 §E, aynen):
+
+> "Kuru prova (`prova_ac`) yalnız koşu dondurmasından önce ve yalnız yapay veri sunan bir sahte sunucuyla
+> (`tr7c_prova.py`) koşulur. Prova sunucusu gerçek bir FDSN ya da katalog hizmetini aktarmaz, önbelleğe alınmış gerçek
+> veri sunmaz; prova dizinlerine gerçek zarf ya da miniSEED konmaz. Koşu dondurmasından sonra düğme kodla kapalıdır
+> (`prova_denetle` her çağrıda kapıyı yeniden okur ve dondurulmuş metinle reddeder); dondurmadan sonra hiçbir prova
+> koşulmaz."
+
+**E-3** (KOD-INCELEME-2 §E, aynen):
+
+> "Koşu kiralık makinede yapılır. Orada `git_dogrula`'nın uzak dalı makinedeki çıplak depodur; bu yalnız 'durum
+> dosyası commit edildi' denetimidir, dış zaman damgası değildir. §10 madde 6'nın dış zaman damgası şöyle sağlanır: her
+> aşamanın `baslat` commit'i, o aşamanın `kos` komutundan ÖNCE git paketiyle bulut oturumuna alınır ve aynı commit
+> kimliğiyle GitHub'daki koşu dalına push edilir; bulut oturumu push'u `git ls-remote` ile doğrular, commit kimliğini
+> ve push'un UTC saatini koşu defterine yazar; `kos` ancak bu doğrulamadan sonra başlatılır. Aşamanın çıktıları ve
+> 'tamamlandı' ya da 'hata' durum dosyası da aynı yolla, bir sonraki `baslat`'tan önce GitHub'a push edilir. `kos`'un
+> GitHub push'undan önce başladığı ya da GitHub'da 'başladı' kaydı olmayan bir aşamanın çıktısının bulunduğu her durum
+> sapmadır; olay kaydına ve sonuç raporuna yazılır."
+
+**E-4** (KOD-INCELEME-2 §E, aynen):
+
+> "Durum dosyası `kayit/turetme/tr7c/kosu/TR7C_KOSU_DURUM.json`'dur; §10 madde 6'daki
+> `kayit/turetme/tr7c/TR7C_KOSU_DURUM.json` bu yol olarak okunur. Aşama kayıtları yalnız 'başladı / tamamlandı /
+> hata', zaman ve dosya sha256'larını taşır; `durmalar` listesi her durma için yalnız aşamayı, türü ('kod' ya da
+> 'elle'), ileti metnini ve saati taşır. Durum dosyasına hiçbir sonuç sayısı yazılmaz; elle yazılan durma nedeni de
+> sonuç sayısı içermez."
+
+**E-5** (KOD-INCELEME-2 §E, aynen):
+
+> "İndirme planı TR-7 motorunun 12-istasyon kuralıyladır: bir pencerede istasyonlar iz sırasıyla istenir, 12 istasyon
+> örtüden geçince durulur; NCEDC'nin 204 döndürdüğü istasyon EarthScope'tan yeniden istenir. İstek sayısı istasyonların
+> çoğunda veri varsa ≈ 2000–2800 dataselect, hiçbirinde yoksa en çok ≈ 14 650 dataselect isteğidir; bunlara ≈ 2014
+> StationXML, ≈ 335 ComCat ve E-1 için ≈ 40–120 istek eklenir (en kötü durumda toplam ≈ 17 000; kuru provada 16 911).
+> Koşu kodu kör olaylarda istasyon başına [R başı − 600 sn, W sonu + 600 sn] dışında ve 2026 ve sonrasında hiçbir
+> dalga formu istemez."
+
+**E-6** (KOD-INCELEME-2 §E, aynen):
+
+> "Dondurma satırı ön kayıt dosyasında satır başında, Markdown imi ve girinti olmadan 'Durum:' ile başlayan İLK
+> satırdır ve 'KOŞU DONDURULDU' dizesini, `tr7c_kosu.py` (c86d8b9b17ae17e8fa67a12ff945a90df791dc0bfd6b548e1f2d3cbaac20a5b2)
+> ve `tr7c_mde_ek.py` (4876dcbee8ce455c221efa4782e4af0047e5ade2f7b84eb985f9eb127873e910) sha256'larını tam olarak ve,
+> ek ayrı dosyada kalıyorsa, ekin (`TR-7c_KOSU-DONDURMA-EKI.md`, yazarın onayladığı Ö-j dahil son biçimi) sha256'sını
+> taşır. Ek ve Ö-j, dondurma satırını taşıyan commit'ten önce ya da aynı commit'te yazılır; o commit'ten sonra
+> değişmez."
+
+**Hangi cümlenin yerine geçer:** E-1 → bu ekin §7 son maddesi ve §9.3; E-4 → §2'deki I.1; E-5 → §2'deki I.5 ve §7'deki
+istek sayısı üst sınırı; E-3 → §7 "koşu yeri" önkoşullarındaki git maddesi.
+
+**Koordinatörün kalıntı risk kabulü (KOD-INCELEME-2 §(5)).** Kiralık makinede `git_dogrula`'nın uzak dalı çıplak
+depodur; bu yüzden kod, GitHub'a push edilmemiş bir 'başladı' kaydıyla `kos`'u teknik olarak engellemez ve makinede
+push edilmeden yapılıp silinmiş bir koşu kodla görülemez. Bu kalıntı risk kabul edilmiştir: kodu değiştirmek sha256'yı
+değiştirir ve sınamaların, kuru provanın yeniden koşulmasını gerektirir; buna karşılık E-3 sırası her aşamada
+uygulanır ve koşu defteri (`kayit/turetme/tr7c/kosu/KOSU-DEFTERI.md`: her `baslat` commit kimliği, GitHub push'unun
+UTC saati, `kos` başlangıç ve bitiş saati, her sapma) tutulur. Makinede koşuyu yalnız bu oturum başlatır.
+
+**Makine hazırlığı (18 Kasım, koşudan önce):** `/mnt/project-files/turetme` kiralık makinede oluşturuldu ve `is`
+kullanıcısına verildi (sunucunun kök parolası Hetzner API'siyle bir kez sıfırlanarak; parola saklanmadı).
+
+**Ö-j onayı.** §4'teki beklenti beyanı yazarın (bu döngünün koordinatörü) beyanı olarak değiştirilmeden kabul
+edilmiştir; zamanlama beyanı aynen geçerlidir (Tohoku duman sonucu ve m_f görüldükten sonra, kör olaylar görülmeden).
 
 ## 1. Kod incelemesi §D: KMS-1…KMS-10 ek cümleleri (aynen)
 
@@ -125,7 +199,7 @@ Kodlayıcı notları (cümleleri değiştirmez, yalnız kodun davranışını ya
 > geçme olasılığının işareti olarak okunur; Parkfield'da tetiklenmiş tremorun yokluğu ya da algılayıcının tremoru
 > görmediği diye okunmaz."
 
-## 4. Yazarın sınav öncesi beklentisi (Ö-j): TASLAK, yazarın onayına
+## 4. Yazarın sınav öncesi beklentisi (Ö-j): onaylandı (§0)
 
 **Zamanlama beyanı.** Bu beyan Tohoku duman sınamasının sonucu (K5'ten sağ çıkan 3 W kümesi; modülasyonda hiçbiri
 p ≤ 0,01 vermedi, en küçük p 0,083) ve m_f ölçümü (m_f = 0,025; Clopper–Pearson %95 üst sınırı 0,044) görüldükten
@@ -277,7 +351,7 @@ düzeltildi:
 - NCEDC'nin 204 döndürdüğü istasyon EarthScope'tan yeniden istenir. Eksik istasyonlarda istek sayısı bu yüzden iki
   katına çıkar.
 - Hacim ≈ 2–4 GB. Süre: indirme ≈ 1,5–2,5 sa, MDA ≈ 6–7 sa (TR-7'nin 2–3 sn/istek ölçüsüyle).
-- 7300 istek, 7–10 GB ve 11–14 sa üst sınırdır; plan bunu aşmaz.
+- İstek sayısının üst sınırı için E-5 geçerlidir (en kötü durumda toplam ≈ 17 000 istek); taslaktaki "7300 … aşmaz" cümlesi yanlıştı.
 
 Kör pencere kuralları:
 - İstekler yalnız [R başı − 600 sn, W sonu + 600 sn] aralığındadır.
@@ -326,8 +400,8 @@ Ekin §1–§4 içeriği ön kayda taşınacaksa '## 7. ' başlığından sonra 
 
 ## 9. Açık kalanlar
 
-1. **Dondurma satırı ve ekin yeri.** Koordinatör yazar. Bu taslak karar metnine dokunmadı.
-2. **Ö-j.** Taslaktır; yazarın onayı ya da değişikliği gerekir.
+1. **Dondurma satırı ve ekin yeri.** Kapandı: ek ayrı dosyada, sha256'sı dondurma satırında (E-6).
+2. **Ö-j.** Onaylandı (§0).
 3. **SIGKILL sonrası sürdürme.** Kod, 'başladı'da kalmış bir algılama aşamasının elle durma kaydı olmadan yeniden
    `kos` edilmesini engellemez. Davranış TR-7 ile aynıdır, istenen de buydu. İşletim kuralı olarak §7'ye yazıldı:
    bekçisiz, elle koşu. Kodla zorlanacaksa sha değişir ve sınamalarla kuru prova yeniden koşulmalıdır.
