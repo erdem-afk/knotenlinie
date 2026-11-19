@@ -44,6 +44,27 @@ dondurulmuş `tr6a_ffm.coz` (`arsivden_oku` ile aynı çağrı) uygulandı:
 - Koşu adayı olmayan 8 olayda durma olmaz (`_R_A` BicimHata'yı yakalar, R_A None yazılır); adaylardaki 5 ürün koşuyu
   sırayla durdururdu.
 
-## Sonraki adım
+## Karar ve uygulama (19 Kasım 2026)
 
-Karar, ön kayıt eki ve kod düzeltmesi: bu dosyanın sonundaki "Karar" bölümü (yazılacak).
+Ön kayıt Ek 2 (dosyanın sonuna; gövdenin ilk 66 337 baytı ve sha256 `172b2ebd…aa6c` değişmedi):
+- **E2.1** (commit ad7e4602): bant dışı alt fay, ürünün kendi `.fsp` hız-yoğunluk tablosunda kendi katmanının
+  ρ·Vs²'sinin √10 katı içindeyse tutarlı. Medyan koşulu aynı. 12 su katmanlı ürün geçer.
+- **E2.2** (commit 46044c36): başlık M0'ı açıkça 0 ise §3.3 sağlaması tutmaz -> VeriYok (usp000j9rr, Van 2011, koşu
+  adayı, "veri yok" olur). Yazılmamış M0'da davranış aynı. Bu madde ayrı commit'tir; geri alınmak istenirse
+  `git revert 46044c36` yalnız onu kaldırır (Van o zaman manifesti yine durdurur).
+- Tarama son durumu: 149 geçer, 4 VeriYok (moment sağlaması), 2 veri yok (dosya yok); durduran ürün yok. Eski kodla
+  geçen 137 ürünün `coz` çıktısı yeni kodla JSON olarak aynı.
+- Sınamalar: `tr6a_test_yapay.py` 71 sınama geçti (69 + 2 yeni). Kapılar: `git_denetle` (13 dosya),
+  `onkayit_uyusmuyor() = False`, `sinama_degerlendir -> (None, 'yedek_d')`.
+- Bağlayıcı sınama: değişen işlevler bağlayıcı yolda çağrılmaz (taslak + `sys.setprofile` denemesi: Okada, 17 hücre
+  parçası, tamlık (d); hiçbir `tr6a_ffm` çerçevesi çalışmadı). Yeniden koşulmaz; sonuç kuralı yalnız tutmayan ölçütte
+  işler. `tr6c_sinama_sonuc.json`'daki `tr6a_ffm.py` sha'sı (`60871db7…`) yeni sha'dan (`b13b5957…`) farklıdır; manifest
+  `girdi.kod` yeni sha'yı yazar; kod incelemesi (§C12 adım 5) bunu Ek 2 ile birlikte denetler.
+
+## Manifesti yeniden başlatmadan önce
+
+1. Sunucudaki depo kopyasını (`~/tr7c-repo`) bu dalın HEAD'ine getirin (`git pull --ff-only`); `git_denetle`
+   `tr6a_ffm.py`'nin HEAD ile aynı ve push edilmiş olmasını ister.
+2. Yeni (boş) bir ham dizinle başlatın (varsayılan: zaman damgalı `on_…`). Yarım kalan
+   `on_20261119T123202Z` (yalnız usp0005w12 ürünü) kayıt olarak kalabilir; `--ham-dizin` ile sürdürmek de §C12'ye
+   uygundur (indirme kayıtları koddan bağımsızdır).
