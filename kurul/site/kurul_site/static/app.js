@@ -812,6 +812,7 @@
       const r = await api("POST", "/api/invites", { name, email });
       let note;
       if (r.already_invited) note = r.message || "This address has already been invited to the board.";
+      else if (r.login_url && r.emailed) note = `We emailed a sign-in link to ${email}. The link is also below.`;
       else if (r.login_url) note = r.created ? `${name} can now join the board.` : "This colleague was already invited by you; here is a fresh link.";
       else note = `We emailed a sign-in link to ${email}.`;
       $("invite-note").textContent = note;

@@ -161,7 +161,11 @@
     try {
       const r = await api("POST", "/api/admin/invites", { name, email });
       $("invite-link").value = r.login_url;
-      $("invite-note").textContent = r.created ? `${name} was added to the board.` : "This address was already on the board; here is a fresh link.";
+      const who = r.created ? `${name} was added to the board.` : "This address was already on the board; this is a fresh link.";
+      const mail = r.emailed
+        ? `The invitation was emailed to ${email}. The link is also below.`
+        : "The email could not be sent. Please pass the link below on yourself.";
+      $("invite-note").textContent = `${who} ${mail}`;
       $("invite-result").hidden = false;
       $("invite-name").value = ""; $("invite-email").value = "";
       await Promise.allSettled([loadUsers(), loadInvites()]);

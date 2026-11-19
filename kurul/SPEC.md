@@ -79,8 +79,10 @@ Question `status` values and UI labels:
   taken (nothing is written then).
 - `GET /api/members`: `[{id, name, handle, role}]` for every user incl. agent and coordinator; no emails.
 - `POST /api/invites {email, name}`: coordinator, or a member with `can_invite` (else 403). Creates a
-  `member` with `invited_by` = caller and sends the 7-day sign-in link by mail; while SMTP is not configured
-  the response carries `login_url` for the inviter to pass on. Members: 10 invites per 24 h (429). An existing
+  `member` with `invited_by` = caller and sends the 7-day sign-in link by mail before answering; the response
+  carries `emailed`, the real outcome (false while SMTP is not configured or when delivery failed). A member's
+  response carries `login_url` only when `emailed` is false, for the inviter to pass on; the coordinator's
+  response always carries it. Members: 10 invites per 24 h (429). An existing
   email is never duplicated: a fresh link only for the coordinator or the original inviter, otherwise
   `{already_invited: true}`. Emits `user.invited {user_id, invited_by}` (coordinator and agent only).
   Never announced in the feed.
@@ -98,7 +100,7 @@ Question `status` values and UI labels:
 - `GET /api/stream`: Server-Sent Events of `events` the caller may see (ids only + type; client refetches).
 - Coordinator only:
   `GET /api/admin/users` (with `can_invite`, `invited_by`, `handle`) · `PATCH /api/admin/users/{id} {can_invite}` ·
-  `POST /api/admin/invites {email, name}` → `{login_url}` (7-day link; records `invited_by`) ·
+  `POST /api/admin/invites {email, name}` → `{login_url, emailed}` (7-day link, also emailed to the invitee; records `invited_by`) ·
   `GET /api/admin/invites` ·
   `GET /api/admin/feasibility` (each report also has `created_at`, `updated_at`, `waiting_for_team`) ·
   `GET /api/admin/waiting` → `{count, question_ids}` (oldest first; the badge on the board page). A question is

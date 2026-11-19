@@ -15,8 +15,8 @@ KURUL_AGENT_TOKEN=dev-agent-token KURUL_BOOTSTRAP_TOKEN=dev-boot \
 ```
 
 Open `http://localhost:8000/auth/verify?token=dev-boot` once to sign in as the coordinator, then
-invite members on `/admin` (it gives you a sign-in link to copy). Without SMTP, every email
-(sign-in links, notifications) is written to the server log instead.
+invite members on `/admin` (it emails the sign-in link to the invitee and also shows it for you to
+copy). Without SMTP, every email (sign-in links, notifications) is written to the server log instead.
 
 Run with one worker: live updates and rate limits are kept in process memory.
 

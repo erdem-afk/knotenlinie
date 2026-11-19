@@ -475,7 +475,8 @@ class Board:
         return email, name
 
     def invite(self, data: dict, inviter: dict | None = None) -> dict:
-        """Invite a member. inviter None = internal call (tests, scripts), treated like the coordinator.
+        """Invite a member. inviter None = internal call (tests, scripts): treated like the coordinator,
+        but no email is sent.
 
         The invitee is always a new `member`; an existing address is never changed or duplicated.
         """
@@ -484,6 +485,7 @@ class Board:
             raise ApiError(403, "you cannot invite colleagues; ask the coordinator")
         email, name = self._clean_invite(data)
         inviter_id = inviter["id"] if inviter else None
+        mailed: list[bool] = []
         mail_job = None
         with self.store.tx() as tx:
             if not by_coordinator:
@@ -518,19 +520,22 @@ class Board:
                 tx.emit("user.invited", {"user_id": uid, "invited_by": inviter_id})
             token = core.create_login_token(tx, self.hash, uid, LONG_LINK_MINUTES)
             link = self.login_url(token)
-            if not by_coordinator:
+            if inviter is not None:  # a real person invited: the link also goes out by email
                 text = (f"Hello {invitee_name},\n\n{inviter['name']} invited you to Knotenlinie Board, "
                         "the board chat of the Knotenlinie project.\n\nOpen this link to sign in. "
                         f"It works once and expires in 7 days.\n\n{link}\n\n"
                         "If you do not want to join, you can ignore this email.\n")
                 mail_job = (email, text)
-                tx.after_commit(lambda: self.mailer.send(mail_job[0], "You are invited to Knotenlinie Board",
-                                                         mail_job[1]))
-        if by_coordinator:
+                # Delivered before answering (not in the background), so `emailed` is the real outcome.
+                tx.after_commit(lambda: mailed.append(self.mailer.send(
+                    mail_job[0], "You are invited to Knotenlinie Board", mail_job[1], background=False)))
+        if inviter is None:
             return {"user_id": uid, "created": created, "login_url": link}
-        out: dict[str, Any] = {"user_id": uid, "created": created, "emailed": self.mailer.enabled}
-        if not self.mailer.enabled:
-            # Without SMTP the email only reaches the server log, so the inviter passes the link on.
+        emailed = bool(mailed and mailed[0])
+        out: dict[str, Any] = {"user_id": uid, "created": created, "emailed": emailed}
+        if by_coordinator or not emailed:
+            # The coordinator always sees the link. A member sees it only when the email did not go out
+            # (SMTP not configured, or delivery failed), to pass it on by hand.
             out["login_url"] = link
         return out
 

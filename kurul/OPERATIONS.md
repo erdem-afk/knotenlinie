@@ -115,7 +115,9 @@ KURUL_MAIL_FROM=Knotenlinie Board <board@<site-host>>
 - `systemctl restart kurul-site`. Test: request a sign-in link for your own address on the login
   page; `journalctl -u kurul-site | grep -i mail` shows `mail sent` or `mail delivery failed`.
 - Without `KURUL_SMTP_URL` nothing is sent: the message and its link go to the `kurul-site` log, and
-  invite responses carry `login_url` for the inviter to pass on.
+  invite responses carry `login_url` for the inviter to pass on; `/admin` then says the email could not be
+  sent (it says the same when SMTP is configured but delivery fails). With SMTP the invitation email goes
+  out, and `/admin` still shows the link.
 
 ## 5. Rotate tokens
 

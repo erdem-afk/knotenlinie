@@ -1,6 +1,7 @@
 """Delegated invitations: can_invite, invited_by, POST /api/invites, admin views, migration."""
 
 import sqlite3
+import time
 
 from conftest import A, H, Env, token_from
 
@@ -163,11 +164,66 @@ def test_coordinator_invite_records_invited_by(env):
     r = co.post("/api/admin/invites", json={"email": "b@example.org", "name": "Prof. B"}, headers=H)
     assert r.status_code == 200
     j = r.json()
-    assert set(j) == {"user_id", "created", "login_url"} and j["created"] is True
+    assert set(j) == {"user_id", "created", "login_url", "emailed"} and j["created"] is True
     with env.db() as db:
         assert db.execute("SELECT invited_by FROM users WHERE id=?", (j["user_id"],)).fetchone()[0] == co.me["id"]
     invs = co.get("/api/admin/invites").json()["invites"]
     assert invs[0]["invited_by"]["role"] == "coordinator"
+
+
+def test_coordinator_invite_also_emails_the_link(env):
+    co = env.coordinator()
+    before = len(env.board.mailer.sent)
+    j = co.post("/api/admin/invites", json={"email": "c@example.org", "name": "Prof. C"}, headers=H).json()
+    # without SMTP: the mail path is taken (logged), the link stays in the answer, emailed says it did not go out
+    assert j["created"] is True and j["emailed"] is False and "/auth/verify?token=" in j["login_url"]
+    sent = env.board.mailer.sent[before:]
+    assert len(sent) == 1 and sent[0]["to"] == "c@example.org"
+    assert sent[0]["subject"] == "You are invited to Knotenlinie Board"
+    assert j["login_url"] in sent[0]["text"] and "Hello Prof. C" in sent[0]["text"]
+    assert co.me["name"] in sent[0]["text"]
+    # a fresh link for the same address is emailed too
+    j2 = co.post("/api/admin/invites", json={"email": "c@example.org", "name": "x"}, headers=H).json()
+    assert j2["created"] is False and j2["login_url"] != j["login_url"]
+    assert env.board.mailer.sent[-1]["to"] == "c@example.org" and j2["login_url"] in env.board.mailer.sent[-1]["text"]
+
+
+def test_coordinator_invite_with_smtp_emails_and_keeps_link(env):
+    co = env.coordinator()
+    delivered = []
+    env.board.mailer.smtp_url = "smtp://127.0.0.1:1"
+    env.board.mailer._deliver = lambda *a: delivered.append(a) or True  # never touch the network in tests
+    j = co.post("/api/admin/invites", json={"email": "d@example.org", "name": "Prof. D"}, headers=H).json()
+    assert j["created"] is True and j["emailed"] is True and "/auth/verify?token=" in j["login_url"]
+    assert env.board.mailer.sent[-1]["to"] == "d@example.org"
+    assert len(delivered) == 1 and delivered[0][0] == "d@example.org" and j["login_url"] in delivered[0][2]
+
+
+def test_invite_reports_failed_delivery(env):
+    """SMTP is configured but the server refuses: emailed is false and the inviter gets the link."""
+    co = env.coordinator()
+    m, _ = inviter(env, co=co)
+    env.board.mailer.smtp_url = "smtp://127.0.0.1:1"
+    env.board.mailer._deliver = lambda *a: False
+    j = co.post("/api/admin/invites", json={"email": "e@example.org", "name": "Prof. E"}, headers=H).json()
+    assert j["emailed"] is False and "/auth/verify?token=" in j["login_url"]
+    j = invite(m, "f@example.org").json()
+    assert j["emailed"] is False and "/auth/verify?token=" in j["login_url"]
+    env.board.mailer._deliver = lambda *a: True
+    j = invite(m, "g@example.org").json()
+    assert j["emailed"] is True and "login_url" not in j
+
+
+def test_deliver_returns_false_when_the_server_is_unreachable(env):
+    env.board.mailer.smtp_url = "smtp://127.0.0.1:1"  # nothing listens on port 1
+    assert env.board.mailer.send("x@example.org", "s", "t", background=False) is False
+
+
+def test_internal_invite_sends_no_email(env):
+    before = len(env.board.mailer.sent)
+    j = env.board.invite({"email": "internal@example.org", "name": "Prof. I"})
+    assert "/auth/verify?token=" in j["login_url"] and "emailed" not in j
+    assert env.board.mailer.sent[before:] == []
 
 
 def test_user_invited_event_coordinator_only(env):
@@ -187,7 +243,7 @@ def test_user_invited_event_coordinator_only(env):
 def test_link_not_returned_when_smtp_configured(env):
     m, _ = inviter(env)
     env.board.mailer.smtp_url = "smtp://127.0.0.1:1"
-    env.board.mailer._deliver = lambda *a: None  # never touch the network in tests
+    env.board.mailer._deliver = lambda *a: True  # never touch the network in tests
     j = invite(m, "mail@example.org").json()
     assert j["created"] is True and j["emailed"] is True and "login_url" not in j
     assert env.board.mailer.sent[-1]["to"] == "mail@example.org"

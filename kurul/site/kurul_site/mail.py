@@ -31,19 +31,21 @@ class Mailer:
     def enabled(self) -> bool:
         return bool(self.smtp_url)
 
-    def send(self, to: str, subject: str, text: str, background: bool = True) -> None:
+    def send(self, to: str, subject: str, text: str, background: bool = True) -> bool:
+        """True when the message was handed to the SMTP server (background=False) or queued for it
+        (background=True, result unknown). False when SMTP is not configured or delivery failed."""
         record = {"to": to, "subject": subject, "text": text}
         self.sent.append(record)
         del self.sent[:-200]
         if not self.enabled:
             log.warning("mail (SMTP not configured) to=%s subject=%s\n%s", to, subject, text)
-            return
+            return False
         if background:
             threading.Thread(target=self._deliver, args=(to, subject, text), daemon=True).start()
-        else:
-            self._deliver(to, subject, text)
+            return True
+        return self._deliver(to, subject, text)
 
-    def _deliver(self, to: str, subject: str, text: str) -> None:
+    def _deliver(self, to: str, subject: str, text: str) -> bool:
         try:
             u = urlsplit(self.smtp_url)
             msg = EmailMessage()
@@ -63,8 +65,10 @@ class Mailer:
                     server.login(unquote(u.username), unquote(u.password or ""))
                 server.send_message(msg)
             log.info("mail sent to=%s subject=%s", to, subject)
+            return True
         except Exception:
             log.exception("mail delivery failed to=%s subject=%s", to, subject)
+            return False
 
 
 # Notifications about runs, costs and feasibility: coordinators only, and only by real email.
