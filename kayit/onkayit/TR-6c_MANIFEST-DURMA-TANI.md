@@ -68,3 +68,9 @@ dondurulmuş `tr6a_ffm.coz` (`arsivden_oku` ile aynı çağrı) uygulandı:
 2. Yeni (boş) bir ham dizinle başlatın (varsayılan: zaman damgalı `on_…`). Yarım kalan
    `on_20261119T123202Z` (yalnız usp0005w12 ürünü) kayıt olarak kalabilir; `--ham-dizin` ile sürdürmek de §C12'ye
    uygundur (indirme kayıtları koddan bağımsızdır).
+
+## Koordinatör kararı (19 Kasım 2026, manifest yeniden başlatılmadan önce)
+
+Ek 2 E2.1 ve E2.2 kabul edildi. E2.2 (usp000j9rr, başlık M0 = 0 → "veri yok") metne dayanılarak, oy, kapı ya da sayı
+görülmeden verildi; geri alınmadı. Bağlayıcı sınama yeniden koşulmaz (bağlayıcı yol `tr6a_ffm` işlevlerini çağırmıyor;
+sha farkı kod incelemesinde denetlenecek). Manifest yeni zaman damgalı ham dizinle yeniden başlatılır.
