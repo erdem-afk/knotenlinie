@@ -28,6 +28,7 @@ MOMENT_TOLERANS = 0.10
 # 19 alt fayda 2,2 GPa). Birim kayması 100 ya da 1e7 kat olur; denetim: her alt fay [0,3; 300] GPa ve medyan [10, 100].
 MU_ARALIK_GPA = (0.3, 300.0)
 MU_MEDYAN_GPA = (10.0, 100.0)
+KATMAN_LOG_TOLERANS = 0.5             # TR-6c Ek 2 E2.1: ürünün kendi katman μ'süne göre en çok √10 kat (100 kat = 2)
 # Ek 1 E1.2 kararı (veri öncesi, olay sonucundan bağımsız). Sıra: (i) dosyanın kendi başlığı; (i') param başlığı
 # söylemiyor ve aynı ürünün .fsp başlığı alt fay koordinat anlamını açıkça yazıyorsa .fsp okunur (koordinat, kayma,
 # moment ve M0 .fsp'den); (ii) hiçbiri söylemiyorsa geometrik kural (hiposantr hücresi); karar verilemezse VeriYok
@@ -193,14 +194,48 @@ def fsp_ayristir(metin):
                 koordinat_baslik=_koordinat_anlami(basliklar), M0_baslik=m0)
 
 
-def birim_denetimi(alt):
+def hiz_yapisi(metin):
+    """.fsp başlığındaki 'VELOCITY-DENSITY STRUCTURE' tablosu -> [(üst derinlik km, μ GPa = ρ·Vs²)]; yoksa []."""
+    out, tablo = [], False
+    for s in (metin or "").splitlines():
+        a = s.lstrip("% ").split()
+        if a[:3] == ["DEPTH", "P-VEL", "S-VEL"]:
+            tablo = True
+        elif tablo:
+            try:
+                z, _, vs, ro = (float(x) for x in a[:4])
+            except ValueError:
+                if out:
+                    break
+                continue                  # birim satırı ([km] [km/s] …)
+            out.append((z, ro * 1e3 * (vs * 1e3) ** 2 / 1e9))
+    return out
+
+
+def katman_mu(katman, derinlik):
+    """Alt fay derinliğini içeren katmanın μ'sü (GPa); tablo yoksa None."""
+    k = [mu for z, mu in katman if z <= derinlik]
+    return k[-1] if k else (katman[0][1] if katman else None)
+
+
+def birim_denetimi(alt, katman=None):
     """İma edilen rijitlik μ = moment / (kayma × alan): her alt fay [0,3; 300] GPa, medyan [10, 100] GPa (kayma > 0 ve
-    moment var). Birim kayması (cm/m: 100 kat; dyn·cm/N·m: 1e7 kat) iki koşuldan birini bozar."""
-    mus = [a["moment"] / (a["kayma"] * a["uzunluk"] * a["genislik"] * 1e6) / 1e9
+    moment var). Birim kayması (cm/m: 100 kat; dyn·cm/N·m: 1e7 kat) iki koşuldan birini bozar.
+    TR-6c Ek 2 E2.1: [0,3; 300] dışındaki bir alt fay, μ'sü aynı ürünün hız-yoğunluk tablosunda kendi derinliğinin
+    katmanındaki ρ·Vs²'nin √10 katı içindeyse tutarlı sayılır (ör. Vs 0,01 km/s deniz suyu katmanı, 1,02e−4 GPa).
+    Medyan koşulu değişmez."""
+    mus = [(a["moment"] / (a["kayma"] * a["uzunluk"] * a["genislik"] * 1e6) / 1e9, a.get("derinlik", 0.0))
            for a in alt if a.get("moment") and a["kayma"] > 0]
     if not mus:
         return
-    disari = sum(1 for mu in mus if not (MU_ARALIK_GPA[0] <= mu <= MU_ARALIK_GPA[1]))
+
+    def tutarli(mu, z):
+        if MU_ARALIK_GPA[0] <= mu <= MU_ARALIK_GPA[1]:
+            return True
+        mk = katman_mu(katman or [], z)
+        return bool(mk) and abs(math.log10(mu / mk)) <= KATMAN_LOG_TOLERANS
+    disari = sum(1 for mu, z in mus if not tutarli(mu, z))
+    mus = [mu for mu, _ in mus]
     med = sorted(mus)[len(mus) // 2]
     if disari or not (MU_MEDYAN_GPA[0] <= med <= MU_MEDYAN_GPA[1]):
         raise BicimHata(f"birim denetimi: {disari} alt fayda rijitlik [0,3; 300] GPa dışında, medyan {med:.3g} GPa")
@@ -285,7 +320,7 @@ def coz(metin_ana, ad_ana, metin_fsp=None, hipo_derinlik_km=None):
             koor, kaynak_koor = okuma, f"Ek 1 E1.2 (ii) geometrik: {dok}"
     elif koor is None:
         raise VeriYok("veri yok (FFM biçimi): .fsp başlığı koordinat anlamını yazmıyor")
-    birim_denetimi(ayr["altfaylar"])
+    birim_denetimi(ayr["altfaylar"], hiz_yapisi(metin_fsp if metin_fsp else (None if param else metin_ana)))
     M0 = ayr["M0_baslik"]
     kaynak_m0 = "baslik"
     if M0 is None:

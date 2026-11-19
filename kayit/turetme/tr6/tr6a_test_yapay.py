@@ -192,6 +192,55 @@ class TFFM(unittest.TestCase):
             FFM.birim_denetimi(FFM.param_ayristir(param_metni(mo_carpan=1e-3))["altfaylar"])
         birim_sinamasi(self)
 
+    def test_ek2_su_katmani_kendi_hiz_yapisi(self):
+        """TR-6c Ek 2 E2.1: bant dışı alt fay, ürünün kendi hız-yoğunluk tablosunda kendi katmanının ρ·Vs²'sinin √10 katı
+        içindeyse tutarlı (usp0005w12 biçimi: Vs 0,01 km/s, ρ 1,02 -> 1,02e−4 GPa). Tablo yoksa ya da satır kendi
+        katmanından 100 kat saparsa BicimHata; bütün dosyada birim kayması medyanla yine yakalanır."""
+        tablo = ("% VELOCITY-DENSITY STRUCTURE\n% No. of layers = 3\n%\n% DEPTH P-VEL S-VEL DENS QP QS\n"
+                 "% [km] [km/s] [km/s] [g/cm^3]\n%   0.00 1.50 0.01 1.02  1000   500\n"
+                 "%   2.71 2.10 1.00 2.10  1000   500\n%   3.71 5.00 3.16 3.00  1000   500\n%\n%----------\n")
+        K = FFM.hiz_yapisi(tablo)
+        self.assertEqual([z for z, _ in K], [0.0, 2.71, 3.71])
+        self.assertAlmostEqual(K[0][1], 1.02e-4)
+        self.assertAlmostEqual(K[1][1], 2.1)
+        self.assertEqual(FFM.hiz_yapisi(fsp_metni()), [])
+        self.assertAlmostEqual(FFM.katman_mu(K, 1.625), 1.02e-4)
+        self.assertAlmostEqual(FFM.katman_mu(K, 3.0), 2.1)
+
+        def alt(satirlar, c=1.0):
+            return [dict(moment=mu * 1e9 * 1.0 * 10.0 * 5.0 * 1e6 * c, kayma=1.0, uzunluk=10.0, genislik=5.0,
+                         derinlik=z) for mu, z in satirlar]
+        iyi = [(1.02e-4, 1.625)] * 12 + [(30.0, 10.0)] * 40
+        FFM.birim_denetimi(alt(iyi), K)
+        with self.assertRaises(FFM.BicimHata):              # tablo yoksa eski kural
+            FFM.birim_denetimi(alt(iyi))
+        for kotu in ([(1.02e-2, 1.625)] * 12 + [(30.0, 10.0)] * 40,    # su satırı kendi katmanından 100 kat
+                     [(1.02e-4, 3.0)] * 12 + [(30.0, 10.0)] * 40,      # başka katmanda (2,1 GPa) 1e−4
+                     [(30.0, 10.0)] * 39 + [(1000.0, 10.0)]):          # bant dışı, tablo açıklamıyor
+            with self.assertRaises(FFM.BicimHata):
+                FFM.birim_denetimi(alt(kotu), K)
+        for c in (100.0, 1e-2, 1e7, 1e-7):                  # bütün dosyada birim kayması: medyan yakalar
+            with self.assertRaises(FFM.BicimHata):
+                FFM.birim_denetimi(alt(iyi, c), K)
+        # coz yolu: (i') .fsp okunur; su satırı tablonun kendisinden açıklanır
+        mo = 30e9 * 1.0 * 10e3 * 5e3
+        su = 1.02e5 * 1.0 * 10e3 * 5e3
+        fsp = ("% Event : yapay\n% Loc  : LAT = 10.0000 LON = 20.0000 DEP = 5.0\n"
+               f"% Size : LEN = 20 km WID = 10 km Mo = {mo + su:.6e} Nm\n% Mech : STRK = 0.0 DIP = 90.0 RAKE = 180.0\n"
+               "% Invs : Dx = 10.00 km Dz = 5.00 km\n" + tablo
+               + "% Coordinates are given for center of each subfault\n"
+               "%    LAT      LON    X==EW  Y==NS    Z   SLIP   RAKE  TRUP  RISE  SF_MOMENT\n"
+               f"  10.0000  20.0000  0.0  0.0  1.625  1.0  180.0  0.0  1.0  {su:.4e}\n"
+               f"  10.0000  20.0000  0.0  0.0  6.0  1.0  180.0  0.0  1.0  {mo:.4e}\n"
+               f"  10.0900  20.0000  0.0  10.0  6.0  1.0  180.0  0.0  1.0  {mo:.4e}\n")
+        fsp = fsp.replace(f"Mo = {mo + su:.6e}", f"Mo = {2 * mo + su:.6e}")
+        r = FFM.coz(param_metni(), "basic_inversion.param", fsp)
+        self.assertEqual((r["dosya"], r["n_altfay"]), ("complete_inversion.fsp", 3))
+        r = FFM.coz(fsp, "complete_inversion.fsp")
+        self.assertEqual(r["n_altfay"], 3)
+        with self.assertRaises(FFM.BicimHata):               # tablo silinirse su satırı bant dışı: durur
+            FFM.coz(fsp.replace("% DEPTH P-VEL S-VEL", "% DERINLIK"), "complete_inversion.fsp")
+
     def test_koordinat_ve_M0_karari_yoksa_durur(self):
         """Ek 1 E1.2: param başlığı sessiz, .fsp yok ve geometrik okuma kurulamıyor -> 'veri yok (FFM biçimi)'."""
         with self.assertRaises(FFM.VeriYok):

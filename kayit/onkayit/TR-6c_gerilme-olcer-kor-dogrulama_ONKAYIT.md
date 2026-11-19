@@ -810,3 +810,54 @@ Bu sürümü yazan dondurmaz. Adımlar sırayla; her adımın komutu deponun kö
 5. **Bağımsız kod incelemesi** (`TR-6c_KOD-INCELEME.md`; §C8'deki N9 elle denetimi dahil) → commit + push.
 6. **Olay sonrası tek indirme ve tek koşu:** `... --tasarim c son-indir`, sonra `... --tasarim c kos` (§C8 adım
    3–6). K_kapı < 23 ise olay sonrası veri indirilmez.
+
+---
+
+## Ek 2 (19 Kasım 2026, manifest durması; veri öncesi)
+
+Bu ek dondurulmuş metni değiştirmez; dosyanın sonuna eklenmiştir. Dondurulmuş gövde bu dosyanın **ilk 66 337 baytıdır**
+ve sha256'sı `172b2ebd281dd62c5cbfb95787051d71b13cfca156118195501d70d991abaa6c`'dir (`TR6C_GOVDE_BAYT`,
+`TR6C_ONKAYIT_SHA`; ikisi de değişmedi). Tanı ve tarama ayrıntısı `TR-6c_MANIFEST-DURMA-TANI.md`'dedir.
+
+**Körlük durumu.** Ek yazıldığı anda olay sonrası hiçbir katalog sorgusu yapılmamış, `son-indir` ve `kos` aşamaları
+gerçek veriyle çalıştırılmamış, hiçbir lobda sayı, oran ya da ΔCFF hesaplanmamıştır. Manifest aşaması (§C12 adım 4)
+2026-11-19T12:32Z'de başladı ve 5 saniye sonra, yalnız ilk aday birimin (usp0005w12) sonlu fay ürünü indirilmişken,
+bir katalog isteği yapılmadan durdu. Tanıda kullanılanlar yalnız sonlu fay ürünleridir (kaynak modeli; §3.3'e göre olay
+sonrası sismisite verisi değildir): manifestin indireceği 155 havuz olayının ürünleri ayrı bir karalama dizinine
+indirildi ve yalnız ayrıştırma, birim denetimi ve moment sağlaması koşuldu. Hiçbir sonuç (kapı, K, oy) bilinmeden ve
+kuralın hangi birimi içeri alacağına bakılarak değil, ürün biçiminin ne olduğuna bakılarak yazıldı.
+
+**E2.1 Birim denetimi: ürünün kendi hız-yoğunluk tablosu (TR-6a Ek 1 okuma 11'in genişletilmesi; dondurulmuş
+kuraldan sapma).**
+- Görülen: usp0005w12'de 263 alt fayın 22'si (iki segmentin en üst sırası, `.fsp` merkez derinliği 1,625 km) ima
+  edilen rijitliği 1,02e−4 GPa verir. Ürünün `.fsp` başlığındaki hız-yoğunluk tablosunun ilk katmanı deniz suyudur
+  (0–2,71 km; Vs 0,01 km/s, ρ 1,02 g/cm³): ρ·Vs² = 1,02e−4 GPa. Moment sütunu ürünün kendi katman rijitliğiyle
+  yazılmıştır; `.param` ile `.fsp` aynı değerleri taşır; moment sağlaması tutar. Bu bir birim kayması değildir.
+  Aynı yapı 155 üründen 12'sinde vardır (4'ü koşu adayı); hepsinde bant dışı satırlar su katmanındadır.
+- TR-6a Ek 1'in birim denetimi (her alt fay [0,3; 300] GPa) bu ürünleri reddeder ve manifesti durdurur. Denetimin
+  amacı Ek 1'de yazılıdır: birim kaymasını (100 kat ya da 1e7 kat) yakalamak. Ek 1 bu bandı aynı nedenle bir kez
+  genişletmişti (us1000hhb1, 2,2 GPa).
+- Kural: [0,3; 300] GPa dışındaki bir alt fay, ima ettiği μ aynı ürünün `.fsp` başlığındaki "VELOCITY-DENSITY
+  STRUCTURE" tablosunda kendi derinliğini içeren katmanın ρ·Vs²'sinin √10 katı içindeyse (|log10(μ / ρVs²)| ≤ 0,5)
+  tutarlı sayılır. Tablo yoksa ya da satır kendi katmanından daha çok saparsa kural Ek 1'deki gibidir (BicimHata).
+  Medyan koşulu ([10; 100] GPa) değişmez. Tolerans, en küçük birim kaymasının (100 kat = 2 onluk) dörtte biridir ve
+  ilk dört basamağa yuvarlanmış kaymanın hatasını taşır.
+- Seçilmeyen yol: satır başı koşulunu tümden kaldırmak (yalnız medyan). Birim kaymasını yine yakalardı, ama ürünün
+  kendi modeliyle açıklanmayan tek satırlık bozuklukları da geçirirdi; seçilen kural yalnız ürünün kendi rijitlik
+  modeliyle açıklanan satırları kabul eder.
+- Etki: Ek 1 kuralıyla geçen her ürünün çözümü bayt bayt aynıdır (denetim yan etkisizdir; yalnız geçer ya da durur).
+  Moment sütunu ΔCFF'ye girmez (Okada kaynağı kayma ve μ = 30 GPa ile kurulur); su katmanı satırları
+  `ffm_ortalama_duzlem`'de kendi (çok küçük) momentleriyle ağırlıklanır, bu Ek 1'deki gibidir.
+- Kod: `tr6a_ffm.py` (`hiz_yapisi`, `katman_mu`, `birim_denetimi(alt, katman)`, `KATMAN_LOG_TOLERANS = 0.5`; `coz`
+  tabloyu aynı ürünün `.fsp`'sinden verir). Sınama `TFFM.test_ek2_su_katmani_kendi_hiz_yapisi`.
+
+**Bağlayıcı yöntem sınamasının geçerliliği.** `tr6c_sinama_sonuc.json` (commit 079c05ad) `tr6a_ffm.py`'nin eski
+sha256'sını (`60871db7…dbf6`) taşır. §C3'ün sonuç kuralı ("bir ölçüt tutmazsa kod hatası aranır … bütün sınama aynı
+tohumla yeniden koşulur") yalnız bir sınama ölçütü tutmadığında işler; sınama tuttu. §C10'un yordam kuralı bağlayıcı
+adımdan ÖNCEKİ sapmalar içindir. Değişen işlevler bağlayıcı sınamanın kod yolunda çağrılmaz: yapay kaynak sonlu fayı
+doğrudan kurar (`tr6a_yapay.yapay_ffm`); `tr6a_ffm`'den yalnız istisna sınıfları kullanılır. Bu, `tr6a_ffm`'nin 16
+işlevi hata yükselten taslaklarla değiştirilip `sys.setprofile` açıkken bağlayıcı yolun bütün parçaları (Okada
+doğrulaması, 17 hücrenin parçası, tamlık (d); bağlayıcı olmayan tohum 7351 / 7352, küçük n) koşularak denendi:
+hiçbir taslak çağrılmadı, `tr6a_ffm.py`'de hiçbir çerçeve çalışmadı. Bu yüzden bağlayıcı sınama yeniden koşulmaz ve
+geçerlidir. Kod sha'larının farkı manifestin `girdi.kod` alanında görünür; kod incelemesi (§C12 adım 5) bu eki ve
+farkı denetler. TR-6a §9 adım 4/6'daki gibi yalnız durmanın doğrudan nedeni düzeltildi.
