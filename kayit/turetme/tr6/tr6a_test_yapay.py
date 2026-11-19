@@ -241,6 +241,20 @@ class TFFM(unittest.TestCase):
         with self.assertRaises(FFM.BicimHata):               # tablo silinirse su satırı bant dışı: durur
             FFM.coz(fsp.replace("% DEPTH P-VEL S-VEL", "% DERINLIK"), "complete_inversion.fsp")
 
+    def test_ek2_baslik_M0_sifir_veri_yok(self):
+        """TR-6c Ek 2 E2.2: .fsp başlığı 'Mo = 0 Nm' yazıyor (usp000j9rr biçimi), alt fay momentleri dolu -> §3.3
+        sağlaması tutmaz, VeriYok. M0 hiç yazılmamışsa eski davranış (BicimHata, okuma 10) aynen kalır."""
+        sifir = fsp_metni().replace("Mo = 4.5000e+18 Nm", "Mw = 0  Mo = 0 Nm")
+        self.assertNotEqual(sifir, fsp_metni())
+        self.assertEqual(FFM.fsp_ayristir(sifir)["M0_baslik"], 0.0)
+        with self.assertRaises(FFM.VeriYok):
+            FFM.coz(sifir, "complete_inversion.fsp")
+        with self.assertRaises(FFM.VeriYok):
+            FFM.coz(param_metni(), "basic_inversion.param", sifir)
+        yok = fsp_metni().replace("Mo = 4.5000e+18 Nm", "")
+        with self.assertRaises(FFM.BicimHata):
+            FFM.coz(yok, "complete_inversion.fsp")
+
     def test_koordinat_ve_M0_karari_yoksa_durur(self):
         """Ek 1 E1.2: param başlığı sessiz, .fsp yok ve geometrik okuma kurulamıyor -> 'veri yok (FFM biçimi)'."""
         with self.assertRaises(FFM.VeriYok):

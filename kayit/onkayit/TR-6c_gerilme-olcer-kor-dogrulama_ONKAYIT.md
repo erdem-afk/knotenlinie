@@ -861,3 +861,21 @@ doğrulaması, 17 hücrenin parçası, tamlık (d); bağlayıcı olmayan tohum 7
 hiçbir taslak çağrılmadı, `tr6a_ffm.py`'de hiçbir çerçeve çalışmadı. Bu yüzden bağlayıcı sınama yeniden koşulmaz ve
 geçerlidir. Kod sha'larının farkı manifestin `girdi.kod` alanında görünür; kod incelemesi (§C12 adım 5) bu eki ve
 farkı denetler. TR-6a §9 adım 4/6'daki gibi yalnız durmanın doğrudan nedeni düzeltildi.
+
+**E2.2 Başlıkta M0 = 0 (kod ile metin çelişkisi; metin uygulanır).**
+- Görülen: usp000j9rr (2011 Van, koşu adayı) `.param` başlığında M0 yok; aynı ürünün `.fsp` başlığı
+  "Mw = 0  Mo = 0 Nm" yazıyor. Alt fay momentleri toplamı 5,9e19 N·m'dir. E2.1'den sonra manifesti durduracak tek
+  üründür (155 ürünün taraması).
+- Metin: §3.3 "alt fay momentlerinin toplamı … başlıktaki M0'ın %10'u içinde olmalıdır. Tutmazsa olay 'veri yok'
+  olur"; TR-6a Ek 1 E1.2 "M0 `.param` başlığında yoksa aynı ürünün `.fsp` başlığındaki Mo kullanılır". Bu zincirde
+  başlık M0'ı 0'dır ve sağlama tutmaz: olay (dolayısıyla birim) "veri yok"tur.
+- Kod `not M0` sınamasıyla "yazılmamış" ile "0 yazılmış"ı birleştirip BicimHata veriyordu (okuma 10, yazılmamış M0
+  için). §C0'a göre metin geçerlidir. Kural: başlık M0'ı açıkça 0 ve alt fay momentleri toplamı > 0 ise VeriYok
+  ("moment sağlaması tutmadı (başlıktaki M0 = 0)"). Hiç yazılmamış M0 için davranış (BicimHata) değişmez. Mevcut kodun
+  moment sütunu eksik ürünlerde (oran 0) verdiği "veri yok" ile aynı yöndedir (taramada 3 ürün).
+- Seçilmeyen yollar: M0'ı alt fay momentleri toplamından almak (sağlamayı boşa çıkarır, metinde yok) ya da durup ayrı
+  karar beklemek (metin açıkken gerekmez). Bu madde bir adayı "veri yok" yapar; karar oy, kapı ya da sayı görülmeden
+  ve yalnız metne bakılarak verildi.
+- Kod: `tr6a_ffm.moment_saglamasi`; sınama `TFFM.test_ek2_baslik_M0_sifir_veri_yok`.
+- Taramanın son durumu (E2.1 + E2.2): 149 ürün geçer, 4 "veri yok" (moment sağlaması), 2 "veri yok" (dosya yok);
+  manifesti durduran ürün kalmaz. Ek 1 kuralıyla geçen 137 ürünün çözümü değişmez (JSON olarak aynı).

@@ -244,6 +244,9 @@ def birim_denetimi(alt, katman=None):
 def moment_saglamasi(ayr, M0_baslik):
     """§3.3: alt fay momentleri toplamı başlıktaki M0'ın %10'u içinde. Dönüş dict; tutmazsa VeriYok."""
     top = sum(a["moment"] or 0.0 for a in ayr["altfaylar"])
+    if M0_baslik == 0 and top > 0:
+        # TR-6c Ek 2 E2.2: başlık M0'ı açıkça 0 yazıyor (usp000j9rr: "Mo = 0 Nm"); §3.3 sağlaması tutmaz -> veri yok
+        raise VeriYok("moment sağlaması tutmadı (başlıktaki M0 = 0)")
     if not M0_baslik or M0_baslik <= 0:
         raise BicimHata("başlıkta M0 yok (okuma 10: M0_KAYNAGI_KARARI gerekir)")
     oran = top / M0_baslik
