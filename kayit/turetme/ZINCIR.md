@@ -351,3 +351,15 @@ kendisi. Faz modülasyonu uzun dönem başvuru kanalı ister, 2006 öncesi olayl
 0,24–0,61 idi. Ders: bir ölçütün her alt şartının gücü, koşuda gerçekleşecek olay sayısıyla ayrı ayrı yazılmalı
 (üstveriden k 10 beklendi, 5 gerçekleşti). Çıkan soru TR-7d: başvuru kanalı gerektirmeyen tremor doğrulaması (çok
 istasyonlu tutarlılık ya da bağımsız tremor kataloğu) ve yeni bir kör kontrol bölgesi; önce 0 € sayım.
+
+## Halka 17 (20 Kasım 2026): TR-6c gerilme ölçer kör doğrulaması: yapay sınama tuttu, gerçek sayımda güç yok
+
+Bağlayıcı yapay sınama tuttu (TR-6a'yı kapatan kenar etkisi giderildi). Manifest (yalnız olay öncesi veri) iki biçim
+durmasından sonra (Ek 2, Ek 3; veri öncesi) yazıldı: 81 aday birimden yalnız 7'si arka plan kapısını geçti, 5
+bağımsız küme kaldı (kapı 23). Hüküm güç yok; olay sonrası veri açılmadı (`kayit/turetme/tr6/tr6c_sonuc.md`).
+
+Başarısızlığın biçimi: veri yoğunluğu. Büyük depremlerin lob bölgelerinde olay öncesi küçük deprem sayısının
+ortancası 2; üstveri sayımının 29'u gerçek kataloglarda 5'e indi. TR-13 koluyla aynı duvar: küresel açık
+kataloglar küçük deprem istatistiği isteyen ölçüleri taşımıyor. Çıkan soru TR-6d: bölgesel kataloglarla N0
+yeterli küme sayısı (önce sayım). Daha genel ders: sismisite tabanlı iki kol (yerelleşme, gerilme ölçer) aynı
+nedenle tıkandı; kalan açık kollar dalga formu tabanlı (TR-4 hız tabanı, TR-7d tremor).
