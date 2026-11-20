@@ -478,6 +478,13 @@ class TKatalog(unittest.TestCase):
         self.assertEqual(list(np.array(d["id"])[tut]), ["e"])
         with self.assertRaises(KAT.BicimHata):
             KAT.fdsn_ayristir("a|b|c\n")
+        # TR-6c Ek 3: yanıtın SON dolu satırı tek "?" ise atlanır; başka yerde ya da başka içerikte biçim hatası sürer
+        d2 = KAT.fdsn_ayristir(fdsn(s[:5]) + "# DİPNOT\n?\n\n")
+        self.assertEqual(list(d2["id"]), ["a", "b", "c", "d", "e"])
+        with self.assertRaises(KAT.BicimHata):
+            KAT.fdsn_ayristir("?\n" + fdsn(s[:5]))
+        with self.assertRaises(KAT.BicimHata):
+            KAT.fdsn_ayristir(fdsn(s[:5]) + "??\n")
 
     def test_maxc_mc_lob(self):
         rng = np.random.default_rng(2)

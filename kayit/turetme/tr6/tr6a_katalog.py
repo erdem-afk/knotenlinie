@@ -336,9 +336,14 @@ def fdsn_ayristir(metin):
     büyüklük türü ve boş büyüklük (NaN) korunur (kural 1/2 sayımı için), biçim hatası durdurur, ≥ 2026 satırlar
     sayılmadan atılır."""
     kim, t, la, lo, de, m, mt = [], [], [], [], [], [], []
-    for no, s in enumerate(metin.splitlines(), 1):
+    satirlar = metin.splitlines()
+    dolu = [i for i, s in enumerate(satirlar, 1) if s.strip()]
+    son_dolu = dolu[-1] if dolu else 0
+    for no, s in enumerate(satirlar, 1):
         if not s.strip() or s.startswith("#"):
             continue
+        if s.strip() == "?" and no == son_dolu:
+            continue                      # TR-6c Ek 3: ISC yanıtının sonundaki tek "?" satırı (olay satırı değil)
         a = [x.strip() for x in s.split("|")]
         if len(a) < 11:
             raise BicimHata(f"FDSN satırı {no}: alan sayısı {len(a)} < 11")

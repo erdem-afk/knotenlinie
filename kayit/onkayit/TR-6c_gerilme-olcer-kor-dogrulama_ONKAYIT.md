@@ -879,3 +879,22 @@ farkı denetler. TR-6a §9 adım 4/6'daki gibi yalnız durmanın doğrudan neden
 - Kod: `tr6a_ffm.moment_saglamasi`; sınama `TFFM.test_ek2_baslik_M0_sifir_veri_yok`.
 - Taramanın son durumu (E2.1 + E2.2): 149 ürün geçer, 4 "veri yok" (moment sağlaması), 2 "veri yok" (dosya yok);
   manifesti durduran ürün kalmaz. Ek 1 kuralıyla geçen 137 ürünün çözümü değişmez (JSON olarak aynı).
+
+## Ek 3 (20 Kasım 2026, manifest ikinci durması; veri öncesi)
+
+Manifest (yalnız olay öncesi veri) 19 Kasım 19:26Z'de `tr6a_katalog.BicimHata: FDSN satırı 3916: alan sayısı 1 < 11`
+ile durdu. Olay sonrası hiçbir veri indirilmedi ya da açılmadı; kapı, oy, J ya da herhangi bir ölçü görülmedi.
+
+- Neden (doğrulandı): ISC FDSN yanıtı (birim 41,815°K 143,910°D, pencere 1996-10-28 – 1997-10-29, sha256 a0fa2e01…)
+  ajans dipnotu bloğundan (`# …` satırları) sonra, dosyanın son satırı olarak tek bir `?` karakteri içeriyor (bayt
+  `3f 0a`). Yanıt eksik değil: dipnot bloğu tam, olay satırlarının hepsi 14 alanlı. `?` bir olay satırı değildir.
+- Kural: bir FDSN metninin SON dolu satırı, boşluklar atıldıktan sonra tam olarak `?` ise atlanır. Başka her yerde ve
+  başka her içerikte (ör. `??`, baştaki `?`, eksik alanlı satır) biçim hatası aynen durdurur. Olay satırlarının
+  ayrıştırması değişmez; hiçbir olay eklenmez ya da çıkmaz.
+- Seçilmeyen yollar: sorguyu yeniden indirmek (günlükteki ham yanıtın yerine yenisini koymak yeniden üretilebilirliği
+  bozar, aynı satır yine gelebilir); `|` içermeyen bütün satırları atlamak (yarım kalmış yanıtı gizlerdi).
+- Kod: `tr6a_katalog.fdsn_ayristir` (yalnız bu dal); sınama `test_ayristirma_ve_buyukluk_kurallari` içinde üç yeni
+  satır. Bağlayıcı yapay sınama FDSN metni ayrıştırmaz (yapay kataloglar bellekte üretilir); yeniden koşulmaz.
+  `tr6a_katalog.py` sha'sı sınama çıktısındakinden farklıdır; kod incelemesi (§C12 adım 5) Ek 2 ile birlikte denetler.
+- Sürdürme: §C12 adım 4'teki `--ham-dizin` ile aynı ham dizinden (on_20261119T125902Z); inmiş yanıtlar yeniden
+  istenmez.
